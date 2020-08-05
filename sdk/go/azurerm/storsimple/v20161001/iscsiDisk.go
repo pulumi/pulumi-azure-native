@@ -14,12 +14,26 @@ import (
 type IscsiDisk struct {
 	pulumi.CustomResourceState
 
+	// The access control records.
+	AccessControlRecords pulumi.StringArrayOutput `pulumi:"accessControlRecords"`
+	// The data policy.
+	DataPolicy pulumi.StringOutput `pulumi:"dataPolicy"`
+	// The description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The disk status.
+	DiskStatus pulumi.StringOutput `pulumi:"diskStatus"`
+	// The local used capacity in bytes.
+	LocalUsedCapacityInBytes pulumi.IntOutput `pulumi:"localUsedCapacityInBytes"`
+	// The monitoring.
+	MonitoringStatus pulumi.StringOutput `pulumi:"monitoringStatus"`
 	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties.
-	Properties ISCSIDiskPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioned capacity in bytes.
+	ProvisionedCapacityInBytes pulumi.IntOutput `pulumi:"provisionedCapacityInBytes"`
 	// The type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The used capacity in bytes.
+	UsedCapacityInBytes pulumi.IntOutput `pulumi:"usedCapacityInBytes"`
 }
 
 // NewIscsiDisk registers a new resource with the given unique name, arguments, and options.
@@ -80,21 +94,49 @@ func GetIscsiDisk(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IscsiDisk resources.
 type iscsiDiskState struct {
+	// The access control records.
+	AccessControlRecords []string `pulumi:"accessControlRecords"`
+	// The data policy.
+	DataPolicy *string `pulumi:"dataPolicy"`
+	// The description.
+	Description *string `pulumi:"description"`
+	// The disk status.
+	DiskStatus *string `pulumi:"diskStatus"`
+	// The local used capacity in bytes.
+	LocalUsedCapacityInBytes *int `pulumi:"localUsedCapacityInBytes"`
+	// The monitoring.
+	MonitoringStatus *string `pulumi:"monitoringStatus"`
 	// The name.
 	Name *string `pulumi:"name"`
-	// The properties.
-	Properties *ISCSIDiskPropertiesResponse `pulumi:"properties"`
+	// The provisioned capacity in bytes.
+	ProvisionedCapacityInBytes *int `pulumi:"provisionedCapacityInBytes"`
 	// The type.
 	Type *string `pulumi:"type"`
+	// The used capacity in bytes.
+	UsedCapacityInBytes *int `pulumi:"usedCapacityInBytes"`
 }
 
 type IscsiDiskState struct {
+	// The access control records.
+	AccessControlRecords pulumi.StringArrayInput
+	// The data policy.
+	DataPolicy pulumi.StringPtrInput
+	// The description.
+	Description pulumi.StringPtrInput
+	// The disk status.
+	DiskStatus pulumi.StringPtrInput
+	// The local used capacity in bytes.
+	LocalUsedCapacityInBytes pulumi.IntPtrInput
+	// The monitoring.
+	MonitoringStatus pulumi.StringPtrInput
 	// The name.
 	Name pulumi.StringPtrInput
-	// The properties.
-	Properties ISCSIDiskPropertiesResponsePtrInput
+	// The provisioned capacity in bytes.
+	ProvisionedCapacityInBytes pulumi.IntPtrInput
 	// The type.
 	Type pulumi.StringPtrInput
+	// The used capacity in bytes.
+	UsedCapacityInBytes pulumi.IntPtrInput
 }
 
 func (IscsiDiskState) ElementType() reflect.Type {

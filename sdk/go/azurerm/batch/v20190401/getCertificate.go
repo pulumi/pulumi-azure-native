@@ -27,12 +27,25 @@ type LookupCertificateArgs struct {
 
 // Contains information about a certificate.
 type LookupCertificateResult struct {
+	// This is only returned when the certificate provisioningState is 'Failed'.
+	DeleteCertificateError DeleteCertificateErrorResponse `pulumi:"deleteCertificateError"`
 	// The ETag of the resource, used for concurrency statements.
 	Etag string `pulumi:"etag"`
+	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+	Format *string `pulumi:"format"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties associated with the certificate.
-	Properties CertificatePropertiesResponse `pulumi:"properties"`
+	// The previous provisioned state of the resource
+	PreviousProvisioningState               string `pulumi:"previousProvisioningState"`
+	PreviousProvisioningStateTransitionTime string `pulumi:"previousProvisioningStateTransitionTime"`
+	ProvisioningState                       string `pulumi:"provisioningState"`
+	ProvisioningStateTransitionTime         string `pulumi:"provisioningStateTransitionTime"`
+	// The public key of the certificate.
+	PublicData string `pulumi:"publicData"`
+	// This must match the thumbprint from the name.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+	ThumbprintAlgorithm *string `pulumi:"thumbprintAlgorithm"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

@@ -25,12 +25,22 @@ type LookupScheduledQueryRuleArgs struct {
 
 // The Log Search Rule resource.
 type LookupScheduledQueryRuleResult struct {
+	// The description of the Log Search rule.
+	Description *string `pulumi:"description"`
+	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+	Enabled *string `pulumi:"enabled"`
+	// Last time the rule was updated in IS08601 format.
+	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Azure resource name
 	Name string `pulumi:"name"`
-	// The rule properties of the resource.
-	Properties LogSearchRuleResponse `pulumi:"properties"`
+	// Provisioning state of the scheduled query rule
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+	Schedule *ScheduleResponse `pulumi:"schedule"`
+	// Data Source against which rule will Query Data
+	Source SourceResponse `pulumi:"source"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type

@@ -27,10 +27,14 @@ type LookupRegisteredAsnArgs struct {
 
 // The customer's ASN that is registered by the peering service provider.
 type LookupRegisteredAsnResult struct {
+	// The customer's ASN from which traffic originates.
+	Asn *int `pulumi:"asn"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties that define a registered ASN.
-	Properties PeeringRegisteredAsnPropertiesResponse `pulumi:"properties"`
+	// The peering service prefix key that is to be shared with the customer.
+	PeeringServicePrefixKey string `pulumi:"peeringServicePrefixKey"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

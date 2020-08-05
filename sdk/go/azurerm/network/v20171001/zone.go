@@ -18,10 +18,14 @@ type Zone struct {
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordSets pulumi.IntOutput `pulumi:"maxNumberOfRecordSets"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the zone.
-	Properties ZonePropertiesResponseOutput `pulumi:"properties"`
+	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
+	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	NumberOfRecordSets pulumi.IntOutput `pulumi:"numberOfRecordSets"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -69,10 +73,14 @@ type zoneState struct {
 	Etag *string `pulumi:"etag"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
+	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The properties of the zone.
-	Properties *ZonePropertiesResponse `pulumi:"properties"`
+	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+	NameServers []string `pulumi:"nameServers"`
+	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -84,10 +92,14 @@ type ZoneState struct {
 	Etag pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
+	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordSets pulumi.IntPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The properties of the zone.
-	Properties ZonePropertiesResponsePtrInput
+	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+	NameServers pulumi.StringArrayInput
+	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	NumberOfRecordSets pulumi.IntPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

@@ -28,8 +28,11 @@ type LookupProfileResult struct {
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
-	Name       string                    `pulumi:"name"`
-	Properties ProfilePropertiesResponse `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Provisioning status of the profile.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource status of the profile.
+	ResourceState string `pulumi:"resourceState"`
 	// The SKU (pricing tier) of the CDN profile.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags

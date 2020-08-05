@@ -14,18 +14,38 @@ import (
 type VirtualNetworkGateway struct {
 	pulumi.CustomResourceState
 
+	// ActiveActive flag
+	ActiveActive pulumi.BoolPtrOutput `pulumi:"activeActive"`
+	// Virtual network gateway's BGP speaker settings.
+	BgpSettings BgpSettingsResponsePtrOutput `pulumi:"bgpSettings"`
+	// Whether BGP is enabled for this virtual network gateway or not.
+	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+	GatewayDefaultSite SubResourceResponsePtrOutput `pulumi:"gatewayDefaultSite"`
+	// The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
+	GatewayType pulumi.StringPtrOutput `pulumi:"gatewayType"`
+	// IP configurations for virtual network gateway.
+	IpConfigurations VirtualNetworkGatewayIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the virtual network gateway.
-	Properties VirtualNetworkGatewayPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The resource GUID property of the VirtualNetworkGateway resource.
+	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
+	// The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+	Sku VirtualNetworkGatewaySkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+	VpnClientConfiguration VpnClientConfigurationResponsePtrOutput `pulumi:"vpnClientConfiguration"`
+	// The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
+	VpnType pulumi.StringPtrOutput `pulumi:"vpnType"`
 }
 
 // NewVirtualNetworkGateway registers a new resource with the given unique name, arguments, and options.
@@ -62,33 +82,73 @@ func GetVirtualNetworkGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkGateway resources.
 type virtualNetworkGatewayState struct {
+	// ActiveActive flag
+	ActiveActive *bool `pulumi:"activeActive"`
+	// Virtual network gateway's BGP speaker settings.
+	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
+	// Whether BGP is enabled for this virtual network gateway or not.
+	EnableBgp *bool `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+	GatewayDefaultSite *SubResourceResponse `pulumi:"gatewayDefaultSite"`
+	// The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
+	GatewayType *string `pulumi:"gatewayType"`
+	// IP configurations for virtual network gateway.
+	IpConfigurations []VirtualNetworkGatewayIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the virtual network gateway.
-	Properties *VirtualNetworkGatewayPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the VirtualNetworkGateway resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+	Sku *VirtualNetworkGatewaySkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+	VpnClientConfiguration *VpnClientConfigurationResponse `pulumi:"vpnClientConfiguration"`
+	// The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
+	VpnType *string `pulumi:"vpnType"`
 }
 
 type VirtualNetworkGatewayState struct {
+	// ActiveActive flag
+	ActiveActive pulumi.BoolPtrInput
+	// Virtual network gateway's BGP speaker settings.
+	BgpSettings BgpSettingsResponsePtrInput
+	// Whether BGP is enabled for this virtual network gateway or not.
+	EnableBgp pulumi.BoolPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+	GatewayDefaultSite SubResourceResponsePtrInput
+	// The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
+	GatewayType pulumi.StringPtrInput
+	// IP configurations for virtual network gateway.
+	IpConfigurations VirtualNetworkGatewayIPConfigurationResponseArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the virtual network gateway.
-	Properties VirtualNetworkGatewayPropertiesFormatResponsePtrInput
+	// The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the VirtualNetworkGateway resource.
+	ResourceGuid pulumi.StringPtrInput
+	// The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+	Sku VirtualNetworkGatewaySkuResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+	VpnClientConfiguration VpnClientConfigurationResponsePtrInput
+	// The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
+	VpnType pulumi.StringPtrInput
 }
 
 func (VirtualNetworkGatewayState) ElementType() reflect.Type {

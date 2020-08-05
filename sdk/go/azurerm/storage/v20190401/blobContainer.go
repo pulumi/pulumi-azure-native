@@ -16,10 +16,28 @@ type BlobContainer struct {
 
 	// Resource Etag.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+	HasImmutabilityPolicy pulumi.BoolOutput `pulumi:"hasImmutabilityPolicy"`
+	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+	HasLegalHold pulumi.BoolOutput `pulumi:"hasLegalHold"`
+	// The ImmutabilityPolicy property of the container.
+	ImmutabilityPolicy ImmutabilityPolicyPropertiesResponseOutput `pulumi:"immutabilityPolicy"`
+	// Returns the date and time the container was last modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+	LeaseDuration pulumi.StringOutput `pulumi:"leaseDuration"`
+	// Lease state of the container.
+	LeaseState pulumi.StringOutput `pulumi:"leaseState"`
+	// The lease status of the container.
+	LeaseStatus pulumi.StringOutput `pulumi:"leaseStatus"`
+	// The LegalHold property of the container.
+	LegalHold LegalHoldPropertiesResponseOutput `pulumi:"legalHold"`
+	// A name-value pair to associate with the container as metadata.
+	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the blob container.
-	Properties ContainerPropertiesResponseOutput `pulumi:"properties"`
+	// Specifies whether data in the container may be accessed publicly and the level of access.
+	PublicAccess pulumi.StringPtrOutput `pulumi:"publicAccess"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -63,10 +81,28 @@ func GetBlobContainer(ctx *pulumi.Context,
 type blobContainerState struct {
 	// Resource Etag.
 	Etag *string `pulumi:"etag"`
+	// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+	HasImmutabilityPolicy *bool `pulumi:"hasImmutabilityPolicy"`
+	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+	HasLegalHold *bool `pulumi:"hasLegalHold"`
+	// The ImmutabilityPolicy property of the container.
+	ImmutabilityPolicy *ImmutabilityPolicyPropertiesResponse `pulumi:"immutabilityPolicy"`
+	// Returns the date and time the container was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+	LeaseDuration *string `pulumi:"leaseDuration"`
+	// Lease state of the container.
+	LeaseState *string `pulumi:"leaseState"`
+	// The lease status of the container.
+	LeaseStatus *string `pulumi:"leaseStatus"`
+	// The LegalHold property of the container.
+	LegalHold *LegalHoldPropertiesResponse `pulumi:"legalHold"`
+	// A name-value pair to associate with the container as metadata.
+	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Properties of the blob container.
-	Properties *ContainerPropertiesResponse `pulumi:"properties"`
+	// Specifies whether data in the container may be accessed publicly and the level of access.
+	PublicAccess *string `pulumi:"publicAccess"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
@@ -74,10 +110,28 @@ type blobContainerState struct {
 type BlobContainerState struct {
 	// Resource Etag.
 	Etag pulumi.StringPtrInput
+	// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+	HasImmutabilityPolicy pulumi.BoolPtrInput
+	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+	HasLegalHold pulumi.BoolPtrInput
+	// The ImmutabilityPolicy property of the container.
+	ImmutabilityPolicy ImmutabilityPolicyPropertiesResponsePtrInput
+	// Returns the date and time the container was last modified.
+	LastModifiedTime pulumi.StringPtrInput
+	// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+	LeaseDuration pulumi.StringPtrInput
+	// Lease state of the container.
+	LeaseState pulumi.StringPtrInput
+	// The lease status of the container.
+	LeaseStatus pulumi.StringPtrInput
+	// The LegalHold property of the container.
+	LegalHold LegalHoldPropertiesResponsePtrInput
+	// A name-value pair to associate with the container as metadata.
+	Metadata pulumi.StringMapInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Properties of the blob container.
-	Properties ContainerPropertiesResponsePtrInput
+	// Specifies whether data in the container may be accessed publicly and the level of access.
+	PublicAccess pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

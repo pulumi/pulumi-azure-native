@@ -18,8 +18,12 @@ type PrivateEndpointConnection struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the key vault resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// Properties of the private endpoint object.
+	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
+	// Approval state of the private link connection.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint connection.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Tags assigned to the key vault resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type of the key vault resource.
@@ -67,8 +71,12 @@ type privateEndpointConnectionState struct {
 	Location *string `pulumi:"location"`
 	// Name of the key vault resource.
 	Name *string `pulumi:"name"`
-	// Resource properties.
-	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// Properties of the private endpoint object.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// Approval state of the private link connection.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint connection.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Tags assigned to the key vault resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type of the key vault resource.
@@ -80,8 +88,12 @@ type PrivateEndpointConnectionState struct {
 	Location pulumi.StringPtrInput
 	// Name of the key vault resource.
 	Name pulumi.StringPtrInput
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponsePtrInput
+	// Properties of the private endpoint object.
+	PrivateEndpoint PrivateEndpointResponsePtrInput
+	// Approval state of the private link connection.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
+	// Provisioning state of the private endpoint connection.
+	ProvisioningState pulumi.StringPtrInput
 	// Tags assigned to the key vault resource.
 	Tags pulumi.StringMapInput
 	// Resource type of the key vault resource.

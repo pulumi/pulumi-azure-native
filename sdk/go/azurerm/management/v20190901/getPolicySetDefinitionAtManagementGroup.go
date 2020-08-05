@@ -25,10 +25,22 @@ type LookupPolicySetDefinitionAtManagementGroupArgs struct {
 
 // The policy set definition.
 type LookupPolicySetDefinitionAtManagementGroupResult struct {
+	// The policy set definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy set definition.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The name of the policy set definition.
 	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesResponse `pulumi:"properties"`
+	// The policy set definition parameters that can be used in policy definition references.
+	Parameters map[string]ParameterDefinitionsValueResponse `pulumi:"parameters"`
+	// The metadata describing groups of policy definition references within the policy set definition.
+	PolicyDefinitionGroups []PolicyDefinitionGroupResponse `pulumi:"policyDefinitionGroups"`
+	// An array of policy definition references.
+	PolicyDefinitions []PolicyDefinitionReferenceResponse `pulumi:"policyDefinitions"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+	PolicyType *string `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
 	Type string `pulumi:"type"`
 }

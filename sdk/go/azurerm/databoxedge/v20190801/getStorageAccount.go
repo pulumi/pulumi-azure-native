@@ -27,10 +27,20 @@ type LookupStorageAccountArgs struct {
 
 // Represents a Storage Account on the  Data Box Edge/Gateway device.
 type LookupStorageAccountResult struct {
+	// BlobEndpoint of Storage Account
+	BlobEndpoint string `pulumi:"blobEndpoint"`
+	// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+	ContainerCount int `pulumi:"containerCount"`
+	// Data policy of the storage Account.
+	DataPolicy *string `pulumi:"dataPolicy"`
+	// Description for the storage Account.
+	Description *string `pulumi:"description"`
 	// The object name.
 	Name string `pulumi:"name"`
-	// The Storage Account properties.
-	Properties StorageAccountPropertiesResponse `pulumi:"properties"`
+	// Storage Account Credential Id
+	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
+	// Current status of the storage account
+	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

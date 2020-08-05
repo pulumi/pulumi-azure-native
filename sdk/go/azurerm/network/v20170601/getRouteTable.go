@@ -31,8 +31,12 @@ type LookupRouteTableResult struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the route table.
-	Properties RouteTablePropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Collection of routes contained within a route table.
+	Routes []RouteResponse `pulumi:"routes"`
+	// A collection of references to subnets.
+	Subnets []SubnetResponse `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

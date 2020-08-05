@@ -25,10 +25,22 @@ type LookupPolicyDefinitionAtManagementGroupArgs struct {
 
 // The policy definition.
 type LookupPolicyDefinitionAtManagementGroupResult struct {
+	// The policy definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy definition.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy definition metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
+	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+	Mode *string `pulumi:"mode"`
 	// The name of the policy definition.
 	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponse `pulumi:"properties"`
+	// Required if a parameter is used in policy rule.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The policy rule.
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType *string `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policyDefinitions).
 	Type string `pulumi:"type"`
 }

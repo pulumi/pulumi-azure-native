@@ -27,10 +27,44 @@ type LookupProfileArgs struct {
 
 // The profile resource format.
 type LookupProfileResult struct {
+	// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+	ApiEntitySetName *string `pulumi:"apiEntitySetName"`
+	// The attributes for the Type.
+	Attributes map[string][]string `pulumi:"attributes"`
+	// Localized descriptions for the property.
+	Description map[string]string `pulumi:"description"`
+	// Localized display names for the property.
+	DisplayName map[string]string `pulumi:"displayName"`
+	// Type of entity.
+	EntityType *string `pulumi:"entityType"`
+	// The properties of the Profile.
+	Fields []PropertyDefinitionResponse `pulumi:"fields"`
+	// The instance count.
+	InstancesCount *int `pulumi:"instancesCount"`
+	// Large Image associated with the Property or EntityType.
+	LargeImage *string `pulumi:"largeImage"`
+	// The last changed time for the type definition.
+	LastChangedUtc string `pulumi:"lastChangedUtc"`
+	// Any custom localized attributes for the Type.
+	LocalizedAttributes map[string]map[string]string `pulumi:"localizedAttributes"`
+	// Medium Image associated with the Property or EntityType.
+	MediumImage *string `pulumi:"mediumImage"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The profile type definition.
-	Properties ProfileTypeDefinitionResponse `pulumi:"properties"`
+	// Provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The schema org link. This helps ACI identify and suggest semantic models.
+	SchemaItemTypeLink *string `pulumi:"schemaItemTypeLink"`
+	// Small Image associated with the Property or EntityType.
+	SmallImage *string `pulumi:"smallImage"`
+	// The strong IDs.
+	StrongIds []StrongIdResponse `pulumi:"strongIds"`
+	// The hub name.
+	TenantId string `pulumi:"tenantId"`
+	// The timestamp property name. Represents the time when the interaction or profile update happened.
+	TimestampFieldName *string `pulumi:"timestampFieldName"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The name of the entity.
+	TypeName *string `pulumi:"typeName"`
 }

@@ -14,12 +14,18 @@ import (
 type VirtualHubBgpConnection struct {
 	pulumi.CustomResourceState
 
+	// The current state of the VirtualHub to Peer.
+	ConnectionState pulumi.StringOutput `pulumi:"connectionState"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Name of the connection.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The properties of the Bgp connections.
-	Properties BgpConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// Peer ASN.
+	PeerAsn pulumi.IntPtrOutput `pulumi:"peerAsn"`
+	// Peer IP.
+	PeerIp pulumi.StringPtrOutput `pulumi:"peerIp"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Connection type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,23 +67,35 @@ func GetVirtualHubBgpConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualHubBgpConnection resources.
 type virtualHubBgpConnectionState struct {
+	// The current state of the VirtualHub to Peer.
+	ConnectionState *string `pulumi:"connectionState"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Name of the connection.
 	Name *string `pulumi:"name"`
-	// The properties of the Bgp connections.
-	Properties *BgpConnectionPropertiesResponse `pulumi:"properties"`
+	// Peer ASN.
+	PeerAsn *int `pulumi:"peerAsn"`
+	// Peer IP.
+	PeerIp *string `pulumi:"peerIp"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Connection type.
 	Type *string `pulumi:"type"`
 }
 
 type VirtualHubBgpConnectionState struct {
+	// The current state of the VirtualHub to Peer.
+	ConnectionState pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Name of the connection.
 	Name pulumi.StringPtrInput
-	// The properties of the Bgp connections.
-	Properties BgpConnectionPropertiesResponsePtrInput
+	// Peer ASN.
+	PeerAsn pulumi.IntPtrInput
+	// Peer IP.
+	PeerIp pulumi.StringPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Connection type.
 	Type pulumi.StringPtrInput
 }

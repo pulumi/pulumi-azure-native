@@ -29,8 +29,10 @@ type LookupNotebookWorkspaceArgs struct {
 type LookupNotebookWorkspaceResult struct {
 	// The name of the database account.
 	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties NotebookWorkspacePropertiesResponse `pulumi:"properties"`
+	// Specifies the endpoint of Notebook server.
+	NotebookServerEndpoint string `pulumi:"notebookServerEndpoint"`
+	// Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
+	Status string `pulumi:"status"`
 	// The type of Azure resource.
 	Type string `pulumi:"type"`
 }

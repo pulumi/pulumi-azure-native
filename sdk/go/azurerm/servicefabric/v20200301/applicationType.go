@@ -20,8 +20,8 @@ type ApplicationType struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Azure resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The application type name properties
-	Properties ApplicationTypeResourcePropertiesResponseOutput `pulumi:"properties"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Azure resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type.
@@ -71,8 +71,8 @@ type applicationTypeState struct {
 	Location *string `pulumi:"location"`
 	// Azure resource name.
 	Name *string `pulumi:"name"`
-	// The application type name properties
-	Properties *ApplicationTypeResourcePropertiesResponse `pulumi:"properties"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
@@ -86,8 +86,8 @@ type ApplicationTypeState struct {
 	Location pulumi.StringPtrInput
 	// Azure resource name.
 	Name pulumi.StringPtrInput
-	// The application type name properties
-	Properties ApplicationTypeResourcePropertiesResponsePtrInput
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
 	// Azure resource type.

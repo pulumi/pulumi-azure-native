@@ -27,10 +27,40 @@ type LookupApiArgs struct {
 
 // API details.
 type LookupApiResult struct {
+	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	ApiRevision *string `pulumi:"apiRevision"`
+	// Description of the Api Revision.
+	ApiRevisionDescription *string `pulumi:"apiRevisionDescription"`
+	// Type of API.
+	ApiType *string `pulumi:"apiType"`
+	// Indicates the Version identifier of the API if the API is versioned
+	ApiVersion *string `pulumi:"apiVersion"`
+	// Description of the Api Version.
+	ApiVersionDescription *string `pulumi:"apiVersionDescription"`
+	// An API Version Set contains the common configuration for a set of API Versions relating
+	ApiVersionSet *ApiVersionSetContractDetailsResponse `pulumi:"apiVersionSet"`
+	// A resource identifier for the related ApiVersionSet.
+	ApiVersionSetId *string `pulumi:"apiVersionSetId"`
+	// Collection of authentication settings included into this API.
+	AuthenticationSettings *AuthenticationSettingsContractResponse `pulumi:"authenticationSettings"`
+	// Description of the API. May include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	// API name.
+	DisplayName *string `pulumi:"displayName"`
+	// Indicates if API revision is current api revision.
+	IsCurrent bool `pulumi:"isCurrent"`
+	// Indicates if API revision is accessible via the gateway.
+	IsOnline bool `pulumi:"isOnline"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Api entity contract properties.
-	Properties ApiContractPropertiesResponse `pulumi:"properties"`
+	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+	Path string `pulumi:"path"`
+	// Describes on which protocols the operations in this API can be invoked.
+	Protocols []string `pulumi:"protocols"`
+	// Absolute URL of the backend service implementing this API.
+	ServiceUrl *string `pulumi:"serviceUrl"`
+	// Protocols over which API is made available.
+	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContractResponse `pulumi:"subscriptionKeyParameterNames"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

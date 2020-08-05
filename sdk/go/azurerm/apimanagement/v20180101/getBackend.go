@@ -27,10 +27,26 @@ type LookupBackendArgs struct {
 
 // Backend details.
 type LookupBackendResult struct {
+	// Backend Credentials Contract Properties
+	Credentials *BackendCredentialsContractResponse `pulumi:"credentials"`
+	// Backend Description.
+	Description *string `pulumi:"description"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Backend entity contract properties.
-	Properties BackendContractPropertiesResponse `pulumi:"properties"`
+	// Backend Properties contract
+	Properties BackendPropertiesResponse `pulumi:"properties"`
+	// Backend communication protocol.
+	Protocol string `pulumi:"protocol"`
+	// Backend Proxy Contract Properties
+	Proxy *BackendProxyContractResponse `pulumi:"proxy"`
+	// Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+	ResourceId *string `pulumi:"resourceId"`
+	// Backend Title.
+	Title *string `pulumi:"title"`
+	// Backend TLS Properties
+	Tls *BackendTlsPropertiesResponse `pulumi:"tls"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+	// Runtime Url of the Backend.
+	Url string `pulumi:"url"`
 }

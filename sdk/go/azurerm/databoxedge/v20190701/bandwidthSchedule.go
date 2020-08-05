@@ -14,10 +14,16 @@ import (
 type BandwidthSchedule struct {
 	pulumi.CustomResourceState
 
+	// The days of the week when this schedule is applicable.
+	Days pulumi.StringArrayOutput `pulumi:"days"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the bandwidth schedule.
-	Properties BandwidthSchedulePropertiesResponseOutput `pulumi:"properties"`
+	// The bandwidth rate in Mbps.
+	RateInMbps pulumi.IntOutput `pulumi:"rateInMbps"`
+	// The start time of the schedule in UTC.
+	Start pulumi.StringOutput `pulumi:"start"`
+	// The stop time of the schedule in UTC.
+	Stop pulumi.StringOutput `pulumi:"stop"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -71,19 +77,31 @@ func GetBandwidthSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BandwidthSchedule resources.
 type bandwidthScheduleState struct {
+	// The days of the week when this schedule is applicable.
+	Days []string `pulumi:"days"`
 	// The object name.
 	Name *string `pulumi:"name"`
-	// The properties of the bandwidth schedule.
-	Properties *BandwidthSchedulePropertiesResponse `pulumi:"properties"`
+	// The bandwidth rate in Mbps.
+	RateInMbps *int `pulumi:"rateInMbps"`
+	// The start time of the schedule in UTC.
+	Start *string `pulumi:"start"`
+	// The stop time of the schedule in UTC.
+	Stop *string `pulumi:"stop"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
 
 type BandwidthScheduleState struct {
+	// The days of the week when this schedule is applicable.
+	Days pulumi.StringArrayInput
 	// The object name.
 	Name pulumi.StringPtrInput
-	// The properties of the bandwidth schedule.
-	Properties BandwidthSchedulePropertiesResponsePtrInput
+	// The bandwidth rate in Mbps.
+	RateInMbps pulumi.IntPtrInput
+	// The start time of the schedule in UTC.
+	Start pulumi.StringPtrInput
+	// The stop time of the schedule in UTC.
+	Stop pulumi.StringPtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }

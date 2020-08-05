@@ -14,14 +14,22 @@ import (
 type LocalNetworkGateway struct {
 	pulumi.CustomResourceState
 
+	// Local network gateway's BGP speaker settings.
+	BgpSettings BgpSettingsResponsePtrOutput `pulumi:"bgpSettings"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// IP address of local network gateway.
+	GatewayIpAddress pulumi.StringPtrOutput `pulumi:"gatewayIpAddress"`
+	// Local network site address space.
+	LocalNetworkAddressSpace AddressSpaceResponsePtrOutput `pulumi:"localNetworkAddressSpace"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// LocalNetworkGateway properties
-	Properties LocalNetworkGatewayPropertiesFormatResponseOutput `pulumi:"properties"`
+	// Gets or sets Provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// The resource GUID property of the LocalNetworkGateway resource.
+	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -62,14 +70,22 @@ func GetLocalNetworkGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocalNetworkGateway resources.
 type localNetworkGatewayState struct {
+	// Local network gateway's BGP speaker settings.
+	BgpSettings *BgpSettingsResponse `pulumi:"bgpSettings"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// IP address of local network gateway.
+	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
+	// Local network site address space.
+	LocalNetworkAddressSpace *AddressSpaceResponse `pulumi:"localNetworkAddressSpace"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// LocalNetworkGateway properties
-	Properties *LocalNetworkGatewayPropertiesFormatResponse `pulumi:"properties"`
+	// Gets or sets Provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the LocalNetworkGateway resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -77,14 +93,22 @@ type localNetworkGatewayState struct {
 }
 
 type LocalNetworkGatewayState struct {
+	// Local network gateway's BGP speaker settings.
+	BgpSettings BgpSettingsResponsePtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
+	// IP address of local network gateway.
+	GatewayIpAddress pulumi.StringPtrInput
+	// Local network site address space.
+	LocalNetworkAddressSpace AddressSpaceResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// LocalNetworkGateway properties
-	Properties LocalNetworkGatewayPropertiesFormatResponsePtrInput
+	// Gets or sets Provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the LocalNetworkGateway resource.
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

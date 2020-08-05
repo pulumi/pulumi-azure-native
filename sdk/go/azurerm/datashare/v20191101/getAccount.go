@@ -25,16 +25,22 @@ type LookupAccountArgs struct {
 
 // An account data transfer object.
 type LookupAccountResult struct {
+	// Time at which the account was created.
+	CreatedAt string `pulumi:"createdAt"`
 	// Identity Info on the Account
 	Identity IdentityResponse `pulumi:"identity"`
 	// Location of the azure resource.
 	Location *string `pulumi:"location"`
 	// Name of the azure resource
 	Name string `pulumi:"name"`
-	// Properties on the account
-	Properties AccountPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the Account
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Tags on the azure resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
+	// Email of the user who created the resource
+	UserEmail string `pulumi:"userEmail"`
+	// Name of the user who created the resource
+	UserName string `pulumi:"userName"`
 }

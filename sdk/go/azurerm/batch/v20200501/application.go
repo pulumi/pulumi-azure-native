@@ -14,12 +14,16 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
+	// A value indicating whether packages within the application may be overwritten using the same version string.
+	AllowUpdates pulumi.BoolPtrOutput `pulumi:"allowUpdates"`
+	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+	DefaultVersion pulumi.StringPtrOutput `pulumi:"defaultVersion"`
+	// The display name for the application.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The ETag of the resource, used for concurrency statements.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties associated with the Application.
-	Properties ApplicationPropertiesResponseOutput `pulumi:"properties"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,23 +65,31 @@ func GetApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Application resources.
 type applicationState struct {
+	// A value indicating whether packages within the application may be overwritten using the same version string.
+	AllowUpdates *bool `pulumi:"allowUpdates"`
+	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+	DefaultVersion *string `pulumi:"defaultVersion"`
+	// The display name for the application.
+	DisplayName *string `pulumi:"displayName"`
 	// The ETag of the resource, used for concurrency statements.
 	Etag *string `pulumi:"etag"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties associated with the Application.
-	Properties *ApplicationPropertiesResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type ApplicationState struct {
+	// A value indicating whether packages within the application may be overwritten using the same version string.
+	AllowUpdates pulumi.BoolPtrInput
+	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+	DefaultVersion pulumi.StringPtrInput
+	// The display name for the application.
+	DisplayName pulumi.StringPtrInput
 	// The ETag of the resource, used for concurrency statements.
 	Etag pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties associated with the Application.
-	Properties ApplicationPropertiesResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

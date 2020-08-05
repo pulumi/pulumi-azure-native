@@ -14,10 +14,12 @@ import (
 type HcxEnterpriseSite struct {
 	pulumi.CustomResourceState
 
+	// The activation key
+	ActivationKey pulumi.StringOutput `pulumi:"activationKey"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of an HCX Enterprise Site resource
-	Properties HcxEnterpriseSitePropertiesResponseOutput `pulumi:"properties"`
+	// The status of the HCX Enterprise Site
+	Status pulumi.StringOutput `pulumi:"status"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +61,23 @@ func GetHcxEnterpriseSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HcxEnterpriseSite resources.
 type hcxEnterpriseSiteState struct {
+	// The activation key
+	ActivationKey *string `pulumi:"activationKey"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of an HCX Enterprise Site resource
-	Properties *HcxEnterpriseSitePropertiesResponse `pulumi:"properties"`
+	// The status of the HCX Enterprise Site
+	Status *string `pulumi:"status"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type HcxEnterpriseSiteState struct {
+	// The activation key
+	ActivationKey pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of an HCX Enterprise Site resource
-	Properties HcxEnterpriseSitePropertiesResponsePtrInput
+	// The status of the HCX Enterprise Site
+	Status pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

@@ -29,10 +29,14 @@ type LookupConsumerGroupArgs struct {
 
 // Single item in List or Get Consumer group operation
 type LookupConsumerGroupResult struct {
+	// Exact time the message was created.
+	CreatedAt string `pulumi:"createdAt"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Single item in List or Get Consumer group operation
-	Properties ConsumerGroupResponseProperties `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
+	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+	UserMetadata *string `pulumi:"userMetadata"`
 }

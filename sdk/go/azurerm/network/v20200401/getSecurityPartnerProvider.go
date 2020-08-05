@@ -25,16 +25,22 @@ type LookupSecurityPartnerProviderArgs struct {
 
 // Security Partner Provider resource.
 type LookupSecurityPartnerProviderResult struct {
+	// The connection status with the Security Partner Provider.
+	ConnectionStatus string `pulumi:"connectionStatus"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Security Partner Provider.
-	Properties SecurityPartnerProviderPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the Security Partner Provider resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The security provider name.
+	SecurityProviderName *string `pulumi:"securityProviderName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The virtualHub to which the Security Partner Provider belongs.
+	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
 }

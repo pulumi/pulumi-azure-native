@@ -25,14 +25,24 @@ type LookupInterfaceEndpointArgs struct {
 
 // Interface endpoint resource.
 type LookupInterfaceEndpointResult struct {
+	// A reference to the service being brought into the virtual network.
+	EndpointService *EndpointServiceResponse `pulumi:"endpointService"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+	Fqdn *string `pulumi:"fqdn"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the interface endpoint.
-	Properties InterfaceEndpointPropertiesResponse `pulumi:"properties"`
+	// Gets an array of references to the network interfaces created for this interface endpoint.
+	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
+	// A read-only property that identifies who created this interface endpoint.
+	Owner string `pulumi:"owner"`
+	// The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The ID of the subnet from which the private IP will be allocated.
+	Subnet *SubnetResponse `pulumi:"subnet"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

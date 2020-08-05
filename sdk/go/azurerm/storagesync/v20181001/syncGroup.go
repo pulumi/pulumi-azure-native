@@ -16,10 +16,12 @@ type SyncGroup struct {
 
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// SyncGroup properties.
-	Properties SyncGroupPropertiesResponseOutput `pulumi:"properties"`
+	// Sync group status
+	SyncGroupStatus pulumi.StringOutput `pulumi:"syncGroupStatus"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Unique Id
+	UniqueId pulumi.StringPtrOutput `pulumi:"uniqueId"`
 }
 
 // NewSyncGroup registers a new resource with the given unique name, arguments, and options.
@@ -61,19 +63,23 @@ func GetSyncGroup(ctx *pulumi.Context,
 type syncGroupState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// SyncGroup properties.
-	Properties *SyncGroupPropertiesResponse `pulumi:"properties"`
+	// Sync group status
+	SyncGroupStatus *string `pulumi:"syncGroupStatus"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
+	// Unique Id
+	UniqueId *string `pulumi:"uniqueId"`
 }
 
 type SyncGroupState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// SyncGroup properties.
-	Properties SyncGroupPropertiesResponsePtrInput
+	// Sync group status
+	SyncGroupStatus pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
+	// Unique Id
+	UniqueId pulumi.StringPtrInput
 }
 
 func (SyncGroupState) ElementType() reflect.Type {

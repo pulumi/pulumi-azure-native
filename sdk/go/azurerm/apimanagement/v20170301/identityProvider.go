@@ -14,10 +14,22 @@ import (
 type IdentityProvider struct {
 	pulumi.CustomResourceState
 
+	// List of Allowed Tenants when configuring Azure Active Directory login.
+	AllowedTenants pulumi.StringArrayOutput `pulumi:"allowedTenants"`
+	// Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+	ClientId pulumi.StringOutput `pulumi:"clientId"`
+	// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
+	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Identity Provider contract properties.
-	Properties IdentityProviderContractPropertiesResponseOutput `pulumi:"properties"`
+	// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
+	PasswordResetPolicyName pulumi.StringPtrOutput `pulumi:"passwordResetPolicyName"`
+	// Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+	ProfileEditingPolicyName pulumi.StringPtrOutput `pulumi:"profileEditingPolicyName"`
+	// Signin Policy Name. Only applies to AAD B2C Identity Provider.
+	SigninPolicyName pulumi.StringPtrOutput `pulumi:"signinPolicyName"`
+	// Signup Policy Name. Only applies to AAD B2C Identity Provider.
+	SignupPolicyName pulumi.StringPtrOutput `pulumi:"signupPolicyName"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +77,43 @@ func GetIdentityProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IdentityProvider resources.
 type identityProviderState struct {
+	// List of Allowed Tenants when configuring Azure Active Directory login.
+	AllowedTenants []string `pulumi:"allowedTenants"`
+	// Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+	ClientId *string `pulumi:"clientId"`
+	// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
+	ClientSecret *string `pulumi:"clientSecret"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Identity Provider contract properties.
-	Properties *IdentityProviderContractPropertiesResponse `pulumi:"properties"`
+	// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
+	PasswordResetPolicyName *string `pulumi:"passwordResetPolicyName"`
+	// Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+	ProfileEditingPolicyName *string `pulumi:"profileEditingPolicyName"`
+	// Signin Policy Name. Only applies to AAD B2C Identity Provider.
+	SigninPolicyName *string `pulumi:"signinPolicyName"`
+	// Signup Policy Name. Only applies to AAD B2C Identity Provider.
+	SignupPolicyName *string `pulumi:"signupPolicyName"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
 
 type IdentityProviderState struct {
+	// List of Allowed Tenants when configuring Azure Active Directory login.
+	AllowedTenants pulumi.StringArrayInput
+	// Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+	ClientId pulumi.StringPtrInput
+	// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
+	ClientSecret pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Identity Provider contract properties.
-	Properties IdentityProviderContractPropertiesResponsePtrInput
+	// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
+	PasswordResetPolicyName pulumi.StringPtrInput
+	// Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+	ProfileEditingPolicyName pulumi.StringPtrInput
+	// Signin Policy Name. Only applies to AAD B2C Identity Provider.
+	SigninPolicyName pulumi.StringPtrInput
+	// Signup Policy Name. Only applies to AAD B2C Identity Provider.
+	SignupPolicyName pulumi.StringPtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

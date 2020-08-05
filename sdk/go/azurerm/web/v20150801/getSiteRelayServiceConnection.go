@@ -25,13 +25,19 @@ type LookupSiteRelayServiceConnectionArgs struct {
 
 // Class that represents a BizTalk Hybrid Connection
 type LookupSiteRelayServiceConnectionResult struct {
+	BiztalkUri             *string `pulumi:"biztalkUri"`
+	EntityConnectionString *string `pulumi:"entityConnectionString"`
+	EntityName             *string `pulumi:"entityName"`
+	Hostname               *string `pulumi:"hostname"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string                                        `pulumi:"name"`
-	Properties RelayServiceConnectionEntityResponseProperties `pulumi:"properties"`
+	Name                     *string `pulumi:"name"`
+	Port                     *int    `pulumi:"port"`
+	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
+	ResourceType             *string `pulumi:"resourceType"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

@@ -16,8 +16,10 @@ type Suppression struct {
 
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the suppression.
-	Properties SuppressionPropertiesResponseOutput `pulumi:"properties"`
+	// The GUID of the suppression.
+	SuppressionId pulumi.StringPtrOutput `pulumi:"suppressionId"`
+	// The duration for which the suppression is valid.
+	Ttl pulumi.StringPtrOutput `pulumi:"ttl"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,8 +63,10 @@ func GetSuppression(ctx *pulumi.Context,
 type suppressionState struct {
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the suppression.
-	Properties *SuppressionPropertiesResponse `pulumi:"properties"`
+	// The GUID of the suppression.
+	SuppressionId *string `pulumi:"suppressionId"`
+	// The duration for which the suppression is valid.
+	Ttl *string `pulumi:"ttl"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -70,8 +74,10 @@ type suppressionState struct {
 type SuppressionState struct {
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the suppression.
-	Properties SuppressionPropertiesResponsePtrInput
+	// The GUID of the suppression.
+	SuppressionId pulumi.StringPtrInput
+	// The duration for which the suppression is valid.
+	Ttl pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

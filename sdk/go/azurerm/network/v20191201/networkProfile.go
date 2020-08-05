@@ -14,14 +14,20 @@ import (
 type NetworkProfile struct {
 	pulumi.CustomResourceState
 
+	// List of chid container network interface configurations.
+	ContainerNetworkInterfaceConfigurations ContainerNetworkInterfaceConfigurationResponseArrayOutput `pulumi:"containerNetworkInterfaceConfigurations"`
+	// List of child container network interfaces.
+	ContainerNetworkInterfaces ContainerNetworkInterfaceResponseArrayOutput `pulumi:"containerNetworkInterfaces"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Network profile properties.
-	Properties NetworkProfilePropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the network profile resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The resource GUID property of the network profile resource.
+	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -62,14 +68,20 @@ func GetNetworkProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkProfile resources.
 type networkProfileState struct {
+	// List of chid container network interface configurations.
+	ContainerNetworkInterfaceConfigurations []ContainerNetworkInterfaceConfigurationResponse `pulumi:"containerNetworkInterfaceConfigurations"`
+	// List of child container network interfaces.
+	ContainerNetworkInterfaces []ContainerNetworkInterfaceResponse `pulumi:"containerNetworkInterfaces"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Network profile properties.
-	Properties *NetworkProfilePropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the network profile resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the network profile resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -77,14 +89,20 @@ type networkProfileState struct {
 }
 
 type NetworkProfileState struct {
+	// List of chid container network interface configurations.
+	ContainerNetworkInterfaceConfigurations ContainerNetworkInterfaceConfigurationResponseArrayInput
+	// List of child container network interfaces.
+	ContainerNetworkInterfaces ContainerNetworkInterfaceResponseArrayInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Network profile properties.
-	Properties NetworkProfilePropertiesFormatResponsePtrInput
+	// The provisioning state of the network profile resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the network profile resource.
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

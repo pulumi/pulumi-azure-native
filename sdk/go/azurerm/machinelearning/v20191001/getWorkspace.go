@@ -25,16 +25,30 @@ type LookupWorkspaceArgs struct {
 
 // An object that represents a machine learning workspace.
 type LookupWorkspaceResult struct {
+	// The creation time for this workspace resource.
+	CreationTime string `pulumi:"creationTime"`
+	// The key vault identifier used for encrypted workspaces.
+	KeyVaultIdentifierId *string `pulumi:"keyVaultIdentifierId"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the machine learning workspace.
-	Properties WorkspacePropertiesResponse `pulumi:"properties"`
+	// The email id of the owner for this workspace.
+	OwnerEmail string `pulumi:"ownerEmail"`
 	// The sku of the workspace.
 	Sku *SkuResponse `pulumi:"sku"`
+	// The regional endpoint for the machine learning studio service which hosts this workspace.
+	StudioEndpoint string `pulumi:"studioEndpoint"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The fully qualified arm id of the storage account associated with this workspace.
+	UserStorageAccountId string `pulumi:"userStorageAccountId"`
+	// The immutable id associated with this workspace.
+	WorkspaceId string `pulumi:"workspaceId"`
+	// The current state of workspace resource.
+	WorkspaceState string `pulumi:"workspaceState"`
+	// The type of this workspace.
+	WorkspaceType string `pulumi:"workspaceType"`
 }

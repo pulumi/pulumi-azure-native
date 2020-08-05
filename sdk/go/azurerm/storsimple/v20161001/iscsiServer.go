@@ -14,10 +14,18 @@ import (
 type IscsiServer struct {
 	pulumi.CustomResourceState
 
+	// The backup policy id.
+	BackupScheduleGroupId pulumi.StringOutput `pulumi:"backupScheduleGroupId"`
+	// The chap id.
+	ChapId pulumi.StringPtrOutput `pulumi:"chapId"`
+	// The description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties.
-	Properties ISCSIServerPropertiesResponseOutput `pulumi:"properties"`
+	// The reverse chap id.
+	ReverseChapId pulumi.StringPtrOutput `pulumi:"reverseChapId"`
+	// The storage domain id.
+	StorageDomainId pulumi.StringOutput `pulumi:"storageDomainId"`
 	// The type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -68,19 +76,35 @@ func GetIscsiServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IscsiServer resources.
 type iscsiServerState struct {
+	// The backup policy id.
+	BackupScheduleGroupId *string `pulumi:"backupScheduleGroupId"`
+	// The chap id.
+	ChapId *string `pulumi:"chapId"`
+	// The description.
+	Description *string `pulumi:"description"`
 	// The name.
 	Name *string `pulumi:"name"`
-	// The properties.
-	Properties *ISCSIServerPropertiesResponse `pulumi:"properties"`
+	// The reverse chap id.
+	ReverseChapId *string `pulumi:"reverseChapId"`
+	// The storage domain id.
+	StorageDomainId *string `pulumi:"storageDomainId"`
 	// The type.
 	Type *string `pulumi:"type"`
 }
 
 type IscsiServerState struct {
+	// The backup policy id.
+	BackupScheduleGroupId pulumi.StringPtrInput
+	// The chap id.
+	ChapId pulumi.StringPtrInput
+	// The description.
+	Description pulumi.StringPtrInput
 	// The name.
 	Name pulumi.StringPtrInput
-	// The properties.
-	Properties ISCSIServerPropertiesResponsePtrInput
+	// The reverse chap id.
+	ReverseChapId pulumi.StringPtrInput
+	// The storage domain id.
+	StorageDomainId pulumi.StringPtrInput
 	// The type.
 	Type pulumi.StringPtrInput
 }

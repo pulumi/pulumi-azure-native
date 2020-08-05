@@ -29,8 +29,10 @@ type LookupWebAppSwiftVirtualNetworkConnectionResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// SwiftVirtualNetwork resource specific properties
-	Properties SwiftVirtualNetworkResponseProperties `pulumi:"properties"`
+	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+	SubnetResourceId *string `pulumi:"subnetResourceId"`
+	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
+	SwiftSupported *bool `pulumi:"swiftSupported"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

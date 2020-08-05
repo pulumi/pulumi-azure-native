@@ -26,10 +26,12 @@ type LookupQueueArgs struct {
 }
 
 type LookupQueueResult struct {
+	// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+	ApproximateMessageCount int `pulumi:"approximateMessageCount"`
+	// A name-value pair that represents queue metadata.
+	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Queue resource properties.
-	Properties QueuePropertiesResponse `pulumi:"properties"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

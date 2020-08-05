@@ -27,10 +27,18 @@ type LookupDisasterRecoveryConfigArgs struct {
 
 // Single item in List or Get Alias(Disaster Recovery configuration) operation
 type LookupDisasterRecoveryConfigResult struct {
+	// Alternate name specified when alias and namespace names are same.
+	AlternateName *string `pulumi:"alternateName"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties ArmDisasterRecoveryResponseProperties `pulumi:"properties"`
+	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+	PartnerNamespace *string `pulumi:"partnerNamespace"`
+	// Number of entities pending to be replicated.
+	PendingReplicationOperationsCount int `pulumi:"pendingReplicationOperationsCount"`
+	// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+	ProvisioningState string `pulumi:"provisioningState"`
+	// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+	Role string `pulumi:"role"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

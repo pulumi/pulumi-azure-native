@@ -14,10 +14,18 @@ import (
 type JobSchedule struct {
 	pulumi.CustomResourceState
 
+	// Gets or sets the id of job schedule.
+	JobScheduleId pulumi.StringPtrOutput `pulumi:"jobScheduleId"`
 	// Gets the name of the variable.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the properties of the job schedule.
-	Properties JobSchedulePropertiesResponseOutput `pulumi:"properties"`
+	// Gets or sets the parameters of the job schedule.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// Gets or sets the hybrid worker group that the scheduled job should run on.
+	RunOn pulumi.StringPtrOutput `pulumi:"runOn"`
+	// Gets or sets the runbook.
+	Runbook RunbookAssociationPropertyResponsePtrOutput `pulumi:"runbook"`
+	// Gets or sets the schedule.
+	Schedule ScheduleAssociationPropertyResponsePtrOutput `pulumi:"schedule"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +73,35 @@ func GetJobSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobSchedule resources.
 type jobScheduleState struct {
+	// Gets or sets the id of job schedule.
+	JobScheduleId *string `pulumi:"jobScheduleId"`
 	// Gets the name of the variable.
 	Name *string `pulumi:"name"`
-	// Gets or sets the properties of the job schedule.
-	Properties *JobSchedulePropertiesResponse `pulumi:"properties"`
+	// Gets or sets the parameters of the job schedule.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Gets or sets the hybrid worker group that the scheduled job should run on.
+	RunOn *string `pulumi:"runOn"`
+	// Gets or sets the runbook.
+	Runbook *RunbookAssociationPropertyResponse `pulumi:"runbook"`
+	// Gets or sets the schedule.
+	Schedule *ScheduleAssociationPropertyResponse `pulumi:"schedule"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type JobScheduleState struct {
+	// Gets or sets the id of job schedule.
+	JobScheduleId pulumi.StringPtrInput
 	// Gets the name of the variable.
 	Name pulumi.StringPtrInput
-	// Gets or sets the properties of the job schedule.
-	Properties JobSchedulePropertiesResponsePtrInput
+	// Gets or sets the parameters of the job schedule.
+	Parameters pulumi.StringMapInput
+	// Gets or sets the hybrid worker group that the scheduled job should run on.
+	RunOn pulumi.StringPtrInput
+	// Gets or sets the runbook.
+	Runbook RunbookAssociationPropertyResponsePtrInput
+	// Gets or sets the schedule.
+	Schedule ScheduleAssociationPropertyResponsePtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

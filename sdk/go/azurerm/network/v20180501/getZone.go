@@ -29,12 +29,22 @@ type LookupZoneResult struct {
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location string `pulumi:"location"`
+	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordSets int `pulumi:"maxNumberOfRecordSets"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The properties of the zone.
-	Properties ZonePropertiesResponse `pulumi:"properties"`
+	// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+	NameServers []string `pulumi:"nameServers"`
+	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	NumberOfRecordSets int `pulumi:"numberOfRecordSets"`
+	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+	RegistrationVirtualNetworks []SubResourceResponse `pulumi:"registrationVirtualNetworks"`
+	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+	ResolutionVirtualNetworks []SubResourceResponse `pulumi:"resolutionVirtualNetworks"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The type of this DNS zone (Public or Private).
+	ZoneType *string `pulumi:"zoneType"`
 }

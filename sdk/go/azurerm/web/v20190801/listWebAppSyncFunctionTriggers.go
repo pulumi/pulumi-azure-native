@@ -25,12 +25,14 @@ type ListWebAppSyncFunctionTriggersArgs struct {
 
 // Function secrets.
 type ListWebAppSyncFunctionTriggersResult struct {
+	// Secret key.
+	Key *string `pulumi:"key"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// FunctionSecrets resource specific properties
-	Properties FunctionSecretsResponseProperties `pulumi:"properties"`
+	// Trigger URL.
+	Trigger_url *string `pulumi:"trigger_url"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

@@ -27,10 +27,16 @@ type LookupComputePolicyArgs struct {
 
 // Data Lake Analytics compute policy information.
 type LookupComputePolicyResult struct {
+	// The maximum degree of parallelism per job this user can use to submit jobs.
+	MaxDegreeOfParallelismPerJob int `pulumi:"maxDegreeOfParallelismPerJob"`
+	// The minimum priority per job this user can use to submit jobs.
+	MinPriorityPerJob int `pulumi:"minPriorityPerJob"`
 	// The resource name.
 	Name string `pulumi:"name"`
-	// The compute policy properties.
-	Properties ComputePolicyPropertiesResponse `pulumi:"properties"`
+	// The AAD object identifier for the entity to create a policy for.
+	ObjectId string `pulumi:"objectId"`
+	// The type of AAD object the object identifier refers to.
+	ObjectType string `pulumi:"objectType"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

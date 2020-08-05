@@ -27,10 +27,20 @@ type LookupCertificateArgs struct {
 
 // Definition of the certificate.
 type LookupCertificateResult struct {
+	// Gets the creation time.
+	CreationTime string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets the expiry time of the certificate.
+	ExpiryTime string `pulumi:"expiryTime"`
+	// Gets the is exportable flag of the certificate.
+	IsExportable bool `pulumi:"isExportable"`
+	// Gets the last modified time.
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Gets or sets the properties of the certificate.
-	Properties CertificatePropertiesResponse `pulumi:"properties"`
+	// Gets the thumbprint of the certificate.
+	Thumbprint string `pulumi:"thumbprint"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

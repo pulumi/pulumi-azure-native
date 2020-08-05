@@ -14,12 +14,26 @@ import (
 type InboundNatRule struct {
 	pulumi.CustomResourceState
 
+	// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+	BackendIPConfiguration NetworkInterfaceIPConfigurationResponseOutput `pulumi:"backendIPConfiguration"`
+	// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+	BackendPort pulumi.IntPtrOutput `pulumi:"backendPort"`
+	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+	EnableFloatingIP pulumi.BoolPtrOutput `pulumi:"enableFloatingIP"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// A reference to frontend IP addresses.
+	FrontendIPConfiguration SubResourceResponsePtrOutput `pulumi:"frontendIPConfiguration"`
+	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+	FrontendPort pulumi.IntPtrOutput `pulumi:"frontendPort"`
+	// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+	IdleTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"idleTimeoutInMinutes"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties of load balancer inbound nat rule.
-	Properties InboundNatRulePropertiesFormatResponseOutput `pulumi:"properties"`
+	// The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All.'
+	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 }
 
 // NewInboundNatRule registers a new resource with the given unique name, arguments, and options.
@@ -59,21 +73,49 @@ func GetInboundNatRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InboundNatRule resources.
 type inboundNatRuleState struct {
+	// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+	BackendIPConfiguration *NetworkInterfaceIPConfigurationResponse `pulumi:"backendIPConfiguration"`
+	// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+	BackendPort *int `pulumi:"backendPort"`
+	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+	EnableFloatingIP *bool `pulumi:"enableFloatingIP"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// A reference to frontend IP addresses.
+	FrontendIPConfiguration *SubResourceResponse `pulumi:"frontendIPConfiguration"`
+	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+	FrontendPort *int `pulumi:"frontendPort"`
+	// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of load balancer inbound nat rule.
-	Properties *InboundNatRulePropertiesFormatResponse `pulumi:"properties"`
+	// The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All.'
+	Protocol *string `pulumi:"protocol"`
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
 type InboundNatRuleState struct {
+	// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+	BackendIPConfiguration NetworkInterfaceIPConfigurationResponsePtrInput
+	// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+	BackendPort pulumi.IntPtrInput
+	// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+	EnableFloatingIP pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// A reference to frontend IP addresses.
+	FrontendIPConfiguration SubResourceResponsePtrInput
+	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+	FrontendPort pulumi.IntPtrInput
+	// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
-	// Properties of load balancer inbound nat rule.
-	Properties InboundNatRulePropertiesFormatResponsePtrInput
+	// The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All.'
+	Protocol pulumi.StringPtrInput
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
 }
 
 func (InboundNatRuleState) ElementType() reflect.Type {

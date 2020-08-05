@@ -29,10 +29,16 @@ type LookupAvailabilitySetResult struct {
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// The instance view of a resource.
-	Properties AvailabilitySetPropertiesResponse `pulumi:"properties"`
+	// Fault Domain count.
+	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
+	// Update Domain count.
+	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
+	// The resource status information.
+	Statuses []InstanceViewStatusResponse `pulumi:"statuses"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// A list of references to all virtual machines in the availability set.
+	VirtualMachines []SubResourceResponse `pulumi:"virtualMachines"`
 }

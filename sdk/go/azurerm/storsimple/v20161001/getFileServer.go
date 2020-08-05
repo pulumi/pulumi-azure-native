@@ -29,10 +29,16 @@ type LookupFileServerArgs struct {
 
 // The file server.
 type LookupFileServerResult struct {
+	// The backup policy id.
+	BackupScheduleGroupId string `pulumi:"backupScheduleGroupId"`
+	// The description of the file server
+	Description *string `pulumi:"description"`
+	// Domain of the file server
+	DomainName string `pulumi:"domainName"`
 	// The name.
 	Name string `pulumi:"name"`
-	// The properties.
-	Properties FileServerPropertiesResponse `pulumi:"properties"`
+	// The storage domain id.
+	StorageDomainId string `pulumi:"storageDomainId"`
 	// The type.
 	Type string `pulumi:"type"`
 }

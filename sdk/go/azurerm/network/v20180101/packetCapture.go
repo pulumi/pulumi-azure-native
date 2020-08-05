@@ -14,11 +14,22 @@ import (
 type PacketCapture struct {
 	pulumi.CustomResourceState
 
-	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Number of bytes captured per packet, the remaining bytes are truncated.
+	BytesToCapturePerPacket pulumi.IntPtrOutput                    `pulumi:"bytesToCapturePerPacket"`
+	Etag                    pulumi.StringPtrOutput                 `pulumi:"etag"`
+	Filters                 PacketCaptureFilterResponseArrayOutput `pulumi:"filters"`
 	// Name of the packet capture.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes the properties of a packet capture session.
-	Properties PacketCaptureResultPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning state of the packet capture session.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Describes the storage location for a packet capture session.
+	StorageLocation PacketCaptureStorageLocationResponseOutput `pulumi:"storageLocation"`
+	// The ID of the targeted resource, only VM is currently supported.
+	Target pulumi.StringOutput `pulumi:"target"`
+	// Maximum duration of the capture session in seconds.
+	TimeLimitInSeconds pulumi.IntPtrOutput `pulumi:"timeLimitInSeconds"`
+	// Maximum size of the capture output.
+	TotalBytesPerSession pulumi.IntPtrOutput `pulumi:"totalBytesPerSession"`
 	// Packet capture type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -66,21 +77,43 @@ func GetPacketCapture(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PacketCapture resources.
 type packetCaptureState struct {
-	Etag *string `pulumi:"etag"`
+	// Number of bytes captured per packet, the remaining bytes are truncated.
+	BytesToCapturePerPacket *int                          `pulumi:"bytesToCapturePerPacket"`
+	Etag                    *string                       `pulumi:"etag"`
+	Filters                 []PacketCaptureFilterResponse `pulumi:"filters"`
 	// Name of the packet capture.
 	Name *string `pulumi:"name"`
-	// Describes the properties of a packet capture session.
-	Properties *PacketCaptureResultPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the packet capture session.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Describes the storage location for a packet capture session.
+	StorageLocation *PacketCaptureStorageLocationResponse `pulumi:"storageLocation"`
+	// The ID of the targeted resource, only VM is currently supported.
+	Target *string `pulumi:"target"`
+	// Maximum duration of the capture session in seconds.
+	TimeLimitInSeconds *int `pulumi:"timeLimitInSeconds"`
+	// Maximum size of the capture output.
+	TotalBytesPerSession *int `pulumi:"totalBytesPerSession"`
 	// Packet capture type.
 	Type *string `pulumi:"type"`
 }
 
 type PacketCaptureState struct {
-	Etag pulumi.StringPtrInput
+	// Number of bytes captured per packet, the remaining bytes are truncated.
+	BytesToCapturePerPacket pulumi.IntPtrInput
+	Etag                    pulumi.StringPtrInput
+	Filters                 PacketCaptureFilterResponseArrayInput
 	// Name of the packet capture.
 	Name pulumi.StringPtrInput
-	// Describes the properties of a packet capture session.
-	Properties PacketCaptureResultPropertiesResponsePtrInput
+	// The provisioning state of the packet capture session.
+	ProvisioningState pulumi.StringPtrInput
+	// Describes the storage location for a packet capture session.
+	StorageLocation PacketCaptureStorageLocationResponsePtrInput
+	// The ID of the targeted resource, only VM is currently supported.
+	Target pulumi.StringPtrInput
+	// Maximum duration of the capture session in seconds.
+	TimeLimitInSeconds pulumi.IntPtrInput
+	// Maximum size of the capture output.
+	TotalBytesPerSession pulumi.IntPtrInput
 	// Packet capture type.
 	Type pulumi.StringPtrInput
 }

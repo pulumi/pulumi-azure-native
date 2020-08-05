@@ -14,12 +14,20 @@ import (
 type HubRouteTable struct {
 	pulumi.CustomResourceState
 
+	// List of all connections associated with this route table.
+	AssociatedConnections pulumi.StringArrayOutput `pulumi:"associatedConnections"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// List of labels associated with this route table.
+	Labels pulumi.StringArrayOutput `pulumi:"labels"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties of the RouteTable resource.
-	Properties HubRouteTablePropertiesResponseOutput `pulumi:"properties"`
+	// List of all connections that advertise to this route table.
+	PropagatingConnections pulumi.StringArrayOutput `pulumi:"propagatingConnections"`
+	// The provisioning state of the RouteTable resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// List of all routes.
+	Routes HubRouteResponseArrayOutput `pulumi:"routes"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,23 +69,39 @@ func GetHubRouteTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HubRouteTable resources.
 type hubRouteTableState struct {
+	// List of all connections associated with this route table.
+	AssociatedConnections []string `pulumi:"associatedConnections"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// List of labels associated with this route table.
+	Labels []string `pulumi:"labels"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the RouteTable resource.
-	Properties *HubRouteTablePropertiesResponse `pulumi:"properties"`
+	// List of all connections that advertise to this route table.
+	PropagatingConnections []string `pulumi:"propagatingConnections"`
+	// The provisioning state of the RouteTable resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// List of all routes.
+	Routes []HubRouteResponse `pulumi:"routes"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type HubRouteTableState struct {
+	// List of all connections associated with this route table.
+	AssociatedConnections pulumi.StringArrayInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// List of labels associated with this route table.
+	Labels pulumi.StringArrayInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the RouteTable resource.
-	Properties HubRouteTablePropertiesResponsePtrInput
+	// List of all connections that advertise to this route table.
+	PropagatingConnections pulumi.StringArrayInput
+	// The provisioning state of the RouteTable resource.
+	ProvisioningState pulumi.StringPtrInput
+	// List of all routes.
+	Routes HubRouteResponseArrayInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

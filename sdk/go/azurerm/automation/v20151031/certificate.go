@@ -14,10 +14,20 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
+	// Gets the creation time.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Gets the expiry time of the certificate.
+	ExpiryTime pulumi.StringOutput `pulumi:"expiryTime"`
+	// Gets the is exportable flag of the certificate.
+	IsExportable pulumi.BoolOutput `pulumi:"isExportable"`
+	// Gets the last modified time.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the properties of the certificate.
-	Properties CertificatePropertiesResponseOutput `pulumi:"properties"`
+	// Gets the thumbprint of the certificate.
+	Thumbprint pulumi.StringOutput `pulumi:"thumbprint"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +72,39 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
+	// Gets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets the expiry time of the certificate.
+	ExpiryTime *string `pulumi:"expiryTime"`
+	// Gets the is exportable flag of the certificate.
+	IsExportable *bool `pulumi:"isExportable"`
+	// Gets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Gets or sets the properties of the certificate.
-	Properties *CertificatePropertiesResponse `pulumi:"properties"`
+	// Gets the thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type CertificateState struct {
+	// Gets the creation time.
+	CreationTime pulumi.StringPtrInput
+	// Gets or sets the description.
+	Description pulumi.StringPtrInput
+	// Gets the expiry time of the certificate.
+	ExpiryTime pulumi.StringPtrInput
+	// Gets the is exportable flag of the certificate.
+	IsExportable pulumi.BoolPtrInput
+	// Gets the last modified time.
+	LastModifiedTime pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Gets or sets the properties of the certificate.
-	Properties CertificatePropertiesResponsePtrInput
+	// Gets the thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

@@ -29,10 +29,26 @@ type LookupJobDefinitionArgs struct {
 
 // Job Definition.
 type LookupJobDefinitionResult struct {
+	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+	CustomerSecrets []CustomerSecretResponse `pulumi:"customerSecrets"`
+	// A generic json used differently by each data service type.
+	DataServiceInput map[string]interface{} `pulumi:"dataServiceInput"`
+	// Data Sink Id associated to the job definition.
+	DataSinkId string `pulumi:"dataSinkId"`
+	// Data Source Id associated to the job definition.
+	DataSourceId string `pulumi:"dataSourceId"`
+	// Last modified time of the job definition.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// Name of the object.
 	Name string `pulumi:"name"`
-	// JobDefinition properties.
-	Properties JobDefinitionPropertiesResponse `pulumi:"properties"`
+	// This is the preferred geo location for the job to run.
+	RunLocation *string `pulumi:"runLocation"`
+	// Schedule for running the job definition
+	Schedules []ScheduleResponse `pulumi:"schedules"`
+	// State of the job definition.
+	State string `pulumi:"state"`
 	// Type of the object.
 	Type string `pulumi:"type"`
+	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+	UserConfirmation *string `pulumi:"userConfirmation"`
 }

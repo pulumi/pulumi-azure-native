@@ -14,10 +14,26 @@ import (
 type EventSubscription struct {
 	pulumi.CustomResourceState
 
+	// The DeadLetter destination of the event subscription.
+	DeadLetterDestination DeadLetterDestinationResponsePtrOutput `pulumi:"deadLetterDestination"`
+	// Information about the destination where events have to be delivered for the event subscription.
+	Destination EventSubscriptionDestinationResponsePtrOutput `pulumi:"destination"`
+	// The event delivery schema for the event subscription.
+	EventDeliverySchema pulumi.StringPtrOutput `pulumi:"eventDeliverySchema"`
+	// Expiration time of the event subscription.
+	ExpirationTimeUtc pulumi.StringPtrOutput `pulumi:"expirationTimeUtc"`
+	// Information about the filter for the event subscription.
+	Filter EventSubscriptionFilterResponsePtrOutput `pulumi:"filter"`
+	// List of user defined labels.
+	Labels pulumi.StringArrayOutput `pulumi:"labels"`
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the event subscription.
-	Properties EventSubscriptionPropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning state of the event subscription.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+	RetryPolicy RetryPolicyResponsePtrOutput `pulumi:"retryPolicy"`
+	// Name of the topic of the event subscription.
+	Topic pulumi.StringOutput `pulumi:"topic"`
 	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -56,19 +72,51 @@ func GetEventSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventSubscription resources.
 type eventSubscriptionState struct {
+	// The DeadLetter destination of the event subscription.
+	DeadLetterDestination *DeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	// Information about the destination where events have to be delivered for the event subscription.
+	Destination *EventSubscriptionDestinationResponse `pulumi:"destination"`
+	// The event delivery schema for the event subscription.
+	EventDeliverySchema *string `pulumi:"eventDeliverySchema"`
+	// Expiration time of the event subscription.
+	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
+	// Information about the filter for the event subscription.
+	Filter *EventSubscriptionFilterResponse `pulumi:"filter"`
+	// List of user defined labels.
+	Labels []string `pulumi:"labels"`
 	// Name of the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the event subscription.
-	Properties *EventSubscriptionPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the event subscription.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+	RetryPolicy *RetryPolicyResponse `pulumi:"retryPolicy"`
+	// Name of the topic of the event subscription.
+	Topic *string `pulumi:"topic"`
 	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type EventSubscriptionState struct {
+	// The DeadLetter destination of the event subscription.
+	DeadLetterDestination DeadLetterDestinationResponsePtrInput
+	// Information about the destination where events have to be delivered for the event subscription.
+	Destination EventSubscriptionDestinationResponsePtrInput
+	// The event delivery schema for the event subscription.
+	EventDeliverySchema pulumi.StringPtrInput
+	// Expiration time of the event subscription.
+	ExpirationTimeUtc pulumi.StringPtrInput
+	// Information about the filter for the event subscription.
+	Filter EventSubscriptionFilterResponsePtrInput
+	// List of user defined labels.
+	Labels pulumi.StringArrayInput
 	// Name of the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the event subscription.
-	Properties EventSubscriptionPropertiesResponsePtrInput
+	// Provisioning state of the event subscription.
+	ProvisioningState pulumi.StringPtrInput
+	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+	RetryPolicy RetryPolicyResponsePtrInput
+	// Name of the topic of the event subscription.
+	Topic pulumi.StringPtrInput
 	// Type of the resource.
 	Type pulumi.StringPtrInput
 }

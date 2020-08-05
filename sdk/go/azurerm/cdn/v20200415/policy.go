@@ -14,14 +14,25 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
+	// Describes custom rules inside the policy.
+	CustomRules CustomRuleListResponsePtrOutput `pulumi:"customRules"`
+	// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
+	EndpointLinks CdnEndpointResponseArrayOutput `pulumi:"endpointLinks"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Describes managed rules inside the policy.
+	ManagedRules ManagedRuleSetListResponsePtrOutput `pulumi:"managedRules"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties CdnWebApplicationFirewallPolicyPropertiesResponseOutput `pulumi:"properties"`
+	// Describes  policySettings for policy
+	PolicySettings PolicySettingsResponsePtrOutput `pulumi:"policySettings"`
+	// Provisioning state of the WebApplicationFirewallPolicy.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Describes rate limit rules inside the policy.
+	RateLimitRules RateLimitRuleListResponsePtrOutput `pulumi:"rateLimitRules"`
+	ResourceState  pulumi.StringOutput                `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// Resource tags.
@@ -70,14 +81,25 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
+	// Describes custom rules inside the policy.
+	CustomRules *CustomRuleListResponse `pulumi:"customRules"`
+	// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
+	EndpointLinks []CdnEndpointResponse `pulumi:"endpointLinks"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Describes managed rules inside the policy.
+	ManagedRules *ManagedRuleSetListResponse `pulumi:"managedRules"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties *CdnWebApplicationFirewallPolicyPropertiesResponse `pulumi:"properties"`
+	// Describes  policySettings for policy
+	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
+	// Provisioning state of the WebApplicationFirewallPolicy.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Describes rate limit rules inside the policy.
+	RateLimitRules *RateLimitRuleListResponse `pulumi:"rateLimitRules"`
+	ResourceState  *string                    `pulumi:"resourceState"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
@@ -87,14 +109,25 @@ type policyState struct {
 }
 
 type PolicyState struct {
+	// Describes custom rules inside the policy.
+	CustomRules CustomRuleListResponsePtrInput
+	// Describes Azure CDN endpoints associated with this Web Application Firewall policy.
+	EndpointLinks CdnEndpointResponseArrayInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Describes managed rules inside the policy.
+	ManagedRules ManagedRuleSetListResponsePtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the web application firewall policy.
-	Properties CdnWebApplicationFirewallPolicyPropertiesResponsePtrInput
+	// Describes  policySettings for policy
+	PolicySettings PolicySettingsResponsePtrInput
+	// Provisioning state of the WebApplicationFirewallPolicy.
+	ProvisioningState pulumi.StringPtrInput
+	// Describes rate limit rules inside the policy.
+	RateLimitRules RateLimitRuleListResponsePtrInput
+	ResourceState  pulumi.StringPtrInput
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
 	Sku SkuResponsePtrInput
 	// Resource tags.

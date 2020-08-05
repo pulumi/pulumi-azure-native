@@ -27,10 +27,42 @@ type LookupPredictionArgs struct {
 
 // The prediction resource format.
 type LookupPredictionResult struct {
+	// Whether do auto analyze.
+	AutoAnalyze bool `pulumi:"autoAnalyze"`
+	// Description of the prediction.
+	Description map[string]string `pulumi:"description"`
+	// Display name of the prediction.
+	DisplayName map[string]string `pulumi:"displayName"`
+	// The prediction grades.
+	Grades []PredictionResponseGrades `pulumi:"grades"`
+	// Interaction types involved in the prediction.
+	InvolvedInteractionTypes []string `pulumi:"involvedInteractionTypes"`
+	// KPI types involved in the prediction.
+	InvolvedKpiTypes []string `pulumi:"involvedKpiTypes"`
+	// Relationships involved in the prediction.
+	InvolvedRelationships []string `pulumi:"involvedRelationships"`
+	// Definition of the link mapping of prediction.
+	Mappings PredictionResponseMappings `pulumi:"mappings"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The prediction definition.
-	Properties PredictionResponse `pulumi:"properties"`
+	// Negative outcome expression.
+	NegativeOutcomeExpression string `pulumi:"negativeOutcomeExpression"`
+	// Positive outcome expression.
+	PositiveOutcomeExpression string `pulumi:"positiveOutcomeExpression"`
+	// Name of the prediction.
+	PredictionName *string `pulumi:"predictionName"`
+	// Primary profile type.
+	PrimaryProfileType string `pulumi:"primaryProfileType"`
+	// Provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Scope expression.
+	ScopeExpression string `pulumi:"scopeExpression"`
+	// Score label.
+	ScoreLabel string `pulumi:"scoreLabel"`
+	// System generated entities.
+	SystemGeneratedEntities PredictionResponseSystemGeneratedEntities `pulumi:"systemGeneratedEntities"`
+	// The hub name.
+	TenantId string `pulumi:"tenantId"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

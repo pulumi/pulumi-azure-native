@@ -14,12 +14,14 @@ import (
 type ProductPolicy struct {
 	pulumi.CustomResourceState
 
+	// Format of the policyContent.
+	Format pulumi.StringPtrOutput `pulumi:"format"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponseOutput `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Contents of the Policy as defined by the format.
+	Value pulumi.StringOutput `pulumi:"value"`
 }
 
 // NewProductPolicy registers a new resource with the given unique name, arguments, and options.
@@ -65,21 +67,25 @@ func GetProductPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProductPolicy resources.
 type productPolicyState struct {
+	// Format of the policyContent.
+	Format *string `pulumi:"format"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Policy.
-	Properties *PolicyContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
+	// Contents of the Policy as defined by the format.
+	Value *string `pulumi:"value"`
 }
 
 type ProductPolicyState struct {
+	// Format of the policyContent.
+	Format pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponsePtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
+	// Contents of the Policy as defined by the format.
+	Value pulumi.StringPtrInput
 }
 
 func (ProductPolicyState) ElementType() reflect.Type {

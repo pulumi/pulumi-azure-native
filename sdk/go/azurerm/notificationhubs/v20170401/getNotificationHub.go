@@ -27,16 +27,30 @@ type LookupNotificationHubArgs struct {
 
 // Description of a NotificationHub Resource.
 type LookupNotificationHubResult struct {
+	// The AdmCredential of the created NotificationHub
+	AdmCredential *AdmCredentialResponse `pulumi:"admCredential"`
+	// The ApnsCredential of the created NotificationHub
+	ApnsCredential *ApnsCredentialResponse `pulumi:"apnsCredential"`
+	// The AuthorizationRules of the created NotificationHub
+	AuthorizationRules []SharedAccessAuthorizationRulePropertiesResponse `pulumi:"authorizationRules"`
+	// The BaiduCredential of the created NotificationHub
+	BaiduCredential *BaiduCredentialResponse `pulumi:"baiduCredential"`
+	// The GcmCredential of the created NotificationHub
+	GcmCredential *GcmCredentialResponse `pulumi:"gcmCredential"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// The MpnsCredential of the created NotificationHub
+	MpnsCredential *MpnsCredentialResponse `pulumi:"mpnsCredential"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the NotificationHub.
-	Properties NotificationHubPropertiesResponse `pulumi:"properties"`
+	// The RegistrationTtl of the created NotificationHub
+	RegistrationTtl *string `pulumi:"registrationTtl"`
 	// The sku of the created namespace
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The WnsCredential of the created NotificationHub
+	WnsCredential *WnsCredentialResponse `pulumi:"wnsCredential"`
 }

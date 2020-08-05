@@ -14,12 +14,14 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
+	// Active Directories
+	ActiveDirectories ActiveDirectoryResponseArrayOutput `pulumi:"activeDirectories"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// NetApp Account properties
-	Properties AccountPropertiesResponseOutput `pulumi:"properties"`
+	// Azure lifecycle management
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -63,12 +65,14 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// Active Directories
+	ActiveDirectories []ActiveDirectoryResponse `pulumi:"activeDirectories"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// NetApp Account properties
-	Properties *AccountPropertiesResponse `pulumi:"properties"`
+	// Azure lifecycle management
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -76,12 +80,14 @@ type accountState struct {
 }
 
 type AccountState struct {
+	// Active Directories
+	ActiveDirectories ActiveDirectoryResponseArrayInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// NetApp Account properties
-	Properties AccountPropertiesResponsePtrInput
+	// Azure lifecycle management
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

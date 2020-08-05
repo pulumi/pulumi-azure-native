@@ -31,8 +31,14 @@ type LookupPoolResult struct {
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Capacity pool properties
-	Properties PoolPropertiesResponse `pulumi:"properties"`
+	// UUID v4 used to identify the Pool
+	PoolId string `pulumi:"poolId"`
+	// Azure lifecycle management
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The service level of the file system
+	ServiceLevel string `pulumi:"serviceLevel"`
+	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+	Size int `pulumi:"size"`
 	// Resource tags
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Resource type

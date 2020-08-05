@@ -18,8 +18,8 @@ type SshPublicKey struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the SSH public key.
-	Properties SshPublicKeyResourcePropertiesResponseOutput `pulumi:"properties"`
+	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
+	PublicKey pulumi.StringPtrOutput `pulumi:"publicKey"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -67,8 +67,8 @@ type sshPublicKeyState struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of the SSH public key.
-	Properties *SshPublicKeyResourcePropertiesResponse `pulumi:"properties"`
+	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
+	PublicKey *string `pulumi:"publicKey"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -80,8 +80,8 @@ type SshPublicKeyState struct {
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of the SSH public key.
-	Properties SshPublicKeyResourcePropertiesResponsePtrInput
+	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
+	PublicKey pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

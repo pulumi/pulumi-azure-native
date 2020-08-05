@@ -27,11 +27,32 @@ type LookupEndpointArgs struct {
 
 // CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
 type LookupEndpointResult struct {
+	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
+	// The host name of the endpoint {endpointName}.{DNSZone}
+	HostName string `pulumi:"hostName"`
+	// Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
+	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
+	// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
-	Name       string                     `pulumi:"name"`
-	Properties EndpointPropertiesResponse `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+	OriginHostHeader *string `pulumi:"originHostHeader"`
+	// The path used for origin requests.
+	OriginPath *string `pulumi:"originPath"`
+	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+	Origins []DeepCreatedOriginResponse `pulumi:"origins"`
+	// Provisioning status of the endpoint.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Defines the query string caching behavior.
+	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
+	// Resource status of the endpoint.
+	ResourceState string `pulumi:"resourceState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

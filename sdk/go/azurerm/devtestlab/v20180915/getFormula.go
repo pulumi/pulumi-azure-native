@@ -27,14 +27,28 @@ type LookupFormulaArgs struct {
 
 // A formula for creating a VM, specifying an image base and other parameters
 type LookupFormulaResult struct {
+	// The author of the formula.
+	Author *string `pulumi:"author"`
+	// The creation date of the formula.
+	CreationDate string `pulumi:"creationDate"`
+	// The description of the formula.
+	Description *string `pulumi:"description"`
+	// The content of the formula.
+	FormulaContent *LabVirtualMachineCreationParameterResponse `pulumi:"formulaContent"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties FormulaPropertiesResponse `pulumi:"properties"`
+	// The OS type of the formula.
+	OsType *string `pulumi:"osType"`
+	// The provisioning status of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
+	// Information about a VM from which a formula is to be created.
+	Vm *FormulaPropertiesFromVmResponse `pulumi:"vm"`
 }

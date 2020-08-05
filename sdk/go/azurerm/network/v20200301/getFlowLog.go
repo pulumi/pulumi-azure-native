@@ -27,16 +27,30 @@ type LookupFlowLogArgs struct {
 
 // A flow log resource.
 type LookupFlowLogResult struct {
+	// Flag to enable/disable flow logging.
+	Enabled *bool `pulumi:"enabled"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Parameters that define the configuration of traffic analytics.
+	FlowAnalyticsConfiguration *TrafficAnalyticsPropertiesResponse `pulumi:"flowAnalyticsConfiguration"`
+	// Parameters that define the flow log format.
+	Format *FlowLogFormatParametersResponse `pulumi:"format"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the flow log.
-	Properties FlowLogPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the flow log.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Parameters that define the retention policy for flow log.
+	RetentionPolicy *RetentionPolicyParametersResponse `pulumi:"retentionPolicy"`
+	// ID of the storage account which is used to store the flow log.
+	StorageId string `pulumi:"storageId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Guid of network security group to which flow log will be applied.
+	TargetResourceGuid string `pulumi:"targetResourceGuid"`
+	// ID of network security group to which flow log will be applied.
+	TargetResourceId string `pulumi:"targetResourceId"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

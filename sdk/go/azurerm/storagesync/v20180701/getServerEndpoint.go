@@ -29,10 +29,28 @@ type LookupServerEndpointArgs struct {
 
 // Server Endpoint object.
 type LookupServerEndpointResult struct {
+	// Cloud Tiering.
+	CloudTiering *string `pulumi:"cloudTiering"`
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Resource Last Operation Name
+	LastOperationName *string `pulumi:"lastOperationName"`
+	// ServerEndpoint lastWorkflowId
+	LastWorkflowId *string `pulumi:"lastWorkflowId"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Server Endpoint properties.
-	Properties ServerEndpointPropertiesResponse `pulumi:"properties"`
+	// ServerEndpoint Provisioning State
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Server Local path.
+	ServerLocalPath *string `pulumi:"serverLocalPath"`
+	// Server Resource Id.
+	ServerResourceId *string `pulumi:"serverResourceId"`
+	// Sync Health Status
+	SyncStatus map[string]interface{} `pulumi:"syncStatus"`
+	// Tier files older than days.
+	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
 }

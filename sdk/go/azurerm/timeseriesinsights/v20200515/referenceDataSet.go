@@ -14,12 +14,18 @@ import (
 type ReferenceDataSet struct {
 	pulumi.CustomResourceState
 
+	// The time the resource was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+	DataStringComparisonBehavior pulumi.StringPtrOutput `pulumi:"dataStringComparisonBehavior"`
+	// The list of key properties for the reference data set.
+	KeyProperties ReferenceDataSetKeyPropertyResponseArrayOutput `pulumi:"keyProperties"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the reference data set.
-	Properties ReferenceDataSetResourcePropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -69,12 +75,18 @@ func GetReferenceDataSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReferenceDataSet resources.
 type referenceDataSetState struct {
+	// The time the resource was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+	DataStringComparisonBehavior *string `pulumi:"dataStringComparisonBehavior"`
+	// The list of key properties for the reference data set.
+	KeyProperties []ReferenceDataSetKeyPropertyResponse `pulumi:"keyProperties"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of the reference data set.
-	Properties *ReferenceDataSetResourcePropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -82,12 +94,18 @@ type referenceDataSetState struct {
 }
 
 type ReferenceDataSetState struct {
+	// The time the resource was created.
+	CreationTime pulumi.StringPtrInput
+	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+	DataStringComparisonBehavior pulumi.StringPtrInput
+	// The list of key properties for the reference data set.
+	KeyProperties ReferenceDataSetKeyPropertyResponseArrayInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of the reference data set.
-	Properties ReferenceDataSetResourcePropertiesResponsePtrInput
+	// Provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

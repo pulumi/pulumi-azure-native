@@ -14,10 +14,12 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
+	// The password details.
+	EncryptedPassword AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"encryptedPassword"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The storage account credential properties.
-	Properties UserPropertiesResponseOutput `pulumi:"properties"`
+	// List of shares that the user has rights on. This field should not be specified during user creation.
+	ShareAccessRights ShareAccessRightResponseArrayOutput `pulumi:"shareAccessRights"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +61,23 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
+	// The password details.
+	EncryptedPassword *AsymmetricEncryptedSecretResponse `pulumi:"encryptedPassword"`
 	// The object name.
 	Name *string `pulumi:"name"`
-	// The storage account credential properties.
-	Properties *UserPropertiesResponse `pulumi:"properties"`
+	// List of shares that the user has rights on. This field should not be specified during user creation.
+	ShareAccessRights []ShareAccessRightResponse `pulumi:"shareAccessRights"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
 
 type UserState struct {
+	// The password details.
+	EncryptedPassword AsymmetricEncryptedSecretResponsePtrInput
 	// The object name.
 	Name pulumi.StringPtrInput
-	// The storage account credential properties.
-	Properties UserPropertiesResponsePtrInput
+	// List of shares that the user has rights on. This field should not be specified during user creation.
+	ShareAccessRights ShareAccessRightResponseArrayInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }

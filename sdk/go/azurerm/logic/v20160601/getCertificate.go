@@ -27,12 +27,20 @@ type LookupCertificateArgs struct {
 
 // The integration account certificate.
 type LookupCertificateResult struct {
+	// The changed time.
+	ChangedTime string `pulumi:"changedTime"`
+	// The created time.
+	CreatedTime string `pulumi:"createdTime"`
+	// The key details in the key vault.
+	Key *KeyVaultKeyReferenceResponse `pulumi:"key"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name string `pulumi:"name"`
-	// The integration account certificate properties.
-	Properties IntegrationAccountCertificatePropertiesResponse `pulumi:"properties"`
+	// The public certificate.
+	PublicCertificate *string `pulumi:"publicCertificate"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.

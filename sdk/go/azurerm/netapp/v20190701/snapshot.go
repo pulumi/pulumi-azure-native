@@ -14,14 +14,18 @@ import (
 type Snapshot struct {
 	pulumi.CustomResourceState
 
+	// The creation date of the snapshot
+	Created pulumi.StringOutput `pulumi:"created"`
+	// UUID v4 used to identify the FileSystem
+	FileSystemId pulumi.StringPtrOutput `pulumi:"fileSystemId"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Snapshot Properties
-	Properties SnapshotPropertiesResponseOutput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.MapOutput `pulumi:"tags"`
+	// Azure lifecycle management
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// UUID v4 used to identify the Snapshot
+	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -72,27 +76,35 @@ func GetSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snapshot resources.
 type snapshotState struct {
+	// The creation date of the snapshot
+	Created *string `pulumi:"created"`
+	// UUID v4 used to identify the FileSystem
+	FileSystemId *string `pulumi:"fileSystemId"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Snapshot Properties
-	Properties *SnapshotPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]interface{} `pulumi:"tags"`
+	// Azure lifecycle management
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// UUID v4 used to identify the Snapshot
+	SnapshotId *string `pulumi:"snapshotId"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type SnapshotState struct {
+	// The creation date of the snapshot
+	Created pulumi.StringPtrInput
+	// UUID v4 used to identify the FileSystem
+	FileSystemId pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Snapshot Properties
-	Properties SnapshotPropertiesResponsePtrInput
-	// Resource tags
-	Tags pulumi.MapInput
+	// Azure lifecycle management
+	ProvisioningState pulumi.StringPtrInput
+	// UUID v4 used to identify the Snapshot
+	SnapshotId pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

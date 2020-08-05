@@ -14,14 +14,25 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
+	// Describes custom rules inside the policy.
+	CustomRules CustomRuleListResponsePtrOutput `pulumi:"customRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Describes Frontend Endpoints associated with this Web Application Firewall policy.
+	FrontendEndpointLinks FrontendEndpointLinkResponseArrayOutput `pulumi:"frontendEndpointLinks"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// Describes managed rules inside the policy.
+	ManagedRules ManagedRuleSetListResponsePtrOutput `pulumi:"managedRules"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties WebApplicationFirewallPolicyPropertiesResponseOutput `pulumi:"properties"`
+	// Describes settings for the policy.
+	PolicySettings PolicySettingsResponsePtrOutput `pulumi:"policySettings"`
+	// Provisioning state of the policy.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	ResourceState     pulumi.StringOutput `pulumi:"resourceState"`
+	// Describes Routing Rules associated with this Web Application Firewall policy.
+	RoutingRuleLinks RoutingRuleLinkResponseArrayOutput `pulumi:"routingRuleLinks"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -62,14 +73,25 @@ func GetPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Policy resources.
 type policyState struct {
+	// Describes custom rules inside the policy.
+	CustomRules *CustomRuleListResponse `pulumi:"customRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Describes Frontend Endpoints associated with this Web Application Firewall policy.
+	FrontendEndpointLinks []FrontendEndpointLinkResponse `pulumi:"frontendEndpointLinks"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Describes managed rules inside the policy.
+	ManagedRules *ManagedRuleSetListResponse `pulumi:"managedRules"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties *WebApplicationFirewallPolicyPropertiesResponse `pulumi:"properties"`
+	// Describes settings for the policy.
+	PolicySettings *PolicySettingsResponse `pulumi:"policySettings"`
+	// Provisioning state of the policy.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	ResourceState     *string `pulumi:"resourceState"`
+	// Describes Routing Rules associated with this Web Application Firewall policy.
+	RoutingRuleLinks []RoutingRuleLinkResponse `pulumi:"routingRuleLinks"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -77,14 +99,25 @@ type policyState struct {
 }
 
 type PolicyState struct {
+	// Describes custom rules inside the policy.
+	CustomRules CustomRuleListResponsePtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// Describes Frontend Endpoints associated with this Web Application Firewall policy.
+	FrontendEndpointLinks FrontendEndpointLinkResponseArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Describes managed rules inside the policy.
+	ManagedRules ManagedRuleSetListResponsePtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the web application firewall policy.
-	Properties WebApplicationFirewallPolicyPropertiesResponsePtrInput
+	// Describes settings for the policy.
+	PolicySettings PolicySettingsResponsePtrInput
+	// Provisioning state of the policy.
+	ProvisioningState pulumi.StringPtrInput
+	ResourceState     pulumi.StringPtrInput
+	// Describes Routing Rules associated with this Web Application Firewall policy.
+	RoutingRuleLinks RoutingRuleLinkResponseArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

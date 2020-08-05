@@ -14,12 +14,20 @@ import (
 type ApiVersionSet struct {
 	pulumi.CustomResourceState
 
+	// Description of API Version Set.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Name of API Version Set
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Api VersionSet contract properties.
-	Properties ApiVersionSetContractPropertiesResponseOutput `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+	VersionHeaderName pulumi.StringPtrOutput `pulumi:"versionHeaderName"`
+	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+	VersionQueryName pulumi.StringPtrOutput `pulumi:"versionQueryName"`
+	// An value that determines where the API Version identifer will be located in a HTTP request.
+	VersioningScheme pulumi.StringOutput `pulumi:"versioningScheme"`
 }
 
 // NewApiVersionSet registers a new resource with the given unique name, arguments, and options.
@@ -65,21 +73,37 @@ func GetApiVersionSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiVersionSet resources.
 type apiVersionSetState struct {
+	// Description of API Version Set.
+	Description *string `pulumi:"description"`
+	// Name of API Version Set
+	DisplayName *string `pulumi:"displayName"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Api VersionSet contract properties.
-	Properties *ApiVersionSetContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
+	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+	VersionHeaderName *string `pulumi:"versionHeaderName"`
+	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+	VersionQueryName *string `pulumi:"versionQueryName"`
+	// An value that determines where the API Version identifer will be located in a HTTP request.
+	VersioningScheme *string `pulumi:"versioningScheme"`
 }
 
 type ApiVersionSetState struct {
+	// Description of API Version Set.
+	Description pulumi.StringPtrInput
+	// Name of API Version Set
+	DisplayName pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Api VersionSet contract properties.
-	Properties ApiVersionSetContractPropertiesResponsePtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
+	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+	VersionHeaderName pulumi.StringPtrInput
+	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+	VersionQueryName pulumi.StringPtrInput
+	// An value that determines where the API Version identifer will be located in a HTTP request.
+	VersioningScheme pulumi.StringPtrInput
 }
 
 func (ApiVersionSetState) ElementType() reflect.Type {

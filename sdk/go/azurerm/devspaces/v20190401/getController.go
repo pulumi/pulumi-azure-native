@@ -24,15 +24,26 @@ type LookupControllerArgs struct {
 }
 
 type LookupControllerResult struct {
+	// DNS name for accessing DataPlane services
+	DataPlaneFqdn string `pulumi:"dataPlaneFqdn"`
+	// DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
+	HostSuffix string `pulumi:"hostSuffix"`
 	// Region where the Azure resource is located.
 	Location string `pulumi:"location"`
 	// The name of the resource.
-	Name       string                       `pulumi:"name"`
-	Properties ControllerPropertiesResponse `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Provisioning state of the Azure Dev Spaces Controller.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Model representing SKU for Azure Dev Spaces Controller.
 	Sku SkuResponse `pulumi:"sku"`
 	// Tags for the Azure resource.
 	Tags map[string]string `pulumi:"tags"`
+	// DNS of the target container host's API server
+	TargetContainerHostApiServerFqdn string `pulumi:"targetContainerHostApiServerFqdn"`
+	// Credentials of the target container host (base64).
+	TargetContainerHostCredentialsBase64 string `pulumi:"targetContainerHostCredentialsBase64"`
+	// Resource ID of the target container host
+	TargetContainerHostResourceId string `pulumi:"targetContainerHostResourceId"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

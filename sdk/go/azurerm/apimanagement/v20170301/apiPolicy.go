@@ -16,8 +16,8 @@ type ApiPolicy struct {
 
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponseOutput `pulumi:"properties"`
+	// Json escaped Xml Encoded contents of the Policy.
+	PolicyContent pulumi.StringOutput `pulumi:"policyContent"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -67,8 +67,8 @@ func GetApiPolicy(ctx *pulumi.Context,
 type apiPolicyState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Policy.
-	Properties *PolicyContractPropertiesResponse `pulumi:"properties"`
+	// Json escaped Xml Encoded contents of the Policy.
+	PolicyContent *string `pulumi:"policyContent"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
@@ -76,8 +76,8 @@ type apiPolicyState struct {
 type ApiPolicyState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponsePtrInput
+	// Json escaped Xml Encoded contents of the Policy.
+	PolicyContent pulumi.StringPtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

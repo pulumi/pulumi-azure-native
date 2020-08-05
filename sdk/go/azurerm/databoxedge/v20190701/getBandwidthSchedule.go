@@ -27,10 +27,16 @@ type LookupBandwidthScheduleArgs struct {
 
 // The bandwidth schedule details.
 type LookupBandwidthScheduleResult struct {
+	// The days of the week when this schedule is applicable.
+	Days []string `pulumi:"days"`
 	// The object name.
 	Name string `pulumi:"name"`
-	// The properties of the bandwidth schedule.
-	Properties BandwidthSchedulePropertiesResponse `pulumi:"properties"`
+	// The bandwidth rate in Mbps.
+	RateInMbps int `pulumi:"rateInMbps"`
+	// The start time of the schedule in UTC.
+	Start string `pulumi:"start"`
+	// The stop time of the schedule in UTC.
+	Stop string `pulumi:"stop"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
 }

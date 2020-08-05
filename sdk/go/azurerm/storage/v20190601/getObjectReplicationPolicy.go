@@ -27,10 +27,18 @@ type LookupObjectReplicationPolicyArgs struct {
 
 // The replication policy between two storage accounts. Multiple rules can be defined in one policy.
 type LookupObjectReplicationPolicyResult struct {
+	// Required. Destination account name.
+	DestinationAccount string `pulumi:"destinationAccount"`
+	// Indicates when the policy is enabled on the source account.
+	EnabledTime string `pulumi:"enabledTime"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Returns the Storage Account Object Replication Policy.
-	Properties ObjectReplicationPolicyPropertiesResponse `pulumi:"properties"`
+	// A unique id for object replication policy.
+	PolicyId string `pulumi:"policyId"`
+	// The storage account object replication rules.
+	Rules []ObjectReplicationPolicyRuleResponse `pulumi:"rules"`
+	// Required. Source account name.
+	SourceAccount string `pulumi:"sourceAccount"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

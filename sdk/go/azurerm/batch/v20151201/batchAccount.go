@@ -14,12 +14,22 @@ import (
 type BatchAccount struct {
 	pulumi.CustomResourceState
 
+	// The endpoint used by this account to interact with the Batch services.
+	AccountEndpoint pulumi.StringOutput `pulumi:"accountEndpoint"`
+	// The active job and job schedule quota for this Batch account.
+	ActiveJobAndJobScheduleQuota pulumi.IntOutput `pulumi:"activeJobAndJobScheduleQuota"`
+	// The properties and status of any auto storage account associated with the account.
+	AutoStorage AutoStoragePropertiesResponsePtrOutput `pulumi:"autoStorage"`
+	// The core quota for this Batch account.
+	CoreQuota pulumi.IntOutput `pulumi:"coreQuota"`
 	// The location of the resource
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties associated with the account.
-	Properties BatchAccountPropertiesResponseOutput `pulumi:"properties"`
+	// The pool quota for this Batch account.
+	PoolQuota pulumi.IntOutput `pulumi:"poolQuota"`
+	// The provisioned state of the resource
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// The tags of the resource
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource
@@ -63,12 +73,22 @@ func GetBatchAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BatchAccount resources.
 type batchAccountState struct {
+	// The endpoint used by this account to interact with the Batch services.
+	AccountEndpoint *string `pulumi:"accountEndpoint"`
+	// The active job and job schedule quota for this Batch account.
+	ActiveJobAndJobScheduleQuota *int `pulumi:"activeJobAndJobScheduleQuota"`
+	// The properties and status of any auto storage account associated with the account.
+	AutoStorage *AutoStoragePropertiesResponse `pulumi:"autoStorage"`
+	// The core quota for this Batch account.
+	CoreQuota *int `pulumi:"coreQuota"`
 	// The location of the resource
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The properties associated with the account.
-	Properties *BatchAccountPropertiesResponse `pulumi:"properties"`
+	// The pool quota for this Batch account.
+	PoolQuota *int `pulumi:"poolQuota"`
+	// The provisioned state of the resource
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The tags of the resource
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource
@@ -76,12 +96,22 @@ type batchAccountState struct {
 }
 
 type BatchAccountState struct {
+	// The endpoint used by this account to interact with the Batch services.
+	AccountEndpoint pulumi.StringPtrInput
+	// The active job and job schedule quota for this Batch account.
+	ActiveJobAndJobScheduleQuota pulumi.IntPtrInput
+	// The properties and status of any auto storage account associated with the account.
+	AutoStorage AutoStoragePropertiesResponsePtrInput
+	// The core quota for this Batch account.
+	CoreQuota pulumi.IntPtrInput
 	// The location of the resource
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The properties associated with the account.
-	Properties BatchAccountPropertiesResponsePtrInput
+	// The pool quota for this Batch account.
+	PoolQuota pulumi.IntPtrInput
+	// The provisioned state of the resource
+	ProvisioningState pulumi.StringPtrInput
 	// The tags of the resource
 	Tags pulumi.StringMapInput
 	// The type of the resource

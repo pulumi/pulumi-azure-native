@@ -29,8 +29,8 @@ type LookupDomainTopicArgs struct {
 type LookupDomainTopicResult struct {
 	// Name of the resource.
 	Name string `pulumi:"name"`
-	// Properties of the Domain Topic.
-	Properties DomainTopicPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the domain topic.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type string `pulumi:"type"`
 }

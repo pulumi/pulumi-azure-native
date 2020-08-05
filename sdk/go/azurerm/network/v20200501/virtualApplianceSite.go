@@ -14,12 +14,16 @@ import (
 type VirtualApplianceSite struct {
 	pulumi.CustomResourceState
 
+	// Address Prefix.
+	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Name of the virtual appliance site.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The properties of the Virtual Appliance Sites.
-	Properties VirtualApplianceSitePropertiesResponseOutput `pulumi:"properties"`
+	// Office 365 Policy.
+	O365Policy Office365PolicyPropertiesResponsePtrOutput `pulumi:"o365Policy"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Site type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,23 +65,31 @@ func GetVirtualApplianceSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualApplianceSite resources.
 type virtualApplianceSiteState struct {
+	// Address Prefix.
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Name of the virtual appliance site.
 	Name *string `pulumi:"name"`
-	// The properties of the Virtual Appliance Sites.
-	Properties *VirtualApplianceSitePropertiesResponse `pulumi:"properties"`
+	// Office 365 Policy.
+	O365Policy *Office365PolicyPropertiesResponse `pulumi:"o365Policy"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Site type.
 	Type *string `pulumi:"type"`
 }
 
 type VirtualApplianceSiteState struct {
+	// Address Prefix.
+	AddressPrefix pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Name of the virtual appliance site.
 	Name pulumi.StringPtrInput
-	// The properties of the Virtual Appliance Sites.
-	Properties VirtualApplianceSitePropertiesResponsePtrInput
+	// Office 365 Policy.
+	O365Policy Office365PolicyPropertiesResponsePtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Site type.
 	Type pulumi.StringPtrInput
 }

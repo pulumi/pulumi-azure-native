@@ -18,8 +18,16 @@ type VirtualHubIpConfiguration struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Name of the Ip Configuration.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The properties of the Virtual Hub IPConfigurations.
-	Properties HubIPConfigurationPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The private IP address of the IP configuration.
+	PrivateIPAddress pulumi.StringPtrOutput `pulumi:"privateIPAddress"`
+	// The private IP address allocation method.
+	PrivateIPAllocationMethod pulumi.StringPtrOutput `pulumi:"privateIPAllocationMethod"`
+	// The provisioning state of the IP configuration resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The reference to the public IP resource.
+	PublicIPAddress PublicIPAddressResponsePtrOutput `pulumi:"publicIPAddress"`
+	// The reference to the subnet resource.
+	Subnet SubnetResponsePtrOutput `pulumi:"subnet"`
 	// Ipconfiguration type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,8 +73,16 @@ type virtualHubIpConfigurationState struct {
 	Etag *string `pulumi:"etag"`
 	// Name of the Ip Configuration.
 	Name *string `pulumi:"name"`
-	// The properties of the Virtual Hub IPConfigurations.
-	Properties *HubIPConfigurationPropertiesFormatResponse `pulumi:"properties"`
+	// The private IP address of the IP configuration.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
+	// The private IP address allocation method.
+	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
+	// The provisioning state of the IP configuration resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The reference to the public IP resource.
+	PublicIPAddress *PublicIPAddressResponse `pulumi:"publicIPAddress"`
+	// The reference to the subnet resource.
+	Subnet *SubnetResponse `pulumi:"subnet"`
 	// Ipconfiguration type.
 	Type *string `pulumi:"type"`
 }
@@ -76,8 +92,16 @@ type VirtualHubIpConfigurationState struct {
 	Etag pulumi.StringPtrInput
 	// Name of the Ip Configuration.
 	Name pulumi.StringPtrInput
-	// The properties of the Virtual Hub IPConfigurations.
-	Properties HubIPConfigurationPropertiesFormatResponsePtrInput
+	// The private IP address of the IP configuration.
+	PrivateIPAddress pulumi.StringPtrInput
+	// The private IP address allocation method.
+	PrivateIPAllocationMethod pulumi.StringPtrInput
+	// The provisioning state of the IP configuration resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The reference to the public IP resource.
+	PublicIPAddress PublicIPAddressResponsePtrInput
+	// The reference to the subnet resource.
+	Subnet SubnetResponsePtrInput
 	// Ipconfiguration type.
 	Type pulumi.StringPtrInput
 }

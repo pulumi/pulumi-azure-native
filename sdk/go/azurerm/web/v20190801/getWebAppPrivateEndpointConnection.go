@@ -28,8 +28,11 @@ type LookupWebAppPrivateEndpointConnectionResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// Core resource properties
-	Properties RemotePrivateEndpointConnectionResponse `pulumi:"properties"`
+	// PrivateEndpoint of a remote private endpoint connection
+	PrivateEndpoint *ArmIdWrapperResponse `pulumi:"privateEndpoint"`
+	// The state of a private link connection
+	PrivateLinkServiceConnectionState *PrivateLinkConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	ProvisioningState                 string                              `pulumi:"provisioningState"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

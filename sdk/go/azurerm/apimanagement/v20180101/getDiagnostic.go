@@ -27,10 +27,10 @@ type LookupDiagnosticArgs struct {
 
 // Diagnostic details.
 type LookupDiagnosticResult struct {
+	// Indicates whether a diagnostic should receive data or not.
+	Enabled bool `pulumi:"enabled"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Diagnostic entity contract properties.
-	Properties DiagnosticContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

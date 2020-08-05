@@ -20,12 +20,16 @@ type DdosProtectionPlan struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the DDoS protection plan.
-	Properties DdosProtectionPlanPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the DDoS protection plan resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+	VirtualNetworks SubResourceResponseArrayOutput `pulumi:"virtualNetworks"`
 }
 
 // NewDdosProtectionPlan registers a new resource with the given unique name, arguments, and options.
@@ -68,12 +72,16 @@ type ddosProtectionPlanState struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the DDoS protection plan.
-	Properties *DdosProtectionPlanPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the DDoS protection plan resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+	VirtualNetworks []SubResourceResponse `pulumi:"virtualNetworks"`
 }
 
 type DdosProtectionPlanState struct {
@@ -83,12 +91,16 @@ type DdosProtectionPlanState struct {
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the DDoS protection plan.
-	Properties DdosProtectionPlanPropertiesFormatResponsePtrInput
+	// The provisioning state of the DDoS protection plan resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+	VirtualNetworks SubResourceResponseArrayInput
 }
 
 func (DdosProtectionPlanState) ElementType() reflect.Type {

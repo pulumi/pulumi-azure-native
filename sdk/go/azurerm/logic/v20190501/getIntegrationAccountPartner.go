@@ -27,12 +27,20 @@ type LookupIntegrationAccountPartnerArgs struct {
 
 // The integration account partner.
 type LookupIntegrationAccountPartnerResult struct {
+	// The changed time.
+	ChangedTime string `pulumi:"changedTime"`
+	// The partner content.
+	Content PartnerContentResponse `pulumi:"content"`
+	// The created time.
+	CreatedTime string `pulumi:"createdTime"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// Gets the resource name.
 	Name string `pulumi:"name"`
-	// The integration account partner properties.
-	Properties IntegrationAccountPartnerPropertiesResponse `pulumi:"properties"`
+	// The partner type.
+	PartnerType string `pulumi:"partnerType"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.

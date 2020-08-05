@@ -17,10 +17,15 @@ type DiskAccess struct {
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
-	Name       pulumi.StringOutput                `pulumi:"name"`
-	Properties DiskAccessPropertiesResponseOutput `pulumi:"properties"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	// The disk access resource provisioning state.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The time when the disk access was created.
+	TimeCreated pulumi.StringOutput `pulumi:"timeCreated"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,10 +70,15 @@ type diskAccessState struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
-	Name       *string                       `pulumi:"name"`
-	Properties *DiskAccessPropertiesResponse `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// The disk access resource provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// The time when the disk access was created.
+	TimeCreated *string `pulumi:"timeCreated"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -77,10 +87,15 @@ type DiskAccessState struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
-	Name       pulumi.StringPtrInput
-	Properties DiskAccessPropertiesResponsePtrInput
+	Name pulumi.StringPtrInput
+	// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
+	// The disk access resource provisioning state.
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// The time when the disk access was created.
+	TimeCreated pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

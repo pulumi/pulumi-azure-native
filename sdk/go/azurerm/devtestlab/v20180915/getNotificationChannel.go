@@ -27,14 +27,28 @@ type LookupNotificationChannelArgs struct {
 
 // A notification.
 type LookupNotificationChannelResult struct {
+	// The creation date of the notification channel.
+	CreatedDate string `pulumi:"createdDate"`
+	// Description of notification.
+	Description *string `pulumi:"description"`
+	// The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+	EmailRecipient *string `pulumi:"emailRecipient"`
+	// The list of event for which this notification is enabled.
+	Events []EventResponse `pulumi:"events"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties NotificationChannelPropertiesResponse `pulumi:"properties"`
+	// The locale to use when sending a notification (fallback for unsupported languages is EN).
+	NotificationLocale *string `pulumi:"notificationLocale"`
+	// The provisioning status of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
+	// The webhook URL to send notifications to.
+	WebHookUrl *string `pulumi:"webHookUrl"`
 }

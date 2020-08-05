@@ -25,12 +25,14 @@ type LookupSpatialAnchorsAccountArgs struct {
 
 // SpatialAnchorsAccount Response.
 type LookupSpatialAnchorsAccountResult struct {
+	// Correspond domain name of certain Spatial Anchors Account
+	AccountDomain string `pulumi:"accountDomain"`
+	// unique id of certain account.
+	AccountId string `pulumi:"accountId"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Property bag.
-	Properties MixedRealityAccountPropertiesResponse `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

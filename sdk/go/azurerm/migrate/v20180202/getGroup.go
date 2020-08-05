@@ -27,12 +27,18 @@ type LookupGroupArgs struct {
 
 // A group created in a Migration project.
 type LookupGroupResult struct {
+	// List of References to Assessments created on this group.
+	Assessments []string `pulumi:"assessments"`
+	// Time when this project was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp string `pulumi:"createdTimestamp"`
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
+	// List of machine names that are part of this group.
+	Machines []string `pulumi:"machines"`
 	// Name of the group.
 	Name string `pulumi:"name"`
-	// Properties of the group.
-	Properties GroupPropertiesResponse `pulumi:"properties"`
 	// Type of the object = [Microsoft.Migrate/projects/groups].
 	Type string `pulumi:"type"`
+	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
 }

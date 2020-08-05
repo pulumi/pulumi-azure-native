@@ -27,10 +27,18 @@ type LookupJobScheduleArgs struct {
 
 // Definition of the job schedule.
 type LookupJobScheduleResult struct {
+	// Gets or sets the id of job schedule.
+	JobScheduleId *string `pulumi:"jobScheduleId"`
 	// Gets the name of the variable.
 	Name string `pulumi:"name"`
-	// Gets or sets the properties of the job schedule.
-	Properties JobSchedulePropertiesResponse `pulumi:"properties"`
+	// Gets or sets the parameters of the job schedule.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Gets or sets the hybrid worker group that the scheduled job should run on.
+	RunOn *string `pulumi:"runOn"`
+	// Gets or sets the runbook.
+	Runbook *RunbookAssociationPropertyResponse `pulumi:"runbook"`
+	// Gets or sets the schedule.
+	Schedule *ScheduleAssociationPropertyResponse `pulumi:"schedule"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

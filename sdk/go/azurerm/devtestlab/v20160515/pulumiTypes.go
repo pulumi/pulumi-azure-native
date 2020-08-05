@@ -201,169 +201,18 @@ func (o ApplicableSchedulePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-// Properties of a schedules applicable to a virtual machine.
-type ApplicableSchedulePropertiesResponse struct {
-	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-	LabVmsShutdown *ScheduleResponse `pulumi:"labVmsShutdown"`
-	// The auto-startup schedule, if one has been set at the lab or lab resource level.
-	LabVmsStartup *ScheduleResponse `pulumi:"labVmsStartup"`
-}
-
-// ApplicableSchedulePropertiesResponseInput is an input type that accepts ApplicableSchedulePropertiesResponseArgs and ApplicableSchedulePropertiesResponseOutput values.
-// You can construct a concrete instance of `ApplicableSchedulePropertiesResponseInput` via:
-//
-//          ApplicableSchedulePropertiesResponseArgs{...}
-type ApplicableSchedulePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToApplicableSchedulePropertiesResponseOutput() ApplicableSchedulePropertiesResponseOutput
-	ToApplicableSchedulePropertiesResponseOutputWithContext(context.Context) ApplicableSchedulePropertiesResponseOutput
-}
-
-// Properties of a schedules applicable to a virtual machine.
-type ApplicableSchedulePropertiesResponseArgs struct {
-	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-	LabVmsShutdown ScheduleResponsePtrInput `pulumi:"labVmsShutdown"`
-	// The auto-startup schedule, if one has been set at the lab or lab resource level.
-	LabVmsStartup ScheduleResponsePtrInput `pulumi:"labVmsStartup"`
-}
-
-func (ApplicableSchedulePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicableSchedulePropertiesResponse)(nil)).Elem()
-}
-
-func (i ApplicableSchedulePropertiesResponseArgs) ToApplicableSchedulePropertiesResponseOutput() ApplicableSchedulePropertiesResponseOutput {
-	return i.ToApplicableSchedulePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicableSchedulePropertiesResponseArgs) ToApplicableSchedulePropertiesResponseOutputWithContext(ctx context.Context) ApplicableSchedulePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicableSchedulePropertiesResponseOutput)
-}
-
-func (i ApplicableSchedulePropertiesResponseArgs) ToApplicableSchedulePropertiesResponsePtrOutput() ApplicableSchedulePropertiesResponsePtrOutput {
-	return i.ToApplicableSchedulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicableSchedulePropertiesResponseArgs) ToApplicableSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicableSchedulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicableSchedulePropertiesResponseOutput).ToApplicableSchedulePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ApplicableSchedulePropertiesResponsePtrInput is an input type that accepts ApplicableSchedulePropertiesResponseArgs, ApplicableSchedulePropertiesResponsePtr and ApplicableSchedulePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ApplicableSchedulePropertiesResponsePtrInput` via:
-//
-//          ApplicableSchedulePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicableSchedulePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicableSchedulePropertiesResponsePtrOutput() ApplicableSchedulePropertiesResponsePtrOutput
-	ToApplicableSchedulePropertiesResponsePtrOutputWithContext(context.Context) ApplicableSchedulePropertiesResponsePtrOutput
-}
-
-type applicableSchedulePropertiesResponsePtrType ApplicableSchedulePropertiesResponseArgs
-
-func ApplicableSchedulePropertiesResponsePtr(v *ApplicableSchedulePropertiesResponseArgs) ApplicableSchedulePropertiesResponsePtrInput {
-	return (*applicableSchedulePropertiesResponsePtrType)(v)
-}
-
-func (*applicableSchedulePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicableSchedulePropertiesResponse)(nil)).Elem()
-}
-
-func (i *applicableSchedulePropertiesResponsePtrType) ToApplicableSchedulePropertiesResponsePtrOutput() ApplicableSchedulePropertiesResponsePtrOutput {
-	return i.ToApplicableSchedulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicableSchedulePropertiesResponsePtrType) ToApplicableSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicableSchedulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicableSchedulePropertiesResponsePtrOutput)
-}
-
-// Properties of a schedules applicable to a virtual machine.
-type ApplicableSchedulePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ApplicableSchedulePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicableSchedulePropertiesResponse)(nil)).Elem()
-}
-
-func (o ApplicableSchedulePropertiesResponseOutput) ToApplicableSchedulePropertiesResponseOutput() ApplicableSchedulePropertiesResponseOutput {
-	return o
-}
-
-func (o ApplicableSchedulePropertiesResponseOutput) ToApplicableSchedulePropertiesResponseOutputWithContext(ctx context.Context) ApplicableSchedulePropertiesResponseOutput {
-	return o
-}
-
-func (o ApplicableSchedulePropertiesResponseOutput) ToApplicableSchedulePropertiesResponsePtrOutput() ApplicableSchedulePropertiesResponsePtrOutput {
-	return o.ToApplicableSchedulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicableSchedulePropertiesResponseOutput) ToApplicableSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicableSchedulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ApplicableSchedulePropertiesResponse) *ApplicableSchedulePropertiesResponse {
-		return &v
-	}).(ApplicableSchedulePropertiesResponsePtrOutput)
-}
-
-// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-func (o ApplicableSchedulePropertiesResponseOutput) LabVmsShutdown() ScheduleResponsePtrOutput {
-	return o.ApplyT(func(v ApplicableSchedulePropertiesResponse) *ScheduleResponse { return v.LabVmsShutdown }).(ScheduleResponsePtrOutput)
-}
-
-// The auto-startup schedule, if one has been set at the lab or lab resource level.
-func (o ApplicableSchedulePropertiesResponseOutput) LabVmsStartup() ScheduleResponsePtrOutput {
-	return o.ApplyT(func(v ApplicableSchedulePropertiesResponse) *ScheduleResponse { return v.LabVmsStartup }).(ScheduleResponsePtrOutput)
-}
-
-type ApplicableSchedulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicableSchedulePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicableSchedulePropertiesResponse)(nil)).Elem()
-}
-
-func (o ApplicableSchedulePropertiesResponsePtrOutput) ToApplicableSchedulePropertiesResponsePtrOutput() ApplicableSchedulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ApplicableSchedulePropertiesResponsePtrOutput) ToApplicableSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) ApplicableSchedulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ApplicableSchedulePropertiesResponsePtrOutput) Elem() ApplicableSchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v *ApplicableSchedulePropertiesResponse) ApplicableSchedulePropertiesResponse { return *v }).(ApplicableSchedulePropertiesResponseOutput)
-}
-
-// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-func (o ApplicableSchedulePropertiesResponsePtrOutput) LabVmsShutdown() ScheduleResponsePtrOutput {
-	return o.ApplyT(func(v *ApplicableSchedulePropertiesResponse) *ScheduleResponse {
-		if v == nil {
-			return nil
-		}
-		return v.LabVmsShutdown
-	}).(ScheduleResponsePtrOutput)
-}
-
-// The auto-startup schedule, if one has been set at the lab or lab resource level.
-func (o ApplicableSchedulePropertiesResponsePtrOutput) LabVmsStartup() ScheduleResponsePtrOutput {
-	return o.ApplyT(func(v *ApplicableSchedulePropertiesResponse) *ScheduleResponse {
-		if v == nil {
-			return nil
-		}
-		return v.LabVmsStartup
-	}).(ScheduleResponsePtrOutput)
-}
-
 // Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 type ApplicableScheduleResponse struct {
 	// The identifier of the resource.
 	Id string `pulumi:"id"`
+	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+	LabVmsShutdown *ScheduleResponse `pulumi:"labVmsShutdown"`
+	// The auto-startup schedule, if one has been set at the lab or lab resource level.
+	LabVmsStartup *ScheduleResponse `pulumi:"labVmsStartup"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties ApplicableSchedulePropertiesResponse `pulumi:"properties"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -385,12 +234,14 @@ type ApplicableScheduleResponseInput interface {
 type ApplicableScheduleResponseArgs struct {
 	// The identifier of the resource.
 	Id pulumi.StringInput `pulumi:"id"`
+	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+	LabVmsShutdown ScheduleResponsePtrInput `pulumi:"labVmsShutdown"`
+	// The auto-startup schedule, if one has been set at the lab or lab resource level.
+	LabVmsStartup ScheduleResponsePtrInput `pulumi:"labVmsStartup"`
 	// The location of the resource.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties ApplicableSchedulePropertiesResponseInput `pulumi:"properties"`
 	// The tags of the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of the resource.
@@ -480,6 +331,16 @@ func (o ApplicableScheduleResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicableScheduleResponse) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+func (o ApplicableScheduleResponseOutput) LabVmsShutdown() ScheduleResponsePtrOutput {
+	return o.ApplyT(func(v ApplicableScheduleResponse) *ScheduleResponse { return v.LabVmsShutdown }).(ScheduleResponsePtrOutput)
+}
+
+// The auto-startup schedule, if one has been set at the lab or lab resource level.
+func (o ApplicableScheduleResponseOutput) LabVmsStartup() ScheduleResponsePtrOutput {
+	return o.ApplyT(func(v ApplicableScheduleResponse) *ScheduleResponse { return v.LabVmsStartup }).(ScheduleResponsePtrOutput)
+}
+
 // The location of the resource.
 func (o ApplicableScheduleResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicableScheduleResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
@@ -488,11 +349,6 @@ func (o ApplicableScheduleResponseOutput) Location() pulumi.StringPtrOutput {
 // The name of the resource.
 func (o ApplicableScheduleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicableScheduleResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o ApplicableScheduleResponseOutput) Properties() ApplicableSchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v ApplicableScheduleResponse) ApplicableSchedulePropertiesResponse { return v.Properties }).(ApplicableSchedulePropertiesResponseOutput)
 }
 
 // The tags of the resource.
@@ -533,6 +389,26 @@ func (o ApplicableScheduleResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+func (o ApplicableScheduleResponsePtrOutput) LabVmsShutdown() ScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicableScheduleResponse) *ScheduleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LabVmsShutdown
+	}).(ScheduleResponsePtrOutput)
+}
+
+// The auto-startup schedule, if one has been set at the lab or lab resource level.
+func (o ApplicableScheduleResponsePtrOutput) LabVmsStartup() ScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicableScheduleResponse) *ScheduleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.LabVmsStartup
+	}).(ScheduleResponsePtrOutput)
+}
+
 // The location of the resource.
 func (o ApplicableScheduleResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicableScheduleResponse) *string {
@@ -551,16 +427,6 @@ func (o ApplicableScheduleResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of the resource.
-func (o ApplicableScheduleResponsePtrOutput) Properties() ApplicableSchedulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *ApplicableScheduleResponse) *ApplicableSchedulePropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Properties
-	}).(ApplicableSchedulePropertiesResponsePtrOutput)
 }
 
 // The tags of the resource.
@@ -1653,330 +1519,6 @@ func (o ArtifactParameterPropertiesResponseArrayOutput) Index(i pulumi.IntInput)
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ArtifactParameterPropertiesResponse {
 		return vs[0].([]ArtifactParameterPropertiesResponse)[vs[1].(int)]
 	}).(ArtifactParameterPropertiesResponseOutput)
-}
-
-// Properties of an artifact source.
-type ArtifactSourcePropertiesResponse struct {
-	// The folder containing Azure Resource Manager templates.
-	ArmTemplateFolderPath *string `pulumi:"armTemplateFolderPath"`
-	// The artifact source's branch reference.
-	BranchRef *string `pulumi:"branchRef"`
-	// The artifact source's creation date.
-	CreatedDate string `pulumi:"createdDate"`
-	// The artifact source's display name.
-	DisplayName *string `pulumi:"displayName"`
-	// The folder containing artifacts.
-	FolderPath *string `pulumi:"folderPath"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The security token to authenticate to the artifact source.
-	SecurityToken *string `pulumi:"securityToken"`
-	// The artifact source's type.
-	SourceType *string `pulumi:"sourceType"`
-	// Indicates if the artifact source is enabled (values: Enabled, Disabled).
-	Status *string `pulumi:"status"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The artifact source's URI.
-	Uri *string `pulumi:"uri"`
-}
-
-// ArtifactSourcePropertiesResponseInput is an input type that accepts ArtifactSourcePropertiesResponseArgs and ArtifactSourcePropertiesResponseOutput values.
-// You can construct a concrete instance of `ArtifactSourcePropertiesResponseInput` via:
-//
-//          ArtifactSourcePropertiesResponseArgs{...}
-type ArtifactSourcePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToArtifactSourcePropertiesResponseOutput() ArtifactSourcePropertiesResponseOutput
-	ToArtifactSourcePropertiesResponseOutputWithContext(context.Context) ArtifactSourcePropertiesResponseOutput
-}
-
-// Properties of an artifact source.
-type ArtifactSourcePropertiesResponseArgs struct {
-	// The folder containing Azure Resource Manager templates.
-	ArmTemplateFolderPath pulumi.StringPtrInput `pulumi:"armTemplateFolderPath"`
-	// The artifact source's branch reference.
-	BranchRef pulumi.StringPtrInput `pulumi:"branchRef"`
-	// The artifact source's creation date.
-	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
-	// The artifact source's display name.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// The folder containing artifacts.
-	FolderPath pulumi.StringPtrInput `pulumi:"folderPath"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The security token to authenticate to the artifact source.
-	SecurityToken pulumi.StringPtrInput `pulumi:"securityToken"`
-	// The artifact source's type.
-	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
-	// Indicates if the artifact source is enabled (values: Enabled, Disabled).
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// The artifact source's URI.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
-}
-
-func (ArtifactSourcePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArtifactSourcePropertiesResponse)(nil)).Elem()
-}
-
-func (i ArtifactSourcePropertiesResponseArgs) ToArtifactSourcePropertiesResponseOutput() ArtifactSourcePropertiesResponseOutput {
-	return i.ToArtifactSourcePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ArtifactSourcePropertiesResponseArgs) ToArtifactSourcePropertiesResponseOutputWithContext(ctx context.Context) ArtifactSourcePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArtifactSourcePropertiesResponseOutput)
-}
-
-func (i ArtifactSourcePropertiesResponseArgs) ToArtifactSourcePropertiesResponsePtrOutput() ArtifactSourcePropertiesResponsePtrOutput {
-	return i.ToArtifactSourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ArtifactSourcePropertiesResponseArgs) ToArtifactSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ArtifactSourcePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArtifactSourcePropertiesResponseOutput).ToArtifactSourcePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ArtifactSourcePropertiesResponsePtrInput is an input type that accepts ArtifactSourcePropertiesResponseArgs, ArtifactSourcePropertiesResponsePtr and ArtifactSourcePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ArtifactSourcePropertiesResponsePtrInput` via:
-//
-//          ArtifactSourcePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ArtifactSourcePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToArtifactSourcePropertiesResponsePtrOutput() ArtifactSourcePropertiesResponsePtrOutput
-	ToArtifactSourcePropertiesResponsePtrOutputWithContext(context.Context) ArtifactSourcePropertiesResponsePtrOutput
-}
-
-type artifactSourcePropertiesResponsePtrType ArtifactSourcePropertiesResponseArgs
-
-func ArtifactSourcePropertiesResponsePtr(v *ArtifactSourcePropertiesResponseArgs) ArtifactSourcePropertiesResponsePtrInput {
-	return (*artifactSourcePropertiesResponsePtrType)(v)
-}
-
-func (*artifactSourcePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArtifactSourcePropertiesResponse)(nil)).Elem()
-}
-
-func (i *artifactSourcePropertiesResponsePtrType) ToArtifactSourcePropertiesResponsePtrOutput() ArtifactSourcePropertiesResponsePtrOutput {
-	return i.ToArtifactSourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *artifactSourcePropertiesResponsePtrType) ToArtifactSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ArtifactSourcePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArtifactSourcePropertiesResponsePtrOutput)
-}
-
-// Properties of an artifact source.
-type ArtifactSourcePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ArtifactSourcePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArtifactSourcePropertiesResponse)(nil)).Elem()
-}
-
-func (o ArtifactSourcePropertiesResponseOutput) ToArtifactSourcePropertiesResponseOutput() ArtifactSourcePropertiesResponseOutput {
-	return o
-}
-
-func (o ArtifactSourcePropertiesResponseOutput) ToArtifactSourcePropertiesResponseOutputWithContext(ctx context.Context) ArtifactSourcePropertiesResponseOutput {
-	return o
-}
-
-func (o ArtifactSourcePropertiesResponseOutput) ToArtifactSourcePropertiesResponsePtrOutput() ArtifactSourcePropertiesResponsePtrOutput {
-	return o.ToArtifactSourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ArtifactSourcePropertiesResponseOutput) ToArtifactSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ArtifactSourcePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) *ArtifactSourcePropertiesResponse {
-		return &v
-	}).(ArtifactSourcePropertiesResponsePtrOutput)
-}
-
-// The folder containing Azure Resource Manager templates.
-func (o ArtifactSourcePropertiesResponseOutput) ArmTemplateFolderPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) *string { return v.ArmTemplateFolderPath }).(pulumi.StringPtrOutput)
-}
-
-// The artifact source's branch reference.
-func (o ArtifactSourcePropertiesResponseOutput) BranchRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) *string { return v.BranchRef }).(pulumi.StringPtrOutput)
-}
-
-// The artifact source's creation date.
-func (o ArtifactSourcePropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
-}
-
-// The artifact source's display name.
-func (o ArtifactSourcePropertiesResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// The folder containing artifacts.
-func (o ArtifactSourcePropertiesResponseOutput) FolderPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) *string { return v.FolderPath }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o ArtifactSourcePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The security token to authenticate to the artifact source.
-func (o ArtifactSourcePropertiesResponseOutput) SecurityToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) *string { return v.SecurityToken }).(pulumi.StringPtrOutput)
-}
-
-// The artifact source's type.
-func (o ArtifactSourcePropertiesResponseOutput) SourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) *string { return v.SourceType }).(pulumi.StringPtrOutput)
-}
-
-// Indicates if the artifact source is enabled (values: Enabled, Disabled).
-func (o ArtifactSourcePropertiesResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o ArtifactSourcePropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-// The artifact source's URI.
-func (o ArtifactSourcePropertiesResponseOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArtifactSourcePropertiesResponse) *string { return v.Uri }).(pulumi.StringPtrOutput)
-}
-
-type ArtifactSourcePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ArtifactSourcePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArtifactSourcePropertiesResponse)(nil)).Elem()
-}
-
-func (o ArtifactSourcePropertiesResponsePtrOutput) ToArtifactSourcePropertiesResponsePtrOutput() ArtifactSourcePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ArtifactSourcePropertiesResponsePtrOutput) ToArtifactSourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ArtifactSourcePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ArtifactSourcePropertiesResponsePtrOutput) Elem() ArtifactSourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) ArtifactSourcePropertiesResponse { return *v }).(ArtifactSourcePropertiesResponseOutput)
-}
-
-// The folder containing Azure Resource Manager templates.
-func (o ArtifactSourcePropertiesResponsePtrOutput) ArmTemplateFolderPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ArmTemplateFolderPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// The artifact source's branch reference.
-func (o ArtifactSourcePropertiesResponsePtrOutput) BranchRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BranchRef
-	}).(pulumi.StringPtrOutput)
-}
-
-// The artifact source's creation date.
-func (o ArtifactSourcePropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The artifact source's display name.
-func (o ArtifactSourcePropertiesResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The folder containing artifacts.
-func (o ArtifactSourcePropertiesResponsePtrOutput) FolderPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FolderPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o ArtifactSourcePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The security token to authenticate to the artifact source.
-func (o ArtifactSourcePropertiesResponsePtrOutput) SecurityToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityToken
-	}).(pulumi.StringPtrOutput)
-}
-
-// The artifact source's type.
-func (o ArtifactSourcePropertiesResponsePtrOutput) SourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SourceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates if the artifact source is enabled (values: Enabled, Disabled).
-func (o ArtifactSourcePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o ArtifactSourcePropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The artifact source's URI.
-func (o ArtifactSourcePropertiesResponsePtrOutput) Uri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArtifactSourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Uri
-	}).(pulumi.StringPtrOutput)
 }
 
 // Parameters for creating multiple virtual machines as a single action.
@@ -3921,273 +3463,6 @@ func (o CustomImagePropertiesFromVmResponsePtrOutput) WindowsOsInfo() WindowsOsI
 	}).(WindowsOsInfoResponsePtrOutput)
 }
 
-// Properties of a custom image.
-type CustomImagePropertiesResponse struct {
-	// The author of the custom image.
-	Author *string `pulumi:"author"`
-	// The creation date of the custom image.
-	CreationDate string `pulumi:"creationDate"`
-	// The description of the custom image.
-	Description *string `pulumi:"description"`
-	// The Managed Image Id backing the custom image.
-	ManagedImageId *string `pulumi:"managedImageId"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The VHD from which the image is to be created.
-	Vhd *CustomImagePropertiesCustomResponse `pulumi:"vhd"`
-	// The virtual machine from which the image is to be created.
-	Vm *CustomImagePropertiesFromVmResponse `pulumi:"vm"`
-}
-
-// CustomImagePropertiesResponseInput is an input type that accepts CustomImagePropertiesResponseArgs and CustomImagePropertiesResponseOutput values.
-// You can construct a concrete instance of `CustomImagePropertiesResponseInput` via:
-//
-//          CustomImagePropertiesResponseArgs{...}
-type CustomImagePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToCustomImagePropertiesResponseOutput() CustomImagePropertiesResponseOutput
-	ToCustomImagePropertiesResponseOutputWithContext(context.Context) CustomImagePropertiesResponseOutput
-}
-
-// Properties of a custom image.
-type CustomImagePropertiesResponseArgs struct {
-	// The author of the custom image.
-	Author pulumi.StringPtrInput `pulumi:"author"`
-	// The creation date of the custom image.
-	CreationDate pulumi.StringInput `pulumi:"creationDate"`
-	// The description of the custom image.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The Managed Image Id backing the custom image.
-	ManagedImageId pulumi.StringPtrInput `pulumi:"managedImageId"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// The VHD from which the image is to be created.
-	Vhd CustomImagePropertiesCustomResponsePtrInput `pulumi:"vhd"`
-	// The virtual machine from which the image is to be created.
-	Vm CustomImagePropertiesFromVmResponsePtrInput `pulumi:"vm"`
-}
-
-func (CustomImagePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomImagePropertiesResponse)(nil)).Elem()
-}
-
-func (i CustomImagePropertiesResponseArgs) ToCustomImagePropertiesResponseOutput() CustomImagePropertiesResponseOutput {
-	return i.ToCustomImagePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i CustomImagePropertiesResponseArgs) ToCustomImagePropertiesResponseOutputWithContext(ctx context.Context) CustomImagePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomImagePropertiesResponseOutput)
-}
-
-func (i CustomImagePropertiesResponseArgs) ToCustomImagePropertiesResponsePtrOutput() CustomImagePropertiesResponsePtrOutput {
-	return i.ToCustomImagePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CustomImagePropertiesResponseArgs) ToCustomImagePropertiesResponsePtrOutputWithContext(ctx context.Context) CustomImagePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomImagePropertiesResponseOutput).ToCustomImagePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// CustomImagePropertiesResponsePtrInput is an input type that accepts CustomImagePropertiesResponseArgs, CustomImagePropertiesResponsePtr and CustomImagePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `CustomImagePropertiesResponsePtrInput` via:
-//
-//          CustomImagePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CustomImagePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToCustomImagePropertiesResponsePtrOutput() CustomImagePropertiesResponsePtrOutput
-	ToCustomImagePropertiesResponsePtrOutputWithContext(context.Context) CustomImagePropertiesResponsePtrOutput
-}
-
-type customImagePropertiesResponsePtrType CustomImagePropertiesResponseArgs
-
-func CustomImagePropertiesResponsePtr(v *CustomImagePropertiesResponseArgs) CustomImagePropertiesResponsePtrInput {
-	return (*customImagePropertiesResponsePtrType)(v)
-}
-
-func (*customImagePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomImagePropertiesResponse)(nil)).Elem()
-}
-
-func (i *customImagePropertiesResponsePtrType) ToCustomImagePropertiesResponsePtrOutput() CustomImagePropertiesResponsePtrOutput {
-	return i.ToCustomImagePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *customImagePropertiesResponsePtrType) ToCustomImagePropertiesResponsePtrOutputWithContext(ctx context.Context) CustomImagePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomImagePropertiesResponsePtrOutput)
-}
-
-// Properties of a custom image.
-type CustomImagePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (CustomImagePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomImagePropertiesResponse)(nil)).Elem()
-}
-
-func (o CustomImagePropertiesResponseOutput) ToCustomImagePropertiesResponseOutput() CustomImagePropertiesResponseOutput {
-	return o
-}
-
-func (o CustomImagePropertiesResponseOutput) ToCustomImagePropertiesResponseOutputWithContext(ctx context.Context) CustomImagePropertiesResponseOutput {
-	return o
-}
-
-func (o CustomImagePropertiesResponseOutput) ToCustomImagePropertiesResponsePtrOutput() CustomImagePropertiesResponsePtrOutput {
-	return o.ToCustomImagePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CustomImagePropertiesResponseOutput) ToCustomImagePropertiesResponsePtrOutputWithContext(ctx context.Context) CustomImagePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesResponse) *CustomImagePropertiesResponse {
-		return &v
-	}).(CustomImagePropertiesResponsePtrOutput)
-}
-
-// The author of the custom image.
-func (o CustomImagePropertiesResponseOutput) Author() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesResponse) *string { return v.Author }).(pulumi.StringPtrOutput)
-}
-
-// The creation date of the custom image.
-func (o CustomImagePropertiesResponseOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomImagePropertiesResponse) string { return v.CreationDate }).(pulumi.StringOutput)
-}
-
-// The description of the custom image.
-func (o CustomImagePropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The Managed Image Id backing the custom image.
-func (o CustomImagePropertiesResponseOutput) ManagedImageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesResponse) *string { return v.ManagedImageId }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o CustomImagePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o CustomImagePropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-// The VHD from which the image is to be created.
-func (o CustomImagePropertiesResponseOutput) Vhd() CustomImagePropertiesCustomResponsePtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesResponse) *CustomImagePropertiesCustomResponse { return v.Vhd }).(CustomImagePropertiesCustomResponsePtrOutput)
-}
-
-// The virtual machine from which the image is to be created.
-func (o CustomImagePropertiesResponseOutput) Vm() CustomImagePropertiesFromVmResponsePtrOutput {
-	return o.ApplyT(func(v CustomImagePropertiesResponse) *CustomImagePropertiesFromVmResponse { return v.Vm }).(CustomImagePropertiesFromVmResponsePtrOutput)
-}
-
-type CustomImagePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CustomImagePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomImagePropertiesResponse)(nil)).Elem()
-}
-
-func (o CustomImagePropertiesResponsePtrOutput) ToCustomImagePropertiesResponsePtrOutput() CustomImagePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o CustomImagePropertiesResponsePtrOutput) ToCustomImagePropertiesResponsePtrOutputWithContext(ctx context.Context) CustomImagePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o CustomImagePropertiesResponsePtrOutput) Elem() CustomImagePropertiesResponseOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesResponse) CustomImagePropertiesResponse { return *v }).(CustomImagePropertiesResponseOutput)
-}
-
-// The author of the custom image.
-func (o CustomImagePropertiesResponsePtrOutput) Author() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Author
-	}).(pulumi.StringPtrOutput)
-}
-
-// The creation date of the custom image.
-func (o CustomImagePropertiesResponsePtrOutput) CreationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreationDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The description of the custom image.
-func (o CustomImagePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Managed Image Id backing the custom image.
-func (o CustomImagePropertiesResponsePtrOutput) ManagedImageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedImageId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o CustomImagePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o CustomImagePropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The VHD from which the image is to be created.
-func (o CustomImagePropertiesResponsePtrOutput) Vhd() CustomImagePropertiesCustomResponsePtrOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesResponse) *CustomImagePropertiesCustomResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Vhd
-	}).(CustomImagePropertiesCustomResponsePtrOutput)
-}
-
-// The virtual machine from which the image is to be created.
-func (o CustomImagePropertiesResponsePtrOutput) Vm() CustomImagePropertiesFromVmResponsePtrOutput {
-	return o.ApplyT(func(v *CustomImagePropertiesResponse) *CustomImagePropertiesFromVmResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Vm
-	}).(CustomImagePropertiesFromVmResponsePtrOutput)
-}
-
 // Properties of a daily schedule.
 type DayDetails struct {
 	// The time of day the schedule will occur.
@@ -4453,311 +3728,6 @@ func (o DayDetailsResponsePtrOutput) Time() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Time
-	}).(pulumi.StringPtrOutput)
-}
-
-// Properties of a disk.
-type DiskPropertiesResponse struct {
-	// The creation date of the disk.
-	CreatedDate string `pulumi:"createdDate"`
-	// When backed by a blob, the name of the VHD blob without extension.
-	DiskBlobName *string `pulumi:"diskBlobName"`
-	// The size of the disk in Gibibytes.
-	DiskSizeGiB *int `pulumi:"diskSizeGiB"`
-	// The storage type for the disk (i.e. Standard, Premium).
-	DiskType *string `pulumi:"diskType"`
-	// When backed by a blob, the URI of underlying blob.
-	DiskUri *string `pulumi:"diskUri"`
-	// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-	HostCaching *string `pulumi:"hostCaching"`
-	// The resource ID of the VM to which this disk is leased.
-	LeasedByLabVmId *string `pulumi:"leasedByLabVmId"`
-	// When backed by managed disk, this is the ID of the compute disk resource.
-	ManagedDiskId *string `pulumi:"managedDiskId"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-}
-
-// DiskPropertiesResponseInput is an input type that accepts DiskPropertiesResponseArgs and DiskPropertiesResponseOutput values.
-// You can construct a concrete instance of `DiskPropertiesResponseInput` via:
-//
-//          DiskPropertiesResponseArgs{...}
-type DiskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDiskPropertiesResponseOutput() DiskPropertiesResponseOutput
-	ToDiskPropertiesResponseOutputWithContext(context.Context) DiskPropertiesResponseOutput
-}
-
-// Properties of a disk.
-type DiskPropertiesResponseArgs struct {
-	// The creation date of the disk.
-	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
-	// When backed by a blob, the name of the VHD blob without extension.
-	DiskBlobName pulumi.StringPtrInput `pulumi:"diskBlobName"`
-	// The size of the disk in Gibibytes.
-	DiskSizeGiB pulumi.IntPtrInput `pulumi:"diskSizeGiB"`
-	// The storage type for the disk (i.e. Standard, Premium).
-	DiskType pulumi.StringPtrInput `pulumi:"diskType"`
-	// When backed by a blob, the URI of underlying blob.
-	DiskUri pulumi.StringPtrInput `pulumi:"diskUri"`
-	// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-	HostCaching pulumi.StringPtrInput `pulumi:"hostCaching"`
-	// The resource ID of the VM to which this disk is leased.
-	LeasedByLabVmId pulumi.StringPtrInput `pulumi:"leasedByLabVmId"`
-	// When backed by managed disk, this is the ID of the compute disk resource.
-	ManagedDiskId pulumi.StringPtrInput `pulumi:"managedDiskId"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-}
-
-func (DiskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskPropertiesResponse)(nil)).Elem()
-}
-
-func (i DiskPropertiesResponseArgs) ToDiskPropertiesResponseOutput() DiskPropertiesResponseOutput {
-	return i.ToDiskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DiskPropertiesResponseArgs) ToDiskPropertiesResponseOutputWithContext(ctx context.Context) DiskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskPropertiesResponseOutput)
-}
-
-func (i DiskPropertiesResponseArgs) ToDiskPropertiesResponsePtrOutput() DiskPropertiesResponsePtrOutput {
-	return i.ToDiskPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DiskPropertiesResponseArgs) ToDiskPropertiesResponsePtrOutputWithContext(ctx context.Context) DiskPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskPropertiesResponseOutput).ToDiskPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// DiskPropertiesResponsePtrInput is an input type that accepts DiskPropertiesResponseArgs, DiskPropertiesResponsePtr and DiskPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `DiskPropertiesResponsePtrInput` via:
-//
-//          DiskPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DiskPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToDiskPropertiesResponsePtrOutput() DiskPropertiesResponsePtrOutput
-	ToDiskPropertiesResponsePtrOutputWithContext(context.Context) DiskPropertiesResponsePtrOutput
-}
-
-type diskPropertiesResponsePtrType DiskPropertiesResponseArgs
-
-func DiskPropertiesResponsePtr(v *DiskPropertiesResponseArgs) DiskPropertiesResponsePtrInput {
-	return (*diskPropertiesResponsePtrType)(v)
-}
-
-func (*diskPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskPropertiesResponse)(nil)).Elem()
-}
-
-func (i *diskPropertiesResponsePtrType) ToDiskPropertiesResponsePtrOutput() DiskPropertiesResponsePtrOutput {
-	return i.ToDiskPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *diskPropertiesResponsePtrType) ToDiskPropertiesResponsePtrOutputWithContext(ctx context.Context) DiskPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskPropertiesResponsePtrOutput)
-}
-
-// Properties of a disk.
-type DiskPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (DiskPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskPropertiesResponse)(nil)).Elem()
-}
-
-func (o DiskPropertiesResponseOutput) ToDiskPropertiesResponseOutput() DiskPropertiesResponseOutput {
-	return o
-}
-
-func (o DiskPropertiesResponseOutput) ToDiskPropertiesResponseOutputWithContext(ctx context.Context) DiskPropertiesResponseOutput {
-	return o
-}
-
-func (o DiskPropertiesResponseOutput) ToDiskPropertiesResponsePtrOutput() DiskPropertiesResponsePtrOutput {
-	return o.ToDiskPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DiskPropertiesResponseOutput) ToDiskPropertiesResponsePtrOutputWithContext(ctx context.Context) DiskPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DiskPropertiesResponse) *DiskPropertiesResponse {
-		return &v
-	}).(DiskPropertiesResponsePtrOutput)
-}
-
-// The creation date of the disk.
-func (o DiskPropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskPropertiesResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
-}
-
-// When backed by a blob, the name of the VHD blob without extension.
-func (o DiskPropertiesResponseOutput) DiskBlobName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPropertiesResponse) *string { return v.DiskBlobName }).(pulumi.StringPtrOutput)
-}
-
-// The size of the disk in Gibibytes.
-func (o DiskPropertiesResponseOutput) DiskSizeGiB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DiskPropertiesResponse) *int { return v.DiskSizeGiB }).(pulumi.IntPtrOutput)
-}
-
-// The storage type for the disk (i.e. Standard, Premium).
-func (o DiskPropertiesResponseOutput) DiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPropertiesResponse) *string { return v.DiskType }).(pulumi.StringPtrOutput)
-}
-
-// When backed by a blob, the URI of underlying blob.
-func (o DiskPropertiesResponseOutput) DiskUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPropertiesResponse) *string { return v.DiskUri }).(pulumi.StringPtrOutput)
-}
-
-// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-func (o DiskPropertiesResponseOutput) HostCaching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPropertiesResponse) *string { return v.HostCaching }).(pulumi.StringPtrOutput)
-}
-
-// The resource ID of the VM to which this disk is leased.
-func (o DiskPropertiesResponseOutput) LeasedByLabVmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPropertiesResponse) *string { return v.LeasedByLabVmId }).(pulumi.StringPtrOutput)
-}
-
-// When backed by managed disk, this is the ID of the compute disk resource.
-func (o DiskPropertiesResponseOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPropertiesResponse) *string { return v.ManagedDiskId }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o DiskPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o DiskPropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskPropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-type DiskPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DiskPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskPropertiesResponse)(nil)).Elem()
-}
-
-func (o DiskPropertiesResponsePtrOutput) ToDiskPropertiesResponsePtrOutput() DiskPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DiskPropertiesResponsePtrOutput) ToDiskPropertiesResponsePtrOutputWithContext(ctx context.Context) DiskPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DiskPropertiesResponsePtrOutput) Elem() DiskPropertiesResponseOutput {
-	return o.ApplyT(func(v *DiskPropertiesResponse) DiskPropertiesResponse { return *v }).(DiskPropertiesResponseOutput)
-}
-
-// The creation date of the disk.
-func (o DiskPropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// When backed by a blob, the name of the VHD blob without extension.
-func (o DiskPropertiesResponsePtrOutput) DiskBlobName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiskBlobName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the disk in Gibibytes.
-func (o DiskPropertiesResponsePtrOutput) DiskSizeGiB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DiskPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskSizeGiB
-	}).(pulumi.IntPtrOutput)
-}
-
-// The storage type for the disk (i.e. Standard, Premium).
-func (o DiskPropertiesResponsePtrOutput) DiskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiskType
-	}).(pulumi.StringPtrOutput)
-}
-
-// When backed by a blob, the URI of underlying blob.
-func (o DiskPropertiesResponsePtrOutput) DiskUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiskUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-func (o DiskPropertiesResponsePtrOutput) HostCaching() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HostCaching
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource ID of the VM to which this disk is leased.
-func (o DiskPropertiesResponsePtrOutput) LeasedByLabVmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LeasedByLabVmId
-	}).(pulumi.StringPtrOutput)
-}
-
-// When backed by managed disk, this is the ID of the compute disk resource.
-func (o DiskPropertiesResponsePtrOutput) ManagedDiskId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedDiskId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o DiskPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o DiskPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5067,237 +4037,6 @@ func (o EnvironmentDeploymentPropertiesResponsePtrOutput) Parameters() ArmTempla
 		}
 		return v.Parameters
 	}).(ArmTemplateParameterPropertiesResponseArrayOutput)
-}
-
-// Properties of an environment.
-type EnvironmentPropertiesResponse struct {
-	// The display name of the Azure Resource Manager template that produced the environment.
-	ArmTemplateDisplayName *string `pulumi:"armTemplateDisplayName"`
-	// The creator of the environment.
-	CreatedByUser string `pulumi:"createdByUser"`
-	// The deployment properties of the environment.
-	DeploymentProperties *EnvironmentDeploymentPropertiesResponse `pulumi:"deploymentProperties"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The identifier of the resource group containing the environment's resources.
-	ResourceGroupId string `pulumi:"resourceGroupId"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-}
-
-// EnvironmentPropertiesResponseInput is an input type that accepts EnvironmentPropertiesResponseArgs and EnvironmentPropertiesResponseOutput values.
-// You can construct a concrete instance of `EnvironmentPropertiesResponseInput` via:
-//
-//          EnvironmentPropertiesResponseArgs{...}
-type EnvironmentPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToEnvironmentPropertiesResponseOutput() EnvironmentPropertiesResponseOutput
-	ToEnvironmentPropertiesResponseOutputWithContext(context.Context) EnvironmentPropertiesResponseOutput
-}
-
-// Properties of an environment.
-type EnvironmentPropertiesResponseArgs struct {
-	// The display name of the Azure Resource Manager template that produced the environment.
-	ArmTemplateDisplayName pulumi.StringPtrInput `pulumi:"armTemplateDisplayName"`
-	// The creator of the environment.
-	CreatedByUser pulumi.StringInput `pulumi:"createdByUser"`
-	// The deployment properties of the environment.
-	DeploymentProperties EnvironmentDeploymentPropertiesResponsePtrInput `pulumi:"deploymentProperties"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The identifier of the resource group containing the environment's resources.
-	ResourceGroupId pulumi.StringInput `pulumi:"resourceGroupId"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-}
-
-func (EnvironmentPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentPropertiesResponse)(nil)).Elem()
-}
-
-func (i EnvironmentPropertiesResponseArgs) ToEnvironmentPropertiesResponseOutput() EnvironmentPropertiesResponseOutput {
-	return i.ToEnvironmentPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i EnvironmentPropertiesResponseArgs) ToEnvironmentPropertiesResponseOutputWithContext(ctx context.Context) EnvironmentPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentPropertiesResponseOutput)
-}
-
-func (i EnvironmentPropertiesResponseArgs) ToEnvironmentPropertiesResponsePtrOutput() EnvironmentPropertiesResponsePtrOutput {
-	return i.ToEnvironmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EnvironmentPropertiesResponseArgs) ToEnvironmentPropertiesResponsePtrOutputWithContext(ctx context.Context) EnvironmentPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentPropertiesResponseOutput).ToEnvironmentPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// EnvironmentPropertiesResponsePtrInput is an input type that accepts EnvironmentPropertiesResponseArgs, EnvironmentPropertiesResponsePtr and EnvironmentPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `EnvironmentPropertiesResponsePtrInput` via:
-//
-//          EnvironmentPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type EnvironmentPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentPropertiesResponsePtrOutput() EnvironmentPropertiesResponsePtrOutput
-	ToEnvironmentPropertiesResponsePtrOutputWithContext(context.Context) EnvironmentPropertiesResponsePtrOutput
-}
-
-type environmentPropertiesResponsePtrType EnvironmentPropertiesResponseArgs
-
-func EnvironmentPropertiesResponsePtr(v *EnvironmentPropertiesResponseArgs) EnvironmentPropertiesResponsePtrInput {
-	return (*environmentPropertiesResponsePtrType)(v)
-}
-
-func (*environmentPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentPropertiesResponse)(nil)).Elem()
-}
-
-func (i *environmentPropertiesResponsePtrType) ToEnvironmentPropertiesResponsePtrOutput() EnvironmentPropertiesResponsePtrOutput {
-	return i.ToEnvironmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *environmentPropertiesResponsePtrType) ToEnvironmentPropertiesResponsePtrOutputWithContext(ctx context.Context) EnvironmentPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentPropertiesResponsePtrOutput)
-}
-
-// Properties of an environment.
-type EnvironmentPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentPropertiesResponse)(nil)).Elem()
-}
-
-func (o EnvironmentPropertiesResponseOutput) ToEnvironmentPropertiesResponseOutput() EnvironmentPropertiesResponseOutput {
-	return o
-}
-
-func (o EnvironmentPropertiesResponseOutput) ToEnvironmentPropertiesResponseOutputWithContext(ctx context.Context) EnvironmentPropertiesResponseOutput {
-	return o
-}
-
-func (o EnvironmentPropertiesResponseOutput) ToEnvironmentPropertiesResponsePtrOutput() EnvironmentPropertiesResponsePtrOutput {
-	return o.ToEnvironmentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentPropertiesResponseOutput) ToEnvironmentPropertiesResponsePtrOutputWithContext(ctx context.Context) EnvironmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentPropertiesResponse) *EnvironmentPropertiesResponse {
-		return &v
-	}).(EnvironmentPropertiesResponsePtrOutput)
-}
-
-// The display name of the Azure Resource Manager template that produced the environment.
-func (o EnvironmentPropertiesResponseOutput) ArmTemplateDisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentPropertiesResponse) *string { return v.ArmTemplateDisplayName }).(pulumi.StringPtrOutput)
-}
-
-// The creator of the environment.
-func (o EnvironmentPropertiesResponseOutput) CreatedByUser() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentPropertiesResponse) string { return v.CreatedByUser }).(pulumi.StringOutput)
-}
-
-// The deployment properties of the environment.
-func (o EnvironmentPropertiesResponseOutput) DeploymentProperties() EnvironmentDeploymentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v EnvironmentPropertiesResponse) *EnvironmentDeploymentPropertiesResponse {
-		return v.DeploymentProperties
-	}).(EnvironmentDeploymentPropertiesResponsePtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o EnvironmentPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The identifier of the resource group containing the environment's resources.
-func (o EnvironmentPropertiesResponseOutput) ResourceGroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentPropertiesResponse) string { return v.ResourceGroupId }).(pulumi.StringOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o EnvironmentPropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentPropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-type EnvironmentPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentPropertiesResponse)(nil)).Elem()
-}
-
-func (o EnvironmentPropertiesResponsePtrOutput) ToEnvironmentPropertiesResponsePtrOutput() EnvironmentPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o EnvironmentPropertiesResponsePtrOutput) ToEnvironmentPropertiesResponsePtrOutputWithContext(ctx context.Context) EnvironmentPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o EnvironmentPropertiesResponsePtrOutput) Elem() EnvironmentPropertiesResponseOutput {
-	return o.ApplyT(func(v *EnvironmentPropertiesResponse) EnvironmentPropertiesResponse { return *v }).(EnvironmentPropertiesResponseOutput)
-}
-
-// The display name of the Azure Resource Manager template that produced the environment.
-func (o EnvironmentPropertiesResponsePtrOutput) ArmTemplateDisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ArmTemplateDisplayName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The creator of the environment.
-func (o EnvironmentPropertiesResponsePtrOutput) CreatedByUser() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedByUser
-	}).(pulumi.StringPtrOutput)
-}
-
-// The deployment properties of the environment.
-func (o EnvironmentPropertiesResponsePtrOutput) DeploymentProperties() EnvironmentDeploymentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *EnvironmentPropertiesResponse) *EnvironmentDeploymentPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DeploymentProperties
-	}).(EnvironmentDeploymentPropertiesResponsePtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o EnvironmentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identifier of the resource group containing the environment's resources.
-func (o EnvironmentPropertiesResponsePtrOutput) ResourceGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceGroupId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o EnvironmentPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
-	}).(pulumi.StringPtrOutput)
 }
 
 // An event to be notified for.
@@ -5984,273 +4723,6 @@ func (o FormulaPropertiesFromVmResponsePtrOutput) LabVmId() pulumi.StringPtrOutp
 		}
 		return v.LabVmId
 	}).(pulumi.StringPtrOutput)
-}
-
-// Properties of a formula.
-type FormulaPropertiesResponse struct {
-	// The author of the formula.
-	Author *string `pulumi:"author"`
-	// The creation date of the formula.
-	CreationDate string `pulumi:"creationDate"`
-	// The description of the formula.
-	Description *string `pulumi:"description"`
-	// The content of the formula.
-	FormulaContent *LabVirtualMachineCreationParameterResponse `pulumi:"formulaContent"`
-	// The OS type of the formula.
-	OsType *string `pulumi:"osType"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// Information about a VM from which a formula is to be created.
-	Vm *FormulaPropertiesFromVmResponse `pulumi:"vm"`
-}
-
-// FormulaPropertiesResponseInput is an input type that accepts FormulaPropertiesResponseArgs and FormulaPropertiesResponseOutput values.
-// You can construct a concrete instance of `FormulaPropertiesResponseInput` via:
-//
-//          FormulaPropertiesResponseArgs{...}
-type FormulaPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToFormulaPropertiesResponseOutput() FormulaPropertiesResponseOutput
-	ToFormulaPropertiesResponseOutputWithContext(context.Context) FormulaPropertiesResponseOutput
-}
-
-// Properties of a formula.
-type FormulaPropertiesResponseArgs struct {
-	// The author of the formula.
-	Author pulumi.StringPtrInput `pulumi:"author"`
-	// The creation date of the formula.
-	CreationDate pulumi.StringInput `pulumi:"creationDate"`
-	// The description of the formula.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The content of the formula.
-	FormulaContent LabVirtualMachineCreationParameterResponsePtrInput `pulumi:"formulaContent"`
-	// The OS type of the formula.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// Information about a VM from which a formula is to be created.
-	Vm FormulaPropertiesFromVmResponsePtrInput `pulumi:"vm"`
-}
-
-func (FormulaPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormulaPropertiesResponse)(nil)).Elem()
-}
-
-func (i FormulaPropertiesResponseArgs) ToFormulaPropertiesResponseOutput() FormulaPropertiesResponseOutput {
-	return i.ToFormulaPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i FormulaPropertiesResponseArgs) ToFormulaPropertiesResponseOutputWithContext(ctx context.Context) FormulaPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormulaPropertiesResponseOutput)
-}
-
-func (i FormulaPropertiesResponseArgs) ToFormulaPropertiesResponsePtrOutput() FormulaPropertiesResponsePtrOutput {
-	return i.ToFormulaPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FormulaPropertiesResponseArgs) ToFormulaPropertiesResponsePtrOutputWithContext(ctx context.Context) FormulaPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormulaPropertiesResponseOutput).ToFormulaPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// FormulaPropertiesResponsePtrInput is an input type that accepts FormulaPropertiesResponseArgs, FormulaPropertiesResponsePtr and FormulaPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `FormulaPropertiesResponsePtrInput` via:
-//
-//          FormulaPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type FormulaPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToFormulaPropertiesResponsePtrOutput() FormulaPropertiesResponsePtrOutput
-	ToFormulaPropertiesResponsePtrOutputWithContext(context.Context) FormulaPropertiesResponsePtrOutput
-}
-
-type formulaPropertiesResponsePtrType FormulaPropertiesResponseArgs
-
-func FormulaPropertiesResponsePtr(v *FormulaPropertiesResponseArgs) FormulaPropertiesResponsePtrInput {
-	return (*formulaPropertiesResponsePtrType)(v)
-}
-
-func (*formulaPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormulaPropertiesResponse)(nil)).Elem()
-}
-
-func (i *formulaPropertiesResponsePtrType) ToFormulaPropertiesResponsePtrOutput() FormulaPropertiesResponsePtrOutput {
-	return i.ToFormulaPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *formulaPropertiesResponsePtrType) ToFormulaPropertiesResponsePtrOutputWithContext(ctx context.Context) FormulaPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FormulaPropertiesResponsePtrOutput)
-}
-
-// Properties of a formula.
-type FormulaPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (FormulaPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FormulaPropertiesResponse)(nil)).Elem()
-}
-
-func (o FormulaPropertiesResponseOutput) ToFormulaPropertiesResponseOutput() FormulaPropertiesResponseOutput {
-	return o
-}
-
-func (o FormulaPropertiesResponseOutput) ToFormulaPropertiesResponseOutputWithContext(ctx context.Context) FormulaPropertiesResponseOutput {
-	return o
-}
-
-func (o FormulaPropertiesResponseOutput) ToFormulaPropertiesResponsePtrOutput() FormulaPropertiesResponsePtrOutput {
-	return o.ToFormulaPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o FormulaPropertiesResponseOutput) ToFormulaPropertiesResponsePtrOutputWithContext(ctx context.Context) FormulaPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesResponse) *FormulaPropertiesResponse {
-		return &v
-	}).(FormulaPropertiesResponsePtrOutput)
-}
-
-// The author of the formula.
-func (o FormulaPropertiesResponseOutput) Author() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesResponse) *string { return v.Author }).(pulumi.StringPtrOutput)
-}
-
-// The creation date of the formula.
-func (o FormulaPropertiesResponseOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v FormulaPropertiesResponse) string { return v.CreationDate }).(pulumi.StringOutput)
-}
-
-// The description of the formula.
-func (o FormulaPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The content of the formula.
-func (o FormulaPropertiesResponseOutput) FormulaContent() LabVirtualMachineCreationParameterResponsePtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesResponse) *LabVirtualMachineCreationParameterResponse { return v.FormulaContent }).(LabVirtualMachineCreationParameterResponsePtrOutput)
-}
-
-// The OS type of the formula.
-func (o FormulaPropertiesResponseOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o FormulaPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o FormulaPropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-// Information about a VM from which a formula is to be created.
-func (o FormulaPropertiesResponseOutput) Vm() FormulaPropertiesFromVmResponsePtrOutput {
-	return o.ApplyT(func(v FormulaPropertiesResponse) *FormulaPropertiesFromVmResponse { return v.Vm }).(FormulaPropertiesFromVmResponsePtrOutput)
-}
-
-type FormulaPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (FormulaPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FormulaPropertiesResponse)(nil)).Elem()
-}
-
-func (o FormulaPropertiesResponsePtrOutput) ToFormulaPropertiesResponsePtrOutput() FormulaPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FormulaPropertiesResponsePtrOutput) ToFormulaPropertiesResponsePtrOutputWithContext(ctx context.Context) FormulaPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o FormulaPropertiesResponsePtrOutput) Elem() FormulaPropertiesResponseOutput {
-	return o.ApplyT(func(v *FormulaPropertiesResponse) FormulaPropertiesResponse { return *v }).(FormulaPropertiesResponseOutput)
-}
-
-// The author of the formula.
-func (o FormulaPropertiesResponsePtrOutput) Author() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FormulaPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Author
-	}).(pulumi.StringPtrOutput)
-}
-
-// The creation date of the formula.
-func (o FormulaPropertiesResponsePtrOutput) CreationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FormulaPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreationDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The description of the formula.
-func (o FormulaPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FormulaPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The content of the formula.
-func (o FormulaPropertiesResponsePtrOutput) FormulaContent() LabVirtualMachineCreationParameterResponsePtrOutput {
-	return o.ApplyT(func(v *FormulaPropertiesResponse) *LabVirtualMachineCreationParameterResponse {
-		if v == nil {
-			return nil
-		}
-		return v.FormulaContent
-	}).(LabVirtualMachineCreationParameterResponsePtrOutput)
-}
-
-// The OS type of the formula.
-func (o FormulaPropertiesResponsePtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FormulaPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o FormulaPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FormulaPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o FormulaPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FormulaPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// Information about a VM from which a formula is to be created.
-func (o FormulaPropertiesResponsePtrOutput) Vm() FormulaPropertiesFromVmResponsePtrOutput {
-	return o.ApplyT(func(v *FormulaPropertiesResponse) *FormulaPropertiesFromVmResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Vm
-	}).(FormulaPropertiesFromVmResponsePtrOutput)
 }
 
 // The reference information for an Azure Marketplace image.
@@ -7559,319 +6031,6 @@ func (o InboundNatRuleResponseArrayOutput) Index(i pulumi.IntInput) InboundNatRu
 	}).(InboundNatRuleResponseOutput)
 }
 
-// Properties of a lab.
-type LabPropertiesResponse struct {
-	// The lab's artifact storage account.
-	ArtifactsStorageAccount string `pulumi:"artifactsStorageAccount"`
-	// The creation date of the lab.
-	CreatedDate string `pulumi:"createdDate"`
-	// The lab's default premium storage account.
-	DefaultPremiumStorageAccount string `pulumi:"defaultPremiumStorageAccount"`
-	// The lab's default storage account.
-	DefaultStorageAccount string `pulumi:"defaultStorageAccount"`
-	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-	LabStorageType *string `pulumi:"labStorageType"`
-	// The lab's premium data disk storage account.
-	PremiumDataDiskStorageAccount string `pulumi:"premiumDataDiskStorageAccount"`
-	// The setting to enable usage of premium data disks.
-	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
-	// When its value is 'Disabled', only creation of standard data disks is allowed.
-	PremiumDataDisks *string `pulumi:"premiumDataDisks"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The lab's Key vault.
-	VaultName string `pulumi:"vaultName"`
-}
-
-// LabPropertiesResponseInput is an input type that accepts LabPropertiesResponseArgs and LabPropertiesResponseOutput values.
-// You can construct a concrete instance of `LabPropertiesResponseInput` via:
-//
-//          LabPropertiesResponseArgs{...}
-type LabPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToLabPropertiesResponseOutput() LabPropertiesResponseOutput
-	ToLabPropertiesResponseOutputWithContext(context.Context) LabPropertiesResponseOutput
-}
-
-// Properties of a lab.
-type LabPropertiesResponseArgs struct {
-	// The lab's artifact storage account.
-	ArtifactsStorageAccount pulumi.StringInput `pulumi:"artifactsStorageAccount"`
-	// The creation date of the lab.
-	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
-	// The lab's default premium storage account.
-	DefaultPremiumStorageAccount pulumi.StringInput `pulumi:"defaultPremiumStorageAccount"`
-	// The lab's default storage account.
-	DefaultStorageAccount pulumi.StringInput `pulumi:"defaultStorageAccount"`
-	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-	LabStorageType pulumi.StringPtrInput `pulumi:"labStorageType"`
-	// The lab's premium data disk storage account.
-	PremiumDataDiskStorageAccount pulumi.StringInput `pulumi:"premiumDataDiskStorageAccount"`
-	// The setting to enable usage of premium data disks.
-	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
-	// When its value is 'Disabled', only creation of standard data disks is allowed.
-	PremiumDataDisks pulumi.StringPtrInput `pulumi:"premiumDataDisks"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// The lab's Key vault.
-	VaultName pulumi.StringInput `pulumi:"vaultName"`
-}
-
-func (LabPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabPropertiesResponse)(nil)).Elem()
-}
-
-func (i LabPropertiesResponseArgs) ToLabPropertiesResponseOutput() LabPropertiesResponseOutput {
-	return i.ToLabPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i LabPropertiesResponseArgs) ToLabPropertiesResponseOutputWithContext(ctx context.Context) LabPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabPropertiesResponseOutput)
-}
-
-func (i LabPropertiesResponseArgs) ToLabPropertiesResponsePtrOutput() LabPropertiesResponsePtrOutput {
-	return i.ToLabPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LabPropertiesResponseArgs) ToLabPropertiesResponsePtrOutputWithContext(ctx context.Context) LabPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabPropertiesResponseOutput).ToLabPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// LabPropertiesResponsePtrInput is an input type that accepts LabPropertiesResponseArgs, LabPropertiesResponsePtr and LabPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `LabPropertiesResponsePtrInput` via:
-//
-//          LabPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type LabPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToLabPropertiesResponsePtrOutput() LabPropertiesResponsePtrOutput
-	ToLabPropertiesResponsePtrOutputWithContext(context.Context) LabPropertiesResponsePtrOutput
-}
-
-type labPropertiesResponsePtrType LabPropertiesResponseArgs
-
-func LabPropertiesResponsePtr(v *LabPropertiesResponseArgs) LabPropertiesResponsePtrInput {
-	return (*labPropertiesResponsePtrType)(v)
-}
-
-func (*labPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabPropertiesResponse)(nil)).Elem()
-}
-
-func (i *labPropertiesResponsePtrType) ToLabPropertiesResponsePtrOutput() LabPropertiesResponsePtrOutput {
-	return i.ToLabPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *labPropertiesResponsePtrType) ToLabPropertiesResponsePtrOutputWithContext(ctx context.Context) LabPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabPropertiesResponsePtrOutput)
-}
-
-// Properties of a lab.
-type LabPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (LabPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabPropertiesResponse)(nil)).Elem()
-}
-
-func (o LabPropertiesResponseOutput) ToLabPropertiesResponseOutput() LabPropertiesResponseOutput {
-	return o
-}
-
-func (o LabPropertiesResponseOutput) ToLabPropertiesResponseOutputWithContext(ctx context.Context) LabPropertiesResponseOutput {
-	return o
-}
-
-func (o LabPropertiesResponseOutput) ToLabPropertiesResponsePtrOutput() LabPropertiesResponsePtrOutput {
-	return o.ToLabPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LabPropertiesResponseOutput) ToLabPropertiesResponsePtrOutputWithContext(ctx context.Context) LabPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabPropertiesResponse) *LabPropertiesResponse {
-		return &v
-	}).(LabPropertiesResponsePtrOutput)
-}
-
-// The lab's artifact storage account.
-func (o LabPropertiesResponseOutput) ArtifactsStorageAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v LabPropertiesResponse) string { return v.ArtifactsStorageAccount }).(pulumi.StringOutput)
-}
-
-// The creation date of the lab.
-func (o LabPropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v LabPropertiesResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
-}
-
-// The lab's default premium storage account.
-func (o LabPropertiesResponseOutput) DefaultPremiumStorageAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v LabPropertiesResponse) string { return v.DefaultPremiumStorageAccount }).(pulumi.StringOutput)
-}
-
-// The lab's default storage account.
-func (o LabPropertiesResponseOutput) DefaultStorageAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v LabPropertiesResponse) string { return v.DefaultStorageAccount }).(pulumi.StringOutput)
-}
-
-// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-func (o LabPropertiesResponseOutput) LabStorageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabPropertiesResponse) *string { return v.LabStorageType }).(pulumi.StringPtrOutput)
-}
-
-// The lab's premium data disk storage account.
-func (o LabPropertiesResponseOutput) PremiumDataDiskStorageAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v LabPropertiesResponse) string { return v.PremiumDataDiskStorageAccount }).(pulumi.StringOutput)
-}
-
-// The setting to enable usage of premium data disks.
-// When its value is 'Enabled', creation of standard or premium data disks is allowed.
-// When its value is 'Disabled', only creation of standard data disks is allowed.
-func (o LabPropertiesResponseOutput) PremiumDataDisks() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabPropertiesResponse) *string { return v.PremiumDataDisks }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o LabPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o LabPropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabPropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-// The lab's Key vault.
-func (o LabPropertiesResponseOutput) VaultName() pulumi.StringOutput {
-	return o.ApplyT(func(v LabPropertiesResponse) string { return v.VaultName }).(pulumi.StringOutput)
-}
-
-type LabPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LabPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabPropertiesResponse)(nil)).Elem()
-}
-
-func (o LabPropertiesResponsePtrOutput) ToLabPropertiesResponsePtrOutput() LabPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LabPropertiesResponsePtrOutput) ToLabPropertiesResponsePtrOutputWithContext(ctx context.Context) LabPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LabPropertiesResponsePtrOutput) Elem() LabPropertiesResponseOutput {
-	return o.ApplyT(func(v *LabPropertiesResponse) LabPropertiesResponse { return *v }).(LabPropertiesResponseOutput)
-}
-
-// The lab's artifact storage account.
-func (o LabPropertiesResponsePtrOutput) ArtifactsStorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ArtifactsStorageAccount
-	}).(pulumi.StringPtrOutput)
-}
-
-// The creation date of the lab.
-func (o LabPropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The lab's default premium storage account.
-func (o LabPropertiesResponsePtrOutput) DefaultPremiumStorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DefaultPremiumStorageAccount
-	}).(pulumi.StringPtrOutput)
-}
-
-// The lab's default storage account.
-func (o LabPropertiesResponsePtrOutput) DefaultStorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DefaultStorageAccount
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-func (o LabPropertiesResponsePtrOutput) LabStorageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LabStorageType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The lab's premium data disk storage account.
-func (o LabPropertiesResponsePtrOutput) PremiumDataDiskStorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PremiumDataDiskStorageAccount
-	}).(pulumi.StringPtrOutput)
-}
-
-// The setting to enable usage of premium data disks.
-// When its value is 'Enabled', creation of standard or premium data disks is allowed.
-// When its value is 'Disabled', only creation of standard data disks is allowed.
-func (o LabPropertiesResponsePtrOutput) PremiumDataDisks() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PremiumDataDisks
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o LabPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o LabPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The lab's Key vault.
-func (o LabPropertiesResponsePtrOutput) VaultName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VaultName
-	}).(pulumi.StringPtrOutput)
-}
-
 // Properties of a VHD in the lab.
 type LabVhdResponse struct {
 	// The URI to the VHD.
@@ -8735,8 +6894,8 @@ func (o LabVirtualMachineCreationParameterPtrOutput) VirtualMachineCreationSourc
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties for virtual machine creation.
-type LabVirtualMachineCreationParameterPropertiesResponse struct {
+// Properties for creating a virtual machine.
+type LabVirtualMachineCreationParameterResponse struct {
 	// Indicates whether another user can take ownership of the virtual machine
 	AllowClaim *bool `pulumi:"allowClaim"`
 	// The applicable schedule for the virtual machine.
@@ -8773,6 +6932,10 @@ type LabVirtualMachineCreationParameterPropertiesResponse struct {
 	LabSubnetName *string `pulumi:"labSubnetName"`
 	// The lab virtual network identifier of the virtual machine.
 	LabVirtualNetworkId *string `pulumi:"labVirtualNetworkId"`
+	// The location of the new virtual machine or environment
+	Location *string `pulumi:"location"`
+	// The name of the virtual machine or environment
+	Name *string `pulumi:"name"`
 	// The network interface properties.
 	NetworkInterface *NetworkInterfacePropertiesResponse `pulumi:"networkInterface"`
 	// The notes of the virtual machine.
@@ -8793,6 +6956,8 @@ type LabVirtualMachineCreationParameterPropertiesResponse struct {
 	SshKey *string `pulumi:"sshKey"`
 	// Storage type to use for virtual machine (i.e. Standard, Premium).
 	StorageType *string `pulumi:"storageType"`
+	// The tags of the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 	// The user name of the virtual machine.
@@ -8801,19 +6966,19 @@ type LabVirtualMachineCreationParameterPropertiesResponse struct {
 	VirtualMachineCreationSource *string `pulumi:"virtualMachineCreationSource"`
 }
 
-// LabVirtualMachineCreationParameterPropertiesResponseInput is an input type that accepts LabVirtualMachineCreationParameterPropertiesResponseArgs and LabVirtualMachineCreationParameterPropertiesResponseOutput values.
-// You can construct a concrete instance of `LabVirtualMachineCreationParameterPropertiesResponseInput` via:
+// LabVirtualMachineCreationParameterResponseInput is an input type that accepts LabVirtualMachineCreationParameterResponseArgs and LabVirtualMachineCreationParameterResponseOutput values.
+// You can construct a concrete instance of `LabVirtualMachineCreationParameterResponseInput` via:
 //
-//          LabVirtualMachineCreationParameterPropertiesResponseArgs{...}
-type LabVirtualMachineCreationParameterPropertiesResponseInput interface {
+//          LabVirtualMachineCreationParameterResponseArgs{...}
+type LabVirtualMachineCreationParameterResponseInput interface {
 	pulumi.Input
 
-	ToLabVirtualMachineCreationParameterPropertiesResponseOutput() LabVirtualMachineCreationParameterPropertiesResponseOutput
-	ToLabVirtualMachineCreationParameterPropertiesResponseOutputWithContext(context.Context) LabVirtualMachineCreationParameterPropertiesResponseOutput
+	ToLabVirtualMachineCreationParameterResponseOutput() LabVirtualMachineCreationParameterResponseOutput
+	ToLabVirtualMachineCreationParameterResponseOutputWithContext(context.Context) LabVirtualMachineCreationParameterResponseOutput
 }
 
-// Properties for virtual machine creation.
-type LabVirtualMachineCreationParameterPropertiesResponseArgs struct {
+// Properties for creating a virtual machine.
+type LabVirtualMachineCreationParameterResponseArgs struct {
 	// Indicates whether another user can take ownership of the virtual machine
 	AllowClaim pulumi.BoolPtrInput `pulumi:"allowClaim"`
 	// The applicable schedule for the virtual machine.
@@ -8850,6 +7015,10 @@ type LabVirtualMachineCreationParameterPropertiesResponseArgs struct {
 	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
 	// The lab virtual network identifier of the virtual machine.
 	LabVirtualNetworkId pulumi.StringPtrInput `pulumi:"labVirtualNetworkId"`
+	// The location of the new virtual machine or environment
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The name of the virtual machine or environment
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The network interface properties.
 	NetworkInterface NetworkInterfacePropertiesResponsePtrInput `pulumi:"networkInterface"`
 	// The notes of the virtual machine.
@@ -8870,628 +7039,14 @@ type LabVirtualMachineCreationParameterPropertiesResponseArgs struct {
 	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
 	// Storage type to use for virtual machine (i.e. Standard, Premium).
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+	// The tags of the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The unique immutable identifier of a resource (Guid).
 	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
 	// The user name of the virtual machine.
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
 	// Tells source of creation of lab virtual machine. Output property only.
 	VirtualMachineCreationSource pulumi.StringPtrInput `pulumi:"virtualMachineCreationSource"`
-}
-
-func (LabVirtualMachineCreationParameterPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVirtualMachineCreationParameterPropertiesResponse)(nil)).Elem()
-}
-
-func (i LabVirtualMachineCreationParameterPropertiesResponseArgs) ToLabVirtualMachineCreationParameterPropertiesResponseOutput() LabVirtualMachineCreationParameterPropertiesResponseOutput {
-	return i.ToLabVirtualMachineCreationParameterPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i LabVirtualMachineCreationParameterPropertiesResponseArgs) ToLabVirtualMachineCreationParameterPropertiesResponseOutputWithContext(ctx context.Context) LabVirtualMachineCreationParameterPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineCreationParameterPropertiesResponseOutput)
-}
-
-func (i LabVirtualMachineCreationParameterPropertiesResponseArgs) ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutput() LabVirtualMachineCreationParameterPropertiesResponsePtrOutput {
-	return i.ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LabVirtualMachineCreationParameterPropertiesResponseArgs) ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutputWithContext(ctx context.Context) LabVirtualMachineCreationParameterPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineCreationParameterPropertiesResponseOutput).ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// LabVirtualMachineCreationParameterPropertiesResponsePtrInput is an input type that accepts LabVirtualMachineCreationParameterPropertiesResponseArgs, LabVirtualMachineCreationParameterPropertiesResponsePtr and LabVirtualMachineCreationParameterPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `LabVirtualMachineCreationParameterPropertiesResponsePtrInput` via:
-//
-//          LabVirtualMachineCreationParameterPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type LabVirtualMachineCreationParameterPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutput() LabVirtualMachineCreationParameterPropertiesResponsePtrOutput
-	ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutputWithContext(context.Context) LabVirtualMachineCreationParameterPropertiesResponsePtrOutput
-}
-
-type labVirtualMachineCreationParameterPropertiesResponsePtrType LabVirtualMachineCreationParameterPropertiesResponseArgs
-
-func LabVirtualMachineCreationParameterPropertiesResponsePtr(v *LabVirtualMachineCreationParameterPropertiesResponseArgs) LabVirtualMachineCreationParameterPropertiesResponsePtrInput {
-	return (*labVirtualMachineCreationParameterPropertiesResponsePtrType)(v)
-}
-
-func (*labVirtualMachineCreationParameterPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabVirtualMachineCreationParameterPropertiesResponse)(nil)).Elem()
-}
-
-func (i *labVirtualMachineCreationParameterPropertiesResponsePtrType) ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutput() LabVirtualMachineCreationParameterPropertiesResponsePtrOutput {
-	return i.ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *labVirtualMachineCreationParameterPropertiesResponsePtrType) ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutputWithContext(ctx context.Context) LabVirtualMachineCreationParameterPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachineCreationParameterPropertiesResponsePtrOutput)
-}
-
-// Properties for virtual machine creation.
-type LabVirtualMachineCreationParameterPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (LabVirtualMachineCreationParameterPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVirtualMachineCreationParameterPropertiesResponse)(nil)).Elem()
-}
-
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) ToLabVirtualMachineCreationParameterPropertiesResponseOutput() LabVirtualMachineCreationParameterPropertiesResponseOutput {
-	return o
-}
-
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) ToLabVirtualMachineCreationParameterPropertiesResponseOutputWithContext(ctx context.Context) LabVirtualMachineCreationParameterPropertiesResponseOutput {
-	return o
-}
-
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutput() LabVirtualMachineCreationParameterPropertiesResponsePtrOutput {
-	return o.ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutputWithContext(ctx context.Context) LabVirtualMachineCreationParameterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *LabVirtualMachineCreationParameterPropertiesResponse {
-		return &v
-	}).(LabVirtualMachineCreationParameterPropertiesResponsePtrOutput)
-}
-
-// Indicates whether another user can take ownership of the virtual machine
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) AllowClaim() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *bool { return v.AllowClaim }).(pulumi.BoolPtrOutput)
-}
-
-// The applicable schedule for the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) ApplicableSchedule() ApplicableScheduleResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *ApplicableScheduleResponse {
-		return v.ApplicableSchedule
-	}).(ApplicableScheduleResponsePtrOutput)
-}
-
-// The artifact deployment status for the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *ArtifactDeploymentStatusPropertiesResponse {
-		return v.ArtifactDeploymentStatus
-	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
-}
-
-// The artifacts to be installed on the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) Artifacts() ArtifactInstallPropertiesResponseArrayOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) []ArtifactInstallPropertiesResponse {
-		return v.Artifacts
-	}).(ArtifactInstallPropertiesResponseArrayOutput)
-}
-
-// The number of virtual machine instances to create.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) BulkCreationParameters() BulkCreationParametersResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *BulkCreationParametersResponse {
-		return v.BulkCreationParameters
-	}).(BulkCreationParametersResponsePtrOutput)
-}
-
-// The compute virtual machine properties.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) ComputeVm() ComputeVmPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *ComputeVmPropertiesResponse {
-		return v.ComputeVm
-	}).(ComputeVmPropertiesResponsePtrOutput)
-}
-
-// The email address of creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) CreatedByUser() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.CreatedByUser }).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) CreatedByUserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.CreatedByUserId }).(pulumi.StringPtrOutput)
-}
-
-// The creation date of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
-}
-
-// The custom image identifier of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) CustomImageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.CustomImageId }).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the virtual machine is to be created without a public IP address.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *bool { return v.DisallowPublicIpAddress }).(pulumi.BoolPtrOutput)
-}
-
-// The resource ID of the environment that contains this virtual machine, if any.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) EnvironmentId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
-}
-
-// The expiration date for VM.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
-}
-
-// The fully-qualified domain name of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
-}
-
-// The Microsoft Azure Marketplace image reference of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) GalleryImageReference() GalleryImageReferenceResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *GalleryImageReferenceResponse {
-		return v.GalleryImageReference
-	}).(GalleryImageReferenceResponsePtrOutput)
-}
-
-// Indicates whether this virtual machine uses an SSH key for authentication.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *bool {
-		return v.IsAuthenticationWithSshKey
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The lab subnet name of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) LabSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
-}
-
-// The lab virtual network identifier of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.LabVirtualNetworkId }).(pulumi.StringPtrOutput)
-}
-
-// The network interface properties.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) NetworkInterface() NetworkInterfacePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *NetworkInterfacePropertiesResponse {
-		return v.NetworkInterface
-	}).(NetworkInterfacePropertiesResponsePtrOutput)
-}
-
-// The notes of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) Notes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.Notes }).(pulumi.StringPtrOutput)
-}
-
-// The OS type of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the owner of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) OwnerObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.OwnerObjectId }).(pulumi.StringPtrOutput)
-}
-
-// The user principal name of the virtual machine owner.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) OwnerUserPrincipalName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.OwnerUserPrincipalName }).(pulumi.StringPtrOutput)
-}
-
-// The password of the virtual machine administrator.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The size of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// The SSH key of the virtual machine administrator.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) SshKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.SshKey }).(pulumi.StringPtrOutput)
-}
-
-// Storage type to use for virtual machine (i.e. Standard, Premium).
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) StorageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.StorageType }).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-// The user name of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
-}
-
-// Tells source of creation of lab virtual machine. Output property only.
-func (o LabVirtualMachineCreationParameterPropertiesResponseOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		return v.VirtualMachineCreationSource
-	}).(pulumi.StringPtrOutput)
-}
-
-type LabVirtualMachineCreationParameterPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabVirtualMachineCreationParameterPropertiesResponse)(nil)).Elem()
-}
-
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutput() LabVirtualMachineCreationParameterPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) ToLabVirtualMachineCreationParameterPropertiesResponsePtrOutputWithContext(ctx context.Context) LabVirtualMachineCreationParameterPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) Elem() LabVirtualMachineCreationParameterPropertiesResponseOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) LabVirtualMachineCreationParameterPropertiesResponse {
-		return *v
-	}).(LabVirtualMachineCreationParameterPropertiesResponseOutput)
-}
-
-// Indicates whether another user can take ownership of the virtual machine
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) AllowClaim() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowClaim
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The applicable schedule for the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) ApplicableSchedule() ApplicableScheduleResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *ApplicableScheduleResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicableSchedule
-	}).(ApplicableScheduleResponsePtrOutput)
-}
-
-// The artifact deployment status for the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *ArtifactDeploymentStatusPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ArtifactDeploymentStatus
-	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
-}
-
-// The artifacts to be installed on the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) Artifacts() ArtifactInstallPropertiesResponseArrayOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) []ArtifactInstallPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Artifacts
-	}).(ArtifactInstallPropertiesResponseArrayOutput)
-}
-
-// The number of virtual machine instances to create.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) BulkCreationParameters() BulkCreationParametersResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *BulkCreationParametersResponse {
-		if v == nil {
-			return nil
-		}
-		return v.BulkCreationParameters
-	}).(BulkCreationParametersResponsePtrOutput)
-}
-
-// The compute virtual machine properties.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) ComputeVm() ComputeVmPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *ComputeVmPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ComputeVm
-	}).(ComputeVmPropertiesResponsePtrOutput)
-}
-
-// The email address of creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) CreatedByUser() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByUser
-	}).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the creator of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) CreatedByUserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByUserId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The creation date of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The custom image identifier of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) CustomImageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomImageId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the virtual machine is to be created without a public IP address.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DisallowPublicIpAddress
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The resource ID of the environment that contains this virtual machine, if any.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) EnvironmentId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnvironmentId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The expiration date for VM.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) ExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExpirationDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The fully-qualified domain name of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Fqdn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Microsoft Azure Marketplace image reference of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) GalleryImageReference() GalleryImageReferenceResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *GalleryImageReferenceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.GalleryImageReference
-	}).(GalleryImageReferenceResponsePtrOutput)
-}
-
-// Indicates whether this virtual machine uses an SSH key for authentication.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsAuthenticationWithSshKey
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The lab subnet name of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) LabSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LabSubnetName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The lab virtual network identifier of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LabVirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The network interface properties.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) NetworkInterface() NetworkInterfacePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *NetworkInterfacePropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkInterface
-	}).(NetworkInterfacePropertiesResponsePtrOutput)
-}
-
-// The notes of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) Notes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Notes
-	}).(pulumi.StringPtrOutput)
-}
-
-// The OS type of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the owner of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) OwnerObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OwnerObjectId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The user principal name of the virtual machine owner.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) OwnerUserPrincipalName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OwnerUserPrincipalName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The password of the virtual machine administrator.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SSH key of the virtual machine administrator.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) SshKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// Storage type to use for virtual machine (i.e. Standard, Premium).
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) StorageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The user name of the virtual machine.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Tells source of creation of lab virtual machine. Output property only.
-func (o LabVirtualMachineCreationParameterPropertiesResponsePtrOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualMachineCreationSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Properties for creating a virtual machine.
-type LabVirtualMachineCreationParameterResponse struct {
-	// The location of the new virtual machine or environment
-	Location *string `pulumi:"location"`
-	// The name of the virtual machine or environment
-	Name *string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *LabVirtualMachineCreationParameterPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-}
-
-// LabVirtualMachineCreationParameterResponseInput is an input type that accepts LabVirtualMachineCreationParameterResponseArgs and LabVirtualMachineCreationParameterResponseOutput values.
-// You can construct a concrete instance of `LabVirtualMachineCreationParameterResponseInput` via:
-//
-//          LabVirtualMachineCreationParameterResponseArgs{...}
-type LabVirtualMachineCreationParameterResponseInput interface {
-	pulumi.Input
-
-	ToLabVirtualMachineCreationParameterResponseOutput() LabVirtualMachineCreationParameterResponseOutput
-	ToLabVirtualMachineCreationParameterResponseOutputWithContext(context.Context) LabVirtualMachineCreationParameterResponseOutput
-}
-
-// Properties for creating a virtual machine.
-type LabVirtualMachineCreationParameterResponseArgs struct {
-	// The location of the new virtual machine or environment
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the virtual machine or environment
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabVirtualMachineCreationParameterPropertiesResponsePtrInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LabVirtualMachineCreationParameterResponseArgs) ElementType() reflect.Type {
@@ -9572,6 +7127,106 @@ func (o LabVirtualMachineCreationParameterResponseOutput) ToLabVirtualMachineCre
 	}).(LabVirtualMachineCreationParameterResponsePtrOutput)
 }
 
+// Indicates whether another user can take ownership of the virtual machine
+func (o LabVirtualMachineCreationParameterResponseOutput) AllowClaim() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *bool { return v.AllowClaim }).(pulumi.BoolPtrOutput)
+}
+
+// The applicable schedule for the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) ApplicableSchedule() ApplicableScheduleResponsePtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *ApplicableScheduleResponse {
+		return v.ApplicableSchedule
+	}).(ApplicableScheduleResponsePtrOutput)
+}
+
+// The artifact deployment status for the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *ArtifactDeploymentStatusPropertiesResponse {
+		return v.ArtifactDeploymentStatus
+	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
+}
+
+// The artifacts to be installed on the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) Artifacts() ArtifactInstallPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) []ArtifactInstallPropertiesResponse {
+		return v.Artifacts
+	}).(ArtifactInstallPropertiesResponseArrayOutput)
+}
+
+// The number of virtual machine instances to create.
+func (o LabVirtualMachineCreationParameterResponseOutput) BulkCreationParameters() BulkCreationParametersResponsePtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *BulkCreationParametersResponse {
+		return v.BulkCreationParameters
+	}).(BulkCreationParametersResponsePtrOutput)
+}
+
+// The compute virtual machine properties.
+func (o LabVirtualMachineCreationParameterResponseOutput) ComputeVm() ComputeVmPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *ComputeVmPropertiesResponse { return v.ComputeVm }).(ComputeVmPropertiesResponsePtrOutput)
+}
+
+// The email address of creator of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) CreatedByUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.CreatedByUser }).(pulumi.StringPtrOutput)
+}
+
+// The object identifier of the creator of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) CreatedByUserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.CreatedByUserId }).(pulumi.StringPtrOutput)
+}
+
+// The creation date of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
+}
+
+// The custom image identifier of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) CustomImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.CustomImageId }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the virtual machine is to be created without a public IP address.
+func (o LabVirtualMachineCreationParameterResponseOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *bool { return v.DisallowPublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+// The resource ID of the environment that contains this virtual machine, if any.
+func (o LabVirtualMachineCreationParameterResponseOutput) EnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
+}
+
+// The expiration date for VM.
+func (o LabVirtualMachineCreationParameterResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
+}
+
+// The fully-qualified domain name of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft Azure Marketplace image reference of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) GalleryImageReference() GalleryImageReferenceResponsePtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *GalleryImageReferenceResponse {
+		return v.GalleryImageReference
+	}).(GalleryImageReferenceResponsePtrOutput)
+}
+
+// Indicates whether this virtual machine uses an SSH key for authentication.
+func (o LabVirtualMachineCreationParameterResponseOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *bool { return v.IsAuthenticationWithSshKey }).(pulumi.BoolPtrOutput)
+}
+
+// The lab subnet name of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) LabSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
+}
+
+// The lab virtual network identifier of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.LabVirtualNetworkId }).(pulumi.StringPtrOutput)
+}
+
 // The location of the new virtual machine or environment
 func (o LabVirtualMachineCreationParameterResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
@@ -9582,16 +7237,76 @@ func (o LabVirtualMachineCreationParameterResponseOutput) Name() pulumi.StringPt
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The properties of the resource.
-func (o LabVirtualMachineCreationParameterResponseOutput) Properties() LabVirtualMachineCreationParameterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *LabVirtualMachineCreationParameterPropertiesResponse {
-		return v.Properties
-	}).(LabVirtualMachineCreationParameterPropertiesResponsePtrOutput)
+// The network interface properties.
+func (o LabVirtualMachineCreationParameterResponseOutput) NetworkInterface() NetworkInterfacePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *NetworkInterfacePropertiesResponse {
+		return v.NetworkInterface
+	}).(NetworkInterfacePropertiesResponsePtrOutput)
+}
+
+// The notes of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Notes }).(pulumi.StringPtrOutput)
+}
+
+// The OS type of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
+}
+
+// The object identifier of the owner of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) OwnerObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.OwnerObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the virtual machine owner.
+func (o LabVirtualMachineCreationParameterResponseOutput) OwnerUserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.OwnerUserPrincipalName }).(pulumi.StringPtrOutput)
+}
+
+// The password of the virtual machine administrator.
+func (o LabVirtualMachineCreationParameterResponseOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LabVirtualMachineCreationParameterResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The size of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// The SSH key of the virtual machine administrator.
+func (o LabVirtualMachineCreationParameterResponseOutput) SshKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.SshKey }).(pulumi.StringPtrOutput)
+}
+
+// Storage type to use for virtual machine (i.e. Standard, Premium).
+func (o LabVirtualMachineCreationParameterResponseOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.StorageType }).(pulumi.StringPtrOutput)
 }
 
 // The tags of the resource.
 func (o LabVirtualMachineCreationParameterResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o LabVirtualMachineCreationParameterResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The user name of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponseOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+// Tells source of creation of lab virtual machine. Output property only.
+func (o LabVirtualMachineCreationParameterResponseOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabVirtualMachineCreationParameterResponse) *string { return v.VirtualMachineCreationSource }).(pulumi.StringPtrOutput)
 }
 
 type LabVirtualMachineCreationParameterResponsePtrOutput struct{ *pulumi.OutputState }
@@ -9614,6 +7329,186 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Elem() LabVirtualMa
 	}).(LabVirtualMachineCreationParameterResponseOutput)
 }
 
+// Indicates whether another user can take ownership of the virtual machine
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) AllowClaim() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowClaim
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The applicable schedule for the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) ApplicableSchedule() ApplicableScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *ApplicableScheduleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicableSchedule
+	}).(ApplicableScheduleResponsePtrOutput)
+}
+
+// The artifact deployment status for the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *ArtifactDeploymentStatusPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactDeploymentStatus
+	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
+}
+
+// The artifacts to be installed on the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) Artifacts() ArtifactInstallPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) []ArtifactInstallPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Artifacts
+	}).(ArtifactInstallPropertiesResponseArrayOutput)
+}
+
+// The number of virtual machine instances to create.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) BulkCreationParameters() BulkCreationParametersResponsePtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *BulkCreationParametersResponse {
+		if v == nil {
+			return nil
+		}
+		return v.BulkCreationParameters
+	}).(BulkCreationParametersResponsePtrOutput)
+}
+
+// The compute virtual machine properties.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) ComputeVm() ComputeVmPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *ComputeVmPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeVm
+	}).(ComputeVmPropertiesResponsePtrOutput)
+}
+
+// The email address of creator of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) CreatedByUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object identifier of the creator of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) CreatedByUserId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByUserId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The creation date of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The custom image identifier of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) CustomImageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomImageId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the virtual machine is to be created without a public IP address.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisallowPublicIpAddress
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The resource ID of the environment that contains this virtual machine, if any.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) EnvironmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnvironmentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The expiration date for VM.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) ExpirationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpirationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully-qualified domain name of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Fqdn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft Azure Marketplace image reference of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) GalleryImageReference() GalleryImageReferenceResponsePtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *GalleryImageReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.GalleryImageReference
+	}).(GalleryImageReferenceResponsePtrOutput)
+}
+
+// Indicates whether this virtual machine uses an SSH key for authentication.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsAuthenticationWithSshKey
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The lab subnet name of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) LabSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LabSubnetName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The lab virtual network identifier of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LabVirtualNetworkId
+	}).(pulumi.StringPtrOutput)
+}
+
 // The location of the new virtual machine or environment
 func (o LabVirtualMachineCreationParameterResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
@@ -9634,14 +7529,104 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Name() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the resource.
-func (o LabVirtualMachineCreationParameterResponsePtrOutput) Properties() LabVirtualMachineCreationParameterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *LabVirtualMachineCreationParameterPropertiesResponse {
+// The network interface properties.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) NetworkInterface() NetworkInterfacePropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *NetworkInterfacePropertiesResponse {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(LabVirtualMachineCreationParameterPropertiesResponsePtrOutput)
+		return v.NetworkInterface
+	}).(NetworkInterfacePropertiesResponsePtrOutput)
+}
+
+// The notes of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) Notes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Notes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OS type of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) OsType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OsType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The object identifier of the owner of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) OwnerObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OwnerObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user principal name of the virtual machine owner.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) OwnerUserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OwnerUserPrincipalName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password of the virtual machine administrator.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The size of the virtual machine.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SSH key of the virtual machine administrator.
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) SshKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SshKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Storage type to use for virtual machine (i.e. Standard, Premium).
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageType
+	}).(pulumi.StringPtrOutput)
 }
 
 // The tags of the resource.
@@ -9654,689 +7639,9 @@ func (o LabVirtualMachineCreationParameterResponsePtrOutput) Tags() pulumi.Strin
 	}).(pulumi.StringMapOutput)
 }
 
-// Properties of a virtual machine.
-type LabVirtualMachinePropertiesResponse struct {
-	// Indicates whether another user can take ownership of the virtual machine
-	AllowClaim *bool `pulumi:"allowClaim"`
-	// The applicable schedule for the virtual machine.
-	ApplicableSchedule *ApplicableScheduleResponse `pulumi:"applicableSchedule"`
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus *ArtifactDeploymentStatusPropertiesResponse `pulumi:"artifactDeploymentStatus"`
-	// The artifacts to be installed on the virtual machine.
-	Artifacts []ArtifactInstallPropertiesResponse `pulumi:"artifacts"`
-	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId string `pulumi:"computeId"`
-	// The compute virtual machine properties.
-	ComputeVm *ComputeVmPropertiesResponse `pulumi:"computeVm"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser *string `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId *string `pulumi:"createdByUserId"`
-	// The creation date of the virtual machine.
-	CreatedDate *string `pulumi:"createdDate"`
-	// The custom image identifier of the virtual machine.
-	CustomImageId *string `pulumi:"customImageId"`
-	// Indicates whether the virtual machine is to be created without a public IP address.
-	DisallowPublicIpAddress *bool `pulumi:"disallowPublicIpAddress"`
-	// The resource ID of the environment that contains this virtual machine, if any.
-	EnvironmentId *string `pulumi:"environmentId"`
-	// The expiration date for VM.
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn *string `pulumi:"fqdn"`
-	// The Microsoft Azure Marketplace image reference of the virtual machine.
-	GalleryImageReference *GalleryImageReferenceResponse `pulumi:"galleryImageReference"`
-	// Indicates whether this virtual machine uses an SSH key for authentication.
-	IsAuthenticationWithSshKey *bool `pulumi:"isAuthenticationWithSshKey"`
-	// The lab subnet name of the virtual machine.
-	LabSubnetName *string `pulumi:"labSubnetName"`
-	// The lab virtual network identifier of the virtual machine.
-	LabVirtualNetworkId *string `pulumi:"labVirtualNetworkId"`
-	// The network interface properties.
-	NetworkInterface *NetworkInterfacePropertiesResponse `pulumi:"networkInterface"`
-	// The notes of the virtual machine.
-	Notes *string `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType *string `pulumi:"osType"`
-	// The object identifier of the owner of the virtual machine.
-	OwnerObjectId *string `pulumi:"ownerObjectId"`
-	// The user principal name of the virtual machine owner.
-	OwnerUserPrincipalName *string `pulumi:"ownerUserPrincipalName"`
-	// The password of the virtual machine administrator.
-	Password *string `pulumi:"password"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The size of the virtual machine.
-	Size *string `pulumi:"size"`
-	// The SSH key of the virtual machine administrator.
-	SshKey *string `pulumi:"sshKey"`
-	// Storage type to use for virtual machine (i.e. Standard, Premium).
-	StorageType *string `pulumi:"storageType"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The user name of the virtual machine.
-	UserName *string `pulumi:"userName"`
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource *string `pulumi:"virtualMachineCreationSource"`
-}
-
-// LabVirtualMachinePropertiesResponseInput is an input type that accepts LabVirtualMachinePropertiesResponseArgs and LabVirtualMachinePropertiesResponseOutput values.
-// You can construct a concrete instance of `LabVirtualMachinePropertiesResponseInput` via:
-//
-//          LabVirtualMachinePropertiesResponseArgs{...}
-type LabVirtualMachinePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToLabVirtualMachinePropertiesResponseOutput() LabVirtualMachinePropertiesResponseOutput
-	ToLabVirtualMachinePropertiesResponseOutputWithContext(context.Context) LabVirtualMachinePropertiesResponseOutput
-}
-
-// Properties of a virtual machine.
-type LabVirtualMachinePropertiesResponseArgs struct {
-	// Indicates whether another user can take ownership of the virtual machine
-	AllowClaim pulumi.BoolPtrInput `pulumi:"allowClaim"`
-	// The applicable schedule for the virtual machine.
-	ApplicableSchedule ApplicableScheduleResponsePtrInput `pulumi:"applicableSchedule"`
-	// The artifact deployment status for the virtual machine.
-	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesResponsePtrInput `pulumi:"artifactDeploymentStatus"`
-	// The artifacts to be installed on the virtual machine.
-	Artifacts ArtifactInstallPropertiesResponseArrayInput `pulumi:"artifacts"`
-	// The resource identifier (Microsoft.Compute) of the virtual machine.
-	ComputeId pulumi.StringInput `pulumi:"computeId"`
-	// The compute virtual machine properties.
-	ComputeVm ComputeVmPropertiesResponsePtrInput `pulumi:"computeVm"`
-	// The email address of creator of the virtual machine.
-	CreatedByUser pulumi.StringPtrInput `pulumi:"createdByUser"`
-	// The object identifier of the creator of the virtual machine.
-	CreatedByUserId pulumi.StringPtrInput `pulumi:"createdByUserId"`
-	// The creation date of the virtual machine.
-	CreatedDate pulumi.StringPtrInput `pulumi:"createdDate"`
-	// The custom image identifier of the virtual machine.
-	CustomImageId pulumi.StringPtrInput `pulumi:"customImageId"`
-	// Indicates whether the virtual machine is to be created without a public IP address.
-	DisallowPublicIpAddress pulumi.BoolPtrInput `pulumi:"disallowPublicIpAddress"`
-	// The resource ID of the environment that contains this virtual machine, if any.
-	EnvironmentId pulumi.StringPtrInput `pulumi:"environmentId"`
-	// The expiration date for VM.
-	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
-	// The fully-qualified domain name of the virtual machine.
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// The Microsoft Azure Marketplace image reference of the virtual machine.
-	GalleryImageReference GalleryImageReferenceResponsePtrInput `pulumi:"galleryImageReference"`
-	// Indicates whether this virtual machine uses an SSH key for authentication.
-	IsAuthenticationWithSshKey pulumi.BoolPtrInput `pulumi:"isAuthenticationWithSshKey"`
-	// The lab subnet name of the virtual machine.
-	LabSubnetName pulumi.StringPtrInput `pulumi:"labSubnetName"`
-	// The lab virtual network identifier of the virtual machine.
-	LabVirtualNetworkId pulumi.StringPtrInput `pulumi:"labVirtualNetworkId"`
-	// The network interface properties.
-	NetworkInterface NetworkInterfacePropertiesResponsePtrInput `pulumi:"networkInterface"`
-	// The notes of the virtual machine.
-	Notes pulumi.StringPtrInput `pulumi:"notes"`
-	// The OS type of the virtual machine.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The object identifier of the owner of the virtual machine.
-	OwnerObjectId pulumi.StringPtrInput `pulumi:"ownerObjectId"`
-	// The user principal name of the virtual machine owner.
-	OwnerUserPrincipalName pulumi.StringPtrInput `pulumi:"ownerUserPrincipalName"`
-	// The password of the virtual machine administrator.
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The size of the virtual machine.
-	Size pulumi.StringPtrInput `pulumi:"size"`
-	// The SSH key of the virtual machine administrator.
-	SshKey pulumi.StringPtrInput `pulumi:"sshKey"`
-	// Storage type to use for virtual machine (i.e. Standard, Premium).
-	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// The user name of the virtual machine.
-	UserName pulumi.StringPtrInput `pulumi:"userName"`
-	// Tells source of creation of lab virtual machine. Output property only.
-	VirtualMachineCreationSource pulumi.StringPtrInput `pulumi:"virtualMachineCreationSource"`
-}
-
-func (LabVirtualMachinePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVirtualMachinePropertiesResponse)(nil)).Elem()
-}
-
-func (i LabVirtualMachinePropertiesResponseArgs) ToLabVirtualMachinePropertiesResponseOutput() LabVirtualMachinePropertiesResponseOutput {
-	return i.ToLabVirtualMachinePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i LabVirtualMachinePropertiesResponseArgs) ToLabVirtualMachinePropertiesResponseOutputWithContext(ctx context.Context) LabVirtualMachinePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachinePropertiesResponseOutput)
-}
-
-func (i LabVirtualMachinePropertiesResponseArgs) ToLabVirtualMachinePropertiesResponsePtrOutput() LabVirtualMachinePropertiesResponsePtrOutput {
-	return i.ToLabVirtualMachinePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LabVirtualMachinePropertiesResponseArgs) ToLabVirtualMachinePropertiesResponsePtrOutputWithContext(ctx context.Context) LabVirtualMachinePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachinePropertiesResponseOutput).ToLabVirtualMachinePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// LabVirtualMachinePropertiesResponsePtrInput is an input type that accepts LabVirtualMachinePropertiesResponseArgs, LabVirtualMachinePropertiesResponsePtr and LabVirtualMachinePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `LabVirtualMachinePropertiesResponsePtrInput` via:
-//
-//          LabVirtualMachinePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type LabVirtualMachinePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToLabVirtualMachinePropertiesResponsePtrOutput() LabVirtualMachinePropertiesResponsePtrOutput
-	ToLabVirtualMachinePropertiesResponsePtrOutputWithContext(context.Context) LabVirtualMachinePropertiesResponsePtrOutput
-}
-
-type labVirtualMachinePropertiesResponsePtrType LabVirtualMachinePropertiesResponseArgs
-
-func LabVirtualMachinePropertiesResponsePtr(v *LabVirtualMachinePropertiesResponseArgs) LabVirtualMachinePropertiesResponsePtrInput {
-	return (*labVirtualMachinePropertiesResponsePtrType)(v)
-}
-
-func (*labVirtualMachinePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabVirtualMachinePropertiesResponse)(nil)).Elem()
-}
-
-func (i *labVirtualMachinePropertiesResponsePtrType) ToLabVirtualMachinePropertiesResponsePtrOutput() LabVirtualMachinePropertiesResponsePtrOutput {
-	return i.ToLabVirtualMachinePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *labVirtualMachinePropertiesResponsePtrType) ToLabVirtualMachinePropertiesResponsePtrOutputWithContext(ctx context.Context) LabVirtualMachinePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabVirtualMachinePropertiesResponsePtrOutput)
-}
-
-// Properties of a virtual machine.
-type LabVirtualMachinePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (LabVirtualMachinePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabVirtualMachinePropertiesResponse)(nil)).Elem()
-}
-
-func (o LabVirtualMachinePropertiesResponseOutput) ToLabVirtualMachinePropertiesResponseOutput() LabVirtualMachinePropertiesResponseOutput {
-	return o
-}
-
-func (o LabVirtualMachinePropertiesResponseOutput) ToLabVirtualMachinePropertiesResponseOutputWithContext(ctx context.Context) LabVirtualMachinePropertiesResponseOutput {
-	return o
-}
-
-func (o LabVirtualMachinePropertiesResponseOutput) ToLabVirtualMachinePropertiesResponsePtrOutput() LabVirtualMachinePropertiesResponsePtrOutput {
-	return o.ToLabVirtualMachinePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LabVirtualMachinePropertiesResponseOutput) ToLabVirtualMachinePropertiesResponsePtrOutputWithContext(ctx context.Context) LabVirtualMachinePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *LabVirtualMachinePropertiesResponse {
-		return &v
-	}).(LabVirtualMachinePropertiesResponsePtrOutput)
-}
-
-// Indicates whether another user can take ownership of the virtual machine
-func (o LabVirtualMachinePropertiesResponseOutput) AllowClaim() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *bool { return v.AllowClaim }).(pulumi.BoolPtrOutput)
-}
-
-// The applicable schedule for the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) ApplicableSchedule() ApplicableScheduleResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *ApplicableScheduleResponse { return v.ApplicableSchedule }).(ApplicableScheduleResponsePtrOutput)
-}
-
-// The artifact deployment status for the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *ArtifactDeploymentStatusPropertiesResponse {
-		return v.ArtifactDeploymentStatus
-	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
-}
-
-// The artifacts to be installed on the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) Artifacts() ArtifactInstallPropertiesResponseArrayOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) []ArtifactInstallPropertiesResponse { return v.Artifacts }).(ArtifactInstallPropertiesResponseArrayOutput)
-}
-
-// The resource identifier (Microsoft.Compute) of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) ComputeId() pulumi.StringOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) string { return v.ComputeId }).(pulumi.StringOutput)
-}
-
-// The compute virtual machine properties.
-func (o LabVirtualMachinePropertiesResponseOutput) ComputeVm() ComputeVmPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *ComputeVmPropertiesResponse { return v.ComputeVm }).(ComputeVmPropertiesResponsePtrOutput)
-}
-
-// The email address of creator of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) CreatedByUser() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.CreatedByUser }).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the creator of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) CreatedByUserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.CreatedByUserId }).(pulumi.StringPtrOutput)
-}
-
-// The creation date of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.CreatedDate }).(pulumi.StringPtrOutput)
-}
-
-// The custom image identifier of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) CustomImageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.CustomImageId }).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the virtual machine is to be created without a public IP address.
-func (o LabVirtualMachinePropertiesResponseOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *bool { return v.DisallowPublicIpAddress }).(pulumi.BoolPtrOutput)
-}
-
-// The resource ID of the environment that contains this virtual machine, if any.
-func (o LabVirtualMachinePropertiesResponseOutput) EnvironmentId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.EnvironmentId }).(pulumi.StringPtrOutput)
-}
-
-// The expiration date for VM.
-func (o LabVirtualMachinePropertiesResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
-}
-
-// The fully-qualified domain name of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
-}
-
-// The Microsoft Azure Marketplace image reference of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) GalleryImageReference() GalleryImageReferenceResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *GalleryImageReferenceResponse {
-		return v.GalleryImageReference
-	}).(GalleryImageReferenceResponsePtrOutput)
-}
-
-// Indicates whether this virtual machine uses an SSH key for authentication.
-func (o LabVirtualMachinePropertiesResponseOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *bool { return v.IsAuthenticationWithSshKey }).(pulumi.BoolPtrOutput)
-}
-
-// The lab subnet name of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) LabSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.LabSubnetName }).(pulumi.StringPtrOutput)
-}
-
-// The lab virtual network identifier of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.LabVirtualNetworkId }).(pulumi.StringPtrOutput)
-}
-
-// The network interface properties.
-func (o LabVirtualMachinePropertiesResponseOutput) NetworkInterface() NetworkInterfacePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *NetworkInterfacePropertiesResponse {
-		return v.NetworkInterface
-	}).(NetworkInterfacePropertiesResponsePtrOutput)
-}
-
-// The notes of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) Notes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.Notes }).(pulumi.StringPtrOutput)
-}
-
-// The OS type of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.OsType }).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the owner of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) OwnerObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.OwnerObjectId }).(pulumi.StringPtrOutput)
-}
-
-// The user principal name of the virtual machine owner.
-func (o LabVirtualMachinePropertiesResponseOutput) OwnerUserPrincipalName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.OwnerUserPrincipalName }).(pulumi.StringPtrOutput)
-}
-
-// The password of the virtual machine administrator.
-func (o LabVirtualMachinePropertiesResponseOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o LabVirtualMachinePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The size of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.Size }).(pulumi.StringPtrOutput)
-}
-
-// The SSH key of the virtual machine administrator.
-func (o LabVirtualMachinePropertiesResponseOutput) SshKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.SshKey }).(pulumi.StringPtrOutput)
-}
-
-// Storage type to use for virtual machine (i.e. Standard, Premium).
-func (o LabVirtualMachinePropertiesResponseOutput) StorageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.StorageType }).(pulumi.StringPtrOutput)
-}
-
 // The unique immutable identifier of a resource (Guid).
-func (o LabVirtualMachinePropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-// The user name of the virtual machine.
-func (o LabVirtualMachinePropertiesResponseOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.UserName }).(pulumi.StringPtrOutput)
-}
-
-// Tells source of creation of lab virtual machine. Output property only.
-func (o LabVirtualMachinePropertiesResponseOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabVirtualMachinePropertiesResponse) *string { return v.VirtualMachineCreationSource }).(pulumi.StringPtrOutput)
-}
-
-type LabVirtualMachinePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LabVirtualMachinePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LabVirtualMachinePropertiesResponse)(nil)).Elem()
-}
-
-func (o LabVirtualMachinePropertiesResponsePtrOutput) ToLabVirtualMachinePropertiesResponsePtrOutput() LabVirtualMachinePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LabVirtualMachinePropertiesResponsePtrOutput) ToLabVirtualMachinePropertiesResponsePtrOutputWithContext(ctx context.Context) LabVirtualMachinePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o LabVirtualMachinePropertiesResponsePtrOutput) Elem() LabVirtualMachinePropertiesResponseOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) LabVirtualMachinePropertiesResponse { return *v }).(LabVirtualMachinePropertiesResponseOutput)
-}
-
-// Indicates whether another user can take ownership of the virtual machine
-func (o LabVirtualMachinePropertiesResponsePtrOutput) AllowClaim() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowClaim
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The applicable schedule for the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) ApplicableSchedule() ApplicableScheduleResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *ApplicableScheduleResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicableSchedule
-	}).(ApplicableScheduleResponsePtrOutput)
-}
-
-// The artifact deployment status for the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) ArtifactDeploymentStatus() ArtifactDeploymentStatusPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *ArtifactDeploymentStatusPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ArtifactDeploymentStatus
-	}).(ArtifactDeploymentStatusPropertiesResponsePtrOutput)
-}
-
-// The artifacts to be installed on the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) Artifacts() ArtifactInstallPropertiesResponseArrayOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) []ArtifactInstallPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Artifacts
-	}).(ArtifactInstallPropertiesResponseArrayOutput)
-}
-
-// The resource identifier (Microsoft.Compute) of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) ComputeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ComputeId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The compute virtual machine properties.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) ComputeVm() ComputeVmPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *ComputeVmPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ComputeVm
-	}).(ComputeVmPropertiesResponsePtrOutput)
-}
-
-// The email address of creator of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) CreatedByUser() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByUser
-	}).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the creator of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) CreatedByUserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByUserId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The creation date of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The custom image identifier of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) CustomImageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomImageId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the virtual machine is to be created without a public IP address.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) DisallowPublicIpAddress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DisallowPublicIpAddress
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The resource ID of the environment that contains this virtual machine, if any.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) EnvironmentId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnvironmentId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The expiration date for VM.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) ExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExpirationDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The fully-qualified domain name of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Fqdn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Microsoft Azure Marketplace image reference of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) GalleryImageReference() GalleryImageReferenceResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *GalleryImageReferenceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.GalleryImageReference
-	}).(GalleryImageReferenceResponsePtrOutput)
-}
-
-// Indicates whether this virtual machine uses an SSH key for authentication.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) IsAuthenticationWithSshKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsAuthenticationWithSshKey
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The lab subnet name of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) LabSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LabSubnetName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The lab virtual network identifier of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) LabVirtualNetworkId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LabVirtualNetworkId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The network interface properties.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) NetworkInterface() NetworkInterfacePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *NetworkInterfacePropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkInterface
-	}).(NetworkInterfacePropertiesResponsePtrOutput)
-}
-
-// The notes of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) Notes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Notes
-	}).(pulumi.StringPtrOutput)
-}
-
-// The OS type of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The object identifier of the owner of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) OwnerObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OwnerObjectId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The user principal name of the virtual machine owner.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) OwnerUserPrincipalName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OwnerUserPrincipalName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The password of the virtual machine administrator.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SSH key of the virtual machine administrator.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) SshKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SshKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// Storage type to use for virtual machine (i.e. Standard, Premium).
-func (o LabVirtualMachinePropertiesResponsePtrOutput) StorageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o LabVirtualMachinePropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -10345,8 +7650,8 @@ func (o LabVirtualMachinePropertiesResponsePtrOutput) UniqueIdentifier() pulumi.
 }
 
 // The user name of the virtual machine.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -10355,8 +7660,8 @@ func (o LabVirtualMachinePropertiesResponsePtrOutput) UserName() pulumi.StringPt
 }
 
 // Tells source of creation of lab virtual machine. Output property only.
-func (o LabVirtualMachinePropertiesResponsePtrOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LabVirtualMachinePropertiesResponse) *string {
+func (o LabVirtualMachineCreationParameterResponsePtrOutput) VirtualMachineCreationSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabVirtualMachineCreationParameterResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -11208,235 +8513,6 @@ func (o NetworkInterfacePropertiesResponsePtrOutput) VirtualNetworkId() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a schedule.
-type NotificationChannelPropertiesResponse struct {
-	// The creation date of the notification channel.
-	CreatedDate string `pulumi:"createdDate"`
-	// Description of notification.
-	Description *string `pulumi:"description"`
-	// The list of event for which this notification is enabled.
-	Events []EventResponse `pulumi:"events"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The webhook URL to send notifications to.
-	WebHookUrl *string `pulumi:"webHookUrl"`
-}
-
-// NotificationChannelPropertiesResponseInput is an input type that accepts NotificationChannelPropertiesResponseArgs and NotificationChannelPropertiesResponseOutput values.
-// You can construct a concrete instance of `NotificationChannelPropertiesResponseInput` via:
-//
-//          NotificationChannelPropertiesResponseArgs{...}
-type NotificationChannelPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToNotificationChannelPropertiesResponseOutput() NotificationChannelPropertiesResponseOutput
-	ToNotificationChannelPropertiesResponseOutputWithContext(context.Context) NotificationChannelPropertiesResponseOutput
-}
-
-// Properties of a schedule.
-type NotificationChannelPropertiesResponseArgs struct {
-	// The creation date of the notification channel.
-	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
-	// Description of notification.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The list of event for which this notification is enabled.
-	Events EventResponseArrayInput `pulumi:"events"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// The webhook URL to send notifications to.
-	WebHookUrl pulumi.StringPtrInput `pulumi:"webHookUrl"`
-}
-
-func (NotificationChannelPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationChannelPropertiesResponse)(nil)).Elem()
-}
-
-func (i NotificationChannelPropertiesResponseArgs) ToNotificationChannelPropertiesResponseOutput() NotificationChannelPropertiesResponseOutput {
-	return i.ToNotificationChannelPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i NotificationChannelPropertiesResponseArgs) ToNotificationChannelPropertiesResponseOutputWithContext(ctx context.Context) NotificationChannelPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelPropertiesResponseOutput)
-}
-
-func (i NotificationChannelPropertiesResponseArgs) ToNotificationChannelPropertiesResponsePtrOutput() NotificationChannelPropertiesResponsePtrOutput {
-	return i.ToNotificationChannelPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NotificationChannelPropertiesResponseArgs) ToNotificationChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationChannelPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelPropertiesResponseOutput).ToNotificationChannelPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// NotificationChannelPropertiesResponsePtrInput is an input type that accepts NotificationChannelPropertiesResponseArgs, NotificationChannelPropertiesResponsePtr and NotificationChannelPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `NotificationChannelPropertiesResponsePtrInput` via:
-//
-//          NotificationChannelPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type NotificationChannelPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToNotificationChannelPropertiesResponsePtrOutput() NotificationChannelPropertiesResponsePtrOutput
-	ToNotificationChannelPropertiesResponsePtrOutputWithContext(context.Context) NotificationChannelPropertiesResponsePtrOutput
-}
-
-type notificationChannelPropertiesResponsePtrType NotificationChannelPropertiesResponseArgs
-
-func NotificationChannelPropertiesResponsePtr(v *NotificationChannelPropertiesResponseArgs) NotificationChannelPropertiesResponsePtrInput {
-	return (*notificationChannelPropertiesResponsePtrType)(v)
-}
-
-func (*notificationChannelPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationChannelPropertiesResponse)(nil)).Elem()
-}
-
-func (i *notificationChannelPropertiesResponsePtrType) ToNotificationChannelPropertiesResponsePtrOutput() NotificationChannelPropertiesResponsePtrOutput {
-	return i.ToNotificationChannelPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *notificationChannelPropertiesResponsePtrType) ToNotificationChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationChannelPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelPropertiesResponsePtrOutput)
-}
-
-// Properties of a schedule.
-type NotificationChannelPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (NotificationChannelPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationChannelPropertiesResponse)(nil)).Elem()
-}
-
-func (o NotificationChannelPropertiesResponseOutput) ToNotificationChannelPropertiesResponseOutput() NotificationChannelPropertiesResponseOutput {
-	return o
-}
-
-func (o NotificationChannelPropertiesResponseOutput) ToNotificationChannelPropertiesResponseOutputWithContext(ctx context.Context) NotificationChannelPropertiesResponseOutput {
-	return o
-}
-
-func (o NotificationChannelPropertiesResponseOutput) ToNotificationChannelPropertiesResponsePtrOutput() NotificationChannelPropertiesResponsePtrOutput {
-	return o.ToNotificationChannelPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NotificationChannelPropertiesResponseOutput) ToNotificationChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationChannelPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v NotificationChannelPropertiesResponse) *NotificationChannelPropertiesResponse {
-		return &v
-	}).(NotificationChannelPropertiesResponsePtrOutput)
-}
-
-// The creation date of the notification channel.
-func (o NotificationChannelPropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v NotificationChannelPropertiesResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
-}
-
-// Description of notification.
-func (o NotificationChannelPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotificationChannelPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The list of event for which this notification is enabled.
-func (o NotificationChannelPropertiesResponseOutput) Events() EventResponseArrayOutput {
-	return o.ApplyT(func(v NotificationChannelPropertiesResponse) []EventResponse { return v.Events }).(EventResponseArrayOutput)
-}
-
-// The provisioning status of the resource.
-func (o NotificationChannelPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotificationChannelPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o NotificationChannelPropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotificationChannelPropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-// The webhook URL to send notifications to.
-func (o NotificationChannelPropertiesResponseOutput) WebHookUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotificationChannelPropertiesResponse) *string { return v.WebHookUrl }).(pulumi.StringPtrOutput)
-}
-
-type NotificationChannelPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (NotificationChannelPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationChannelPropertiesResponse)(nil)).Elem()
-}
-
-func (o NotificationChannelPropertiesResponsePtrOutput) ToNotificationChannelPropertiesResponsePtrOutput() NotificationChannelPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NotificationChannelPropertiesResponsePtrOutput) ToNotificationChannelPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationChannelPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NotificationChannelPropertiesResponsePtrOutput) Elem() NotificationChannelPropertiesResponseOutput {
-	return o.ApplyT(func(v *NotificationChannelPropertiesResponse) NotificationChannelPropertiesResponse { return *v }).(NotificationChannelPropertiesResponseOutput)
-}
-
-// The creation date of the notification channel.
-func (o NotificationChannelPropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotificationChannelPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// Description of notification.
-func (o NotificationChannelPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotificationChannelPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of event for which this notification is enabled.
-func (o NotificationChannelPropertiesResponsePtrOutput) Events() EventResponseArrayOutput {
-	return o.ApplyT(func(v *NotificationChannelPropertiesResponse) []EventResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Events
-	}).(EventResponseArrayOutput)
-}
-
-// The provisioning status of the resource.
-func (o NotificationChannelPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotificationChannelPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o NotificationChannelPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotificationChannelPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The webhook URL to send notifications to.
-func (o NotificationChannelPropertiesResponsePtrOutput) WebHookUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotificationChannelPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WebHookUrl
-	}).(pulumi.StringPtrOutput)
-}
-
 // Notification settings for a schedule.
 type NotificationSettings struct {
 	// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
@@ -11778,292 +8854,6 @@ func (o NotificationSettingsResponsePtrOutput) WebhookUrl() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.WebhookUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// Properties of a Policy.
-type PolicyPropertiesResponse struct {
-	// The creation date of the policy.
-	CreatedDate string `pulumi:"createdDate"`
-	// The description of the policy.
-	Description *string `pulumi:"description"`
-	// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-	EvaluatorType *string `pulumi:"evaluatorType"`
-	// The fact data of the policy.
-	FactData *string `pulumi:"factData"`
-	// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-	FactName *string `pulumi:"factName"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The status of the policy.
-	Status *string `pulumi:"status"`
-	// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-	Threshold *string `pulumi:"threshold"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-}
-
-// PolicyPropertiesResponseInput is an input type that accepts PolicyPropertiesResponseArgs and PolicyPropertiesResponseOutput values.
-// You can construct a concrete instance of `PolicyPropertiesResponseInput` via:
-//
-//          PolicyPropertiesResponseArgs{...}
-type PolicyPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToPolicyPropertiesResponseOutput() PolicyPropertiesResponseOutput
-	ToPolicyPropertiesResponseOutputWithContext(context.Context) PolicyPropertiesResponseOutput
-}
-
-// Properties of a Policy.
-type PolicyPropertiesResponseArgs struct {
-	// The creation date of the policy.
-	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
-	// The description of the policy.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-	EvaluatorType pulumi.StringPtrInput `pulumi:"evaluatorType"`
-	// The fact data of the policy.
-	FactData pulumi.StringPtrInput `pulumi:"factData"`
-	// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-	FactName pulumi.StringPtrInput `pulumi:"factName"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The status of the policy.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-	Threshold pulumi.StringPtrInput `pulumi:"threshold"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-}
-
-func (PolicyPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i PolicyPropertiesResponseArgs) ToPolicyPropertiesResponseOutput() PolicyPropertiesResponseOutput {
-	return i.ToPolicyPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i PolicyPropertiesResponseArgs) ToPolicyPropertiesResponseOutputWithContext(ctx context.Context) PolicyPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyPropertiesResponseOutput)
-}
-
-func (i PolicyPropertiesResponseArgs) ToPolicyPropertiesResponsePtrOutput() PolicyPropertiesResponsePtrOutput {
-	return i.ToPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PolicyPropertiesResponseArgs) ToPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyPropertiesResponseOutput).ToPolicyPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// PolicyPropertiesResponsePtrInput is an input type that accepts PolicyPropertiesResponseArgs, PolicyPropertiesResponsePtr and PolicyPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `PolicyPropertiesResponsePtrInput` via:
-//
-//          PolicyPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type PolicyPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToPolicyPropertiesResponsePtrOutput() PolicyPropertiesResponsePtrOutput
-	ToPolicyPropertiesResponsePtrOutputWithContext(context.Context) PolicyPropertiesResponsePtrOutput
-}
-
-type policyPropertiesResponsePtrType PolicyPropertiesResponseArgs
-
-func PolicyPropertiesResponsePtr(v *PolicyPropertiesResponseArgs) PolicyPropertiesResponsePtrInput {
-	return (*policyPropertiesResponsePtrType)(v)
-}
-
-func (*policyPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i *policyPropertiesResponsePtrType) ToPolicyPropertiesResponsePtrOutput() PolicyPropertiesResponsePtrOutput {
-	return i.ToPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *policyPropertiesResponsePtrType) ToPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyPropertiesResponsePtrOutput)
-}
-
-// Properties of a Policy.
-type PolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (PolicyPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (o PolicyPropertiesResponseOutput) ToPolicyPropertiesResponseOutput() PolicyPropertiesResponseOutput {
-	return o
-}
-
-func (o PolicyPropertiesResponseOutput) ToPolicyPropertiesResponseOutputWithContext(ctx context.Context) PolicyPropertiesResponseOutput {
-	return o
-}
-
-func (o PolicyPropertiesResponseOutput) ToPolicyPropertiesResponsePtrOutput() PolicyPropertiesResponsePtrOutput {
-	return o.ToPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PolicyPropertiesResponseOutput) ToPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v PolicyPropertiesResponse) *PolicyPropertiesResponse {
-		return &v
-	}).(PolicyPropertiesResponsePtrOutput)
-}
-
-// The creation date of the policy.
-func (o PolicyPropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyPropertiesResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
-}
-
-// The description of the policy.
-func (o PolicyPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-func (o PolicyPropertiesResponseOutput) EvaluatorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyPropertiesResponse) *string { return v.EvaluatorType }).(pulumi.StringPtrOutput)
-}
-
-// The fact data of the policy.
-func (o PolicyPropertiesResponseOutput) FactData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyPropertiesResponse) *string { return v.FactData }).(pulumi.StringPtrOutput)
-}
-
-// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-func (o PolicyPropertiesResponseOutput) FactName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyPropertiesResponse) *string { return v.FactName }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o PolicyPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The status of the policy.
-func (o PolicyPropertiesResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyPropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-func (o PolicyPropertiesResponseOutput) Threshold() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyPropertiesResponse) *string { return v.Threshold }).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o PolicyPropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyPropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-type PolicyPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (o PolicyPropertiesResponsePtrOutput) ToPolicyPropertiesResponsePtrOutput() PolicyPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o PolicyPropertiesResponsePtrOutput) ToPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) PolicyPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o PolicyPropertiesResponsePtrOutput) Elem() PolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) PolicyPropertiesResponse { return *v }).(PolicyPropertiesResponseOutput)
-}
-
-// The creation date of the policy.
-func (o PolicyPropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The description of the policy.
-func (o PolicyPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-func (o PolicyPropertiesResponsePtrOutput) EvaluatorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EvaluatorType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The fact data of the policy.
-func (o PolicyPropertiesResponsePtrOutput) FactData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FactData
-	}).(pulumi.StringPtrOutput)
-}
-
-// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-func (o PolicyPropertiesResponsePtrOutput) FactName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FactName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o PolicyPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The status of the policy.
-func (o PolicyPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
-func (o PolicyPropertiesResponsePtrOutput) Threshold() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Threshold
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o PolicyPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicyPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12628,344 +9418,40 @@ func (o ScheduleTypePtrOutput) WeeklyRecurrence() WeekDetailsPtrOutput {
 	}).(WeekDetailsPtrOutput)
 }
 
-// Properties of a schedule.
-type SchedulePropertiesResponse struct {
+// A schedule.
+type ScheduleResponse struct {
 	// The creation date of the schedule.
 	CreatedDate string `pulumi:"createdDate"`
 	// If the schedule will occur once each day of the week, specify the daily recurrence.
 	DailyRecurrence *DayDetailsResponse `pulumi:"dailyRecurrence"`
 	// If the schedule will occur multiple times a day, specify the hourly recurrence.
 	HourlyRecurrence *HourDetailsResponse `pulumi:"hourlyRecurrence"`
-	// Notification settings.
-	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The status of the schedule (i.e. Enabled, Disabled)
-	Status *string `pulumi:"status"`
-	// The resource ID to which the schedule belongs
-	TargetResourceId *string `pulumi:"targetResourceId"`
-	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-	TaskType *string `pulumi:"taskType"`
-	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId *string `pulumi:"timeZoneId"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// If the schedule will occur only some days of the week, specify the weekly recurrence.
-	WeeklyRecurrence *WeekDetailsResponse `pulumi:"weeklyRecurrence"`
-}
-
-// SchedulePropertiesResponseInput is an input type that accepts SchedulePropertiesResponseArgs and SchedulePropertiesResponseOutput values.
-// You can construct a concrete instance of `SchedulePropertiesResponseInput` via:
-//
-//          SchedulePropertiesResponseArgs{...}
-type SchedulePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSchedulePropertiesResponseOutput() SchedulePropertiesResponseOutput
-	ToSchedulePropertiesResponseOutputWithContext(context.Context) SchedulePropertiesResponseOutput
-}
-
-// Properties of a schedule.
-type SchedulePropertiesResponseArgs struct {
-	// The creation date of the schedule.
-	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
-	// If the schedule will occur once each day of the week, specify the daily recurrence.
-	DailyRecurrence DayDetailsResponsePtrInput `pulumi:"dailyRecurrence"`
-	// If the schedule will occur multiple times a day, specify the hourly recurrence.
-	HourlyRecurrence HourDetailsResponsePtrInput `pulumi:"hourlyRecurrence"`
-	// Notification settings.
-	NotificationSettings NotificationSettingsResponsePtrInput `pulumi:"notificationSettings"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The status of the schedule (i.e. Enabled, Disabled)
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The resource ID to which the schedule belongs
-	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
-	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-	TaskType pulumi.StringPtrInput `pulumi:"taskType"`
-	// The time zone ID (e.g. Pacific Standard time).
-	TimeZoneId pulumi.StringPtrInput `pulumi:"timeZoneId"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// If the schedule will occur only some days of the week, specify the weekly recurrence.
-	WeeklyRecurrence WeekDetailsResponsePtrInput `pulumi:"weeklyRecurrence"`
-}
-
-func (SchedulePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchedulePropertiesResponse)(nil)).Elem()
-}
-
-func (i SchedulePropertiesResponseArgs) ToSchedulePropertiesResponseOutput() SchedulePropertiesResponseOutput {
-	return i.ToSchedulePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SchedulePropertiesResponseArgs) ToSchedulePropertiesResponseOutputWithContext(ctx context.Context) SchedulePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulePropertiesResponseOutput)
-}
-
-func (i SchedulePropertiesResponseArgs) ToSchedulePropertiesResponsePtrOutput() SchedulePropertiesResponsePtrOutput {
-	return i.ToSchedulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SchedulePropertiesResponseArgs) ToSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) SchedulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulePropertiesResponseOutput).ToSchedulePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// SchedulePropertiesResponsePtrInput is an input type that accepts SchedulePropertiesResponseArgs, SchedulePropertiesResponsePtr and SchedulePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `SchedulePropertiesResponsePtrInput` via:
-//
-//          SchedulePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SchedulePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSchedulePropertiesResponsePtrOutput() SchedulePropertiesResponsePtrOutput
-	ToSchedulePropertiesResponsePtrOutputWithContext(context.Context) SchedulePropertiesResponsePtrOutput
-}
-
-type schedulePropertiesResponsePtrType SchedulePropertiesResponseArgs
-
-func SchedulePropertiesResponsePtr(v *SchedulePropertiesResponseArgs) SchedulePropertiesResponsePtrInput {
-	return (*schedulePropertiesResponsePtrType)(v)
-}
-
-func (*schedulePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchedulePropertiesResponse)(nil)).Elem()
-}
-
-func (i *schedulePropertiesResponsePtrType) ToSchedulePropertiesResponsePtrOutput() SchedulePropertiesResponsePtrOutput {
-	return i.ToSchedulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *schedulePropertiesResponsePtrType) ToSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) SchedulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulePropertiesResponsePtrOutput)
-}
-
-// Properties of a schedule.
-type SchedulePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (SchedulePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchedulePropertiesResponse)(nil)).Elem()
-}
-
-func (o SchedulePropertiesResponseOutput) ToSchedulePropertiesResponseOutput() SchedulePropertiesResponseOutput {
-	return o
-}
-
-func (o SchedulePropertiesResponseOutput) ToSchedulePropertiesResponseOutputWithContext(ctx context.Context) SchedulePropertiesResponseOutput {
-	return o
-}
-
-func (o SchedulePropertiesResponseOutput) ToSchedulePropertiesResponsePtrOutput() SchedulePropertiesResponsePtrOutput {
-	return o.ToSchedulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SchedulePropertiesResponseOutput) ToSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) SchedulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) *SchedulePropertiesResponse {
-		return &v
-	}).(SchedulePropertiesResponsePtrOutput)
-}
-
-// The creation date of the schedule.
-func (o SchedulePropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
-}
-
-// If the schedule will occur once each day of the week, specify the daily recurrence.
-func (o SchedulePropertiesResponseOutput) DailyRecurrence() DayDetailsResponsePtrOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) *DayDetailsResponse { return v.DailyRecurrence }).(DayDetailsResponsePtrOutput)
-}
-
-// If the schedule will occur multiple times a day, specify the hourly recurrence.
-func (o SchedulePropertiesResponseOutput) HourlyRecurrence() HourDetailsResponsePtrOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) *HourDetailsResponse { return v.HourlyRecurrence }).(HourDetailsResponsePtrOutput)
-}
-
-// Notification settings.
-func (o SchedulePropertiesResponseOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) *NotificationSettingsResponse { return v.NotificationSettings }).(NotificationSettingsResponsePtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o SchedulePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The status of the schedule (i.e. Enabled, Disabled)
-func (o SchedulePropertiesResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// The resource ID to which the schedule belongs
-func (o SchedulePropertiesResponseOutput) TargetResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
-}
-
-// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-func (o SchedulePropertiesResponseOutput) TaskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) *string { return v.TaskType }).(pulumi.StringPtrOutput)
-}
-
-// The time zone ID (e.g. Pacific Standard time).
-func (o SchedulePropertiesResponseOutput) TimeZoneId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) *string { return v.TimeZoneId }).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o SchedulePropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-// If the schedule will occur only some days of the week, specify the weekly recurrence.
-func (o SchedulePropertiesResponseOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutput {
-	return o.ApplyT(func(v SchedulePropertiesResponse) *WeekDetailsResponse { return v.WeeklyRecurrence }).(WeekDetailsResponsePtrOutput)
-}
-
-type SchedulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SchedulePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchedulePropertiesResponse)(nil)).Elem()
-}
-
-func (o SchedulePropertiesResponsePtrOutput) ToSchedulePropertiesResponsePtrOutput() SchedulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SchedulePropertiesResponsePtrOutput) ToSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) SchedulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SchedulePropertiesResponsePtrOutput) Elem() SchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) SchedulePropertiesResponse { return *v }).(SchedulePropertiesResponseOutput)
-}
-
-// The creation date of the schedule.
-func (o SchedulePropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// If the schedule will occur once each day of the week, specify the daily recurrence.
-func (o SchedulePropertiesResponsePtrOutput) DailyRecurrence() DayDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *DayDetailsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DailyRecurrence
-	}).(DayDetailsResponsePtrOutput)
-}
-
-// If the schedule will occur multiple times a day, specify the hourly recurrence.
-func (o SchedulePropertiesResponsePtrOutput) HourlyRecurrence() HourDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *HourDetailsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.HourlyRecurrence
-	}).(HourDetailsResponsePtrOutput)
-}
-
-// Notification settings.
-func (o SchedulePropertiesResponsePtrOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *NotificationSettingsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.NotificationSettings
-	}).(NotificationSettingsResponsePtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o SchedulePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The status of the schedule (i.e. Enabled, Disabled)
-func (o SchedulePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource ID to which the schedule belongs
-func (o SchedulePropertiesResponsePtrOutput) TargetResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-func (o SchedulePropertiesResponsePtrOutput) TaskType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TaskType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time zone ID (e.g. Pacific Standard time).
-func (o SchedulePropertiesResponsePtrOutput) TimeZoneId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeZoneId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o SchedulePropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// If the schedule will occur only some days of the week, specify the weekly recurrence.
-func (o SchedulePropertiesResponsePtrOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *WeekDetailsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.WeeklyRecurrence
-	}).(WeekDetailsResponsePtrOutput)
-}
-
-// A schedule.
-type ScheduleResponse struct {
 	// The identifier of the resource.
 	Id string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties SchedulePropertiesResponse `pulumi:"properties"`
+	// Notification settings.
+	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The status of the schedule (i.e. Enabled, Disabled)
+	Status *string `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The resource ID to which the schedule belongs
+	TargetResourceId *string `pulumi:"targetResourceId"`
+	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+	TaskType *string `pulumi:"taskType"`
+	// The time zone ID (e.g. Pacific Standard time).
+	TimeZoneId *string `pulumi:"timeZoneId"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// If the schedule will occur only some days of the week, specify the weekly recurrence.
+	WeeklyRecurrence *WeekDetailsResponse `pulumi:"weeklyRecurrence"`
 }
 
 // ScheduleResponseInput is an input type that accepts ScheduleResponseArgs and ScheduleResponseOutput values.
@@ -12981,18 +9467,38 @@ type ScheduleResponseInput interface {
 
 // A schedule.
 type ScheduleResponseArgs struct {
+	// The creation date of the schedule.
+	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
+	// If the schedule will occur once each day of the week, specify the daily recurrence.
+	DailyRecurrence DayDetailsResponsePtrInput `pulumi:"dailyRecurrence"`
+	// If the schedule will occur multiple times a day, specify the hourly recurrence.
+	HourlyRecurrence HourDetailsResponsePtrInput `pulumi:"hourlyRecurrence"`
 	// The identifier of the resource.
 	Id pulumi.StringInput `pulumi:"id"`
 	// The location of the resource.
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties SchedulePropertiesResponseInput `pulumi:"properties"`
+	// Notification settings.
+	NotificationSettings NotificationSettingsResponsePtrInput `pulumi:"notificationSettings"`
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	// The status of the schedule (i.e. Enabled, Disabled)
+	Status pulumi.StringPtrInput `pulumi:"status"`
 	// The tags of the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The resource ID to which the schedule belongs
+	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
+	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+	TaskType pulumi.StringPtrInput `pulumi:"taskType"`
+	// The time zone ID (e.g. Pacific Standard time).
+	TimeZoneId pulumi.StringPtrInput `pulumi:"timeZoneId"`
 	// The type of the resource.
 	Type pulumi.StringInput `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
+	// If the schedule will occur only some days of the week, specify the weekly recurrence.
+	WeeklyRecurrence WeekDetailsResponsePtrInput `pulumi:"weeklyRecurrence"`
 }
 
 func (ScheduleResponseArgs) ElementType() reflect.Type {
@@ -13098,6 +9604,21 @@ func (o ScheduleResponseOutput) ToScheduleResponsePtrOutputWithContext(ctx conte
 	}).(ScheduleResponsePtrOutput)
 }
 
+// The creation date of the schedule.
+func (o ScheduleResponseOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// If the schedule will occur once each day of the week, specify the daily recurrence.
+func (o ScheduleResponseOutput) DailyRecurrence() DayDetailsResponsePtrOutput {
+	return o.ApplyT(func(v ScheduleResponse) *DayDetailsResponse { return v.DailyRecurrence }).(DayDetailsResponsePtrOutput)
+}
+
+// If the schedule will occur multiple times a day, specify the hourly recurrence.
+func (o ScheduleResponseOutput) HourlyRecurrence() HourDetailsResponsePtrOutput {
+	return o.ApplyT(func(v ScheduleResponse) *HourDetailsResponse { return v.HourlyRecurrence }).(HourDetailsResponsePtrOutput)
+}
+
 // The identifier of the resource.
 func (o ScheduleResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleResponse) string { return v.Id }).(pulumi.StringOutput)
@@ -13113,9 +9634,19 @@ func (o ScheduleResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties of the resource.
-func (o ScheduleResponseOutput) Properties() SchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v ScheduleResponse) SchedulePropertiesResponse { return v.Properties }).(SchedulePropertiesResponseOutput)
+// Notification settings.
+func (o ScheduleResponseOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v ScheduleResponse) *NotificationSettingsResponse { return v.NotificationSettings }).(NotificationSettingsResponsePtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o ScheduleResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduleResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+// The status of the schedule (i.e. Enabled, Disabled)
+func (o ScheduleResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduleResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 // The tags of the resource.
@@ -13123,9 +9654,34 @@ func (o ScheduleResponseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ScheduleResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The resource ID to which the schedule belongs
+func (o ScheduleResponseOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduleResponse) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+func (o ScheduleResponseOutput) TaskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduleResponse) *string { return v.TaskType }).(pulumi.StringPtrOutput)
+}
+
+// The time zone ID (e.g. Pacific Standard time).
+func (o ScheduleResponseOutput) TimeZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduleResponse) *string { return v.TimeZoneId }).(pulumi.StringPtrOutput)
+}
+
 // The type of the resource.
 func (o ScheduleResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ScheduleResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o ScheduleResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduleResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// If the schedule will occur only some days of the week, specify the weekly recurrence.
+func (o ScheduleResponseOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutput {
+	return o.ApplyT(func(v ScheduleResponse) *WeekDetailsResponse { return v.WeeklyRecurrence }).(WeekDetailsResponsePtrOutput)
 }
 
 type ScheduleResponsePtrOutput struct{ *pulumi.OutputState }
@@ -13144,6 +9700,36 @@ func (o ScheduleResponsePtrOutput) ToScheduleResponsePtrOutputWithContext(ctx co
 
 func (o ScheduleResponsePtrOutput) Elem() ScheduleResponseOutput {
 	return o.ApplyT(func(v *ScheduleResponse) ScheduleResponse { return *v }).(ScheduleResponseOutput)
+}
+
+// The creation date of the schedule.
+func (o ScheduleResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CreatedDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// If the schedule will occur once each day of the week, specify the daily recurrence.
+func (o ScheduleResponsePtrOutput) DailyRecurrence() DayDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduleResponse) *DayDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DailyRecurrence
+	}).(DayDetailsResponsePtrOutput)
+}
+
+// If the schedule will occur multiple times a day, specify the hourly recurrence.
+func (o ScheduleResponsePtrOutput) HourlyRecurrence() HourDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduleResponse) *HourDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.HourlyRecurrence
+	}).(HourDetailsResponsePtrOutput)
 }
 
 // The identifier of the resource.
@@ -13176,14 +9762,34 @@ func (o ScheduleResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the resource.
-func (o ScheduleResponsePtrOutput) Properties() SchedulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *ScheduleResponse) *SchedulePropertiesResponse {
+// Notification settings.
+func (o ScheduleResponsePtrOutput) NotificationSettings() NotificationSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduleResponse) *NotificationSettingsResponse {
 		if v == nil {
 			return nil
 		}
-		return &v.Properties
-	}).(SchedulePropertiesResponsePtrOutput)
+		return v.NotificationSettings
+	}).(NotificationSettingsResponsePtrOutput)
+}
+
+// The provisioning status of the resource.
+func (o ScheduleResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The status of the schedule (i.e. Enabled, Disabled)
+func (o ScheduleResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 // The tags of the resource.
@@ -13196,6 +9802,36 @@ func (o ScheduleResponsePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+// The resource ID to which the schedule belongs
+func (o ScheduleResponsePtrOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+func (o ScheduleResponsePtrOutput) TaskType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TaskType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time zone ID (e.g. Pacific Standard time).
+func (o ScheduleResponsePtrOutput) TimeZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZoneId
+	}).(pulumi.StringPtrOutput)
+}
+
 // The type of the resource.
 func (o ScheduleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScheduleResponse) *string {
@@ -13204,6 +9840,26 @@ func (o ScheduleResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// The unique immutable identifier of a resource (Guid).
+func (o ScheduleResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduleResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UniqueIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// If the schedule will occur only some days of the week, specify the weekly recurrence.
+func (o ScheduleResponsePtrOutput) WeeklyRecurrence() WeekDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *ScheduleResponse) *WeekDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.WeeklyRecurrence
+	}).(WeekDetailsResponsePtrOutput)
 }
 
 type ScheduleResponseArrayOutput struct{ *pulumi.OutputState }
@@ -13224,178 +9880,6 @@ func (o ScheduleResponseArrayOutput) Index(i pulumi.IntInput) ScheduleResponseOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleResponse {
 		return vs[0].([]ScheduleResponse)[vs[1].(int)]
 	}).(ScheduleResponseOutput)
-}
-
-// Properties of a secret.
-type SecretPropertiesResponse struct {
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-	// The value of the secret for secret creation.
-	Value *string `pulumi:"value"`
-}
-
-// SecretPropertiesResponseInput is an input type that accepts SecretPropertiesResponseArgs and SecretPropertiesResponseOutput values.
-// You can construct a concrete instance of `SecretPropertiesResponseInput` via:
-//
-//          SecretPropertiesResponseArgs{...}
-type SecretPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSecretPropertiesResponseOutput() SecretPropertiesResponseOutput
-	ToSecretPropertiesResponseOutputWithContext(context.Context) SecretPropertiesResponseOutput
-}
-
-// Properties of a secret.
-type SecretPropertiesResponseArgs struct {
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-	// The value of the secret for secret creation.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (SecretPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretPropertiesResponse)(nil)).Elem()
-}
-
-func (i SecretPropertiesResponseArgs) ToSecretPropertiesResponseOutput() SecretPropertiesResponseOutput {
-	return i.ToSecretPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SecretPropertiesResponseArgs) ToSecretPropertiesResponseOutputWithContext(ctx context.Context) SecretPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesResponseOutput)
-}
-
-func (i SecretPropertiesResponseArgs) ToSecretPropertiesResponsePtrOutput() SecretPropertiesResponsePtrOutput {
-	return i.ToSecretPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SecretPropertiesResponseArgs) ToSecretPropertiesResponsePtrOutputWithContext(ctx context.Context) SecretPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesResponseOutput).ToSecretPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// SecretPropertiesResponsePtrInput is an input type that accepts SecretPropertiesResponseArgs, SecretPropertiesResponsePtr and SecretPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `SecretPropertiesResponsePtrInput` via:
-//
-//          SecretPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SecretPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSecretPropertiesResponsePtrOutput() SecretPropertiesResponsePtrOutput
-	ToSecretPropertiesResponsePtrOutputWithContext(context.Context) SecretPropertiesResponsePtrOutput
-}
-
-type secretPropertiesResponsePtrType SecretPropertiesResponseArgs
-
-func SecretPropertiesResponsePtr(v *SecretPropertiesResponseArgs) SecretPropertiesResponsePtrInput {
-	return (*secretPropertiesResponsePtrType)(v)
-}
-
-func (*secretPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecretPropertiesResponse)(nil)).Elem()
-}
-
-func (i *secretPropertiesResponsePtrType) ToSecretPropertiesResponsePtrOutput() SecretPropertiesResponsePtrOutput {
-	return i.ToSecretPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *secretPropertiesResponsePtrType) ToSecretPropertiesResponsePtrOutputWithContext(ctx context.Context) SecretPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretPropertiesResponsePtrOutput)
-}
-
-// Properties of a secret.
-type SecretPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (SecretPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretPropertiesResponse)(nil)).Elem()
-}
-
-func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponseOutput() SecretPropertiesResponseOutput {
-	return o
-}
-
-func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponseOutputWithContext(ctx context.Context) SecretPropertiesResponseOutput {
-	return o
-}
-
-func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponsePtrOutput() SecretPropertiesResponsePtrOutput {
-	return o.ToSecretPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SecretPropertiesResponseOutput) ToSecretPropertiesResponsePtrOutputWithContext(ctx context.Context) SecretPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SecretPropertiesResponse) *SecretPropertiesResponse {
-		return &v
-	}).(SecretPropertiesResponsePtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o SecretPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecretPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o SecretPropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecretPropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-// The value of the secret for secret creation.
-func (o SecretPropertiesResponseOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SecretPropertiesResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type SecretPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SecretPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecretPropertiesResponse)(nil)).Elem()
-}
-
-func (o SecretPropertiesResponsePtrOutput) ToSecretPropertiesResponsePtrOutput() SecretPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SecretPropertiesResponsePtrOutput) ToSecretPropertiesResponsePtrOutputWithContext(ctx context.Context) SecretPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SecretPropertiesResponsePtrOutput) Elem() SecretPropertiesResponseOutput {
-	return o.ApplyT(func(v *SecretPropertiesResponse) SecretPropertiesResponse { return *v }).(SecretPropertiesResponseOutput)
-}
-
-// The provisioning status of the resource.
-func (o SecretPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecretPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o SecretPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecretPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the secret for secret creation.
-func (o SecretPropertiesResponsePtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecretPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Value
-	}).(pulumi.StringPtrOutput)
 }
 
 // Properties of a virtual machine that determine how it is connected to a load balancer.
@@ -14888,216 +11372,6 @@ func (o UserIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties of a lab user profile.
-type UserPropertiesResponse struct {
-	// The creation date of the user profile.
-	CreatedDate string `pulumi:"createdDate"`
-	// The identity of the user.
-	Identity *UserIdentityResponse `pulumi:"identity"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The secret store of the user.
-	SecretStore *UserSecretStoreResponse `pulumi:"secretStore"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-}
-
-// UserPropertiesResponseInput is an input type that accepts UserPropertiesResponseArgs and UserPropertiesResponseOutput values.
-// You can construct a concrete instance of `UserPropertiesResponseInput` via:
-//
-//          UserPropertiesResponseArgs{...}
-type UserPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToUserPropertiesResponseOutput() UserPropertiesResponseOutput
-	ToUserPropertiesResponseOutputWithContext(context.Context) UserPropertiesResponseOutput
-}
-
-// Properties of a lab user profile.
-type UserPropertiesResponseArgs struct {
-	// The creation date of the user profile.
-	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
-	// The identity of the user.
-	Identity UserIdentityResponsePtrInput `pulumi:"identity"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The secret store of the user.
-	SecretStore UserSecretStoreResponsePtrInput `pulumi:"secretStore"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-}
-
-func (UserPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPropertiesResponse)(nil)).Elem()
-}
-
-func (i UserPropertiesResponseArgs) ToUserPropertiesResponseOutput() UserPropertiesResponseOutput {
-	return i.ToUserPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i UserPropertiesResponseArgs) ToUserPropertiesResponseOutputWithContext(ctx context.Context) UserPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPropertiesResponseOutput)
-}
-
-func (i UserPropertiesResponseArgs) ToUserPropertiesResponsePtrOutput() UserPropertiesResponsePtrOutput {
-	return i.ToUserPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i UserPropertiesResponseArgs) ToUserPropertiesResponsePtrOutputWithContext(ctx context.Context) UserPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPropertiesResponseOutput).ToUserPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// UserPropertiesResponsePtrInput is an input type that accepts UserPropertiesResponseArgs, UserPropertiesResponsePtr and UserPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `UserPropertiesResponsePtrInput` via:
-//
-//          UserPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type UserPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToUserPropertiesResponsePtrOutput() UserPropertiesResponsePtrOutput
-	ToUserPropertiesResponsePtrOutputWithContext(context.Context) UserPropertiesResponsePtrOutput
-}
-
-type userPropertiesResponsePtrType UserPropertiesResponseArgs
-
-func UserPropertiesResponsePtr(v *UserPropertiesResponseArgs) UserPropertiesResponsePtrInput {
-	return (*userPropertiesResponsePtrType)(v)
-}
-
-func (*userPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPropertiesResponse)(nil)).Elem()
-}
-
-func (i *userPropertiesResponsePtrType) ToUserPropertiesResponsePtrOutput() UserPropertiesResponsePtrOutput {
-	return i.ToUserPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *userPropertiesResponsePtrType) ToUserPropertiesResponsePtrOutputWithContext(ctx context.Context) UserPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPropertiesResponsePtrOutput)
-}
-
-// Properties of a lab user profile.
-type UserPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (UserPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPropertiesResponse)(nil)).Elem()
-}
-
-func (o UserPropertiesResponseOutput) ToUserPropertiesResponseOutput() UserPropertiesResponseOutput {
-	return o
-}
-
-func (o UserPropertiesResponseOutput) ToUserPropertiesResponseOutputWithContext(ctx context.Context) UserPropertiesResponseOutput {
-	return o
-}
-
-func (o UserPropertiesResponseOutput) ToUserPropertiesResponsePtrOutput() UserPropertiesResponsePtrOutput {
-	return o.ToUserPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o UserPropertiesResponseOutput) ToUserPropertiesResponsePtrOutputWithContext(ctx context.Context) UserPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v UserPropertiesResponse) *UserPropertiesResponse {
-		return &v
-	}).(UserPropertiesResponsePtrOutput)
-}
-
-// The creation date of the user profile.
-func (o UserPropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v UserPropertiesResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
-}
-
-// The identity of the user.
-func (o UserPropertiesResponseOutput) Identity() UserIdentityResponsePtrOutput {
-	return o.ApplyT(func(v UserPropertiesResponse) *UserIdentityResponse { return v.Identity }).(UserIdentityResponsePtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o UserPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The secret store of the user.
-func (o UserPropertiesResponseOutput) SecretStore() UserSecretStoreResponsePtrOutput {
-	return o.ApplyT(func(v UserPropertiesResponse) *UserSecretStoreResponse { return v.SecretStore }).(UserSecretStoreResponsePtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o UserPropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserPropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-type UserPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (UserPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPropertiesResponse)(nil)).Elem()
-}
-
-func (o UserPropertiesResponsePtrOutput) ToUserPropertiesResponsePtrOutput() UserPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o UserPropertiesResponsePtrOutput) ToUserPropertiesResponsePtrOutputWithContext(ctx context.Context) UserPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o UserPropertiesResponsePtrOutput) Elem() UserPropertiesResponseOutput {
-	return o.ApplyT(func(v *UserPropertiesResponse) UserPropertiesResponse { return *v }).(UserPropertiesResponseOutput)
-}
-
-// The creation date of the user profile.
-func (o UserPropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity of the user.
-func (o UserPropertiesResponsePtrOutput) Identity() UserIdentityResponsePtrOutput {
-	return o.ApplyT(func(v *UserPropertiesResponse) *UserIdentityResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Identity
-	}).(UserIdentityResponsePtrOutput)
-}
-
-// The provisioning status of the resource.
-func (o UserPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The secret store of the user.
-func (o UserPropertiesResponsePtrOutput) SecretStore() UserSecretStoreResponsePtrOutput {
-	return o.ApplyT(func(v *UserPropertiesResponse) *UserSecretStoreResponse {
-		if v == nil {
-			return nil
-		}
-		return v.SecretStore
-	}).(UserSecretStoreResponsePtrOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o UserPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UserPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
-	}).(pulumi.StringPtrOutput)
-}
-
 // Properties of a user's secret store.
 type UserSecretStore struct {
 	// The ID of the user's Key vault.
@@ -15401,273 +11675,6 @@ func (o UserSecretStoreResponsePtrOutput) KeyVaultUri() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.KeyVaultUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Properties of a virtual network.
-type VirtualNetworkPropertiesResponse struct {
-	// The allowed subnets of the virtual network.
-	AllowedSubnets []SubnetResponse `pulumi:"allowedSubnets"`
-	// The creation date of the virtual network.
-	CreatedDate string `pulumi:"createdDate"`
-	// The description of the virtual network.
-	Description *string `pulumi:"description"`
-	// The Microsoft.Network resource identifier of the virtual network.
-	ExternalProviderResourceId *string `pulumi:"externalProviderResourceId"`
-	// The external subnet properties.
-	ExternalSubnets []ExternalSubnetResponse `pulumi:"externalSubnets"`
-	// The provisioning status of the resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// The subnet overrides of the virtual network.
-	SubnetOverrides []SubnetOverrideResponse `pulumi:"subnetOverrides"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
-}
-
-// VirtualNetworkPropertiesResponseInput is an input type that accepts VirtualNetworkPropertiesResponseArgs and VirtualNetworkPropertiesResponseOutput values.
-// You can construct a concrete instance of `VirtualNetworkPropertiesResponseInput` via:
-//
-//          VirtualNetworkPropertiesResponseArgs{...}
-type VirtualNetworkPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkPropertiesResponseOutput() VirtualNetworkPropertiesResponseOutput
-	ToVirtualNetworkPropertiesResponseOutputWithContext(context.Context) VirtualNetworkPropertiesResponseOutput
-}
-
-// Properties of a virtual network.
-type VirtualNetworkPropertiesResponseArgs struct {
-	// The allowed subnets of the virtual network.
-	AllowedSubnets SubnetResponseArrayInput `pulumi:"allowedSubnets"`
-	// The creation date of the virtual network.
-	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
-	// The description of the virtual network.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The Microsoft.Network resource identifier of the virtual network.
-	ExternalProviderResourceId pulumi.StringPtrInput `pulumi:"externalProviderResourceId"`
-	// The external subnet properties.
-	ExternalSubnets ExternalSubnetResponseArrayInput `pulumi:"externalSubnets"`
-	// The provisioning status of the resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// The subnet overrides of the virtual network.
-	SubnetOverrides SubnetOverrideResponseArrayInput `pulumi:"subnetOverrides"`
-	// The unique immutable identifier of a resource (Guid).
-	UniqueIdentifier pulumi.StringPtrInput `pulumi:"uniqueIdentifier"`
-}
-
-func (VirtualNetworkPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPropertiesResponse)(nil)).Elem()
-}
-
-func (i VirtualNetworkPropertiesResponseArgs) ToVirtualNetworkPropertiesResponseOutput() VirtualNetworkPropertiesResponseOutput {
-	return i.ToVirtualNetworkPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkPropertiesResponseArgs) ToVirtualNetworkPropertiesResponseOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesResponseOutput)
-}
-
-func (i VirtualNetworkPropertiesResponseArgs) ToVirtualNetworkPropertiesResponsePtrOutput() VirtualNetworkPropertiesResponsePtrOutput {
-	return i.ToVirtualNetworkPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkPropertiesResponseArgs) ToVirtualNetworkPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesResponseOutput).ToVirtualNetworkPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// VirtualNetworkPropertiesResponsePtrInput is an input type that accepts VirtualNetworkPropertiesResponseArgs, VirtualNetworkPropertiesResponsePtr and VirtualNetworkPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `VirtualNetworkPropertiesResponsePtrInput` via:
-//
-//          VirtualNetworkPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualNetworkPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkPropertiesResponsePtrOutput() VirtualNetworkPropertiesResponsePtrOutput
-	ToVirtualNetworkPropertiesResponsePtrOutputWithContext(context.Context) VirtualNetworkPropertiesResponsePtrOutput
-}
-
-type virtualNetworkPropertiesResponsePtrType VirtualNetworkPropertiesResponseArgs
-
-func VirtualNetworkPropertiesResponsePtr(v *VirtualNetworkPropertiesResponseArgs) VirtualNetworkPropertiesResponsePtrInput {
-	return (*virtualNetworkPropertiesResponsePtrType)(v)
-}
-
-func (*virtualNetworkPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetworkPropertiesResponse)(nil)).Elem()
-}
-
-func (i *virtualNetworkPropertiesResponsePtrType) ToVirtualNetworkPropertiesResponsePtrOutput() VirtualNetworkPropertiesResponsePtrOutput {
-	return i.ToVirtualNetworkPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNetworkPropertiesResponsePtrType) ToVirtualNetworkPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesResponsePtrOutput)
-}
-
-// Properties of a virtual network.
-type VirtualNetworkPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualNetworkPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualNetworkPropertiesResponseOutput) ToVirtualNetworkPropertiesResponseOutput() VirtualNetworkPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualNetworkPropertiesResponseOutput) ToVirtualNetworkPropertiesResponseOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualNetworkPropertiesResponseOutput) ToVirtualNetworkPropertiesResponsePtrOutput() VirtualNetworkPropertiesResponsePtrOutput {
-	return o.ToVirtualNetworkPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNetworkPropertiesResponseOutput) ToVirtualNetworkPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) *VirtualNetworkPropertiesResponse {
-		return &v
-	}).(VirtualNetworkPropertiesResponsePtrOutput)
-}
-
-// The allowed subnets of the virtual network.
-func (o VirtualNetworkPropertiesResponseOutput) AllowedSubnets() SubnetResponseArrayOutput {
-	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) []SubnetResponse { return v.AllowedSubnets }).(SubnetResponseArrayOutput)
-}
-
-// The creation date of the virtual network.
-func (o VirtualNetworkPropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
-}
-
-// The description of the virtual network.
-func (o VirtualNetworkPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The Microsoft.Network resource identifier of the virtual network.
-func (o VirtualNetworkPropertiesResponseOutput) ExternalProviderResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) *string { return v.ExternalProviderResourceId }).(pulumi.StringPtrOutput)
-}
-
-// The external subnet properties.
-func (o VirtualNetworkPropertiesResponseOutput) ExternalSubnets() ExternalSubnetResponseArrayOutput {
-	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) []ExternalSubnetResponse { return v.ExternalSubnets }).(ExternalSubnetResponseArrayOutput)
-}
-
-// The provisioning status of the resource.
-func (o VirtualNetworkPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// The subnet overrides of the virtual network.
-func (o VirtualNetworkPropertiesResponseOutput) SubnetOverrides() SubnetOverrideResponseArrayOutput {
-	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) []SubnetOverrideResponse { return v.SubnetOverrides }).(SubnetOverrideResponseArrayOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o VirtualNetworkPropertiesResponseOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPropertiesResponse) *string { return v.UniqueIdentifier }).(pulumi.StringPtrOutput)
-}
-
-type VirtualNetworkPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualNetworkPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetworkPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualNetworkPropertiesResponsePtrOutput) ToVirtualNetworkPropertiesResponsePtrOutput() VirtualNetworkPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualNetworkPropertiesResponsePtrOutput) ToVirtualNetworkPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualNetworkPropertiesResponsePtrOutput) Elem() VirtualNetworkPropertiesResponseOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesResponse) VirtualNetworkPropertiesResponse { return *v }).(VirtualNetworkPropertiesResponseOutput)
-}
-
-// The allowed subnets of the virtual network.
-func (o VirtualNetworkPropertiesResponsePtrOutput) AllowedSubnets() SubnetResponseArrayOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesResponse) []SubnetResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedSubnets
-	}).(SubnetResponseArrayOutput)
-}
-
-// The creation date of the virtual network.
-func (o VirtualNetworkPropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The description of the virtual network.
-func (o VirtualNetworkPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Microsoft.Network resource identifier of the virtual network.
-func (o VirtualNetworkPropertiesResponsePtrOutput) ExternalProviderResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExternalProviderResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The external subnet properties.
-func (o VirtualNetworkPropertiesResponsePtrOutput) ExternalSubnets() ExternalSubnetResponseArrayOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesResponse) []ExternalSubnetResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ExternalSubnets
-	}).(ExternalSubnetResponseArrayOutput)
-}
-
-// The provisioning status of the resource.
-func (o VirtualNetworkPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The subnet overrides of the virtual network.
-func (o VirtualNetworkPropertiesResponsePtrOutput) SubnetOverrides() SubnetOverrideResponseArrayOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesResponse) []SubnetOverrideResponse {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetOverrides
-	}).(SubnetOverrideResponseArrayOutput)
-}
-
-// The unique immutable identifier of a resource (Guid).
-func (o VirtualNetworkPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UniqueIdentifier
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16248,8 +12255,6 @@ func (o WindowsOsInfoResponsePtrOutput) WindowsOsState() pulumi.StringPtrOutput 
 func init() {
 	pulumi.RegisterOutputType(ApplicableScheduleOutput{})
 	pulumi.RegisterOutputType(ApplicableSchedulePtrOutput{})
-	pulumi.RegisterOutputType(ApplicableSchedulePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ApplicableSchedulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicableScheduleResponseOutput{})
 	pulumi.RegisterOutputType(ApplicableScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(ArmTemplateParameterPropertiesOutput{})
@@ -16268,8 +12273,6 @@ func init() {
 	pulumi.RegisterOutputType(ArtifactParameterPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(ArtifactParameterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ArtifactParameterPropertiesResponseArrayOutput{})
-	pulumi.RegisterOutputType(ArtifactSourcePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ArtifactSourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(BulkCreationParametersOutput{})
 	pulumi.RegisterOutputType(BulkCreationParametersPtrOutput{})
 	pulumi.RegisterOutputType(BulkCreationParametersResponseOutput{})
@@ -16294,20 +12297,14 @@ func init() {
 	pulumi.RegisterOutputType(CustomImagePropertiesFromVmPtrOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesFromVmResponseOutput{})
 	pulumi.RegisterOutputType(CustomImagePropertiesFromVmResponsePtrOutput{})
-	pulumi.RegisterOutputType(CustomImagePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(CustomImagePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DayDetailsOutput{})
 	pulumi.RegisterOutputType(DayDetailsPtrOutput{})
 	pulumi.RegisterOutputType(DayDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DayDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(DiskPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(DiskPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentDeploymentPropertiesOutput{})
 	pulumi.RegisterOutputType(EnvironmentDeploymentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentDeploymentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentDeploymentPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(EnvironmentPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(EnvironmentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EventOutput{})
 	pulumi.RegisterOutputType(EventArrayOutput{})
 	pulumi.RegisterOutputType(EventResponseOutput{})
@@ -16320,8 +12317,6 @@ func init() {
 	pulumi.RegisterOutputType(FormulaPropertiesFromVmPtrOutput{})
 	pulumi.RegisterOutputType(FormulaPropertiesFromVmResponseOutput{})
 	pulumi.RegisterOutputType(FormulaPropertiesFromVmResponsePtrOutput{})
-	pulumi.RegisterOutputType(FormulaPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(FormulaPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceResponseOutput{})
@@ -16338,18 +12333,12 @@ func init() {
 	pulumi.RegisterOutputType(InboundNatRuleArrayOutput{})
 	pulumi.RegisterOutputType(InboundNatRuleResponseOutput{})
 	pulumi.RegisterOutputType(InboundNatRuleResponseArrayOutput{})
-	pulumi.RegisterOutputType(LabPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(LabPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LabVhdResponseOutput{})
 	pulumi.RegisterOutputType(LabVhdResponseArrayOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterPtrOutput{})
-	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterResponseOutput{})
 	pulumi.RegisterOutputType(LabVirtualMachineCreationParameterResponsePtrOutput{})
-	pulumi.RegisterOutputType(LabVirtualMachinePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(LabVirtualMachinePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LinuxOsInfoOutput{})
 	pulumi.RegisterOutputType(LinuxOsInfoPtrOutput{})
 	pulumi.RegisterOutputType(LinuxOsInfoResponseOutput{})
@@ -16358,27 +12347,19 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInterfacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(NotificationChannelPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(NotificationChannelPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsResponseOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(PolicyPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(PolicyPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PortOutput{})
 	pulumi.RegisterOutputType(PortArrayOutput{})
 	pulumi.RegisterOutputType(PortResponseOutput{})
 	pulumi.RegisterOutputType(PortResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleTypeOutput{})
 	pulumi.RegisterOutputType(ScheduleTypePtrOutput{})
-	pulumi.RegisterOutputType(SchedulePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SchedulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleResponseArrayOutput{})
-	pulumi.RegisterOutputType(SecretPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SecretPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedPublicIpAddressConfigurationOutput{})
 	pulumi.RegisterOutputType(SharedPublicIpAddressConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SharedPublicIpAddressConfigurationResponseOutput{})
@@ -16399,14 +12380,10 @@ func init() {
 	pulumi.RegisterOutputType(UserIdentityPtrOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(UserPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(UserPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserSecretStoreOutput{})
 	pulumi.RegisterOutputType(UserSecretStorePtrOutput{})
 	pulumi.RegisterOutputType(UserSecretStoreResponseOutput{})
 	pulumi.RegisterOutputType(UserSecretStoreResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WeekDetailsOutput{})
 	pulumi.RegisterOutputType(WeekDetailsPtrOutput{})
 	pulumi.RegisterOutputType(WeekDetailsResponseOutput{})

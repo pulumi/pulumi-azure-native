@@ -25,16 +25,30 @@ type LookupNamespaceArgs struct {
 
 // Single Namespace item in List or Get Operation
 type LookupNamespaceResult struct {
+	// The time the Namespace was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
+	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
+	// Value that indicates whether Kafka is enabled for eventhub namespace.
+	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
+	// Identifier for Azure Insights metrics.
+	MetricId string `pulumi:"metricId"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Namespace properties supplied for create namespace operation.
-	Properties EHNamespaceResponseProperties `pulumi:"properties"`
+	// Provisioning state of the Namespace.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
 	// Properties of sku resource
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The time the Namespace was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
 }

@@ -13,10 +13,16 @@ import (
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
+	// GroupIds from the private link service resource.
+	GroupIds pulumi.StringArrayOutput `pulumi:"groupIds"`
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the PrivateEndpointConnection.
-	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// The Private Endpoint resource for this Connection.
+	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState ConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,19 +67,31 @@ func GetPrivateEndpointConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateEndpointConnection resources.
 type privateEndpointConnectionState struct {
+	// GroupIds from the private link service resource.
+	GroupIds []string `pulumi:"groupIds"`
 	// Name of the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the PrivateEndpointConnection.
-	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The Private Endpoint resource for this Connection.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState *ConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type PrivateEndpointConnectionState struct {
+	// GroupIds from the private link service resource.
+	GroupIds pulumi.StringArrayInput
 	// Name of the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the PrivateEndpointConnection.
-	Properties PrivateEndpointConnectionPropertiesResponsePtrInput
+	// The Private Endpoint resource for this Connection.
+	PrivateEndpoint PrivateEndpointResponsePtrInput
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState ConnectionStateResponsePtrInput
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState pulumi.StringPtrInput
 	// Type of the resource.
 	Type pulumi.StringPtrInput
 }

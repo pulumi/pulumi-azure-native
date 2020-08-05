@@ -14,10 +14,16 @@ import (
 type ServerAdministrator struct {
 	pulumi.CustomResourceState
 
+	// The type of administrator.
+	AdministratorType pulumi.StringOutput `pulumi:"administratorType"`
+	// The server administrator login account name.
+	Login pulumi.StringOutput `pulumi:"login"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the server AAD administrator.
-	Properties ServerAdministratorPropertiesResponseOutput `pulumi:"properties"`
+	// The server administrator Sid (Secure ID).
+	Sid pulumi.StringOutput `pulumi:"sid"`
+	// The server Active Directory Administrator tenant id.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -68,19 +74,31 @@ func GetServerAdministrator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerAdministrator resources.
 type serverAdministratorState struct {
+	// The type of administrator.
+	AdministratorType *string `pulumi:"administratorType"`
+	// The server administrator login account name.
+	Login *string `pulumi:"login"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Properties of the server AAD administrator.
-	Properties *ServerAdministratorPropertiesResponse `pulumi:"properties"`
+	// The server administrator Sid (Secure ID).
+	Sid *string `pulumi:"sid"`
+	// The server Active Directory Administrator tenant id.
+	TenantId *string `pulumi:"tenantId"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type ServerAdministratorState struct {
+	// The type of administrator.
+	AdministratorType pulumi.StringPtrInput
+	// The server administrator login account name.
+	Login pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Properties of the server AAD administrator.
-	Properties ServerAdministratorPropertiesResponsePtrInput
+	// The server administrator Sid (Secure ID).
+	Sid pulumi.StringPtrInput
+	// The server Active Directory Administrator tenant id.
+	TenantId pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

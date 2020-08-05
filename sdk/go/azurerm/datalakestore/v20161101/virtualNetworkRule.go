@@ -16,8 +16,8 @@ type VirtualNetworkRule struct {
 
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The virtual network rule properties.
-	Properties VirtualNetworkRulePropertiesResponseOutput `pulumi:"properties"`
+	// The resource identifier for the subnet.
+	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -64,8 +64,8 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 type virtualNetworkRuleState struct {
 	// The resource name.
 	Name *string `pulumi:"name"`
-	// The virtual network rule properties.
-	Properties *VirtualNetworkRulePropertiesResponse `pulumi:"properties"`
+	// The resource identifier for the subnet.
+	SubnetId *string `pulumi:"subnetId"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
@@ -73,8 +73,8 @@ type virtualNetworkRuleState struct {
 type VirtualNetworkRuleState struct {
 	// The resource name.
 	Name pulumi.StringPtrInput
-	// The virtual network rule properties.
-	Properties VirtualNetworkRulePropertiesResponsePtrInput
+	// The resource identifier for the subnet.
+	SubnetId pulumi.StringPtrInput
 	// The resource type.
 	Type pulumi.StringPtrInput
 }

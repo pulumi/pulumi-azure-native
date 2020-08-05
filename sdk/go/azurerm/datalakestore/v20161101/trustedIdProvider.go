@@ -14,10 +14,10 @@ import (
 type TrustedIdProvider struct {
 	pulumi.CustomResourceState
 
+	// The URL of this trusted identity provider.
+	IdProvider pulumi.StringOutput `pulumi:"idProvider"`
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The trusted identity provider properties.
-	Properties TrustedIdProviderPropertiesResponseOutput `pulumi:"properties"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +62,19 @@ func GetTrustedIdProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrustedIdProvider resources.
 type trustedIdProviderState struct {
+	// The URL of this trusted identity provider.
+	IdProvider *string `pulumi:"idProvider"`
 	// The resource name.
 	Name *string `pulumi:"name"`
-	// The trusted identity provider properties.
-	Properties *TrustedIdProviderPropertiesResponse `pulumi:"properties"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
 
 type TrustedIdProviderState struct {
+	// The URL of this trusted identity provider.
+	IdProvider pulumi.StringPtrInput
 	// The resource name.
 	Name pulumi.StringPtrInput
-	// The trusted identity provider properties.
-	Properties TrustedIdProviderPropertiesResponsePtrInput
 	// The resource type.
 	Type pulumi.StringPtrInput
 }

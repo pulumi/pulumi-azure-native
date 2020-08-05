@@ -14,12 +14,16 @@ import (
 type VirtualNetworkRule struct {
 	pulumi.CustomResourceState
 
+	// Create firewall rule before the virtual network has vnet service endpoint enabled.
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrOutput `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource properties.
-	Properties VirtualNetworkRulePropertiesResponseOutput `pulumi:"properties"`
+	// Virtual Network Rule State
+	State pulumi.StringOutput `pulumi:"state"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The ARM resource id of the virtual network subnet.
+	VirtualNetworkSubnetId pulumi.StringOutput `pulumi:"virtualNetworkSubnetId"`
 }
 
 // NewVirtualNetworkRule registers a new resource with the given unique name, arguments, and options.
@@ -62,21 +66,29 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkRule resources.
 type virtualNetworkRuleState struct {
+	// Create firewall rule before the virtual network has vnet service endpoint enabled.
+	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Resource properties.
-	Properties *VirtualNetworkRulePropertiesResponse `pulumi:"properties"`
+	// Virtual Network Rule State
+	State *string `pulumi:"state"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
+	// The ARM resource id of the virtual network subnet.
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 type VirtualNetworkRuleState struct {
+	// Create firewall rule before the virtual network has vnet service endpoint enabled.
+	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Resource properties.
-	Properties VirtualNetworkRulePropertiesResponsePtrInput
+	// Virtual Network Rule State
+	State pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
+	// The ARM resource id of the virtual network subnet.
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
 func (VirtualNetworkRuleState) ElementType() reflect.Type {

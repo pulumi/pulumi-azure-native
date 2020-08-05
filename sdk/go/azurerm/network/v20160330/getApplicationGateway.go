@@ -25,16 +25,42 @@ type LookupApplicationGatewayArgs struct {
 
 // ApplicationGateways resource
 type LookupApplicationGatewayResult struct {
+	// Gets or sets backend address pool of application gateway resource
+	BackendAddressPools []ApplicationGatewayBackendAddressPoolResponse `pulumi:"backendAddressPools"`
+	// Gets or sets backend http settings of application gateway resource
+	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettingsResponse `pulumi:"backendHttpSettingsCollection"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// Gets or sets frontend IP addresses of application gateway resource
+	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
+	// Gets or sets frontend ports of application gateway resource
+	FrontendPorts []ApplicationGatewayFrontendPortResponse `pulumi:"frontendPorts"`
+	// Gets or sets subnets of application gateway resource
+	GatewayIPConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"gatewayIPConfigurations"`
+	// Gets or sets HTTP listeners of application gateway resource
+	HttpListeners []ApplicationGatewayHttpListenerResponse `pulumi:"httpListeners"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of Application Gateway
-	Properties ApplicationGatewayPropertiesFormatResponse `pulumi:"properties"`
+	// Gets operational state of application gateway resource
+	OperationalState string `pulumi:"operationalState"`
+	// Gets or sets probes of application gateway resource
+	Probes []ApplicationGatewayProbeResponse `pulumi:"probes"`
+	// Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets request routing rules of application gateway resource
+	RequestRoutingRules []ApplicationGatewayRequestRoutingRuleResponse `pulumi:"requestRoutingRules"`
+	// Gets or sets resource GUID property of the ApplicationGateway resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Gets or sets sku of application gateway resource
+	Sku *ApplicationGatewaySkuResponse `pulumi:"sku"`
+	// Gets or sets ssl certificates of application gateway resource
+	SslCertificates []ApplicationGatewaySslCertificateResponse `pulumi:"sslCertificates"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Gets or sets URL path map of application gateway resource
+	UrlPathMaps []ApplicationGatewayUrlPathMapResponse `pulumi:"urlPathMaps"`
 }

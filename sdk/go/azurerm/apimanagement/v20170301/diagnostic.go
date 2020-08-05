@@ -14,10 +14,10 @@ import (
 type Diagnostic struct {
 	pulumi.CustomResourceState
 
+	// Indicates whether a diagnostic should receive data or not.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Diagnostic entity contract properties.
-	Properties DiagnosticContractPropertiesResponseOutput `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +62,19 @@ func GetDiagnostic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Diagnostic resources.
 type diagnosticState struct {
+	// Indicates whether a diagnostic should receive data or not.
+	Enabled *bool `pulumi:"enabled"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Diagnostic entity contract properties.
-	Properties *DiagnosticContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
 
 type DiagnosticState struct {
+	// Indicates whether a diagnostic should receive data or not.
+	Enabled pulumi.BoolPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Diagnostic entity contract properties.
-	Properties DiagnosticContractPropertiesResponsePtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

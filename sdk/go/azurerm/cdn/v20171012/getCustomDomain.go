@@ -29,10 +29,20 @@ type LookupCustomDomainArgs struct {
 
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 type LookupCustomDomainResult struct {
+	// Provisioning status of Custom Https of the custom domain.
+	CustomHttpsProvisioningState string `pulumi:"customHttpsProvisioningState"`
+	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+	CustomHttpsProvisioningSubstate string `pulumi:"customHttpsProvisioningSubstate"`
+	// The host name of the custom domain. Must be a domain name.
+	HostName string `pulumi:"hostName"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The JSON object that contains the properties of the custom domain to create.
-	Properties CustomDomainPropertiesResponse `pulumi:"properties"`
+	// Provisioning status of the custom domain.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Resource status of the custom domain.
+	ResourceState string `pulumi:"resourceState"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+	ValidationData *string `pulumi:"validationData"`
 }

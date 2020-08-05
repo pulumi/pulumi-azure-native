@@ -691,10 +691,12 @@ func (o ExportPtrOutput) BlobPathPrefix() pulumi.StringArrayOutput {
 
 // A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportResponse struct {
-	// A list of the blobs to be exported.
-	BlobList *ExportResponseBlobList `pulumi:"blobList"`
 	// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 	BlobListblobPath *string `pulumi:"blobListblobPath"`
+	// A collection of blob-path strings.
+	BlobPath []string `pulumi:"blobPath"`
+	// A collection of blob-prefix strings.
+	BlobPathPrefix []string `pulumi:"blobPathPrefix"`
 }
 
 // ExportResponseInput is an input type that accepts ExportResponseArgs and ExportResponseOutput values.
@@ -710,10 +712,12 @@ type ExportResponseInput interface {
 
 // A property containing information about the blobs to be exported for an export job. This property is required for export jobs, but must not be specified for import jobs.
 type ExportResponseArgs struct {
-	// A list of the blobs to be exported.
-	BlobList ExportResponseBlobListPtrInput `pulumi:"blobList"`
 	// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 	BlobListblobPath pulumi.StringPtrInput `pulumi:"blobListblobPath"`
+	// A collection of blob-path strings.
+	BlobPath pulumi.StringArrayInput `pulumi:"blobPath"`
+	// A collection of blob-prefix strings.
+	BlobPathPrefix pulumi.StringArrayInput `pulumi:"blobPathPrefix"`
 }
 
 func (ExportResponseArgs) ElementType() reflect.Type {
@@ -794,14 +798,19 @@ func (o ExportResponseOutput) ToExportResponsePtrOutputWithContext(ctx context.C
 	}).(ExportResponsePtrOutput)
 }
 
-// A list of the blobs to be exported.
-func (o ExportResponseOutput) BlobList() ExportResponseBlobListPtrOutput {
-	return o.ApplyT(func(v ExportResponse) *ExportResponseBlobList { return v.BlobList }).(ExportResponseBlobListPtrOutput)
-}
-
 // The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 func (o ExportResponseOutput) BlobListblobPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportResponse) *string { return v.BlobListblobPath }).(pulumi.StringPtrOutput)
+}
+
+// A collection of blob-path strings.
+func (o ExportResponseOutput) BlobPath() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExportResponse) []string { return v.BlobPath }).(pulumi.StringArrayOutput)
+}
+
+// A collection of blob-prefix strings.
+func (o ExportResponseOutput) BlobPathPrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExportResponse) []string { return v.BlobPathPrefix }).(pulumi.StringArrayOutput)
 }
 
 type ExportResponsePtrOutput struct{ *pulumi.OutputState }
@@ -822,16 +831,6 @@ func (o ExportResponsePtrOutput) Elem() ExportResponseOutput {
 	return o.ApplyT(func(v *ExportResponse) ExportResponse { return *v }).(ExportResponseOutput)
 }
 
-// A list of the blobs to be exported.
-func (o ExportResponsePtrOutput) BlobList() ExportResponseBlobListPtrOutput {
-	return o.ApplyT(func(v *ExportResponse) *ExportResponseBlobList {
-		if v == nil {
-			return nil
-		}
-		return v.BlobList
-	}).(ExportResponseBlobListPtrOutput)
-}
-
 // The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root.
 func (o ExportResponsePtrOutput) BlobListblobPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExportResponse) *string {
@@ -842,142 +841,9 @@ func (o ExportResponsePtrOutput) BlobListblobPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of the blobs to be exported.
-type ExportResponseBlobList struct {
-	// A collection of blob-path strings.
-	BlobPath []string `pulumi:"blobPath"`
-	// A collection of blob-prefix strings.
-	BlobPathPrefix []string `pulumi:"blobPathPrefix"`
-}
-
-// ExportResponseBlobListInput is an input type that accepts ExportResponseBlobListArgs and ExportResponseBlobListOutput values.
-// You can construct a concrete instance of `ExportResponseBlobListInput` via:
-//
-//          ExportResponseBlobListArgs{...}
-type ExportResponseBlobListInput interface {
-	pulumi.Input
-
-	ToExportResponseBlobListOutput() ExportResponseBlobListOutput
-	ToExportResponseBlobListOutputWithContext(context.Context) ExportResponseBlobListOutput
-}
-
-// A list of the blobs to be exported.
-type ExportResponseBlobListArgs struct {
-	// A collection of blob-path strings.
-	BlobPath pulumi.StringArrayInput `pulumi:"blobPath"`
-	// A collection of blob-prefix strings.
-	BlobPathPrefix pulumi.StringArrayInput `pulumi:"blobPathPrefix"`
-}
-
-func (ExportResponseBlobListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportResponseBlobList)(nil)).Elem()
-}
-
-func (i ExportResponseBlobListArgs) ToExportResponseBlobListOutput() ExportResponseBlobListOutput {
-	return i.ToExportResponseBlobListOutputWithContext(context.Background())
-}
-
-func (i ExportResponseBlobListArgs) ToExportResponseBlobListOutputWithContext(ctx context.Context) ExportResponseBlobListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportResponseBlobListOutput)
-}
-
-func (i ExportResponseBlobListArgs) ToExportResponseBlobListPtrOutput() ExportResponseBlobListPtrOutput {
-	return i.ToExportResponseBlobListPtrOutputWithContext(context.Background())
-}
-
-func (i ExportResponseBlobListArgs) ToExportResponseBlobListPtrOutputWithContext(ctx context.Context) ExportResponseBlobListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportResponseBlobListOutput).ToExportResponseBlobListPtrOutputWithContext(ctx)
-}
-
-// ExportResponseBlobListPtrInput is an input type that accepts ExportResponseBlobListArgs, ExportResponseBlobListPtr and ExportResponseBlobListPtrOutput values.
-// You can construct a concrete instance of `ExportResponseBlobListPtrInput` via:
-//
-//          ExportResponseBlobListArgs{...}
-//
-//  or:
-//
-//          nil
-type ExportResponseBlobListPtrInput interface {
-	pulumi.Input
-
-	ToExportResponseBlobListPtrOutput() ExportResponseBlobListPtrOutput
-	ToExportResponseBlobListPtrOutputWithContext(context.Context) ExportResponseBlobListPtrOutput
-}
-
-type exportResponseBlobListPtrType ExportResponseBlobListArgs
-
-func ExportResponseBlobListPtr(v *ExportResponseBlobListArgs) ExportResponseBlobListPtrInput {
-	return (*exportResponseBlobListPtrType)(v)
-}
-
-func (*exportResponseBlobListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportResponseBlobList)(nil)).Elem()
-}
-
-func (i *exportResponseBlobListPtrType) ToExportResponseBlobListPtrOutput() ExportResponseBlobListPtrOutput {
-	return i.ToExportResponseBlobListPtrOutputWithContext(context.Background())
-}
-
-func (i *exportResponseBlobListPtrType) ToExportResponseBlobListPtrOutputWithContext(ctx context.Context) ExportResponseBlobListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportResponseBlobListPtrOutput)
-}
-
-// A list of the blobs to be exported.
-type ExportResponseBlobListOutput struct{ *pulumi.OutputState }
-
-func (ExportResponseBlobListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportResponseBlobList)(nil)).Elem()
-}
-
-func (o ExportResponseBlobListOutput) ToExportResponseBlobListOutput() ExportResponseBlobListOutput {
-	return o
-}
-
-func (o ExportResponseBlobListOutput) ToExportResponseBlobListOutputWithContext(ctx context.Context) ExportResponseBlobListOutput {
-	return o
-}
-
-func (o ExportResponseBlobListOutput) ToExportResponseBlobListPtrOutput() ExportResponseBlobListPtrOutput {
-	return o.ToExportResponseBlobListPtrOutputWithContext(context.Background())
-}
-
-func (o ExportResponseBlobListOutput) ToExportResponseBlobListPtrOutputWithContext(ctx context.Context) ExportResponseBlobListPtrOutput {
-	return o.ApplyT(func(v ExportResponseBlobList) *ExportResponseBlobList {
-		return &v
-	}).(ExportResponseBlobListPtrOutput)
-}
-
 // A collection of blob-path strings.
-func (o ExportResponseBlobListOutput) BlobPath() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ExportResponseBlobList) []string { return v.BlobPath }).(pulumi.StringArrayOutput)
-}
-
-// A collection of blob-prefix strings.
-func (o ExportResponseBlobListOutput) BlobPathPrefix() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ExportResponseBlobList) []string { return v.BlobPathPrefix }).(pulumi.StringArrayOutput)
-}
-
-type ExportResponseBlobListPtrOutput struct{ *pulumi.OutputState }
-
-func (ExportResponseBlobListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportResponseBlobList)(nil)).Elem()
-}
-
-func (o ExportResponseBlobListPtrOutput) ToExportResponseBlobListPtrOutput() ExportResponseBlobListPtrOutput {
-	return o
-}
-
-func (o ExportResponseBlobListPtrOutput) ToExportResponseBlobListPtrOutputWithContext(ctx context.Context) ExportResponseBlobListPtrOutput {
-	return o
-}
-
-func (o ExportResponseBlobListPtrOutput) Elem() ExportResponseBlobListOutput {
-	return o.ApplyT(func(v *ExportResponseBlobList) ExportResponseBlobList { return *v }).(ExportResponseBlobListOutput)
-}
-
-// A collection of blob-path strings.
-func (o ExportResponseBlobListPtrOutput) BlobPath() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ExportResponseBlobList) []string {
+func (o ExportResponsePtrOutput) BlobPath() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExportResponse) []string {
 		if v == nil {
 			return nil
 		}
@@ -986,8 +852,8 @@ func (o ExportResponseBlobListPtrOutput) BlobPath() pulumi.StringArrayOutput {
 }
 
 // A collection of blob-prefix strings.
-func (o ExportResponseBlobListPtrOutput) BlobPathPrefix() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ExportResponseBlobList) []string {
+func (o ExportResponsePtrOutput) BlobPathPrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExportResponse) []string {
 		if v == nil {
 			return nil
 		}
@@ -3676,8 +3542,6 @@ func init() {
 	pulumi.RegisterOutputType(ExportPtrOutput{})
 	pulumi.RegisterOutputType(ExportResponseOutput{})
 	pulumi.RegisterOutputType(ExportResponsePtrOutput{})
-	pulumi.RegisterOutputType(ExportResponseBlobListOutput{})
-	pulumi.RegisterOutputType(ExportResponseBlobListPtrOutput{})
 	pulumi.RegisterOutputType(JobDetailsOutput{})
 	pulumi.RegisterOutputType(JobDetailsPtrOutput{})
 	pulumi.RegisterOutputType(JobDetailsResponseOutput{})

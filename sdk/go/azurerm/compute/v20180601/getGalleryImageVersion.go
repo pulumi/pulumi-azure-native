@@ -33,8 +33,14 @@ type LookupGalleryImageVersionResult struct {
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Describes the properties of a gallery Image Version.
-	Properties GalleryImageVersionPropertiesResponse `pulumi:"properties"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile GalleryImageVersionPublishingProfileResponse `pulumi:"publishingProfile"`
+	// This is the replication status of the gallery Image Version.
+	ReplicationStatus ReplicationStatusResponse `pulumi:"replicationStatus"`
+	// This is the storage profile of a gallery Image Version.
+	StorageProfile GalleryImageVersionStorageProfileResponse `pulumi:"storageProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

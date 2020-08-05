@@ -18,14 +18,30 @@ type Application struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+	MaximumNodes pulumi.IntPtrOutput `pulumi:"maximumNodes"`
+	// List of application capacity metric description.
+	Metrics ApplicationMetricDescriptionResponseArrayOutput `pulumi:"metrics"`
+	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+	MinimumNodes pulumi.IntPtrOutput `pulumi:"minimumNodes"`
 	// Azure resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The application resource properties.
-	Properties ApplicationResourcePropertiesResponseOutput `pulumi:"properties"`
+	// List of application parameters with overridden values from their default values specified in the application manifest.
+	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// The current deployment or provisioning state, which only appears in the response
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Remove the current application capacity settings.
+	RemoveApplicationCapacity pulumi.BoolPtrOutput `pulumi:"removeApplicationCapacity"`
 	// Azure resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The application type name as defined in the application manifest.
+	TypeName pulumi.StringPtrOutput `pulumi:"typeName"`
+	// The version of the application type as defined in the application manifest.
+	TypeVersion pulumi.StringPtrOutput `pulumi:"typeVersion"`
+	// Describes the policy for a monitored application upgrade.
+	UpgradePolicy ApplicationUpgradePolicyResponsePtrOutput `pulumi:"upgradePolicy"`
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
@@ -69,14 +85,30 @@ type applicationState struct {
 	Etag *string `pulumi:"etag"`
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location *string `pulumi:"location"`
+	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+	MaximumNodes *int `pulumi:"maximumNodes"`
+	// List of application capacity metric description.
+	Metrics []ApplicationMetricDescriptionResponse `pulumi:"metrics"`
+	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+	MinimumNodes *int `pulumi:"minimumNodes"`
 	// Azure resource name.
 	Name *string `pulumi:"name"`
-	// The application resource properties.
-	Properties *ApplicationResourcePropertiesResponse `pulumi:"properties"`
+	// List of application parameters with overridden values from their default values specified in the application manifest.
+	Parameters map[string]string `pulumi:"parameters"`
+	// The current deployment or provisioning state, which only appears in the response
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Remove the current application capacity settings.
+	RemoveApplicationCapacity *bool `pulumi:"removeApplicationCapacity"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.
 	Type *string `pulumi:"type"`
+	// The application type name as defined in the application manifest.
+	TypeName *string `pulumi:"typeName"`
+	// The version of the application type as defined in the application manifest.
+	TypeVersion *string `pulumi:"typeVersion"`
+	// Describes the policy for a monitored application upgrade.
+	UpgradePolicy *ApplicationUpgradePolicyResponse `pulumi:"upgradePolicy"`
 }
 
 type ApplicationState struct {
@@ -84,14 +116,30 @@ type ApplicationState struct {
 	Etag pulumi.StringPtrInput
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location pulumi.StringPtrInput
+	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+	MaximumNodes pulumi.IntPtrInput
+	// List of application capacity metric description.
+	Metrics ApplicationMetricDescriptionResponseArrayInput
+	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+	MinimumNodes pulumi.IntPtrInput
 	// Azure resource name.
 	Name pulumi.StringPtrInput
-	// The application resource properties.
-	Properties ApplicationResourcePropertiesResponsePtrInput
+	// List of application parameters with overridden values from their default values specified in the application manifest.
+	Parameters pulumi.StringMapInput
+	// The current deployment or provisioning state, which only appears in the response
+	ProvisioningState pulumi.StringPtrInput
+	// Remove the current application capacity settings.
+	RemoveApplicationCapacity pulumi.BoolPtrInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
 	// Azure resource type.
 	Type pulumi.StringPtrInput
+	// The application type name as defined in the application manifest.
+	TypeName pulumi.StringPtrInput
+	// The version of the application type as defined in the application manifest.
+	TypeVersion pulumi.StringPtrInput
+	// Describes the policy for a monitored application upgrade.
+	UpgradePolicy ApplicationUpgradePolicyResponsePtrInput
 }
 
 func (ApplicationState) ElementType() reflect.Type {

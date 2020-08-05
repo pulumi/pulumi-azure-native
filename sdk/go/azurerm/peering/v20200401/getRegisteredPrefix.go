@@ -27,10 +27,18 @@ type LookupRegisteredPrefixArgs struct {
 
 // The customer's prefix that is registered by the peering service provider.
 type LookupRegisteredPrefixResult struct {
+	// The error message associated with the validation state, if any.
+	ErrorMessage string `pulumi:"errorMessage"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties that define a registered prefix.
-	Properties PeeringRegisteredPrefixPropertiesResponse `pulumi:"properties"`
+	// The peering service prefix key that is to be shared with the customer.
+	PeeringServicePrefixKey string `pulumi:"peeringServicePrefixKey"`
+	// The customer's prefix from which traffic originates.
+	Prefix *string `pulumi:"prefix"`
+	// The prefix validation state.
+	PrefixValidationState string `pulumi:"prefixValidationState"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

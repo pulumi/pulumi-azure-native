@@ -14,12 +14,28 @@ import (
 type WebAppDeployment struct {
 	pulumi.CustomResourceState
 
+	// True if deployment is currently active, false if completed and null if not started.
+	Active pulumi.BoolPtrOutput `pulumi:"active"`
+	// Who authored the deployment.
+	Author pulumi.StringPtrOutput `pulumi:"author"`
+	// Author email.
+	Author_email pulumi.StringPtrOutput `pulumi:"author_email"`
+	// Who performed the deployment.
+	Deployer pulumi.StringPtrOutput `pulumi:"deployer"`
+	// Details on deployment.
+	Details pulumi.StringPtrOutput `pulumi:"details"`
+	// End time.
+	End_time pulumi.StringPtrOutput `pulumi:"end_time"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	// Details about deployment status.
+	Message pulumi.StringPtrOutput `pulumi:"message"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Deployment resource specific properties
-	Properties DeploymentResponsePropertiesOutput `pulumi:"properties"`
+	// Start time.
+	Start_time pulumi.StringPtrOutput `pulumi:"start_time"`
+	// Deployment status.
+	Status pulumi.IntPtrOutput `pulumi:"status"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -58,23 +74,55 @@ func GetWebAppDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppDeployment resources.
 type webAppDeploymentState struct {
+	// True if deployment is currently active, false if completed and null if not started.
+	Active *bool `pulumi:"active"`
+	// Who authored the deployment.
+	Author *string `pulumi:"author"`
+	// Author email.
+	Author_email *string `pulumi:"author_email"`
+	// Who performed the deployment.
+	Deployer *string `pulumi:"deployer"`
+	// Details on deployment.
+	Details *string `pulumi:"details"`
+	// End time.
+	End_time *string `pulumi:"end_time"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
+	// Details about deployment status.
+	Message *string `pulumi:"message"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// Deployment resource specific properties
-	Properties *DeploymentResponseProperties `pulumi:"properties"`
+	// Start time.
+	Start_time *string `pulumi:"start_time"`
+	// Deployment status.
+	Status *int `pulumi:"status"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type WebAppDeploymentState struct {
+	// True if deployment is currently active, false if completed and null if not started.
+	Active pulumi.BoolPtrInput
+	// Who authored the deployment.
+	Author pulumi.StringPtrInput
+	// Author email.
+	Author_email pulumi.StringPtrInput
+	// Who performed the deployment.
+	Deployer pulumi.StringPtrInput
+	// Details on deployment.
+	Details pulumi.StringPtrInput
+	// End time.
+	End_time pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
+	// Details about deployment status.
+	Message pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// Deployment resource specific properties
-	Properties DeploymentResponsePropertiesPtrInput
+	// Start time.
+	Start_time pulumi.StringPtrInput
+	// Deployment status.
+	Status pulumi.IntPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

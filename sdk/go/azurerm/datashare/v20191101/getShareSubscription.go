@@ -27,10 +27,36 @@ type LookupShareSubscriptionArgs struct {
 
 // A share subscription data transfer object.
 type LookupShareSubscriptionResult struct {
+	// Time at which the share subscription was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// The invitation id.
+	InvitationId string `pulumi:"invitationId"`
 	// Name of the azure resource
 	Name string `pulumi:"name"`
-	// Properties on the share subscription
-	Properties ShareSubscriptionPropertiesResponse `pulumi:"properties"`
+	// Email of the provider who created the resource
+	ProviderEmail string `pulumi:"providerEmail"`
+	// Name of the provider who created the resource
+	ProviderName string `pulumi:"providerName"`
+	// Tenant name of the provider who created the resource
+	ProviderTenantName string `pulumi:"providerTenantName"`
+	// Provisioning state of the share subscription
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Description of share
+	ShareDescription string `pulumi:"shareDescription"`
+	// Kind of share
+	ShareKind string `pulumi:"shareKind"`
+	// Name of the share
+	ShareName string `pulumi:"shareName"`
+	// Gets the current status of share subscription.
+	ShareSubscriptionStatus string `pulumi:"shareSubscriptionStatus"`
+	// Terms of a share
+	ShareTerms string `pulumi:"shareTerms"`
+	// Source share location.
+	SourceShareLocation string `pulumi:"sourceShareLocation"`
 	// Type of the azure resource
 	Type string `pulumi:"type"`
+	// Email of the user who created the resource
+	UserEmail string `pulumi:"userEmail"`
+	// Name of the user who created the resource
+	UserName string `pulumi:"userName"`
 }

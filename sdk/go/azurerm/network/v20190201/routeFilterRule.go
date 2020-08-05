@@ -14,14 +14,20 @@ import (
 type RouteFilterRule struct {
 	pulumi.CustomResourceState
 
+	// The access type of the rule.
+	Access pulumi.StringOutput `pulumi:"access"`
+	// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+	Communities pulumi.StringArrayOutput `pulumi:"communities"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties of the route filter rule.
-	Properties RouteFilterRulePropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The rule type of the rule. Valid value is: 'Community'
+	RouteFilterRuleType pulumi.StringOutput `pulumi:"routeFilterRuleType"`
 }
 
 // NewRouteFilterRule registers a new resource with the given unique name, arguments, and options.
@@ -70,25 +76,37 @@ func GetRouteFilterRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteFilterRule resources.
 type routeFilterRuleState struct {
+	// The access type of the rule.
+	Access *string `pulumi:"access"`
+	// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+	Communities []string `pulumi:"communities"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the route filter rule.
-	Properties *RouteFilterRulePropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The rule type of the rule. Valid value is: 'Community'
+	RouteFilterRuleType *string `pulumi:"routeFilterRuleType"`
 }
 
 type RouteFilterRuleState struct {
+	// The access type of the rule.
+	Access pulumi.StringPtrInput
+	// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+	Communities pulumi.StringArrayInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the route filter rule.
-	Properties RouteFilterRulePropertiesFormatResponsePtrInput
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The rule type of the rule. Valid value is: 'Community'
+	RouteFilterRuleType pulumi.StringPtrInput
 }
 
 func (RouteFilterRuleState) ElementType() reflect.Type {

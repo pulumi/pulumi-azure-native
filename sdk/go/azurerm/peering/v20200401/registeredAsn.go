@@ -14,10 +14,14 @@ import (
 type RegisteredAsn struct {
 	pulumi.CustomResourceState
 
+	// The customer's ASN from which traffic originates.
+	Asn pulumi.IntPtrOutput `pulumi:"asn"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties that define a registered ASN.
-	Properties PeeringRegisteredAsnPropertiesResponseOutput `pulumi:"properties"`
+	// The peering service prefix key that is to be shared with the customer.
+	PeeringServicePrefixKey pulumi.StringOutput `pulumi:"peeringServicePrefixKey"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +63,27 @@ func GetRegisteredAsn(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegisteredAsn resources.
 type registeredAsnState struct {
+	// The customer's ASN from which traffic originates.
+	Asn *int `pulumi:"asn"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties that define a registered ASN.
-	Properties *PeeringRegisteredAsnPropertiesResponse `pulumi:"properties"`
+	// The peering service prefix key that is to be shared with the customer.
+	PeeringServicePrefixKey *string `pulumi:"peeringServicePrefixKey"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type RegisteredAsnState struct {
+	// The customer's ASN from which traffic originates.
+	Asn pulumi.IntPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties that define a registered ASN.
-	Properties PeeringRegisteredAsnPropertiesResponsePtrInput
+	// The peering service prefix key that is to be shared with the customer.
+	PeeringServicePrefixKey pulumi.StringPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

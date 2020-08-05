@@ -29,14 +29,32 @@ type LookupServiceArgs struct {
 
 // The service resource.
 type LookupServiceResult struct {
+	// A list that describes the correlation of the service with other services.
+	CorrelationScheme []ServiceCorrelationDescriptionResponse `pulumi:"correlationScheme"`
+	// Specifies the move cost for the service.
+	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
 	// Azure resource etag.
 	Etag string `pulumi:"etag"`
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location *string `pulumi:"location"`
 	// Azure resource name.
 	Name string `pulumi:"name"`
-	// The service resource properties.
-	Properties ServiceResourcePropertiesResponse `pulumi:"properties"`
+	// Describes how the service is partitioned.
+	PartitionDescription *PartitionSchemeDescriptionResponse `pulumi:"partitionDescription"`
+	// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+	PlacementConstraints *string `pulumi:"placementConstraints"`
+	// The current deployment or provisioning state, which only appears in the response
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The kind of service (Stateless or Stateful).
+	ServiceKind string `pulumi:"serviceKind"`
+	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+	ServiceLoadMetrics []ServiceLoadMetricDescriptionResponse `pulumi:"serviceLoadMetrics"`
+	// The activation Mode of the service package
+	ServicePackageActivationMode *string `pulumi:"servicePackageActivationMode"`
+	// A list that describes the correlation of the service with other services.
+	ServicePlacementPolicies []ServicePlacementPolicyDescriptionResponse `pulumi:"servicePlacementPolicies"`
+	// The name of the service type
+	ServiceTypeName *string `pulumi:"serviceTypeName"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.

@@ -14,18 +14,30 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
+	// Indicates whether to create an ACS namespace.
+	CreateACSNamespace pulumi.BoolPtrOutput `pulumi:"createACSNamespace"`
+	// The time the namespace was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Specifies whether this instance is enabled.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the namespace.
-	Properties NamespacePropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning state of the namespace.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint pulumi.StringOutput `pulumi:"serviceBusEndpoint"`
 	// SKU of the namespace.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// State of the namespace.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -65,33 +77,57 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
+	// Indicates whether to create an ACS namespace.
+	CreateACSNamespace *bool `pulumi:"createACSNamespace"`
+	// The time the namespace was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Specifies whether this instance is enabled.
+	Enabled *bool `pulumi:"enabled"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of the namespace.
-	Properties *NamespacePropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the namespace.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
 	// SKU of the namespace.
 	Sku *SkuResponse `pulumi:"sku"`
+	// State of the namespace.
+	Status *string `pulumi:"status"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type NamespaceState struct {
+	// Indicates whether to create an ACS namespace.
+	CreateACSNamespace pulumi.BoolPtrInput
+	// The time the namespace was created.
+	CreatedAt pulumi.StringPtrInput
+	// Specifies whether this instance is enabled.
+	Enabled pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of the namespace.
-	Properties NamespacePropertiesResponsePtrInput
+	// Provisioning state of the namespace.
+	ProvisioningState pulumi.StringPtrInput
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint pulumi.StringPtrInput
 	// SKU of the namespace.
 	Sku SkuResponsePtrInput
+	// State of the namespace.
+	Status pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// The time the namespace was updated.
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (NamespaceState) ElementType() reflect.Type {

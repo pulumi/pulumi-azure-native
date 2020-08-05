@@ -25,14 +25,32 @@ type LookupIotSecuritySolutionArgs struct {
 
 // IoT Security solution configuration and resource information.
 type LookupIotSecuritySolutionResult struct {
+	// List of resources that were automatically discovered as relevant to the security solution.
+	AutoDiscoveredResources []string `pulumi:"autoDiscoveredResources"`
+	// Disabled data sources. Disabling these data sources compromises the system.
+	DisabledDataSources []string `pulumi:"disabledDataSources"`
+	// Resource display name.
+	DisplayName string `pulumi:"displayName"`
+	// List of additional options for exporting to workspace data.
+	Export []string `pulumi:"export"`
+	// IoT Hub resource IDs
+	IotHubs []string `pulumi:"iotHubs"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Security Solution data
-	Properties IoTSecuritySolutionPropertiesResponse `pulumi:"properties"`
+	// List of the configuration status for each recommendation type.
+	RecommendationsConfiguration []RecommendationConfigurationPropertiesResponse `pulumi:"recommendationsConfiguration"`
+	// Status of the IoT Security solution.
+	Status *string `pulumi:"status"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Unmasked IP address logging status
+	UnmaskedIpLoggingStatus *string `pulumi:"unmaskedIpLoggingStatus"`
+	// Properties of the IoT Security solution's user defined resources.
+	UserDefinedResources *UserDefinedResourcesPropertiesResponse `pulumi:"userDefinedResources"`
+	// Workspace resource ID
+	Workspace *string `pulumi:"workspace"`
 }

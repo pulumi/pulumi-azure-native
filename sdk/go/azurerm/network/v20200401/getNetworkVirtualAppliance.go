@@ -25,6 +25,10 @@ type LookupNetworkVirtualApplianceArgs struct {
 
 // NetworkVirtualAppliance Resource.
 type LookupNetworkVirtualApplianceResult struct {
+	// BootStrapConfigurationBlob storage URLs.
+	BootStrapConfigurationBlob []string `pulumi:"bootStrapConfigurationBlob"`
+	// CloudInitConfigurationBlob storage URLs.
+	CloudInitConfigurationBlob []string `pulumi:"cloudInitConfigurationBlob"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The service principal that has read access to cloud-init and config blob.
@@ -33,12 +37,18 @@ type LookupNetworkVirtualApplianceResult struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Network Virtual Appliance.
-	Properties NetworkVirtualAppliancePropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Network Virtual Appliance SKU.
 	Sku *VirtualApplianceSkuPropertiesResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// VirtualAppliance ASN.
+	VirtualApplianceAsn *int `pulumi:"virtualApplianceAsn"`
+	// List of Virtual Appliance Network Interfaces.
+	VirtualApplianceNics []VirtualApplianceNicPropertiesResponse `pulumi:"virtualApplianceNics"`
+	// The Virtual Hub where Network Virtual Appliance is being deployed.
+	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
 }

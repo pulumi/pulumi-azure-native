@@ -27,10 +27,18 @@ type LookupContentKeyPolicyArgs struct {
 
 // A Content Key Policy resource.
 type LookupContentKeyPolicyResult struct {
+	// The creation date of the Policy
+	Created string `pulumi:"created"`
+	// A description for the Policy.
+	Description *string `pulumi:"description"`
+	// The last modified date of the Policy
+	LastModified string `pulumi:"lastModified"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties of the Content Key Policy.
-	Properties ContentKeyPolicyPropertiesResponse `pulumi:"properties"`
+	// The Key Policy options.
+	Options []ContentKeyPolicyOptionResponse `pulumi:"options"`
+	// The legacy Policy ID.
+	PolicyId string `pulumi:"policyId"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

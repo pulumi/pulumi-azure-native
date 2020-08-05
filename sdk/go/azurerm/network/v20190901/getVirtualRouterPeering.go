@@ -31,8 +31,12 @@ type LookupVirtualRouterPeeringResult struct {
 	Etag string `pulumi:"etag"`
 	// Name of the virtual router peering that is unique within a virtual router.
 	Name *string `pulumi:"name"`
-	// The properties of the Virtual Router Peering.
-	Properties VirtualRouterPeeringPropertiesResponse `pulumi:"properties"`
+	// Peer ASN.
+	PeerAsn *int `pulumi:"peerAsn"`
+	// Peer IP.
+	PeerIp *string `pulumi:"peerIp"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Peering type.
 	Type string `pulumi:"type"`
 }

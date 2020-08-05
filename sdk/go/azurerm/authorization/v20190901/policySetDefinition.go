@@ -14,10 +14,22 @@ import (
 type PolicySetDefinition struct {
 	pulumi.CustomResourceState
 
+	// The policy set definition description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the policy set definition.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata pulumi.MapOutput `pulumi:"metadata"`
 	// The name of the policy set definition.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesResponseOutput `pulumi:"properties"`
+	// The policy set definition parameters that can be used in policy definition references.
+	Parameters ParameterDefinitionsValueResponseMapOutput `pulumi:"parameters"`
+	// The metadata describing groups of policy definition references within the policy set definition.
+	PolicyDefinitionGroups PolicyDefinitionGroupResponseArrayOutput `pulumi:"policyDefinitionGroups"`
+	// An array of policy definition references.
+	PolicyDefinitions PolicyDefinitionReferenceResponseArrayOutput `pulumi:"policyDefinitions"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -56,19 +68,43 @@ func GetPolicySetDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicySetDefinition resources.
 type policySetDefinitionState struct {
+	// The policy set definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy set definition.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The name of the policy set definition.
 	Name *string `pulumi:"name"`
-	// The policy definition properties.
-	Properties *PolicySetDefinitionPropertiesResponse `pulumi:"properties"`
+	// The policy set definition parameters that can be used in policy definition references.
+	Parameters map[string]ParameterDefinitionsValueResponse `pulumi:"parameters"`
+	// The metadata describing groups of policy definition references within the policy set definition.
+	PolicyDefinitionGroups []PolicyDefinitionGroupResponse `pulumi:"policyDefinitionGroups"`
+	// An array of policy definition references.
+	PolicyDefinitions []PolicyDefinitionReferenceResponse `pulumi:"policyDefinitions"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+	PolicyType *string `pulumi:"policyType"`
 	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
 	Type *string `pulumi:"type"`
 }
 
 type PolicySetDefinitionState struct {
+	// The policy set definition description.
+	Description pulumi.StringPtrInput
+	// The display name of the policy set definition.
+	DisplayName pulumi.StringPtrInput
+	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata pulumi.MapInput
 	// The name of the policy set definition.
 	Name pulumi.StringPtrInput
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesResponsePtrInput
+	// The policy set definition parameters that can be used in policy definition references.
+	Parameters ParameterDefinitionsValueResponseMapInput
+	// The metadata describing groups of policy definition references within the policy set definition.
+	PolicyDefinitionGroups PolicyDefinitionGroupResponseArrayInput
+	// An array of policy definition references.
+	PolicyDefinitions PolicyDefinitionReferenceResponseArrayInput
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+	PolicyType pulumi.StringPtrInput
 	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
 	Type pulumi.StringPtrInput
 }

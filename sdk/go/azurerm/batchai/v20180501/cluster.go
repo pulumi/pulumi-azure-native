@@ -14,12 +14,40 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+	AllocationState pulumi.StringOutput `pulumi:"allocationState"`
+	// The time at which the cluster entered its current allocation state.
+	AllocationStateTransitionTime pulumi.StringOutput `pulumi:"allocationStateTransitionTime"`
+	// The time when the cluster was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The number of compute nodes currently assigned to the cluster.
+	CurrentNodeCount pulumi.IntOutput `pulumi:"currentNodeCount"`
+	// Collection of errors encountered by various compute nodes during node setup.
+	Errors BatchAIErrorResponseArrayOutput `pulumi:"errors"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties associated with the Cluster.
-	Properties ClusterPropertiesResponseOutput `pulumi:"properties"`
+	// Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
+	NodeSetup NodeSetupResponsePtrOutput `pulumi:"nodeSetup"`
+	// Counts of various node states on the cluster.
+	NodeStateCounts NodeStateCountsResponseOutput `pulumi:"nodeStateCounts"`
+	// Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Time when the provisioning state was changed.
+	ProvisioningStateTransitionTime pulumi.StringOutput `pulumi:"provisioningStateTransitionTime"`
+	// Scale settings of the cluster.
+	ScaleSettings ScaleSettingsResponsePtrOutput `pulumi:"scaleSettings"`
+	// Virtual network subnet resource ID the cluster nodes belong to.
+	Subnet ResourceIdResponsePtrOutput `pulumi:"subnet"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Administrator user account settings which can be used to SSH to compute nodes.
+	UserAccountSettings UserAccountSettingsResponsePtrOutput `pulumi:"userAccountSettings"`
+	// Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
+	VirtualMachineConfiguration VirtualMachineConfigurationResponsePtrOutput `pulumi:"virtualMachineConfiguration"`
+	// VM priority of cluster nodes.
+	VmPriority pulumi.StringPtrOutput `pulumi:"vmPriority"`
+	// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
+	VmSize pulumi.StringPtrOutput `pulumi:"vmSize"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -65,21 +93,77 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+	AllocationState *string `pulumi:"allocationState"`
+	// The time at which the cluster entered its current allocation state.
+	AllocationStateTransitionTime *string `pulumi:"allocationStateTransitionTime"`
+	// The time when the cluster was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// The number of compute nodes currently assigned to the cluster.
+	CurrentNodeCount *int `pulumi:"currentNodeCount"`
+	// Collection of errors encountered by various compute nodes during node setup.
+	Errors []BatchAIErrorResponse `pulumi:"errors"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties associated with the Cluster.
-	Properties *ClusterPropertiesResponse `pulumi:"properties"`
+	// Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
+	NodeSetup *NodeSetupResponse `pulumi:"nodeSetup"`
+	// Counts of various node states on the cluster.
+	NodeStateCounts *NodeStateCountsResponse `pulumi:"nodeStateCounts"`
+	// Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Time when the provisioning state was changed.
+	ProvisioningStateTransitionTime *string `pulumi:"provisioningStateTransitionTime"`
+	// Scale settings of the cluster.
+	ScaleSettings *ScaleSettingsResponse `pulumi:"scaleSettings"`
+	// Virtual network subnet resource ID the cluster nodes belong to.
+	Subnet *ResourceIdResponse `pulumi:"subnet"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// Administrator user account settings which can be used to SSH to compute nodes.
+	UserAccountSettings *UserAccountSettingsResponse `pulumi:"userAccountSettings"`
+	// Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
+	VirtualMachineConfiguration *VirtualMachineConfigurationResponse `pulumi:"virtualMachineConfiguration"`
+	// VM priority of cluster nodes.
+	VmPriority *string `pulumi:"vmPriority"`
+	// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
+	VmSize *string `pulumi:"vmSize"`
 }
 
 type ClusterState struct {
+	// Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+	AllocationState pulumi.StringPtrInput
+	// The time at which the cluster entered its current allocation state.
+	AllocationStateTransitionTime pulumi.StringPtrInput
+	// The time when the cluster was created.
+	CreationTime pulumi.StringPtrInput
+	// The number of compute nodes currently assigned to the cluster.
+	CurrentNodeCount pulumi.IntPtrInput
+	// Collection of errors encountered by various compute nodes during node setup.
+	Errors BatchAIErrorResponseArrayInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties associated with the Cluster.
-	Properties ClusterPropertiesResponsePtrInput
+	// Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.
+	NodeSetup NodeSetupResponsePtrInput
+	// Counts of various node states on the cluster.
+	NodeStateCounts NodeStateCountsResponsePtrInput
+	// Provisioning state of the cluster. Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+	ProvisioningState pulumi.StringPtrInput
+	// Time when the provisioning state was changed.
+	ProvisioningStateTransitionTime pulumi.StringPtrInput
+	// Scale settings of the cluster.
+	ScaleSettings ScaleSettingsResponsePtrInput
+	// Virtual network subnet resource ID the cluster nodes belong to.
+	Subnet ResourceIdResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// Administrator user account settings which can be used to SSH to compute nodes.
+	UserAccountSettings UserAccountSettingsResponsePtrInput
+	// Virtual machine configuration (OS image) of the compute nodes. All nodes in a cluster have the same OS image configuration.
+	VirtualMachineConfiguration VirtualMachineConfigurationResponsePtrInput
+	// VM priority of cluster nodes.
+	VmPriority pulumi.StringPtrInput
+	// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size.
+	VmSize pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {

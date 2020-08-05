@@ -25,14 +25,20 @@ type LookupPeeringArgs struct {
 
 // Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
 type LookupPeeringResult struct {
+	// The properties that define a direct peering.
+	Direct *PeeringPropertiesDirectResponse `pulumi:"direct"`
+	// The properties that define an exchange peering.
+	Exchange *PeeringPropertiesExchangeResponse `pulumi:"exchange"`
 	// The kind of the peering.
 	Kind string `pulumi:"kind"`
 	// The location of the resource.
 	Location string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties that define a peering.
-	Properties PeeringPropertiesResponse `pulumi:"properties"`
+	// The location of the peering.
+	PeeringLocation *string `pulumi:"peeringLocation"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The SKU that defines the tier and kind of the peering.
 	Sku PeeringSkuResponse `pulumi:"sku"`
 	// The resource tags.

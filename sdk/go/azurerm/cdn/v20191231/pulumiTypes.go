@@ -10,235 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The JSON object that contains the properties of the custom domain to create.
-type CustomDomainPropertiesResponse struct {
-	// Provisioning status of Custom Https of the custom domain.
-	CustomHttpsProvisioningState string `pulumi:"customHttpsProvisioningState"`
-	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-	CustomHttpsProvisioningSubstate string `pulumi:"customHttpsProvisioningSubstate"`
-	// The host name of the custom domain. Must be a domain name.
-	HostName string `pulumi:"hostName"`
-	// Provisioning status of the custom domain.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource status of the custom domain.
-	ResourceState string `pulumi:"resourceState"`
-	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
-	ValidationData *string `pulumi:"validationData"`
-}
-
-// CustomDomainPropertiesResponseInput is an input type that accepts CustomDomainPropertiesResponseArgs and CustomDomainPropertiesResponseOutput values.
-// You can construct a concrete instance of `CustomDomainPropertiesResponseInput` via:
-//
-//          CustomDomainPropertiesResponseArgs{...}
-type CustomDomainPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToCustomDomainPropertiesResponseOutput() CustomDomainPropertiesResponseOutput
-	ToCustomDomainPropertiesResponseOutputWithContext(context.Context) CustomDomainPropertiesResponseOutput
-}
-
-// The JSON object that contains the properties of the custom domain to create.
-type CustomDomainPropertiesResponseArgs struct {
-	// Provisioning status of Custom Https of the custom domain.
-	CustomHttpsProvisioningState pulumi.StringInput `pulumi:"customHttpsProvisioningState"`
-	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-	CustomHttpsProvisioningSubstate pulumi.StringInput `pulumi:"customHttpsProvisioningSubstate"`
-	// The host name of the custom domain. Must be a domain name.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// Provisioning status of the custom domain.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Resource status of the custom domain.
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-	// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
-	ValidationData pulumi.StringPtrInput `pulumi:"validationData"`
-}
-
-func (CustomDomainPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainPropertiesResponse)(nil)).Elem()
-}
-
-func (i CustomDomainPropertiesResponseArgs) ToCustomDomainPropertiesResponseOutput() CustomDomainPropertiesResponseOutput {
-	return i.ToCustomDomainPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i CustomDomainPropertiesResponseArgs) ToCustomDomainPropertiesResponseOutputWithContext(ctx context.Context) CustomDomainPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPropertiesResponseOutput)
-}
-
-func (i CustomDomainPropertiesResponseArgs) ToCustomDomainPropertiesResponsePtrOutput() CustomDomainPropertiesResponsePtrOutput {
-	return i.ToCustomDomainPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CustomDomainPropertiesResponseArgs) ToCustomDomainPropertiesResponsePtrOutputWithContext(ctx context.Context) CustomDomainPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPropertiesResponseOutput).ToCustomDomainPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// CustomDomainPropertiesResponsePtrInput is an input type that accepts CustomDomainPropertiesResponseArgs, CustomDomainPropertiesResponsePtr and CustomDomainPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `CustomDomainPropertiesResponsePtrInput` via:
-//
-//          CustomDomainPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CustomDomainPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToCustomDomainPropertiesResponsePtrOutput() CustomDomainPropertiesResponsePtrOutput
-	ToCustomDomainPropertiesResponsePtrOutputWithContext(context.Context) CustomDomainPropertiesResponsePtrOutput
-}
-
-type customDomainPropertiesResponsePtrType CustomDomainPropertiesResponseArgs
-
-func CustomDomainPropertiesResponsePtr(v *CustomDomainPropertiesResponseArgs) CustomDomainPropertiesResponsePtrInput {
-	return (*customDomainPropertiesResponsePtrType)(v)
-}
-
-func (*customDomainPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDomainPropertiesResponse)(nil)).Elem()
-}
-
-func (i *customDomainPropertiesResponsePtrType) ToCustomDomainPropertiesResponsePtrOutput() CustomDomainPropertiesResponsePtrOutput {
-	return i.ToCustomDomainPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *customDomainPropertiesResponsePtrType) ToCustomDomainPropertiesResponsePtrOutputWithContext(ctx context.Context) CustomDomainPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPropertiesResponsePtrOutput)
-}
-
-// The JSON object that contains the properties of the custom domain to create.
-type CustomDomainPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (CustomDomainPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainPropertiesResponse)(nil)).Elem()
-}
-
-func (o CustomDomainPropertiesResponseOutput) ToCustomDomainPropertiesResponseOutput() CustomDomainPropertiesResponseOutput {
-	return o
-}
-
-func (o CustomDomainPropertiesResponseOutput) ToCustomDomainPropertiesResponseOutputWithContext(ctx context.Context) CustomDomainPropertiesResponseOutput {
-	return o
-}
-
-func (o CustomDomainPropertiesResponseOutput) ToCustomDomainPropertiesResponsePtrOutput() CustomDomainPropertiesResponsePtrOutput {
-	return o.ToCustomDomainPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CustomDomainPropertiesResponseOutput) ToCustomDomainPropertiesResponsePtrOutputWithContext(ctx context.Context) CustomDomainPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v CustomDomainPropertiesResponse) *CustomDomainPropertiesResponse {
-		return &v
-	}).(CustomDomainPropertiesResponsePtrOutput)
-}
-
-// Provisioning status of Custom Https of the custom domain.
-func (o CustomDomainPropertiesResponseOutput) CustomHttpsProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDomainPropertiesResponse) string { return v.CustomHttpsProvisioningState }).(pulumi.StringOutput)
-}
-
-// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-func (o CustomDomainPropertiesResponseOutput) CustomHttpsProvisioningSubstate() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDomainPropertiesResponse) string { return v.CustomHttpsProvisioningSubstate }).(pulumi.StringOutput)
-}
-
-// The host name of the custom domain. Must be a domain name.
-func (o CustomDomainPropertiesResponseOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDomainPropertiesResponse) string { return v.HostName }).(pulumi.StringOutput)
-}
-
-// Provisioning status of the custom domain.
-func (o CustomDomainPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDomainPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Resource status of the custom domain.
-func (o CustomDomainPropertiesResponseOutput) ResourceState() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDomainPropertiesResponse) string { return v.ResourceState }).(pulumi.StringOutput)
-}
-
-// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
-func (o CustomDomainPropertiesResponseOutput) ValidationData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomDomainPropertiesResponse) *string { return v.ValidationData }).(pulumi.StringPtrOutput)
-}
-
-type CustomDomainPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CustomDomainPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDomainPropertiesResponse)(nil)).Elem()
-}
-
-func (o CustomDomainPropertiesResponsePtrOutput) ToCustomDomainPropertiesResponsePtrOutput() CustomDomainPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o CustomDomainPropertiesResponsePtrOutput) ToCustomDomainPropertiesResponsePtrOutputWithContext(ctx context.Context) CustomDomainPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o CustomDomainPropertiesResponsePtrOutput) Elem() CustomDomainPropertiesResponseOutput {
-	return o.ApplyT(func(v *CustomDomainPropertiesResponse) CustomDomainPropertiesResponse { return *v }).(CustomDomainPropertiesResponseOutput)
-}
-
-// Provisioning status of Custom Https of the custom domain.
-func (o CustomDomainPropertiesResponsePtrOutput) CustomHttpsProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomDomainPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CustomHttpsProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-func (o CustomDomainPropertiesResponsePtrOutput) CustomHttpsProvisioningSubstate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomDomainPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CustomHttpsProvisioningSubstate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The host name of the custom domain. Must be a domain name.
-func (o CustomDomainPropertiesResponsePtrOutput) HostName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomDomainPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HostName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Provisioning status of the custom domain.
-func (o CustomDomainPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomDomainPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource status of the custom domain.
-func (o CustomDomainPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomDomainPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
-func (o CustomDomainPropertiesResponsePtrOutput) ValidationData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomDomainPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ValidationData
-	}).(pulumi.StringPtrOutput)
-}
-
 // The main origin of CDN content which is added when creating a CDN endpoint.
 type DeepCreatedOrigin struct {
 	// Origin is enabled for load balancing or not. By default, origin is always enabled.
@@ -540,209 +311,18 @@ func (o DeepCreatedOriginGroupArrayOutput) Index(i pulumi.IntInput) DeepCreatedO
 	}).(DeepCreatedOriginGroupOutput)
 }
 
-// Properties of the origin group created on the CDN endpoint.
-type DeepCreatedOriginGroupPropertiesResponse struct {
+// The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
+type DeepCreatedOriginGroupResponse struct {
 	// Health probe settings to the origin that is used to determine the health of the origin.
 	HealthProbeSettings *HealthProbeParametersResponse `pulumi:"healthProbeSettings"`
+	// Origin group name which must be unique within the endpoint.
+	Name string `pulumi:"name"`
 	// The source of the content being delivered via CDN within given origin group.
 	Origins []ResourceReferenceResponse `pulumi:"origins"`
 	// The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
 	ResponseBasedOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersResponse `pulumi:"responseBasedOriginErrorDetectionSettings"`
 	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
 	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
-}
-
-// DeepCreatedOriginGroupPropertiesResponseInput is an input type that accepts DeepCreatedOriginGroupPropertiesResponseArgs and DeepCreatedOriginGroupPropertiesResponseOutput values.
-// You can construct a concrete instance of `DeepCreatedOriginGroupPropertiesResponseInput` via:
-//
-//          DeepCreatedOriginGroupPropertiesResponseArgs{...}
-type DeepCreatedOriginGroupPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDeepCreatedOriginGroupPropertiesResponseOutput() DeepCreatedOriginGroupPropertiesResponseOutput
-	ToDeepCreatedOriginGroupPropertiesResponseOutputWithContext(context.Context) DeepCreatedOriginGroupPropertiesResponseOutput
-}
-
-// Properties of the origin group created on the CDN endpoint.
-type DeepCreatedOriginGroupPropertiesResponseArgs struct {
-	// Health probe settings to the origin that is used to determine the health of the origin.
-	HealthProbeSettings HealthProbeParametersResponsePtrInput `pulumi:"healthProbeSettings"`
-	// The source of the content being delivered via CDN within given origin group.
-	Origins ResourceReferenceResponseArrayInput `pulumi:"origins"`
-	// The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
-	ResponseBasedOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersResponsePtrInput `pulumi:"responseBasedOriginErrorDetectionSettings"`
-	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrInput `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
-}
-
-func (DeepCreatedOriginGroupPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeepCreatedOriginGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (i DeepCreatedOriginGroupPropertiesResponseArgs) ToDeepCreatedOriginGroupPropertiesResponseOutput() DeepCreatedOriginGroupPropertiesResponseOutput {
-	return i.ToDeepCreatedOriginGroupPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DeepCreatedOriginGroupPropertiesResponseArgs) ToDeepCreatedOriginGroupPropertiesResponseOutputWithContext(ctx context.Context) DeepCreatedOriginGroupPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginGroupPropertiesResponseOutput)
-}
-
-func (i DeepCreatedOriginGroupPropertiesResponseArgs) ToDeepCreatedOriginGroupPropertiesResponsePtrOutput() DeepCreatedOriginGroupPropertiesResponsePtrOutput {
-	return i.ToDeepCreatedOriginGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DeepCreatedOriginGroupPropertiesResponseArgs) ToDeepCreatedOriginGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DeepCreatedOriginGroupPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginGroupPropertiesResponseOutput).ToDeepCreatedOriginGroupPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// DeepCreatedOriginGroupPropertiesResponsePtrInput is an input type that accepts DeepCreatedOriginGroupPropertiesResponseArgs, DeepCreatedOriginGroupPropertiesResponsePtr and DeepCreatedOriginGroupPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `DeepCreatedOriginGroupPropertiesResponsePtrInput` via:
-//
-//          DeepCreatedOriginGroupPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DeepCreatedOriginGroupPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToDeepCreatedOriginGroupPropertiesResponsePtrOutput() DeepCreatedOriginGroupPropertiesResponsePtrOutput
-	ToDeepCreatedOriginGroupPropertiesResponsePtrOutputWithContext(context.Context) DeepCreatedOriginGroupPropertiesResponsePtrOutput
-}
-
-type deepCreatedOriginGroupPropertiesResponsePtrType DeepCreatedOriginGroupPropertiesResponseArgs
-
-func DeepCreatedOriginGroupPropertiesResponsePtr(v *DeepCreatedOriginGroupPropertiesResponseArgs) DeepCreatedOriginGroupPropertiesResponsePtrInput {
-	return (*deepCreatedOriginGroupPropertiesResponsePtrType)(v)
-}
-
-func (*deepCreatedOriginGroupPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeepCreatedOriginGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (i *deepCreatedOriginGroupPropertiesResponsePtrType) ToDeepCreatedOriginGroupPropertiesResponsePtrOutput() DeepCreatedOriginGroupPropertiesResponsePtrOutput {
-	return i.ToDeepCreatedOriginGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *deepCreatedOriginGroupPropertiesResponsePtrType) ToDeepCreatedOriginGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DeepCreatedOriginGroupPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginGroupPropertiesResponsePtrOutput)
-}
-
-// Properties of the origin group created on the CDN endpoint.
-type DeepCreatedOriginGroupPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (DeepCreatedOriginGroupPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeepCreatedOriginGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (o DeepCreatedOriginGroupPropertiesResponseOutput) ToDeepCreatedOriginGroupPropertiesResponseOutput() DeepCreatedOriginGroupPropertiesResponseOutput {
-	return o
-}
-
-func (o DeepCreatedOriginGroupPropertiesResponseOutput) ToDeepCreatedOriginGroupPropertiesResponseOutputWithContext(ctx context.Context) DeepCreatedOriginGroupPropertiesResponseOutput {
-	return o
-}
-
-func (o DeepCreatedOriginGroupPropertiesResponseOutput) ToDeepCreatedOriginGroupPropertiesResponsePtrOutput() DeepCreatedOriginGroupPropertiesResponsePtrOutput {
-	return o.ToDeepCreatedOriginGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DeepCreatedOriginGroupPropertiesResponseOutput) ToDeepCreatedOriginGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DeepCreatedOriginGroupPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginGroupPropertiesResponse) *DeepCreatedOriginGroupPropertiesResponse {
-		return &v
-	}).(DeepCreatedOriginGroupPropertiesResponsePtrOutput)
-}
-
-// Health probe settings to the origin that is used to determine the health of the origin.
-func (o DeepCreatedOriginGroupPropertiesResponseOutput) HealthProbeSettings() HealthProbeParametersResponsePtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginGroupPropertiesResponse) *HealthProbeParametersResponse {
-		return v.HealthProbeSettings
-	}).(HealthProbeParametersResponsePtrOutput)
-}
-
-// The source of the content being delivered via CDN within given origin group.
-func (o DeepCreatedOriginGroupPropertiesResponseOutput) Origins() ResourceReferenceResponseArrayOutput {
-	return o.ApplyT(func(v DeepCreatedOriginGroupPropertiesResponse) []ResourceReferenceResponse { return v.Origins }).(ResourceReferenceResponseArrayOutput)
-}
-
-// The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
-func (o DeepCreatedOriginGroupPropertiesResponseOutput) ResponseBasedOriginErrorDetectionSettings() ResponseBasedOriginErrorDetectionParametersResponsePtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginGroupPropertiesResponse) *ResponseBasedOriginErrorDetectionParametersResponse {
-		return v.ResponseBasedOriginErrorDetectionSettings
-	}).(ResponseBasedOriginErrorDetectionParametersResponsePtrOutput)
-}
-
-// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-func (o DeepCreatedOriginGroupPropertiesResponseOutput) TrafficRestorationTimeToHealedOrNewEndpointsInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginGroupPropertiesResponse) *int {
-		return v.TrafficRestorationTimeToHealedOrNewEndpointsInMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-type DeepCreatedOriginGroupPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DeepCreatedOriginGroupPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeepCreatedOriginGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (o DeepCreatedOriginGroupPropertiesResponsePtrOutput) ToDeepCreatedOriginGroupPropertiesResponsePtrOutput() DeepCreatedOriginGroupPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DeepCreatedOriginGroupPropertiesResponsePtrOutput) ToDeepCreatedOriginGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DeepCreatedOriginGroupPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DeepCreatedOriginGroupPropertiesResponsePtrOutput) Elem() DeepCreatedOriginGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginGroupPropertiesResponse) DeepCreatedOriginGroupPropertiesResponse { return *v }).(DeepCreatedOriginGroupPropertiesResponseOutput)
-}
-
-// Health probe settings to the origin that is used to determine the health of the origin.
-func (o DeepCreatedOriginGroupPropertiesResponsePtrOutput) HealthProbeSettings() HealthProbeParametersResponsePtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginGroupPropertiesResponse) *HealthProbeParametersResponse {
-		if v == nil {
-			return nil
-		}
-		return v.HealthProbeSettings
-	}).(HealthProbeParametersResponsePtrOutput)
-}
-
-// The source of the content being delivered via CDN within given origin group.
-func (o DeepCreatedOriginGroupPropertiesResponsePtrOutput) Origins() ResourceReferenceResponseArrayOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginGroupPropertiesResponse) []ResourceReferenceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Origins
-	}).(ResourceReferenceResponseArrayOutput)
-}
-
-// The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
-func (o DeepCreatedOriginGroupPropertiesResponsePtrOutput) ResponseBasedOriginErrorDetectionSettings() ResponseBasedOriginErrorDetectionParametersResponsePtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginGroupPropertiesResponse) *ResponseBasedOriginErrorDetectionParametersResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ResponseBasedOriginErrorDetectionSettings
-	}).(ResponseBasedOriginErrorDetectionParametersResponsePtrOutput)
-}
-
-// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-func (o DeepCreatedOriginGroupPropertiesResponsePtrOutput) TrafficRestorationTimeToHealedOrNewEndpointsInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginGroupPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TrafficRestorationTimeToHealedOrNewEndpointsInMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
-type DeepCreatedOriginGroupResponse struct {
-	// Origin group name which must be unique within the endpoint.
-	Name string `pulumi:"name"`
-	// Properties of the origin group created on the CDN endpoint.
-	Properties *DeepCreatedOriginGroupPropertiesResponse `pulumi:"properties"`
 }
 
 // DeepCreatedOriginGroupResponseInput is an input type that accepts DeepCreatedOriginGroupResponseArgs and DeepCreatedOriginGroupResponseOutput values.
@@ -758,10 +338,16 @@ type DeepCreatedOriginGroupResponseInput interface {
 
 // The origin group for CDN content which is added when creating a CDN endpoint. Traffic is sent to the origins within the origin group based on origin health.
 type DeepCreatedOriginGroupResponseArgs struct {
+	// Health probe settings to the origin that is used to determine the health of the origin.
+	HealthProbeSettings HealthProbeParametersResponsePtrInput `pulumi:"healthProbeSettings"`
 	// Origin group name which must be unique within the endpoint.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the origin group created on the CDN endpoint.
-	Properties DeepCreatedOriginGroupPropertiesResponsePtrInput `pulumi:"properties"`
+	// The source of the content being delivered via CDN within given origin group.
+	Origins ResourceReferenceResponseArrayInput `pulumi:"origins"`
+	// The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+	ResponseBasedOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersResponsePtrInput `pulumi:"responseBasedOriginErrorDetectionSettings"`
+	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrInput `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
 }
 
 func (DeepCreatedOriginGroupResponseArgs) ElementType() reflect.Type {
@@ -816,14 +402,33 @@ func (o DeepCreatedOriginGroupResponseOutput) ToDeepCreatedOriginGroupResponseOu
 	return o
 }
 
+// Health probe settings to the origin that is used to determine the health of the origin.
+func (o DeepCreatedOriginGroupResponseOutput) HealthProbeSettings() HealthProbeParametersResponsePtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginGroupResponse) *HealthProbeParametersResponse { return v.HealthProbeSettings }).(HealthProbeParametersResponsePtrOutput)
+}
+
 // Origin group name which must be unique within the endpoint.
 func (o DeepCreatedOriginGroupResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOriginGroupResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Properties of the origin group created on the CDN endpoint.
-func (o DeepCreatedOriginGroupResponseOutput) Properties() DeepCreatedOriginGroupPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginGroupResponse) *DeepCreatedOriginGroupPropertiesResponse { return v.Properties }).(DeepCreatedOriginGroupPropertiesResponsePtrOutput)
+// The source of the content being delivered via CDN within given origin group.
+func (o DeepCreatedOriginGroupResponseOutput) Origins() ResourceReferenceResponseArrayOutput {
+	return o.ApplyT(func(v DeepCreatedOriginGroupResponse) []ResourceReferenceResponse { return v.Origins }).(ResourceReferenceResponseArrayOutput)
+}
+
+// The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+func (o DeepCreatedOriginGroupResponseOutput) ResponseBasedOriginErrorDetectionSettings() ResponseBasedOriginErrorDetectionParametersResponsePtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginGroupResponse) *ResponseBasedOriginErrorDetectionParametersResponse {
+		return v.ResponseBasedOriginErrorDetectionSettings
+	}).(ResponseBasedOriginErrorDetectionParametersResponsePtrOutput)
+}
+
+// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+func (o DeepCreatedOriginGroupResponseOutput) TrafficRestorationTimeToHealedOrNewEndpointsInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginGroupResponse) *int {
+		return v.TrafficRestorationTimeToHealedOrNewEndpointsInMinutes
+	}).(pulumi.IntPtrOutput)
 }
 
 type DeepCreatedOriginGroupResponseArrayOutput struct{ *pulumi.OutputState }
@@ -846,8 +451,8 @@ func (o DeepCreatedOriginGroupResponseArrayOutput) Index(i pulumi.IntInput) Deep
 	}).(DeepCreatedOriginGroupResponseOutput)
 }
 
-// Properties of the origin created on the CDN endpoint.
-type DeepCreatedOriginPropertiesResponse struct {
+// The main origin of CDN content which is added when creating a CDN endpoint.
+type DeepCreatedOriginResponse struct {
 	// Origin is enabled for load balancing or not. By default, origin is always enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
@@ -856,250 +461,14 @@ type DeepCreatedOriginPropertiesResponse struct {
 	HttpPort *int `pulumi:"httpPort"`
 	// The value of the HTTPS port. Must be between 1 and 65535.
 	HttpsPort *int `pulumi:"httpsPort"`
+	// Origin name which must be unique within the endpoint.
+	Name string `pulumi:"name"`
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
 	OriginHostHeader *string `pulumi:"originHostHeader"`
 	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
 	Priority *int `pulumi:"priority"`
 	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
 	Weight *int `pulumi:"weight"`
-}
-
-// DeepCreatedOriginPropertiesResponseInput is an input type that accepts DeepCreatedOriginPropertiesResponseArgs and DeepCreatedOriginPropertiesResponseOutput values.
-// You can construct a concrete instance of `DeepCreatedOriginPropertiesResponseInput` via:
-//
-//          DeepCreatedOriginPropertiesResponseArgs{...}
-type DeepCreatedOriginPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDeepCreatedOriginPropertiesResponseOutput() DeepCreatedOriginPropertiesResponseOutput
-	ToDeepCreatedOriginPropertiesResponseOutputWithContext(context.Context) DeepCreatedOriginPropertiesResponseOutput
-}
-
-// Properties of the origin created on the CDN endpoint.
-type DeepCreatedOriginPropertiesResponseArgs struct {
-	// Origin is enabled for load balancing or not. By default, origin is always enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535.
-	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-	OriginHostHeader pulumi.StringPtrInput `pulumi:"originHostHeader"`
-	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
-}
-
-func (DeepCreatedOriginPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeepCreatedOriginPropertiesResponse)(nil)).Elem()
-}
-
-func (i DeepCreatedOriginPropertiesResponseArgs) ToDeepCreatedOriginPropertiesResponseOutput() DeepCreatedOriginPropertiesResponseOutput {
-	return i.ToDeepCreatedOriginPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DeepCreatedOriginPropertiesResponseArgs) ToDeepCreatedOriginPropertiesResponseOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginPropertiesResponseOutput)
-}
-
-func (i DeepCreatedOriginPropertiesResponseArgs) ToDeepCreatedOriginPropertiesResponsePtrOutput() DeepCreatedOriginPropertiesResponsePtrOutput {
-	return i.ToDeepCreatedOriginPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DeepCreatedOriginPropertiesResponseArgs) ToDeepCreatedOriginPropertiesResponsePtrOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginPropertiesResponseOutput).ToDeepCreatedOriginPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// DeepCreatedOriginPropertiesResponsePtrInput is an input type that accepts DeepCreatedOriginPropertiesResponseArgs, DeepCreatedOriginPropertiesResponsePtr and DeepCreatedOriginPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `DeepCreatedOriginPropertiesResponsePtrInput` via:
-//
-//          DeepCreatedOriginPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DeepCreatedOriginPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToDeepCreatedOriginPropertiesResponsePtrOutput() DeepCreatedOriginPropertiesResponsePtrOutput
-	ToDeepCreatedOriginPropertiesResponsePtrOutputWithContext(context.Context) DeepCreatedOriginPropertiesResponsePtrOutput
-}
-
-type deepCreatedOriginPropertiesResponsePtrType DeepCreatedOriginPropertiesResponseArgs
-
-func DeepCreatedOriginPropertiesResponsePtr(v *DeepCreatedOriginPropertiesResponseArgs) DeepCreatedOriginPropertiesResponsePtrInput {
-	return (*deepCreatedOriginPropertiesResponsePtrType)(v)
-}
-
-func (*deepCreatedOriginPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeepCreatedOriginPropertiesResponse)(nil)).Elem()
-}
-
-func (i *deepCreatedOriginPropertiesResponsePtrType) ToDeepCreatedOriginPropertiesResponsePtrOutput() DeepCreatedOriginPropertiesResponsePtrOutput {
-	return i.ToDeepCreatedOriginPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *deepCreatedOriginPropertiesResponsePtrType) ToDeepCreatedOriginPropertiesResponsePtrOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginPropertiesResponsePtrOutput)
-}
-
-// Properties of the origin created on the CDN endpoint.
-type DeepCreatedOriginPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (DeepCreatedOriginPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeepCreatedOriginPropertiesResponse)(nil)).Elem()
-}
-
-func (o DeepCreatedOriginPropertiesResponseOutput) ToDeepCreatedOriginPropertiesResponseOutput() DeepCreatedOriginPropertiesResponseOutput {
-	return o
-}
-
-func (o DeepCreatedOriginPropertiesResponseOutput) ToDeepCreatedOriginPropertiesResponseOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesResponseOutput {
-	return o
-}
-
-func (o DeepCreatedOriginPropertiesResponseOutput) ToDeepCreatedOriginPropertiesResponsePtrOutput() DeepCreatedOriginPropertiesResponsePtrOutput {
-	return o.ToDeepCreatedOriginPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DeepCreatedOriginPropertiesResponseOutput) ToDeepCreatedOriginPropertiesResponsePtrOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginPropertiesResponse) *DeepCreatedOriginPropertiesResponse {
-		return &v
-	}).(DeepCreatedOriginPropertiesResponsePtrOutput)
-}
-
-// Origin is enabled for load balancing or not. By default, origin is always enabled.
-func (o DeepCreatedOriginPropertiesResponseOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginPropertiesResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
-func (o DeepCreatedOriginPropertiesResponseOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func(v DeepCreatedOriginPropertiesResponse) string { return v.HostName }).(pulumi.StringOutput)
-}
-
-// The value of the HTTP port. Must be between 1 and 65535.
-func (o DeepCreatedOriginPropertiesResponseOutput) HttpPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginPropertiesResponse) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
-}
-
-// The value of the HTTPS port. Must be between 1 and 65535.
-func (o DeepCreatedOriginPropertiesResponseOutput) HttpsPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginPropertiesResponse) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
-}
-
-// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-func (o DeepCreatedOriginPropertiesResponseOutput) OriginHostHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginPropertiesResponse) *string { return v.OriginHostHeader }).(pulumi.StringPtrOutput)
-}
-
-// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
-func (o DeepCreatedOriginPropertiesResponseOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginPropertiesResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
-}
-
-// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
-func (o DeepCreatedOriginPropertiesResponseOutput) Weight() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginPropertiesResponse) *int { return v.Weight }).(pulumi.IntPtrOutput)
-}
-
-type DeepCreatedOriginPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DeepCreatedOriginPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeepCreatedOriginPropertiesResponse)(nil)).Elem()
-}
-
-func (o DeepCreatedOriginPropertiesResponsePtrOutput) ToDeepCreatedOriginPropertiesResponsePtrOutput() DeepCreatedOriginPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DeepCreatedOriginPropertiesResponsePtrOutput) ToDeepCreatedOriginPropertiesResponsePtrOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DeepCreatedOriginPropertiesResponsePtrOutput) Elem() DeepCreatedOriginPropertiesResponseOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginPropertiesResponse) DeepCreatedOriginPropertiesResponse { return *v }).(DeepCreatedOriginPropertiesResponseOutput)
-}
-
-// Origin is enabled for load balancing or not. By default, origin is always enabled.
-func (o DeepCreatedOriginPropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
-func (o DeepCreatedOriginPropertiesResponsePtrOutput) HostName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HostName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the HTTP port. Must be between 1 and 65535.
-func (o DeepCreatedOriginPropertiesResponsePtrOutput) HttpPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.HttpPort
-	}).(pulumi.IntPtrOutput)
-}
-
-// The value of the HTTPS port. Must be between 1 and 65535.
-func (o DeepCreatedOriginPropertiesResponsePtrOutput) HttpsPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.HttpsPort
-	}).(pulumi.IntPtrOutput)
-}
-
-// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-func (o DeepCreatedOriginPropertiesResponsePtrOutput) OriginHostHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OriginHostHeader
-	}).(pulumi.StringPtrOutput)
-}
-
-// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
-func (o DeepCreatedOriginPropertiesResponsePtrOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Priority
-	}).(pulumi.IntPtrOutput)
-}
-
-// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
-func (o DeepCreatedOriginPropertiesResponsePtrOutput) Weight() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Weight
-	}).(pulumi.IntPtrOutput)
-}
-
-// The main origin of CDN content which is added when creating a CDN endpoint.
-type DeepCreatedOriginResponse struct {
-	// Origin name which must be unique within the endpoint.
-	Name string `pulumi:"name"`
-	// Properties of the origin created on the CDN endpoint.
-	Properties *DeepCreatedOriginPropertiesResponse `pulumi:"properties"`
 }
 
 // DeepCreatedOriginResponseInput is an input type that accepts DeepCreatedOriginResponseArgs and DeepCreatedOriginResponseOutput values.
@@ -1115,10 +484,22 @@ type DeepCreatedOriginResponseInput interface {
 
 // The main origin of CDN content which is added when creating a CDN endpoint.
 type DeepCreatedOriginResponseArgs struct {
+	// Origin is enabled for load balancing or not. By default, origin is always enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
+	// The value of the HTTPS port. Must be between 1 and 65535.
+	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
 	// Origin name which must be unique within the endpoint.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the origin created on the CDN endpoint.
-	Properties DeepCreatedOriginPropertiesResponsePtrInput `pulumi:"properties"`
+	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
+	OriginHostHeader pulumi.StringPtrInput `pulumi:"originHostHeader"`
+	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (DeepCreatedOriginResponseArgs) ElementType() reflect.Type {
@@ -1173,14 +554,44 @@ func (o DeepCreatedOriginResponseOutput) ToDeepCreatedOriginResponseOutputWithCo
 	return o
 }
 
+// Origin is enabled for load balancing or not. By default, origin is always enabled.
+func (o DeepCreatedOriginResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
+func (o DeepCreatedOriginResponseOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeepCreatedOriginResponse) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP port. Must be between 1 and 65535.
+func (o DeepCreatedOriginResponseOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginResponse) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
+}
+
+// The value of the HTTPS port. Must be between 1 and 65535.
+func (o DeepCreatedOriginResponseOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginResponse) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
+}
+
 // Origin name which must be unique within the endpoint.
 func (o DeepCreatedOriginResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOriginResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Properties of the origin created on the CDN endpoint.
-func (o DeepCreatedOriginResponseOutput) Properties() DeepCreatedOriginPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginResponse) *DeepCreatedOriginPropertiesResponse { return v.Properties }).(DeepCreatedOriginPropertiesResponsePtrOutput)
+// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
+func (o DeepCreatedOriginResponseOutput) OriginHostHeader() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginResponse) *string { return v.OriginHostHeader }).(pulumi.StringPtrOutput)
+}
+
+// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5.
+func (o DeepCreatedOriginResponseOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+func (o DeepCreatedOriginResponseOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOriginResponse) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
 type DeepCreatedOriginResponseArrayOutput struct{ *pulumi.OutputState }
@@ -1855,446 +1266,6 @@ func (o DeliveryRuleResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleRe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryRuleResponse {
 		return vs[0].([]DeliveryRuleResponse)[vs[1].(int)]
 	}).(DeliveryRuleResponseOutput)
-}
-
-// The JSON object that contains the properties required to create an endpoint.
-type EndpointPropertiesResponse struct {
-	// List of content types on which compression applies. The value should be a valid MIME type.
-	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
-	// A reference to the origin group.
-	DefaultOriginGroup *ResourceReferenceResponse `pulumi:"defaultOriginGroup"`
-	// A policy that specifies the delivery rules to be used for an endpoint.
-	DeliveryPolicy *EndpointPropertiesUpdateParametersResponseDeliveryPolicy `pulumi:"deliveryPolicy"`
-	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-	GeoFilters []GeoFilterResponse `pulumi:"geoFilters"`
-	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
-	HostName string `pulumi:"hostName"`
-	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
-	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
-	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
-	// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
-	// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
-	OptimizationType *string `pulumi:"optimizationType"`
-	// The origin groups comprising of origins that are used for load balancing the traffic based on availability.
-	OriginGroups []DeepCreatedOriginGroupResponse `pulumi:"originGroups"`
-	// The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-	OriginHostHeader *string `pulumi:"originHostHeader"`
-	// A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-	OriginPath *string `pulumi:"originPath"`
-	// The source of the content being delivered via CDN.
-	Origins []DeepCreatedOriginResponse `pulumi:"origins"`
-	// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
-	ProbePath *string `pulumi:"probePath"`
-	// Provisioning status of the endpoint.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
-	// Resource status of the endpoint.
-	ResourceState string `pulumi:"resourceState"`
-}
-
-// EndpointPropertiesResponseInput is an input type that accepts EndpointPropertiesResponseArgs and EndpointPropertiesResponseOutput values.
-// You can construct a concrete instance of `EndpointPropertiesResponseInput` via:
-//
-//          EndpointPropertiesResponseArgs{...}
-type EndpointPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToEndpointPropertiesResponseOutput() EndpointPropertiesResponseOutput
-	ToEndpointPropertiesResponseOutputWithContext(context.Context) EndpointPropertiesResponseOutput
-}
-
-// The JSON object that contains the properties required to create an endpoint.
-type EndpointPropertiesResponseArgs struct {
-	// List of content types on which compression applies. The value should be a valid MIME type.
-	ContentTypesToCompress pulumi.StringArrayInput `pulumi:"contentTypesToCompress"`
-	// A reference to the origin group.
-	DefaultOriginGroup ResourceReferenceResponsePtrInput `pulumi:"defaultOriginGroup"`
-	// A policy that specifies the delivery rules to be used for an endpoint.
-	DeliveryPolicy EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrInput `pulumi:"deliveryPolicy"`
-	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-	GeoFilters GeoFilterResponseArrayInput `pulumi:"geoFilters"`
-	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
-	IsCompressionEnabled pulumi.BoolPtrInput `pulumi:"isCompressionEnabled"`
-	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpAllowed pulumi.BoolPtrInput `pulumi:"isHttpAllowed"`
-	// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpsAllowed pulumi.BoolPtrInput `pulumi:"isHttpsAllowed"`
-	// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
-	OptimizationType pulumi.StringPtrInput `pulumi:"optimizationType"`
-	// The origin groups comprising of origins that are used for load balancing the traffic based on availability.
-	OriginGroups DeepCreatedOriginGroupResponseArrayInput `pulumi:"originGroups"`
-	// The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-	OriginHostHeader pulumi.StringPtrInput `pulumi:"originHostHeader"`
-	// A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-	OriginPath pulumi.StringPtrInput `pulumi:"originPath"`
-	// The source of the content being delivered via CDN.
-	Origins DeepCreatedOriginResponseArrayInput `pulumi:"origins"`
-	// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
-	ProbePath pulumi.StringPtrInput `pulumi:"probePath"`
-	// Provisioning status of the endpoint.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior pulumi.StringPtrInput `pulumi:"queryStringCachingBehavior"`
-	// Resource status of the endpoint.
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-}
-
-func (EndpointPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointPropertiesResponse)(nil)).Elem()
-}
-
-func (i EndpointPropertiesResponseArgs) ToEndpointPropertiesResponseOutput() EndpointPropertiesResponseOutput {
-	return i.ToEndpointPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i EndpointPropertiesResponseArgs) ToEndpointPropertiesResponseOutputWithContext(ctx context.Context) EndpointPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesResponseOutput)
-}
-
-func (i EndpointPropertiesResponseArgs) ToEndpointPropertiesResponsePtrOutput() EndpointPropertiesResponsePtrOutput {
-	return i.ToEndpointPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EndpointPropertiesResponseArgs) ToEndpointPropertiesResponsePtrOutputWithContext(ctx context.Context) EndpointPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesResponseOutput).ToEndpointPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// EndpointPropertiesResponsePtrInput is an input type that accepts EndpointPropertiesResponseArgs, EndpointPropertiesResponsePtr and EndpointPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `EndpointPropertiesResponsePtrInput` via:
-//
-//          EndpointPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type EndpointPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToEndpointPropertiesResponsePtrOutput() EndpointPropertiesResponsePtrOutput
-	ToEndpointPropertiesResponsePtrOutputWithContext(context.Context) EndpointPropertiesResponsePtrOutput
-}
-
-type endpointPropertiesResponsePtrType EndpointPropertiesResponseArgs
-
-func EndpointPropertiesResponsePtr(v *EndpointPropertiesResponseArgs) EndpointPropertiesResponsePtrInput {
-	return (*endpointPropertiesResponsePtrType)(v)
-}
-
-func (*endpointPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointPropertiesResponse)(nil)).Elem()
-}
-
-func (i *endpointPropertiesResponsePtrType) ToEndpointPropertiesResponsePtrOutput() EndpointPropertiesResponsePtrOutput {
-	return i.ToEndpointPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *endpointPropertiesResponsePtrType) ToEndpointPropertiesResponsePtrOutputWithContext(ctx context.Context) EndpointPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesResponsePtrOutput)
-}
-
-// The JSON object that contains the properties required to create an endpoint.
-type EndpointPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (EndpointPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointPropertiesResponse)(nil)).Elem()
-}
-
-func (o EndpointPropertiesResponseOutput) ToEndpointPropertiesResponseOutput() EndpointPropertiesResponseOutput {
-	return o
-}
-
-func (o EndpointPropertiesResponseOutput) ToEndpointPropertiesResponseOutputWithContext(ctx context.Context) EndpointPropertiesResponseOutput {
-	return o
-}
-
-func (o EndpointPropertiesResponseOutput) ToEndpointPropertiesResponsePtrOutput() EndpointPropertiesResponsePtrOutput {
-	return o.ToEndpointPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EndpointPropertiesResponseOutput) ToEndpointPropertiesResponsePtrOutputWithContext(ctx context.Context) EndpointPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *EndpointPropertiesResponse {
-		return &v
-	}).(EndpointPropertiesResponsePtrOutput)
-}
-
-// List of content types on which compression applies. The value should be a valid MIME type.
-func (o EndpointPropertiesResponseOutput) ContentTypesToCompress() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) []string { return v.ContentTypesToCompress }).(pulumi.StringArrayOutput)
-}
-
-// A reference to the origin group.
-func (o EndpointPropertiesResponseOutput) DefaultOriginGroup() ResourceReferenceResponsePtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *ResourceReferenceResponse { return v.DefaultOriginGroup }).(ResourceReferenceResponsePtrOutput)
-}
-
-// A policy that specifies the delivery rules to be used for an endpoint.
-func (o EndpointPropertiesResponseOutput) DeliveryPolicy() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
-		return v.DeliveryPolicy
-	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
-}
-
-// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-func (o EndpointPropertiesResponseOutput) GeoFilters() GeoFilterResponseArrayOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) []GeoFilterResponse { return v.GeoFilters }).(GeoFilterResponseArrayOutput)
-}
-
-// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
-func (o EndpointPropertiesResponseOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) string { return v.HostName }).(pulumi.StringOutput)
-}
-
-// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
-func (o EndpointPropertiesResponseOutput) IsCompressionEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *bool { return v.IsCompressionEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-func (o EndpointPropertiesResponseOutput) IsHttpAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *bool { return v.IsHttpAllowed }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-func (o EndpointPropertiesResponseOutput) IsHttpsAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *bool { return v.IsHttpsAllowed }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
-func (o EndpointPropertiesResponseOutput) OptimizationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *string { return v.OptimizationType }).(pulumi.StringPtrOutput)
-}
-
-// The origin groups comprising of origins that are used for load balancing the traffic based on availability.
-func (o EndpointPropertiesResponseOutput) OriginGroups() DeepCreatedOriginGroupResponseArrayOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) []DeepCreatedOriginGroupResponse { return v.OriginGroups }).(DeepCreatedOriginGroupResponseArrayOutput)
-}
-
-// The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-func (o EndpointPropertiesResponseOutput) OriginHostHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *string { return v.OriginHostHeader }).(pulumi.StringPtrOutput)
-}
-
-// A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-func (o EndpointPropertiesResponseOutput) OriginPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *string { return v.OriginPath }).(pulumi.StringPtrOutput)
-}
-
-// The source of the content being delivered via CDN.
-func (o EndpointPropertiesResponseOutput) Origins() DeepCreatedOriginResponseArrayOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) []DeepCreatedOriginResponse { return v.Origins }).(DeepCreatedOriginResponseArrayOutput)
-}
-
-// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
-func (o EndpointPropertiesResponseOutput) ProbePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *string { return v.ProbePath }).(pulumi.StringPtrOutput)
-}
-
-// Provisioning status of the endpoint.
-func (o EndpointPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-func (o EndpointPropertiesResponseOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *string { return v.QueryStringCachingBehavior }).(pulumi.StringPtrOutput)
-}
-
-// Resource status of the endpoint.
-func (o EndpointPropertiesResponseOutput) ResourceState() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) string { return v.ResourceState }).(pulumi.StringOutput)
-}
-
-type EndpointPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EndpointPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointPropertiesResponse)(nil)).Elem()
-}
-
-func (o EndpointPropertiesResponsePtrOutput) ToEndpointPropertiesResponsePtrOutput() EndpointPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o EndpointPropertiesResponsePtrOutput) ToEndpointPropertiesResponsePtrOutputWithContext(ctx context.Context) EndpointPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o EndpointPropertiesResponsePtrOutput) Elem() EndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) EndpointPropertiesResponse { return *v }).(EndpointPropertiesResponseOutput)
-}
-
-// List of content types on which compression applies. The value should be a valid MIME type.
-func (o EndpointPropertiesResponsePtrOutput) ContentTypesToCompress() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ContentTypesToCompress
-	}).(pulumi.StringArrayOutput)
-}
-
-// A reference to the origin group.
-func (o EndpointPropertiesResponsePtrOutput) DefaultOriginGroup() ResourceReferenceResponsePtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *ResourceReferenceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultOriginGroup
-	}).(ResourceReferenceResponsePtrOutput)
-}
-
-// A policy that specifies the delivery rules to be used for an endpoint.
-func (o EndpointPropertiesResponsePtrOutput) DeliveryPolicy() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
-		if v == nil {
-			return nil
-		}
-		return v.DeliveryPolicy
-	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
-}
-
-// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
-func (o EndpointPropertiesResponsePtrOutput) GeoFilters() GeoFilterResponseArrayOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) []GeoFilterResponse {
-		if v == nil {
-			return nil
-		}
-		return v.GeoFilters
-	}).(GeoFilterResponseArrayOutput)
-}
-
-// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
-func (o EndpointPropertiesResponsePtrOutput) HostName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HostName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
-func (o EndpointPropertiesResponsePtrOutput) IsCompressionEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsCompressionEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-func (o EndpointPropertiesResponsePtrOutput) IsHttpAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsHttpAllowed
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-func (o EndpointPropertiesResponsePtrOutput) IsHttpsAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsHttpsAllowed
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
-func (o EndpointPropertiesResponsePtrOutput) OptimizationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OptimizationType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The origin groups comprising of origins that are used for load balancing the traffic based on availability.
-func (o EndpointPropertiesResponsePtrOutput) OriginGroups() DeepCreatedOriginGroupResponseArrayOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) []DeepCreatedOriginGroupResponse {
-		if v == nil {
-			return nil
-		}
-		return v.OriginGroups
-	}).(DeepCreatedOriginGroupResponseArrayOutput)
-}
-
-// The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
-func (o EndpointPropertiesResponsePtrOutput) OriginHostHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OriginHostHeader
-	}).(pulumi.StringPtrOutput)
-}
-
-// A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
-func (o EndpointPropertiesResponsePtrOutput) OriginPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OriginPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source of the content being delivered via CDN.
-func (o EndpointPropertiesResponsePtrOutput) Origins() DeepCreatedOriginResponseArrayOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) []DeepCreatedOriginResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Origins
-	}).(DeepCreatedOriginResponseArrayOutput)
-}
-
-// Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
-func (o EndpointPropertiesResponsePtrOutput) ProbePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProbePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Provisioning status of the endpoint.
-func (o EndpointPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-func (o EndpointPropertiesResponsePtrOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.QueryStringCachingBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource status of the endpoint.
-func (o EndpointPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceState
-	}).(pulumi.StringPtrOutput)
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
@@ -3445,678 +2416,6 @@ func (o HttpErrorRangeParametersResponseArrayOutput) Index(i pulumi.IntInput) Ht
 	}).(HttpErrorRangeParametersResponseOutput)
 }
 
-// The JSON object that contains the properties of the origin group.
-type OriginGroupPropertiesResponse struct {
-	// Health probe settings to the origin that is used to determine the health of the origin.
-	HealthProbeSettings *HealthProbeParametersResponse `pulumi:"healthProbeSettings"`
-	// The source of the content being delivered via CDN within given origin group.
-	Origins []ResourceReferenceResponse `pulumi:"origins"`
-	// Provisioning status of the origin group.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource status of the origin group.
-	ResourceState string `pulumi:"resourceState"`
-	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-	ResponseBasedOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParametersResponse `pulumi:"responseBasedOriginErrorDetectionSettings"`
-	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
-}
-
-// OriginGroupPropertiesResponseInput is an input type that accepts OriginGroupPropertiesResponseArgs and OriginGroupPropertiesResponseOutput values.
-// You can construct a concrete instance of `OriginGroupPropertiesResponseInput` via:
-//
-//          OriginGroupPropertiesResponseArgs{...}
-type OriginGroupPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToOriginGroupPropertiesResponseOutput() OriginGroupPropertiesResponseOutput
-	ToOriginGroupPropertiesResponseOutputWithContext(context.Context) OriginGroupPropertiesResponseOutput
-}
-
-// The JSON object that contains the properties of the origin group.
-type OriginGroupPropertiesResponseArgs struct {
-	// Health probe settings to the origin that is used to determine the health of the origin.
-	HealthProbeSettings HealthProbeParametersResponsePtrInput `pulumi:"healthProbeSettings"`
-	// The source of the content being delivered via CDN within given origin group.
-	Origins ResourceReferenceResponseArrayInput `pulumi:"origins"`
-	// Provisioning status of the origin group.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Resource status of the origin group.
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-	ResponseBasedOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersResponsePtrInput `pulumi:"responseBasedOriginErrorDetectionSettings"`
-	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrInput `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
-}
-
-func (OriginGroupPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (i OriginGroupPropertiesResponseArgs) ToOriginGroupPropertiesResponseOutput() OriginGroupPropertiesResponseOutput {
-	return i.ToOriginGroupPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i OriginGroupPropertiesResponseArgs) ToOriginGroupPropertiesResponseOutputWithContext(ctx context.Context) OriginGroupPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupPropertiesResponseOutput)
-}
-
-func (i OriginGroupPropertiesResponseArgs) ToOriginGroupPropertiesResponsePtrOutput() OriginGroupPropertiesResponsePtrOutput {
-	return i.ToOriginGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OriginGroupPropertiesResponseArgs) ToOriginGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) OriginGroupPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupPropertiesResponseOutput).ToOriginGroupPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// OriginGroupPropertiesResponsePtrInput is an input type that accepts OriginGroupPropertiesResponseArgs, OriginGroupPropertiesResponsePtr and OriginGroupPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `OriginGroupPropertiesResponsePtrInput` via:
-//
-//          OriginGroupPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type OriginGroupPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToOriginGroupPropertiesResponsePtrOutput() OriginGroupPropertiesResponsePtrOutput
-	ToOriginGroupPropertiesResponsePtrOutputWithContext(context.Context) OriginGroupPropertiesResponsePtrOutput
-}
-
-type originGroupPropertiesResponsePtrType OriginGroupPropertiesResponseArgs
-
-func OriginGroupPropertiesResponsePtr(v *OriginGroupPropertiesResponseArgs) OriginGroupPropertiesResponsePtrInput {
-	return (*originGroupPropertiesResponsePtrType)(v)
-}
-
-func (*originGroupPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (i *originGroupPropertiesResponsePtrType) ToOriginGroupPropertiesResponsePtrOutput() OriginGroupPropertiesResponsePtrOutput {
-	return i.ToOriginGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *originGroupPropertiesResponsePtrType) ToOriginGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) OriginGroupPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginGroupPropertiesResponsePtrOutput)
-}
-
-// The JSON object that contains the properties of the origin group.
-type OriginGroupPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (OriginGroupPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (o OriginGroupPropertiesResponseOutput) ToOriginGroupPropertiesResponseOutput() OriginGroupPropertiesResponseOutput {
-	return o
-}
-
-func (o OriginGroupPropertiesResponseOutput) ToOriginGroupPropertiesResponseOutputWithContext(ctx context.Context) OriginGroupPropertiesResponseOutput {
-	return o
-}
-
-func (o OriginGroupPropertiesResponseOutput) ToOriginGroupPropertiesResponsePtrOutput() OriginGroupPropertiesResponsePtrOutput {
-	return o.ToOriginGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OriginGroupPropertiesResponseOutput) ToOriginGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) OriginGroupPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v OriginGroupPropertiesResponse) *OriginGroupPropertiesResponse {
-		return &v
-	}).(OriginGroupPropertiesResponsePtrOutput)
-}
-
-// Health probe settings to the origin that is used to determine the health of the origin.
-func (o OriginGroupPropertiesResponseOutput) HealthProbeSettings() HealthProbeParametersResponsePtrOutput {
-	return o.ApplyT(func(v OriginGroupPropertiesResponse) *HealthProbeParametersResponse { return v.HealthProbeSettings }).(HealthProbeParametersResponsePtrOutput)
-}
-
-// The source of the content being delivered via CDN within given origin group.
-func (o OriginGroupPropertiesResponseOutput) Origins() ResourceReferenceResponseArrayOutput {
-	return o.ApplyT(func(v OriginGroupPropertiesResponse) []ResourceReferenceResponse { return v.Origins }).(ResourceReferenceResponseArrayOutput)
-}
-
-// Provisioning status of the origin group.
-func (o OriginGroupPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v OriginGroupPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Resource status of the origin group.
-func (o OriginGroupPropertiesResponseOutput) ResourceState() pulumi.StringOutput {
-	return o.ApplyT(func(v OriginGroupPropertiesResponse) string { return v.ResourceState }).(pulumi.StringOutput)
-}
-
-// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-func (o OriginGroupPropertiesResponseOutput) ResponseBasedOriginErrorDetectionSettings() ResponseBasedOriginErrorDetectionParametersResponsePtrOutput {
-	return o.ApplyT(func(v OriginGroupPropertiesResponse) *ResponseBasedOriginErrorDetectionParametersResponse {
-		return v.ResponseBasedOriginErrorDetectionSettings
-	}).(ResponseBasedOriginErrorDetectionParametersResponsePtrOutput)
-}
-
-// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-func (o OriginGroupPropertiesResponseOutput) TrafficRestorationTimeToHealedOrNewEndpointsInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OriginGroupPropertiesResponse) *int {
-		return v.TrafficRestorationTimeToHealedOrNewEndpointsInMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-type OriginGroupPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (OriginGroupPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (o OriginGroupPropertiesResponsePtrOutput) ToOriginGroupPropertiesResponsePtrOutput() OriginGroupPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o OriginGroupPropertiesResponsePtrOutput) ToOriginGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) OriginGroupPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o OriginGroupPropertiesResponsePtrOutput) Elem() OriginGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v *OriginGroupPropertiesResponse) OriginGroupPropertiesResponse { return *v }).(OriginGroupPropertiesResponseOutput)
-}
-
-// Health probe settings to the origin that is used to determine the health of the origin.
-func (o OriginGroupPropertiesResponsePtrOutput) HealthProbeSettings() HealthProbeParametersResponsePtrOutput {
-	return o.ApplyT(func(v *OriginGroupPropertiesResponse) *HealthProbeParametersResponse {
-		if v == nil {
-			return nil
-		}
-		return v.HealthProbeSettings
-	}).(HealthProbeParametersResponsePtrOutput)
-}
-
-// The source of the content being delivered via CDN within given origin group.
-func (o OriginGroupPropertiesResponsePtrOutput) Origins() ResourceReferenceResponseArrayOutput {
-	return o.ApplyT(func(v *OriginGroupPropertiesResponse) []ResourceReferenceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Origins
-	}).(ResourceReferenceResponseArrayOutput)
-}
-
-// Provisioning status of the origin group.
-func (o OriginGroupPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginGroupPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource status of the origin group.
-func (o OriginGroupPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginGroupPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-func (o OriginGroupPropertiesResponsePtrOutput) ResponseBasedOriginErrorDetectionSettings() ResponseBasedOriginErrorDetectionParametersResponsePtrOutput {
-	return o.ApplyT(func(v *OriginGroupPropertiesResponse) *ResponseBasedOriginErrorDetectionParametersResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ResponseBasedOriginErrorDetectionSettings
-	}).(ResponseBasedOriginErrorDetectionParametersResponsePtrOutput)
-}
-
-// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
-func (o OriginGroupPropertiesResponsePtrOutput) TrafficRestorationTimeToHealedOrNewEndpointsInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OriginGroupPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TrafficRestorationTimeToHealedOrNewEndpointsInMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The JSON object that contains the properties of the origin.
-type OriginPropertiesResponse struct {
-	// Origin is enabled for load balancing or not
-	Enabled *bool `pulumi:"enabled"`
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-	HostName string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535.
-	HttpsPort *int `pulumi:"httpsPort"`
-	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-	OriginHostHeader *string `pulumi:"originHostHeader"`
-	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-	Priority *int `pulumi:"priority"`
-	// Provisioning status of the origin.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource status of the origin.
-	ResourceState string `pulumi:"resourceState"`
-	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
-	Weight *int `pulumi:"weight"`
-}
-
-// OriginPropertiesResponseInput is an input type that accepts OriginPropertiesResponseArgs and OriginPropertiesResponseOutput values.
-// You can construct a concrete instance of `OriginPropertiesResponseInput` via:
-//
-//          OriginPropertiesResponseArgs{...}
-type OriginPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToOriginPropertiesResponseOutput() OriginPropertiesResponseOutput
-	ToOriginPropertiesResponseOutputWithContext(context.Context) OriginPropertiesResponseOutput
-}
-
-// The JSON object that contains the properties of the origin.
-type OriginPropertiesResponseArgs struct {
-	// Origin is enabled for load balancing or not
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535.
-	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-	OriginHostHeader pulumi.StringPtrInput `pulumi:"originHostHeader"`
-	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-	Priority pulumi.IntPtrInput `pulumi:"priority"`
-	// Provisioning status of the origin.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Resource status of the origin.
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
-	Weight pulumi.IntPtrInput `pulumi:"weight"`
-}
-
-func (OriginPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginPropertiesResponse)(nil)).Elem()
-}
-
-func (i OriginPropertiesResponseArgs) ToOriginPropertiesResponseOutput() OriginPropertiesResponseOutput {
-	return i.ToOriginPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i OriginPropertiesResponseArgs) ToOriginPropertiesResponseOutputWithContext(ctx context.Context) OriginPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginPropertiesResponseOutput)
-}
-
-func (i OriginPropertiesResponseArgs) ToOriginPropertiesResponsePtrOutput() OriginPropertiesResponsePtrOutput {
-	return i.ToOriginPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OriginPropertiesResponseArgs) ToOriginPropertiesResponsePtrOutputWithContext(ctx context.Context) OriginPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginPropertiesResponseOutput).ToOriginPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// OriginPropertiesResponsePtrInput is an input type that accepts OriginPropertiesResponseArgs, OriginPropertiesResponsePtr and OriginPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `OriginPropertiesResponsePtrInput` via:
-//
-//          OriginPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type OriginPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToOriginPropertiesResponsePtrOutput() OriginPropertiesResponsePtrOutput
-	ToOriginPropertiesResponsePtrOutputWithContext(context.Context) OriginPropertiesResponsePtrOutput
-}
-
-type originPropertiesResponsePtrType OriginPropertiesResponseArgs
-
-func OriginPropertiesResponsePtr(v *OriginPropertiesResponseArgs) OriginPropertiesResponsePtrInput {
-	return (*originPropertiesResponsePtrType)(v)
-}
-
-func (*originPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginPropertiesResponse)(nil)).Elem()
-}
-
-func (i *originPropertiesResponsePtrType) ToOriginPropertiesResponsePtrOutput() OriginPropertiesResponsePtrOutput {
-	return i.ToOriginPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *originPropertiesResponsePtrType) ToOriginPropertiesResponsePtrOutputWithContext(ctx context.Context) OriginPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginPropertiesResponsePtrOutput)
-}
-
-// The JSON object that contains the properties of the origin.
-type OriginPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (OriginPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginPropertiesResponse)(nil)).Elem()
-}
-
-func (o OriginPropertiesResponseOutput) ToOriginPropertiesResponseOutput() OriginPropertiesResponseOutput {
-	return o
-}
-
-func (o OriginPropertiesResponseOutput) ToOriginPropertiesResponseOutputWithContext(ctx context.Context) OriginPropertiesResponseOutput {
-	return o
-}
-
-func (o OriginPropertiesResponseOutput) ToOriginPropertiesResponsePtrOutput() OriginPropertiesResponsePtrOutput {
-	return o.ToOriginPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OriginPropertiesResponseOutput) ToOriginPropertiesResponsePtrOutputWithContext(ctx context.Context) OriginPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v OriginPropertiesResponse) *OriginPropertiesResponse {
-		return &v
-	}).(OriginPropertiesResponsePtrOutput)
-}
-
-// Origin is enabled for load balancing or not
-func (o OriginPropertiesResponseOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v OriginPropertiesResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-func (o OriginPropertiesResponseOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func(v OriginPropertiesResponse) string { return v.HostName }).(pulumi.StringOutput)
-}
-
-// The value of the HTTP port. Must be between 1 and 65535.
-func (o OriginPropertiesResponseOutput) HttpPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OriginPropertiesResponse) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
-}
-
-// The value of the HTTPS port. Must be between 1 and 65535.
-func (o OriginPropertiesResponseOutput) HttpsPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OriginPropertiesResponse) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
-}
-
-// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-func (o OriginPropertiesResponseOutput) OriginHostHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OriginPropertiesResponse) *string { return v.OriginHostHeader }).(pulumi.StringPtrOutput)
-}
-
-// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-func (o OriginPropertiesResponseOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OriginPropertiesResponse) *int { return v.Priority }).(pulumi.IntPtrOutput)
-}
-
-// Provisioning status of the origin.
-func (o OriginPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v OriginPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Resource status of the origin.
-func (o OriginPropertiesResponseOutput) ResourceState() pulumi.StringOutput {
-	return o.ApplyT(func(v OriginPropertiesResponse) string { return v.ResourceState }).(pulumi.StringOutput)
-}
-
-// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
-func (o OriginPropertiesResponseOutput) Weight() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OriginPropertiesResponse) *int { return v.Weight }).(pulumi.IntPtrOutput)
-}
-
-type OriginPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (OriginPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginPropertiesResponse)(nil)).Elem()
-}
-
-func (o OriginPropertiesResponsePtrOutput) ToOriginPropertiesResponsePtrOutput() OriginPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o OriginPropertiesResponsePtrOutput) ToOriginPropertiesResponsePtrOutputWithContext(ctx context.Context) OriginPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o OriginPropertiesResponsePtrOutput) Elem() OriginPropertiesResponseOutput {
-	return o.ApplyT(func(v *OriginPropertiesResponse) OriginPropertiesResponse { return *v }).(OriginPropertiesResponseOutput)
-}
-
-// Origin is enabled for load balancing or not
-func (o OriginPropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-func (o OriginPropertiesResponsePtrOutput) HostName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HostName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the HTTP port. Must be between 1 and 65535.
-func (o OriginPropertiesResponsePtrOutput) HttpPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.HttpPort
-	}).(pulumi.IntPtrOutput)
-}
-
-// The value of the HTTPS port. Must be between 1 and 65535.
-func (o OriginPropertiesResponsePtrOutput) HttpsPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.HttpsPort
-	}).(pulumi.IntPtrOutput)
-}
-
-// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-func (o OriginPropertiesResponsePtrOutput) OriginHostHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OriginHostHeader
-	}).(pulumi.StringPtrOutput)
-}
-
-// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-func (o OriginPropertiesResponsePtrOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Priority
-	}).(pulumi.IntPtrOutput)
-}
-
-// Provisioning status of the origin.
-func (o OriginPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource status of the origin.
-func (o OriginPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
-func (o OriginPropertiesResponsePtrOutput) Weight() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Weight
-	}).(pulumi.IntPtrOutput)
-}
-
-// The JSON object that contains the properties required to create a profile.
-type ProfilePropertiesResponse struct {
-	// Provisioning status of the profile.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource status of the profile.
-	ResourceState string `pulumi:"resourceState"`
-}
-
-// ProfilePropertiesResponseInput is an input type that accepts ProfilePropertiesResponseArgs and ProfilePropertiesResponseOutput values.
-// You can construct a concrete instance of `ProfilePropertiesResponseInput` via:
-//
-//          ProfilePropertiesResponseArgs{...}
-type ProfilePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToProfilePropertiesResponseOutput() ProfilePropertiesResponseOutput
-	ToProfilePropertiesResponseOutputWithContext(context.Context) ProfilePropertiesResponseOutput
-}
-
-// The JSON object that contains the properties required to create a profile.
-type ProfilePropertiesResponseArgs struct {
-	// Provisioning status of the profile.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Resource status of the profile.
-	ResourceState pulumi.StringInput `pulumi:"resourceState"`
-}
-
-func (ProfilePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfilePropertiesResponse)(nil)).Elem()
-}
-
-func (i ProfilePropertiesResponseArgs) ToProfilePropertiesResponseOutput() ProfilePropertiesResponseOutput {
-	return i.ToProfilePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ProfilePropertiesResponseArgs) ToProfilePropertiesResponseOutputWithContext(ctx context.Context) ProfilePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfilePropertiesResponseOutput)
-}
-
-func (i ProfilePropertiesResponseArgs) ToProfilePropertiesResponsePtrOutput() ProfilePropertiesResponsePtrOutput {
-	return i.ToProfilePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ProfilePropertiesResponseArgs) ToProfilePropertiesResponsePtrOutputWithContext(ctx context.Context) ProfilePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfilePropertiesResponseOutput).ToProfilePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ProfilePropertiesResponsePtrInput is an input type that accepts ProfilePropertiesResponseArgs, ProfilePropertiesResponsePtr and ProfilePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ProfilePropertiesResponsePtrInput` via:
-//
-//          ProfilePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ProfilePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToProfilePropertiesResponsePtrOutput() ProfilePropertiesResponsePtrOutput
-	ToProfilePropertiesResponsePtrOutputWithContext(context.Context) ProfilePropertiesResponsePtrOutput
-}
-
-type profilePropertiesResponsePtrType ProfilePropertiesResponseArgs
-
-func ProfilePropertiesResponsePtr(v *ProfilePropertiesResponseArgs) ProfilePropertiesResponsePtrInput {
-	return (*profilePropertiesResponsePtrType)(v)
-}
-
-func (*profilePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfilePropertiesResponse)(nil)).Elem()
-}
-
-func (i *profilePropertiesResponsePtrType) ToProfilePropertiesResponsePtrOutput() ProfilePropertiesResponsePtrOutput {
-	return i.ToProfilePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *profilePropertiesResponsePtrType) ToProfilePropertiesResponsePtrOutputWithContext(ctx context.Context) ProfilePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfilePropertiesResponsePtrOutput)
-}
-
-// The JSON object that contains the properties required to create a profile.
-type ProfilePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ProfilePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfilePropertiesResponse)(nil)).Elem()
-}
-
-func (o ProfilePropertiesResponseOutput) ToProfilePropertiesResponseOutput() ProfilePropertiesResponseOutput {
-	return o
-}
-
-func (o ProfilePropertiesResponseOutput) ToProfilePropertiesResponseOutputWithContext(ctx context.Context) ProfilePropertiesResponseOutput {
-	return o
-}
-
-func (o ProfilePropertiesResponseOutput) ToProfilePropertiesResponsePtrOutput() ProfilePropertiesResponsePtrOutput {
-	return o.ToProfilePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ProfilePropertiesResponseOutput) ToProfilePropertiesResponsePtrOutputWithContext(ctx context.Context) ProfilePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ProfilePropertiesResponse) *ProfilePropertiesResponse {
-		return &v
-	}).(ProfilePropertiesResponsePtrOutput)
-}
-
-// Provisioning status of the profile.
-func (o ProfilePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfilePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Resource status of the profile.
-func (o ProfilePropertiesResponseOutput) ResourceState() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfilePropertiesResponse) string { return v.ResourceState }).(pulumi.StringOutput)
-}
-
-type ProfilePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ProfilePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfilePropertiesResponse)(nil)).Elem()
-}
-
-func (o ProfilePropertiesResponsePtrOutput) ToProfilePropertiesResponsePtrOutput() ProfilePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ProfilePropertiesResponsePtrOutput) ToProfilePropertiesResponsePtrOutputWithContext(ctx context.Context) ProfilePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ProfilePropertiesResponsePtrOutput) Elem() ProfilePropertiesResponseOutput {
-	return o.ApplyT(func(v *ProfilePropertiesResponse) ProfilePropertiesResponse { return *v }).(ProfilePropertiesResponseOutput)
-}
-
-// Provisioning status of the profile.
-func (o ProfilePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProfilePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource status of the profile.
-func (o ProfilePropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProfilePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceState
-	}).(pulumi.StringPtrOutput)
-}
-
 // Reference to another resource.
 type ResourceReference struct {
 	// Resource ID.
@@ -5102,18 +3401,12 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(CustomDomainPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(CustomDomainPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginArrayOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginGroupOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginGroupArrayOutput{})
-	pulumi.RegisterOutputType(DeepCreatedOriginGroupPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(DeepCreatedOriginGroupPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginGroupResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginGroupResponseArrayOutput{})
-	pulumi.RegisterOutputType(DeepCreatedOriginPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(DeepCreatedOriginPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleOutput{})
@@ -5128,8 +3421,6 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryRuleConditionResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseArrayOutput{})
-	pulumi.RegisterOutputType(EndpointPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(EndpointPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput{})
@@ -5146,12 +3437,6 @@ func init() {
 	pulumi.RegisterOutputType(HttpErrorRangeParametersArrayOutput{})
 	pulumi.RegisterOutputType(HttpErrorRangeParametersResponseOutput{})
 	pulumi.RegisterOutputType(HttpErrorRangeParametersResponseArrayOutput{})
-	pulumi.RegisterOutputType(OriginGroupPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(OriginGroupPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(OriginPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(OriginPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ProfilePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ProfilePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceOutput{})
 	pulumi.RegisterOutputType(ResourceReferencePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceArrayOutput{})

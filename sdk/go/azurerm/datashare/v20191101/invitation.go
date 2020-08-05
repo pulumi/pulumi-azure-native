@@ -14,12 +14,30 @@ import (
 type Invitation struct {
 	pulumi.CustomResourceState
 
+	// unique invitation id
+	InvitationId pulumi.StringOutput `pulumi:"invitationId"`
+	// The status of the invitation.
+	InvitationStatus pulumi.StringOutput `pulumi:"invitationStatus"`
 	// Name of the azure resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties on the Invitation
-	Properties InvitationPropertiesResponseOutput `pulumi:"properties"`
+	// The time the recipient responded to the invitation.
+	RespondedAt pulumi.StringOutput `pulumi:"respondedAt"`
+	// Gets the time at which the invitation was sent.
+	SentAt pulumi.StringOutput `pulumi:"sentAt"`
+	// The target Azure AD Id. Can't be combined with email.
+	TargetActiveDirectoryId pulumi.StringPtrOutput `pulumi:"targetActiveDirectoryId"`
+	// The email the invitation is directed to.
+	TargetEmail pulumi.StringPtrOutput `pulumi:"targetEmail"`
+	// The target user or application Id that invitation is being sent to.
+	// Must be specified along TargetActiveDirectoryId. This enables sending
+	// invitations to specific users or applications in an AD tenant.
+	TargetObjectId pulumi.StringPtrOutput `pulumi:"targetObjectId"`
 	// Type of the azure resource
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Email of the user who created the resource
+	UserEmail pulumi.StringOutput `pulumi:"userEmail"`
+	// Name of the user who created the resource
+	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
 // NewInvitation registers a new resource with the given unique name, arguments, and options.
@@ -62,21 +80,57 @@ func GetInvitation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Invitation resources.
 type invitationState struct {
+	// unique invitation id
+	InvitationId *string `pulumi:"invitationId"`
+	// The status of the invitation.
+	InvitationStatus *string `pulumi:"invitationStatus"`
 	// Name of the azure resource
 	Name *string `pulumi:"name"`
-	// Properties on the Invitation
-	Properties *InvitationPropertiesResponse `pulumi:"properties"`
+	// The time the recipient responded to the invitation.
+	RespondedAt *string `pulumi:"respondedAt"`
+	// Gets the time at which the invitation was sent.
+	SentAt *string `pulumi:"sentAt"`
+	// The target Azure AD Id. Can't be combined with email.
+	TargetActiveDirectoryId *string `pulumi:"targetActiveDirectoryId"`
+	// The email the invitation is directed to.
+	TargetEmail *string `pulumi:"targetEmail"`
+	// The target user or application Id that invitation is being sent to.
+	// Must be specified along TargetActiveDirectoryId. This enables sending
+	// invitations to specific users or applications in an AD tenant.
+	TargetObjectId *string `pulumi:"targetObjectId"`
 	// Type of the azure resource
 	Type *string `pulumi:"type"`
+	// Email of the user who created the resource
+	UserEmail *string `pulumi:"userEmail"`
+	// Name of the user who created the resource
+	UserName *string `pulumi:"userName"`
 }
 
 type InvitationState struct {
+	// unique invitation id
+	InvitationId pulumi.StringPtrInput
+	// The status of the invitation.
+	InvitationStatus pulumi.StringPtrInput
 	// Name of the azure resource
 	Name pulumi.StringPtrInput
-	// Properties on the Invitation
-	Properties InvitationPropertiesResponsePtrInput
+	// The time the recipient responded to the invitation.
+	RespondedAt pulumi.StringPtrInput
+	// Gets the time at which the invitation was sent.
+	SentAt pulumi.StringPtrInput
+	// The target Azure AD Id. Can't be combined with email.
+	TargetActiveDirectoryId pulumi.StringPtrInput
+	// The email the invitation is directed to.
+	TargetEmail pulumi.StringPtrInput
+	// The target user or application Id that invitation is being sent to.
+	// Must be specified along TargetActiveDirectoryId. This enables sending
+	// invitations to specific users or applications in an AD tenant.
+	TargetObjectId pulumi.StringPtrInput
 	// Type of the azure resource
 	Type pulumi.StringPtrInput
+	// Email of the user who created the resource
+	UserEmail pulumi.StringPtrInput
+	// Name of the user who created the resource
+	UserName pulumi.StringPtrInput
 }
 
 func (InvitationState) ElementType() reflect.Type {

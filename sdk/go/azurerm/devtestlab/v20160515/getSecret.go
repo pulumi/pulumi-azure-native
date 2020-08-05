@@ -33,10 +33,14 @@ type LookupSecretResult struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties SecretPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// The value of the secret for secret creation.
+	Value *string `pulumi:"value"`
 }

@@ -14,12 +14,24 @@ import (
 type StorageSyncService struct {
 	pulumi.CustomResourceState
 
+	// Incoming Traffic Policy
+	IncomingTrafficPolicy pulumi.StringPtrOutput `pulumi:"incomingTrafficPolicy"`
+	// Resource Last Operation Name
+	LastOperationName pulumi.StringOutput `pulumi:"lastOperationName"`
+	// StorageSyncService lastWorkflowId
+	LastWorkflowId pulumi.StringOutput `pulumi:"lastWorkflowId"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Storage Sync Service properties.
-	Properties StorageSyncServicePropertiesResponseOutput `pulumi:"properties"`
+	// List of private endpoint connection associated with the specified storage sync service
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	// StorageSyncService Provisioning State
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Storage Sync service status.
+	StorageSyncServiceStatus pulumi.IntOutput `pulumi:"storageSyncServiceStatus"`
+	// Storage Sync service Uid
+	StorageSyncServiceUid pulumi.StringOutput `pulumi:"storageSyncServiceUid"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -63,12 +75,24 @@ func GetStorageSyncService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageSyncService resources.
 type storageSyncServiceState struct {
+	// Incoming Traffic Policy
+	IncomingTrafficPolicy *string `pulumi:"incomingTrafficPolicy"`
+	// Resource Last Operation Name
+	LastOperationName *string `pulumi:"lastOperationName"`
+	// StorageSyncService lastWorkflowId
+	LastWorkflowId *string `pulumi:"lastWorkflowId"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Storage Sync Service properties.
-	Properties *StorageSyncServicePropertiesResponse `pulumi:"properties"`
+	// List of private endpoint connection associated with the specified storage sync service
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// StorageSyncService Provisioning State
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Storage Sync service status.
+	StorageSyncServiceStatus *int `pulumi:"storageSyncServiceStatus"`
+	// Storage Sync service Uid
+	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -76,12 +100,24 @@ type storageSyncServiceState struct {
 }
 
 type StorageSyncServiceState struct {
+	// Incoming Traffic Policy
+	IncomingTrafficPolicy pulumi.StringPtrInput
+	// Resource Last Operation Name
+	LastOperationName pulumi.StringPtrInput
+	// StorageSyncService lastWorkflowId
+	LastWorkflowId pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Storage Sync Service properties.
-	Properties StorageSyncServicePropertiesResponsePtrInput
+	// List of private endpoint connection associated with the specified storage sync service
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayInput
+	// StorageSyncService Provisioning State
+	ProvisioningState pulumi.StringPtrInput
+	// Storage Sync service status.
+	StorageSyncServiceStatus pulumi.IntPtrInput
+	// Storage Sync service Uid
+	StorageSyncServiceUid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

@@ -14,12 +14,27 @@ import (
 type WebAppHybridConnection struct {
 	pulumi.CustomResourceState
 
+	// The hostname of the endpoint.
+	Hostname pulumi.StringPtrOutput `pulumi:"hostname"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// HybridConnection resource specific properties
-	Properties HybridConnectionResponsePropertiesOutput `pulumi:"properties"`
+	// The port of the endpoint.
+	Port pulumi.IntPtrOutput `pulumi:"port"`
+	// The ARM URI to the Service Bus relay.
+	RelayArmUri pulumi.StringPtrOutput `pulumi:"relayArmUri"`
+	// The name of the Service Bus relay.
+	RelayName pulumi.StringPtrOutput `pulumi:"relayName"`
+	// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+	SendKeyName pulumi.StringPtrOutput `pulumi:"sendKeyName"`
+	// The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+	// normally, use the POST /listKeys API instead.
+	SendKeyValue pulumi.StringPtrOutput `pulumi:"sendKeyValue"`
+	// The name of the Service Bus namespace.
+	ServiceBusNamespace pulumi.StringPtrOutput `pulumi:"serviceBusNamespace"`
+	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+	ServiceBusSuffix pulumi.StringPtrOutput `pulumi:"serviceBusSuffix"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,23 +76,53 @@ func GetWebAppHybridConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppHybridConnection resources.
 type webAppHybridConnectionState struct {
+	// The hostname of the endpoint.
+	Hostname *string `pulumi:"hostname"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// HybridConnection resource specific properties
-	Properties *HybridConnectionResponseProperties `pulumi:"properties"`
+	// The port of the endpoint.
+	Port *int `pulumi:"port"`
+	// The ARM URI to the Service Bus relay.
+	RelayArmUri *string `pulumi:"relayArmUri"`
+	// The name of the Service Bus relay.
+	RelayName *string `pulumi:"relayName"`
+	// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+	SendKeyName *string `pulumi:"sendKeyName"`
+	// The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+	// normally, use the POST /listKeys API instead.
+	SendKeyValue *string `pulumi:"sendKeyValue"`
+	// The name of the Service Bus namespace.
+	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
+	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+	ServiceBusSuffix *string `pulumi:"serviceBusSuffix"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type WebAppHybridConnectionState struct {
+	// The hostname of the endpoint.
+	Hostname pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// HybridConnection resource specific properties
-	Properties HybridConnectionResponsePropertiesPtrInput
+	// The port of the endpoint.
+	Port pulumi.IntPtrInput
+	// The ARM URI to the Service Bus relay.
+	RelayArmUri pulumi.StringPtrInput
+	// The name of the Service Bus relay.
+	RelayName pulumi.StringPtrInput
+	// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+	SendKeyName pulumi.StringPtrInput
+	// The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+	// normally, use the POST /listKeys API instead.
+	SendKeyValue pulumi.StringPtrInput
+	// The name of the Service Bus namespace.
+	ServiceBusNamespace pulumi.StringPtrInput
+	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+	ServiceBusSuffix pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

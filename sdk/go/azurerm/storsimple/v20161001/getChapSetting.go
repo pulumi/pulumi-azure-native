@@ -31,8 +31,8 @@ type LookupChapSettingArgs struct {
 type LookupChapSettingResult struct {
 	// The name.
 	Name string `pulumi:"name"`
-	// Chap properties
-	Properties ChapPropertiesResponse `pulumi:"properties"`
+	// The chap password.
+	Password AsymmetricEncryptedSecretResponse `pulumi:"password"`
 	// The type.
 	Type string `pulumi:"type"`
 }

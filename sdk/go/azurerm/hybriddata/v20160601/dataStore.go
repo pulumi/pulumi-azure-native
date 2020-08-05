@@ -14,10 +14,18 @@ import (
 type DataStore struct {
 	pulumi.CustomResourceState
 
+	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+	CustomerSecrets CustomerSecretResponseArrayOutput `pulumi:"customerSecrets"`
+	// The arm id of the data store type.
+	DataStoreTypeId pulumi.StringOutput `pulumi:"dataStoreTypeId"`
+	// A generic json used differently by each data source type.
+	ExtendedProperties pulumi.MapOutput `pulumi:"extendedProperties"`
 	// Name of the object.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// DataStore properties.
-	Properties DataStorePropertiesResponseOutput `pulumi:"properties"`
+	// Arm Id for the manager resource to which the data source is associated. This is optional.
+	RepositoryId pulumi.StringPtrOutput `pulumi:"repositoryId"`
+	// State of the data source.
+	State pulumi.StringOutput `pulumi:"state"`
 	// Type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +73,35 @@ func GetDataStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataStore resources.
 type dataStoreState struct {
+	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+	CustomerSecrets []CustomerSecretResponse `pulumi:"customerSecrets"`
+	// The arm id of the data store type.
+	DataStoreTypeId *string `pulumi:"dataStoreTypeId"`
+	// A generic json used differently by each data source type.
+	ExtendedProperties map[string]interface{} `pulumi:"extendedProperties"`
 	// Name of the object.
 	Name *string `pulumi:"name"`
-	// DataStore properties.
-	Properties *DataStorePropertiesResponse `pulumi:"properties"`
+	// Arm Id for the manager resource to which the data source is associated. This is optional.
+	RepositoryId *string `pulumi:"repositoryId"`
+	// State of the data source.
+	State *string `pulumi:"state"`
 	// Type of the object.
 	Type *string `pulumi:"type"`
 }
 
 type DataStoreState struct {
+	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+	CustomerSecrets CustomerSecretResponseArrayInput
+	// The arm id of the data store type.
+	DataStoreTypeId pulumi.StringPtrInput
+	// A generic json used differently by each data source type.
+	ExtendedProperties pulumi.MapInput
 	// Name of the object.
 	Name pulumi.StringPtrInput
-	// DataStore properties.
-	Properties DataStorePropertiesResponsePtrInput
+	// Arm Id for the manager resource to which the data source is associated. This is optional.
+	RepositoryId pulumi.StringPtrInput
+	// State of the data source.
+	State pulumi.StringPtrInput
 	// Type of the object.
 	Type pulumi.StringPtrInput
 }

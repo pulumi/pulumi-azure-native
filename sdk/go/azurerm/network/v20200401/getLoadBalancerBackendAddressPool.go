@@ -27,12 +27,22 @@ type LookupLoadBalancerBackendAddressPoolArgs struct {
 
 // Pool of backend IP addresses.
 type LookupLoadBalancerBackendAddressPoolResult struct {
+	// An array of references to IP addresses defined in network interfaces.
+	BackendIPConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"backendIPConfigurations"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// An array of backend addresses.
+	LoadBalancerBackendAddresses []LoadBalancerBackendAddressResponse `pulumi:"loadBalancerBackendAddresses"`
+	// An array of references to load balancing rules that use this backend address pool.
+	LoadBalancingRules []SubResourceResponse `pulumi:"loadBalancingRules"`
 	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of load balancer backend address pool.
-	Properties BackendAddressPoolPropertiesFormatResponse `pulumi:"properties"`
+	// A reference to an outbound rule that uses this backend address pool.
+	OutboundRule SubResourceResponse `pulumi:"outboundRule"`
+	// An array of references to outbound rules that use this backend address pool.
+	OutboundRules []SubResourceResponse `pulumi:"outboundRules"`
+	// The provisioning state of the backend address pool resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type string `pulumi:"type"`
 }

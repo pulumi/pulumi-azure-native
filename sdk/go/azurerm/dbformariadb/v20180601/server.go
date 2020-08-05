@@ -14,18 +14,40 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
+	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
+	// Earliest restore point creation time (ISO8601 format)
+	EarliestRestoreDate pulumi.StringPtrOutput `pulumi:"earliestRestoreDate"`
+	// The fully qualified domain name of a server.
+	FullyQualifiedDomainName pulumi.StringPtrOutput `pulumi:"fullyQualifiedDomainName"`
 	// The location the resource resides in.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The master server id of a replica server.
+	MasterServerId pulumi.StringPtrOutput `pulumi:"masterServerId"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the server.
-	Properties ServerPropertiesResponseOutput `pulumi:"properties"`
+	// List of private endpoint connections on a server
+	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
+	// The maximum number of replicas that a master server can have.
+	ReplicaCapacity pulumi.IntPtrOutput `pulumi:"replicaCapacity"`
+	// The replication role of the server.
+	ReplicationRole pulumi.StringPtrOutput `pulumi:"replicationRole"`
 	// The SKU (pricing tier) of the server.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement pulumi.StringPtrOutput `pulumi:"sslEnforcement"`
+	// Storage profile of a server.
+	StorageProfile StorageProfileResponsePtrOutput `pulumi:"storageProfile"`
 	// Application-specific metadata in the form of key-value pairs.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// A state of a server that is visible to user.
+	UserVisibleState pulumi.StringPtrOutput `pulumi:"userVisibleState"`
+	// Server version.
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -68,33 +90,77 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
+	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin *string `pulumi:"administratorLogin"`
+	// Earliest restore point creation time (ISO8601 format)
+	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
+	// The fully qualified domain name of a server.
+	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// The location the resource resides in.
 	Location *string `pulumi:"location"`
+	// The master server id of a replica server.
+	MasterServerId *string `pulumi:"masterServerId"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Properties of the server.
-	Properties *ServerPropertiesResponse `pulumi:"properties"`
+	// List of private endpoint connections on a server
+	PrivateEndpointConnections []ServerPrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// The maximum number of replicas that a master server can have.
+	ReplicaCapacity *int `pulumi:"replicaCapacity"`
+	// The replication role of the server.
+	ReplicationRole *string `pulumi:"replicationRole"`
 	// The SKU (pricing tier) of the server.
 	Sku *SkuResponse `pulumi:"sku"`
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement *string `pulumi:"sslEnforcement"`
+	// Storage profile of a server.
+	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
 	// Application-specific metadata in the form of key-value pairs.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
+	// A state of a server that is visible to user.
+	UserVisibleState *string `pulumi:"userVisibleState"`
+	// Server version.
+	Version *string `pulumi:"version"`
 }
 
 type ServerState struct {
+	// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin pulumi.StringPtrInput
+	// Earliest restore point creation time (ISO8601 format)
+	EarliestRestoreDate pulumi.StringPtrInput
+	// The fully qualified domain name of a server.
+	FullyQualifiedDomainName pulumi.StringPtrInput
 	// The location the resource resides in.
 	Location pulumi.StringPtrInput
+	// The master server id of a replica server.
+	MasterServerId pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Properties of the server.
-	Properties ServerPropertiesResponsePtrInput
+	// List of private endpoint connections on a server
+	PrivateEndpointConnections ServerPrivateEndpointConnectionResponseArrayInput
+	// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+	PublicNetworkAccess pulumi.StringPtrInput
+	// The maximum number of replicas that a master server can have.
+	ReplicaCapacity pulumi.IntPtrInput
+	// The replication role of the server.
+	ReplicationRole pulumi.StringPtrInput
 	// The SKU (pricing tier) of the server.
 	Sku SkuResponsePtrInput
+	// Enable ssl enforcement or not when connect to server.
+	SslEnforcement pulumi.StringPtrInput
+	// Storage profile of a server.
+	StorageProfile StorageProfileResponsePtrInput
 	// Application-specific metadata in the form of key-value pairs.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
+	// A state of a server that is visible to user.
+	UserVisibleState pulumi.StringPtrInput
+	// Server version.
+	Version pulumi.StringPtrInput
 }
 
 func (ServerState) ElementType() reflect.Type {

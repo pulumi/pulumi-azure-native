@@ -25,16 +25,36 @@ type LookupExpressRoutePortArgs struct {
 
 // ExpressRoutePort resource definition.
 type LookupExpressRoutePortResult struct {
+	// Date of the physical port allocation to be used in Letter of Authorization.
+	AllocationDate string `pulumi:"allocationDate"`
+	// Bandwidth of procured ports in Gbps.
+	BandwidthInGbps *int `pulumi:"bandwidthInGbps"`
+	// Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
+	Circuits []SubResourceResponse `pulumi:"circuits"`
+	// Encapsulation method on physical ports.
+	Encapsulation *string `pulumi:"encapsulation"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Ether type of the physical port.
+	EtherType string `pulumi:"etherType"`
 	// The identity of ExpressRoutePort, if configured.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
+	// The set of physical links of the ExpressRoutePort resource.
+	Links []ExpressRouteLinkResponse `pulumi:"links"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Maximum transmission unit of the physical port pair(s).
+	Mtu string `pulumi:"mtu"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// ExpressRoutePort properties.
-	Properties ExpressRoutePortPropertiesFormatResponse `pulumi:"properties"`
+	// The name of the peering location that the ExpressRoutePort is mapped to physically.
+	PeeringLocation *string `pulumi:"peeringLocation"`
+	// Aggregate Gbps of associated circuit bandwidths.
+	ProvisionedBandwidthInGbps float64 `pulumi:"provisionedBandwidthInGbps"`
+	// The provisioning state of the express route port resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The resource GUID property of the express route port resource.
+	ResourceGuid string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

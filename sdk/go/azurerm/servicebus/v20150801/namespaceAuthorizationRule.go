@@ -18,8 +18,8 @@ type NamespaceAuthorizationRule struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// SharedAccessAuthorizationRule properties.
-	Properties SharedAccessAuthorizationRulePropertiesResponseOutput `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayOutput `pulumi:"rights"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -68,8 +68,8 @@ type namespaceAuthorizationRuleState struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// SharedAccessAuthorizationRule properties.
-	Properties *SharedAccessAuthorizationRulePropertiesResponse `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -79,8 +79,8 @@ type NamespaceAuthorizationRuleState struct {
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// SharedAccessAuthorizationRule properties.
-	Properties SharedAccessAuthorizationRulePropertiesResponsePtrInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

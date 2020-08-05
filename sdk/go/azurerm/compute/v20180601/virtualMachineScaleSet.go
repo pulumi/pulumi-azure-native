@@ -20,16 +20,32 @@ type VirtualMachineScaleSet struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+	Overprovision pulumi.BoolPtrOutput `pulumi:"overprovision"`
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 	Plan PlanResponsePtrOutput `pulumi:"plan"`
-	// Describes the properties of a Virtual Machine Scale Set.
-	Properties VirtualMachineScaleSetPropertiesResponseOutput `pulumi:"properties"`
+	// Fault Domain count for each placement group.
+	PlatformFaultDomainCount pulumi.IntPtrOutput `pulumi:"platformFaultDomainCount"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+	ProximityPlacementGroup SubResourceResponsePtrOutput `pulumi:"proximityPlacementGroup"`
+	// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
 	// The virtual machine scale set sku.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
+	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
+	// The upgrade policy.
+	UpgradePolicy UpgradePolicyResponsePtrOutput `pulumi:"upgradePolicy"`
+	// The virtual machine profile.
+	VirtualMachineProfile VirtualMachineScaleSetVMProfileResponsePtrOutput `pulumi:"virtualMachineProfile"`
+	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
@@ -77,16 +93,32 @@ type virtualMachineScaleSetState struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
+	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+	Overprovision *bool `pulumi:"overprovision"`
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 	Plan *PlanResponse `pulumi:"plan"`
-	// Describes the properties of a Virtual Machine Scale Set.
-	Properties *VirtualMachineScaleSetPropertiesResponse `pulumi:"properties"`
+	// Fault Domain count for each placement group.
+	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+	ProximityPlacementGroup *SubResourceResponse `pulumi:"proximityPlacementGroup"`
+	// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The virtual machine scale set sku.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
+	UniqueId *string `pulumi:"uniqueId"`
+	// The upgrade policy.
+	UpgradePolicy *UpgradePolicyResponse `pulumi:"upgradePolicy"`
+	// The virtual machine profile.
+	VirtualMachineProfile *VirtualMachineScaleSetVMProfileResponse `pulumi:"virtualMachineProfile"`
+	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+	ZoneBalance *bool `pulumi:"zoneBalance"`
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
 	Zones []string `pulumi:"zones"`
 }
@@ -98,16 +130,32 @@ type VirtualMachineScaleSetState struct {
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
+	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+	Overprovision pulumi.BoolPtrInput
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 	Plan PlanResponsePtrInput
-	// Describes the properties of a Virtual Machine Scale Set.
-	Properties VirtualMachineScaleSetPropertiesResponsePtrInput
+	// Fault Domain count for each placement group.
+	PlatformFaultDomainCount pulumi.IntPtrInput
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+	ProximityPlacementGroup SubResourceResponsePtrInput
+	// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+	SinglePlacementGroup pulumi.BoolPtrInput
 	// The virtual machine scale set sku.
 	Sku SkuResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
+	UniqueId pulumi.StringPtrInput
+	// The upgrade policy.
+	UpgradePolicy UpgradePolicyResponsePtrInput
+	// The virtual machine profile.
+	VirtualMachineProfile VirtualMachineScaleSetVMProfileResponsePtrInput
+	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+	ZoneBalance pulumi.BoolPtrInput
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
 	Zones pulumi.StringArrayInput
 }

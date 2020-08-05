@@ -14,16 +14,30 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
+	// The user email address, as it was specified during registration.
+	Email pulumi.StringOutput `pulumi:"email"`
+	// The user family name, as it was specified during registration.
+	FamilyName pulumi.StringOutput `pulumi:"familyName"`
+	// The user given name, as it was specified during registration.
+	GivenName pulumi.StringOutput `pulumi:"givenName"`
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// These are the properties for the user registered under a lab.
-	Properties UserPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The user tenant ID, as it was specified during registration.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
+	// How long the user has used his VMs in this lab
+	TotalUsage pulumi.StringOutput `pulumi:"totalUsage"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
 }
 
 // NewUser registers a new resource with the given unique name, arguments, and options.
@@ -66,29 +80,57 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
+	// The user email address, as it was specified during registration.
+	Email *string `pulumi:"email"`
+	// The user family name, as it was specified during registration.
+	FamilyName *string `pulumi:"familyName"`
+	// The user given name, as it was specified during registration.
+	GivenName *string `pulumi:"givenName"`
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult *LatestOperationResultResponse `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// These are the properties for the user registered under a lab.
-	Properties *UserPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The user tenant ID, as it was specified during registration.
+	TenantId *string `pulumi:"tenantId"`
+	// How long the user has used his VMs in this lab
+	TotalUsage *string `pulumi:"totalUsage"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 type UserState struct {
+	// The user email address, as it was specified during registration.
+	Email pulumi.StringPtrInput
+	// The user family name, as it was specified during registration.
+	FamilyName pulumi.StringPtrInput
+	// The user given name, as it was specified during registration.
+	GivenName pulumi.StringPtrInput
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult LatestOperationResultResponsePtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// These are the properties for the user registered under a lab.
-	Properties UserPropertiesResponsePtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The user tenant ID, as it was specified during registration.
+	TenantId pulumi.StringPtrInput
+	// How long the user has used his VMs in this lab
+	TotalUsage pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (UserState) ElementType() reflect.Type {

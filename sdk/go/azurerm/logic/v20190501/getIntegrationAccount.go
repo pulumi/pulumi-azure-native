@@ -25,14 +25,16 @@ type LookupIntegrationAccountArgs struct {
 
 // The integration account.
 type LookupIntegrationAccountResult struct {
+	// The integration service environment.
+	IntegrationServiceEnvironment *IntegrationServiceEnvironmentResponse `pulumi:"integrationServiceEnvironment"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// Gets the resource name.
 	Name string `pulumi:"name"`
-	// The integration account properties.
-	Properties IntegrationAccountPropertiesResponse `pulumi:"properties"`
 	// The sku.
 	Sku *IntegrationAccountSkuResponse `pulumi:"sku"`
+	// The workflow state.
+	State *string `pulumi:"state"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.

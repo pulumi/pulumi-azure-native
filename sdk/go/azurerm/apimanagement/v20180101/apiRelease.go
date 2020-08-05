@@ -14,12 +14,18 @@ import (
 type ApiRelease struct {
 	pulumi.CustomResourceState
 
+	// Identifier of the API the release belongs to.
+	ApiId pulumi.StringPtrOutput `pulumi:"apiId"`
+	// The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
+	CreatedDateTime pulumi.StringOutput `pulumi:"createdDateTime"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Api Release Contract.
-	Properties ApiReleaseContractPropertiesResponseOutput `pulumi:"properties"`
+	// Release Notes
+	Notes pulumi.StringPtrOutput `pulumi:"notes"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The time the API release was updated.
+	UpdatedDateTime pulumi.StringOutput `pulumi:"updatedDateTime"`
 }
 
 // NewApiRelease registers a new resource with the given unique name, arguments, and options.
@@ -62,21 +68,33 @@ func GetApiRelease(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiRelease resources.
 type apiReleaseState struct {
+	// Identifier of the API the release belongs to.
+	ApiId *string `pulumi:"apiId"`
+	// The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
+	CreatedDateTime *string `pulumi:"createdDateTime"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Api Release Contract.
-	Properties *ApiReleaseContractPropertiesResponse `pulumi:"properties"`
+	// Release Notes
+	Notes *string `pulumi:"notes"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
+	// The time the API release was updated.
+	UpdatedDateTime *string `pulumi:"updatedDateTime"`
 }
 
 type ApiReleaseState struct {
+	// Identifier of the API the release belongs to.
+	ApiId pulumi.StringPtrInput
+	// The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
+	CreatedDateTime pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the Api Release Contract.
-	Properties ApiReleaseContractPropertiesResponsePtrInput
+	// Release Notes
+	Notes pulumi.StringPtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
+	// The time the API release was updated.
+	UpdatedDateTime pulumi.StringPtrInput
 }
 
 func (ApiReleaseState) ElementType() reflect.Type {

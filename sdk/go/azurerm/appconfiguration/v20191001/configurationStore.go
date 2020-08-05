@@ -14,14 +14,18 @@ import (
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
 
+	// The creation date of configuration store.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// The DNS endpoint where the configuration store API will be available.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// The managed identity information, if configured.
 	Identity ResourceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a configuration store.
-	Properties ConfigurationStorePropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning state of the configuration store.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The sku of the configuration store.
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// The tags of the resource.
@@ -70,14 +74,18 @@ func GetConfigurationStore(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ConfigurationStore resources.
 type configurationStoreState struct {
+	// The creation date of configuration store.
+	CreationDate *string `pulumi:"creationDate"`
+	// The DNS endpoint where the configuration store API will be available.
+	Endpoint *string `pulumi:"endpoint"`
 	// The managed identity information, if configured.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of a configuration store.
-	Properties *ConfigurationStorePropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the configuration store.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The sku of the configuration store.
 	Sku *SkuResponse `pulumi:"sku"`
 	// The tags of the resource.
@@ -87,14 +95,18 @@ type configurationStoreState struct {
 }
 
 type ConfigurationStoreState struct {
+	// The creation date of configuration store.
+	CreationDate pulumi.StringPtrInput
+	// The DNS endpoint where the configuration store API will be available.
+	Endpoint pulumi.StringPtrInput
 	// The managed identity information, if configured.
 	Identity ResourceIdentityResponsePtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of a configuration store.
-	Properties ConfigurationStorePropertiesResponsePtrInput
+	// The provisioning state of the configuration store.
+	ProvisioningState pulumi.StringPtrInput
 	// The sku of the configuration store.
 	Sku SkuResponsePtrInput
 	// The tags of the resource.

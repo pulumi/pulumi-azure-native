@@ -18,8 +18,8 @@ type NamespaceAuthorizationRule struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Namespace AuthorizationRule.
-	Properties SharedAccessAuthorizationRulePropertiesResponseOutput `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayOutput `pulumi:"rights"`
 	// The sku of the created namespace
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags
@@ -75,8 +75,8 @@ type namespaceAuthorizationRuleState struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of the Namespace AuthorizationRule.
-	Properties *SharedAccessAuthorizationRulePropertiesResponse `pulumi:"properties"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// The sku of the created namespace
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags
@@ -90,8 +90,8 @@ type NamespaceAuthorizationRuleState struct {
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of the Namespace AuthorizationRule.
-	Properties SharedAccessAuthorizationRulePropertiesResponsePtrInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
 	// The sku of the created namespace
 	Sku SkuResponsePtrInput
 	// Resource tags

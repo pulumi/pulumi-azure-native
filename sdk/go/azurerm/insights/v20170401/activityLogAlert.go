@@ -14,12 +14,20 @@ import (
 type ActivityLogAlert struct {
 	pulumi.CustomResourceState
 
+	// The actions that will activate when the condition is met.
+	Actions ActivityLogAlertActionListResponseOutput `pulumi:"actions"`
+	// The condition that will cause this alert to activate.
+	Condition ActivityLogAlertAllOfConditionResponseOutput `pulumi:"condition"`
+	// A description of this activity log alert.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The activity log alert properties of the resource.
-	Properties ActivityLogAlertResponseOutput `pulumi:"properties"`
+	// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type
@@ -72,12 +80,20 @@ func GetActivityLogAlert(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ActivityLogAlert resources.
 type activityLogAlertState struct {
+	// The actions that will activate when the condition is met.
+	Actions *ActivityLogAlertActionListResponse `pulumi:"actions"`
+	// The condition that will cause this alert to activate.
+	Condition *ActivityLogAlertAllOfConditionResponse `pulumi:"condition"`
+	// A description of this activity log alert.
+	Description *string `pulumi:"description"`
+	// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+	Enabled *bool `pulumi:"enabled"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// The activity log alert properties of the resource.
-	Properties *ActivityLogAlertResponse `pulumi:"properties"`
+	// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+	Scopes []string `pulumi:"scopes"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type
@@ -85,12 +101,20 @@ type activityLogAlertState struct {
 }
 
 type ActivityLogAlertState struct {
+	// The actions that will activate when the condition is met.
+	Actions ActivityLogAlertActionListResponsePtrInput
+	// The condition that will cause this alert to activate.
+	Condition ActivityLogAlertAllOfConditionResponsePtrInput
+	// A description of this activity log alert.
+	Description pulumi.StringPtrInput
+	// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+	Enabled pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
-	// The activity log alert properties of the resource.
-	Properties ActivityLogAlertResponsePtrInput
+	// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+	Scopes pulumi.StringArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Azure resource type

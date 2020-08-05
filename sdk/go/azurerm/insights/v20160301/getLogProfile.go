@@ -23,12 +23,20 @@ type LookupLogProfileArgs struct {
 
 // The log profile resource.
 type LookupLogProfileResult struct {
+	// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+	Categories []string `pulumi:"categories"`
 	// Resource location
 	Location string `pulumi:"location"`
+	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
+	Locations []string `pulumi:"locations"`
 	// Azure resource name
 	Name string `pulumi:"name"`
-	// The log profile properties of the resource.
-	Properties LogProfilePropertiesResponse `pulumi:"properties"`
+	// the retention policy for the events in the log.
+	RetentionPolicy RetentionPolicyResponse `pulumi:"retentionPolicy"`
+	// The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
+	// the resource id of the storage account to which you would like to send the Activity Log.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type

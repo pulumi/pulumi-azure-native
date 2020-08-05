@@ -27,10 +27,24 @@ type LookupWCFRelayArgs struct {
 
 // Description of the WCF relay resource.
 type LookupWCFRelayResult struct {
+	// The time the WCF relay was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// Returns true if the relay is dynamic; otherwise, false.
+	IsDynamic bool `pulumi:"isDynamic"`
+	// The number of listeners for this relay. Note that min :1 and max:25 are supported.
+	ListenerCount int `pulumi:"listenerCount"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the WCF relay.
-	Properties WcfRelayResponseProperties `pulumi:"properties"`
+	// WCF relay type.
+	RelayType *string `pulumi:"relayType"`
+	// Returns true if client authorization is needed for this relay; otherwise, false.
+	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
+	// Returns true if transport security is needed for this relay; otherwise, false.
+	RequiresTransportSecurity *bool `pulumi:"requiresTransportSecurity"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
+	// The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
+	UserMetadata *string `pulumi:"userMetadata"`
 }

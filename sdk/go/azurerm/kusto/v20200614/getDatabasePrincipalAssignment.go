@@ -31,8 +31,20 @@ type LookupDatabasePrincipalAssignmentArgs struct {
 type LookupDatabasePrincipalAssignmentResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The database principal.
-	Properties DatabasePrincipalPropertiesResponse `pulumi:"properties"`
+	// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
+	PrincipalId string `pulumi:"principalId"`
+	// The principal name
+	PrincipalName string `pulumi:"principalName"`
+	// Principal type.
+	PrincipalType string `pulumi:"principalType"`
+	// The provisioned state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Database principal role.
+	Role string `pulumi:"role"`
+	// The tenant id of the principal
+	TenantId *string `pulumi:"tenantId"`
+	// The tenant name of the principal
+	TenantName string `pulumi:"tenantName"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

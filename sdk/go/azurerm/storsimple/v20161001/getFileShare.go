@@ -31,10 +31,24 @@ type LookupFileShareArgs struct {
 
 // The File Share.
 type LookupFileShareResult struct {
+	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+	AdminUser string `pulumi:"adminUser"`
+	// The data policy
+	DataPolicy string `pulumi:"dataPolicy"`
+	// Description for file share
+	Description *string `pulumi:"description"`
+	// The local used capacity in Bytes.
+	LocalUsedCapacityInBytes int `pulumi:"localUsedCapacityInBytes"`
+	// The monitoring status
+	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The name.
 	Name string `pulumi:"name"`
-	// The properties.
-	Properties FileSharePropertiesResponse `pulumi:"properties"`
+	// The total provisioned capacity in Bytes
+	ProvisionedCapacityInBytes int `pulumi:"provisionedCapacityInBytes"`
+	// The Share Status
+	ShareStatus string `pulumi:"shareStatus"`
 	// The type.
 	Type string `pulumi:"type"`
+	// The used capacity in Bytes.
+	UsedCapacityInBytes int `pulumi:"usedCapacityInBytes"`
 }

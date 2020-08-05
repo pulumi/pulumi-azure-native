@@ -25,12 +25,14 @@ type LookupTopicArgs struct {
 
 // EventGrid Topic
 type LookupTopicResult struct {
+	// Endpoint for the topic.
+	Endpoint string `pulumi:"endpoint"`
 	// Location of the resource
 	Location string `pulumi:"location"`
 	// Name of the resource
 	Name string `pulumi:"name"`
-	// Properties of the topic
-	Properties TopicPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the topic.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Tags of the resource
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource

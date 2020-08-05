@@ -24,12 +24,23 @@ type LookupAdaptiveApplicationControlArgs struct {
 }
 
 type LookupAdaptiveApplicationControlResult struct {
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus string `pulumi:"configurationStatus"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	EnforcementMode *string                               `pulumi:"enforcementMode"`
+	Issues          []AppWhitelistingIssueSummaryResponse `pulumi:"issues"`
 	// Location where the resource is stored
 	Location string `pulumi:"location"`
 	// Resource name
-	Name string `pulumi:"name"`
-	// Represents a VM/server group and set of rules to be allowed running on a machine
-	Properties AppWhitelistingGroupDataResponse `pulumi:"properties"`
+	Name                string                       `pulumi:"name"`
+	PathRecommendations []PathRecommendationResponse `pulumi:"pathRecommendations"`
+	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+	ProtectionMode *ProtectionModeResponse `pulumi:"protectionMode"`
+	// The recommendation status of the VM/server group or VM/server
+	RecommendationStatus string `pulumi:"recommendationStatus"`
+	// The source type of the VM/server group
+	SourceSystem string `pulumi:"sourceSystem"`
 	// Resource type
-	Type string `pulumi:"type"`
+	Type              string                     `pulumi:"type"`
+	VmRecommendations []VmRecommendationResponse `pulumi:"vmRecommendations"`
 }

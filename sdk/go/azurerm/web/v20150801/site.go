@@ -14,17 +14,76 @@ import (
 type Site struct {
 	pulumi.CustomResourceState
 
+	// Management information availability state for the web app. Possible values are Normal or Limited.
+	//             Normal means that the site is running correctly and that management information for the site is available.
+	//             Limited means that only partial management information for the site is available and that detailed site information is unavailable.
+	AvailabilityState pulumi.StringOutput `pulumi:"availabilityState"`
+	// Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+	ClientAffinityEnabled pulumi.BoolPtrOutput `pulumi:"clientAffinityEnabled"`
+	// Specifies if the client certificate is enabled for the web app
+	ClientCertEnabled pulumi.BoolPtrOutput `pulumi:"clientCertEnabled"`
+	// This is only valid for web app creation. If specified, web app is cloned from
+	//             a source web app
+	CloningInfo CloningInfoResponsePtrOutput `pulumi:"cloningInfo"`
+	// Size of a function container
+	ContainerSize pulumi.IntPtrOutput `pulumi:"containerSize"`
+	// Default hostname of the web app
+	DefaultHostName pulumi.StringOutput `pulumi:"defaultHostName"`
+	// True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
+	//             the app is not served on those hostnames
+	EnabledHostNames pulumi.StringArrayOutput `pulumi:"enabledHostNames"`
+	// Name of gateway app associated with web app
+	GatewaySiteName pulumi.StringPtrOutput `pulumi:"gatewaySiteName"`
+	// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+	HostNameSslStates HostNameSslStateResponseArrayOutput `pulumi:"hostNameSslStates"`
+	// Hostnames associated with web app
+	HostNames pulumi.StringArrayOutput `pulumi:"hostNames"`
+	// Specifies if the public hostnames are disabled the web app.
+	//             If set to true the app is only accessible via API Management process
+	HostNamesDisabled pulumi.BoolPtrOutput `pulumi:"hostNamesDisabled"`
+	// Specification for the hosting environment (App Service Environment) to use for the web app
+	HostingEnvironmentProfile HostingEnvironmentProfileResponsePtrOutput `pulumi:"hostingEnvironmentProfile"`
+	// Site is a default container
+	IsDefaultContainer pulumi.BoolOutput `pulumi:"isDefaultContainer"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	// Last time web app was modified in UTC
+	LastModifiedTimeUtc pulumi.StringOutput `pulumi:"lastModifiedTimeUtc"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Maximum number of workers
+	//             This only applies to function container
+	MaxNumberOfWorkers pulumi.IntPtrOutput    `pulumi:"maxNumberOfWorkers"`
+	MicroService       pulumi.StringPtrOutput `pulumi:"microService"`
 	// Resource Name
-	Name       pulumi.StringPtrOutput       `pulumi:"name"`
-	Properties SiteResponsePropertiesOutput `pulumi:"properties"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
+	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
+	// If set indicates whether web app is deployed as a premium app
+	PremiumAppDeployed pulumi.BoolOutput `pulumi:"premiumAppDeployed"`
+	// Name of repository site
+	RepositorySiteName pulumi.StringOutput `pulumi:"repositorySiteName"`
+	// Resource group web app belongs to
+	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
+	// If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+	ScmSiteAlsoStopped pulumi.BoolPtrOutput   `pulumi:"scmSiteAlsoStopped"`
+	ServerFarmId       pulumi.StringPtrOutput `pulumi:"serverFarmId"`
+	// Configuration of web app
+	SiteConfig SiteConfigResponsePtrOutput `pulumi:"siteConfig"`
+	// State of the web app
+	State pulumi.StringOutput `pulumi:"state"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Read-only property that specifies which slot this app will swap into
+	TargetSwapSlot pulumi.StringOutput `pulumi:"targetSwapSlot"`
+	// Read-only list of Azure Traffic manager hostnames associated with web app
+	TrafficManagerHostNames pulumi.StringArrayOutput `pulumi:"trafficManagerHostNames"`
 	// Resource type
 	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// State indicating whether web app has exceeded its quota usage
+	UsageState pulumi.StringOutput `pulumi:"usageState"`
 }
 
 // NewSite registers a new resource with the given unique name, arguments, and options.
@@ -64,31 +123,149 @@ func GetSite(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Site resources.
 type siteState struct {
+	// Management information availability state for the web app. Possible values are Normal or Limited.
+	//             Normal means that the site is running correctly and that management information for the site is available.
+	//             Limited means that only partial management information for the site is available and that detailed site information is unavailable.
+	AvailabilityState *string `pulumi:"availabilityState"`
+	// Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
+	// Specifies if the client certificate is enabled for the web app
+	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
+	// This is only valid for web app creation. If specified, web app is cloned from
+	//             a source web app
+	CloningInfo *CloningInfoResponse `pulumi:"cloningInfo"`
+	// Size of a function container
+	ContainerSize *int `pulumi:"containerSize"`
+	// Default hostname of the web app
+	DefaultHostName *string `pulumi:"defaultHostName"`
+	// True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+	Enabled *bool `pulumi:"enabled"`
+	// Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
+	//             the app is not served on those hostnames
+	EnabledHostNames []string `pulumi:"enabledHostNames"`
+	// Name of gateway app associated with web app
+	GatewaySiteName *string `pulumi:"gatewaySiteName"`
+	// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+	HostNameSslStates []HostNameSslStateResponse `pulumi:"hostNameSslStates"`
+	// Hostnames associated with web app
+	HostNames []string `pulumi:"hostNames"`
+	// Specifies if the public hostnames are disabled the web app.
+	//             If set to true the app is only accessible via API Management process
+	HostNamesDisabled *bool `pulumi:"hostNamesDisabled"`
+	// Specification for the hosting environment (App Service Environment) to use for the web app
+	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	// Site is a default container
+	IsDefaultContainer *bool `pulumi:"isDefaultContainer"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
+	// Last time web app was modified in UTC
+	LastModifiedTimeUtc *string `pulumi:"lastModifiedTimeUtc"`
 	// Resource Location
 	Location *string `pulumi:"location"`
+	// Maximum number of workers
+	//             This only applies to function container
+	MaxNumberOfWorkers *int    `pulumi:"maxNumberOfWorkers"`
+	MicroService       *string `pulumi:"microService"`
 	// Resource Name
-	Name       *string                 `pulumi:"name"`
-	Properties *SiteResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
+	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
+	// If set indicates whether web app is deployed as a premium app
+	PremiumAppDeployed *bool `pulumi:"premiumAppDeployed"`
+	// Name of repository site
+	RepositorySiteName *string `pulumi:"repositorySiteName"`
+	// Resource group web app belongs to
+	ResourceGroup *string `pulumi:"resourceGroup"`
+	// If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+	ScmSiteAlsoStopped *bool   `pulumi:"scmSiteAlsoStopped"`
+	ServerFarmId       *string `pulumi:"serverFarmId"`
+	// Configuration of web app
+	SiteConfig *SiteConfigResponse `pulumi:"siteConfig"`
+	// State of the web app
+	State *string `pulumi:"state"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Read-only property that specifies which slot this app will swap into
+	TargetSwapSlot *string `pulumi:"targetSwapSlot"`
+	// Read-only list of Azure Traffic manager hostnames associated with web app
+	TrafficManagerHostNames []string `pulumi:"trafficManagerHostNames"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// State indicating whether web app has exceeded its quota usage
+	UsageState *string `pulumi:"usageState"`
 }
 
 type SiteState struct {
+	// Management information availability state for the web app. Possible values are Normal or Limited.
+	//             Normal means that the site is running correctly and that management information for the site is available.
+	//             Limited means that only partial management information for the site is available and that detailed site information is unavailable.
+	AvailabilityState pulumi.StringPtrInput
+	// Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+	ClientAffinityEnabled pulumi.BoolPtrInput
+	// Specifies if the client certificate is enabled for the web app
+	ClientCertEnabled pulumi.BoolPtrInput
+	// This is only valid for web app creation. If specified, web app is cloned from
+	//             a source web app
+	CloningInfo CloningInfoResponsePtrInput
+	// Size of a function container
+	ContainerSize pulumi.IntPtrInput
+	// Default hostname of the web app
+	DefaultHostName pulumi.StringPtrInput
+	// True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+	Enabled pulumi.BoolPtrInput
+	// Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
+	//             the app is not served on those hostnames
+	EnabledHostNames pulumi.StringArrayInput
+	// Name of gateway app associated with web app
+	GatewaySiteName pulumi.StringPtrInput
+	// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+	HostNameSslStates HostNameSslStateResponseArrayInput
+	// Hostnames associated with web app
+	HostNames pulumi.StringArrayInput
+	// Specifies if the public hostnames are disabled the web app.
+	//             If set to true the app is only accessible via API Management process
+	HostNamesDisabled pulumi.BoolPtrInput
+	// Specification for the hosting environment (App Service Environment) to use for the web app
+	HostingEnvironmentProfile HostingEnvironmentProfileResponsePtrInput
+	// Site is a default container
+	IsDefaultContainer pulumi.BoolPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
+	// Last time web app was modified in UTC
+	LastModifiedTimeUtc pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
+	// Maximum number of workers
+	//             This only applies to function container
+	MaxNumberOfWorkers pulumi.IntPtrInput
+	MicroService       pulumi.StringPtrInput
 	// Resource Name
-	Name       pulumi.StringPtrInput
-	Properties SiteResponsePropertiesPtrInput
+	Name pulumi.StringPtrInput
+	// List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
+	OutboundIpAddresses pulumi.StringPtrInput
+	// If set indicates whether web app is deployed as a premium app
+	PremiumAppDeployed pulumi.BoolPtrInput
+	// Name of repository site
+	RepositorySiteName pulumi.StringPtrInput
+	// Resource group web app belongs to
+	ResourceGroup pulumi.StringPtrInput
+	// If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+	ScmSiteAlsoStopped pulumi.BoolPtrInput
+	ServerFarmId       pulumi.StringPtrInput
+	// Configuration of web app
+	SiteConfig SiteConfigResponsePtrInput
+	// State of the web app
+	State pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Read-only property that specifies which slot this app will swap into
+	TargetSwapSlot pulumi.StringPtrInput
+	// Read-only list of Azure Traffic manager hostnames associated with web app
+	TrafficManagerHostNames pulumi.StringArrayInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// State indicating whether web app has exceeded its quota usage
+	UsageState pulumi.StringPtrInput
 }
 
 func (SiteState) ElementType() reflect.Type {

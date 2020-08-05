@@ -25,14 +25,22 @@ type LookupServiceArgs struct {
 
 // The description of the Windows IoT Device Service.
 type LookupServiceResult struct {
+	// Windows IoT Device Service OEM AAD domain
+	AdminDomainName *string `pulumi:"adminDomainName"`
+	// Windows IoT Device Service ODM AAD domain
+	BillingDomainName *string `pulumi:"billingDomainName"`
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag *string `pulumi:"etag"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties of a Windows IoT Device Service.
-	Properties DeviceServicePropertiesResponse `pulumi:"properties"`
+	// Windows IoT Device Service notes.
+	Notes *string `pulumi:"notes"`
+	// Windows IoT Device Service device allocation,
+	Quantity *int `pulumi:"quantity"`
+	// Windows IoT Device Service start date,
+	StartDate string `pulumi:"startDate"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

@@ -14,12 +14,14 @@ import (
 type DedicatedHostGroup struct {
 	pulumi.CustomResourceState
 
+	// A list of references to all dedicated hosts in the dedicated host group.
+	Hosts SubResourceReadOnlyResponseArrayOutput `pulumi:"hosts"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Dedicated Host Group Properties.
-	Properties DedicatedHostGroupPropertiesResponseOutput `pulumi:"properties"`
+	// Number of fault domains that the host group can span.
+	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -68,12 +70,14 @@ func GetDedicatedHostGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DedicatedHostGroup resources.
 type dedicatedHostGroupState struct {
+	// A list of references to all dedicated hosts in the dedicated host group.
+	Hosts []SubResourceReadOnlyResponse `pulumi:"hosts"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Dedicated Host Group Properties.
-	Properties *DedicatedHostGroupPropertiesResponse `pulumi:"properties"`
+	// Number of fault domains that the host group can span.
+	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -83,12 +87,14 @@ type dedicatedHostGroupState struct {
 }
 
 type DedicatedHostGroupState struct {
+	// A list of references to all dedicated hosts in the dedicated host group.
+	Hosts SubResourceReadOnlyResponseArrayInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Dedicated Host Group Properties.
-	Properties DedicatedHostGroupPropertiesResponsePtrInput
+	// Number of fault domains that the host group can span.
+	PlatformFaultDomainCount pulumi.IntPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

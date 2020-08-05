@@ -29,12 +29,26 @@ type LookupVolumeContainerArgs struct {
 
 // The volume container.
 type LookupVolumeContainerResult struct {
+	// The bandwidth-rate set on the volume container.
+	BandWidthRateInMbps *int `pulumi:"bandWidthRateInMbps"`
+	// The ID of the bandwidth setting associated with the volume container.
+	BandwidthSettingId *string `pulumi:"bandwidthSettingId"`
+	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+	EncryptionKey *AsymmetricEncryptedSecretResponse `pulumi:"encryptionKey"`
+	// The flag to denote whether encryption is enabled or not.
+	EncryptionStatus string `pulumi:"encryptionStatus"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The name of the object.
 	Name string `pulumi:"name"`
-	// The volume container properties.
-	Properties VolumeContainerPropertiesResponse `pulumi:"properties"`
+	// The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
+	OwnerShipStatus string `pulumi:"ownerShipStatus"`
+	// The path ID of storage account associated with the volume container.
+	StorageAccountCredentialId string `pulumi:"storageAccountCredentialId"`
+	// The total cloud storage for the volume container.
+	TotalCloudStorageUsageInBytes int `pulumi:"totalCloudStorageUsageInBytes"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+	// The number of volumes in the volume Container.
+	VolumeCount int `pulumi:"volumeCount"`
 }

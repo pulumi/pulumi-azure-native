@@ -25,14 +25,34 @@ type LookupPublicIPAddressArgs struct {
 
 // Public IP address resource.
 type LookupPublicIPAddressResult struct {
+	// The DDoS protection custom policy associated with the public IP address.
+	DdosSettings *DdosSettingsResponse `pulumi:"ddosSettings"`
+	// The FQDN of the DNS record associated with the public IP address.
+	DnsSettings *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// The idle timeout of the public IP address.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// The IP address associated with the public IP address resource.
+	IpAddress *string `pulumi:"ipAddress"`
+	// The IP configuration associated with the public IP address.
+	IpConfiguration IPConfigurationResponse `pulumi:"ipConfiguration"`
+	// The list of tags associated with the public IP address.
+	IpTags []IpTagResponse `pulumi:"ipTags"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Public IP address properties.
-	Properties PublicIPAddressPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the public IP address resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The public IP address version.
+	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
+	// The public IP address allocation method.
+	PublicIPAllocationMethod *string `pulumi:"publicIPAllocationMethod"`
+	// The Public IP Prefix this Public IP Address should be allocated from.
+	PublicIPPrefix *SubResourceResponse `pulumi:"publicIPPrefix"`
+	// The resource GUID property of the public IP address resource.
+	ResourceGuid string `pulumi:"resourceGuid"`
 	// The public IP address SKU.
 	Sku *PublicIPAddressSkuResponse `pulumi:"sku"`
 	// Resource tags.

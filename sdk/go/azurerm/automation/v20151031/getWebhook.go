@@ -27,10 +27,30 @@ type LookupWebhookArgs struct {
 
 // Definition of the webhook type.
 type LookupWebhookResult struct {
+	// Gets or sets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets or sets the expiry time.
+	ExpiryTime *string `pulumi:"expiryTime"`
+	// Gets or sets the value of the enabled flag of the webhook.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Gets or sets the last invoked time.
+	LastInvokedTime *string `pulumi:"lastInvokedTime"`
+	// Details of the user who last modified the Webhook
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Gets or sets the webhook properties.
-	Properties WebhookPropertiesResponse `pulumi:"properties"`
+	// Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
+	Parameters map[string]string `pulumi:"parameters"`
+	// Gets or sets the name of the hybrid worker group the webhook job will run on.
+	RunOn *string `pulumi:"runOn"`
+	// Gets or sets the runbook the webhook is associated with.
+	Runbook *RunbookAssociationPropertyResponse `pulumi:"runbook"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// Gets or sets the webhook uri.
+	Uri *string `pulumi:"uri"`
 }

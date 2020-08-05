@@ -16,12 +16,14 @@ type AlertRuleAction struct {
 
 	// Etag of the action.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+	LogicAppResourceId pulumi.StringOutput `pulumi:"logicAppResourceId"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Action properties for get request
-	Properties ActionResponsePropertiesResponseOutput `pulumi:"properties"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The name of the logic app's workflow.
+	WorkflowId pulumi.StringPtrOutput `pulumi:"workflowId"`
 }
 
 // NewAlertRuleAction registers a new resource with the given unique name, arguments, and options.
@@ -69,23 +71,27 @@ func GetAlertRuleAction(ctx *pulumi.Context,
 type alertRuleActionState struct {
 	// Etag of the action.
 	Etag *string `pulumi:"etag"`
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// Action properties for get request
-	Properties *ActionResponsePropertiesResponse `pulumi:"properties"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
+	// The name of the logic app's workflow.
+	WorkflowId *string `pulumi:"workflowId"`
 }
 
 type AlertRuleActionState struct {
 	// Etag of the action.
 	Etag pulumi.StringPtrInput
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+	LogicAppResourceId pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
-	// Action properties for get request
-	Properties ActionResponsePropertiesResponsePtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
+	// The name of the logic app's workflow.
+	WorkflowId pulumi.StringPtrInput
 }
 
 func (AlertRuleActionState) ElementType() reflect.Type {

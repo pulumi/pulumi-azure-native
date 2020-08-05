@@ -25,18 +25,58 @@ type LookupStorageAccountArgs struct {
 
 // The storage account.
 type LookupStorageAccountResult struct {
+	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+	AccessTier string `pulumi:"accessTier"`
+	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
+	// Provides the identity based authentication settings for Azure Files.
+	AzureFilesIdentityBasedAuthentication *AzureFilesIdentityBasedAuthenticationResponse `pulumi:"azureFilesIdentityBasedAuthentication"`
+	// Gets the creation date and time of the storage account in UTC.
+	CreationTime string `pulumi:"creationTime"`
+	// Gets the custom domain the user assigned to this storage account.
+	CustomDomain CustomDomainResponse `pulumi:"customDomain"`
+	// Allows https traffic only to storage service if sets to true.
+	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
+	// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+	Encryption EncryptionResponse `pulumi:"encryption"`
+	// If the failover is in progress, the value will be true, otherwise, it will be null.
+	FailoverInProgress bool `pulumi:"failoverInProgress"`
+	// Geo Replication Stats
+	GeoReplicationStats GeoReplicationStatsResponse `pulumi:"geoReplicationStats"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
+	// Account HierarchicalNamespace enabled if sets to true.
+	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
 	// Gets the Kind.
 	Kind string `pulumi:"kind"`
+	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+	LargeFileSharesState *string `pulumi:"largeFileSharesState"`
+	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+	LastGeoFailoverTime string `pulumi:"lastGeoFailoverTime"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Properties of the storage account.
-	Properties StorageAccountPropertiesResponse `pulumi:"properties"`
+	// Network rule set
+	NetworkRuleSet NetworkRuleSetResponse `pulumi:"networkRuleSet"`
+	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+	PrimaryEndpoints EndpointsResponse `pulumi:"primaryEndpoints"`
+	// Gets the location of the primary data center for the storage account.
+	PrimaryLocation string `pulumi:"primaryLocation"`
+	// Gets the status of the storage account at the time the operation was called.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+	SecondaryEndpoints EndpointsResponse `pulumi:"secondaryEndpoints"`
+	// Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+	SecondaryLocation string `pulumi:"secondaryLocation"`
 	// Gets the SKU.
 	Sku SkuResponse `pulumi:"sku"`
+	// Gets the status indicating whether the primary location of the storage account is available or unavailable.
+	StatusOfPrimary string `pulumi:"statusOfPrimary"`
+	// Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+	StatusOfSecondary string `pulumi:"statusOfSecondary"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

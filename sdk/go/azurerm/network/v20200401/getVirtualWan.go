@@ -25,16 +25,28 @@ type LookupVirtualWanArgs struct {
 
 // VirtualWAN Resource.
 type LookupVirtualWanResult struct {
+	// True if branch to branch traffic is allowed.
+	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
+	// True if Vnet to Vnet traffic is allowed.
+	AllowVnetToVnetTraffic *bool `pulumi:"allowVnetToVnetTraffic"`
+	// Vpn encryption to be disabled or not.
+	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the virtual WAN.
-	Properties VirtualWanPropertiesResponse `pulumi:"properties"`
+	// The office local breakout category.
+	Office365LocalBreakoutCategory *string `pulumi:"office365LocalBreakoutCategory"`
+	// The provisioning state of the virtual WAN resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// List of VirtualHubs in the VirtualWAN.
+	VirtualHubs []SubResourceResponse `pulumi:"virtualHubs"`
+	// List of VpnSites in the VirtualWAN.
+	VpnSites []SubResourceResponse `pulumi:"vpnSites"`
 }

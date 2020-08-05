@@ -25,14 +25,30 @@ type LookupLoadBalancerArgs struct {
 
 // LoadBalancer resource
 type LookupLoadBalancerResult struct {
+	// Gets or sets Pools of backend IP addresses
+	BackendAddressPools []BackendAddressPoolResponse `pulumi:"backendAddressPools"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// Gets or sets frontend IP addresses of the load balancer
+	FrontendIPConfigurations []FrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
+	// Gets or sets inbound NAT pools
+	InboundNatPools []InboundNatPoolResponse `pulumi:"inboundNatPools"`
+	// Gets or sets list of inbound rules
+	InboundNatRules []InboundNatRuleResponse `pulumi:"inboundNatRules"`
+	// Gets or sets load balancing rules
+	LoadBalancingRules []LoadBalancingRuleResponse `pulumi:"loadBalancingRules"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of Load Balancer
-	Properties LoadBalancerPropertiesFormatResponse `pulumi:"properties"`
+	// Gets or sets outbound NAT rules
+	OutboundNatRules []OutboundNatRuleResponse `pulumi:"outboundNatRules"`
+	// Gets or sets list of Load balancer probes
+	Probes []ProbeResponse `pulumi:"probes"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets resource guid property of the Load balancer resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

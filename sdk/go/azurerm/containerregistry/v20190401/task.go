@@ -15,16 +15,32 @@ import (
 type Task struct {
 	pulumi.CustomResourceState
 
+	// The machine configuration of the run agent.
+	AgentConfiguration AgentPropertiesResponsePtrOutput `pulumi:"agentConfiguration"`
+	// The creation date of task.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials CredentialsResponsePtrOutput `pulumi:"credentials"`
 	// Identity for the resource.
 	Identity IdentityPropertiesResponsePtrOutput `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a task.
-	Properties TaskPropertiesResponseOutput `pulumi:"properties"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesResponseOutput `pulumi:"platform"`
+	// The provisioning state of the task.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The current status of task.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
+	// The properties of a task step.
+	Step TaskStepPropertiesResponseOutput `pulumi:"step"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Run timeout in seconds.
+	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
+	// The properties that describe all triggers for the task.
+	Trigger TriggerPropertiesResponsePtrOutput `pulumi:"trigger"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -75,31 +91,63 @@ func GetTask(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Task resources.
 type taskState struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration *AgentPropertiesResponse `pulumi:"agentConfiguration"`
+	// The creation date of task.
+	CreationDate *string `pulumi:"creationDate"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials *CredentialsResponse `pulumi:"credentials"`
 	// Identity for the resource.
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of a task.
-	Properties *TaskPropertiesResponse `pulumi:"properties"`
+	// The platform properties against which the run has to happen.
+	Platform *PlatformPropertiesResponse `pulumi:"platform"`
+	// The provisioning state of the task.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The current status of task.
+	Status *string `pulumi:"status"`
+	// The properties of a task step.
+	Step *TaskStepPropertiesResponse `pulumi:"step"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Run timeout in seconds.
+	Timeout *int `pulumi:"timeout"`
+	// The properties that describe all triggers for the task.
+	Trigger *TriggerPropertiesResponse `pulumi:"trigger"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type TaskState struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration AgentPropertiesResponsePtrInput
+	// The creation date of task.
+	CreationDate pulumi.StringPtrInput
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials CredentialsResponsePtrInput
 	// Identity for the resource.
 	Identity IdentityPropertiesResponsePtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of a task.
-	Properties TaskPropertiesResponsePtrInput
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesResponsePtrInput
+	// The provisioning state of the task.
+	ProvisioningState pulumi.StringPtrInput
+	// The current status of task.
+	Status pulumi.StringPtrInput
+	// The properties of a task step.
+	Step TaskStepPropertiesResponsePtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// Run timeout in seconds.
+	Timeout pulumi.IntPtrInput
+	// The properties that describe all triggers for the task.
+	Trigger TriggerPropertiesResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

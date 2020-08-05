@@ -183,181 +183,13 @@ func (o AdmCredentialPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 }
 
 // Description of a NotificationHub AdmCredential.
-type AdmCredentialPropertiesResponse struct {
+type AdmCredentialResponse struct {
 	// The URL of the authorization token.
 	AuthTokenUrl *string `pulumi:"authTokenUrl"`
 	// The client identifier.
 	ClientId *string `pulumi:"clientId"`
 	// The credential secret access key.
 	ClientSecret *string `pulumi:"clientSecret"`
-}
-
-// AdmCredentialPropertiesResponseInput is an input type that accepts AdmCredentialPropertiesResponseArgs and AdmCredentialPropertiesResponseOutput values.
-// You can construct a concrete instance of `AdmCredentialPropertiesResponseInput` via:
-//
-//          AdmCredentialPropertiesResponseArgs{...}
-type AdmCredentialPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAdmCredentialPropertiesResponseOutput() AdmCredentialPropertiesResponseOutput
-	ToAdmCredentialPropertiesResponseOutputWithContext(context.Context) AdmCredentialPropertiesResponseOutput
-}
-
-// Description of a NotificationHub AdmCredential.
-type AdmCredentialPropertiesResponseArgs struct {
-	// The URL of the authorization token.
-	AuthTokenUrl pulumi.StringPtrInput `pulumi:"authTokenUrl"`
-	// The client identifier.
-	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The credential secret access key.
-	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-}
-
-func (AdmCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i AdmCredentialPropertiesResponseArgs) ToAdmCredentialPropertiesResponseOutput() AdmCredentialPropertiesResponseOutput {
-	return i.ToAdmCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AdmCredentialPropertiesResponseArgs) ToAdmCredentialPropertiesResponseOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialPropertiesResponseOutput)
-}
-
-func (i AdmCredentialPropertiesResponseArgs) ToAdmCredentialPropertiesResponsePtrOutput() AdmCredentialPropertiesResponsePtrOutput {
-	return i.ToAdmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AdmCredentialPropertiesResponseArgs) ToAdmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialPropertiesResponseOutput).ToAdmCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// AdmCredentialPropertiesResponsePtrInput is an input type that accepts AdmCredentialPropertiesResponseArgs, AdmCredentialPropertiesResponsePtr and AdmCredentialPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `AdmCredentialPropertiesResponsePtrInput` via:
-//
-//          AdmCredentialPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AdmCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToAdmCredentialPropertiesResponsePtrOutput() AdmCredentialPropertiesResponsePtrOutput
-	ToAdmCredentialPropertiesResponsePtrOutputWithContext(context.Context) AdmCredentialPropertiesResponsePtrOutput
-}
-
-type admCredentialPropertiesResponsePtrType AdmCredentialPropertiesResponseArgs
-
-func AdmCredentialPropertiesResponsePtr(v *AdmCredentialPropertiesResponseArgs) AdmCredentialPropertiesResponsePtrInput {
-	return (*admCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*admCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *admCredentialPropertiesResponsePtrType) ToAdmCredentialPropertiesResponsePtrOutput() AdmCredentialPropertiesResponsePtrOutput {
-	return i.ToAdmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *admCredentialPropertiesResponsePtrType) ToAdmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdmCredentialPropertiesResponsePtrOutput)
-}
-
-// Description of a NotificationHub AdmCredential.
-type AdmCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (AdmCredentialPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o AdmCredentialPropertiesResponseOutput) ToAdmCredentialPropertiesResponseOutput() AdmCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o AdmCredentialPropertiesResponseOutput) ToAdmCredentialPropertiesResponseOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o AdmCredentialPropertiesResponseOutput) ToAdmCredentialPropertiesResponsePtrOutput() AdmCredentialPropertiesResponsePtrOutput {
-	return o.ToAdmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AdmCredentialPropertiesResponseOutput) ToAdmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AdmCredentialPropertiesResponse) *AdmCredentialPropertiesResponse {
-		return &v
-	}).(AdmCredentialPropertiesResponsePtrOutput)
-}
-
-// The URL of the authorization token.
-func (o AdmCredentialPropertiesResponseOutput) AuthTokenUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AdmCredentialPropertiesResponse) *string { return v.AuthTokenUrl }).(pulumi.StringPtrOutput)
-}
-
-// The client identifier.
-func (o AdmCredentialPropertiesResponseOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AdmCredentialPropertiesResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
-}
-
-// The credential secret access key.
-func (o AdmCredentialPropertiesResponseOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AdmCredentialPropertiesResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
-}
-
-type AdmCredentialPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AdmCredentialPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o AdmCredentialPropertiesResponsePtrOutput) ToAdmCredentialPropertiesResponsePtrOutput() AdmCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o AdmCredentialPropertiesResponsePtrOutput) ToAdmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) AdmCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o AdmCredentialPropertiesResponsePtrOutput) Elem() AdmCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *AdmCredentialPropertiesResponse) AdmCredentialPropertiesResponse { return *v }).(AdmCredentialPropertiesResponseOutput)
-}
-
-// The URL of the authorization token.
-func (o AdmCredentialPropertiesResponsePtrOutput) AuthTokenUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AdmCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AuthTokenUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The client identifier.
-func (o AdmCredentialPropertiesResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AdmCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The credential secret access key.
-func (o AdmCredentialPropertiesResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AdmCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientSecret
-	}).(pulumi.StringPtrOutput)
-}
-
-// Description of a NotificationHub AdmCredential.
-type AdmCredentialResponse struct {
-	// Properties of NotificationHub AdmCredential.
-	Properties *AdmCredentialPropertiesResponse `pulumi:"properties"`
 }
 
 // AdmCredentialResponseInput is an input type that accepts AdmCredentialResponseArgs and AdmCredentialResponseOutput values.
@@ -373,8 +205,12 @@ type AdmCredentialResponseInput interface {
 
 // Description of a NotificationHub AdmCredential.
 type AdmCredentialResponseArgs struct {
-	// Properties of NotificationHub AdmCredential.
-	Properties AdmCredentialPropertiesResponsePtrInput `pulumi:"properties"`
+	// The URL of the authorization token.
+	AuthTokenUrl pulumi.StringPtrInput `pulumi:"authTokenUrl"`
+	// The client identifier.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The credential secret access key.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
 }
 
 func (AdmCredentialResponseArgs) ElementType() reflect.Type {
@@ -455,9 +291,19 @@ func (o AdmCredentialResponseOutput) ToAdmCredentialResponsePtrOutputWithContext
 	}).(AdmCredentialResponsePtrOutput)
 }
 
-// Properties of NotificationHub AdmCredential.
-func (o AdmCredentialResponseOutput) Properties() AdmCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AdmCredentialResponse) *AdmCredentialPropertiesResponse { return v.Properties }).(AdmCredentialPropertiesResponsePtrOutput)
+// The URL of the authorization token.
+func (o AdmCredentialResponseOutput) AuthTokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdmCredentialResponse) *string { return v.AuthTokenUrl }).(pulumi.StringPtrOutput)
+}
+
+// The client identifier.
+func (o AdmCredentialResponseOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdmCredentialResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The credential secret access key.
+func (o AdmCredentialResponseOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AdmCredentialResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
 type AdmCredentialResponsePtrOutput struct{ *pulumi.OutputState }
@@ -478,14 +324,34 @@ func (o AdmCredentialResponsePtrOutput) Elem() AdmCredentialResponseOutput {
 	return o.ApplyT(func(v *AdmCredentialResponse) AdmCredentialResponse { return *v }).(AdmCredentialResponseOutput)
 }
 
-// Properties of NotificationHub AdmCredential.
-func (o AdmCredentialResponsePtrOutput) Properties() AdmCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *AdmCredentialResponse) *AdmCredentialPropertiesResponse {
+// The URL of the authorization token.
+func (o AdmCredentialResponsePtrOutput) AuthTokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AdmCredentialResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(AdmCredentialPropertiesResponsePtrOutput)
+		return v.AuthTokenUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client identifier.
+func (o AdmCredentialResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AdmCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The credential secret access key.
+func (o AdmCredentialResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AdmCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
 }
 
 // Description of a NotificationHub ApnsCredential.
@@ -755,8 +621,8 @@ func (o ApnsCredentialPtrOutput) Token() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Description of a NotificationHub ApnsCredential. Note that there is no explicit switch between Certificate and Token Authentication Modes. The mode is determined based on the properties passed in.
-type ApnsCredentialPropertiesResponse struct {
+// Description of a NotificationHub ApnsCredential.
+type ApnsCredentialResponse struct {
 	// The APNS certificate. Specify if using Certificate Authentication Mode.
 	ApnsCertificate *string `pulumi:"apnsCertificate"`
 	// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
@@ -775,19 +641,19 @@ type ApnsCredentialPropertiesResponse struct {
 	Token *string `pulumi:"token"`
 }
 
-// ApnsCredentialPropertiesResponseInput is an input type that accepts ApnsCredentialPropertiesResponseArgs and ApnsCredentialPropertiesResponseOutput values.
-// You can construct a concrete instance of `ApnsCredentialPropertiesResponseInput` via:
+// ApnsCredentialResponseInput is an input type that accepts ApnsCredentialResponseArgs and ApnsCredentialResponseOutput values.
+// You can construct a concrete instance of `ApnsCredentialResponseInput` via:
 //
-//          ApnsCredentialPropertiesResponseArgs{...}
-type ApnsCredentialPropertiesResponseInput interface {
+//          ApnsCredentialResponseArgs{...}
+type ApnsCredentialResponseInput interface {
 	pulumi.Input
 
-	ToApnsCredentialPropertiesResponseOutput() ApnsCredentialPropertiesResponseOutput
-	ToApnsCredentialPropertiesResponseOutputWithContext(context.Context) ApnsCredentialPropertiesResponseOutput
+	ToApnsCredentialResponseOutput() ApnsCredentialResponseOutput
+	ToApnsCredentialResponseOutputWithContext(context.Context) ApnsCredentialResponseOutput
 }
 
-// Description of a NotificationHub ApnsCredential. Note that there is no explicit switch between Certificate and Token Authentication Modes. The mode is determined based on the properties passed in.
-type ApnsCredentialPropertiesResponseArgs struct {
+// Description of a NotificationHub ApnsCredential.
+type ApnsCredentialResponseArgs struct {
 	// The APNS certificate. Specify if using Certificate Authentication Mode.
 	ApnsCertificate pulumi.StringPtrInput `pulumi:"apnsCertificate"`
 	// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
@@ -804,245 +670,6 @@ type ApnsCredentialPropertiesResponseArgs struct {
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
 	Token pulumi.StringPtrInput `pulumi:"token"`
-}
-
-func (ApnsCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i ApnsCredentialPropertiesResponseArgs) ToApnsCredentialPropertiesResponseOutput() ApnsCredentialPropertiesResponseOutput {
-	return i.ToApnsCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ApnsCredentialPropertiesResponseArgs) ToApnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialPropertiesResponseOutput)
-}
-
-func (i ApnsCredentialPropertiesResponseArgs) ToApnsCredentialPropertiesResponsePtrOutput() ApnsCredentialPropertiesResponsePtrOutput {
-	return i.ToApnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApnsCredentialPropertiesResponseArgs) ToApnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialPropertiesResponseOutput).ToApnsCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ApnsCredentialPropertiesResponsePtrInput is an input type that accepts ApnsCredentialPropertiesResponseArgs, ApnsCredentialPropertiesResponsePtr and ApnsCredentialPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ApnsCredentialPropertiesResponsePtrInput` via:
-//
-//          ApnsCredentialPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ApnsCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToApnsCredentialPropertiesResponsePtrOutput() ApnsCredentialPropertiesResponsePtrOutput
-	ToApnsCredentialPropertiesResponsePtrOutputWithContext(context.Context) ApnsCredentialPropertiesResponsePtrOutput
-}
-
-type apnsCredentialPropertiesResponsePtrType ApnsCredentialPropertiesResponseArgs
-
-func ApnsCredentialPropertiesResponsePtr(v *ApnsCredentialPropertiesResponseArgs) ApnsCredentialPropertiesResponsePtrInput {
-	return (*apnsCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*apnsCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *apnsCredentialPropertiesResponsePtrType) ToApnsCredentialPropertiesResponsePtrOutput() ApnsCredentialPropertiesResponsePtrOutput {
-	return i.ToApnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *apnsCredentialPropertiesResponsePtrType) ToApnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApnsCredentialPropertiesResponsePtrOutput)
-}
-
-// Description of a NotificationHub ApnsCredential. Note that there is no explicit switch between Certificate and Token Authentication Modes. The mode is determined based on the properties passed in.
-type ApnsCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ApnsCredentialPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o ApnsCredentialPropertiesResponseOutput) ToApnsCredentialPropertiesResponseOutput() ApnsCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o ApnsCredentialPropertiesResponseOutput) ToApnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o ApnsCredentialPropertiesResponseOutput) ToApnsCredentialPropertiesResponsePtrOutput() ApnsCredentialPropertiesResponsePtrOutput {
-	return o.ToApnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApnsCredentialPropertiesResponseOutput) ToApnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ApnsCredentialPropertiesResponse) *ApnsCredentialPropertiesResponse {
-		return &v
-	}).(ApnsCredentialPropertiesResponsePtrOutput)
-}
-
-// The APNS certificate. Specify if using Certificate Authentication Mode.
-func (o ApnsCredentialPropertiesResponseOutput) ApnsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApnsCredentialPropertiesResponse) *string { return v.ApnsCertificate }).(pulumi.StringPtrOutput)
-}
-
-// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
-func (o ApnsCredentialPropertiesResponseOutput) AppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApnsCredentialPropertiesResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
-}
-
-// The name of the application or BundleId. Specify if using Token Authentication Mode.
-func (o ApnsCredentialPropertiesResponseOutput) AppName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApnsCredentialPropertiesResponse) *string { return v.AppName }).(pulumi.StringPtrOutput)
-}
-
-// The APNS certificate password if it exists.
-func (o ApnsCredentialPropertiesResponseOutput) CertificateKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApnsCredentialPropertiesResponse) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
-}
-
-// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
-func (o ApnsCredentialPropertiesResponseOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApnsCredentialPropertiesResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
-}
-
-// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
-func (o ApnsCredentialPropertiesResponseOutput) KeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApnsCredentialPropertiesResponse) *string { return v.KeyId }).(pulumi.StringPtrOutput)
-}
-
-// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
-func (o ApnsCredentialPropertiesResponseOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApnsCredentialPropertiesResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
-func (o ApnsCredentialPropertiesResponseOutput) Token() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApnsCredentialPropertiesResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
-}
-
-type ApnsCredentialPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApnsCredentialPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o ApnsCredentialPropertiesResponsePtrOutput) ToApnsCredentialPropertiesResponsePtrOutput() ApnsCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ApnsCredentialPropertiesResponsePtrOutput) ToApnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) ApnsCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ApnsCredentialPropertiesResponsePtrOutput) Elem() ApnsCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *ApnsCredentialPropertiesResponse) ApnsCredentialPropertiesResponse { return *v }).(ApnsCredentialPropertiesResponseOutput)
-}
-
-// The APNS certificate. Specify if using Certificate Authentication Mode.
-func (o ApnsCredentialPropertiesResponsePtrOutput) ApnsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApnsCertificate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
-func (o ApnsCredentialPropertiesResponsePtrOutput) AppId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AppId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the application or BundleId. Specify if using Token Authentication Mode.
-func (o ApnsCredentialPropertiesResponsePtrOutput) AppName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AppName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The APNS certificate password if it exists.
-func (o ApnsCredentialPropertiesResponsePtrOutput) CertificateKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertificateKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
-func (o ApnsCredentialPropertiesResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Endpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
-func (o ApnsCredentialPropertiesResponsePtrOutput) KeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
-func (o ApnsCredentialPropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
-func (o ApnsCredentialPropertiesResponsePtrOutput) Token() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Token
-	}).(pulumi.StringPtrOutput)
-}
-
-// Description of a NotificationHub ApnsCredential.
-type ApnsCredentialResponse struct {
-	// Properties of NotificationHub ApnsCredential.
-	Properties *ApnsCredentialPropertiesResponse `pulumi:"properties"`
-}
-
-// ApnsCredentialResponseInput is an input type that accepts ApnsCredentialResponseArgs and ApnsCredentialResponseOutput values.
-// You can construct a concrete instance of `ApnsCredentialResponseInput` via:
-//
-//          ApnsCredentialResponseArgs{...}
-type ApnsCredentialResponseInput interface {
-	pulumi.Input
-
-	ToApnsCredentialResponseOutput() ApnsCredentialResponseOutput
-	ToApnsCredentialResponseOutputWithContext(context.Context) ApnsCredentialResponseOutput
-}
-
-// Description of a NotificationHub ApnsCredential.
-type ApnsCredentialResponseArgs struct {
-	// Properties of NotificationHub ApnsCredential.
-	Properties ApnsCredentialPropertiesResponsePtrInput `pulumi:"properties"`
 }
 
 func (ApnsCredentialResponseArgs) ElementType() reflect.Type {
@@ -1123,9 +750,44 @@ func (o ApnsCredentialResponseOutput) ToApnsCredentialResponsePtrOutputWithConte
 	}).(ApnsCredentialResponsePtrOutput)
 }
 
-// Properties of NotificationHub ApnsCredential.
-func (o ApnsCredentialResponseOutput) Properties() ApnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ApnsCredentialResponse) *ApnsCredentialPropertiesResponse { return v.Properties }).(ApnsCredentialPropertiesResponsePtrOutput)
+// The APNS certificate. Specify if using Certificate Authentication Mode.
+func (o ApnsCredentialResponseOutput) ApnsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.ApnsCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
+func (o ApnsCredentialResponseOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.AppId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the application or BundleId. Specify if using Token Authentication Mode.
+func (o ApnsCredentialResponseOutput) AppName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.AppName }).(pulumi.StringPtrOutput)
+}
+
+// The APNS certificate password if it exists.
+func (o ApnsCredentialResponseOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
+}
+
+// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
+func (o ApnsCredentialResponseOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
+func (o ApnsCredentialResponseOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.KeyId }).(pulumi.StringPtrOutput)
+}
+
+// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
+func (o ApnsCredentialResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
+// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
+func (o ApnsCredentialResponseOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApnsCredentialResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
 }
 
 type ApnsCredentialResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1146,14 +808,84 @@ func (o ApnsCredentialResponsePtrOutput) Elem() ApnsCredentialResponseOutput {
 	return o.ApplyT(func(v *ApnsCredentialResponse) ApnsCredentialResponse { return *v }).(ApnsCredentialResponseOutput)
 }
 
-// Properties of NotificationHub ApnsCredential.
-func (o ApnsCredentialResponsePtrOutput) Properties() ApnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *ApnsCredentialResponse) *ApnsCredentialPropertiesResponse {
+// The APNS certificate. Specify if using Certificate Authentication Mode.
+func (o ApnsCredentialResponsePtrOutput) ApnsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(ApnsCredentialPropertiesResponsePtrOutput)
+		return v.ApnsCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
+func (o ApnsCredentialResponsePtrOutput) AppId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the application or BundleId. Specify if using Token Authentication Mode.
+func (o ApnsCredentialResponsePtrOutput) AppName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The APNS certificate password if it exists.
+func (o ApnsCredentialResponsePtrOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
+func (o ApnsCredentialResponsePtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
+func (o ApnsCredentialResponsePtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
+func (o ApnsCredentialResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Thumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
+func (o ApnsCredentialResponsePtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApnsCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Token
+	}).(pulumi.StringPtrOutput)
 }
 
 // Description of a NotificationHub BaiduCredential.
@@ -1329,181 +1061,13 @@ func (o BaiduCredentialPtrOutput) BaiduSecretKey() pulumi.StringPtrOutput {
 }
 
 // Description of a NotificationHub BaiduCredential.
-type BaiduCredentialPropertiesResponse struct {
+type BaiduCredentialResponse struct {
 	// Baidu Api Key.
 	BaiduApiKey *string `pulumi:"baiduApiKey"`
 	// Baidu Endpoint.
 	BaiduEndPoint *string `pulumi:"baiduEndPoint"`
 	// Baidu Secret Key
 	BaiduSecretKey *string `pulumi:"baiduSecretKey"`
-}
-
-// BaiduCredentialPropertiesResponseInput is an input type that accepts BaiduCredentialPropertiesResponseArgs and BaiduCredentialPropertiesResponseOutput values.
-// You can construct a concrete instance of `BaiduCredentialPropertiesResponseInput` via:
-//
-//          BaiduCredentialPropertiesResponseArgs{...}
-type BaiduCredentialPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToBaiduCredentialPropertiesResponseOutput() BaiduCredentialPropertiesResponseOutput
-	ToBaiduCredentialPropertiesResponseOutputWithContext(context.Context) BaiduCredentialPropertiesResponseOutput
-}
-
-// Description of a NotificationHub BaiduCredential.
-type BaiduCredentialPropertiesResponseArgs struct {
-	// Baidu Api Key.
-	BaiduApiKey pulumi.StringPtrInput `pulumi:"baiduApiKey"`
-	// Baidu Endpoint.
-	BaiduEndPoint pulumi.StringPtrInput `pulumi:"baiduEndPoint"`
-	// Baidu Secret Key
-	BaiduSecretKey pulumi.StringPtrInput `pulumi:"baiduSecretKey"`
-}
-
-func (BaiduCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BaiduCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i BaiduCredentialPropertiesResponseArgs) ToBaiduCredentialPropertiesResponseOutput() BaiduCredentialPropertiesResponseOutput {
-	return i.ToBaiduCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i BaiduCredentialPropertiesResponseArgs) ToBaiduCredentialPropertiesResponseOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialPropertiesResponseOutput)
-}
-
-func (i BaiduCredentialPropertiesResponseArgs) ToBaiduCredentialPropertiesResponsePtrOutput() BaiduCredentialPropertiesResponsePtrOutput {
-	return i.ToBaiduCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BaiduCredentialPropertiesResponseArgs) ToBaiduCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialPropertiesResponseOutput).ToBaiduCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// BaiduCredentialPropertiesResponsePtrInput is an input type that accepts BaiduCredentialPropertiesResponseArgs, BaiduCredentialPropertiesResponsePtr and BaiduCredentialPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `BaiduCredentialPropertiesResponsePtrInput` via:
-//
-//          BaiduCredentialPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type BaiduCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToBaiduCredentialPropertiesResponsePtrOutput() BaiduCredentialPropertiesResponsePtrOutput
-	ToBaiduCredentialPropertiesResponsePtrOutputWithContext(context.Context) BaiduCredentialPropertiesResponsePtrOutput
-}
-
-type baiduCredentialPropertiesResponsePtrType BaiduCredentialPropertiesResponseArgs
-
-func BaiduCredentialPropertiesResponsePtr(v *BaiduCredentialPropertiesResponseArgs) BaiduCredentialPropertiesResponsePtrInput {
-	return (*baiduCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*baiduCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BaiduCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *baiduCredentialPropertiesResponsePtrType) ToBaiduCredentialPropertiesResponsePtrOutput() BaiduCredentialPropertiesResponsePtrOutput {
-	return i.ToBaiduCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *baiduCredentialPropertiesResponsePtrType) ToBaiduCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaiduCredentialPropertiesResponsePtrOutput)
-}
-
-// Description of a NotificationHub BaiduCredential.
-type BaiduCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (BaiduCredentialPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BaiduCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o BaiduCredentialPropertiesResponseOutput) ToBaiduCredentialPropertiesResponseOutput() BaiduCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o BaiduCredentialPropertiesResponseOutput) ToBaiduCredentialPropertiesResponseOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o BaiduCredentialPropertiesResponseOutput) ToBaiduCredentialPropertiesResponsePtrOutput() BaiduCredentialPropertiesResponsePtrOutput {
-	return o.ToBaiduCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BaiduCredentialPropertiesResponseOutput) ToBaiduCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BaiduCredentialPropertiesResponse) *BaiduCredentialPropertiesResponse {
-		return &v
-	}).(BaiduCredentialPropertiesResponsePtrOutput)
-}
-
-// Baidu Api Key.
-func (o BaiduCredentialPropertiesResponseOutput) BaiduApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BaiduCredentialPropertiesResponse) *string { return v.BaiduApiKey }).(pulumi.StringPtrOutput)
-}
-
-// Baidu Endpoint.
-func (o BaiduCredentialPropertiesResponseOutput) BaiduEndPoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BaiduCredentialPropertiesResponse) *string { return v.BaiduEndPoint }).(pulumi.StringPtrOutput)
-}
-
-// Baidu Secret Key
-func (o BaiduCredentialPropertiesResponseOutput) BaiduSecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BaiduCredentialPropertiesResponse) *string { return v.BaiduSecretKey }).(pulumi.StringPtrOutput)
-}
-
-type BaiduCredentialPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (BaiduCredentialPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BaiduCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o BaiduCredentialPropertiesResponsePtrOutput) ToBaiduCredentialPropertiesResponsePtrOutput() BaiduCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o BaiduCredentialPropertiesResponsePtrOutput) ToBaiduCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) BaiduCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o BaiduCredentialPropertiesResponsePtrOutput) Elem() BaiduCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *BaiduCredentialPropertiesResponse) BaiduCredentialPropertiesResponse { return *v }).(BaiduCredentialPropertiesResponseOutput)
-}
-
-// Baidu Api Key.
-func (o BaiduCredentialPropertiesResponsePtrOutput) BaiduApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BaiduCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BaiduApiKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// Baidu Endpoint.
-func (o BaiduCredentialPropertiesResponsePtrOutput) BaiduEndPoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BaiduCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BaiduEndPoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Baidu Secret Key
-func (o BaiduCredentialPropertiesResponsePtrOutput) BaiduSecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BaiduCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BaiduSecretKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// Description of a NotificationHub BaiduCredential.
-type BaiduCredentialResponse struct {
-	// Properties of NotificationHub BaiduCredential.
-	Properties *BaiduCredentialPropertiesResponse `pulumi:"properties"`
 }
 
 // BaiduCredentialResponseInput is an input type that accepts BaiduCredentialResponseArgs and BaiduCredentialResponseOutput values.
@@ -1519,8 +1083,12 @@ type BaiduCredentialResponseInput interface {
 
 // Description of a NotificationHub BaiduCredential.
 type BaiduCredentialResponseArgs struct {
-	// Properties of NotificationHub BaiduCredential.
-	Properties BaiduCredentialPropertiesResponsePtrInput `pulumi:"properties"`
+	// Baidu Api Key.
+	BaiduApiKey pulumi.StringPtrInput `pulumi:"baiduApiKey"`
+	// Baidu Endpoint.
+	BaiduEndPoint pulumi.StringPtrInput `pulumi:"baiduEndPoint"`
+	// Baidu Secret Key
+	BaiduSecretKey pulumi.StringPtrInput `pulumi:"baiduSecretKey"`
 }
 
 func (BaiduCredentialResponseArgs) ElementType() reflect.Type {
@@ -1601,9 +1169,19 @@ func (o BaiduCredentialResponseOutput) ToBaiduCredentialResponsePtrOutputWithCon
 	}).(BaiduCredentialResponsePtrOutput)
 }
 
-// Properties of NotificationHub BaiduCredential.
-func (o BaiduCredentialResponseOutput) Properties() BaiduCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v BaiduCredentialResponse) *BaiduCredentialPropertiesResponse { return v.Properties }).(BaiduCredentialPropertiesResponsePtrOutput)
+// Baidu Api Key.
+func (o BaiduCredentialResponseOutput) BaiduApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaiduCredentialResponse) *string { return v.BaiduApiKey }).(pulumi.StringPtrOutput)
+}
+
+// Baidu Endpoint.
+func (o BaiduCredentialResponseOutput) BaiduEndPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaiduCredentialResponse) *string { return v.BaiduEndPoint }).(pulumi.StringPtrOutput)
+}
+
+// Baidu Secret Key
+func (o BaiduCredentialResponseOutput) BaiduSecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BaiduCredentialResponse) *string { return v.BaiduSecretKey }).(pulumi.StringPtrOutput)
 }
 
 type BaiduCredentialResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1624,14 +1202,34 @@ func (o BaiduCredentialResponsePtrOutput) Elem() BaiduCredentialResponseOutput {
 	return o.ApplyT(func(v *BaiduCredentialResponse) BaiduCredentialResponse { return *v }).(BaiduCredentialResponseOutput)
 }
 
-// Properties of NotificationHub BaiduCredential.
-func (o BaiduCredentialResponsePtrOutput) Properties() BaiduCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *BaiduCredentialResponse) *BaiduCredentialPropertiesResponse {
+// Baidu Api Key.
+func (o BaiduCredentialResponsePtrOutput) BaiduApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaiduCredentialResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(BaiduCredentialPropertiesResponsePtrOutput)
+		return v.BaiduApiKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Baidu Endpoint.
+func (o BaiduCredentialResponsePtrOutput) BaiduEndPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaiduCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaiduEndPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Baidu Secret Key
+func (o BaiduCredentialResponsePtrOutput) BaiduSecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BaiduCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaiduSecretKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Description of a NotificationHub GcmCredential.
@@ -1788,162 +1386,11 @@ func (o GcmCredentialPtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
 }
 
 // Description of a NotificationHub GcmCredential.
-type GcmCredentialPropertiesResponse struct {
+type GcmCredentialResponse struct {
 	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
 	GcmEndpoint *string `pulumi:"gcmEndpoint"`
 	// The Google API key.
 	GoogleApiKey *string `pulumi:"googleApiKey"`
-}
-
-// GcmCredentialPropertiesResponseInput is an input type that accepts GcmCredentialPropertiesResponseArgs and GcmCredentialPropertiesResponseOutput values.
-// You can construct a concrete instance of `GcmCredentialPropertiesResponseInput` via:
-//
-//          GcmCredentialPropertiesResponseArgs{...}
-type GcmCredentialPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToGcmCredentialPropertiesResponseOutput() GcmCredentialPropertiesResponseOutput
-	ToGcmCredentialPropertiesResponseOutputWithContext(context.Context) GcmCredentialPropertiesResponseOutput
-}
-
-// Description of a NotificationHub GcmCredential.
-type GcmCredentialPropertiesResponseArgs struct {
-	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
-	GcmEndpoint pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
-	// The Google API key.
-	GoogleApiKey pulumi.StringPtrInput `pulumi:"googleApiKey"`
-}
-
-func (GcmCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GcmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i GcmCredentialPropertiesResponseArgs) ToGcmCredentialPropertiesResponseOutput() GcmCredentialPropertiesResponseOutput {
-	return i.ToGcmCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i GcmCredentialPropertiesResponseArgs) ToGcmCredentialPropertiesResponseOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialPropertiesResponseOutput)
-}
-
-func (i GcmCredentialPropertiesResponseArgs) ToGcmCredentialPropertiesResponsePtrOutput() GcmCredentialPropertiesResponsePtrOutput {
-	return i.ToGcmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GcmCredentialPropertiesResponseArgs) ToGcmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialPropertiesResponseOutput).ToGcmCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// GcmCredentialPropertiesResponsePtrInput is an input type that accepts GcmCredentialPropertiesResponseArgs, GcmCredentialPropertiesResponsePtr and GcmCredentialPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `GcmCredentialPropertiesResponsePtrInput` via:
-//
-//          GcmCredentialPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type GcmCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToGcmCredentialPropertiesResponsePtrOutput() GcmCredentialPropertiesResponsePtrOutput
-	ToGcmCredentialPropertiesResponsePtrOutputWithContext(context.Context) GcmCredentialPropertiesResponsePtrOutput
-}
-
-type gcmCredentialPropertiesResponsePtrType GcmCredentialPropertiesResponseArgs
-
-func GcmCredentialPropertiesResponsePtr(v *GcmCredentialPropertiesResponseArgs) GcmCredentialPropertiesResponsePtrInput {
-	return (*gcmCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*gcmCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GcmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *gcmCredentialPropertiesResponsePtrType) ToGcmCredentialPropertiesResponsePtrOutput() GcmCredentialPropertiesResponsePtrOutput {
-	return i.ToGcmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *gcmCredentialPropertiesResponsePtrType) ToGcmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GcmCredentialPropertiesResponsePtrOutput)
-}
-
-// Description of a NotificationHub GcmCredential.
-type GcmCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GcmCredentialPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GcmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o GcmCredentialPropertiesResponseOutput) ToGcmCredentialPropertiesResponseOutput() GcmCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o GcmCredentialPropertiesResponseOutput) ToGcmCredentialPropertiesResponseOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o GcmCredentialPropertiesResponseOutput) ToGcmCredentialPropertiesResponsePtrOutput() GcmCredentialPropertiesResponsePtrOutput {
-	return o.ToGcmCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GcmCredentialPropertiesResponseOutput) ToGcmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GcmCredentialPropertiesResponse) *GcmCredentialPropertiesResponse {
-		return &v
-	}).(GcmCredentialPropertiesResponsePtrOutput)
-}
-
-// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
-func (o GcmCredentialPropertiesResponseOutput) GcmEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GcmCredentialPropertiesResponse) *string { return v.GcmEndpoint }).(pulumi.StringPtrOutput)
-}
-
-// The Google API key.
-func (o GcmCredentialPropertiesResponseOutput) GoogleApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GcmCredentialPropertiesResponse) *string { return v.GoogleApiKey }).(pulumi.StringPtrOutput)
-}
-
-type GcmCredentialPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (GcmCredentialPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GcmCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o GcmCredentialPropertiesResponsePtrOutput) ToGcmCredentialPropertiesResponsePtrOutput() GcmCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GcmCredentialPropertiesResponsePtrOutput) ToGcmCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) GcmCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GcmCredentialPropertiesResponsePtrOutput) Elem() GcmCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *GcmCredentialPropertiesResponse) GcmCredentialPropertiesResponse { return *v }).(GcmCredentialPropertiesResponseOutput)
-}
-
-// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
-func (o GcmCredentialPropertiesResponsePtrOutput) GcmEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GcmCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GcmEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Google API key.
-func (o GcmCredentialPropertiesResponsePtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GcmCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GoogleApiKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// Description of a NotificationHub GcmCredential.
-type GcmCredentialResponse struct {
-	// Properties of NotificationHub GcmCredential.
-	Properties *GcmCredentialPropertiesResponse `pulumi:"properties"`
 }
 
 // GcmCredentialResponseInput is an input type that accepts GcmCredentialResponseArgs and GcmCredentialResponseOutput values.
@@ -1959,8 +1406,10 @@ type GcmCredentialResponseInput interface {
 
 // Description of a NotificationHub GcmCredential.
 type GcmCredentialResponseArgs struct {
-	// Properties of NotificationHub GcmCredential.
-	Properties GcmCredentialPropertiesResponsePtrInput `pulumi:"properties"`
+	// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
+	GcmEndpoint pulumi.StringPtrInput `pulumi:"gcmEndpoint"`
+	// The Google API key.
+	GoogleApiKey pulumi.StringPtrInput `pulumi:"googleApiKey"`
 }
 
 func (GcmCredentialResponseArgs) ElementType() reflect.Type {
@@ -2041,9 +1490,14 @@ func (o GcmCredentialResponseOutput) ToGcmCredentialResponsePtrOutputWithContext
 	}).(GcmCredentialResponsePtrOutput)
 }
 
-// Properties of NotificationHub GcmCredential.
-func (o GcmCredentialResponseOutput) Properties() GcmCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GcmCredentialResponse) *GcmCredentialPropertiesResponse { return v.Properties }).(GcmCredentialPropertiesResponsePtrOutput)
+// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
+func (o GcmCredentialResponseOutput) GcmEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GcmCredentialResponse) *string { return v.GcmEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The Google API key.
+func (o GcmCredentialResponseOutput) GoogleApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GcmCredentialResponse) *string { return v.GoogleApiKey }).(pulumi.StringPtrOutput)
 }
 
 type GcmCredentialResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2064,14 +1518,24 @@ func (o GcmCredentialResponsePtrOutput) Elem() GcmCredentialResponseOutput {
 	return o.ApplyT(func(v *GcmCredentialResponse) GcmCredentialResponse { return *v }).(GcmCredentialResponseOutput)
 }
 
-// Properties of NotificationHub GcmCredential.
-func (o GcmCredentialResponsePtrOutput) Properties() GcmCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *GcmCredentialResponse) *GcmCredentialPropertiesResponse {
+// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
+func (o GcmCredentialResponsePtrOutput) GcmEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GcmCredentialResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(GcmCredentialPropertiesResponsePtrOutput)
+		return v.GcmEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Google API key.
+func (o GcmCredentialResponsePtrOutput) GoogleApiKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GcmCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleApiKey
+	}).(pulumi.StringPtrOutput)
 }
 
 // Description of a NotificationHub MpnsCredential.
@@ -2247,181 +1711,13 @@ func (o MpnsCredentialPtrOutput) Thumbprint() pulumi.StringPtrOutput {
 }
 
 // Description of a NotificationHub MpnsCredential.
-type MpnsCredentialPropertiesResponse struct {
+type MpnsCredentialResponse struct {
 	// The certificate key for this credential.
 	CertificateKey *string `pulumi:"certificateKey"`
 	// The MPNS certificate.
 	MpnsCertificate *string `pulumi:"mpnsCertificate"`
 	// The MPNS certificate Thumbprint
 	Thumbprint *string `pulumi:"thumbprint"`
-}
-
-// MpnsCredentialPropertiesResponseInput is an input type that accepts MpnsCredentialPropertiesResponseArgs and MpnsCredentialPropertiesResponseOutput values.
-// You can construct a concrete instance of `MpnsCredentialPropertiesResponseInput` via:
-//
-//          MpnsCredentialPropertiesResponseArgs{...}
-type MpnsCredentialPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToMpnsCredentialPropertiesResponseOutput() MpnsCredentialPropertiesResponseOutput
-	ToMpnsCredentialPropertiesResponseOutputWithContext(context.Context) MpnsCredentialPropertiesResponseOutput
-}
-
-// Description of a NotificationHub MpnsCredential.
-type MpnsCredentialPropertiesResponseArgs struct {
-	// The certificate key for this credential.
-	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
-	// The MPNS certificate.
-	MpnsCertificate pulumi.StringPtrInput `pulumi:"mpnsCertificate"`
-	// The MPNS certificate Thumbprint
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
-}
-
-func (MpnsCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MpnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i MpnsCredentialPropertiesResponseArgs) ToMpnsCredentialPropertiesResponseOutput() MpnsCredentialPropertiesResponseOutput {
-	return i.ToMpnsCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i MpnsCredentialPropertiesResponseArgs) ToMpnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialPropertiesResponseOutput)
-}
-
-func (i MpnsCredentialPropertiesResponseArgs) ToMpnsCredentialPropertiesResponsePtrOutput() MpnsCredentialPropertiesResponsePtrOutput {
-	return i.ToMpnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MpnsCredentialPropertiesResponseArgs) ToMpnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialPropertiesResponseOutput).ToMpnsCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// MpnsCredentialPropertiesResponsePtrInput is an input type that accepts MpnsCredentialPropertiesResponseArgs, MpnsCredentialPropertiesResponsePtr and MpnsCredentialPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `MpnsCredentialPropertiesResponsePtrInput` via:
-//
-//          MpnsCredentialPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MpnsCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToMpnsCredentialPropertiesResponsePtrOutput() MpnsCredentialPropertiesResponsePtrOutput
-	ToMpnsCredentialPropertiesResponsePtrOutputWithContext(context.Context) MpnsCredentialPropertiesResponsePtrOutput
-}
-
-type mpnsCredentialPropertiesResponsePtrType MpnsCredentialPropertiesResponseArgs
-
-func MpnsCredentialPropertiesResponsePtr(v *MpnsCredentialPropertiesResponseArgs) MpnsCredentialPropertiesResponsePtrInput {
-	return (*mpnsCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*mpnsCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MpnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *mpnsCredentialPropertiesResponsePtrType) ToMpnsCredentialPropertiesResponsePtrOutput() MpnsCredentialPropertiesResponsePtrOutput {
-	return i.ToMpnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *mpnsCredentialPropertiesResponsePtrType) ToMpnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MpnsCredentialPropertiesResponsePtrOutput)
-}
-
-// Description of a NotificationHub MpnsCredential.
-type MpnsCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (MpnsCredentialPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MpnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o MpnsCredentialPropertiesResponseOutput) ToMpnsCredentialPropertiesResponseOutput() MpnsCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o MpnsCredentialPropertiesResponseOutput) ToMpnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o MpnsCredentialPropertiesResponseOutput) ToMpnsCredentialPropertiesResponsePtrOutput() MpnsCredentialPropertiesResponsePtrOutput {
-	return o.ToMpnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MpnsCredentialPropertiesResponseOutput) ToMpnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MpnsCredentialPropertiesResponse) *MpnsCredentialPropertiesResponse {
-		return &v
-	}).(MpnsCredentialPropertiesResponsePtrOutput)
-}
-
-// The certificate key for this credential.
-func (o MpnsCredentialPropertiesResponseOutput) CertificateKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MpnsCredentialPropertiesResponse) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
-}
-
-// The MPNS certificate.
-func (o MpnsCredentialPropertiesResponseOutput) MpnsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MpnsCredentialPropertiesResponse) *string { return v.MpnsCertificate }).(pulumi.StringPtrOutput)
-}
-
-// The MPNS certificate Thumbprint
-func (o MpnsCredentialPropertiesResponseOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MpnsCredentialPropertiesResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-type MpnsCredentialPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (MpnsCredentialPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MpnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o MpnsCredentialPropertiesResponsePtrOutput) ToMpnsCredentialPropertiesResponsePtrOutput() MpnsCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o MpnsCredentialPropertiesResponsePtrOutput) ToMpnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) MpnsCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o MpnsCredentialPropertiesResponsePtrOutput) Elem() MpnsCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *MpnsCredentialPropertiesResponse) MpnsCredentialPropertiesResponse { return *v }).(MpnsCredentialPropertiesResponseOutput)
-}
-
-// The certificate key for this credential.
-func (o MpnsCredentialPropertiesResponsePtrOutput) CertificateKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MpnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertificateKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// The MPNS certificate.
-func (o MpnsCredentialPropertiesResponsePtrOutput) MpnsCertificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MpnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MpnsCertificate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The MPNS certificate Thumbprint
-func (o MpnsCredentialPropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MpnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Description of a NotificationHub MpnsCredential.
-type MpnsCredentialResponse struct {
-	// Properties of NotificationHub MpnsCredential.
-	Properties *MpnsCredentialPropertiesResponse `pulumi:"properties"`
 }
 
 // MpnsCredentialResponseInput is an input type that accepts MpnsCredentialResponseArgs and MpnsCredentialResponseOutput values.
@@ -2437,8 +1733,12 @@ type MpnsCredentialResponseInput interface {
 
 // Description of a NotificationHub MpnsCredential.
 type MpnsCredentialResponseArgs struct {
-	// Properties of NotificationHub MpnsCredential.
-	Properties MpnsCredentialPropertiesResponsePtrInput `pulumi:"properties"`
+	// The certificate key for this credential.
+	CertificateKey pulumi.StringPtrInput `pulumi:"certificateKey"`
+	// The MPNS certificate.
+	MpnsCertificate pulumi.StringPtrInput `pulumi:"mpnsCertificate"`
+	// The MPNS certificate Thumbprint
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 }
 
 func (MpnsCredentialResponseArgs) ElementType() reflect.Type {
@@ -2519,9 +1819,19 @@ func (o MpnsCredentialResponseOutput) ToMpnsCredentialResponsePtrOutputWithConte
 	}).(MpnsCredentialResponsePtrOutput)
 }
 
-// Properties of NotificationHub MpnsCredential.
-func (o MpnsCredentialResponseOutput) Properties() MpnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v MpnsCredentialResponse) *MpnsCredentialPropertiesResponse { return v.Properties }).(MpnsCredentialPropertiesResponsePtrOutput)
+// The certificate key for this credential.
+func (o MpnsCredentialResponseOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MpnsCredentialResponse) *string { return v.CertificateKey }).(pulumi.StringPtrOutput)
+}
+
+// The MPNS certificate.
+func (o MpnsCredentialResponseOutput) MpnsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MpnsCredentialResponse) *string { return v.MpnsCertificate }).(pulumi.StringPtrOutput)
+}
+
+// The MPNS certificate Thumbprint
+func (o MpnsCredentialResponseOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MpnsCredentialResponse) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
 }
 
 type MpnsCredentialResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2542,683 +1852,34 @@ func (o MpnsCredentialResponsePtrOutput) Elem() MpnsCredentialResponseOutput {
 	return o.ApplyT(func(v *MpnsCredentialResponse) MpnsCredentialResponse { return *v }).(MpnsCredentialResponseOutput)
 }
 
-// Properties of NotificationHub MpnsCredential.
-func (o MpnsCredentialResponsePtrOutput) Properties() MpnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *MpnsCredentialResponse) *MpnsCredentialPropertiesResponse {
+// The certificate key for this credential.
+func (o MpnsCredentialResponsePtrOutput) CertificateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MpnsCredentialResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(MpnsCredentialPropertiesResponsePtrOutput)
-}
-
-// Namespace properties.
-type NamespacePropertiesResponse struct {
-	// The time the namespace was created.
-	CreatedAt *string `pulumi:"createdAt"`
-	// Whether or not the namespace is set as Critical.
-	Critical *bool `pulumi:"critical"`
-	// Data center for the namespace
-	DataCenter *string `pulumi:"dataCenter"`
-	// Whether or not the namespace is currently enabled.
-	Enabled *bool `pulumi:"enabled"`
-	// Identifier for Azure Insights metrics
-	MetricId string `pulumi:"metricId"`
-	// The name of the namespace.
-	Name *string `pulumi:"name"`
-	// The namespace type.
-	NamespaceType *string `pulumi:"namespaceType"`
-	// Provisioning state of the Namespace.
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-	Region *string `pulumi:"region"`
-	// ScaleUnit where the namespace gets created
-	ScaleUnit *string `pulumi:"scaleUnit"`
-	// Endpoint you can use to perform NotificationHub operations.
-	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
-	// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-	Status *string `pulumi:"status"`
-	// The Id of the Azure subscription associated with the namespace.
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// The time the namespace was updated.
-	UpdatedAt *string `pulumi:"updatedAt"`
-}
-
-// NamespacePropertiesResponseInput is an input type that accepts NamespacePropertiesResponseArgs and NamespacePropertiesResponseOutput values.
-// You can construct a concrete instance of `NamespacePropertiesResponseInput` via:
-//
-//          NamespacePropertiesResponseArgs{...}
-type NamespacePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToNamespacePropertiesResponseOutput() NamespacePropertiesResponseOutput
-	ToNamespacePropertiesResponseOutputWithContext(context.Context) NamespacePropertiesResponseOutput
-}
-
-// Namespace properties.
-type NamespacePropertiesResponseArgs struct {
-	// The time the namespace was created.
-	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
-	// Whether or not the namespace is set as Critical.
-	Critical pulumi.BoolPtrInput `pulumi:"critical"`
-	// Data center for the namespace
-	DataCenter pulumi.StringPtrInput `pulumi:"dataCenter"`
-	// Whether or not the namespace is currently enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Identifier for Azure Insights metrics
-	MetricId pulumi.StringInput `pulumi:"metricId"`
-	// The name of the namespace.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The namespace type.
-	NamespaceType pulumi.StringPtrInput `pulumi:"namespaceType"`
-	// Provisioning state of the Namespace.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-	Region pulumi.StringPtrInput `pulumi:"region"`
-	// ScaleUnit where the namespace gets created
-	ScaleUnit pulumi.StringPtrInput `pulumi:"scaleUnit"`
-	// Endpoint you can use to perform NotificationHub operations.
-	ServiceBusEndpoint pulumi.StringPtrInput `pulumi:"serviceBusEndpoint"`
-	// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The Id of the Azure subscription associated with the namespace.
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	// The time the namespace was updated.
-	UpdatedAt pulumi.StringPtrInput `pulumi:"updatedAt"`
-}
-
-func (NamespacePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespacePropertiesResponse)(nil)).Elem()
-}
-
-func (i NamespacePropertiesResponseArgs) ToNamespacePropertiesResponseOutput() NamespacePropertiesResponseOutput {
-	return i.ToNamespacePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i NamespacePropertiesResponseArgs) ToNamespacePropertiesResponseOutputWithContext(ctx context.Context) NamespacePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespacePropertiesResponseOutput)
-}
-
-func (i NamespacePropertiesResponseArgs) ToNamespacePropertiesResponsePtrOutput() NamespacePropertiesResponsePtrOutput {
-	return i.ToNamespacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NamespacePropertiesResponseArgs) ToNamespacePropertiesResponsePtrOutputWithContext(ctx context.Context) NamespacePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespacePropertiesResponseOutput).ToNamespacePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// NamespacePropertiesResponsePtrInput is an input type that accepts NamespacePropertiesResponseArgs, NamespacePropertiesResponsePtr and NamespacePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `NamespacePropertiesResponsePtrInput` via:
-//
-//          NamespacePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type NamespacePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToNamespacePropertiesResponsePtrOutput() NamespacePropertiesResponsePtrOutput
-	ToNamespacePropertiesResponsePtrOutputWithContext(context.Context) NamespacePropertiesResponsePtrOutput
-}
-
-type namespacePropertiesResponsePtrType NamespacePropertiesResponseArgs
-
-func NamespacePropertiesResponsePtr(v *NamespacePropertiesResponseArgs) NamespacePropertiesResponsePtrInput {
-	return (*namespacePropertiesResponsePtrType)(v)
-}
-
-func (*namespacePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamespacePropertiesResponse)(nil)).Elem()
-}
-
-func (i *namespacePropertiesResponsePtrType) ToNamespacePropertiesResponsePtrOutput() NamespacePropertiesResponsePtrOutput {
-	return i.ToNamespacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *namespacePropertiesResponsePtrType) ToNamespacePropertiesResponsePtrOutputWithContext(ctx context.Context) NamespacePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespacePropertiesResponsePtrOutput)
-}
-
-// Namespace properties.
-type NamespacePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (NamespacePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespacePropertiesResponse)(nil)).Elem()
-}
-
-func (o NamespacePropertiesResponseOutput) ToNamespacePropertiesResponseOutput() NamespacePropertiesResponseOutput {
-	return o
-}
-
-func (o NamespacePropertiesResponseOutput) ToNamespacePropertiesResponseOutputWithContext(ctx context.Context) NamespacePropertiesResponseOutput {
-	return o
-}
-
-func (o NamespacePropertiesResponseOutput) ToNamespacePropertiesResponsePtrOutput() NamespacePropertiesResponsePtrOutput {
-	return o.ToNamespacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NamespacePropertiesResponseOutput) ToNamespacePropertiesResponsePtrOutputWithContext(ctx context.Context) NamespacePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *NamespacePropertiesResponse {
-		return &v
-	}).(NamespacePropertiesResponsePtrOutput)
-}
-
-// The time the namespace was created.
-func (o NamespacePropertiesResponseOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
-}
-
-// Whether or not the namespace is set as Critical.
-func (o NamespacePropertiesResponseOutput) Critical() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *bool { return v.Critical }).(pulumi.BoolPtrOutput)
-}
-
-// Data center for the namespace
-func (o NamespacePropertiesResponseOutput) DataCenter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.DataCenter }).(pulumi.StringPtrOutput)
-}
-
-// Whether or not the namespace is currently enabled.
-func (o NamespacePropertiesResponseOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Identifier for Azure Insights metrics
-func (o NamespacePropertiesResponseOutput) MetricId() pulumi.StringOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) string { return v.MetricId }).(pulumi.StringOutput)
-}
-
-// The name of the namespace.
-func (o NamespacePropertiesResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The namespace type.
-func (o NamespacePropertiesResponseOutput) NamespaceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.NamespaceType }).(pulumi.StringPtrOutput)
-}
-
-// Provisioning state of the Namespace.
-func (o NamespacePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-func (o NamespacePropertiesResponseOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.Region }).(pulumi.StringPtrOutput)
-}
-
-// ScaleUnit where the namespace gets created
-func (o NamespacePropertiesResponseOutput) ScaleUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.ScaleUnit }).(pulumi.StringPtrOutput)
-}
-
-// Endpoint you can use to perform NotificationHub operations.
-func (o NamespacePropertiesResponseOutput) ServiceBusEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.ServiceBusEndpoint }).(pulumi.StringPtrOutput)
-}
-
-// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-func (o NamespacePropertiesResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// The Id of the Azure subscription associated with the namespace.
-func (o NamespacePropertiesResponseOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
-}
-
-// The time the namespace was updated.
-func (o NamespacePropertiesResponseOutput) UpdatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespacePropertiesResponse) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
-}
-
-type NamespacePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (NamespacePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NamespacePropertiesResponse)(nil)).Elem()
-}
-
-func (o NamespacePropertiesResponsePtrOutput) ToNamespacePropertiesResponsePtrOutput() NamespacePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NamespacePropertiesResponsePtrOutput) ToNamespacePropertiesResponsePtrOutputWithContext(ctx context.Context) NamespacePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NamespacePropertiesResponsePtrOutput) Elem() NamespacePropertiesResponseOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) NamespacePropertiesResponse { return *v }).(NamespacePropertiesResponseOutput)
-}
-
-// The time the namespace was created.
-func (o NamespacePropertiesResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
+		return v.CertificateKey
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether or not the namespace is set as Critical.
-func (o NamespacePropertiesResponsePtrOutput) Critical() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *bool {
+// The MPNS certificate.
+func (o MpnsCredentialResponsePtrOutput) MpnsCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MpnsCredentialResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Critical
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Data center for the namespace
-func (o NamespacePropertiesResponsePtrOutput) DataCenter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DataCenter
+		return v.MpnsCertificate
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether or not the namespace is currently enabled.
-func (o NamespacePropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *bool {
+// The MPNS certificate Thumbprint
+func (o MpnsCredentialResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MpnsCredentialResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Identifier for Azure Insights metrics
-func (o NamespacePropertiesResponsePtrOutput) MetricId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MetricId
+		return v.Thumbprint
 	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the namespace.
-func (o NamespacePropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The namespace type.
-func (o NamespacePropertiesResponsePtrOutput) NamespaceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NamespaceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Provisioning state of the Namespace.
-func (o NamespacePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-func (o NamespacePropertiesResponsePtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Region
-	}).(pulumi.StringPtrOutput)
-}
-
-// ScaleUnit where the namespace gets created
-func (o NamespacePropertiesResponsePtrOutput) ScaleUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ScaleUnit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Endpoint you can use to perform NotificationHub operations.
-func (o NamespacePropertiesResponsePtrOutput) ServiceBusEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceBusEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-func (o NamespacePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Id of the Azure subscription associated with the namespace.
-func (o NamespacePropertiesResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time the namespace was updated.
-func (o NamespacePropertiesResponsePtrOutput) UpdatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NamespacePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UpdatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-// NotificationHub properties.
-type NotificationHubPropertiesResponse struct {
-	// The AdmCredential of the created NotificationHub
-	AdmCredential *AdmCredentialResponse `pulumi:"admCredential"`
-	// The ApnsCredential of the created NotificationHub
-	ApnsCredential *ApnsCredentialResponse `pulumi:"apnsCredential"`
-	// The AuthorizationRules of the created NotificationHub
-	AuthorizationRules []SharedAccessAuthorizationRulePropertiesResponse `pulumi:"authorizationRules"`
-	// The BaiduCredential of the created NotificationHub
-	BaiduCredential *BaiduCredentialResponse `pulumi:"baiduCredential"`
-	// The GcmCredential of the created NotificationHub
-	GcmCredential *GcmCredentialResponse `pulumi:"gcmCredential"`
-	// The MpnsCredential of the created NotificationHub
-	MpnsCredential *MpnsCredentialResponse `pulumi:"mpnsCredential"`
-	// The NotificationHub name.
-	Name *string `pulumi:"name"`
-	// The RegistrationTtl of the created NotificationHub
-	RegistrationTtl *string `pulumi:"registrationTtl"`
-	// The WnsCredential of the created NotificationHub
-	WnsCredential *WnsCredentialResponse `pulumi:"wnsCredential"`
-}
-
-// NotificationHubPropertiesResponseInput is an input type that accepts NotificationHubPropertiesResponseArgs and NotificationHubPropertiesResponseOutput values.
-// You can construct a concrete instance of `NotificationHubPropertiesResponseInput` via:
-//
-//          NotificationHubPropertiesResponseArgs{...}
-type NotificationHubPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToNotificationHubPropertiesResponseOutput() NotificationHubPropertiesResponseOutput
-	ToNotificationHubPropertiesResponseOutputWithContext(context.Context) NotificationHubPropertiesResponseOutput
-}
-
-// NotificationHub properties.
-type NotificationHubPropertiesResponseArgs struct {
-	// The AdmCredential of the created NotificationHub
-	AdmCredential AdmCredentialResponsePtrInput `pulumi:"admCredential"`
-	// The ApnsCredential of the created NotificationHub
-	ApnsCredential ApnsCredentialResponsePtrInput `pulumi:"apnsCredential"`
-	// The AuthorizationRules of the created NotificationHub
-	AuthorizationRules SharedAccessAuthorizationRulePropertiesResponseArrayInput `pulumi:"authorizationRules"`
-	// The BaiduCredential of the created NotificationHub
-	BaiduCredential BaiduCredentialResponsePtrInput `pulumi:"baiduCredential"`
-	// The GcmCredential of the created NotificationHub
-	GcmCredential GcmCredentialResponsePtrInput `pulumi:"gcmCredential"`
-	// The MpnsCredential of the created NotificationHub
-	MpnsCredential MpnsCredentialResponsePtrInput `pulumi:"mpnsCredential"`
-	// The NotificationHub name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The RegistrationTtl of the created NotificationHub
-	RegistrationTtl pulumi.StringPtrInput `pulumi:"registrationTtl"`
-	// The WnsCredential of the created NotificationHub
-	WnsCredential WnsCredentialResponsePtrInput `pulumi:"wnsCredential"`
-}
-
-func (NotificationHubPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationHubPropertiesResponse)(nil)).Elem()
-}
-
-func (i NotificationHubPropertiesResponseArgs) ToNotificationHubPropertiesResponseOutput() NotificationHubPropertiesResponseOutput {
-	return i.ToNotificationHubPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i NotificationHubPropertiesResponseArgs) ToNotificationHubPropertiesResponseOutputWithContext(ctx context.Context) NotificationHubPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubPropertiesResponseOutput)
-}
-
-func (i NotificationHubPropertiesResponseArgs) ToNotificationHubPropertiesResponsePtrOutput() NotificationHubPropertiesResponsePtrOutput {
-	return i.ToNotificationHubPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NotificationHubPropertiesResponseArgs) ToNotificationHubPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationHubPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubPropertiesResponseOutput).ToNotificationHubPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// NotificationHubPropertiesResponsePtrInput is an input type that accepts NotificationHubPropertiesResponseArgs, NotificationHubPropertiesResponsePtr and NotificationHubPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `NotificationHubPropertiesResponsePtrInput` via:
-//
-//          NotificationHubPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type NotificationHubPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToNotificationHubPropertiesResponsePtrOutput() NotificationHubPropertiesResponsePtrOutput
-	ToNotificationHubPropertiesResponsePtrOutputWithContext(context.Context) NotificationHubPropertiesResponsePtrOutput
-}
-
-type notificationHubPropertiesResponsePtrType NotificationHubPropertiesResponseArgs
-
-func NotificationHubPropertiesResponsePtr(v *NotificationHubPropertiesResponseArgs) NotificationHubPropertiesResponsePtrInput {
-	return (*notificationHubPropertiesResponsePtrType)(v)
-}
-
-func (*notificationHubPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationHubPropertiesResponse)(nil)).Elem()
-}
-
-func (i *notificationHubPropertiesResponsePtrType) ToNotificationHubPropertiesResponsePtrOutput() NotificationHubPropertiesResponsePtrOutput {
-	return i.ToNotificationHubPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *notificationHubPropertiesResponsePtrType) ToNotificationHubPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationHubPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubPropertiesResponsePtrOutput)
-}
-
-// NotificationHub properties.
-type NotificationHubPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (NotificationHubPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationHubPropertiesResponse)(nil)).Elem()
-}
-
-func (o NotificationHubPropertiesResponseOutput) ToNotificationHubPropertiesResponseOutput() NotificationHubPropertiesResponseOutput {
-	return o
-}
-
-func (o NotificationHubPropertiesResponseOutput) ToNotificationHubPropertiesResponseOutputWithContext(ctx context.Context) NotificationHubPropertiesResponseOutput {
-	return o
-}
-
-func (o NotificationHubPropertiesResponseOutput) ToNotificationHubPropertiesResponsePtrOutput() NotificationHubPropertiesResponsePtrOutput {
-	return o.ToNotificationHubPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NotificationHubPropertiesResponseOutput) ToNotificationHubPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationHubPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v NotificationHubPropertiesResponse) *NotificationHubPropertiesResponse {
-		return &v
-	}).(NotificationHubPropertiesResponsePtrOutput)
-}
-
-// The AdmCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponseOutput) AdmCredential() AdmCredentialResponsePtrOutput {
-	return o.ApplyT(func(v NotificationHubPropertiesResponse) *AdmCredentialResponse { return v.AdmCredential }).(AdmCredentialResponsePtrOutput)
-}
-
-// The ApnsCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponseOutput) ApnsCredential() ApnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v NotificationHubPropertiesResponse) *ApnsCredentialResponse { return v.ApnsCredential }).(ApnsCredentialResponsePtrOutput)
-}
-
-// The AuthorizationRules of the created NotificationHub
-func (o NotificationHubPropertiesResponseOutput) AuthorizationRules() SharedAccessAuthorizationRulePropertiesResponseArrayOutput {
-	return o.ApplyT(func(v NotificationHubPropertiesResponse) []SharedAccessAuthorizationRulePropertiesResponse {
-		return v.AuthorizationRules
-	}).(SharedAccessAuthorizationRulePropertiesResponseArrayOutput)
-}
-
-// The BaiduCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponseOutput) BaiduCredential() BaiduCredentialResponsePtrOutput {
-	return o.ApplyT(func(v NotificationHubPropertiesResponse) *BaiduCredentialResponse { return v.BaiduCredential }).(BaiduCredentialResponsePtrOutput)
-}
-
-// The GcmCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponseOutput) GcmCredential() GcmCredentialResponsePtrOutput {
-	return o.ApplyT(func(v NotificationHubPropertiesResponse) *GcmCredentialResponse { return v.GcmCredential }).(GcmCredentialResponsePtrOutput)
-}
-
-// The MpnsCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponseOutput) MpnsCredential() MpnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v NotificationHubPropertiesResponse) *MpnsCredentialResponse { return v.MpnsCredential }).(MpnsCredentialResponsePtrOutput)
-}
-
-// The NotificationHub name.
-func (o NotificationHubPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotificationHubPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The RegistrationTtl of the created NotificationHub
-func (o NotificationHubPropertiesResponseOutput) RegistrationTtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotificationHubPropertiesResponse) *string { return v.RegistrationTtl }).(pulumi.StringPtrOutput)
-}
-
-// The WnsCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponseOutput) WnsCredential() WnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v NotificationHubPropertiesResponse) *WnsCredentialResponse { return v.WnsCredential }).(WnsCredentialResponsePtrOutput)
-}
-
-type NotificationHubPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (NotificationHubPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationHubPropertiesResponse)(nil)).Elem()
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) ToNotificationHubPropertiesResponsePtrOutput() NotificationHubPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) ToNotificationHubPropertiesResponsePtrOutputWithContext(ctx context.Context) NotificationHubPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NotificationHubPropertiesResponsePtrOutput) Elem() NotificationHubPropertiesResponseOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) NotificationHubPropertiesResponse { return *v }).(NotificationHubPropertiesResponseOutput)
-}
-
-// The AdmCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponsePtrOutput) AdmCredential() AdmCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *AdmCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AdmCredential
-	}).(AdmCredentialResponsePtrOutput)
-}
-
-// The ApnsCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponsePtrOutput) ApnsCredential() ApnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *ApnsCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ApnsCredential
-	}).(ApnsCredentialResponsePtrOutput)
-}
-
-// The AuthorizationRules of the created NotificationHub
-func (o NotificationHubPropertiesResponsePtrOutput) AuthorizationRules() SharedAccessAuthorizationRulePropertiesResponseArrayOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) []SharedAccessAuthorizationRulePropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorizationRules
-	}).(SharedAccessAuthorizationRulePropertiesResponseArrayOutput)
-}
-
-// The BaiduCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponsePtrOutput) BaiduCredential() BaiduCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *BaiduCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.BaiduCredential
-	}).(BaiduCredentialResponsePtrOutput)
-}
-
-// The GcmCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponsePtrOutput) GcmCredential() GcmCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *GcmCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.GcmCredential
-	}).(GcmCredentialResponsePtrOutput)
-}
-
-// The MpnsCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponsePtrOutput) MpnsCredential() MpnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *MpnsCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.MpnsCredential
-	}).(MpnsCredentialResponsePtrOutput)
-}
-
-// The NotificationHub name.
-func (o NotificationHubPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The RegistrationTtl of the created NotificationHub
-func (o NotificationHubPropertiesResponsePtrOutput) RegistrationTtl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RegistrationTtl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The WnsCredential of the created NotificationHub
-func (o NotificationHubPropertiesResponsePtrOutput) WnsCredential() WnsCredentialResponsePtrOutput {
-	return o.ApplyT(func(v *NotificationHubPropertiesResponse) *WnsCredentialResponse {
-		if v == nil {
-			return nil
-		}
-		return v.WnsCredential
-	}).(WnsCredentialResponsePtrOutput)
 }
 
 // SharedAccessAuthorizationRule properties.
@@ -3467,47 +2128,6 @@ func (i SharedAccessAuthorizationRulePropertiesResponseArgs) ToSharedAccessAutho
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesResponseOutput)
 }
 
-func (i SharedAccessAuthorizationRulePropertiesResponseArgs) ToSharedAccessAuthorizationRulePropertiesResponsePtrOutput() SharedAccessAuthorizationRulePropertiesResponsePtrOutput {
-	return i.ToSharedAccessAuthorizationRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SharedAccessAuthorizationRulePropertiesResponseArgs) ToSharedAccessAuthorizationRulePropertiesResponsePtrOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesResponseOutput).ToSharedAccessAuthorizationRulePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// SharedAccessAuthorizationRulePropertiesResponsePtrInput is an input type that accepts SharedAccessAuthorizationRulePropertiesResponseArgs, SharedAccessAuthorizationRulePropertiesResponsePtr and SharedAccessAuthorizationRulePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `SharedAccessAuthorizationRulePropertiesResponsePtrInput` via:
-//
-//          SharedAccessAuthorizationRulePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SharedAccessAuthorizationRulePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSharedAccessAuthorizationRulePropertiesResponsePtrOutput() SharedAccessAuthorizationRulePropertiesResponsePtrOutput
-	ToSharedAccessAuthorizationRulePropertiesResponsePtrOutputWithContext(context.Context) SharedAccessAuthorizationRulePropertiesResponsePtrOutput
-}
-
-type sharedAccessAuthorizationRulePropertiesResponsePtrType SharedAccessAuthorizationRulePropertiesResponseArgs
-
-func SharedAccessAuthorizationRulePropertiesResponsePtr(v *SharedAccessAuthorizationRulePropertiesResponseArgs) SharedAccessAuthorizationRulePropertiesResponsePtrInput {
-	return (*sharedAccessAuthorizationRulePropertiesResponsePtrType)(v)
-}
-
-func (*sharedAccessAuthorizationRulePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SharedAccessAuthorizationRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i *sharedAccessAuthorizationRulePropertiesResponsePtrType) ToSharedAccessAuthorizationRulePropertiesResponsePtrOutput() SharedAccessAuthorizationRulePropertiesResponsePtrOutput {
-	return i.ToSharedAccessAuthorizationRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sharedAccessAuthorizationRulePropertiesResponsePtrType) ToSharedAccessAuthorizationRulePropertiesResponsePtrOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessAuthorizationRulePropertiesResponsePtrOutput)
-}
-
 // SharedAccessAuthorizationRulePropertiesResponseArrayInput is an input type that accepts SharedAccessAuthorizationRulePropertiesResponseArray and SharedAccessAuthorizationRulePropertiesResponseArrayOutput values.
 // You can construct a concrete instance of `SharedAccessAuthorizationRulePropertiesResponseArrayInput` via:
 //
@@ -3546,16 +2166,6 @@ func (o SharedAccessAuthorizationRulePropertiesResponseOutput) ToSharedAccessAut
 
 func (o SharedAccessAuthorizationRulePropertiesResponseOutput) ToSharedAccessAuthorizationRulePropertiesResponseOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesResponseOutput {
 	return o
-}
-
-func (o SharedAccessAuthorizationRulePropertiesResponseOutput) ToSharedAccessAuthorizationRulePropertiesResponsePtrOutput() SharedAccessAuthorizationRulePropertiesResponsePtrOutput {
-	return o.ToSharedAccessAuthorizationRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SharedAccessAuthorizationRulePropertiesResponseOutput) ToSharedAccessAuthorizationRulePropertiesResponsePtrOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesResponse) *SharedAccessAuthorizationRulePropertiesResponse {
-		return &v
-	}).(SharedAccessAuthorizationRulePropertiesResponsePtrOutput)
 }
 
 // A string that describes the claim type
@@ -3603,116 +2213,6 @@ func (o SharedAccessAuthorizationRulePropertiesResponseOutput) SecondaryKey() pu
 	return o.ApplyT(func(v SharedAccessAuthorizationRulePropertiesResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
-type SharedAccessAuthorizationRulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SharedAccessAuthorizationRulePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SharedAccessAuthorizationRulePropertiesResponse)(nil)).Elem()
-}
-
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) ToSharedAccessAuthorizationRulePropertiesResponsePtrOutput() SharedAccessAuthorizationRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) ToSharedAccessAuthorizationRulePropertiesResponsePtrOutputWithContext(ctx context.Context) SharedAccessAuthorizationRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) Elem() SharedAccessAuthorizationRulePropertiesResponseOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRulePropertiesResponse) SharedAccessAuthorizationRulePropertiesResponse {
-		return *v
-	}).(SharedAccessAuthorizationRulePropertiesResponseOutput)
-}
-
-// A string that describes the claim type
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) ClaimType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ClaimType
-	}).(pulumi.StringPtrOutput)
-}
-
-// A string that describes the claim value
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) ClaimValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ClaimValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// The created time for this rule
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) CreatedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// A string that describes the authorization rule.
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) KeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The last modified time for this rule
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) ModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ModifiedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) PrimaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrimaryKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// The revision number for the rule
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) Revision() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRulePropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Revision
-	}).(pulumi.IntPtrOutput)
-}
-
-// The rights associated with the rule.
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) Rights() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRulePropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Rights
-	}).(pulumi.StringArrayOutput)
-}
-
-// A base64-encoded 256-bit primary key for signing and validating the SAS token.
-func (o SharedAccessAuthorizationRulePropertiesResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedAccessAuthorizationRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecondaryKey
-	}).(pulumi.StringPtrOutput)
-}
-
 type SharedAccessAuthorizationRulePropertiesResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessAuthorizationRulePropertiesResponseArrayOutput) ElementType() reflect.Type {
@@ -3735,14 +2235,30 @@ func (o SharedAccessAuthorizationRulePropertiesResponseArrayOutput) Index(i pulu
 
 // Description of a Namespace AuthorizationRules.
 type SharedAccessAuthorizationRuleResourceResponse struct {
+	// A string that describes the claim type
+	ClaimType string `pulumi:"claimType"`
+	// A string that describes the claim value
+	ClaimValue string `pulumi:"claimValue"`
+	// The created time for this rule
+	CreatedTime string `pulumi:"createdTime"`
 	// Resource Id
 	Id string `pulumi:"id"`
+	// A string that describes the authorization rule.
+	KeyName string `pulumi:"keyName"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// The last modified time for this rule
+	ModifiedTime string `pulumi:"modifiedTime"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the Namespace AuthorizationRule.
-	Properties *SharedAccessAuthorizationRulePropertiesResponse `pulumi:"properties"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey string `pulumi:"primaryKey"`
+	// The revision number for the rule
+	Revision int `pulumi:"revision"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey string `pulumi:"secondaryKey"`
 	// The sku of the created namespace
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags
@@ -3764,14 +2280,30 @@ type SharedAccessAuthorizationRuleResourceResponseInput interface {
 
 // Description of a Namespace AuthorizationRules.
 type SharedAccessAuthorizationRuleResourceResponseArgs struct {
+	// A string that describes the claim type
+	ClaimType pulumi.StringInput `pulumi:"claimType"`
+	// A string that describes the claim value
+	ClaimValue pulumi.StringInput `pulumi:"claimValue"`
+	// The created time for this rule
+	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
 	// Resource Id
 	Id pulumi.StringInput `pulumi:"id"`
+	// A string that describes the authorization rule.
+	KeyName pulumi.StringInput `pulumi:"keyName"`
 	// Resource location
 	Location pulumi.StringPtrInput `pulumi:"location"`
+	// The last modified time for this rule
+	ModifiedTime pulumi.StringInput `pulumi:"modifiedTime"`
 	// Resource name
 	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Namespace AuthorizationRule.
-	Properties SharedAccessAuthorizationRulePropertiesResponsePtrInput `pulumi:"properties"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
+	// The revision number for the rule
+	Revision pulumi.IntInput `pulumi:"revision"`
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput `pulumi:"rights"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
 	// The sku of the created namespace
 	Sku SkuResponsePtrInput `pulumi:"sku"`
 	// Resource tags
@@ -3832,9 +2364,29 @@ func (o SharedAccessAuthorizationRuleResourceResponseOutput) ToSharedAccessAutho
 	return o
 }
 
+// A string that describes the claim type
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) ClaimType() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.ClaimType }).(pulumi.StringOutput)
+}
+
+// A string that describes the claim value
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) ClaimValue() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.ClaimValue }).(pulumi.StringOutput)
+}
+
+// The created time for this rule
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
 // Resource Id
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A string that describes the authorization rule.
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) KeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.KeyName }).(pulumi.StringOutput)
 }
 
 // Resource location
@@ -3842,16 +2394,34 @@ func (o SharedAccessAuthorizationRuleResourceResponseOutput) Location() pulumi.S
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
+// The last modified time for this rule
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) ModifiedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.ModifiedTime }).(pulumi.StringOutput)
+}
+
 // Resource name
 func (o SharedAccessAuthorizationRuleResourceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Properties of the Namespace AuthorizationRule.
-func (o SharedAccessAuthorizationRuleResourceResponseOutput) Properties() SharedAccessAuthorizationRulePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) *SharedAccessAuthorizationRulePropertiesResponse {
-		return v.Properties
-	}).(SharedAccessAuthorizationRulePropertiesResponsePtrOutput)
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+// The revision number for the rule
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) Revision() pulumi.IntOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) int { return v.Revision }).(pulumi.IntOutput)
+}
+
+// The rights associated with the rule.
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) Rights() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) []string { return v.Rights }).(pulumi.StringArrayOutput)
+}
+
+// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+func (o SharedAccessAuthorizationRuleResourceResponseOutput) SecondaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedAccessAuthorizationRuleResourceResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
 }
 
 // The sku of the created namespace
@@ -4482,181 +3052,13 @@ func (o WnsCredentialPtrOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
 }
 
 // Description of a NotificationHub WnsCredential.
-type WnsCredentialPropertiesResponse struct {
+type WnsCredentialResponse struct {
 	// The package ID for this credential.
 	PackageSid *string `pulumi:"packageSid"`
 	// The secret key.
 	SecretKey *string `pulumi:"secretKey"`
 	// The Windows Live endpoint.
 	WindowsLiveEndpoint *string `pulumi:"windowsLiveEndpoint"`
-}
-
-// WnsCredentialPropertiesResponseInput is an input type that accepts WnsCredentialPropertiesResponseArgs and WnsCredentialPropertiesResponseOutput values.
-// You can construct a concrete instance of `WnsCredentialPropertiesResponseInput` via:
-//
-//          WnsCredentialPropertiesResponseArgs{...}
-type WnsCredentialPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToWnsCredentialPropertiesResponseOutput() WnsCredentialPropertiesResponseOutput
-	ToWnsCredentialPropertiesResponseOutputWithContext(context.Context) WnsCredentialPropertiesResponseOutput
-}
-
-// Description of a NotificationHub WnsCredential.
-type WnsCredentialPropertiesResponseArgs struct {
-	// The package ID for this credential.
-	PackageSid pulumi.StringPtrInput `pulumi:"packageSid"`
-	// The secret key.
-	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
-	// The Windows Live endpoint.
-	WindowsLiveEndpoint pulumi.StringPtrInput `pulumi:"windowsLiveEndpoint"`
-}
-
-func (WnsCredentialPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i WnsCredentialPropertiesResponseArgs) ToWnsCredentialPropertiesResponseOutput() WnsCredentialPropertiesResponseOutput {
-	return i.ToWnsCredentialPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i WnsCredentialPropertiesResponseArgs) ToWnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialPropertiesResponseOutput)
-}
-
-func (i WnsCredentialPropertiesResponseArgs) ToWnsCredentialPropertiesResponsePtrOutput() WnsCredentialPropertiesResponsePtrOutput {
-	return i.ToWnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WnsCredentialPropertiesResponseArgs) ToWnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialPropertiesResponseOutput).ToWnsCredentialPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// WnsCredentialPropertiesResponsePtrInput is an input type that accepts WnsCredentialPropertiesResponseArgs, WnsCredentialPropertiesResponsePtr and WnsCredentialPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `WnsCredentialPropertiesResponsePtrInput` via:
-//
-//          WnsCredentialPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type WnsCredentialPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToWnsCredentialPropertiesResponsePtrOutput() WnsCredentialPropertiesResponsePtrOutput
-	ToWnsCredentialPropertiesResponsePtrOutputWithContext(context.Context) WnsCredentialPropertiesResponsePtrOutput
-}
-
-type wnsCredentialPropertiesResponsePtrType WnsCredentialPropertiesResponseArgs
-
-func WnsCredentialPropertiesResponsePtr(v *WnsCredentialPropertiesResponseArgs) WnsCredentialPropertiesResponsePtrInput {
-	return (*wnsCredentialPropertiesResponsePtrType)(v)
-}
-
-func (*wnsCredentialPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (i *wnsCredentialPropertiesResponsePtrType) ToWnsCredentialPropertiesResponsePtrOutput() WnsCredentialPropertiesResponsePtrOutput {
-	return i.ToWnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *wnsCredentialPropertiesResponsePtrType) ToWnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WnsCredentialPropertiesResponsePtrOutput)
-}
-
-// Description of a NotificationHub WnsCredential.
-type WnsCredentialPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (WnsCredentialPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o WnsCredentialPropertiesResponseOutput) ToWnsCredentialPropertiesResponseOutput() WnsCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o WnsCredentialPropertiesResponseOutput) ToWnsCredentialPropertiesResponseOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponseOutput {
-	return o
-}
-
-func (o WnsCredentialPropertiesResponseOutput) ToWnsCredentialPropertiesResponsePtrOutput() WnsCredentialPropertiesResponsePtrOutput {
-	return o.ToWnsCredentialPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WnsCredentialPropertiesResponseOutput) ToWnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v WnsCredentialPropertiesResponse) *WnsCredentialPropertiesResponse {
-		return &v
-	}).(WnsCredentialPropertiesResponsePtrOutput)
-}
-
-// The package ID for this credential.
-func (o WnsCredentialPropertiesResponseOutput) PackageSid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WnsCredentialPropertiesResponse) *string { return v.PackageSid }).(pulumi.StringPtrOutput)
-}
-
-// The secret key.
-func (o WnsCredentialPropertiesResponseOutput) SecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WnsCredentialPropertiesResponse) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
-}
-
-// The Windows Live endpoint.
-func (o WnsCredentialPropertiesResponseOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WnsCredentialPropertiesResponse) *string { return v.WindowsLiveEndpoint }).(pulumi.StringPtrOutput)
-}
-
-type WnsCredentialPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (WnsCredentialPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WnsCredentialPropertiesResponse)(nil)).Elem()
-}
-
-func (o WnsCredentialPropertiesResponsePtrOutput) ToWnsCredentialPropertiesResponsePtrOutput() WnsCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o WnsCredentialPropertiesResponsePtrOutput) ToWnsCredentialPropertiesResponsePtrOutputWithContext(ctx context.Context) WnsCredentialPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o WnsCredentialPropertiesResponsePtrOutput) Elem() WnsCredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v *WnsCredentialPropertiesResponse) WnsCredentialPropertiesResponse { return *v }).(WnsCredentialPropertiesResponseOutput)
-}
-
-// The package ID for this credential.
-func (o WnsCredentialPropertiesResponsePtrOutput) PackageSid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PackageSid
-	}).(pulumi.StringPtrOutput)
-}
-
-// The secret key.
-func (o WnsCredentialPropertiesResponsePtrOutput) SecretKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecretKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Windows Live endpoint.
-func (o WnsCredentialPropertiesResponsePtrOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WnsCredentialPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WindowsLiveEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Description of a NotificationHub WnsCredential.
-type WnsCredentialResponse struct {
-	// Properties of NotificationHub WnsCredential.
-	Properties *WnsCredentialPropertiesResponse `pulumi:"properties"`
 }
 
 // WnsCredentialResponseInput is an input type that accepts WnsCredentialResponseArgs and WnsCredentialResponseOutput values.
@@ -4672,8 +3074,12 @@ type WnsCredentialResponseInput interface {
 
 // Description of a NotificationHub WnsCredential.
 type WnsCredentialResponseArgs struct {
-	// Properties of NotificationHub WnsCredential.
-	Properties WnsCredentialPropertiesResponsePtrInput `pulumi:"properties"`
+	// The package ID for this credential.
+	PackageSid pulumi.StringPtrInput `pulumi:"packageSid"`
+	// The secret key.
+	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
+	// The Windows Live endpoint.
+	WindowsLiveEndpoint pulumi.StringPtrInput `pulumi:"windowsLiveEndpoint"`
 }
 
 func (WnsCredentialResponseArgs) ElementType() reflect.Type {
@@ -4754,9 +3160,19 @@ func (o WnsCredentialResponseOutput) ToWnsCredentialResponsePtrOutputWithContext
 	}).(WnsCredentialResponsePtrOutput)
 }
 
-// Properties of NotificationHub WnsCredential.
-func (o WnsCredentialResponseOutput) Properties() WnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v WnsCredentialResponse) *WnsCredentialPropertiesResponse { return v.Properties }).(WnsCredentialPropertiesResponsePtrOutput)
+// The package ID for this credential.
+func (o WnsCredentialResponseOutput) PackageSid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WnsCredentialResponse) *string { return v.PackageSid }).(pulumi.StringPtrOutput)
+}
+
+// The secret key.
+func (o WnsCredentialResponseOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WnsCredentialResponse) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+}
+
+// The Windows Live endpoint.
+func (o WnsCredentialResponseOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WnsCredentialResponse) *string { return v.WindowsLiveEndpoint }).(pulumi.StringPtrOutput)
 }
 
 type WnsCredentialResponsePtrOutput struct{ *pulumi.OutputState }
@@ -4777,56 +3193,61 @@ func (o WnsCredentialResponsePtrOutput) Elem() WnsCredentialResponseOutput {
 	return o.ApplyT(func(v *WnsCredentialResponse) WnsCredentialResponse { return *v }).(WnsCredentialResponseOutput)
 }
 
-// Properties of NotificationHub WnsCredential.
-func (o WnsCredentialResponsePtrOutput) Properties() WnsCredentialPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *WnsCredentialResponse) *WnsCredentialPropertiesResponse {
+// The package ID for this credential.
+func (o WnsCredentialResponsePtrOutput) PackageSid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WnsCredentialResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(WnsCredentialPropertiesResponsePtrOutput)
+		return v.PackageSid
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secret key.
+func (o WnsCredentialResponsePtrOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WnsCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Windows Live endpoint.
+func (o WnsCredentialResponsePtrOutput) WindowsLiveEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WnsCredentialResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WindowsLiveEndpoint
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
 	pulumi.RegisterOutputType(AdmCredentialOutput{})
 	pulumi.RegisterOutputType(AdmCredentialPtrOutput{})
-	pulumi.RegisterOutputType(AdmCredentialPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(AdmCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AdmCredentialResponseOutput{})
 	pulumi.RegisterOutputType(AdmCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialPtrOutput{})
-	pulumi.RegisterOutputType(ApnsCredentialPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ApnsCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialResponseOutput{})
 	pulumi.RegisterOutputType(ApnsCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialPtrOutput{})
-	pulumi.RegisterOutputType(BaiduCredentialPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(BaiduCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialResponseOutput{})
 	pulumi.RegisterOutputType(BaiduCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(GcmCredentialOutput{})
 	pulumi.RegisterOutputType(GcmCredentialPtrOutput{})
-	pulumi.RegisterOutputType(GcmCredentialPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(GcmCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(GcmCredentialResponseOutput{})
 	pulumi.RegisterOutputType(GcmCredentialResponsePtrOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialPtrOutput{})
-	pulumi.RegisterOutputType(MpnsCredentialPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(MpnsCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialResponseOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialResponsePtrOutput{})
-	pulumi.RegisterOutputType(NamespacePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(NamespacePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(NotificationHubPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(NotificationHubPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRulePropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRuleResourceResponseOutput{})
 	pulumi.RegisterOutputType(SharedAccessAuthorizationRuleResourceResponseArrayOutput{})
@@ -4836,8 +3257,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(WnsCredentialOutput{})
 	pulumi.RegisterOutputType(WnsCredentialPtrOutput{})
-	pulumi.RegisterOutputType(WnsCredentialPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(WnsCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WnsCredentialResponseOutput{})
 	pulumi.RegisterOutputType(WnsCredentialResponsePtrOutput{})
 }

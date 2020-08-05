@@ -14,16 +14,24 @@ import (
 type ServiceFabric struct {
 	pulumi.CustomResourceState
 
+	// The applicable schedule for the virtual machine.
+	ApplicableSchedule ApplicableScheduleResponseOutput `pulumi:"applicableSchedule"`
+	// The resource id of the environment under which the service fabric resource is present
+	EnvironmentId pulumi.StringPtrOutput `pulumi:"environmentId"`
+	// The backing service fabric resource's id
+	ExternalServiceFabricId pulumi.StringPtrOutput `pulumi:"externalServiceFabricId"`
 	// The location of the resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the resource.
-	Properties ServiceFabricPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringOutput `pulumi:"uniqueIdentifier"`
 }
 
 // NewServiceFabric registers a new resource with the given unique name, arguments, and options.
@@ -66,29 +74,45 @@ func GetServiceFabric(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceFabric resources.
 type serviceFabricState struct {
+	// The applicable schedule for the virtual machine.
+	ApplicableSchedule *ApplicableScheduleResponse `pulumi:"applicableSchedule"`
+	// The resource id of the environment under which the service fabric resource is present
+	EnvironmentId *string `pulumi:"environmentId"`
+	// The backing service fabric resource's id
+	ExternalServiceFabricId *string `pulumi:"externalServiceFabricId"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *ServiceFabricPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 type ServiceFabricState struct {
+	// The applicable schedule for the virtual machine.
+	ApplicableSchedule ApplicableScheduleResponsePtrInput
+	// The resource id of the environment under which the service fabric resource is present
+	EnvironmentId pulumi.StringPtrInput
+	// The backing service fabric resource's id
+	ExternalServiceFabricId pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the resource.
-	Properties ServiceFabricPropertiesResponsePtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (ServiceFabricState) ElementType() reflect.Type {

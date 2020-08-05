@@ -27,9 +27,14 @@ type LookupAccessPolicyArgs struct {
 
 // An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
 type LookupAccessPolicyResult struct {
+	// An description of the access policy.
+	Description *string `pulumi:"description"`
 	// Resource name
-	Name       string                                 `pulumi:"name"`
-	Properties AccessPolicyResourcePropertiesResponse `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// The objectId of the principal in Azure Active Directory.
+	PrincipalObjectId *string `pulumi:"principalObjectId"`
+	// The list of roles the principal is assigned on the environment.
+	Roles []string `pulumi:"roles"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

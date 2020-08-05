@@ -14,14 +14,16 @@ import (
 type AccessControlRecord struct {
 	pulumi.CustomResourceState
 
+	// The iSCSI initiator name (IQN).
+	InitiatorName pulumi.StringOutput `pulumi:"initiatorName"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The name of the object.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of access control record.
-	Properties AccessControlRecordPropertiesResponseOutput `pulumi:"properties"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The number of volumes using the access control record.
+	VolumeCount pulumi.IntOutput `pulumi:"volumeCount"`
 }
 
 // NewAccessControlRecord registers a new resource with the given unique name, arguments, and options.
@@ -64,25 +66,29 @@ func GetAccessControlRecord(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessControlRecord resources.
 type accessControlRecordState struct {
+	// The iSCSI initiator name (IQN).
+	InitiatorName *string `pulumi:"initiatorName"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The name of the object.
 	Name *string `pulumi:"name"`
-	// The properties of access control record.
-	Properties *AccessControlRecordPropertiesResponse `pulumi:"properties"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
+	// The number of volumes using the access control record.
+	VolumeCount *int `pulumi:"volumeCount"`
 }
 
 type AccessControlRecordState struct {
+	// The iSCSI initiator name (IQN).
+	InitiatorName pulumi.StringPtrInput
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrInput
 	// The name of the object.
 	Name pulumi.StringPtrInput
-	// The properties of access control record.
-	Properties AccessControlRecordPropertiesResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
+	// The number of volumes using the access control record.
+	VolumeCount pulumi.IntPtrInput
 }
 
 func (AccessControlRecordState) ElementType() reflect.Type {

@@ -25,12 +25,36 @@ type LookupWebAppFunctionArgs struct {
 
 // Function information.
 type LookupWebAppFunctionResult struct {
+	// Config information.
+	Config map[string]interface{} `pulumi:"config"`
+	// Config URI.
+	Config_href *string `pulumi:"config_href"`
+	// File list.
+	Files map[string]string `pulumi:"files"`
+	// Function App ID.
+	Function_app_id *string `pulumi:"function_app_id"`
+	// Function URI.
+	Href *string `pulumi:"href"`
+	// The invocation URL
+	Invoke_url_template *string `pulumi:"invoke_url_template"`
+	// Gets or sets a value indicating whether the function is disabled
+	IsDisabled *bool `pulumi:"isDisabled"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
+	// The function language
+	Language *string `pulumi:"language"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// FunctionEnvelope resource specific properties
-	Properties FunctionEnvelopeResponseProperties `pulumi:"properties"`
+	// Script URI.
+	Script_href *string `pulumi:"script_href"`
+	// Script root path URI.
+	Script_root_path_href *string `pulumi:"script_root_path_href"`
+	// Secrets file URI.
+	Secrets_file_href *string `pulumi:"secrets_file_href"`
+	// Test data used when testing via the Azure Portal.
+	Test_data *string `pulumi:"test_data"`
+	// Test data URI.
+	Test_data_href *string `pulumi:"test_data_href"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

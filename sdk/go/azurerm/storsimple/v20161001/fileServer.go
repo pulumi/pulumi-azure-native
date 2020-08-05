@@ -14,10 +14,16 @@ import (
 type FileServer struct {
 	pulumi.CustomResourceState
 
+	// The backup policy id.
+	BackupScheduleGroupId pulumi.StringOutput `pulumi:"backupScheduleGroupId"`
+	// The description of the file server
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Domain of the file server
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties.
-	Properties FileServerPropertiesResponseOutput `pulumi:"properties"`
+	// The storage domain id.
+	StorageDomainId pulumi.StringOutput `pulumi:"storageDomainId"`
 	// The type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -71,19 +77,31 @@ func GetFileServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileServer resources.
 type fileServerState struct {
+	// The backup policy id.
+	BackupScheduleGroupId *string `pulumi:"backupScheduleGroupId"`
+	// The description of the file server
+	Description *string `pulumi:"description"`
+	// Domain of the file server
+	DomainName *string `pulumi:"domainName"`
 	// The name.
 	Name *string `pulumi:"name"`
-	// The properties.
-	Properties *FileServerPropertiesResponse `pulumi:"properties"`
+	// The storage domain id.
+	StorageDomainId *string `pulumi:"storageDomainId"`
 	// The type.
 	Type *string `pulumi:"type"`
 }
 
 type FileServerState struct {
+	// The backup policy id.
+	BackupScheduleGroupId pulumi.StringPtrInput
+	// The description of the file server
+	Description pulumi.StringPtrInput
+	// Domain of the file server
+	DomainName pulumi.StringPtrInput
 	// The name.
 	Name pulumi.StringPtrInput
-	// The properties.
-	Properties FileServerPropertiesResponsePtrInput
+	// The storage domain id.
+	StorageDomainId pulumi.StringPtrInput
 	// The type.
 	Type pulumi.StringPtrInput
 }

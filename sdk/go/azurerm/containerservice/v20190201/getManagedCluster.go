@@ -25,12 +25,38 @@ type LookupManagedClusterArgs struct {
 
 // Managed cluster.
 type LookupManagedClusterResult struct {
+	// Profile of Azure Active Directory configuration.
+	AadProfile *ManagedClusterAADProfileResponse `pulumi:"aadProfile"`
+	// Profile of managed cluster add-on.
+	AddonProfiles map[string]ManagedClusterAddonProfileResponse `pulumi:"addonProfiles"`
+	// Properties of the agent pool.
+	AgentPoolProfiles []ManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
+	// (PREVIEW) Authorized IP Ranges to kubernetes API server.
+	ApiServerAuthorizedIPRanges []string `pulumi:"apiServerAuthorizedIPRanges"`
+	// DNS prefix specified when creating the managed cluster.
+	DnsPrefix *string `pulumi:"dnsPrefix"`
+	// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
+	// Whether to enable Kubernetes Role-Based Access Control.
+	EnableRBAC *bool `pulumi:"enableRBAC"`
+	// FQDN for the master pool.
+	Fqdn string `pulumi:"fqdn"`
+	// Version of Kubernetes specified when creating the managed cluster.
+	KubernetesVersion *string `pulumi:"kubernetesVersion"`
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile *ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of a managed cluster.
-	Properties ManagedClusterPropertiesResponse `pulumi:"properties"`
+	// Profile of network configuration.
+	NetworkProfile *ContainerServiceNetworkProfileResponse `pulumi:"networkProfile"`
+	// Name of the resource group containing agent pool nodes.
+	NodeResourceGroup string `pulumi:"nodeResourceGroup"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+	ServicePrincipalProfile *ManagedClusterServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

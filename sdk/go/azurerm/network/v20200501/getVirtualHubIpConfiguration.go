@@ -31,8 +31,16 @@ type LookupVirtualHubIpConfigurationResult struct {
 	Etag string `pulumi:"etag"`
 	// Name of the Ip Configuration.
 	Name *string `pulumi:"name"`
-	// The properties of the Virtual Hub IPConfigurations.
-	Properties HubIPConfigurationPropertiesFormatResponse `pulumi:"properties"`
+	// The private IP address of the IP configuration.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
+	// The private IP address allocation method.
+	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
+	// The provisioning state of the IP configuration resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The reference to the public IP resource.
+	PublicIPAddress *PublicIPAddressResponse `pulumi:"publicIPAddress"`
+	// The reference to the subnet resource.
+	Subnet *SubnetResponse `pulumi:"subnet"`
 	// Ipconfiguration type.
 	Type string `pulumi:"type"`
 }

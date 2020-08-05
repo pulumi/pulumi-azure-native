@@ -14,18 +14,58 @@ import (
 type VirtualNetworkGatewayConnection struct {
 	pulumi.CustomResourceState
 
+	// The authorizationKey.
+	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
+	// Connection protocol used for this connection.
+	ConnectionProtocol pulumi.StringPtrOutput `pulumi:"connectionProtocol"`
+	// Virtual Network Gateway connection status.
+	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
+	// Gateway connection type.
+	ConnectionType pulumi.StringOutput `pulumi:"connectionType"`
+	// The egress bytes transferred in this connection.
+	EgressBytesTransferred pulumi.IntOutput `pulumi:"egressBytesTransferred"`
+	// EnableBgp flag.
+	EnableBgp pulumi.BoolPtrOutput `pulumi:"enableBgp"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// Bypass ExpressRoute Gateway for data forwarding.
+	ExpressRouteGatewayBypass pulumi.BoolPtrOutput `pulumi:"expressRouteGatewayBypass"`
+	// The ingress bytes transferred in this connection.
+	IngressBytesTransferred pulumi.IntOutput `pulumi:"ingressBytesTransferred"`
+	// The IPSec Policies to be considered by this connection.
+	IpsecPolicies IpsecPolicyResponseArrayOutput `pulumi:"ipsecPolicies"`
+	// The reference to local network gateway resource.
+	LocalNetworkGateway2 LocalNetworkGatewayResponsePtrOutput `pulumi:"localNetworkGateway2"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the virtual network gateway connection.
-	Properties VirtualNetworkGatewayConnectionPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The reference to peerings resource.
+	Peer SubResourceResponsePtrOutput `pulumi:"peer"`
+	// The provisioning state of the virtual network gateway connection resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The resource GUID property of the virtual network gateway connection resource.
+	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
+	// The routing weight.
+	RoutingWeight pulumi.IntPtrOutput `pulumi:"routingWeight"`
+	// The IPSec shared key.
+	SharedKey pulumi.StringPtrOutput `pulumi:"sharedKey"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The Traffic Selector Policies to be considered by this connection.
+	TrafficSelectorPolicies TrafficSelectorPolicyResponseArrayOutput `pulumi:"trafficSelectorPolicies"`
+	// Collection of all tunnels' connection health status.
+	TunnelConnectionStatus TunnelConnectionHealthResponseArrayOutput `pulumi:"tunnelConnectionStatus"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Use private local Azure IP for the connection.
+	UseLocalAzureIpAddress pulumi.BoolPtrOutput `pulumi:"useLocalAzureIpAddress"`
+	// Enable policy-based traffic selectors.
+	UsePolicyBasedTrafficSelectors pulumi.BoolPtrOutput `pulumi:"usePolicyBasedTrafficSelectors"`
+	// The reference to virtual network gateway resource.
+	VirtualNetworkGateway1 VirtualNetworkGatewayResponseOutput `pulumi:"virtualNetworkGateway1"`
+	// The reference to virtual network gateway resource.
+	VirtualNetworkGateway2 VirtualNetworkGatewayResponsePtrOutput `pulumi:"virtualNetworkGateway2"`
 }
 
 // NewVirtualNetworkGatewayConnection registers a new resource with the given unique name, arguments, and options.
@@ -68,33 +108,113 @@ func GetVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetworkGatewayConnection resources.
 type virtualNetworkGatewayConnectionState struct {
+	// The authorizationKey.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// Connection protocol used for this connection.
+	ConnectionProtocol *string `pulumi:"connectionProtocol"`
+	// Virtual Network Gateway connection status.
+	ConnectionStatus *string `pulumi:"connectionStatus"`
+	// Gateway connection type.
+	ConnectionType *string `pulumi:"connectionType"`
+	// The egress bytes transferred in this connection.
+	EgressBytesTransferred *int `pulumi:"egressBytesTransferred"`
+	// EnableBgp flag.
+	EnableBgp *bool `pulumi:"enableBgp"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Bypass ExpressRoute Gateway for data forwarding.
+	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
+	// The ingress bytes transferred in this connection.
+	IngressBytesTransferred *int `pulumi:"ingressBytesTransferred"`
+	// The IPSec Policies to be considered by this connection.
+	IpsecPolicies []IpsecPolicyResponse `pulumi:"ipsecPolicies"`
+	// The reference to local network gateway resource.
+	LocalNetworkGateway2 *LocalNetworkGatewayResponse `pulumi:"localNetworkGateway2"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the virtual network gateway connection.
-	Properties *VirtualNetworkGatewayConnectionPropertiesFormatResponse `pulumi:"properties"`
+	// The reference to peerings resource.
+	Peer *SubResourceResponse `pulumi:"peer"`
+	// The provisioning state of the virtual network gateway connection resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the virtual network gateway connection resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// The routing weight.
+	RoutingWeight *int `pulumi:"routingWeight"`
+	// The IPSec shared key.
+	SharedKey *string `pulumi:"sharedKey"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The Traffic Selector Policies to be considered by this connection.
+	TrafficSelectorPolicies []TrafficSelectorPolicyResponse `pulumi:"trafficSelectorPolicies"`
+	// Collection of all tunnels' connection health status.
+	TunnelConnectionStatus []TunnelConnectionHealthResponse `pulumi:"tunnelConnectionStatus"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// Use private local Azure IP for the connection.
+	UseLocalAzureIpAddress *bool `pulumi:"useLocalAzureIpAddress"`
+	// Enable policy-based traffic selectors.
+	UsePolicyBasedTrafficSelectors *bool `pulumi:"usePolicyBasedTrafficSelectors"`
+	// The reference to virtual network gateway resource.
+	VirtualNetworkGateway1 *VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway1"`
+	// The reference to virtual network gateway resource.
+	VirtualNetworkGateway2 *VirtualNetworkGatewayResponse `pulumi:"virtualNetworkGateway2"`
 }
 
 type VirtualNetworkGatewayConnectionState struct {
+	// The authorizationKey.
+	AuthorizationKey pulumi.StringPtrInput
+	// Connection protocol used for this connection.
+	ConnectionProtocol pulumi.StringPtrInput
+	// Virtual Network Gateway connection status.
+	ConnectionStatus pulumi.StringPtrInput
+	// Gateway connection type.
+	ConnectionType pulumi.StringPtrInput
+	// The egress bytes transferred in this connection.
+	EgressBytesTransferred pulumi.IntPtrInput
+	// EnableBgp flag.
+	EnableBgp pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// Bypass ExpressRoute Gateway for data forwarding.
+	ExpressRouteGatewayBypass pulumi.BoolPtrInput
+	// The ingress bytes transferred in this connection.
+	IngressBytesTransferred pulumi.IntPtrInput
+	// The IPSec Policies to be considered by this connection.
+	IpsecPolicies IpsecPolicyResponseArrayInput
+	// The reference to local network gateway resource.
+	LocalNetworkGateway2 LocalNetworkGatewayResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the virtual network gateway connection.
-	Properties VirtualNetworkGatewayConnectionPropertiesFormatResponsePtrInput
+	// The reference to peerings resource.
+	Peer SubResourceResponsePtrInput
+	// The provisioning state of the virtual network gateway connection resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the virtual network gateway connection resource.
+	ResourceGuid pulumi.StringPtrInput
+	// The routing weight.
+	RoutingWeight pulumi.IntPtrInput
+	// The IPSec shared key.
+	SharedKey pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The Traffic Selector Policies to be considered by this connection.
+	TrafficSelectorPolicies TrafficSelectorPolicyResponseArrayInput
+	// Collection of all tunnels' connection health status.
+	TunnelConnectionStatus TunnelConnectionHealthResponseArrayInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// Use private local Azure IP for the connection.
+	UseLocalAzureIpAddress pulumi.BoolPtrInput
+	// Enable policy-based traffic selectors.
+	UsePolicyBasedTrafficSelectors pulumi.BoolPtrInput
+	// The reference to virtual network gateway resource.
+	VirtualNetworkGateway1 VirtualNetworkGatewayResponsePtrInput
+	// The reference to virtual network gateway resource.
+	VirtualNetworkGateway2 VirtualNetworkGatewayResponsePtrInput
 }
 
 func (VirtualNetworkGatewayConnectionState) ElementType() reflect.Type {

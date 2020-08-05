@@ -27,12 +27,18 @@ type LookupVirtualHubBgpConnectionArgs struct {
 
 // Virtual Appliance Site resource.
 type LookupVirtualHubBgpConnectionResult struct {
+	// The current state of the VirtualHub to Peer.
+	ConnectionState string `pulumi:"connectionState"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Name of the connection.
 	Name *string `pulumi:"name"`
-	// The properties of the Bgp connections.
-	Properties BgpConnectionPropertiesResponse `pulumi:"properties"`
+	// Peer ASN.
+	PeerAsn *int `pulumi:"peerAsn"`
+	// Peer IP.
+	PeerIp *string `pulumi:"peerIp"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Connection type.
 	Type string `pulumi:"type"`
 }

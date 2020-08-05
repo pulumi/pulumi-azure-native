@@ -14,10 +14,20 @@ import (
 type StorageAccountCredential struct {
 	pulumi.CustomResourceState
 
+	// The details of the storage account password
+	AccessKey AsymmetricEncryptedSecretResponsePtrOutput `pulumi:"accessKey"`
+	// The cloud service provider
+	CloudType pulumi.StringOutput `pulumi:"cloudType"`
+	// SSL needs to be enabled or not
+	EnableSSL pulumi.StringOutput `pulumi:"enableSSL"`
+	// The storage endpoint
+	EndPoint pulumi.StringOutput `pulumi:"endPoint"`
+	// The storage account's geo location
+	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The storage account login
+	Login pulumi.StringOutput `pulumi:"login"`
 	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Credential properties
-	Properties StorageAccountCredentialPropertiesResponseOutput `pulumi:"properties"`
 	// The type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -71,19 +81,39 @@ func GetStorageAccountCredential(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StorageAccountCredential resources.
 type storageAccountCredentialState struct {
+	// The details of the storage account password
+	AccessKey *AsymmetricEncryptedSecretResponse `pulumi:"accessKey"`
+	// The cloud service provider
+	CloudType *string `pulumi:"cloudType"`
+	// SSL needs to be enabled or not
+	EnableSSL *string `pulumi:"enableSSL"`
+	// The storage endpoint
+	EndPoint *string `pulumi:"endPoint"`
+	// The storage account's geo location
+	Location *string `pulumi:"location"`
+	// The storage account login
+	Login *string `pulumi:"login"`
 	// The name.
 	Name *string `pulumi:"name"`
-	// Credential properties
-	Properties *StorageAccountCredentialPropertiesResponse `pulumi:"properties"`
 	// The type.
 	Type *string `pulumi:"type"`
 }
 
 type StorageAccountCredentialState struct {
+	// The details of the storage account password
+	AccessKey AsymmetricEncryptedSecretResponsePtrInput
+	// The cloud service provider
+	CloudType pulumi.StringPtrInput
+	// SSL needs to be enabled or not
+	EnableSSL pulumi.StringPtrInput
+	// The storage endpoint
+	EndPoint pulumi.StringPtrInput
+	// The storage account's geo location
+	Location pulumi.StringPtrInput
+	// The storage account login
+	Login pulumi.StringPtrInput
 	// The name.
 	Name pulumi.StringPtrInput
-	// Credential properties
-	Properties StorageAccountCredentialPropertiesResponsePtrInput
 	// The type.
 	Type pulumi.StringPtrInput
 }

@@ -25,16 +25,52 @@ type LookupAppServiceCertificateOrderArgs struct {
 
 // SSL certificate purchase order.
 type LookupAppServiceCertificateOrderResult struct {
+	// Reasons why App Service Certificate is not renewable at the current moment.
+	AppServiceCertificateNotRenewableReasons []string `pulumi:"appServiceCertificateNotRenewableReasons"`
+	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// State of the Key Vault secret.
+	Certificates map[string]AppServiceCertificateResponse `pulumi:"certificates"`
+	// Last CSR that was created for this order.
+	Csr *string `pulumi:"csr"`
+	// Certificate distinguished name.
+	DistinguishedName *string `pulumi:"distinguishedName"`
+	// Domain verification token.
+	DomainVerificationToken string `pulumi:"domainVerificationToken"`
+	// Certificate expiration time.
+	ExpirationTime string `pulumi:"expirationTime"`
+	// Intermediate certificate.
+	Intermediate CertificateDetailsResponse `pulumi:"intermediate"`
+	// <code>true</code> if private key is external; otherwise, <code>false</code>.
+	IsPrivateKeyExternal bool `pulumi:"isPrivateKeyExternal"`
+	// Certificate key size.
+	KeySize *int `pulumi:"keySize"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
+	// Certificate last issuance time.
+	LastCertificateIssuanceTime string `pulumi:"lastCertificateIssuanceTime"`
 	// Resource Location.
 	Location string `pulumi:"location"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// AppServiceCertificateOrder resource specific properties
-	Properties AppServiceCertificateOrderResponseProperties `pulumi:"properties"`
+	// Time stamp when the certificate would be auto renewed next
+	NextAutoRenewalTimeStamp string `pulumi:"nextAutoRenewalTimeStamp"`
+	// Certificate product type.
+	ProductType string `pulumi:"productType"`
+	// Status of certificate order.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Root certificate.
+	Root CertificateDetailsResponse `pulumi:"root"`
+	// Current serial number of the certificate.
+	SerialNumber string `pulumi:"serialNumber"`
+	// Signed certificate.
+	SignedCertificate CertificateDetailsResponse `pulumi:"signedCertificate"`
+	// Current order status.
+	Status string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// Duration in years (must be between 1 and 3).
+	ValidityInYears *int `pulumi:"validityInYears"`
 }

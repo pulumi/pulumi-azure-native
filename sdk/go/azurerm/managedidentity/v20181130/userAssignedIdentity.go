@@ -14,14 +14,18 @@ import (
 type UserAssignedIdentity struct {
 	pulumi.CustomResourceState
 
+	// The id of the app associated with the identity. This is a random generated UUID by MSI.
+	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties associated with the identity.
-	Properties UserAssignedIdentityPropertiesResponseOutput `pulumi:"properties"`
+	// The id of the service principal object associated with the created identity.
+	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The id of the tenant which the identity belongs to.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -63,27 +67,35 @@ func GetUserAssignedIdentity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserAssignedIdentity resources.
 type userAssignedIdentityState struct {
+	// The id of the app associated with the identity. This is a random generated UUID by MSI.
+	ClientId *string `pulumi:"clientId"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The properties associated with the identity.
-	Properties *UserAssignedIdentityPropertiesResponse `pulumi:"properties"`
+	// The id of the service principal object associated with the created identity.
+	PrincipalId *string `pulumi:"principalId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The id of the tenant which the identity belongs to.
+	TenantId *string `pulumi:"tenantId"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type UserAssignedIdentityState struct {
+	// The id of the app associated with the identity. This is a random generated UUID by MSI.
+	ClientId pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The properties associated with the identity.
-	Properties UserAssignedIdentityPropertiesResponsePtrInput
+	// The id of the service principal object associated with the created identity.
+	PrincipalId pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The id of the tenant which the identity belongs to.
+	TenantId pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

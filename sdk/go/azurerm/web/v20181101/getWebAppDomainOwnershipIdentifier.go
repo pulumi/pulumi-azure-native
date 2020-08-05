@@ -29,8 +29,6 @@ type LookupWebAppDomainOwnershipIdentifierResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// Identifier resource specific properties
-	Properties IdentifierResponseProperties `pulumi:"properties"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

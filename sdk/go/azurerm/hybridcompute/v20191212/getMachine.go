@@ -25,15 +25,41 @@ type LookupMachineArgs struct {
 
 // Describes a hybrid machine.
 type LookupMachineResult struct {
-	Identity *MachineResponseIdentity `pulumi:"identity"`
+	// The hybrid machine agent full version.
+	AgentVersion string `pulumi:"agentVersion"`
+	// Public Key that the client provides to be used during initial resource onboarding
+	ClientPublicKey *string `pulumi:"clientPublicKey"`
+	// Specifies the hybrid machine display name.
+	DisplayName string `pulumi:"displayName"`
+	// Details about the error state.
+	ErrorDetails []ErrorDetailResponse `pulumi:"errorDetails"`
+	// Machine Extensions information
+	Extensions []MachineExtensionInstanceViewResponse `pulumi:"extensions"`
+	Identity   *MachineResponseIdentity               `pulumi:"identity"`
+	// The time of the last status change.
+	LastStatusChange string `pulumi:"lastStatusChange"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// Metadata pertaining to the geographic location of the resource.
+	LocationData *LocationDataResponse `pulumi:"locationData"`
+	// Specifies the hybrid machine FQDN.
+	MachineFqdn string `pulumi:"machineFqdn"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Hybrid Compute Machine properties
-	Properties MachineResponseProperties `pulumi:"properties"`
+	// The Operating System running on the hybrid machine.
+	OsName string `pulumi:"osName"`
+	// Specifies the operating system settings for the hybrid machine.
+	OsProfile *MachinePropertiesResponseOsProfile `pulumi:"osProfile"`
+	// The version of Operating System running on the hybrid machine.
+	OsVersion string `pulumi:"osVersion"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The status of the hybrid machine agent.
+	Status string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+	// Specifies the hybrid machine unique ID.
+	VmId *string `pulumi:"vmId"`
 }

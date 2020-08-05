@@ -25,16 +25,38 @@ type LookupProjectArgs struct {
 
 // Azure Migrate Project.
 type LookupProjectResult struct {
+	// Time when this project was created. Date-Time represented in ISO-8601 format.
+	CreatedTimestamp string `pulumi:"createdTimestamp"`
+	// ARM ID of the Service Map workspace created by user.
+	CustomerWorkspaceId *string `pulumi:"customerWorkspaceId"`
+	// Location of the Service Map workspace created by user.
+	CustomerWorkspaceLocation *string `pulumi:"customerWorkspaceLocation"`
+	// Reports whether project is under discovery.
+	DiscoveryStatus string `pulumi:"discoveryStatus"`
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
+	// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+	LastAssessmentTimestamp string `pulumi:"lastAssessmentTimestamp"`
+	// Session id of the last discovery.
+	LastDiscoverySessionId string `pulumi:"lastDiscoverySessionId"`
+	// Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
+	LastDiscoveryTimestamp string `pulumi:"lastDiscoveryTimestamp"`
 	// Azure location in which project is created.
 	Location *string `pulumi:"location"`
 	// Name of the project.
 	Name string `pulumi:"name"`
-	// Properties of the project.
-	Properties ProjectPropertiesResponse `pulumi:"properties"`
+	// Number of assessments created in the project.
+	NumberOfAssessments int `pulumi:"numberOfAssessments"`
+	// Number of groups created in the project.
+	NumberOfGroups int `pulumi:"numberOfGroups"`
+	// Number of machines in the project.
+	NumberOfMachines int `pulumi:"numberOfMachines"`
+	// Provisioning state of the project.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Tags provided by Azure Tagging service.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Type of the object = [Microsoft.Migrate/projects].
 	Type string `pulumi:"type"`
+	// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+	UpdatedTimestamp string `pulumi:"updatedTimestamp"`
 }

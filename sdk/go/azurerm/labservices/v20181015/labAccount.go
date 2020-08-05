@@ -14,16 +14,24 @@ import (
 type LabAccount struct {
 	pulumi.CustomResourceState
 
+	// Represents if region selection is enabled
+	EnabledRegionSelection pulumi.BoolPtrOutput `pulumi:"enabledRegionSelection"`
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult LatestOperationResultResponseOutput `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabAccountPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Represents the size configuration under the lab account
+	SizeConfiguration SizeConfigurationPropertiesResponseOutput `pulumi:"sizeConfiguration"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
 }
 
 // NewLabAccount registers a new resource with the given unique name, arguments, and options.
@@ -60,29 +68,45 @@ func GetLabAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LabAccount resources.
 type labAccountState struct {
+	// Represents if region selection is enabled
+	EnabledRegionSelection *bool `pulumi:"enabledRegionSelection"`
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult *LatestOperationResultResponse `pulumi:"latestOperationResult"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *LabAccountPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Represents the size configuration under the lab account
+	SizeConfiguration *SizeConfigurationPropertiesResponse `pulumi:"sizeConfiguration"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 type LabAccountState struct {
+	// Represents if region selection is enabled
+	EnabledRegionSelection pulumi.BoolPtrInput
+	// The details of the latest operation. ex: status, error
+	LatestOperationResult LatestOperationResultResponsePtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the resource.
-	Properties LabAccountPropertiesResponsePtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Represents the size configuration under the lab account
+	SizeConfiguration SizeConfigurationPropertiesResponsePtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (LabAccountState) ElementType() reflect.Type {

@@ -14,12 +14,22 @@ import (
 type GalleryApplication struct {
 	pulumi.CustomResourceState
 
+	// The description of this gallery Application Definition resource. This property is updatable.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate pulumi.StringPtrOutput `pulumi:"endOfLifeDate"`
+	// The Eula agreement for the gallery Application Definition.
+	Eula pulumi.StringPtrOutput `pulumi:"eula"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes the properties of a gallery Application Definition.
-	Properties GalleryApplicationPropertiesResponseOutput `pulumi:"properties"`
+	// The privacy statement uri.
+	PrivacyStatementUri pulumi.StringPtrOutput `pulumi:"privacyStatementUri"`
+	// The release note uri.
+	ReleaseNoteUri pulumi.StringPtrOutput `pulumi:"releaseNoteUri"`
+	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+	SupportedOSType pulumi.StringOutput `pulumi:"supportedOSType"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -69,12 +79,22 @@ func GetGalleryApplication(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GalleryApplication resources.
 type galleryApplicationState struct {
+	// The description of this gallery Application Definition resource. This property is updatable.
+	Description *string `pulumi:"description"`
+	// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
+	// The Eula agreement for the gallery Application Definition.
+	Eula *string `pulumi:"eula"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Describes the properties of a gallery Application Definition.
-	Properties *GalleryApplicationPropertiesResponse `pulumi:"properties"`
+	// The privacy statement uri.
+	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
+	// The release note uri.
+	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
+	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+	SupportedOSType *string `pulumi:"supportedOSType"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -82,12 +102,22 @@ type galleryApplicationState struct {
 }
 
 type GalleryApplicationState struct {
+	// The description of this gallery Application Definition resource. This property is updatable.
+	Description pulumi.StringPtrInput
+	// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate pulumi.StringPtrInput
+	// The Eula agreement for the gallery Application Definition.
+	Eula pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Describes the properties of a gallery Application Definition.
-	Properties GalleryApplicationPropertiesResponsePtrInput
+	// The privacy statement uri.
+	PrivacyStatementUri pulumi.StringPtrInput
+	// The release note uri.
+	ReleaseNoteUri pulumi.StringPtrInput
+	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+	SupportedOSType pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

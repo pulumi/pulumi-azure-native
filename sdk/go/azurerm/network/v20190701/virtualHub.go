@@ -14,18 +14,32 @@ import (
 type VirtualHub struct {
 	pulumi.CustomResourceState
 
+	// Address-prefix for this VirtualHub.
+	AddressPrefix pulumi.StringPtrOutput `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The expressRouteGateway associated with this VirtualHub.
+	ExpressRouteGateway SubResourceResponsePtrOutput `pulumi:"expressRouteGateway"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the virtual hub.
-	Properties VirtualHubPropertiesResponseOutput `pulumi:"properties"`
+	// The P2SVpnGateway associated with this VirtualHub.
+	P2SVpnGateway SubResourceResponsePtrOutput `pulumi:"p2SVpnGateway"`
+	// The provisioning state of the virtual hub resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// The routeTable associated with this virtual hub.
+	RouteTable VirtualHubRouteTableResponsePtrOutput `pulumi:"routeTable"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// List of all vnet connections with this VirtualHub.
+	VirtualNetworkConnections HubVirtualNetworkConnectionResponseArrayOutput `pulumi:"virtualNetworkConnections"`
+	// The VirtualWAN to which the VirtualHub belongs.
+	VirtualWan SubResourceResponsePtrOutput `pulumi:"virtualWan"`
+	// The VpnGateway associated with this VirtualHub.
+	VpnGateway SubResourceResponsePtrOutput `pulumi:"vpnGateway"`
 }
 
 // NewVirtualHub registers a new resource with the given unique name, arguments, and options.
@@ -65,33 +79,61 @@ func GetVirtualHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualHub resources.
 type virtualHubState struct {
+	// Address-prefix for this VirtualHub.
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The expressRouteGateway associated with this VirtualHub.
+	ExpressRouteGateway *SubResourceResponse `pulumi:"expressRouteGateway"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the virtual hub.
-	Properties *VirtualHubPropertiesResponse `pulumi:"properties"`
+	// The P2SVpnGateway associated with this VirtualHub.
+	P2SVpnGateway *SubResourceResponse `pulumi:"p2SVpnGateway"`
+	// The provisioning state of the virtual hub resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The routeTable associated with this virtual hub.
+	RouteTable *VirtualHubRouteTableResponse `pulumi:"routeTable"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// List of all vnet connections with this VirtualHub.
+	VirtualNetworkConnections []HubVirtualNetworkConnectionResponse `pulumi:"virtualNetworkConnections"`
+	// The VirtualWAN to which the VirtualHub belongs.
+	VirtualWan *SubResourceResponse `pulumi:"virtualWan"`
+	// The VpnGateway associated with this VirtualHub.
+	VpnGateway *SubResourceResponse `pulumi:"vpnGateway"`
 }
 
 type VirtualHubState struct {
+	// Address-prefix for this VirtualHub.
+	AddressPrefix pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The expressRouteGateway associated with this VirtualHub.
+	ExpressRouteGateway SubResourceResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the virtual hub.
-	Properties VirtualHubPropertiesResponsePtrInput
+	// The P2SVpnGateway associated with this VirtualHub.
+	P2SVpnGateway SubResourceResponsePtrInput
+	// The provisioning state of the virtual hub resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The routeTable associated with this virtual hub.
+	RouteTable VirtualHubRouteTableResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// List of all vnet connections with this VirtualHub.
+	VirtualNetworkConnections HubVirtualNetworkConnectionResponseArrayInput
+	// The VirtualWAN to which the VirtualHub belongs.
+	VirtualWan SubResourceResponsePtrInput
+	// The VpnGateway associated with this VirtualHub.
+	VpnGateway SubResourceResponsePtrInput
 }
 
 func (VirtualHubState) ElementType() reflect.Type {

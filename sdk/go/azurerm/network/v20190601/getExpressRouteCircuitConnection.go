@@ -29,12 +29,22 @@ type LookupExpressRouteCircuitConnectionArgs struct {
 
 // Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
 type LookupExpressRouteCircuitConnectionResult struct {
+	// /29 IP address space to carve out Customer addresses for tunnels.
+	AddressPrefix *string `pulumi:"addressPrefix"`
+	// The authorization key.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// Express Route Circuit connection state.
+	CircuitConnectionStatus *string `pulumi:"circuitConnectionStatus"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+	ExpressRouteCircuitPeering *SubResourceResponse `pulumi:"expressRouteCircuitPeering"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the express route circuit connection.
-	Properties ExpressRouteCircuitConnectionPropertiesFormatResponse `pulumi:"properties"`
+	// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+	PeerExpressRouteCircuitPeering *SubResourceResponse `pulumi:"peerExpressRouteCircuitPeering"`
+	// Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Type of the resource.
 	Type string `pulumi:"type"`
 }

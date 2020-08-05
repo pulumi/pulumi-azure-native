@@ -27,10 +27,14 @@ type LookupCertificateArgs struct {
 
 // Certificate details.
 type LookupCertificateResult struct {
+	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+	ExpirationDate string `pulumi:"expirationDate"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Certificate properties details.
-	Properties CertificateContractPropertiesResponse `pulumi:"properties"`
+	// Subject attribute of the certificate.
+	Subject string `pulumi:"subject"`
+	// Thumbprint of the certificate.
+	Thumbprint string `pulumi:"thumbprint"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

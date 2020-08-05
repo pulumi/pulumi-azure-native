@@ -20,8 +20,12 @@ type PrivateEndpointConnection struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Specifies the name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponseOutput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// The sku of the workspace.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
@@ -76,8 +80,12 @@ type privateEndpointConnectionState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the resource.
 	Name *string `pulumi:"name"`
-	// Resource properties.
-	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The sku of the workspace.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Contains resource tags defined as key/value pairs.
@@ -93,8 +101,12 @@ type PrivateEndpointConnectionState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the resource.
 	Name pulumi.StringPtrInput
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponsePtrInput
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointResponsePtrInput
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The sku of the workspace.
 	Sku SkuResponsePtrInput
 	// Contains resource tags defined as key/value pairs.

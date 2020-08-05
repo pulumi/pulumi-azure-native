@@ -14,10 +14,16 @@ import (
 type Container struct {
 	pulumi.CustomResourceState
 
+	// Current status of the container.
+	ContainerStatus pulumi.StringOutput `pulumi:"containerStatus"`
+	// The UTC time when container got created.
+	CreatedDateTime pulumi.StringOutput `pulumi:"createdDateTime"`
+	// DataFormat for Container
+	DataFormat pulumi.StringOutput `pulumi:"dataFormat"`
 	// The object name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The container properties.
-	Properties ContainerPropertiesResponseOutput `pulumi:"properties"`
+	// Details of the refresh job on this container.
+	RefreshDetails RefreshDetailsResponseOutput `pulumi:"refreshDetails"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +71,31 @@ func GetContainer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Container resources.
 type containerState struct {
+	// Current status of the container.
+	ContainerStatus *string `pulumi:"containerStatus"`
+	// The UTC time when container got created.
+	CreatedDateTime *string `pulumi:"createdDateTime"`
+	// DataFormat for Container
+	DataFormat *string `pulumi:"dataFormat"`
 	// The object name.
 	Name *string `pulumi:"name"`
-	// The container properties.
-	Properties *ContainerPropertiesResponse `pulumi:"properties"`
+	// Details of the refresh job on this container.
+	RefreshDetails *RefreshDetailsResponse `pulumi:"refreshDetails"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
 }
 
 type ContainerState struct {
+	// Current status of the container.
+	ContainerStatus pulumi.StringPtrInput
+	// The UTC time when container got created.
+	CreatedDateTime pulumi.StringPtrInput
+	// DataFormat for Container
+	DataFormat pulumi.StringPtrInput
 	// The object name.
 	Name pulumi.StringPtrInput
-	// The container properties.
-	Properties ContainerPropertiesResponsePtrInput
+	// Details of the refresh job on this container.
+	RefreshDetails RefreshDetailsResponsePtrInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
 }

@@ -14,10 +14,12 @@ import (
 type FirewallRule struct {
 	pulumi.CustomResourceState
 
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress pulumi.StringOutput `pulumi:"endIpAddress"`
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The firewall rule properties.
-	Properties FirewallRulePropertiesResponseOutput `pulumi:"properties"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress pulumi.StringOutput `pulumi:"startIpAddress"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +67,23 @@ func GetFirewallRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FirewallRule resources.
 type firewallRuleState struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress *string `pulumi:"endIpAddress"`
 	// The resource name.
 	Name *string `pulumi:"name"`
-	// The firewall rule properties.
-	Properties *FirewallRulePropertiesResponse `pulumi:"properties"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress *string `pulumi:"startIpAddress"`
 	// The resource type.
 	Type *string `pulumi:"type"`
 }
 
 type FirewallRuleState struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress pulumi.StringPtrInput
 	// The resource name.
 	Name pulumi.StringPtrInput
-	// The firewall rule properties.
-	Properties FirewallRulePropertiesResponsePtrInput
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress pulumi.StringPtrInput
 	// The resource type.
 	Type pulumi.StringPtrInput
 }

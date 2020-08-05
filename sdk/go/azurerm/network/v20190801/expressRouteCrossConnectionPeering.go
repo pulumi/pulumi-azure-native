@@ -14,12 +14,40 @@ import (
 type ExpressRouteCrossConnectionPeering struct {
 	pulumi.CustomResourceState
 
+	// The Azure ASN.
+	AzureASN pulumi.IntOutput `pulumi:"azureASN"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The GatewayManager Etag.
+	GatewayManagerEtag pulumi.StringPtrOutput `pulumi:"gatewayManagerEtag"`
+	// The IPv6 peering configuration.
+	Ipv6PeeringConfig Ipv6ExpressRouteCircuitPeeringConfigResponsePtrOutput `pulumi:"ipv6PeeringConfig"`
+	// Who was the last to modify the peering.
+	LastModifiedBy pulumi.StringPtrOutput `pulumi:"lastModifiedBy"`
+	// The Microsoft peering configuration.
+	MicrosoftPeeringConfig ExpressRouteCircuitPeeringConfigResponsePtrOutput `pulumi:"microsoftPeeringConfig"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties of the express route cross connection peering.
-	Properties ExpressRouteCrossConnectionPeeringPropertiesResponseOutput `pulumi:"properties"`
+	// The peer ASN.
+	PeerASN pulumi.IntPtrOutput `pulumi:"peerASN"`
+	// The peering type.
+	PeeringType pulumi.StringPtrOutput `pulumi:"peeringType"`
+	// The primary port.
+	PrimaryAzurePort pulumi.StringOutput `pulumi:"primaryAzurePort"`
+	// The primary address prefix.
+	PrimaryPeerAddressPrefix pulumi.StringPtrOutput `pulumi:"primaryPeerAddressPrefix"`
+	// The provisioning state of the express route cross connection peering resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The secondary port.
+	SecondaryAzurePort pulumi.StringOutput `pulumi:"secondaryAzurePort"`
+	// The secondary address prefix.
+	SecondaryPeerAddressPrefix pulumi.StringPtrOutput `pulumi:"secondaryPeerAddressPrefix"`
+	// The shared key.
+	SharedKey pulumi.StringPtrOutput `pulumi:"sharedKey"`
+	// The peering state.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// The VLAN ID.
+	VlanId pulumi.IntPtrOutput `pulumi:"vlanId"`
 }
 
 // NewExpressRouteCrossConnectionPeering registers a new resource with the given unique name, arguments, and options.
@@ -59,21 +87,77 @@ func GetExpressRouteCrossConnectionPeering(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteCrossConnectionPeering resources.
 type expressRouteCrossConnectionPeeringState struct {
+	// The Azure ASN.
+	AzureASN *int `pulumi:"azureASN"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The GatewayManager Etag.
+	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
+	// The IPv6 peering configuration.
+	Ipv6PeeringConfig *Ipv6ExpressRouteCircuitPeeringConfigResponse `pulumi:"ipv6PeeringConfig"`
+	// Who was the last to modify the peering.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The Microsoft peering configuration.
+	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the express route cross connection peering.
-	Properties *ExpressRouteCrossConnectionPeeringPropertiesResponse `pulumi:"properties"`
+	// The peer ASN.
+	PeerASN *int `pulumi:"peerASN"`
+	// The peering type.
+	PeeringType *string `pulumi:"peeringType"`
+	// The primary port.
+	PrimaryAzurePort *string `pulumi:"primaryAzurePort"`
+	// The primary address prefix.
+	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
+	// The provisioning state of the express route cross connection peering resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The secondary port.
+	SecondaryAzurePort *string `pulumi:"secondaryAzurePort"`
+	// The secondary address prefix.
+	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
+	// The shared key.
+	SharedKey *string `pulumi:"sharedKey"`
+	// The peering state.
+	State *string `pulumi:"state"`
+	// The VLAN ID.
+	VlanId *int `pulumi:"vlanId"`
 }
 
 type ExpressRouteCrossConnectionPeeringState struct {
+	// The Azure ASN.
+	AzureASN pulumi.IntPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The GatewayManager Etag.
+	GatewayManagerEtag pulumi.StringPtrInput
+	// The IPv6 peering configuration.
+	Ipv6PeeringConfig Ipv6ExpressRouteCircuitPeeringConfigResponsePtrInput
+	// Who was the last to modify the peering.
+	LastModifiedBy pulumi.StringPtrInput
+	// The Microsoft peering configuration.
+	MicrosoftPeeringConfig ExpressRouteCircuitPeeringConfigResponsePtrInput
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the express route cross connection peering.
-	Properties ExpressRouteCrossConnectionPeeringPropertiesResponsePtrInput
+	// The peer ASN.
+	PeerASN pulumi.IntPtrInput
+	// The peering type.
+	PeeringType pulumi.StringPtrInput
+	// The primary port.
+	PrimaryAzurePort pulumi.StringPtrInput
+	// The primary address prefix.
+	PrimaryPeerAddressPrefix pulumi.StringPtrInput
+	// The provisioning state of the express route cross connection peering resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The secondary port.
+	SecondaryAzurePort pulumi.StringPtrInput
+	// The secondary address prefix.
+	SecondaryPeerAddressPrefix pulumi.StringPtrInput
+	// The shared key.
+	SharedKey pulumi.StringPtrInput
+	// The peering state.
+	State pulumi.StringPtrInput
+	// The VLAN ID.
+	VlanId pulumi.IntPtrInput
 }
 
 func (ExpressRouteCrossConnectionPeeringState) ElementType() reflect.Type {

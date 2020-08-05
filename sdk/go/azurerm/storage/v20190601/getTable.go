@@ -29,8 +29,8 @@ type LookupTableArgs struct {
 type LookupTableResult struct {
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Table resource properties.
-	Properties TablePropertiesResponse `pulumi:"properties"`
+	// Table name under the specified account
+	TableName string `pulumi:"tableName"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

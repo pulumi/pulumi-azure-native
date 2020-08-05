@@ -29,10 +29,18 @@ type LookupIscsiServerArgs struct {
 
 // The iSCSI server.
 type LookupIscsiServerResult struct {
+	// The backup policy id.
+	BackupScheduleGroupId string `pulumi:"backupScheduleGroupId"`
+	// The chap id.
+	ChapId *string `pulumi:"chapId"`
+	// The description.
+	Description *string `pulumi:"description"`
 	// The name.
 	Name string `pulumi:"name"`
-	// The properties.
-	Properties ISCSIServerPropertiesResponse `pulumi:"properties"`
+	// The reverse chap id.
+	ReverseChapId *string `pulumi:"reverseChapId"`
+	// The storage domain id.
+	StorageDomainId string `pulumi:"storageDomainId"`
 	// The type.
 	Type string `pulumi:"type"`
 }

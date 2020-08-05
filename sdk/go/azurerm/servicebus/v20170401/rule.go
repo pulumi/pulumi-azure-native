@@ -14,10 +14,16 @@ import (
 type Rule struct {
 	pulumi.CustomResourceState
 
+	// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+	Action ActionResponsePtrOutput `pulumi:"action"`
+	// Properties of correlationFilter
+	CorrelationFilter CorrelationFilterResponsePtrOutput `pulumi:"correlationFilter"`
+	// Filter type that is evaluated against a BrokeredMessage.
+	FilterType pulumi.StringPtrOutput `pulumi:"filterType"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of Rule resource
-	Properties RulepropertiesResponseOutput `pulumi:"properties"`
+	// Properties of sqlFilter
+	SqlFilter SqlFilterResponsePtrOutput `pulumi:"sqlFilter"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +71,31 @@ func GetRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Rule resources.
 type ruleState struct {
+	// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+	Action *ActionResponse `pulumi:"action"`
+	// Properties of correlationFilter
+	CorrelationFilter *CorrelationFilterResponse `pulumi:"correlationFilter"`
+	// Filter type that is evaluated against a BrokeredMessage.
+	FilterType *string `pulumi:"filterType"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of Rule resource
-	Properties *RulepropertiesResponse `pulumi:"properties"`
+	// Properties of sqlFilter
+	SqlFilter *SqlFilterResponse `pulumi:"sqlFilter"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
 
 type RuleState struct {
+	// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+	Action ActionResponsePtrInput
+	// Properties of correlationFilter
+	CorrelationFilter CorrelationFilterResponsePtrInput
+	// Filter type that is evaluated against a BrokeredMessage.
+	FilterType pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of Rule resource
-	Properties RulepropertiesResponsePtrInput
+	// Properties of sqlFilter
+	SqlFilter SqlFilterResponsePtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

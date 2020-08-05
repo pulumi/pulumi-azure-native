@@ -31,8 +31,8 @@ type LookupCustomerSubscriptionResult struct {
 	Etag *string `pulumi:"etag"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
-	// Customer subscription properties.
-	Properties CustomerSubscriptionPropertiesResponse `pulumi:"properties"`
+	// Tenant Id.
+	TenantId *string `pulumi:"tenantId"`
 	// Type of Resource.
 	Type string `pulumi:"type"`
 }

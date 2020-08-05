@@ -25,14 +25,24 @@ type LookupNetworkSecurityGroupArgs struct {
 
 // NetworkSecurityGroup resource
 type LookupNetworkSecurityGroupResult struct {
+	// Gets or default security rules of network security group
+	DefaultSecurityRules []SecurityRuleResponse `pulumi:"defaultSecurityRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Network Security Group resource
-	Properties NetworkSecurityGroupPropertiesFormatResponse `pulumi:"properties"`
+	// Gets collection of references to Network Interfaces
+	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets resource guid property of the network security group resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Gets or sets security rules of network security group
+	SecurityRules []SecurityRuleResponse `pulumi:"securityRules"`
+	// Gets collection of references to subnets
+	Subnets []SubnetResponse `pulumi:"subnets"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

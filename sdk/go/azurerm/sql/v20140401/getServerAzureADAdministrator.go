@@ -27,10 +27,16 @@ type LookupServerAzureADAdministratorArgs struct {
 
 // An server Active Directory Administrator.
 type LookupServerAzureADAdministratorResult struct {
+	// The type of administrator.
+	AdministratorType string `pulumi:"administratorType"`
+	// The server administrator login value.
+	Login string `pulumi:"login"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties ServerAdministratorPropertiesResponse `pulumi:"properties"`
+	// The server administrator Sid (Secure ID).
+	Sid string `pulumi:"sid"`
+	// The server Active Directory Administrator tenant id.
+	TenantId string `pulumi:"tenantId"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

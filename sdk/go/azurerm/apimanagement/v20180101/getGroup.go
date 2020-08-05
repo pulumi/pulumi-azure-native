@@ -27,10 +27,16 @@ type LookupGroupArgs struct {
 
 // Contract details.
 type LookupGroupResult struct {
+	// true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+	BuiltIn bool `pulumi:"builtIn"`
+	// Group description. Can contain HTML formatting tags.
+	Description *string `pulumi:"description"`
+	// Group name.
+	DisplayName string `pulumi:"displayName"`
+	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
+	ExternalId *string `pulumi:"externalId"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Group entity contract properties.
-	Properties GroupContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

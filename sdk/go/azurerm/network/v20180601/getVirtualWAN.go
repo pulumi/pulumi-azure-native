@@ -25,16 +25,21 @@ type LookupVirtualWANArgs struct {
 
 // VirtualWAN Resource.
 type LookupVirtualWANResult struct {
+	// Vpn encryption to be disabled or not.
+	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Parameters for VirtualWAN
-	Properties VirtualWanPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// List of VirtualHubs in the VirtualWAN.
+	VirtualHubs []SubResourceResponse `pulumi:"virtualHubs"`
+	VpnSites    []SubResourceResponse `pulumi:"vpnSites"`
 }

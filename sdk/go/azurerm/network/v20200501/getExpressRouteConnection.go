@@ -27,8 +27,18 @@ type LookupExpressRouteConnectionArgs struct {
 
 // ExpressRouteConnection resource.
 type LookupExpressRouteConnectionResult struct {
+	// Authorization key to establish the connection.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// Enable internet security.
+	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
+	// The ExpressRoute circuit peering.
+	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponse `pulumi:"expressRouteCircuitPeering"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// Properties of the express route connection.
-	Properties ExpressRouteConnectionPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the express route connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The Routing Configuration indicating the associated and propagated route tables on this connection.
+	RoutingConfiguration *RoutingConfigurationResponse `pulumi:"routingConfiguration"`
+	// The routing weight associated to the connection.
+	RoutingWeight *int `pulumi:"routingWeight"`
 }

@@ -14,10 +14,26 @@ import (
 type Job struct {
 	pulumi.CustomResourceState
 
+	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+	CorrelationData pulumi.StringMapOutput `pulumi:"correlationData"`
+	// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	Created pulumi.StringOutput `pulumi:"created"`
+	// Optional customer supplied description of the Job.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The UTC date and time at which this Job finished processing.
+	EndTime pulumi.StringOutput `pulumi:"endTime"`
+	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource properties.
-	Properties JobPropertiesResponseOutput `pulumi:"properties"`
+	// The outputs for the Job.
+	Outputs JobOutputResponseArrayOutput `pulumi:"outputs"`
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+	Priority pulumi.StringPtrOutput `pulumi:"priority"`
+	// The UTC date and time at which this Job began processing.
+	StartTime pulumi.StringOutput `pulumi:"startTime"`
+	// The current state of the job.
+	State pulumi.StringOutput `pulumi:"state"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +81,51 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
+	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+	CorrelationData map[string]string `pulumi:"correlationData"`
+	// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	Created *string `pulumi:"created"`
+	// Optional customer supplied description of the Job.
+	Description *string `pulumi:"description"`
+	// The UTC date and time at which this Job finished processing.
+	EndTime *string `pulumi:"endTime"`
+	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	LastModified *string `pulumi:"lastModified"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The resource properties.
-	Properties *JobPropertiesResponse `pulumi:"properties"`
+	// The outputs for the Job.
+	Outputs []JobOutputResponse `pulumi:"outputs"`
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+	Priority *string `pulumi:"priority"`
+	// The UTC date and time at which this Job began processing.
+	StartTime *string `pulumi:"startTime"`
+	// The current state of the job.
+	State *string `pulumi:"state"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type JobState struct {
+	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+	CorrelationData pulumi.StringMapInput
+	// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	Created pulumi.StringPtrInput
+	// Optional customer supplied description of the Job.
+	Description pulumi.StringPtrInput
+	// The UTC date and time at which this Job finished processing.
+	EndTime pulumi.StringPtrInput
+	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	LastModified pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The resource properties.
-	Properties JobPropertiesResponsePtrInput
+	// The outputs for the Job.
+	Outputs JobOutputResponseArrayInput
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+	Priority pulumi.StringPtrInput
+	// The UTC date and time at which this Job began processing.
+	StartTime pulumi.StringPtrInput
+	// The current state of the job.
+	State pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

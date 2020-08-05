@@ -14,14 +14,18 @@ import (
 type ServerKey struct {
 	pulumi.CustomResourceState
 
+	// The key creation date.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Kind of encryption protector used to protect the key.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the ServerKey Resource.
-	Properties ServerKeyPropertiesResponseOutput `pulumi:"properties"`
+	// The key type like 'AzureKeyVault'.
+	ServerKeyType pulumi.StringOutput `pulumi:"serverKeyType"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The URI of the key.
+	Uri pulumi.StringPtrOutput `pulumi:"uri"`
 }
 
 // NewServerKey registers a new resource with the given unique name, arguments, and options.
@@ -64,25 +68,33 @@ func GetServerKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerKey resources.
 type serverKeyState struct {
+	// The key creation date.
+	CreationDate *string `pulumi:"creationDate"`
 	// Kind of encryption protector used to protect the key.
 	Kind *string `pulumi:"kind"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Properties of the ServerKey Resource.
-	Properties *ServerKeyPropertiesResponse `pulumi:"properties"`
+	// The key type like 'AzureKeyVault'.
+	ServerKeyType *string `pulumi:"serverKeyType"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
+	// The URI of the key.
+	Uri *string `pulumi:"uri"`
 }
 
 type ServerKeyState struct {
+	// The key creation date.
+	CreationDate pulumi.StringPtrInput
 	// Kind of encryption protector used to protect the key.
 	Kind pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Properties of the ServerKey Resource.
-	Properties ServerKeyPropertiesResponsePtrInput
+	// The key type like 'AzureKeyVault'.
+	ServerKeyType pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
+	// The URI of the key.
+	Uri pulumi.StringPtrInput
 }
 
 func (ServerKeyState) ElementType() reflect.Type {

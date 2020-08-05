@@ -18,10 +18,14 @@ type JitNetworkAccessPolicy struct {
 	// Location where the resource is stored
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
-	Name       pulumi.StringOutput                            `pulumi:"name"`
-	Properties JitNetworkAccessPolicyPropertiesResponseOutput `pulumi:"properties"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Gets the provisioning state of the Just-in-Time policy.
+	ProvisioningState pulumi.StringOutput                        `pulumi:"provisioningState"`
+	Requests          JitNetworkAccessRequestResponseArrayOutput `pulumi:"requests"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Configurations for Microsoft.Compute/virtualMachines resource type.
+	VirtualMachines JitNetworkAccessPolicyVirtualMachineResponseArrayOutput `pulumi:"virtualMachines"`
 }
 
 // NewJitNetworkAccessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -69,10 +73,14 @@ type jitNetworkAccessPolicyState struct {
 	// Location where the resource is stored
 	Location *string `pulumi:"location"`
 	// Resource name
-	Name       *string                                   `pulumi:"name"`
-	Properties *JitNetworkAccessPolicyPropertiesResponse `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Gets the provisioning state of the Just-in-Time policy.
+	ProvisioningState *string                           `pulumi:"provisioningState"`
+	Requests          []JitNetworkAccessRequestResponse `pulumi:"requests"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Configurations for Microsoft.Compute/virtualMachines resource type.
+	VirtualMachines []JitNetworkAccessPolicyVirtualMachineResponse `pulumi:"virtualMachines"`
 }
 
 type JitNetworkAccessPolicyState struct {
@@ -81,10 +89,14 @@ type JitNetworkAccessPolicyState struct {
 	// Location where the resource is stored
 	Location pulumi.StringPtrInput
 	// Resource name
-	Name       pulumi.StringPtrInput
-	Properties JitNetworkAccessPolicyPropertiesResponsePtrInput
+	Name pulumi.StringPtrInput
+	// Gets the provisioning state of the Just-in-Time policy.
+	ProvisioningState pulumi.StringPtrInput
+	Requests          JitNetworkAccessRequestResponseArrayInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Configurations for Microsoft.Compute/virtualMachines resource type.
+	VirtualMachines JitNetworkAccessPolicyVirtualMachineResponseArrayInput
 }
 
 func (JitNetworkAccessPolicyState) ElementType() reflect.Type {

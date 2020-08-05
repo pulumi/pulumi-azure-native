@@ -27,10 +27,20 @@ type LookupHubVirtualNetworkConnectionArgs struct {
 
 // HubVirtualNetworkConnection Resource.
 type LookupHubVirtualNetworkConnectionResult struct {
+	// Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+	AllowHubToRemoteVnetTransit *bool `pulumi:"allowHubToRemoteVnetTransit"`
+	// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+	AllowRemoteVnetToUseHubVnetGateways *bool `pulumi:"allowRemoteVnetToUseHubVnetGateways"`
+	// Enable internet security.
+	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the hub virtual network connection.
-	Properties HubVirtualNetworkConnectionPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the hub virtual network connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Reference to the remote virtual network.
+	RemoteVirtualNetwork *SubResourceResponse `pulumi:"remoteVirtualNetwork"`
+	// The Routing Configuration indicating the associated and propagated route tables on this connection.
+	RoutingConfiguration *RoutingConfigurationResponse `pulumi:"routingConfiguration"`
 }

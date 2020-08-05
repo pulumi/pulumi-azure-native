@@ -31,8 +31,10 @@ type LookupNetworkInterfaceTapConfigurationResult struct {
 	Etag *string `pulumi:"etag"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the Virtual Network Tap configuration.
-	Properties NetworkInterfaceTapConfigurationPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the network interface tap configuration. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Sub Resource type.
 	Type string `pulumi:"type"`
+	// The reference of the Virtual Network Tap resource.
+	VirtualNetworkTap *VirtualNetworkTapResponse `pulumi:"virtualNetworkTap"`
 }

@@ -25,16 +25,26 @@ type LookupCacheArgs struct {
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 type LookupCacheResult struct {
+	// The size of this Cache, in GB.
+	CacheSizeGB *int `pulumi:"cacheSizeGB"`
+	// Health of the Cache.
+	Health CacheHealthResponse `pulumi:"health"`
 	// Region name string.
 	Location *string `pulumi:"location"`
+	// Array of IP addresses that can be used by clients mounting this Cache.
+	MountAddresses []string `pulumi:"mountAddresses"`
 	// Name of Cache.
 	Name string `pulumi:"name"`
-	// Properties of the Cache.
-	Properties CacheResponseProperties `pulumi:"properties"`
+	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// SKU for the Cache.
 	Sku *CacheResponseSku `pulumi:"sku"`
+	// Subnet used for the Cache.
+	Subnet *string `pulumi:"subnet"`
 	// ARM tags as name/value pairs.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
 	Type string `pulumi:"type"`
+	// Upgrade status of the Cache.
+	UpgradeStatus *CacheUpgradeStatusResponse `pulumi:"upgradeStatus"`
 }

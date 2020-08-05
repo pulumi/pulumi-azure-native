@@ -14,12 +14,36 @@ import (
 type WebAppFunction struct {
 	pulumi.CustomResourceState
 
+	// Config information.
+	Config pulumi.MapOutput `pulumi:"config"`
+	// Config URI.
+	Config_href pulumi.StringPtrOutput `pulumi:"config_href"`
+	// File list.
+	Files pulumi.StringMapOutput `pulumi:"files"`
+	// Function App ID.
+	Function_app_id pulumi.StringPtrOutput `pulumi:"function_app_id"`
+	// Function URI.
+	Href pulumi.StringPtrOutput `pulumi:"href"`
+	// The invocation URL
+	Invoke_url_template pulumi.StringPtrOutput `pulumi:"invoke_url_template"`
+	// Value indicating whether the function is disabled
+	IsDisabled pulumi.BoolPtrOutput `pulumi:"isDisabled"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	// The function language
+	Language pulumi.StringPtrOutput `pulumi:"language"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// FunctionEnvelope resource specific properties
-	Properties FunctionEnvelopeResponsePropertiesOutput `pulumi:"properties"`
+	// Script URI.
+	Script_href pulumi.StringPtrOutput `pulumi:"script_href"`
+	// Script root path URI.
+	Script_root_path_href pulumi.StringPtrOutput `pulumi:"script_root_path_href"`
+	// Secrets file URI.
+	Secrets_file_href pulumi.StringPtrOutput `pulumi:"secrets_file_href"`
+	// Test data used when testing via the Azure Portal.
+	Test_data pulumi.StringPtrOutput `pulumi:"test_data"`
+	// Test data URI.
+	Test_data_href pulumi.StringPtrOutput `pulumi:"test_data_href"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -58,23 +82,71 @@ func GetWebAppFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppFunction resources.
 type webAppFunctionState struct {
+	// Config information.
+	Config map[string]interface{} `pulumi:"config"`
+	// Config URI.
+	Config_href *string `pulumi:"config_href"`
+	// File list.
+	Files map[string]string `pulumi:"files"`
+	// Function App ID.
+	Function_app_id *string `pulumi:"function_app_id"`
+	// Function URI.
+	Href *string `pulumi:"href"`
+	// The invocation URL
+	Invoke_url_template *string `pulumi:"invoke_url_template"`
+	// Value indicating whether the function is disabled
+	IsDisabled *bool `pulumi:"isDisabled"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
+	// The function language
+	Language *string `pulumi:"language"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// FunctionEnvelope resource specific properties
-	Properties *FunctionEnvelopeResponseProperties `pulumi:"properties"`
+	// Script URI.
+	Script_href *string `pulumi:"script_href"`
+	// Script root path URI.
+	Script_root_path_href *string `pulumi:"script_root_path_href"`
+	// Secrets file URI.
+	Secrets_file_href *string `pulumi:"secrets_file_href"`
+	// Test data used when testing via the Azure Portal.
+	Test_data *string `pulumi:"test_data"`
+	// Test data URI.
+	Test_data_href *string `pulumi:"test_data_href"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type WebAppFunctionState struct {
+	// Config information.
+	Config pulumi.MapInput
+	// Config URI.
+	Config_href pulumi.StringPtrInput
+	// File list.
+	Files pulumi.StringMapInput
+	// Function App ID.
+	Function_app_id pulumi.StringPtrInput
+	// Function URI.
+	Href pulumi.StringPtrInput
+	// The invocation URL
+	Invoke_url_template pulumi.StringPtrInput
+	// Value indicating whether the function is disabled
+	IsDisabled pulumi.BoolPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
+	// The function language
+	Language pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// FunctionEnvelope resource specific properties
-	Properties FunctionEnvelopeResponsePropertiesPtrInput
+	// Script URI.
+	Script_href pulumi.StringPtrInput
+	// Script root path URI.
+	Script_root_path_href pulumi.StringPtrInput
+	// Secrets file URI.
+	Secrets_file_href pulumi.StringPtrInput
+	// Test data used when testing via the Azure Portal.
+	Test_data pulumi.StringPtrInput
+	// Test data URI.
+	Test_data_href pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

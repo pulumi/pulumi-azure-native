@@ -14,10 +14,24 @@ import (
 type Asset struct {
 	pulumi.CustomResourceState
 
+	// The alternate ID of the Asset.
+	AlternateId pulumi.StringPtrOutput `pulumi:"alternateId"`
+	// The Asset ID.
+	AssetId pulumi.StringOutput `pulumi:"assetId"`
+	// The name of the asset blob container.
+	Container pulumi.StringPtrOutput `pulumi:"container"`
+	// The creation date of the Asset.
+	Created pulumi.StringOutput `pulumi:"created"`
+	// The Asset description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The last modified date of the Asset.
+	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The resource properties.
-	Properties AssetPropertiesResponseOutput `pulumi:"properties"`
+	// The name of the storage account.
+	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
+	// The Asset encryption format. One of None or MediaStorageEncryption.
+	StorageEncryptionFormat pulumi.StringOutput `pulumi:"storageEncryptionFormat"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +73,47 @@ func GetAsset(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Asset resources.
 type assetState struct {
+	// The alternate ID of the Asset.
+	AlternateId *string `pulumi:"alternateId"`
+	// The Asset ID.
+	AssetId *string `pulumi:"assetId"`
+	// The name of the asset blob container.
+	Container *string `pulumi:"container"`
+	// The creation date of the Asset.
+	Created *string `pulumi:"created"`
+	// The Asset description.
+	Description *string `pulumi:"description"`
+	// The last modified date of the Asset.
+	LastModified *string `pulumi:"lastModified"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The resource properties.
-	Properties *AssetPropertiesResponse `pulumi:"properties"`
+	// The name of the storage account.
+	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The Asset encryption format. One of None or MediaStorageEncryption.
+	StorageEncryptionFormat *string `pulumi:"storageEncryptionFormat"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type AssetState struct {
+	// The alternate ID of the Asset.
+	AlternateId pulumi.StringPtrInput
+	// The Asset ID.
+	AssetId pulumi.StringPtrInput
+	// The name of the asset blob container.
+	Container pulumi.StringPtrInput
+	// The creation date of the Asset.
+	Created pulumi.StringPtrInput
+	// The Asset description.
+	Description pulumi.StringPtrInput
+	// The last modified date of the Asset.
+	LastModified pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The resource properties.
-	Properties AssetPropertiesResponsePtrInput
+	// The name of the storage account.
+	StorageAccountName pulumi.StringPtrInput
+	// The Asset encryption format. One of None or MediaStorageEncryption.
+	StorageEncryptionFormat pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

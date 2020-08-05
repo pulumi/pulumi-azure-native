@@ -25,12 +25,22 @@ type LookupBatchAccountArgs struct {
 
 // Contains information about an Azure Batch account.
 type LookupBatchAccountResult struct {
+	// The endpoint used by this account to interact with the Batch services.
+	AccountEndpoint string `pulumi:"accountEndpoint"`
+	// The active job and job schedule quota for this Batch account.
+	ActiveJobAndJobScheduleQuota int `pulumi:"activeJobAndJobScheduleQuota"`
+	// The properties and status of any auto storage account associated with the account.
+	AutoStorage *AutoStoragePropertiesResponse `pulumi:"autoStorage"`
+	// The core quota for this Batch account.
+	CoreQuota int `pulumi:"coreQuota"`
 	// The location of the resource
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties associated with the account.
-	Properties BatchAccountPropertiesResponse `pulumi:"properties"`
+	// The pool quota for this Batch account.
+	PoolQuota int `pulumi:"poolQuota"`
+	// The provisioned state of the resource
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The tags of the resource
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource

@@ -2836,15 +2836,18 @@ func (o ConnectionErrorPtrOutput) Tags() pulumi.StringMapOutput {
 
 // Connection error
 type ConnectionErrorResponse struct {
+	// Code of the status
+	Code *string `pulumi:"code"`
 	// Resource ETag
 	Etag *string `pulumi:"etag"`
 	// Resource id
 	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// Description of the status
+	Message *string `pulumi:"message"`
 	// Resource name
-	Name       string                             `pulumi:"name"`
-	Properties *ConnectionErrorResponseProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -2864,15 +2867,18 @@ type ConnectionErrorResponseInput interface {
 
 // Connection error
 type ConnectionErrorResponseArgs struct {
+	// Code of the status
+	Code pulumi.StringPtrInput `pulumi:"code"`
 	// Resource ETag
 	Etag pulumi.StringPtrInput `pulumi:"etag"`
 	// Resource id
 	Id pulumi.StringInput `pulumi:"id"`
 	// Resource location
 	Location pulumi.StringPtrInput `pulumi:"location"`
+	// Description of the status
+	Message pulumi.StringPtrInput `pulumi:"message"`
 	// Resource name
-	Name       pulumi.StringInput                        `pulumi:"name"`
-	Properties ConnectionErrorResponsePropertiesPtrInput `pulumi:"properties"`
+	Name pulumi.StringInput `pulumi:"name"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type
@@ -2957,6 +2963,11 @@ func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutputWithCon
 	}).(ConnectionErrorResponsePtrOutput)
 }
 
+// Code of the status
+func (o ConnectionErrorResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
 // Resource ETag
 func (o ConnectionErrorResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
@@ -2972,13 +2983,14 @@ func (o ConnectionErrorResponseOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
+// Description of the status
+func (o ConnectionErrorResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
 // Resource name
 func (o ConnectionErrorResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionErrorResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o ConnectionErrorResponseOutput) Properties() ConnectionErrorResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectionErrorResponse) *ConnectionErrorResponseProperties { return v.Properties }).(ConnectionErrorResponsePropertiesPtrOutput)
 }
 
 // Resource tags
@@ -3007,6 +3019,16 @@ func (o ConnectionErrorResponsePtrOutput) ToConnectionErrorResponsePtrOutputWith
 
 func (o ConnectionErrorResponsePtrOutput) Elem() ConnectionErrorResponseOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) ConnectionErrorResponse { return *v }).(ConnectionErrorResponseOutput)
+}
+
+// Code of the status
+func (o ConnectionErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
 }
 
 // Resource ETag
@@ -3039,6 +3061,16 @@ func (o ConnectionErrorResponsePtrOutput) Location() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Description of the status
+func (o ConnectionErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
 // Resource name
 func (o ConnectionErrorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionErrorResponse) *string {
@@ -3047,15 +3079,6 @@ func (o ConnectionErrorResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectionErrorResponsePtrOutput) Properties() ConnectionErrorResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *ConnectionErrorResponse) *ConnectionErrorResponseProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(ConnectionErrorResponsePropertiesPtrOutput)
 }
 
 // Resource tags
@@ -3075,156 +3098,6 @@ func (o ConnectionErrorResponsePtrOutput) Type() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-type ConnectionErrorResponseProperties struct {
-	// Code of the status
-	Code *string `pulumi:"code"`
-	// Description of the status
-	Message *string `pulumi:"message"`
-}
-
-// ConnectionErrorResponsePropertiesInput is an input type that accepts ConnectionErrorResponsePropertiesArgs and ConnectionErrorResponsePropertiesOutput values.
-// You can construct a concrete instance of `ConnectionErrorResponsePropertiesInput` via:
-//
-//          ConnectionErrorResponsePropertiesArgs{...}
-type ConnectionErrorResponsePropertiesInput interface {
-	pulumi.Input
-
-	ToConnectionErrorResponsePropertiesOutput() ConnectionErrorResponsePropertiesOutput
-	ToConnectionErrorResponsePropertiesOutputWithContext(context.Context) ConnectionErrorResponsePropertiesOutput
-}
-
-type ConnectionErrorResponsePropertiesArgs struct {
-	// Code of the status
-	Code pulumi.StringPtrInput `pulumi:"code"`
-	// Description of the status
-	Message pulumi.StringPtrInput `pulumi:"message"`
-}
-
-func (ConnectionErrorResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionErrorResponseProperties)(nil)).Elem()
-}
-
-func (i ConnectionErrorResponsePropertiesArgs) ToConnectionErrorResponsePropertiesOutput() ConnectionErrorResponsePropertiesOutput {
-	return i.ToConnectionErrorResponsePropertiesOutputWithContext(context.Background())
-}
-
-func (i ConnectionErrorResponsePropertiesArgs) ToConnectionErrorResponsePropertiesOutputWithContext(ctx context.Context) ConnectionErrorResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionErrorResponsePropertiesOutput)
-}
-
-func (i ConnectionErrorResponsePropertiesArgs) ToConnectionErrorResponsePropertiesPtrOutput() ConnectionErrorResponsePropertiesPtrOutput {
-	return i.ToConnectionErrorResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectionErrorResponsePropertiesArgs) ToConnectionErrorResponsePropertiesPtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionErrorResponsePropertiesOutput).ToConnectionErrorResponsePropertiesPtrOutputWithContext(ctx)
-}
-
-// ConnectionErrorResponsePropertiesPtrInput is an input type that accepts ConnectionErrorResponsePropertiesArgs, ConnectionErrorResponsePropertiesPtr and ConnectionErrorResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `ConnectionErrorResponsePropertiesPtrInput` via:
-//
-//          ConnectionErrorResponsePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectionErrorResponsePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToConnectionErrorResponsePropertiesPtrOutput() ConnectionErrorResponsePropertiesPtrOutput
-	ToConnectionErrorResponsePropertiesPtrOutputWithContext(context.Context) ConnectionErrorResponsePropertiesPtrOutput
-}
-
-type connectionErrorResponsePropertiesPtrType ConnectionErrorResponsePropertiesArgs
-
-func ConnectionErrorResponsePropertiesPtr(v *ConnectionErrorResponsePropertiesArgs) ConnectionErrorResponsePropertiesPtrInput {
-	return (*connectionErrorResponsePropertiesPtrType)(v)
-}
-
-func (*connectionErrorResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionErrorResponseProperties)(nil)).Elem()
-}
-
-func (i *connectionErrorResponsePropertiesPtrType) ToConnectionErrorResponsePropertiesPtrOutput() ConnectionErrorResponsePropertiesPtrOutput {
-	return i.ToConnectionErrorResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *connectionErrorResponsePropertiesPtrType) ToConnectionErrorResponsePropertiesPtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionErrorResponsePropertiesPtrOutput)
-}
-
-type ConnectionErrorResponsePropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConnectionErrorResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionErrorResponseProperties)(nil)).Elem()
-}
-
-func (o ConnectionErrorResponsePropertiesOutput) ToConnectionErrorResponsePropertiesOutput() ConnectionErrorResponsePropertiesOutput {
-	return o
-}
-
-func (o ConnectionErrorResponsePropertiesOutput) ToConnectionErrorResponsePropertiesOutputWithContext(ctx context.Context) ConnectionErrorResponsePropertiesOutput {
-	return o
-}
-
-func (o ConnectionErrorResponsePropertiesOutput) ToConnectionErrorResponsePropertiesPtrOutput() ConnectionErrorResponsePropertiesPtrOutput {
-	return o.ToConnectionErrorResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectionErrorResponsePropertiesOutput) ToConnectionErrorResponsePropertiesPtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ConnectionErrorResponseProperties) *ConnectionErrorResponseProperties {
-		return &v
-	}).(ConnectionErrorResponsePropertiesPtrOutput)
-}
-
-// Code of the status
-func (o ConnectionErrorResponsePropertiesOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionErrorResponseProperties) *string { return v.Code }).(pulumi.StringPtrOutput)
-}
-
-// Description of the status
-func (o ConnectionErrorResponsePropertiesOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionErrorResponseProperties) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-type ConnectionErrorResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectionErrorResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionErrorResponseProperties)(nil)).Elem()
-}
-
-func (o ConnectionErrorResponsePropertiesPtrOutput) ToConnectionErrorResponsePropertiesPtrOutput() ConnectionErrorResponsePropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectionErrorResponsePropertiesPtrOutput) ToConnectionErrorResponsePropertiesPtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePropertiesPtrOutput {
-	return o
-}
-
-func (o ConnectionErrorResponsePropertiesPtrOutput) Elem() ConnectionErrorResponsePropertiesOutput {
-	return o.ApplyT(func(v *ConnectionErrorResponseProperties) ConnectionErrorResponseProperties { return *v }).(ConnectionErrorResponsePropertiesOutput)
-}
-
-// Code of the status
-func (o ConnectionErrorResponsePropertiesPtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectionErrorResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Code
-	}).(pulumi.StringPtrOutput)
-}
-
-// Description of the status
-func (o ConnectionErrorResponsePropertiesPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectionErrorResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6270,8 +6143,6 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionErrorPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionErrorResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionErrorResponsePtrOutput{})
-	pulumi.RegisterOutputType(ConnectionErrorResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(ConnectionErrorResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionGatewayDefinitionPropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionGatewayDefinitionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionGatewayDefinitionResponsePropertiesOutput{})

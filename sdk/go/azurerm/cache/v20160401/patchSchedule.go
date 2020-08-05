@@ -19,7 +19,7 @@ type PatchSchedule struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of patch schedules for a Redis cache.
-	Properties ScheduleEntriesResponseOutput `pulumi:"properties"`
+	ScheduleEntries ScheduleEntryResponseArrayOutput `pulumi:"scheduleEntries"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -66,7 +66,7 @@ type patchScheduleState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// List of patch schedules for a Redis cache.
-	Properties *ScheduleEntriesResponse `pulumi:"properties"`
+	ScheduleEntries []ScheduleEntryResponse `pulumi:"scheduleEntries"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -77,7 +77,7 @@ type PatchScheduleState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// List of patch schedules for a Redis cache.
-	Properties ScheduleEntriesResponsePtrInput
+	ScheduleEntries ScheduleEntryResponseArrayInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

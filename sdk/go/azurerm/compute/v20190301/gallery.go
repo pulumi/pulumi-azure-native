@@ -14,12 +14,16 @@ import (
 type Gallery struct {
 	pulumi.CustomResourceState
 
+	// The description of this Shared Image Gallery resource. This property is updatable.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Describes the gallery unique name.
+	Identifier GalleryIdentifierResponsePtrOutput `pulumi:"identifier"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes the properties of a Shared Image Gallery.
-	Properties GalleryPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -63,12 +67,16 @@ func GetGallery(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Gallery resources.
 type galleryState struct {
+	// The description of this Shared Image Gallery resource. This property is updatable.
+	Description *string `pulumi:"description"`
+	// Describes the gallery unique name.
+	Identifier *GalleryIdentifierResponse `pulumi:"identifier"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Describes the properties of a Shared Image Gallery.
-	Properties *GalleryPropertiesResponse `pulumi:"properties"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -76,12 +84,16 @@ type galleryState struct {
 }
 
 type GalleryState struct {
+	// The description of this Shared Image Gallery resource. This property is updatable.
+	Description pulumi.StringPtrInput
+	// Describes the gallery unique name.
+	Identifier GalleryIdentifierResponsePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Describes the properties of a Shared Image Gallery.
-	Properties GalleryPropertiesResponsePtrInput
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

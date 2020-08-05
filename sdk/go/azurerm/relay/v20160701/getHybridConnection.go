@@ -27,10 +27,18 @@ type LookupHybridConnectionArgs struct {
 
 // Description of HybridConnection Resource.
 type LookupHybridConnectionResult struct {
+	// The time the HybridConnection was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// The number of listeners for this HybridConnection. min : 1 and max:25 supported
+	ListenerCount int `pulumi:"listenerCount"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of HybridConnection
-	Properties HybridConnectionPropertiesResponse `pulumi:"properties"`
+	// true if client authorization is needed for this HybridConnection; otherwise, false.
+	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
+	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+	UserMetadata *string `pulumi:"userMetadata"`
 }

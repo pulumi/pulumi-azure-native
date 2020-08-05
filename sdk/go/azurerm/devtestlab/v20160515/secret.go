@@ -18,12 +18,16 @@ type Secret struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the resource.
-	Properties SecretPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
+	// The value of the secret for secret creation.
+	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewSecret registers a new resource with the given unique name, arguments, and options.
@@ -70,12 +74,16 @@ type secretState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *SecretPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// The value of the secret for secret creation.
+	Value *string `pulumi:"value"`
 }
 
 type SecretState struct {
@@ -83,12 +91,16 @@ type SecretState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the resource.
-	Properties SecretPropertiesResponsePtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
+	// The value of the secret for secret creation.
+	Value pulumi.StringPtrInput
 }
 
 func (SecretState) ElementType() reflect.Type {

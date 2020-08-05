@@ -33,8 +33,8 @@ type LookupApiOperationPolicyArgs struct {
 type LookupApiOperationPolicyResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponse `pulumi:"properties"`
+	// Json escaped Xml Encoded contents of the Policy.
+	PolicyContent string `pulumi:"policyContent"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

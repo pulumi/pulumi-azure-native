@@ -18,8 +18,8 @@ type CustomerSubscription struct {
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Customer subscription properties.
-	Properties CustomerSubscriptionPropertiesResponseOutput `pulumi:"properties"`
+	// Tenant Id.
+	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
 	// Type of Resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,8 +65,8 @@ type customerSubscriptionState struct {
 	Etag *string `pulumi:"etag"`
 	// Name of the resource.
 	Name *string `pulumi:"name"`
-	// Customer subscription properties.
-	Properties *CustomerSubscriptionPropertiesResponse `pulumi:"properties"`
+	// Tenant Id.
+	TenantId *string `pulumi:"tenantId"`
 	// Type of Resource.
 	Type *string `pulumi:"type"`
 }
@@ -76,8 +76,8 @@ type CustomerSubscriptionState struct {
 	Etag pulumi.StringPtrInput
 	// Name of the resource.
 	Name pulumi.StringPtrInput
-	// Customer subscription properties.
-	Properties CustomerSubscriptionPropertiesResponsePtrInput
+	// Tenant Id.
+	TenantId pulumi.StringPtrInput
 	// Type of Resource.
 	Type pulumi.StringPtrInput
 }

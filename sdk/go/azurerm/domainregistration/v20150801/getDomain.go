@@ -25,13 +25,44 @@ type LookupDomainArgs struct {
 
 // Represents a domain
 type LookupDomainResult struct {
+	// If true then domain will renewed automatically
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// Legal agreement consent
+	Consent *DomainPurchaseConsentResponse `pulumi:"consent"`
+	// Admin contact information
+	ContactAdmin *ContactResponse `pulumi:"contactAdmin"`
+	// Billing contact information
+	ContactBilling *ContactResponse `pulumi:"contactBilling"`
+	// Registrant contact information
+	ContactRegistrant *ContactResponse `pulumi:"contactRegistrant"`
+	// Technical contact information
+	ContactTech *ContactResponse `pulumi:"contactTech"`
+	// Domain creation timestamp
+	CreatedTime *string `pulumi:"createdTime"`
+	// Reasons why domain is not renewable
+	DomainNotRenewableReasons []string `pulumi:"domainNotRenewableReasons"`
+	// Domain expiration timestamp
+	ExpirationTime *string `pulumi:"expirationTime"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
+	// Timestamp when the domain was renewed last time
+	LastRenewedTime *string `pulumi:"lastRenewedTime"`
 	// Resource Location
 	Location string `pulumi:"location"`
+	// All hostnames derived from the domain and assigned to Azure resources
+	ManagedHostNames []HostNameResponse `pulumi:"managedHostNames"`
 	// Resource Name
-	Name       *string                  `pulumi:"name"`
-	Properties DomainResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Name servers
+	NameServers []string `pulumi:"nameServers"`
+	// If true then domain privacy is enabled for this domain
+	Privacy *bool `pulumi:"privacy"`
+	// Domain provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
+	ReadyForDnsRecordManagement *bool `pulumi:"readyForDnsRecordManagement"`
+	// Domain registration status
+	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

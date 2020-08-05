@@ -14,10 +14,26 @@ import (
 type VirtualMachineScaleSetExtension struct {
 	pulumi.CustomResourceState
 
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
 	// The name of the extension.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Scale Set Extension.
-	Properties VirtualMachineScaleSetExtensionPropertiesResponseOutput `pulumi:"properties"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.MapOutput `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions pulumi.StringArrayOutput `pulumi:"provisionAfterExtensions"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher pulumi.StringPtrOutput `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings pulumi.MapOutput `pulumi:"settings"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringPtrOutput `pulumi:"typeHandlerVersion"`
 }
 
 // NewVirtualMachineScaleSetExtension registers a new resource with the given unique name, arguments, and options.
@@ -57,17 +73,49 @@ func GetVirtualMachineScaleSetExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualMachineScaleSetExtension resources.
 type virtualMachineScaleSetExtensionState struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name of the extension.
 	Name *string `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Scale Set Extension.
-	Properties *VirtualMachineScaleSetExtensionPropertiesResponse `pulumi:"properties"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher *string `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings map[string]interface{} `pulumi:"settings"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type *string `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
 type VirtualMachineScaleSetExtensionState struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag pulumi.StringPtrInput
 	// The name of the extension.
 	Name pulumi.StringPtrInput
-	// Describes the properties of a Virtual Machine Scale Set Extension.
-	Properties VirtualMachineScaleSetExtensionPropertiesResponsePtrInput
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.MapInput
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions pulumi.StringArrayInput
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// The name of the extension handler publisher.
+	Publisher pulumi.StringPtrInput
+	// Json formatted public settings for the extension.
+	Settings pulumi.MapInput
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type pulumi.StringPtrInput
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringPtrInput
 }
 
 func (VirtualMachineScaleSetExtensionState) ElementType() reflect.Type {

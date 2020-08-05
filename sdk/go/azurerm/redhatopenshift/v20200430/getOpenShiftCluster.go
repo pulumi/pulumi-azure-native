@@ -25,14 +25,30 @@ type LookupOpenShiftClusterArgs struct {
 
 // OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
 type LookupOpenShiftClusterResult struct {
+	// The cluster API server profile.
+	ApiserverProfile *APIServerProfileResponse `pulumi:"apiserverProfile"`
+	// The cluster profile.
+	ClusterProfile *ClusterProfileResponse `pulumi:"clusterProfile"`
+	// The console profile.
+	ConsoleProfile *ConsoleProfileResponse `pulumi:"consoleProfile"`
+	// The cluster ingress profiles.
+	IngressProfiles []IngressProfileResponse `pulumi:"ingressProfiles"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// The cluster master profile.
+	MasterProfile *MasterProfileResponse `pulumi:"masterProfile"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The cluster properties.
-	Properties OpenShiftClusterPropertiesResponse `pulumi:"properties"`
+	// The cluster network profile.
+	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
+	// The cluster provisioning state (immutable).
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The cluster service principal profile.
+	ServicePrincipalProfile *ServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+	// The cluster worker profiles.
+	WorkerProfiles []WorkerProfileResponse `pulumi:"workerProfiles"`
 }

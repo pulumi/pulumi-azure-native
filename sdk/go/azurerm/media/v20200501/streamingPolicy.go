@@ -14,10 +14,20 @@ import (
 type StreamingPolicy struct {
 	pulumi.CustomResourceState
 
+	// Configuration of CommonEncryptionCbcs
+	CommonEncryptionCbcs CommonEncryptionCbcsResponsePtrOutput `pulumi:"commonEncryptionCbcs"`
+	// Configuration of CommonEncryptionCenc
+	CommonEncryptionCenc CommonEncryptionCencResponsePtrOutput `pulumi:"commonEncryptionCenc"`
+	// Creation time of Streaming Policy
+	Created pulumi.StringOutput `pulumi:"created"`
+	// Default ContentKey used by current Streaming Policy
+	DefaultContentKeyPolicyName pulumi.StringPtrOutput `pulumi:"defaultContentKeyPolicyName"`
+	// Configuration of EnvelopeEncryption
+	EnvelopeEncryption EnvelopeEncryptionResponsePtrOutput `pulumi:"envelopeEncryption"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Class to specify properties of Streaming Policy
-	Properties StreamingPolicyPropertiesResponseOutput `pulumi:"properties"`
+	// Configurations of NoEncryption
+	NoEncryption NoEncryptionResponsePtrOutput `pulumi:"noEncryption"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +69,39 @@ func GetStreamingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamingPolicy resources.
 type streamingPolicyState struct {
+	// Configuration of CommonEncryptionCbcs
+	CommonEncryptionCbcs *CommonEncryptionCbcsResponse `pulumi:"commonEncryptionCbcs"`
+	// Configuration of CommonEncryptionCenc
+	CommonEncryptionCenc *CommonEncryptionCencResponse `pulumi:"commonEncryptionCenc"`
+	// Creation time of Streaming Policy
+	Created *string `pulumi:"created"`
+	// Default ContentKey used by current Streaming Policy
+	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
+	// Configuration of EnvelopeEncryption
+	EnvelopeEncryption *EnvelopeEncryptionResponse `pulumi:"envelopeEncryption"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Class to specify properties of Streaming Policy
-	Properties *StreamingPolicyPropertiesResponse `pulumi:"properties"`
+	// Configurations of NoEncryption
+	NoEncryption *NoEncryptionResponse `pulumi:"noEncryption"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type StreamingPolicyState struct {
+	// Configuration of CommonEncryptionCbcs
+	CommonEncryptionCbcs CommonEncryptionCbcsResponsePtrInput
+	// Configuration of CommonEncryptionCenc
+	CommonEncryptionCenc CommonEncryptionCencResponsePtrInput
+	// Creation time of Streaming Policy
+	Created pulumi.StringPtrInput
+	// Default ContentKey used by current Streaming Policy
+	DefaultContentKeyPolicyName pulumi.StringPtrInput
+	// Configuration of EnvelopeEncryption
+	EnvelopeEncryption EnvelopeEncryptionResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Class to specify properties of Streaming Policy
-	Properties StreamingPolicyPropertiesResponsePtrInput
+	// Configurations of NoEncryption
+	NoEncryption NoEncryptionResponsePtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

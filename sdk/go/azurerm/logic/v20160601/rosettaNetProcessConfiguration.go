@@ -14,12 +14,30 @@ import (
 type RosettaNetProcessConfiguration struct {
 	pulumi.CustomResourceState
 
+	// The RosettaNet process configuration activity settings.
+	ActivitySettings RosettaNetPipActivitySettingsResponseOutput `pulumi:"activitySettings"`
+	// The changed time.
+	ChangedTime pulumi.StringOutput `pulumi:"changedTime"`
+	// The created time.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The integration account RosettaNet ProcessConfiguration properties.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The RosettaNet initiator role settings.
+	InitiatorRoleSettings RosettaNetPipRoleSettingsResponseOutput `pulumi:"initiatorRoleSettings"`
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The metadata.
+	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// Gets the resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The integration account RosettaNet process configuration properties.
-	Properties IntegrationAccountRosettaNetProcessConfigurationPropertiesResponseOutput `pulumi:"properties"`
+	// The integration account RosettaNet process code.
+	ProcessCode pulumi.StringOutput `pulumi:"processCode"`
+	// The integration account RosettaNet process name.
+	ProcessName pulumi.StringOutput `pulumi:"processName"`
+	// The integration account RosettaNet process version.
+	ProcessVersion pulumi.StringOutput `pulumi:"processVersion"`
+	// The RosettaNet responder role settings.
+	ResponderRoleSettings RosettaNetPipRoleSettingsResponseOutput `pulumi:"responderRoleSettings"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Gets the resource type.
@@ -81,12 +99,30 @@ func GetRosettaNetProcessConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RosettaNetProcessConfiguration resources.
 type rosettaNetProcessConfigurationState struct {
+	// The RosettaNet process configuration activity settings.
+	ActivitySettings *RosettaNetPipActivitySettingsResponse `pulumi:"activitySettings"`
+	// The changed time.
+	ChangedTime *string `pulumi:"changedTime"`
+	// The created time.
+	CreatedTime *string `pulumi:"createdTime"`
+	// The integration account RosettaNet ProcessConfiguration properties.
+	Description *string `pulumi:"description"`
+	// The RosettaNet initiator role settings.
+	InitiatorRoleSettings *RosettaNetPipRoleSettingsResponse `pulumi:"initiatorRoleSettings"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata map[string]string `pulumi:"metadata"`
 	// Gets the resource name.
 	Name *string `pulumi:"name"`
-	// The integration account RosettaNet process configuration properties.
-	Properties *IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse `pulumi:"properties"`
+	// The integration account RosettaNet process code.
+	ProcessCode *string `pulumi:"processCode"`
+	// The integration account RosettaNet process name.
+	ProcessName *string `pulumi:"processName"`
+	// The integration account RosettaNet process version.
+	ProcessVersion *string `pulumi:"processVersion"`
+	// The RosettaNet responder role settings.
+	ResponderRoleSettings *RosettaNetPipRoleSettingsResponse `pulumi:"responderRoleSettings"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Gets the resource type.
@@ -94,12 +130,30 @@ type rosettaNetProcessConfigurationState struct {
 }
 
 type RosettaNetProcessConfigurationState struct {
+	// The RosettaNet process configuration activity settings.
+	ActivitySettings RosettaNetPipActivitySettingsResponsePtrInput
+	// The changed time.
+	ChangedTime pulumi.StringPtrInput
+	// The created time.
+	CreatedTime pulumi.StringPtrInput
+	// The integration account RosettaNet ProcessConfiguration properties.
+	Description pulumi.StringPtrInput
+	// The RosettaNet initiator role settings.
+	InitiatorRoleSettings RosettaNetPipRoleSettingsResponsePtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.StringMapInput
 	// Gets the resource name.
 	Name pulumi.StringPtrInput
-	// The integration account RosettaNet process configuration properties.
-	Properties IntegrationAccountRosettaNetProcessConfigurationPropertiesResponsePtrInput
+	// The integration account RosettaNet process code.
+	ProcessCode pulumi.StringPtrInput
+	// The integration account RosettaNet process name.
+	ProcessName pulumi.StringPtrInput
+	// The integration account RosettaNet process version.
+	ProcessVersion pulumi.StringPtrInput
+	// The RosettaNet responder role settings.
+	ResponderRoleSettings RosettaNetPipRoleSettingsResponsePtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// Gets the resource type.

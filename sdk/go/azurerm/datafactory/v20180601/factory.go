@@ -14,20 +14,28 @@ import (
 type Factory struct {
 	pulumi.CustomResourceState
 
+	// Time the factory was created in ISO8601 format.
+	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// Etag identifies change in the resource.
 	ETag pulumi.StringOutput `pulumi:"eTag"`
+	// List of parameters for factory.
+	GlobalParameters GlobalParameterSpecificationResponseMapOutput `pulumi:"globalParameters"`
 	// Managed service identity of the factory.
 	Identity FactoryIdentityResponsePtrOutput `pulumi:"identity"`
 	// The resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the factory.
-	Properties FactoryPropertiesResponseOutput `pulumi:"properties"`
+	// Factory provisioning state, example Succeeded.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Git repo information of the factory.
+	RepoConfiguration FactoryRepoConfigurationResponsePtrOutput `pulumi:"repoConfiguration"`
 	// The resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Version of the factory.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewFactory registers a new resource with the given unique name, arguments, and options.
@@ -64,37 +72,53 @@ func GetFactory(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Factory resources.
 type factoryState struct {
+	// Time the factory was created in ISO8601 format.
+	CreateTime *string `pulumi:"createTime"`
 	// Etag identifies change in the resource.
 	ETag *string `pulumi:"eTag"`
+	// List of parameters for factory.
+	GlobalParameters map[string]GlobalParameterSpecificationResponse `pulumi:"globalParameters"`
 	// Managed service identity of the factory.
 	Identity *FactoryIdentityResponse `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the factory.
-	Properties *FactoryPropertiesResponse `pulumi:"properties"`
+	// Factory provisioning state, example Succeeded.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Git repo information of the factory.
+	RepoConfiguration *FactoryRepoConfigurationResponse `pulumi:"repoConfiguration"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type *string `pulumi:"type"`
+	// Version of the factory.
+	Version *string `pulumi:"version"`
 }
 
 type FactoryState struct {
+	// Time the factory was created in ISO8601 format.
+	CreateTime pulumi.StringPtrInput
 	// Etag identifies change in the resource.
 	ETag pulumi.StringPtrInput
+	// List of parameters for factory.
+	GlobalParameters GlobalParameterSpecificationResponseMapInput
 	// Managed service identity of the factory.
 	Identity FactoryIdentityResponsePtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the factory.
-	Properties FactoryPropertiesResponsePtrInput
+	// Factory provisioning state, example Succeeded.
+	ProvisioningState pulumi.StringPtrInput
+	// Git repo information of the factory.
+	RepoConfiguration FactoryRepoConfigurationResponsePtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The resource type.
 	Type pulumi.StringPtrInput
+	// Version of the factory.
+	Version pulumi.StringPtrInput
 }
 
 func (FactoryState) ElementType() reflect.Type {

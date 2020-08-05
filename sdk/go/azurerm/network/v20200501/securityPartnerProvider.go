@@ -14,18 +14,24 @@ import (
 type SecurityPartnerProvider struct {
 	pulumi.CustomResourceState
 
+	// The connection status with the Security Partner Provider.
+	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Security Partner Provider.
-	Properties SecurityPartnerProviderPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the Security Partner Provider resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The security provider name.
+	SecurityProviderName pulumi.StringPtrOutput `pulumi:"securityProviderName"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The virtualHub to which the Security Partner Provider belongs.
+	VirtualHub SubResourceResponsePtrOutput `pulumi:"virtualHub"`
 }
 
 // NewSecurityPartnerProvider registers a new resource with the given unique name, arguments, and options.
@@ -62,33 +68,45 @@ func GetSecurityPartnerProvider(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityPartnerProvider resources.
 type securityPartnerProviderState struct {
+	// The connection status with the Security Partner Provider.
+	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Security Partner Provider.
-	Properties *SecurityPartnerProviderPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the Security Partner Provider resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The security provider name.
+	SecurityProviderName *string `pulumi:"securityProviderName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The virtualHub to which the Security Partner Provider belongs.
+	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
 }
 
 type SecurityPartnerProviderState struct {
+	// The connection status with the Security Partner Provider.
+	ConnectionStatus pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the Security Partner Provider.
-	Properties SecurityPartnerProviderPropertiesFormatResponsePtrInput
+	// The provisioning state of the Security Partner Provider resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The security provider name.
+	SecurityProviderName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The virtualHub to which the Security Partner Provider belongs.
+	VirtualHub SubResourceResponsePtrInput
 }
 
 func (SecurityPartnerProviderState) ElementType() reflect.Type {

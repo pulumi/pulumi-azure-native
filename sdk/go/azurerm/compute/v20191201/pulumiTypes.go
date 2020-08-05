@@ -1412,216 +1412,6 @@ func (o AutomaticRepairsPolicyResponsePtrOutput) GracePeriod() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instance view of a resource.
-type AvailabilitySetPropertiesResponse struct {
-	// Fault Domain count.
-	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// Update Domain count.
-	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
-	// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-	ProximityPlacementGroup *SubResourceResponse `pulumi:"proximityPlacementGroup"`
-	// The resource status information.
-	Statuses []InstanceViewStatusResponse `pulumi:"statuses"`
-	// A list of references to all virtual machines in the availability set.
-	VirtualMachines []SubResourceResponse `pulumi:"virtualMachines"`
-}
-
-// AvailabilitySetPropertiesResponseInput is an input type that accepts AvailabilitySetPropertiesResponseArgs and AvailabilitySetPropertiesResponseOutput values.
-// You can construct a concrete instance of `AvailabilitySetPropertiesResponseInput` via:
-//
-//          AvailabilitySetPropertiesResponseArgs{...}
-type AvailabilitySetPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAvailabilitySetPropertiesResponseOutput() AvailabilitySetPropertiesResponseOutput
-	ToAvailabilitySetPropertiesResponseOutputWithContext(context.Context) AvailabilitySetPropertiesResponseOutput
-}
-
-// The instance view of a resource.
-type AvailabilitySetPropertiesResponseArgs struct {
-	// Fault Domain count.
-	PlatformFaultDomainCount pulumi.IntPtrInput `pulumi:"platformFaultDomainCount"`
-	// Update Domain count.
-	PlatformUpdateDomainCount pulumi.IntPtrInput `pulumi:"platformUpdateDomainCount"`
-	// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-	ProximityPlacementGroup SubResourceResponsePtrInput `pulumi:"proximityPlacementGroup"`
-	// The resource status information.
-	Statuses InstanceViewStatusResponseArrayInput `pulumi:"statuses"`
-	// A list of references to all virtual machines in the availability set.
-	VirtualMachines SubResourceResponseArrayInput `pulumi:"virtualMachines"`
-}
-
-func (AvailabilitySetPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilitySetPropertiesResponse)(nil)).Elem()
-}
-
-func (i AvailabilitySetPropertiesResponseArgs) ToAvailabilitySetPropertiesResponseOutput() AvailabilitySetPropertiesResponseOutput {
-	return i.ToAvailabilitySetPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AvailabilitySetPropertiesResponseArgs) ToAvailabilitySetPropertiesResponseOutputWithContext(ctx context.Context) AvailabilitySetPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetPropertiesResponseOutput)
-}
-
-func (i AvailabilitySetPropertiesResponseArgs) ToAvailabilitySetPropertiesResponsePtrOutput() AvailabilitySetPropertiesResponsePtrOutput {
-	return i.ToAvailabilitySetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AvailabilitySetPropertiesResponseArgs) ToAvailabilitySetPropertiesResponsePtrOutputWithContext(ctx context.Context) AvailabilitySetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetPropertiesResponseOutput).ToAvailabilitySetPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// AvailabilitySetPropertiesResponsePtrInput is an input type that accepts AvailabilitySetPropertiesResponseArgs, AvailabilitySetPropertiesResponsePtr and AvailabilitySetPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `AvailabilitySetPropertiesResponsePtrInput` via:
-//
-//          AvailabilitySetPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AvailabilitySetPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToAvailabilitySetPropertiesResponsePtrOutput() AvailabilitySetPropertiesResponsePtrOutput
-	ToAvailabilitySetPropertiesResponsePtrOutputWithContext(context.Context) AvailabilitySetPropertiesResponsePtrOutput
-}
-
-type availabilitySetPropertiesResponsePtrType AvailabilitySetPropertiesResponseArgs
-
-func AvailabilitySetPropertiesResponsePtr(v *AvailabilitySetPropertiesResponseArgs) AvailabilitySetPropertiesResponsePtrInput {
-	return (*availabilitySetPropertiesResponsePtrType)(v)
-}
-
-func (*availabilitySetPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AvailabilitySetPropertiesResponse)(nil)).Elem()
-}
-
-func (i *availabilitySetPropertiesResponsePtrType) ToAvailabilitySetPropertiesResponsePtrOutput() AvailabilitySetPropertiesResponsePtrOutput {
-	return i.ToAvailabilitySetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *availabilitySetPropertiesResponsePtrType) ToAvailabilitySetPropertiesResponsePtrOutputWithContext(ctx context.Context) AvailabilitySetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetPropertiesResponsePtrOutput)
-}
-
-// The instance view of a resource.
-type AvailabilitySetPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (AvailabilitySetPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilitySetPropertiesResponse)(nil)).Elem()
-}
-
-func (o AvailabilitySetPropertiesResponseOutput) ToAvailabilitySetPropertiesResponseOutput() AvailabilitySetPropertiesResponseOutput {
-	return o
-}
-
-func (o AvailabilitySetPropertiesResponseOutput) ToAvailabilitySetPropertiesResponseOutputWithContext(ctx context.Context) AvailabilitySetPropertiesResponseOutput {
-	return o
-}
-
-func (o AvailabilitySetPropertiesResponseOutput) ToAvailabilitySetPropertiesResponsePtrOutput() AvailabilitySetPropertiesResponsePtrOutput {
-	return o.ToAvailabilitySetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AvailabilitySetPropertiesResponseOutput) ToAvailabilitySetPropertiesResponsePtrOutputWithContext(ctx context.Context) AvailabilitySetPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AvailabilitySetPropertiesResponse) *AvailabilitySetPropertiesResponse {
-		return &v
-	}).(AvailabilitySetPropertiesResponsePtrOutput)
-}
-
-// Fault Domain count.
-func (o AvailabilitySetPropertiesResponseOutput) PlatformFaultDomainCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AvailabilitySetPropertiesResponse) *int { return v.PlatformFaultDomainCount }).(pulumi.IntPtrOutput)
-}
-
-// Update Domain count.
-func (o AvailabilitySetPropertiesResponseOutput) PlatformUpdateDomainCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AvailabilitySetPropertiesResponse) *int { return v.PlatformUpdateDomainCount }).(pulumi.IntPtrOutput)
-}
-
-// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-func (o AvailabilitySetPropertiesResponseOutput) ProximityPlacementGroup() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v AvailabilitySetPropertiesResponse) *SubResourceResponse { return v.ProximityPlacementGroup }).(SubResourceResponsePtrOutput)
-}
-
-// The resource status information.
-func (o AvailabilitySetPropertiesResponseOutput) Statuses() InstanceViewStatusResponseArrayOutput {
-	return o.ApplyT(func(v AvailabilitySetPropertiesResponse) []InstanceViewStatusResponse { return v.Statuses }).(InstanceViewStatusResponseArrayOutput)
-}
-
-// A list of references to all virtual machines in the availability set.
-func (o AvailabilitySetPropertiesResponseOutput) VirtualMachines() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v AvailabilitySetPropertiesResponse) []SubResourceResponse { return v.VirtualMachines }).(SubResourceResponseArrayOutput)
-}
-
-type AvailabilitySetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AvailabilitySetPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AvailabilitySetPropertiesResponse)(nil)).Elem()
-}
-
-func (o AvailabilitySetPropertiesResponsePtrOutput) ToAvailabilitySetPropertiesResponsePtrOutput() AvailabilitySetPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o AvailabilitySetPropertiesResponsePtrOutput) ToAvailabilitySetPropertiesResponsePtrOutputWithContext(ctx context.Context) AvailabilitySetPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o AvailabilitySetPropertiesResponsePtrOutput) Elem() AvailabilitySetPropertiesResponseOutput {
-	return o.ApplyT(func(v *AvailabilitySetPropertiesResponse) AvailabilitySetPropertiesResponse { return *v }).(AvailabilitySetPropertiesResponseOutput)
-}
-
-// Fault Domain count.
-func (o AvailabilitySetPropertiesResponsePtrOutput) PlatformFaultDomainCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AvailabilitySetPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PlatformFaultDomainCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Update Domain count.
-func (o AvailabilitySetPropertiesResponsePtrOutput) PlatformUpdateDomainCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AvailabilitySetPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PlatformUpdateDomainCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-func (o AvailabilitySetPropertiesResponsePtrOutput) ProximityPlacementGroup() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *AvailabilitySetPropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ProximityPlacementGroup
-	}).(SubResourceResponsePtrOutput)
-}
-
-// The resource status information.
-func (o AvailabilitySetPropertiesResponsePtrOutput) Statuses() InstanceViewStatusResponseArrayOutput {
-	return o.ApplyT(func(v *AvailabilitySetPropertiesResponse) []InstanceViewStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Statuses
-	}).(InstanceViewStatusResponseArrayOutput)
-}
-
-// A list of references to all virtual machines in the availability set.
-func (o AvailabilitySetPropertiesResponsePtrOutput) VirtualMachines() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v *AvailabilitySetPropertiesResponse) []SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualMachines
-	}).(SubResourceResponseArrayOutput)
-}
-
 // Specifies the billing related details of a Azure Spot VM or VMSS. <br><br>Minimum api-version: 2019-03-01.
 type BillingProfile struct {
 	// Specifies the maximum price you are willing to pay for a Azure Spot VM/VMSS. This price is in US Dollars. <br><br> This price will be compared with the current Azure Spot price for the VM size. Also, the prices are compared at the time of create/update of Azure Spot VM/VMSS and the operation will only succeed if  the maxPrice is greater than the current Azure Spot price. <br><br> The maxPrice will also be used for evicting a Azure Spot VM/VMSS if the current Azure Spot price goes beyond the maxPrice after creation of VM/VMSS. <br><br> Possible values are: <br><br> - Any decimal value greater than zero. Example: 0.01538 <br><br> -1 – indicates default price to be up-to on-demand. <br><br> You can set the maxPrice to -1 to indicate that the Azure Spot VM/VMSS should not be evicted for price reasons. Also, the default max price is -1 if it is not provided by you. <br><br>Minimum api-version: 2019-03-01.
@@ -3211,159 +3001,6 @@ func (o DedicatedHostAvailableCapacityResponsePtrOutput) AllocatableVMs() Dedica
 	}).(DedicatedHostAllocatableVMResponseArrayOutput)
 }
 
-// Dedicated Host Group Properties.
-type DedicatedHostGroupPropertiesResponse struct {
-	// A list of references to all dedicated hosts in the dedicated host group.
-	Hosts []SubResourceReadOnlyResponse `pulumi:"hosts"`
-	// Number of fault domains that the host group can span.
-	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
-}
-
-// DedicatedHostGroupPropertiesResponseInput is an input type that accepts DedicatedHostGroupPropertiesResponseArgs and DedicatedHostGroupPropertiesResponseOutput values.
-// You can construct a concrete instance of `DedicatedHostGroupPropertiesResponseInput` via:
-//
-//          DedicatedHostGroupPropertiesResponseArgs{...}
-type DedicatedHostGroupPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDedicatedHostGroupPropertiesResponseOutput() DedicatedHostGroupPropertiesResponseOutput
-	ToDedicatedHostGroupPropertiesResponseOutputWithContext(context.Context) DedicatedHostGroupPropertiesResponseOutput
-}
-
-// Dedicated Host Group Properties.
-type DedicatedHostGroupPropertiesResponseArgs struct {
-	// A list of references to all dedicated hosts in the dedicated host group.
-	Hosts SubResourceReadOnlyResponseArrayInput `pulumi:"hosts"`
-	// Number of fault domains that the host group can span.
-	PlatformFaultDomainCount pulumi.IntInput `pulumi:"platformFaultDomainCount"`
-}
-
-func (DedicatedHostGroupPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHostGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (i DedicatedHostGroupPropertiesResponseArgs) ToDedicatedHostGroupPropertiesResponseOutput() DedicatedHostGroupPropertiesResponseOutput {
-	return i.ToDedicatedHostGroupPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DedicatedHostGroupPropertiesResponseArgs) ToDedicatedHostGroupPropertiesResponseOutputWithContext(ctx context.Context) DedicatedHostGroupPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostGroupPropertiesResponseOutput)
-}
-
-func (i DedicatedHostGroupPropertiesResponseArgs) ToDedicatedHostGroupPropertiesResponsePtrOutput() DedicatedHostGroupPropertiesResponsePtrOutput {
-	return i.ToDedicatedHostGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DedicatedHostGroupPropertiesResponseArgs) ToDedicatedHostGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DedicatedHostGroupPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostGroupPropertiesResponseOutput).ToDedicatedHostGroupPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// DedicatedHostGroupPropertiesResponsePtrInput is an input type that accepts DedicatedHostGroupPropertiesResponseArgs, DedicatedHostGroupPropertiesResponsePtr and DedicatedHostGroupPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `DedicatedHostGroupPropertiesResponsePtrInput` via:
-//
-//          DedicatedHostGroupPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DedicatedHostGroupPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToDedicatedHostGroupPropertiesResponsePtrOutput() DedicatedHostGroupPropertiesResponsePtrOutput
-	ToDedicatedHostGroupPropertiesResponsePtrOutputWithContext(context.Context) DedicatedHostGroupPropertiesResponsePtrOutput
-}
-
-type dedicatedHostGroupPropertiesResponsePtrType DedicatedHostGroupPropertiesResponseArgs
-
-func DedicatedHostGroupPropertiesResponsePtr(v *DedicatedHostGroupPropertiesResponseArgs) DedicatedHostGroupPropertiesResponsePtrInput {
-	return (*dedicatedHostGroupPropertiesResponsePtrType)(v)
-}
-
-func (*dedicatedHostGroupPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DedicatedHostGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (i *dedicatedHostGroupPropertiesResponsePtrType) ToDedicatedHostGroupPropertiesResponsePtrOutput() DedicatedHostGroupPropertiesResponsePtrOutput {
-	return i.ToDedicatedHostGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *dedicatedHostGroupPropertiesResponsePtrType) ToDedicatedHostGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DedicatedHostGroupPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostGroupPropertiesResponsePtrOutput)
-}
-
-// Dedicated Host Group Properties.
-type DedicatedHostGroupPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (DedicatedHostGroupPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHostGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (o DedicatedHostGroupPropertiesResponseOutput) ToDedicatedHostGroupPropertiesResponseOutput() DedicatedHostGroupPropertiesResponseOutput {
-	return o
-}
-
-func (o DedicatedHostGroupPropertiesResponseOutput) ToDedicatedHostGroupPropertiesResponseOutputWithContext(ctx context.Context) DedicatedHostGroupPropertiesResponseOutput {
-	return o
-}
-
-func (o DedicatedHostGroupPropertiesResponseOutput) ToDedicatedHostGroupPropertiesResponsePtrOutput() DedicatedHostGroupPropertiesResponsePtrOutput {
-	return o.ToDedicatedHostGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DedicatedHostGroupPropertiesResponseOutput) ToDedicatedHostGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DedicatedHostGroupPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DedicatedHostGroupPropertiesResponse) *DedicatedHostGroupPropertiesResponse {
-		return &v
-	}).(DedicatedHostGroupPropertiesResponsePtrOutput)
-}
-
-// A list of references to all dedicated hosts in the dedicated host group.
-func (o DedicatedHostGroupPropertiesResponseOutput) Hosts() SubResourceReadOnlyResponseArrayOutput {
-	return o.ApplyT(func(v DedicatedHostGroupPropertiesResponse) []SubResourceReadOnlyResponse { return v.Hosts }).(SubResourceReadOnlyResponseArrayOutput)
-}
-
-// Number of fault domains that the host group can span.
-func (o DedicatedHostGroupPropertiesResponseOutput) PlatformFaultDomainCount() pulumi.IntOutput {
-	return o.ApplyT(func(v DedicatedHostGroupPropertiesResponse) int { return v.PlatformFaultDomainCount }).(pulumi.IntOutput)
-}
-
-type DedicatedHostGroupPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DedicatedHostGroupPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DedicatedHostGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (o DedicatedHostGroupPropertiesResponsePtrOutput) ToDedicatedHostGroupPropertiesResponsePtrOutput() DedicatedHostGroupPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DedicatedHostGroupPropertiesResponsePtrOutput) ToDedicatedHostGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) DedicatedHostGroupPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DedicatedHostGroupPropertiesResponsePtrOutput) Elem() DedicatedHostGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v *DedicatedHostGroupPropertiesResponse) DedicatedHostGroupPropertiesResponse { return *v }).(DedicatedHostGroupPropertiesResponseOutput)
-}
-
-// A list of references to all dedicated hosts in the dedicated host group.
-func (o DedicatedHostGroupPropertiesResponsePtrOutput) Hosts() SubResourceReadOnlyResponseArrayOutput {
-	return o.ApplyT(func(v *DedicatedHostGroupPropertiesResponse) []SubResourceReadOnlyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Hosts
-	}).(SubResourceReadOnlyResponseArrayOutput)
-}
-
-// Number of fault domains that the host group can span.
-func (o DedicatedHostGroupPropertiesResponsePtrOutput) PlatformFaultDomainCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DedicatedHostGroupPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.PlatformFaultDomainCount
-	}).(pulumi.IntPtrOutput)
-}
-
 // The instance view of a dedicated host.
 type DedicatedHostInstanceViewResponse struct {
 	// Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
@@ -3536,273 +3173,6 @@ func (o DedicatedHostInstanceViewResponsePtrOutput) Statuses() InstanceViewStatu
 		}
 		return v.Statuses
 	}).(InstanceViewStatusResponseArrayOutput)
-}
-
-// Properties of the dedicated host.
-type DedicatedHostPropertiesResponse struct {
-	// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
-	AutoReplaceOnFailure *bool `pulumi:"autoReplaceOnFailure"`
-	// A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
-	HostId string `pulumi:"hostId"`
-	// The dedicated host instance view.
-	InstanceView DedicatedHostInstanceViewResponse `pulumi:"instanceView"`
-	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
-	LicenseType *string `pulumi:"licenseType"`
-	// Fault domain of the dedicated host within a dedicated host group.
-	PlatformFaultDomain *int `pulumi:"platformFaultDomain"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The date when the host was first provisioned.
-	ProvisioningTime string `pulumi:"provisioningTime"`
-	// A list of references to all virtual machines in the Dedicated Host.
-	VirtualMachines []SubResourceReadOnlyResponse `pulumi:"virtualMachines"`
-}
-
-// DedicatedHostPropertiesResponseInput is an input type that accepts DedicatedHostPropertiesResponseArgs and DedicatedHostPropertiesResponseOutput values.
-// You can construct a concrete instance of `DedicatedHostPropertiesResponseInput` via:
-//
-//          DedicatedHostPropertiesResponseArgs{...}
-type DedicatedHostPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDedicatedHostPropertiesResponseOutput() DedicatedHostPropertiesResponseOutput
-	ToDedicatedHostPropertiesResponseOutputWithContext(context.Context) DedicatedHostPropertiesResponseOutput
-}
-
-// Properties of the dedicated host.
-type DedicatedHostPropertiesResponseArgs struct {
-	// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
-	AutoReplaceOnFailure pulumi.BoolPtrInput `pulumi:"autoReplaceOnFailure"`
-	// A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
-	HostId pulumi.StringInput `pulumi:"hostId"`
-	// The dedicated host instance view.
-	InstanceView DedicatedHostInstanceViewResponseInput `pulumi:"instanceView"`
-	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// Fault domain of the dedicated host within a dedicated host group.
-	PlatformFaultDomain pulumi.IntPtrInput `pulumi:"platformFaultDomain"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The date when the host was first provisioned.
-	ProvisioningTime pulumi.StringInput `pulumi:"provisioningTime"`
-	// A list of references to all virtual machines in the Dedicated Host.
-	VirtualMachines SubResourceReadOnlyResponseArrayInput `pulumi:"virtualMachines"`
-}
-
-func (DedicatedHostPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHostPropertiesResponse)(nil)).Elem()
-}
-
-func (i DedicatedHostPropertiesResponseArgs) ToDedicatedHostPropertiesResponseOutput() DedicatedHostPropertiesResponseOutput {
-	return i.ToDedicatedHostPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DedicatedHostPropertiesResponseArgs) ToDedicatedHostPropertiesResponseOutputWithContext(ctx context.Context) DedicatedHostPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostPropertiesResponseOutput)
-}
-
-func (i DedicatedHostPropertiesResponseArgs) ToDedicatedHostPropertiesResponsePtrOutput() DedicatedHostPropertiesResponsePtrOutput {
-	return i.ToDedicatedHostPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DedicatedHostPropertiesResponseArgs) ToDedicatedHostPropertiesResponsePtrOutputWithContext(ctx context.Context) DedicatedHostPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostPropertiesResponseOutput).ToDedicatedHostPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// DedicatedHostPropertiesResponsePtrInput is an input type that accepts DedicatedHostPropertiesResponseArgs, DedicatedHostPropertiesResponsePtr and DedicatedHostPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `DedicatedHostPropertiesResponsePtrInput` via:
-//
-//          DedicatedHostPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type DedicatedHostPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToDedicatedHostPropertiesResponsePtrOutput() DedicatedHostPropertiesResponsePtrOutput
-	ToDedicatedHostPropertiesResponsePtrOutputWithContext(context.Context) DedicatedHostPropertiesResponsePtrOutput
-}
-
-type dedicatedHostPropertiesResponsePtrType DedicatedHostPropertiesResponseArgs
-
-func DedicatedHostPropertiesResponsePtr(v *DedicatedHostPropertiesResponseArgs) DedicatedHostPropertiesResponsePtrInput {
-	return (*dedicatedHostPropertiesResponsePtrType)(v)
-}
-
-func (*dedicatedHostPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DedicatedHostPropertiesResponse)(nil)).Elem()
-}
-
-func (i *dedicatedHostPropertiesResponsePtrType) ToDedicatedHostPropertiesResponsePtrOutput() DedicatedHostPropertiesResponsePtrOutput {
-	return i.ToDedicatedHostPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *dedicatedHostPropertiesResponsePtrType) ToDedicatedHostPropertiesResponsePtrOutputWithContext(ctx context.Context) DedicatedHostPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHostPropertiesResponsePtrOutput)
-}
-
-// Properties of the dedicated host.
-type DedicatedHostPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (DedicatedHostPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHostPropertiesResponse)(nil)).Elem()
-}
-
-func (o DedicatedHostPropertiesResponseOutput) ToDedicatedHostPropertiesResponseOutput() DedicatedHostPropertiesResponseOutput {
-	return o
-}
-
-func (o DedicatedHostPropertiesResponseOutput) ToDedicatedHostPropertiesResponseOutputWithContext(ctx context.Context) DedicatedHostPropertiesResponseOutput {
-	return o
-}
-
-func (o DedicatedHostPropertiesResponseOutput) ToDedicatedHostPropertiesResponsePtrOutput() DedicatedHostPropertiesResponsePtrOutput {
-	return o.ToDedicatedHostPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DedicatedHostPropertiesResponseOutput) ToDedicatedHostPropertiesResponsePtrOutputWithContext(ctx context.Context) DedicatedHostPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v DedicatedHostPropertiesResponse) *DedicatedHostPropertiesResponse {
-		return &v
-	}).(DedicatedHostPropertiesResponsePtrOutput)
-}
-
-// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
-func (o DedicatedHostPropertiesResponseOutput) AutoReplaceOnFailure() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DedicatedHostPropertiesResponse) *bool { return v.AutoReplaceOnFailure }).(pulumi.BoolPtrOutput)
-}
-
-// A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
-func (o DedicatedHostPropertiesResponseOutput) HostId() pulumi.StringOutput {
-	return o.ApplyT(func(v DedicatedHostPropertiesResponse) string { return v.HostId }).(pulumi.StringOutput)
-}
-
-// The dedicated host instance view.
-func (o DedicatedHostPropertiesResponseOutput) InstanceView() DedicatedHostInstanceViewResponseOutput {
-	return o.ApplyT(func(v DedicatedHostPropertiesResponse) DedicatedHostInstanceViewResponse { return v.InstanceView }).(DedicatedHostInstanceViewResponseOutput)
-}
-
-// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
-func (o DedicatedHostPropertiesResponseOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DedicatedHostPropertiesResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
-}
-
-// Fault domain of the dedicated host within a dedicated host group.
-func (o DedicatedHostPropertiesResponseOutput) PlatformFaultDomain() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DedicatedHostPropertiesResponse) *int { return v.PlatformFaultDomain }).(pulumi.IntPtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o DedicatedHostPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v DedicatedHostPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The date when the host was first provisioned.
-func (o DedicatedHostPropertiesResponseOutput) ProvisioningTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DedicatedHostPropertiesResponse) string { return v.ProvisioningTime }).(pulumi.StringOutput)
-}
-
-// A list of references to all virtual machines in the Dedicated Host.
-func (o DedicatedHostPropertiesResponseOutput) VirtualMachines() SubResourceReadOnlyResponseArrayOutput {
-	return o.ApplyT(func(v DedicatedHostPropertiesResponse) []SubResourceReadOnlyResponse { return v.VirtualMachines }).(SubResourceReadOnlyResponseArrayOutput)
-}
-
-type DedicatedHostPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DedicatedHostPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DedicatedHostPropertiesResponse)(nil)).Elem()
-}
-
-func (o DedicatedHostPropertiesResponsePtrOutput) ToDedicatedHostPropertiesResponsePtrOutput() DedicatedHostPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DedicatedHostPropertiesResponsePtrOutput) ToDedicatedHostPropertiesResponsePtrOutputWithContext(ctx context.Context) DedicatedHostPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DedicatedHostPropertiesResponsePtrOutput) Elem() DedicatedHostPropertiesResponseOutput {
-	return o.ApplyT(func(v *DedicatedHostPropertiesResponse) DedicatedHostPropertiesResponse { return *v }).(DedicatedHostPropertiesResponseOutput)
-}
-
-// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
-func (o DedicatedHostPropertiesResponsePtrOutput) AutoReplaceOnFailure() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DedicatedHostPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AutoReplaceOnFailure
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
-func (o DedicatedHostPropertiesResponsePtrOutput) HostId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DedicatedHostPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HostId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The dedicated host instance view.
-func (o DedicatedHostPropertiesResponsePtrOutput) InstanceView() DedicatedHostInstanceViewResponsePtrOutput {
-	return o.ApplyT(func(v *DedicatedHostPropertiesResponse) *DedicatedHostInstanceViewResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceView
-	}).(DedicatedHostInstanceViewResponsePtrOutput)
-}
-
-// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
-func (o DedicatedHostPropertiesResponsePtrOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DedicatedHostPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LicenseType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Fault domain of the dedicated host within a dedicated host group.
-func (o DedicatedHostPropertiesResponsePtrOutput) PlatformFaultDomain() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DedicatedHostPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PlatformFaultDomain
-	}).(pulumi.IntPtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o DedicatedHostPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DedicatedHostPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The date when the host was first provisioned.
-func (o DedicatedHostPropertiesResponsePtrOutput) ProvisioningTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DedicatedHostPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of references to all virtual machines in the Dedicated Host.
-func (o DedicatedHostPropertiesResponsePtrOutput) VirtualMachines() SubResourceReadOnlyResponseArrayOutput {
-	return o.ApplyT(func(v *DedicatedHostPropertiesResponse) []SubResourceReadOnlyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualMachines
-	}).(SubResourceReadOnlyResponseArrayOutput)
 }
 
 // Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
@@ -5728,413 +5098,6 @@ func (o EncryptionImagesResponsePtrOutput) OsDiskImage() OSDiskImageEncryptionRe
 	}).(OSDiskImageEncryptionResponsePtrOutput)
 }
 
-// Describes the properties of a gallery Application Definition.
-type GalleryApplicationPropertiesResponse struct {
-	// The description of this gallery Application Definition resource. This property is updatable.
-	Description *string `pulumi:"description"`
-	// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery Application Definition.
-	Eula *string `pulumi:"eula"`
-	// The privacy statement uri.
-	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
-	// The release note uri.
-	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
-	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	SupportedOSType string `pulumi:"supportedOSType"`
-}
-
-// GalleryApplicationPropertiesResponseInput is an input type that accepts GalleryApplicationPropertiesResponseArgs and GalleryApplicationPropertiesResponseOutput values.
-// You can construct a concrete instance of `GalleryApplicationPropertiesResponseInput` via:
-//
-//          GalleryApplicationPropertiesResponseArgs{...}
-type GalleryApplicationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToGalleryApplicationPropertiesResponseOutput() GalleryApplicationPropertiesResponseOutput
-	ToGalleryApplicationPropertiesResponseOutputWithContext(context.Context) GalleryApplicationPropertiesResponseOutput
-}
-
-// Describes the properties of a gallery Application Definition.
-type GalleryApplicationPropertiesResponseArgs struct {
-	// The description of this gallery Application Definition resource. This property is updatable.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery Application Definition.
-	Eula pulumi.StringPtrInput `pulumi:"eula"`
-	// The privacy statement uri.
-	PrivacyStatementUri pulumi.StringPtrInput `pulumi:"privacyStatementUri"`
-	// The release note uri.
-	ReleaseNoteUri pulumi.StringPtrInput `pulumi:"releaseNoteUri"`
-	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	SupportedOSType pulumi.StringInput `pulumi:"supportedOSType"`
-}
-
-func (GalleryApplicationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryApplicationPropertiesResponse)(nil)).Elem()
-}
-
-func (i GalleryApplicationPropertiesResponseArgs) ToGalleryApplicationPropertiesResponseOutput() GalleryApplicationPropertiesResponseOutput {
-	return i.ToGalleryApplicationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i GalleryApplicationPropertiesResponseArgs) ToGalleryApplicationPropertiesResponseOutputWithContext(ctx context.Context) GalleryApplicationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationPropertiesResponseOutput)
-}
-
-func (i GalleryApplicationPropertiesResponseArgs) ToGalleryApplicationPropertiesResponsePtrOutput() GalleryApplicationPropertiesResponsePtrOutput {
-	return i.ToGalleryApplicationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GalleryApplicationPropertiesResponseArgs) ToGalleryApplicationPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryApplicationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationPropertiesResponseOutput).ToGalleryApplicationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// GalleryApplicationPropertiesResponsePtrInput is an input type that accepts GalleryApplicationPropertiesResponseArgs, GalleryApplicationPropertiesResponsePtr and GalleryApplicationPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `GalleryApplicationPropertiesResponsePtrInput` via:
-//
-//          GalleryApplicationPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type GalleryApplicationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToGalleryApplicationPropertiesResponsePtrOutput() GalleryApplicationPropertiesResponsePtrOutput
-	ToGalleryApplicationPropertiesResponsePtrOutputWithContext(context.Context) GalleryApplicationPropertiesResponsePtrOutput
-}
-
-type galleryApplicationPropertiesResponsePtrType GalleryApplicationPropertiesResponseArgs
-
-func GalleryApplicationPropertiesResponsePtr(v *GalleryApplicationPropertiesResponseArgs) GalleryApplicationPropertiesResponsePtrInput {
-	return (*galleryApplicationPropertiesResponsePtrType)(v)
-}
-
-func (*galleryApplicationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GalleryApplicationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *galleryApplicationPropertiesResponsePtrType) ToGalleryApplicationPropertiesResponsePtrOutput() GalleryApplicationPropertiesResponsePtrOutput {
-	return i.ToGalleryApplicationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *galleryApplicationPropertiesResponsePtrType) ToGalleryApplicationPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryApplicationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationPropertiesResponsePtrOutput)
-}
-
-// Describes the properties of a gallery Application Definition.
-type GalleryApplicationPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GalleryApplicationPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryApplicationPropertiesResponse)(nil)).Elem()
-}
-
-func (o GalleryApplicationPropertiesResponseOutput) ToGalleryApplicationPropertiesResponseOutput() GalleryApplicationPropertiesResponseOutput {
-	return o
-}
-
-func (o GalleryApplicationPropertiesResponseOutput) ToGalleryApplicationPropertiesResponseOutputWithContext(ctx context.Context) GalleryApplicationPropertiesResponseOutput {
-	return o
-}
-
-func (o GalleryApplicationPropertiesResponseOutput) ToGalleryApplicationPropertiesResponsePtrOutput() GalleryApplicationPropertiesResponsePtrOutput {
-	return o.ToGalleryApplicationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GalleryApplicationPropertiesResponseOutput) ToGalleryApplicationPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryApplicationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GalleryApplicationPropertiesResponse) *GalleryApplicationPropertiesResponse {
-		return &v
-	}).(GalleryApplicationPropertiesResponsePtrOutput)
-}
-
-// The description of this gallery Application Definition resource. This property is updatable.
-func (o GalleryApplicationPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryApplicationPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
-func (o GalleryApplicationPropertiesResponseOutput) EndOfLifeDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryApplicationPropertiesResponse) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
-}
-
-// The Eula agreement for the gallery Application Definition.
-func (o GalleryApplicationPropertiesResponseOutput) Eula() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryApplicationPropertiesResponse) *string { return v.Eula }).(pulumi.StringPtrOutput)
-}
-
-// The privacy statement uri.
-func (o GalleryApplicationPropertiesResponseOutput) PrivacyStatementUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryApplicationPropertiesResponse) *string { return v.PrivacyStatementUri }).(pulumi.StringPtrOutput)
-}
-
-// The release note uri.
-func (o GalleryApplicationPropertiesResponseOutput) ReleaseNoteUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryApplicationPropertiesResponse) *string { return v.ReleaseNoteUri }).(pulumi.StringPtrOutput)
-}
-
-// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o GalleryApplicationPropertiesResponseOutput) SupportedOSType() pulumi.StringOutput {
-	return o.ApplyT(func(v GalleryApplicationPropertiesResponse) string { return v.SupportedOSType }).(pulumi.StringOutput)
-}
-
-type GalleryApplicationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (GalleryApplicationPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GalleryApplicationPropertiesResponse)(nil)).Elem()
-}
-
-func (o GalleryApplicationPropertiesResponsePtrOutput) ToGalleryApplicationPropertiesResponsePtrOutput() GalleryApplicationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GalleryApplicationPropertiesResponsePtrOutput) ToGalleryApplicationPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryApplicationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GalleryApplicationPropertiesResponsePtrOutput) Elem() GalleryApplicationPropertiesResponseOutput {
-	return o.ApplyT(func(v *GalleryApplicationPropertiesResponse) GalleryApplicationPropertiesResponse { return *v }).(GalleryApplicationPropertiesResponseOutput)
-}
-
-// The description of this gallery Application Definition resource. This property is updatable.
-func (o GalleryApplicationPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryApplicationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
-func (o GalleryApplicationPropertiesResponsePtrOutput) EndOfLifeDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryApplicationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndOfLifeDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Eula agreement for the gallery Application Definition.
-func (o GalleryApplicationPropertiesResponsePtrOutput) Eula() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryApplicationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Eula
-	}).(pulumi.StringPtrOutput)
-}
-
-// The privacy statement uri.
-func (o GalleryApplicationPropertiesResponsePtrOutput) PrivacyStatementUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryApplicationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrivacyStatementUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The release note uri.
-func (o GalleryApplicationPropertiesResponsePtrOutput) ReleaseNoteUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryApplicationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReleaseNoteUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o GalleryApplicationPropertiesResponsePtrOutput) SupportedOSType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryApplicationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SupportedOSType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the properties of a gallery Image Version.
-type GalleryApplicationVersionPropertiesResponse struct {
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The publishing profile of a gallery Image Version.
-	PublishingProfile GalleryApplicationVersionPublishingProfileResponse `pulumi:"publishingProfile"`
-	// This is the replication status of the gallery Image Version.
-	ReplicationStatus ReplicationStatusResponse `pulumi:"replicationStatus"`
-}
-
-// GalleryApplicationVersionPropertiesResponseInput is an input type that accepts GalleryApplicationVersionPropertiesResponseArgs and GalleryApplicationVersionPropertiesResponseOutput values.
-// You can construct a concrete instance of `GalleryApplicationVersionPropertiesResponseInput` via:
-//
-//          GalleryApplicationVersionPropertiesResponseArgs{...}
-type GalleryApplicationVersionPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToGalleryApplicationVersionPropertiesResponseOutput() GalleryApplicationVersionPropertiesResponseOutput
-	ToGalleryApplicationVersionPropertiesResponseOutputWithContext(context.Context) GalleryApplicationVersionPropertiesResponseOutput
-}
-
-// Describes the properties of a gallery Image Version.
-type GalleryApplicationVersionPropertiesResponseArgs struct {
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The publishing profile of a gallery Image Version.
-	PublishingProfile GalleryApplicationVersionPublishingProfileResponseInput `pulumi:"publishingProfile"`
-	// This is the replication status of the gallery Image Version.
-	ReplicationStatus ReplicationStatusResponseInput `pulumi:"replicationStatus"`
-}
-
-func (GalleryApplicationVersionPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryApplicationVersionPropertiesResponse)(nil)).Elem()
-}
-
-func (i GalleryApplicationVersionPropertiesResponseArgs) ToGalleryApplicationVersionPropertiesResponseOutput() GalleryApplicationVersionPropertiesResponseOutput {
-	return i.ToGalleryApplicationVersionPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i GalleryApplicationVersionPropertiesResponseArgs) ToGalleryApplicationVersionPropertiesResponseOutputWithContext(ctx context.Context) GalleryApplicationVersionPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionPropertiesResponseOutput)
-}
-
-func (i GalleryApplicationVersionPropertiesResponseArgs) ToGalleryApplicationVersionPropertiesResponsePtrOutput() GalleryApplicationVersionPropertiesResponsePtrOutput {
-	return i.ToGalleryApplicationVersionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GalleryApplicationVersionPropertiesResponseArgs) ToGalleryApplicationVersionPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryApplicationVersionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionPropertiesResponseOutput).ToGalleryApplicationVersionPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// GalleryApplicationVersionPropertiesResponsePtrInput is an input type that accepts GalleryApplicationVersionPropertiesResponseArgs, GalleryApplicationVersionPropertiesResponsePtr and GalleryApplicationVersionPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `GalleryApplicationVersionPropertiesResponsePtrInput` via:
-//
-//          GalleryApplicationVersionPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type GalleryApplicationVersionPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToGalleryApplicationVersionPropertiesResponsePtrOutput() GalleryApplicationVersionPropertiesResponsePtrOutput
-	ToGalleryApplicationVersionPropertiesResponsePtrOutputWithContext(context.Context) GalleryApplicationVersionPropertiesResponsePtrOutput
-}
-
-type galleryApplicationVersionPropertiesResponsePtrType GalleryApplicationVersionPropertiesResponseArgs
-
-func GalleryApplicationVersionPropertiesResponsePtr(v *GalleryApplicationVersionPropertiesResponseArgs) GalleryApplicationVersionPropertiesResponsePtrInput {
-	return (*galleryApplicationVersionPropertiesResponsePtrType)(v)
-}
-
-func (*galleryApplicationVersionPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GalleryApplicationVersionPropertiesResponse)(nil)).Elem()
-}
-
-func (i *galleryApplicationVersionPropertiesResponsePtrType) ToGalleryApplicationVersionPropertiesResponsePtrOutput() GalleryApplicationVersionPropertiesResponsePtrOutput {
-	return i.ToGalleryApplicationVersionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *galleryApplicationVersionPropertiesResponsePtrType) ToGalleryApplicationVersionPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryApplicationVersionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryApplicationVersionPropertiesResponsePtrOutput)
-}
-
-// Describes the properties of a gallery Image Version.
-type GalleryApplicationVersionPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GalleryApplicationVersionPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryApplicationVersionPropertiesResponse)(nil)).Elem()
-}
-
-func (o GalleryApplicationVersionPropertiesResponseOutput) ToGalleryApplicationVersionPropertiesResponseOutput() GalleryApplicationVersionPropertiesResponseOutput {
-	return o
-}
-
-func (o GalleryApplicationVersionPropertiesResponseOutput) ToGalleryApplicationVersionPropertiesResponseOutputWithContext(ctx context.Context) GalleryApplicationVersionPropertiesResponseOutput {
-	return o
-}
-
-func (o GalleryApplicationVersionPropertiesResponseOutput) ToGalleryApplicationVersionPropertiesResponsePtrOutput() GalleryApplicationVersionPropertiesResponsePtrOutput {
-	return o.ToGalleryApplicationVersionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GalleryApplicationVersionPropertiesResponseOutput) ToGalleryApplicationVersionPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryApplicationVersionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GalleryApplicationVersionPropertiesResponse) *GalleryApplicationVersionPropertiesResponse {
-		return &v
-	}).(GalleryApplicationVersionPropertiesResponsePtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o GalleryApplicationVersionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v GalleryApplicationVersionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The publishing profile of a gallery Image Version.
-func (o GalleryApplicationVersionPropertiesResponseOutput) PublishingProfile() GalleryApplicationVersionPublishingProfileResponseOutput {
-	return o.ApplyT(func(v GalleryApplicationVersionPropertiesResponse) GalleryApplicationVersionPublishingProfileResponse {
-		return v.PublishingProfile
-	}).(GalleryApplicationVersionPublishingProfileResponseOutput)
-}
-
-// This is the replication status of the gallery Image Version.
-func (o GalleryApplicationVersionPropertiesResponseOutput) ReplicationStatus() ReplicationStatusResponseOutput {
-	return o.ApplyT(func(v GalleryApplicationVersionPropertiesResponse) ReplicationStatusResponse {
-		return v.ReplicationStatus
-	}).(ReplicationStatusResponseOutput)
-}
-
-type GalleryApplicationVersionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (GalleryApplicationVersionPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GalleryApplicationVersionPropertiesResponse)(nil)).Elem()
-}
-
-func (o GalleryApplicationVersionPropertiesResponsePtrOutput) ToGalleryApplicationVersionPropertiesResponsePtrOutput() GalleryApplicationVersionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GalleryApplicationVersionPropertiesResponsePtrOutput) ToGalleryApplicationVersionPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryApplicationVersionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GalleryApplicationVersionPropertiesResponsePtrOutput) Elem() GalleryApplicationVersionPropertiesResponseOutput {
-	return o.ApplyT(func(v *GalleryApplicationVersionPropertiesResponse) GalleryApplicationVersionPropertiesResponse {
-		return *v
-	}).(GalleryApplicationVersionPropertiesResponseOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o GalleryApplicationVersionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryApplicationVersionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The publishing profile of a gallery Image Version.
-func (o GalleryApplicationVersionPropertiesResponsePtrOutput) PublishingProfile() GalleryApplicationVersionPublishingProfileResponsePtrOutput {
-	return o.ApplyT(func(v *GalleryApplicationVersionPropertiesResponse) *GalleryApplicationVersionPublishingProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.PublishingProfile
-	}).(GalleryApplicationVersionPublishingProfileResponsePtrOutput)
-}
-
-// This is the replication status of the gallery Image Version.
-func (o GalleryApplicationVersionPropertiesResponsePtrOutput) ReplicationStatus() ReplicationStatusResponsePtrOutput {
-	return o.ApplyT(func(v *GalleryApplicationVersionPropertiesResponse) *ReplicationStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.ReplicationStatus
-	}).(ReplicationStatusResponsePtrOutput)
-}
-
 // The publishing profile of a gallery Image Version.
 type GalleryApplicationVersionPublishingProfile struct {
 	// Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
@@ -7685,563 +6648,6 @@ func (o GalleryImageIdentifierResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of a gallery Image Definition.
-type GalleryImagePropertiesResponse struct {
-	// The description of this gallery Image Definition resource. This property is updatable.
-	Description *string `pulumi:"description"`
-	// Describes the disallowed disk types.
-	Disallowed *DisallowedResponse `pulumi:"disallowed"`
-	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery Image Definition.
-	Eula *string `pulumi:"eula"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// This is the gallery Image Definition identifier.
-	Identifier GalleryImageIdentifierResponse `pulumi:"identifier"`
-	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-	OsState string `pulumi:"osState"`
-	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType string `pulumi:"osType"`
-	// The privacy statement uri.
-	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
-	PurchasePlan *ImagePurchasePlanResponse `pulumi:"purchasePlan"`
-	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-	Recommended *RecommendedMachineConfigurationResponse `pulumi:"recommended"`
-	// The release note uri.
-	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
-}
-
-// GalleryImagePropertiesResponseInput is an input type that accepts GalleryImagePropertiesResponseArgs and GalleryImagePropertiesResponseOutput values.
-// You can construct a concrete instance of `GalleryImagePropertiesResponseInput` via:
-//
-//          GalleryImagePropertiesResponseArgs{...}
-type GalleryImagePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToGalleryImagePropertiesResponseOutput() GalleryImagePropertiesResponseOutput
-	ToGalleryImagePropertiesResponseOutputWithContext(context.Context) GalleryImagePropertiesResponseOutput
-}
-
-// Describes the properties of a gallery Image Definition.
-type GalleryImagePropertiesResponseArgs struct {
-	// The description of this gallery Image Definition resource. This property is updatable.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Describes the disallowed disk types.
-	Disallowed DisallowedResponsePtrInput `pulumi:"disallowed"`
-	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
-	EndOfLifeDate pulumi.StringPtrInput `pulumi:"endOfLifeDate"`
-	// The Eula agreement for the gallery Image Definition.
-	Eula pulumi.StringPtrInput `pulumi:"eula"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration pulumi.StringPtrInput `pulumi:"hyperVGeneration"`
-	// This is the gallery Image Definition identifier.
-	Identifier GalleryImageIdentifierResponseInput `pulumi:"identifier"`
-	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-	OsState pulumi.StringInput `pulumi:"osState"`
-	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType pulumi.StringInput `pulumi:"osType"`
-	// The privacy statement uri.
-	PrivacyStatementUri pulumi.StringPtrInput `pulumi:"privacyStatementUri"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
-	PurchasePlan ImagePurchasePlanResponsePtrInput `pulumi:"purchasePlan"`
-	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-	Recommended RecommendedMachineConfigurationResponsePtrInput `pulumi:"recommended"`
-	// The release note uri.
-	ReleaseNoteUri pulumi.StringPtrInput `pulumi:"releaseNoteUri"`
-}
-
-func (GalleryImagePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryImagePropertiesResponse)(nil)).Elem()
-}
-
-func (i GalleryImagePropertiesResponseArgs) ToGalleryImagePropertiesResponseOutput() GalleryImagePropertiesResponseOutput {
-	return i.ToGalleryImagePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i GalleryImagePropertiesResponseArgs) ToGalleryImagePropertiesResponseOutputWithContext(ctx context.Context) GalleryImagePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryImagePropertiesResponseOutput)
-}
-
-func (i GalleryImagePropertiesResponseArgs) ToGalleryImagePropertiesResponsePtrOutput() GalleryImagePropertiesResponsePtrOutput {
-	return i.ToGalleryImagePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GalleryImagePropertiesResponseArgs) ToGalleryImagePropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryImagePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryImagePropertiesResponseOutput).ToGalleryImagePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// GalleryImagePropertiesResponsePtrInput is an input type that accepts GalleryImagePropertiesResponseArgs, GalleryImagePropertiesResponsePtr and GalleryImagePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `GalleryImagePropertiesResponsePtrInput` via:
-//
-//          GalleryImagePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type GalleryImagePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToGalleryImagePropertiesResponsePtrOutput() GalleryImagePropertiesResponsePtrOutput
-	ToGalleryImagePropertiesResponsePtrOutputWithContext(context.Context) GalleryImagePropertiesResponsePtrOutput
-}
-
-type galleryImagePropertiesResponsePtrType GalleryImagePropertiesResponseArgs
-
-func GalleryImagePropertiesResponsePtr(v *GalleryImagePropertiesResponseArgs) GalleryImagePropertiesResponsePtrInput {
-	return (*galleryImagePropertiesResponsePtrType)(v)
-}
-
-func (*galleryImagePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GalleryImagePropertiesResponse)(nil)).Elem()
-}
-
-func (i *galleryImagePropertiesResponsePtrType) ToGalleryImagePropertiesResponsePtrOutput() GalleryImagePropertiesResponsePtrOutput {
-	return i.ToGalleryImagePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *galleryImagePropertiesResponsePtrType) ToGalleryImagePropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryImagePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryImagePropertiesResponsePtrOutput)
-}
-
-// Describes the properties of a gallery Image Definition.
-type GalleryImagePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GalleryImagePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryImagePropertiesResponse)(nil)).Elem()
-}
-
-func (o GalleryImagePropertiesResponseOutput) ToGalleryImagePropertiesResponseOutput() GalleryImagePropertiesResponseOutput {
-	return o
-}
-
-func (o GalleryImagePropertiesResponseOutput) ToGalleryImagePropertiesResponseOutputWithContext(ctx context.Context) GalleryImagePropertiesResponseOutput {
-	return o
-}
-
-func (o GalleryImagePropertiesResponseOutput) ToGalleryImagePropertiesResponsePtrOutput() GalleryImagePropertiesResponsePtrOutput {
-	return o.ToGalleryImagePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GalleryImagePropertiesResponseOutput) ToGalleryImagePropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryImagePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) *GalleryImagePropertiesResponse {
-		return &v
-	}).(GalleryImagePropertiesResponsePtrOutput)
-}
-
-// The description of this gallery Image Definition resource. This property is updatable.
-func (o GalleryImagePropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Describes the disallowed disk types.
-func (o GalleryImagePropertiesResponseOutput) Disallowed() DisallowedResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) *DisallowedResponse { return v.Disallowed }).(DisallowedResponsePtrOutput)
-}
-
-// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
-func (o GalleryImagePropertiesResponseOutput) EndOfLifeDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) *string { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
-}
-
-// The Eula agreement for the gallery Image Definition.
-func (o GalleryImagePropertiesResponseOutput) Eula() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) *string { return v.Eula }).(pulumi.StringPtrOutput)
-}
-
-// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-func (o GalleryImagePropertiesResponseOutput) HyperVGeneration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) *string { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
-}
-
-// This is the gallery Image Definition identifier.
-func (o GalleryImagePropertiesResponseOutput) Identifier() GalleryImageIdentifierResponseOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) GalleryImageIdentifierResponse { return v.Identifier }).(GalleryImageIdentifierResponseOutput)
-}
-
-// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-func (o GalleryImagePropertiesResponseOutput) OsState() pulumi.StringOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) string { return v.OsState }).(pulumi.StringOutput)
-}
-
-// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o GalleryImagePropertiesResponseOutput) OsType() pulumi.StringOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) string { return v.OsType }).(pulumi.StringOutput)
-}
-
-// The privacy statement uri.
-func (o GalleryImagePropertiesResponseOutput) PrivacyStatementUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) *string { return v.PrivacyStatementUri }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o GalleryImagePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
-func (o GalleryImagePropertiesResponseOutput) PurchasePlan() ImagePurchasePlanResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) *ImagePurchasePlanResponse { return v.PurchasePlan }).(ImagePurchasePlanResponsePtrOutput)
-}
-
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-func (o GalleryImagePropertiesResponseOutput) Recommended() RecommendedMachineConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) *RecommendedMachineConfigurationResponse { return v.Recommended }).(RecommendedMachineConfigurationResponsePtrOutput)
-}
-
-// The release note uri.
-func (o GalleryImagePropertiesResponseOutput) ReleaseNoteUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImagePropertiesResponse) *string { return v.ReleaseNoteUri }).(pulumi.StringPtrOutput)
-}
-
-type GalleryImagePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (GalleryImagePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GalleryImagePropertiesResponse)(nil)).Elem()
-}
-
-func (o GalleryImagePropertiesResponsePtrOutput) ToGalleryImagePropertiesResponsePtrOutput() GalleryImagePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GalleryImagePropertiesResponsePtrOutput) ToGalleryImagePropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryImagePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GalleryImagePropertiesResponsePtrOutput) Elem() GalleryImagePropertiesResponseOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) GalleryImagePropertiesResponse { return *v }).(GalleryImagePropertiesResponseOutput)
-}
-
-// The description of this gallery Image Definition resource. This property is updatable.
-func (o GalleryImagePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the disallowed disk types.
-func (o GalleryImagePropertiesResponsePtrOutput) Disallowed() DisallowedResponsePtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *DisallowedResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Disallowed
-	}).(DisallowedResponsePtrOutput)
-}
-
-// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
-func (o GalleryImagePropertiesResponsePtrOutput) EndOfLifeDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndOfLifeDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Eula agreement for the gallery Image Definition.
-func (o GalleryImagePropertiesResponsePtrOutput) Eula() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Eula
-	}).(pulumi.StringPtrOutput)
-}
-
-// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-func (o GalleryImagePropertiesResponsePtrOutput) HyperVGeneration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HyperVGeneration
-	}).(pulumi.StringPtrOutput)
-}
-
-// This is the gallery Image Definition identifier.
-func (o GalleryImagePropertiesResponsePtrOutput) Identifier() GalleryImageIdentifierResponsePtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *GalleryImageIdentifierResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Identifier
-	}).(GalleryImageIdentifierResponsePtrOutput)
-}
-
-// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-func (o GalleryImagePropertiesResponsePtrOutput) OsState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OsState
-	}).(pulumi.StringPtrOutput)
-}
-
-// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-func (o GalleryImagePropertiesResponsePtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OsType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The privacy statement uri.
-func (o GalleryImagePropertiesResponsePtrOutput) PrivacyStatementUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrivacyStatementUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o GalleryImagePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
-func (o GalleryImagePropertiesResponsePtrOutput) PurchasePlan() ImagePurchasePlanResponsePtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *ImagePurchasePlanResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PurchasePlan
-	}).(ImagePurchasePlanResponsePtrOutput)
-}
-
-// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-func (o GalleryImagePropertiesResponsePtrOutput) Recommended() RecommendedMachineConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *RecommendedMachineConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Recommended
-	}).(RecommendedMachineConfigurationResponsePtrOutput)
-}
-
-// The release note uri.
-func (o GalleryImagePropertiesResponsePtrOutput) ReleaseNoteUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReleaseNoteUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the properties of a gallery Image Version.
-type GalleryImageVersionPropertiesResponse struct {
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The publishing profile of a gallery Image Version.
-	PublishingProfile *GalleryImageVersionPublishingProfileResponse `pulumi:"publishingProfile"`
-	// This is the replication status of the gallery Image Version.
-	ReplicationStatus ReplicationStatusResponse `pulumi:"replicationStatus"`
-	// This is the storage profile of a Gallery Image Version.
-	StorageProfile GalleryImageVersionStorageProfileResponse `pulumi:"storageProfile"`
-}
-
-// GalleryImageVersionPropertiesResponseInput is an input type that accepts GalleryImageVersionPropertiesResponseArgs and GalleryImageVersionPropertiesResponseOutput values.
-// You can construct a concrete instance of `GalleryImageVersionPropertiesResponseInput` via:
-//
-//          GalleryImageVersionPropertiesResponseArgs{...}
-type GalleryImageVersionPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToGalleryImageVersionPropertiesResponseOutput() GalleryImageVersionPropertiesResponseOutput
-	ToGalleryImageVersionPropertiesResponseOutputWithContext(context.Context) GalleryImageVersionPropertiesResponseOutput
-}
-
-// Describes the properties of a gallery Image Version.
-type GalleryImageVersionPropertiesResponseArgs struct {
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The publishing profile of a gallery Image Version.
-	PublishingProfile GalleryImageVersionPublishingProfileResponsePtrInput `pulumi:"publishingProfile"`
-	// This is the replication status of the gallery Image Version.
-	ReplicationStatus ReplicationStatusResponseInput `pulumi:"replicationStatus"`
-	// This is the storage profile of a Gallery Image Version.
-	StorageProfile GalleryImageVersionStorageProfileResponseInput `pulumi:"storageProfile"`
-}
-
-func (GalleryImageVersionPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryImageVersionPropertiesResponse)(nil)).Elem()
-}
-
-func (i GalleryImageVersionPropertiesResponseArgs) ToGalleryImageVersionPropertiesResponseOutput() GalleryImageVersionPropertiesResponseOutput {
-	return i.ToGalleryImageVersionPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i GalleryImageVersionPropertiesResponseArgs) ToGalleryImageVersionPropertiesResponseOutputWithContext(ctx context.Context) GalleryImageVersionPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionPropertiesResponseOutput)
-}
-
-func (i GalleryImageVersionPropertiesResponseArgs) ToGalleryImageVersionPropertiesResponsePtrOutput() GalleryImageVersionPropertiesResponsePtrOutput {
-	return i.ToGalleryImageVersionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GalleryImageVersionPropertiesResponseArgs) ToGalleryImageVersionPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryImageVersionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionPropertiesResponseOutput).ToGalleryImageVersionPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// GalleryImageVersionPropertiesResponsePtrInput is an input type that accepts GalleryImageVersionPropertiesResponseArgs, GalleryImageVersionPropertiesResponsePtr and GalleryImageVersionPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `GalleryImageVersionPropertiesResponsePtrInput` via:
-//
-//          GalleryImageVersionPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type GalleryImageVersionPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToGalleryImageVersionPropertiesResponsePtrOutput() GalleryImageVersionPropertiesResponsePtrOutput
-	ToGalleryImageVersionPropertiesResponsePtrOutputWithContext(context.Context) GalleryImageVersionPropertiesResponsePtrOutput
-}
-
-type galleryImageVersionPropertiesResponsePtrType GalleryImageVersionPropertiesResponseArgs
-
-func GalleryImageVersionPropertiesResponsePtr(v *GalleryImageVersionPropertiesResponseArgs) GalleryImageVersionPropertiesResponsePtrInput {
-	return (*galleryImageVersionPropertiesResponsePtrType)(v)
-}
-
-func (*galleryImageVersionPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GalleryImageVersionPropertiesResponse)(nil)).Elem()
-}
-
-func (i *galleryImageVersionPropertiesResponsePtrType) ToGalleryImageVersionPropertiesResponsePtrOutput() GalleryImageVersionPropertiesResponsePtrOutput {
-	return i.ToGalleryImageVersionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *galleryImageVersionPropertiesResponsePtrType) ToGalleryImageVersionPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryImageVersionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageVersionPropertiesResponsePtrOutput)
-}
-
-// Describes the properties of a gallery Image Version.
-type GalleryImageVersionPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GalleryImageVersionPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryImageVersionPropertiesResponse)(nil)).Elem()
-}
-
-func (o GalleryImageVersionPropertiesResponseOutput) ToGalleryImageVersionPropertiesResponseOutput() GalleryImageVersionPropertiesResponseOutput {
-	return o
-}
-
-func (o GalleryImageVersionPropertiesResponseOutput) ToGalleryImageVersionPropertiesResponseOutputWithContext(ctx context.Context) GalleryImageVersionPropertiesResponseOutput {
-	return o
-}
-
-func (o GalleryImageVersionPropertiesResponseOutput) ToGalleryImageVersionPropertiesResponsePtrOutput() GalleryImageVersionPropertiesResponsePtrOutput {
-	return o.ToGalleryImageVersionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GalleryImageVersionPropertiesResponseOutput) ToGalleryImageVersionPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryImageVersionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImageVersionPropertiesResponse) *GalleryImageVersionPropertiesResponse {
-		return &v
-	}).(GalleryImageVersionPropertiesResponsePtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o GalleryImageVersionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v GalleryImageVersionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The publishing profile of a gallery Image Version.
-func (o GalleryImageVersionPropertiesResponseOutput) PublishingProfile() GalleryImageVersionPublishingProfileResponsePtrOutput {
-	return o.ApplyT(func(v GalleryImageVersionPropertiesResponse) *GalleryImageVersionPublishingProfileResponse {
-		return v.PublishingProfile
-	}).(GalleryImageVersionPublishingProfileResponsePtrOutput)
-}
-
-// This is the replication status of the gallery Image Version.
-func (o GalleryImageVersionPropertiesResponseOutput) ReplicationStatus() ReplicationStatusResponseOutput {
-	return o.ApplyT(func(v GalleryImageVersionPropertiesResponse) ReplicationStatusResponse { return v.ReplicationStatus }).(ReplicationStatusResponseOutput)
-}
-
-// This is the storage profile of a Gallery Image Version.
-func (o GalleryImageVersionPropertiesResponseOutput) StorageProfile() GalleryImageVersionStorageProfileResponseOutput {
-	return o.ApplyT(func(v GalleryImageVersionPropertiesResponse) GalleryImageVersionStorageProfileResponse {
-		return v.StorageProfile
-	}).(GalleryImageVersionStorageProfileResponseOutput)
-}
-
-type GalleryImageVersionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (GalleryImageVersionPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GalleryImageVersionPropertiesResponse)(nil)).Elem()
-}
-
-func (o GalleryImageVersionPropertiesResponsePtrOutput) ToGalleryImageVersionPropertiesResponsePtrOutput() GalleryImageVersionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GalleryImageVersionPropertiesResponsePtrOutput) ToGalleryImageVersionPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryImageVersionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GalleryImageVersionPropertiesResponsePtrOutput) Elem() GalleryImageVersionPropertiesResponseOutput {
-	return o.ApplyT(func(v *GalleryImageVersionPropertiesResponse) GalleryImageVersionPropertiesResponse { return *v }).(GalleryImageVersionPropertiesResponseOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o GalleryImageVersionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryImageVersionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The publishing profile of a gallery Image Version.
-func (o GalleryImageVersionPropertiesResponsePtrOutput) PublishingProfile() GalleryImageVersionPublishingProfileResponsePtrOutput {
-	return o.ApplyT(func(v *GalleryImageVersionPropertiesResponse) *GalleryImageVersionPublishingProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PublishingProfile
-	}).(GalleryImageVersionPublishingProfileResponsePtrOutput)
-}
-
-// This is the replication status of the gallery Image Version.
-func (o GalleryImageVersionPropertiesResponsePtrOutput) ReplicationStatus() ReplicationStatusResponsePtrOutput {
-	return o.ApplyT(func(v *GalleryImageVersionPropertiesResponse) *ReplicationStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.ReplicationStatus
-	}).(ReplicationStatusResponsePtrOutput)
-}
-
-// This is the storage profile of a Gallery Image Version.
-func (o GalleryImageVersionPropertiesResponsePtrOutput) StorageProfile() GalleryImageVersionStorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v *GalleryImageVersionPropertiesResponse) *GalleryImageVersionStorageProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.StorageProfile
-	}).(GalleryImageVersionStorageProfileResponsePtrOutput)
-}
-
 // The publishing profile of a gallery Image Version.
 type GalleryImageVersionPublishingProfile struct {
 	// The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
@@ -9356,178 +7762,6 @@ func (o GalleryOSDiskImageResponsePtrOutput) Source() GalleryArtifactVersionSour
 		}
 		return v.Source
 	}).(GalleryArtifactVersionSourceResponsePtrOutput)
-}
-
-// Describes the properties of a Shared Image Gallery.
-type GalleryPropertiesResponse struct {
-	// The description of this Shared Image Gallery resource. This property is updatable.
-	Description *string `pulumi:"description"`
-	// Describes the gallery unique name.
-	Identifier *GalleryIdentifierResponse `pulumi:"identifier"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-}
-
-// GalleryPropertiesResponseInput is an input type that accepts GalleryPropertiesResponseArgs and GalleryPropertiesResponseOutput values.
-// You can construct a concrete instance of `GalleryPropertiesResponseInput` via:
-//
-//          GalleryPropertiesResponseArgs{...}
-type GalleryPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToGalleryPropertiesResponseOutput() GalleryPropertiesResponseOutput
-	ToGalleryPropertiesResponseOutputWithContext(context.Context) GalleryPropertiesResponseOutput
-}
-
-// Describes the properties of a Shared Image Gallery.
-type GalleryPropertiesResponseArgs struct {
-	// The description of this Shared Image Gallery resource. This property is updatable.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Describes the gallery unique name.
-	Identifier GalleryIdentifierResponsePtrInput `pulumi:"identifier"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-}
-
-func (GalleryPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryPropertiesResponse)(nil)).Elem()
-}
-
-func (i GalleryPropertiesResponseArgs) ToGalleryPropertiesResponseOutput() GalleryPropertiesResponseOutput {
-	return i.ToGalleryPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i GalleryPropertiesResponseArgs) ToGalleryPropertiesResponseOutputWithContext(ctx context.Context) GalleryPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryPropertiesResponseOutput)
-}
-
-func (i GalleryPropertiesResponseArgs) ToGalleryPropertiesResponsePtrOutput() GalleryPropertiesResponsePtrOutput {
-	return i.ToGalleryPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GalleryPropertiesResponseArgs) ToGalleryPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryPropertiesResponseOutput).ToGalleryPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// GalleryPropertiesResponsePtrInput is an input type that accepts GalleryPropertiesResponseArgs, GalleryPropertiesResponsePtr and GalleryPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `GalleryPropertiesResponsePtrInput` via:
-//
-//          GalleryPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type GalleryPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToGalleryPropertiesResponsePtrOutput() GalleryPropertiesResponsePtrOutput
-	ToGalleryPropertiesResponsePtrOutputWithContext(context.Context) GalleryPropertiesResponsePtrOutput
-}
-
-type galleryPropertiesResponsePtrType GalleryPropertiesResponseArgs
-
-func GalleryPropertiesResponsePtr(v *GalleryPropertiesResponseArgs) GalleryPropertiesResponsePtrInput {
-	return (*galleryPropertiesResponsePtrType)(v)
-}
-
-func (*galleryPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GalleryPropertiesResponse)(nil)).Elem()
-}
-
-func (i *galleryPropertiesResponsePtrType) ToGalleryPropertiesResponsePtrOutput() GalleryPropertiesResponsePtrOutput {
-	return i.ToGalleryPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *galleryPropertiesResponsePtrType) ToGalleryPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryPropertiesResponsePtrOutput)
-}
-
-// Describes the properties of a Shared Image Gallery.
-type GalleryPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (GalleryPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryPropertiesResponse)(nil)).Elem()
-}
-
-func (o GalleryPropertiesResponseOutput) ToGalleryPropertiesResponseOutput() GalleryPropertiesResponseOutput {
-	return o
-}
-
-func (o GalleryPropertiesResponseOutput) ToGalleryPropertiesResponseOutputWithContext(ctx context.Context) GalleryPropertiesResponseOutput {
-	return o
-}
-
-func (o GalleryPropertiesResponseOutput) ToGalleryPropertiesResponsePtrOutput() GalleryPropertiesResponsePtrOutput {
-	return o.ToGalleryPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GalleryPropertiesResponseOutput) ToGalleryPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v GalleryPropertiesResponse) *GalleryPropertiesResponse {
-		return &v
-	}).(GalleryPropertiesResponsePtrOutput)
-}
-
-// The description of this Shared Image Gallery resource. This property is updatable.
-func (o GalleryPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Describes the gallery unique name.
-func (o GalleryPropertiesResponseOutput) Identifier() GalleryIdentifierResponsePtrOutput {
-	return o.ApplyT(func(v GalleryPropertiesResponse) *GalleryIdentifierResponse { return v.Identifier }).(GalleryIdentifierResponsePtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o GalleryPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v GalleryPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-type GalleryPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (GalleryPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GalleryPropertiesResponse)(nil)).Elem()
-}
-
-func (o GalleryPropertiesResponsePtrOutput) ToGalleryPropertiesResponsePtrOutput() GalleryPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GalleryPropertiesResponsePtrOutput) ToGalleryPropertiesResponsePtrOutputWithContext(ctx context.Context) GalleryPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o GalleryPropertiesResponsePtrOutput) Elem() GalleryPropertiesResponseOutput {
-	return o.ApplyT(func(v *GalleryPropertiesResponse) GalleryPropertiesResponse { return *v }).(GalleryPropertiesResponseOutput)
-}
-
-// The description of this Shared Image Gallery resource. This property is updatable.
-func (o GalleryPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the gallery unique name.
-func (o GalleryPropertiesResponsePtrOutput) Identifier() GalleryIdentifierResponsePtrOutput {
-	return o.ApplyT(func(v *GalleryPropertiesResponse) *GalleryIdentifierResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Identifier
-	}).(GalleryIdentifierResponsePtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o GalleryPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GalleryPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the hardware settings for the virtual machine.
@@ -10694,197 +8928,6 @@ func (o ImageOSDiskResponsePtrOutput) StorageAccountType() pulumi.StringPtrOutpu
 		}
 		return v.StorageAccountType
 	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the properties of an Image.
-type ImagePropertiesResponse struct {
-	// Gets the HyperVGenerationType of the VirtualMachine created from the image
-	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// The provisioning state.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The source virtual machine from which Image is created.
-	SourceVirtualMachine *SubResourceResponse `pulumi:"sourceVirtualMachine"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile *ImageStorageProfileResponse `pulumi:"storageProfile"`
-}
-
-// ImagePropertiesResponseInput is an input type that accepts ImagePropertiesResponseArgs and ImagePropertiesResponseOutput values.
-// You can construct a concrete instance of `ImagePropertiesResponseInput` via:
-//
-//          ImagePropertiesResponseArgs{...}
-type ImagePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToImagePropertiesResponseOutput() ImagePropertiesResponseOutput
-	ToImagePropertiesResponseOutputWithContext(context.Context) ImagePropertiesResponseOutput
-}
-
-// Describes the properties of an Image.
-type ImagePropertiesResponseArgs struct {
-	// Gets the HyperVGenerationType of the VirtualMachine created from the image
-	HyperVGeneration pulumi.StringPtrInput `pulumi:"hyperVGeneration"`
-	// The provisioning state.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The source virtual machine from which Image is created.
-	SourceVirtualMachine SubResourceResponsePtrInput `pulumi:"sourceVirtualMachine"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile ImageStorageProfileResponsePtrInput `pulumi:"storageProfile"`
-}
-
-func (ImagePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImagePropertiesResponse)(nil)).Elem()
-}
-
-func (i ImagePropertiesResponseArgs) ToImagePropertiesResponseOutput() ImagePropertiesResponseOutput {
-	return i.ToImagePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ImagePropertiesResponseArgs) ToImagePropertiesResponseOutputWithContext(ctx context.Context) ImagePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImagePropertiesResponseOutput)
-}
-
-func (i ImagePropertiesResponseArgs) ToImagePropertiesResponsePtrOutput() ImagePropertiesResponsePtrOutput {
-	return i.ToImagePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ImagePropertiesResponseArgs) ToImagePropertiesResponsePtrOutputWithContext(ctx context.Context) ImagePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImagePropertiesResponseOutput).ToImagePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ImagePropertiesResponsePtrInput is an input type that accepts ImagePropertiesResponseArgs, ImagePropertiesResponsePtr and ImagePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ImagePropertiesResponsePtrInput` via:
-//
-//          ImagePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ImagePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToImagePropertiesResponsePtrOutput() ImagePropertiesResponsePtrOutput
-	ToImagePropertiesResponsePtrOutputWithContext(context.Context) ImagePropertiesResponsePtrOutput
-}
-
-type imagePropertiesResponsePtrType ImagePropertiesResponseArgs
-
-func ImagePropertiesResponsePtr(v *ImagePropertiesResponseArgs) ImagePropertiesResponsePtrInput {
-	return (*imagePropertiesResponsePtrType)(v)
-}
-
-func (*imagePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImagePropertiesResponse)(nil)).Elem()
-}
-
-func (i *imagePropertiesResponsePtrType) ToImagePropertiesResponsePtrOutput() ImagePropertiesResponsePtrOutput {
-	return i.ToImagePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *imagePropertiesResponsePtrType) ToImagePropertiesResponsePtrOutputWithContext(ctx context.Context) ImagePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImagePropertiesResponsePtrOutput)
-}
-
-// Describes the properties of an Image.
-type ImagePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ImagePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImagePropertiesResponse)(nil)).Elem()
-}
-
-func (o ImagePropertiesResponseOutput) ToImagePropertiesResponseOutput() ImagePropertiesResponseOutput {
-	return o
-}
-
-func (o ImagePropertiesResponseOutput) ToImagePropertiesResponseOutputWithContext(ctx context.Context) ImagePropertiesResponseOutput {
-	return o
-}
-
-func (o ImagePropertiesResponseOutput) ToImagePropertiesResponsePtrOutput() ImagePropertiesResponsePtrOutput {
-	return o.ToImagePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ImagePropertiesResponseOutput) ToImagePropertiesResponsePtrOutputWithContext(ctx context.Context) ImagePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ImagePropertiesResponse) *ImagePropertiesResponse {
-		return &v
-	}).(ImagePropertiesResponsePtrOutput)
-}
-
-// Gets the HyperVGenerationType of the VirtualMachine created from the image
-func (o ImagePropertiesResponseOutput) HyperVGeneration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImagePropertiesResponse) *string { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning state.
-func (o ImagePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v ImagePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The source virtual machine from which Image is created.
-func (o ImagePropertiesResponseOutput) SourceVirtualMachine() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v ImagePropertiesResponse) *SubResourceResponse { return v.SourceVirtualMachine }).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the storage settings for the virtual machine disks.
-func (o ImagePropertiesResponseOutput) StorageProfile() ImageStorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v ImagePropertiesResponse) *ImageStorageProfileResponse { return v.StorageProfile }).(ImageStorageProfileResponsePtrOutput)
-}
-
-type ImagePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ImagePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImagePropertiesResponse)(nil)).Elem()
-}
-
-func (o ImagePropertiesResponsePtrOutput) ToImagePropertiesResponsePtrOutput() ImagePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ImagePropertiesResponsePtrOutput) ToImagePropertiesResponsePtrOutputWithContext(ctx context.Context) ImagePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ImagePropertiesResponsePtrOutput) Elem() ImagePropertiesResponseOutput {
-	return o.ApplyT(func(v *ImagePropertiesResponse) ImagePropertiesResponse { return *v }).(ImagePropertiesResponseOutput)
-}
-
-// Gets the HyperVGenerationType of the VirtualMachine created from the image
-func (o ImagePropertiesResponsePtrOutput) HyperVGeneration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HyperVGeneration
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning state.
-func (o ImagePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ImagePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source virtual machine from which Image is created.
-func (o ImagePropertiesResponsePtrOutput) SourceVirtualMachine() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *ImagePropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.SourceVirtualMachine
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the storage settings for the virtual machine disks.
-func (o ImagePropertiesResponsePtrOutput) StorageProfile() ImageStorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v *ImagePropertiesResponse) *ImageStorageProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.StorageProfile
-	}).(ImageStorageProfileResponsePtrOutput)
 }
 
 // Describes the gallery Image Definition purchase plan. This is used by marketplace images.
@@ -14181,148 +12224,12 @@ func (o NetworkInterfaceReferenceArrayOutput) Index(i pulumi.IntInput) NetworkIn
 	}).(NetworkInterfaceReferenceOutput)
 }
 
-// Describes a network interface reference properties.
-type NetworkInterfaceReferencePropertiesResponse struct {
-	// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-	Primary *bool `pulumi:"primary"`
-}
-
-// NetworkInterfaceReferencePropertiesResponseInput is an input type that accepts NetworkInterfaceReferencePropertiesResponseArgs and NetworkInterfaceReferencePropertiesResponseOutput values.
-// You can construct a concrete instance of `NetworkInterfaceReferencePropertiesResponseInput` via:
-//
-//          NetworkInterfaceReferencePropertiesResponseArgs{...}
-type NetworkInterfaceReferencePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToNetworkInterfaceReferencePropertiesResponseOutput() NetworkInterfaceReferencePropertiesResponseOutput
-	ToNetworkInterfaceReferencePropertiesResponseOutputWithContext(context.Context) NetworkInterfaceReferencePropertiesResponseOutput
-}
-
-// Describes a network interface reference properties.
-type NetworkInterfaceReferencePropertiesResponseArgs struct {
-	// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-	Primary pulumi.BoolPtrInput `pulumi:"primary"`
-}
-
-func (NetworkInterfaceReferencePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceReferencePropertiesResponse)(nil)).Elem()
-}
-
-func (i NetworkInterfaceReferencePropertiesResponseArgs) ToNetworkInterfaceReferencePropertiesResponseOutput() NetworkInterfaceReferencePropertiesResponseOutput {
-	return i.ToNetworkInterfaceReferencePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i NetworkInterfaceReferencePropertiesResponseArgs) ToNetworkInterfaceReferencePropertiesResponseOutputWithContext(ctx context.Context) NetworkInterfaceReferencePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceReferencePropertiesResponseOutput)
-}
-
-func (i NetworkInterfaceReferencePropertiesResponseArgs) ToNetworkInterfaceReferencePropertiesResponsePtrOutput() NetworkInterfaceReferencePropertiesResponsePtrOutput {
-	return i.ToNetworkInterfaceReferencePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NetworkInterfaceReferencePropertiesResponseArgs) ToNetworkInterfaceReferencePropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkInterfaceReferencePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceReferencePropertiesResponseOutput).ToNetworkInterfaceReferencePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// NetworkInterfaceReferencePropertiesResponsePtrInput is an input type that accepts NetworkInterfaceReferencePropertiesResponseArgs, NetworkInterfaceReferencePropertiesResponsePtr and NetworkInterfaceReferencePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `NetworkInterfaceReferencePropertiesResponsePtrInput` via:
-//
-//          NetworkInterfaceReferencePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type NetworkInterfaceReferencePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToNetworkInterfaceReferencePropertiesResponsePtrOutput() NetworkInterfaceReferencePropertiesResponsePtrOutput
-	ToNetworkInterfaceReferencePropertiesResponsePtrOutputWithContext(context.Context) NetworkInterfaceReferencePropertiesResponsePtrOutput
-}
-
-type networkInterfaceReferencePropertiesResponsePtrType NetworkInterfaceReferencePropertiesResponseArgs
-
-func NetworkInterfaceReferencePropertiesResponsePtr(v *NetworkInterfaceReferencePropertiesResponseArgs) NetworkInterfaceReferencePropertiesResponsePtrInput {
-	return (*networkInterfaceReferencePropertiesResponsePtrType)(v)
-}
-
-func (*networkInterfaceReferencePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInterfaceReferencePropertiesResponse)(nil)).Elem()
-}
-
-func (i *networkInterfaceReferencePropertiesResponsePtrType) ToNetworkInterfaceReferencePropertiesResponsePtrOutput() NetworkInterfaceReferencePropertiesResponsePtrOutput {
-	return i.ToNetworkInterfaceReferencePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *networkInterfaceReferencePropertiesResponsePtrType) ToNetworkInterfaceReferencePropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkInterfaceReferencePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceReferencePropertiesResponsePtrOutput)
-}
-
-// Describes a network interface reference properties.
-type NetworkInterfaceReferencePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (NetworkInterfaceReferencePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceReferencePropertiesResponse)(nil)).Elem()
-}
-
-func (o NetworkInterfaceReferencePropertiesResponseOutput) ToNetworkInterfaceReferencePropertiesResponseOutput() NetworkInterfaceReferencePropertiesResponseOutput {
-	return o
-}
-
-func (o NetworkInterfaceReferencePropertiesResponseOutput) ToNetworkInterfaceReferencePropertiesResponseOutputWithContext(ctx context.Context) NetworkInterfaceReferencePropertiesResponseOutput {
-	return o
-}
-
-func (o NetworkInterfaceReferencePropertiesResponseOutput) ToNetworkInterfaceReferencePropertiesResponsePtrOutput() NetworkInterfaceReferencePropertiesResponsePtrOutput {
-	return o.ToNetworkInterfaceReferencePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NetworkInterfaceReferencePropertiesResponseOutput) ToNetworkInterfaceReferencePropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkInterfaceReferencePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceReferencePropertiesResponse) *NetworkInterfaceReferencePropertiesResponse {
-		return &v
-	}).(NetworkInterfaceReferencePropertiesResponsePtrOutput)
-}
-
-// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-func (o NetworkInterfaceReferencePropertiesResponseOutput) Primary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceReferencePropertiesResponse) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
-}
-
-type NetworkInterfaceReferencePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (NetworkInterfaceReferencePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInterfaceReferencePropertiesResponse)(nil)).Elem()
-}
-
-func (o NetworkInterfaceReferencePropertiesResponsePtrOutput) ToNetworkInterfaceReferencePropertiesResponsePtrOutput() NetworkInterfaceReferencePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NetworkInterfaceReferencePropertiesResponsePtrOutput) ToNetworkInterfaceReferencePropertiesResponsePtrOutputWithContext(ctx context.Context) NetworkInterfaceReferencePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o NetworkInterfaceReferencePropertiesResponsePtrOutput) Elem() NetworkInterfaceReferencePropertiesResponseOutput {
-	return o.ApplyT(func(v *NetworkInterfaceReferencePropertiesResponse) NetworkInterfaceReferencePropertiesResponse {
-		return *v
-	}).(NetworkInterfaceReferencePropertiesResponseOutput)
-}
-
-// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-func (o NetworkInterfaceReferencePropertiesResponsePtrOutput) Primary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *NetworkInterfaceReferencePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Primary
-	}).(pulumi.BoolPtrOutput)
-}
-
 // Describes a network interface reference.
 type NetworkInterfaceReferenceResponse struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
-	// Describes a network interface reference properties.
-	Properties *NetworkInterfaceReferencePropertiesResponse `pulumi:"properties"`
+	// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+	Primary *bool `pulumi:"primary"`
 }
 
 // NetworkInterfaceReferenceResponseInput is an input type that accepts NetworkInterfaceReferenceResponseArgs and NetworkInterfaceReferenceResponseOutput values.
@@ -14340,8 +12247,8 @@ type NetworkInterfaceReferenceResponseInput interface {
 type NetworkInterfaceReferenceResponseArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Describes a network interface reference properties.
-	Properties NetworkInterfaceReferencePropertiesResponsePtrInput `pulumi:"properties"`
+	// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 }
 
 func (NetworkInterfaceReferenceResponseArgs) ElementType() reflect.Type {
@@ -14401,11 +12308,9 @@ func (o NetworkInterfaceReferenceResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceReferenceResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Describes a network interface reference properties.
-func (o NetworkInterfaceReferenceResponseOutput) Properties() NetworkInterfaceReferencePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceReferenceResponse) *NetworkInterfaceReferencePropertiesResponse {
-		return v.Properties
-	}).(NetworkInterfaceReferencePropertiesResponsePtrOutput)
+// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+func (o NetworkInterfaceReferenceResponseOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NetworkInterfaceReferenceResponse) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
 type NetworkInterfaceReferenceResponseArrayOutput struct{ *pulumi.OutputState }
@@ -16564,226 +14469,6 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 		}
 		return v.Publisher
 	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the properties of a Proximity Placement Group.
-type ProximityPlacementGroupPropertiesResponse struct {
-	// A list of references to all availability sets in the proximity placement group.
-	AvailabilitySets []SubResourceWithColocationStatusResponse `pulumi:"availabilitySets"`
-	// Describes colocation status of the Proximity Placement Group.
-	ColocationStatus *InstanceViewStatusResponse `pulumi:"colocationStatus"`
-	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
-	ProximityPlacementGroupType *string `pulumi:"proximityPlacementGroupType"`
-	// A list of references to all virtual machine scale sets in the proximity placement group.
-	VirtualMachineScaleSets []SubResourceWithColocationStatusResponse `pulumi:"virtualMachineScaleSets"`
-	// A list of references to all virtual machines in the proximity placement group.
-	VirtualMachines []SubResourceWithColocationStatusResponse `pulumi:"virtualMachines"`
-}
-
-// ProximityPlacementGroupPropertiesResponseInput is an input type that accepts ProximityPlacementGroupPropertiesResponseArgs and ProximityPlacementGroupPropertiesResponseOutput values.
-// You can construct a concrete instance of `ProximityPlacementGroupPropertiesResponseInput` via:
-//
-//          ProximityPlacementGroupPropertiesResponseArgs{...}
-type ProximityPlacementGroupPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToProximityPlacementGroupPropertiesResponseOutput() ProximityPlacementGroupPropertiesResponseOutput
-	ToProximityPlacementGroupPropertiesResponseOutputWithContext(context.Context) ProximityPlacementGroupPropertiesResponseOutput
-}
-
-// Describes the properties of a Proximity Placement Group.
-type ProximityPlacementGroupPropertiesResponseArgs struct {
-	// A list of references to all availability sets in the proximity placement group.
-	AvailabilitySets SubResourceWithColocationStatusResponseArrayInput `pulumi:"availabilitySets"`
-	// Describes colocation status of the Proximity Placement Group.
-	ColocationStatus InstanceViewStatusResponsePtrInput `pulumi:"colocationStatus"`
-	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
-	ProximityPlacementGroupType pulumi.StringPtrInput `pulumi:"proximityPlacementGroupType"`
-	// A list of references to all virtual machine scale sets in the proximity placement group.
-	VirtualMachineScaleSets SubResourceWithColocationStatusResponseArrayInput `pulumi:"virtualMachineScaleSets"`
-	// A list of references to all virtual machines in the proximity placement group.
-	VirtualMachines SubResourceWithColocationStatusResponseArrayInput `pulumi:"virtualMachines"`
-}
-
-func (ProximityPlacementGroupPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProximityPlacementGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (i ProximityPlacementGroupPropertiesResponseArgs) ToProximityPlacementGroupPropertiesResponseOutput() ProximityPlacementGroupPropertiesResponseOutput {
-	return i.ToProximityPlacementGroupPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ProximityPlacementGroupPropertiesResponseArgs) ToProximityPlacementGroupPropertiesResponseOutputWithContext(ctx context.Context) ProximityPlacementGroupPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProximityPlacementGroupPropertiesResponseOutput)
-}
-
-func (i ProximityPlacementGroupPropertiesResponseArgs) ToProximityPlacementGroupPropertiesResponsePtrOutput() ProximityPlacementGroupPropertiesResponsePtrOutput {
-	return i.ToProximityPlacementGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ProximityPlacementGroupPropertiesResponseArgs) ToProximityPlacementGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) ProximityPlacementGroupPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProximityPlacementGroupPropertiesResponseOutput).ToProximityPlacementGroupPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// ProximityPlacementGroupPropertiesResponsePtrInput is an input type that accepts ProximityPlacementGroupPropertiesResponseArgs, ProximityPlacementGroupPropertiesResponsePtr and ProximityPlacementGroupPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `ProximityPlacementGroupPropertiesResponsePtrInput` via:
-//
-//          ProximityPlacementGroupPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ProximityPlacementGroupPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToProximityPlacementGroupPropertiesResponsePtrOutput() ProximityPlacementGroupPropertiesResponsePtrOutput
-	ToProximityPlacementGroupPropertiesResponsePtrOutputWithContext(context.Context) ProximityPlacementGroupPropertiesResponsePtrOutput
-}
-
-type proximityPlacementGroupPropertiesResponsePtrType ProximityPlacementGroupPropertiesResponseArgs
-
-func ProximityPlacementGroupPropertiesResponsePtr(v *ProximityPlacementGroupPropertiesResponseArgs) ProximityPlacementGroupPropertiesResponsePtrInput {
-	return (*proximityPlacementGroupPropertiesResponsePtrType)(v)
-}
-
-func (*proximityPlacementGroupPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProximityPlacementGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (i *proximityPlacementGroupPropertiesResponsePtrType) ToProximityPlacementGroupPropertiesResponsePtrOutput() ProximityPlacementGroupPropertiesResponsePtrOutput {
-	return i.ToProximityPlacementGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *proximityPlacementGroupPropertiesResponsePtrType) ToProximityPlacementGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) ProximityPlacementGroupPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProximityPlacementGroupPropertiesResponsePtrOutput)
-}
-
-// Describes the properties of a Proximity Placement Group.
-type ProximityPlacementGroupPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ProximityPlacementGroupPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProximityPlacementGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (o ProximityPlacementGroupPropertiesResponseOutput) ToProximityPlacementGroupPropertiesResponseOutput() ProximityPlacementGroupPropertiesResponseOutput {
-	return o
-}
-
-func (o ProximityPlacementGroupPropertiesResponseOutput) ToProximityPlacementGroupPropertiesResponseOutputWithContext(ctx context.Context) ProximityPlacementGroupPropertiesResponseOutput {
-	return o
-}
-
-func (o ProximityPlacementGroupPropertiesResponseOutput) ToProximityPlacementGroupPropertiesResponsePtrOutput() ProximityPlacementGroupPropertiesResponsePtrOutput {
-	return o.ToProximityPlacementGroupPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ProximityPlacementGroupPropertiesResponseOutput) ToProximityPlacementGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) ProximityPlacementGroupPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v ProximityPlacementGroupPropertiesResponse) *ProximityPlacementGroupPropertiesResponse {
-		return &v
-	}).(ProximityPlacementGroupPropertiesResponsePtrOutput)
-}
-
-// A list of references to all availability sets in the proximity placement group.
-func (o ProximityPlacementGroupPropertiesResponseOutput) AvailabilitySets() SubResourceWithColocationStatusResponseArrayOutput {
-	return o.ApplyT(func(v ProximityPlacementGroupPropertiesResponse) []SubResourceWithColocationStatusResponse {
-		return v.AvailabilitySets
-	}).(SubResourceWithColocationStatusResponseArrayOutput)
-}
-
-// Describes colocation status of the Proximity Placement Group.
-func (o ProximityPlacementGroupPropertiesResponseOutput) ColocationStatus() InstanceViewStatusResponsePtrOutput {
-	return o.ApplyT(func(v ProximityPlacementGroupPropertiesResponse) *InstanceViewStatusResponse {
-		return v.ColocationStatus
-	}).(InstanceViewStatusResponsePtrOutput)
-}
-
-// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
-func (o ProximityPlacementGroupPropertiesResponseOutput) ProximityPlacementGroupType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProximityPlacementGroupPropertiesResponse) *string { return v.ProximityPlacementGroupType }).(pulumi.StringPtrOutput)
-}
-
-// A list of references to all virtual machine scale sets in the proximity placement group.
-func (o ProximityPlacementGroupPropertiesResponseOutput) VirtualMachineScaleSets() SubResourceWithColocationStatusResponseArrayOutput {
-	return o.ApplyT(func(v ProximityPlacementGroupPropertiesResponse) []SubResourceWithColocationStatusResponse {
-		return v.VirtualMachineScaleSets
-	}).(SubResourceWithColocationStatusResponseArrayOutput)
-}
-
-// A list of references to all virtual machines in the proximity placement group.
-func (o ProximityPlacementGroupPropertiesResponseOutput) VirtualMachines() SubResourceWithColocationStatusResponseArrayOutput {
-	return o.ApplyT(func(v ProximityPlacementGroupPropertiesResponse) []SubResourceWithColocationStatusResponse {
-		return v.VirtualMachines
-	}).(SubResourceWithColocationStatusResponseArrayOutput)
-}
-
-type ProximityPlacementGroupPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ProximityPlacementGroupPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProximityPlacementGroupPropertiesResponse)(nil)).Elem()
-}
-
-func (o ProximityPlacementGroupPropertiesResponsePtrOutput) ToProximityPlacementGroupPropertiesResponsePtrOutput() ProximityPlacementGroupPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ProximityPlacementGroupPropertiesResponsePtrOutput) ToProximityPlacementGroupPropertiesResponsePtrOutputWithContext(ctx context.Context) ProximityPlacementGroupPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ProximityPlacementGroupPropertiesResponsePtrOutput) Elem() ProximityPlacementGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v *ProximityPlacementGroupPropertiesResponse) ProximityPlacementGroupPropertiesResponse {
-		return *v
-	}).(ProximityPlacementGroupPropertiesResponseOutput)
-}
-
-// A list of references to all availability sets in the proximity placement group.
-func (o ProximityPlacementGroupPropertiesResponsePtrOutput) AvailabilitySets() SubResourceWithColocationStatusResponseArrayOutput {
-	return o.ApplyT(func(v *ProximityPlacementGroupPropertiesResponse) []SubResourceWithColocationStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AvailabilitySets
-	}).(SubResourceWithColocationStatusResponseArrayOutput)
-}
-
-// Describes colocation status of the Proximity Placement Group.
-func (o ProximityPlacementGroupPropertiesResponsePtrOutput) ColocationStatus() InstanceViewStatusResponsePtrOutput {
-	return o.ApplyT(func(v *ProximityPlacementGroupPropertiesResponse) *InstanceViewStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ColocationStatus
-	}).(InstanceViewStatusResponsePtrOutput)
-}
-
-// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
-func (o ProximityPlacementGroupPropertiesResponsePtrOutput) ProximityPlacementGroupType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProximityPlacementGroupPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProximityPlacementGroupType
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of references to all virtual machine scale sets in the proximity placement group.
-func (o ProximityPlacementGroupPropertiesResponsePtrOutput) VirtualMachineScaleSets() SubResourceWithColocationStatusResponseArrayOutput {
-	return o.ApplyT(func(v *ProximityPlacementGroupPropertiesResponse) []SubResourceWithColocationStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualMachineScaleSets
-	}).(SubResourceWithColocationStatusResponseArrayOutput)
-}
-
-// A list of references to all virtual machines in the proximity placement group.
-func (o ProximityPlacementGroupPropertiesResponsePtrOutput) VirtualMachines() SubResourceWithColocationStatusResponseArrayOutput {
-	return o.ApplyT(func(v *ProximityPlacementGroupPropertiesResponse) []SubResourceWithColocationStatusResponse {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualMachines
-	}).(SubResourceWithColocationStatusResponseArrayOutput)
 }
 
 // The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
@@ -19311,140 +16996,6 @@ func (o SshPublicKeyTypeArrayOutput) Index(i pulumi.IntInput) SshPublicKeyTypeOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SshPublicKeyType {
 		return vs[0].([]SshPublicKeyType)[vs[1].(int)]
 	}).(SshPublicKeyTypeOutput)
-}
-
-// Properties of the SSH public key.
-type SshPublicKeyResourcePropertiesResponse struct {
-	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
-	PublicKey *string `pulumi:"publicKey"`
-}
-
-// SshPublicKeyResourcePropertiesResponseInput is an input type that accepts SshPublicKeyResourcePropertiesResponseArgs and SshPublicKeyResourcePropertiesResponseOutput values.
-// You can construct a concrete instance of `SshPublicKeyResourcePropertiesResponseInput` via:
-//
-//          SshPublicKeyResourcePropertiesResponseArgs{...}
-type SshPublicKeyResourcePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSshPublicKeyResourcePropertiesResponseOutput() SshPublicKeyResourcePropertiesResponseOutput
-	ToSshPublicKeyResourcePropertiesResponseOutputWithContext(context.Context) SshPublicKeyResourcePropertiesResponseOutput
-}
-
-// Properties of the SSH public key.
-type SshPublicKeyResourcePropertiesResponseArgs struct {
-	// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
-	PublicKey pulumi.StringPtrInput `pulumi:"publicKey"`
-}
-
-func (SshPublicKeyResourcePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SshPublicKeyResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (i SshPublicKeyResourcePropertiesResponseArgs) ToSshPublicKeyResourcePropertiesResponseOutput() SshPublicKeyResourcePropertiesResponseOutput {
-	return i.ToSshPublicKeyResourcePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SshPublicKeyResourcePropertiesResponseArgs) ToSshPublicKeyResourcePropertiesResponseOutputWithContext(ctx context.Context) SshPublicKeyResourcePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyResourcePropertiesResponseOutput)
-}
-
-func (i SshPublicKeyResourcePropertiesResponseArgs) ToSshPublicKeyResourcePropertiesResponsePtrOutput() SshPublicKeyResourcePropertiesResponsePtrOutput {
-	return i.ToSshPublicKeyResourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SshPublicKeyResourcePropertiesResponseArgs) ToSshPublicKeyResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) SshPublicKeyResourcePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyResourcePropertiesResponseOutput).ToSshPublicKeyResourcePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// SshPublicKeyResourcePropertiesResponsePtrInput is an input type that accepts SshPublicKeyResourcePropertiesResponseArgs, SshPublicKeyResourcePropertiesResponsePtr and SshPublicKeyResourcePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `SshPublicKeyResourcePropertiesResponsePtrInput` via:
-//
-//          SshPublicKeyResourcePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SshPublicKeyResourcePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSshPublicKeyResourcePropertiesResponsePtrOutput() SshPublicKeyResourcePropertiesResponsePtrOutput
-	ToSshPublicKeyResourcePropertiesResponsePtrOutputWithContext(context.Context) SshPublicKeyResourcePropertiesResponsePtrOutput
-}
-
-type sshPublicKeyResourcePropertiesResponsePtrType SshPublicKeyResourcePropertiesResponseArgs
-
-func SshPublicKeyResourcePropertiesResponsePtr(v *SshPublicKeyResourcePropertiesResponseArgs) SshPublicKeyResourcePropertiesResponsePtrInput {
-	return (*sshPublicKeyResourcePropertiesResponsePtrType)(v)
-}
-
-func (*sshPublicKeyResourcePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SshPublicKeyResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (i *sshPublicKeyResourcePropertiesResponsePtrType) ToSshPublicKeyResourcePropertiesResponsePtrOutput() SshPublicKeyResourcePropertiesResponsePtrOutput {
-	return i.ToSshPublicKeyResourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sshPublicKeyResourcePropertiesResponsePtrType) ToSshPublicKeyResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) SshPublicKeyResourcePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SshPublicKeyResourcePropertiesResponsePtrOutput)
-}
-
-// Properties of the SSH public key.
-type SshPublicKeyResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (SshPublicKeyResourcePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SshPublicKeyResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (o SshPublicKeyResourcePropertiesResponseOutput) ToSshPublicKeyResourcePropertiesResponseOutput() SshPublicKeyResourcePropertiesResponseOutput {
-	return o
-}
-
-func (o SshPublicKeyResourcePropertiesResponseOutput) ToSshPublicKeyResourcePropertiesResponseOutputWithContext(ctx context.Context) SshPublicKeyResourcePropertiesResponseOutput {
-	return o
-}
-
-func (o SshPublicKeyResourcePropertiesResponseOutput) ToSshPublicKeyResourcePropertiesResponsePtrOutput() SshPublicKeyResourcePropertiesResponsePtrOutput {
-	return o.ToSshPublicKeyResourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SshPublicKeyResourcePropertiesResponseOutput) ToSshPublicKeyResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) SshPublicKeyResourcePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v SshPublicKeyResourcePropertiesResponse) *SshPublicKeyResourcePropertiesResponse {
-		return &v
-	}).(SshPublicKeyResourcePropertiesResponsePtrOutput)
-}
-
-// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
-func (o SshPublicKeyResourcePropertiesResponseOutput) PublicKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SshPublicKeyResourcePropertiesResponse) *string { return v.PublicKey }).(pulumi.StringPtrOutput)
-}
-
-type SshPublicKeyResourcePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SshPublicKeyResourcePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SshPublicKeyResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (o SshPublicKeyResourcePropertiesResponsePtrOutput) ToSshPublicKeyResourcePropertiesResponsePtrOutput() SshPublicKeyResourcePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SshPublicKeyResourcePropertiesResponsePtrOutput) ToSshPublicKeyResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) SshPublicKeyResourcePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SshPublicKeyResourcePropertiesResponsePtrOutput) Elem() SshPublicKeyResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *SshPublicKeyResourcePropertiesResponse) SshPublicKeyResourcePropertiesResponse { return *v }).(SshPublicKeyResourcePropertiesResponseOutput)
-}
-
-// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
-func (o SshPublicKeyResourcePropertiesResponsePtrOutput) PublicKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SshPublicKeyResourcePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicKey
-	}).(pulumi.StringPtrOutput)
 }
 
 // Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
@@ -23124,14 +20675,20 @@ func (o VirtualMachineExtensionInstanceViewResponseArrayOutput) Index(i pulumi.I
 	}).(VirtualMachineExtensionInstanceViewResponseOutput)
 }
 
-// Describes the properties of a Virtual Machine Extension.
-type VirtualMachineExtensionPropertiesResponse struct {
+// Describes a Virtual Machine Extension.
+type VirtualMachineExtensionResponse struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The virtual machine extension instance view.
 	InstanceView *VirtualMachineExtensionInstanceViewResponse `pulumi:"instanceView"`
+	// Resource location
+	Location string `pulumi:"location"`
+	// Resource name
+	Name string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
 	// The provisioning state, which only appears in the response.
@@ -23140,294 +20697,12 @@ type VirtualMachineExtensionPropertiesResponse struct {
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
 	Settings map[string]interface{} `pulumi:"settings"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
-}
-
-// VirtualMachineExtensionPropertiesResponseInput is an input type that accepts VirtualMachineExtensionPropertiesResponseArgs and VirtualMachineExtensionPropertiesResponseOutput values.
-// You can construct a concrete instance of `VirtualMachineExtensionPropertiesResponseInput` via:
-//
-//          VirtualMachineExtensionPropertiesResponseArgs{...}
-type VirtualMachineExtensionPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVirtualMachineExtensionPropertiesResponseOutput() VirtualMachineExtensionPropertiesResponseOutput
-	ToVirtualMachineExtensionPropertiesResponseOutputWithContext(context.Context) VirtualMachineExtensionPropertiesResponseOutput
-}
-
-// Describes the properties of a Virtual Machine Extension.
-type VirtualMachineExtensionPropertiesResponseArgs struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
-	// How the extension handler should be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
-	// The virtual machine extension instance view.
-	InstanceView VirtualMachineExtensionInstanceViewResponsePtrInput `pulumi:"instanceView"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings pulumi.MapInput `pulumi:"settings"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
-}
-
-func (VirtualMachineExtensionPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineExtensionPropertiesResponse)(nil)).Elem()
-}
-
-func (i VirtualMachineExtensionPropertiesResponseArgs) ToVirtualMachineExtensionPropertiesResponseOutput() VirtualMachineExtensionPropertiesResponseOutput {
-	return i.ToVirtualMachineExtensionPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineExtensionPropertiesResponseArgs) ToVirtualMachineExtensionPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineExtensionPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionPropertiesResponseOutput)
-}
-
-func (i VirtualMachineExtensionPropertiesResponseArgs) ToVirtualMachineExtensionPropertiesResponsePtrOutput() VirtualMachineExtensionPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineExtensionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineExtensionPropertiesResponseArgs) ToVirtualMachineExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineExtensionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionPropertiesResponseOutput).ToVirtualMachineExtensionPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// VirtualMachineExtensionPropertiesResponsePtrInput is an input type that accepts VirtualMachineExtensionPropertiesResponseArgs, VirtualMachineExtensionPropertiesResponsePtr and VirtualMachineExtensionPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `VirtualMachineExtensionPropertiesResponsePtrInput` via:
-//
-//          VirtualMachineExtensionPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualMachineExtensionPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachineExtensionPropertiesResponsePtrOutput() VirtualMachineExtensionPropertiesResponsePtrOutput
-	ToVirtualMachineExtensionPropertiesResponsePtrOutputWithContext(context.Context) VirtualMachineExtensionPropertiesResponsePtrOutput
-}
-
-type virtualMachineExtensionPropertiesResponsePtrType VirtualMachineExtensionPropertiesResponseArgs
-
-func VirtualMachineExtensionPropertiesResponsePtr(v *VirtualMachineExtensionPropertiesResponseArgs) VirtualMachineExtensionPropertiesResponsePtrInput {
-	return (*virtualMachineExtensionPropertiesResponsePtrType)(v)
-}
-
-func (*virtualMachineExtensionPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineExtensionPropertiesResponse)(nil)).Elem()
-}
-
-func (i *virtualMachineExtensionPropertiesResponsePtrType) ToVirtualMachineExtensionPropertiesResponsePtrOutput() VirtualMachineExtensionPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineExtensionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachineExtensionPropertiesResponsePtrType) ToVirtualMachineExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineExtensionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionPropertiesResponsePtrOutput)
-}
-
-// Describes the properties of a Virtual Machine Extension.
-type VirtualMachineExtensionPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineExtensionPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineExtensionPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineExtensionPropertiesResponseOutput) ToVirtualMachineExtensionPropertiesResponseOutput() VirtualMachineExtensionPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineExtensionPropertiesResponseOutput) ToVirtualMachineExtensionPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineExtensionPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineExtensionPropertiesResponseOutput) ToVirtualMachineExtensionPropertiesResponsePtrOutput() VirtualMachineExtensionPropertiesResponsePtrOutput {
-	return o.ToVirtualMachineExtensionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineExtensionPropertiesResponseOutput) ToVirtualMachineExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineExtensionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) *VirtualMachineExtensionPropertiesResponse {
-		return &v
-	}).(VirtualMachineExtensionPropertiesResponsePtrOutput)
-}
-
-// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-func (o VirtualMachineExtensionPropertiesResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
-}
-
-// How the extension handler should be forced to update even if the extension configuration has not changed.
-func (o VirtualMachineExtensionPropertiesResponseOutput) ForceUpdateTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
-}
-
-// The virtual machine extension instance view.
-func (o VirtualMachineExtensionPropertiesResponseOutput) InstanceView() VirtualMachineExtensionInstanceViewResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) *VirtualMachineExtensionInstanceViewResponse {
-		return v.InstanceView
-	}).(VirtualMachineExtensionInstanceViewResponsePtrOutput)
-}
-
-// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineExtensionPropertiesResponseOutput) ProtectedSettings() pulumi.MapOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) map[string]interface{} { return v.ProtectedSettings }).(pulumi.MapOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o VirtualMachineExtensionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The name of the extension handler publisher.
-func (o VirtualMachineExtensionPropertiesResponseOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
-}
-
-// Json formatted public settings for the extension.
-func (o VirtualMachineExtensionPropertiesResponseOutput) Settings() pulumi.MapOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
-}
-
-// Specifies the type of the extension; an example is "CustomScriptExtension".
-func (o VirtualMachineExtensionPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the version of the script handler.
-func (o VirtualMachineExtensionPropertiesResponseOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionPropertiesResponse) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
-}
-
-type VirtualMachineExtensionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineExtensionPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineExtensionPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) ToVirtualMachineExtensionPropertiesResponsePtrOutput() VirtualMachineExtensionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) ToVirtualMachineExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineExtensionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) Elem() VirtualMachineExtensionPropertiesResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) VirtualMachineExtensionPropertiesResponse {
-		return *v
-	}).(VirtualMachineExtensionPropertiesResponseOutput)
-}
-
-// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AutoUpgradeMinorVersion
-	}).(pulumi.BoolPtrOutput)
-}
-
-// How the extension handler should be forced to update even if the extension configuration has not changed.
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) ForceUpdateTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ForceUpdateTag
-	}).(pulumi.StringPtrOutput)
-}
-
-// The virtual machine extension instance view.
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) InstanceView() VirtualMachineExtensionInstanceViewResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) *VirtualMachineExtensionInstanceViewResponse {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceView
-	}).(VirtualMachineExtensionInstanceViewResponsePtrOutput)
-}
-
-// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) ProtectedSettings() pulumi.MapOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.ProtectedSettings
-	}).(pulumi.MapOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the extension handler publisher.
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Publisher
-	}).(pulumi.StringPtrOutput)
-}
-
-// Json formatted public settings for the extension.
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) Settings() pulumi.MapOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Settings
-	}).(pulumi.MapOutput)
-}
-
-// Specifies the type of the extension; an example is "CustomScriptExtension".
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the version of the script handler.
-func (o VirtualMachineExtensionPropertiesResponsePtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineExtensionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TypeHandlerVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes a Virtual Machine Extension.
-type VirtualMachineExtensionResponse struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Extension.
-	Properties *VirtualMachineExtensionPropertiesResponse `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
 // VirtualMachineExtensionResponseInput is an input type that accepts VirtualMachineExtensionResponseArgs and VirtualMachineExtensionResponseOutput values.
@@ -23443,18 +20718,32 @@ type VirtualMachineExtensionResponseInput interface {
 
 // Describes a Virtual Machine Extension.
 type VirtualMachineExtensionResponseArgs struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// How the extension handler should be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
 	// Resource Id
 	Id pulumi.StringInput `pulumi:"id"`
+	// The virtual machine extension instance view.
+	InstanceView VirtualMachineExtensionInstanceViewResponsePtrInput `pulumi:"instanceView"`
 	// Resource location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringInput `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Extension.
-	Properties VirtualMachineExtensionPropertiesResponsePtrInput `pulumi:"properties"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings pulumi.MapInput `pulumi:"settings"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
 }
 
 func (VirtualMachineExtensionResponseArgs) ElementType() reflect.Type {
@@ -23509,9 +20798,26 @@ func (o VirtualMachineExtensionResponseOutput) ToVirtualMachineExtensionResponse
 	return o
 }
 
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o VirtualMachineExtensionResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// How the extension handler should be forced to update even if the extension configuration has not changed.
+func (o VirtualMachineExtensionResponseOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionResponse) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
 // Resource Id
 func (o VirtualMachineExtensionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineExtensionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The virtual machine extension instance view.
+func (o VirtualMachineExtensionResponseOutput) InstanceView() VirtualMachineExtensionInstanceViewResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionResponse) *VirtualMachineExtensionInstanceViewResponse {
+		return v.InstanceView
+	}).(VirtualMachineExtensionInstanceViewResponsePtrOutput)
 }
 
 // Resource location
@@ -23524,11 +20830,24 @@ func (o VirtualMachineExtensionResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineExtensionResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Describes the properties of a Virtual Machine Extension.
-func (o VirtualMachineExtensionResponseOutput) Properties() VirtualMachineExtensionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionResponse) *VirtualMachineExtensionPropertiesResponse {
-		return v.Properties
-	}).(VirtualMachineExtensionPropertiesResponsePtrOutput)
+// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+func (o VirtualMachineExtensionResponseOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionResponse) map[string]interface{} { return v.ProtectedSettings }).(pulumi.MapOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o VirtualMachineExtensionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the extension handler publisher.
+func (o VirtualMachineExtensionResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Json formatted public settings for the extension.
+func (o VirtualMachineExtensionResponseOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionResponse) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
 }
 
 // Resource tags
@@ -23539,6 +20858,11 @@ func (o VirtualMachineExtensionResponseOutput) Tags() pulumi.StringMapOutput {
 // Resource type
 func (o VirtualMachineExtensionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineExtensionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the script handler.
+func (o VirtualMachineExtensionResponseOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineExtensionResponse) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineExtensionResponseArrayOutput struct{ *pulumi.OutputState }
@@ -24496,446 +21820,6 @@ func (o VirtualMachineInstanceViewResponsePtrOutput) VmAgent() VirtualMachineAge
 	}).(VirtualMachineAgentInstanceViewResponsePtrOutput)
 }
 
-// Describes the properties of a Virtual Machine.
-type VirtualMachinePropertiesResponse struct {
-	// Specifies additional capabilities enabled or disabled on the virtual machine.
-	AdditionalCapabilities *AdditionalCapabilitiesResponse `pulumi:"additionalCapabilities"`
-	// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
-	AvailabilitySet *SubResourceResponse `pulumi:"availabilitySet"`
-	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
-	BillingProfile *BillingProfileResponse `pulumi:"billingProfile"`
-	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-	DiagnosticsProfile *DiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
-	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
-	EvictionPolicy *string `pulumi:"evictionPolicy"`
-	// Specifies the hardware settings for the virtual machine.
-	HardwareProfile *HardwareProfileResponse `pulumi:"hardwareProfile"`
-	// Specifies information about the dedicated host that the virtual machine resides in. <br><br>Minimum api-version: 2018-10-01.
-	Host *SubResourceResponse `pulumi:"host"`
-	// The virtual machine instance view.
-	InstanceView VirtualMachineInstanceViewResponse `pulumi:"instanceView"`
-	// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
-	LicenseType *string `pulumi:"licenseType"`
-	// Specifies the network interfaces of the virtual machine.
-	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
-	// Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
-	OsProfile *OSProfileResponse `pulumi:"osProfile"`
-	// Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
-	Priority *string `pulumi:"priority"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-	ProximityPlacementGroup *SubResourceResponse `pulumi:"proximityPlacementGroup"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
-	// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
-	VirtualMachineScaleSet *SubResourceResponse `pulumi:"virtualMachineScaleSet"`
-	// Specifies the VM unique ID which is a 128-bits identifier that is encoded and stored in all Azure IaaS VMs SMBIOS and can be read using platform BIOS commands.
-	VmId string `pulumi:"vmId"`
-}
-
-// VirtualMachinePropertiesResponseInput is an input type that accepts VirtualMachinePropertiesResponseArgs and VirtualMachinePropertiesResponseOutput values.
-// You can construct a concrete instance of `VirtualMachinePropertiesResponseInput` via:
-//
-//          VirtualMachinePropertiesResponseArgs{...}
-type VirtualMachinePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVirtualMachinePropertiesResponseOutput() VirtualMachinePropertiesResponseOutput
-	ToVirtualMachinePropertiesResponseOutputWithContext(context.Context) VirtualMachinePropertiesResponseOutput
-}
-
-// Describes the properties of a Virtual Machine.
-type VirtualMachinePropertiesResponseArgs struct {
-	// Specifies additional capabilities enabled or disabled on the virtual machine.
-	AdditionalCapabilities AdditionalCapabilitiesResponsePtrInput `pulumi:"additionalCapabilities"`
-	// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
-	AvailabilitySet SubResourceResponsePtrInput `pulumi:"availabilitySet"`
-	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
-	BillingProfile BillingProfileResponsePtrInput `pulumi:"billingProfile"`
-	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-	DiagnosticsProfile DiagnosticsProfileResponsePtrInput `pulumi:"diagnosticsProfile"`
-	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
-	EvictionPolicy pulumi.StringPtrInput `pulumi:"evictionPolicy"`
-	// Specifies the hardware settings for the virtual machine.
-	HardwareProfile HardwareProfileResponsePtrInput `pulumi:"hardwareProfile"`
-	// Specifies information about the dedicated host that the virtual machine resides in. <br><br>Minimum api-version: 2018-10-01.
-	Host SubResourceResponsePtrInput `pulumi:"host"`
-	// The virtual machine instance view.
-	InstanceView VirtualMachineInstanceViewResponseInput `pulumi:"instanceView"`
-	// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// Specifies the network interfaces of the virtual machine.
-	NetworkProfile NetworkProfileResponsePtrInput `pulumi:"networkProfile"`
-	// Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
-	OsProfile OSProfileResponsePtrInput `pulumi:"osProfile"`
-	// Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
-	Priority pulumi.StringPtrInput `pulumi:"priority"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-	ProximityPlacementGroup SubResourceResponsePtrInput `pulumi:"proximityPlacementGroup"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile StorageProfileResponsePtrInput `pulumi:"storageProfile"`
-	// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
-	VirtualMachineScaleSet SubResourceResponsePtrInput `pulumi:"virtualMachineScaleSet"`
-	// Specifies the VM unique ID which is a 128-bits identifier that is encoded and stored in all Azure IaaS VMs SMBIOS and can be read using platform BIOS commands.
-	VmId pulumi.StringInput `pulumi:"vmId"`
-}
-
-func (VirtualMachinePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachinePropertiesResponse)(nil)).Elem()
-}
-
-func (i VirtualMachinePropertiesResponseArgs) ToVirtualMachinePropertiesResponseOutput() VirtualMachinePropertiesResponseOutput {
-	return i.ToVirtualMachinePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualMachinePropertiesResponseArgs) ToVirtualMachinePropertiesResponseOutputWithContext(ctx context.Context) VirtualMachinePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePropertiesResponseOutput)
-}
-
-func (i VirtualMachinePropertiesResponseArgs) ToVirtualMachinePropertiesResponsePtrOutput() VirtualMachinePropertiesResponsePtrOutput {
-	return i.ToVirtualMachinePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualMachinePropertiesResponseArgs) ToVirtualMachinePropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachinePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePropertiesResponseOutput).ToVirtualMachinePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// VirtualMachinePropertiesResponsePtrInput is an input type that accepts VirtualMachinePropertiesResponseArgs, VirtualMachinePropertiesResponsePtr and VirtualMachinePropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `VirtualMachinePropertiesResponsePtrInput` via:
-//
-//          VirtualMachinePropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualMachinePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachinePropertiesResponsePtrOutput() VirtualMachinePropertiesResponsePtrOutput
-	ToVirtualMachinePropertiesResponsePtrOutputWithContext(context.Context) VirtualMachinePropertiesResponsePtrOutput
-}
-
-type virtualMachinePropertiesResponsePtrType VirtualMachinePropertiesResponseArgs
-
-func VirtualMachinePropertiesResponsePtr(v *VirtualMachinePropertiesResponseArgs) VirtualMachinePropertiesResponsePtrInput {
-	return (*virtualMachinePropertiesResponsePtrType)(v)
-}
-
-func (*virtualMachinePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachinePropertiesResponse)(nil)).Elem()
-}
-
-func (i *virtualMachinePropertiesResponsePtrType) ToVirtualMachinePropertiesResponsePtrOutput() VirtualMachinePropertiesResponsePtrOutput {
-	return i.ToVirtualMachinePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachinePropertiesResponsePtrType) ToVirtualMachinePropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachinePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachinePropertiesResponsePtrOutput)
-}
-
-// Describes the properties of a Virtual Machine.
-type VirtualMachinePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachinePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachinePropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachinePropertiesResponseOutput) ToVirtualMachinePropertiesResponseOutput() VirtualMachinePropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachinePropertiesResponseOutput) ToVirtualMachinePropertiesResponseOutputWithContext(ctx context.Context) VirtualMachinePropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachinePropertiesResponseOutput) ToVirtualMachinePropertiesResponsePtrOutput() VirtualMachinePropertiesResponsePtrOutput {
-	return o.ToVirtualMachinePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachinePropertiesResponseOutput) ToVirtualMachinePropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachinePropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *VirtualMachinePropertiesResponse {
-		return &v
-	}).(VirtualMachinePropertiesResponsePtrOutput)
-}
-
-// Specifies additional capabilities enabled or disabled on the virtual machine.
-func (o VirtualMachinePropertiesResponseOutput) AdditionalCapabilities() AdditionalCapabilitiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *AdditionalCapabilitiesResponse {
-		return v.AdditionalCapabilities
-	}).(AdditionalCapabilitiesResponsePtrOutput)
-}
-
-// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
-func (o VirtualMachinePropertiesResponseOutput) AvailabilitySet() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *SubResourceResponse { return v.AvailabilitySet }).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
-func (o VirtualMachinePropertiesResponseOutput) BillingProfile() BillingProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *BillingProfileResponse { return v.BillingProfile }).(BillingProfileResponsePtrOutput)
-}
-
-// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-func (o VirtualMachinePropertiesResponseOutput) DiagnosticsProfile() DiagnosticsProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *DiagnosticsProfileResponse { return v.DiagnosticsProfile }).(DiagnosticsProfileResponsePtrOutput)
-}
-
-// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
-func (o VirtualMachinePropertiesResponseOutput) EvictionPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *string { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the hardware settings for the virtual machine.
-func (o VirtualMachinePropertiesResponseOutput) HardwareProfile() HardwareProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *HardwareProfileResponse { return v.HardwareProfile }).(HardwareProfileResponsePtrOutput)
-}
-
-// Specifies information about the dedicated host that the virtual machine resides in. <br><br>Minimum api-version: 2018-10-01.
-func (o VirtualMachinePropertiesResponseOutput) Host() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *SubResourceResponse { return v.Host }).(SubResourceResponsePtrOutput)
-}
-
-// The virtual machine instance view.
-func (o VirtualMachinePropertiesResponseOutput) InstanceView() VirtualMachineInstanceViewResponseOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) VirtualMachineInstanceViewResponse { return v.InstanceView }).(VirtualMachineInstanceViewResponseOutput)
-}
-
-// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
-func (o VirtualMachinePropertiesResponseOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the network interfaces of the virtual machine.
-func (o VirtualMachinePropertiesResponseOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *NetworkProfileResponse { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
-}
-
-// Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
-func (o VirtualMachinePropertiesResponseOutput) OsProfile() OSProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *OSProfileResponse { return v.OsProfile }).(OSProfileResponsePtrOutput)
-}
-
-// Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
-func (o VirtualMachinePropertiesResponseOutput) Priority() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *string { return v.Priority }).(pulumi.StringPtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o VirtualMachinePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-func (o VirtualMachinePropertiesResponseOutput) ProximityPlacementGroup() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *SubResourceResponse { return v.ProximityPlacementGroup }).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the storage settings for the virtual machine disks.
-func (o VirtualMachinePropertiesResponseOutput) StorageProfile() StorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *StorageProfileResponse { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
-}
-
-// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
-func (o VirtualMachinePropertiesResponseOutput) VirtualMachineScaleSet() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) *SubResourceResponse { return v.VirtualMachineScaleSet }).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the VM unique ID which is a 128-bits identifier that is encoded and stored in all Azure IaaS VMs SMBIOS and can be read using platform BIOS commands.
-func (o VirtualMachinePropertiesResponseOutput) VmId() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachinePropertiesResponse) string { return v.VmId }).(pulumi.StringOutput)
-}
-
-type VirtualMachinePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachinePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachinePropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachinePropertiesResponsePtrOutput) ToVirtualMachinePropertiesResponsePtrOutput() VirtualMachinePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachinePropertiesResponsePtrOutput) ToVirtualMachinePropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachinePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachinePropertiesResponsePtrOutput) Elem() VirtualMachinePropertiesResponseOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) VirtualMachinePropertiesResponse { return *v }).(VirtualMachinePropertiesResponseOutput)
-}
-
-// Specifies additional capabilities enabled or disabled on the virtual machine.
-func (o VirtualMachinePropertiesResponsePtrOutput) AdditionalCapabilities() AdditionalCapabilitiesResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *AdditionalCapabilitiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalCapabilities
-	}).(AdditionalCapabilitiesResponsePtrOutput)
-}
-
-// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
-func (o VirtualMachinePropertiesResponsePtrOutput) AvailabilitySet() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AvailabilitySet
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
-func (o VirtualMachinePropertiesResponsePtrOutput) BillingProfile() BillingProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *BillingProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.BillingProfile
-	}).(BillingProfileResponsePtrOutput)
-}
-
-// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-func (o VirtualMachinePropertiesResponsePtrOutput) DiagnosticsProfile() DiagnosticsProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *DiagnosticsProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DiagnosticsProfile
-	}).(DiagnosticsProfileResponsePtrOutput)
-}
-
-// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
-func (o VirtualMachinePropertiesResponsePtrOutput) EvictionPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EvictionPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the hardware settings for the virtual machine.
-func (o VirtualMachinePropertiesResponsePtrOutput) HardwareProfile() HardwareProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *HardwareProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.HardwareProfile
-	}).(HardwareProfileResponsePtrOutput)
-}
-
-// Specifies information about the dedicated host that the virtual machine resides in. <br><br>Minimum api-version: 2018-10-01.
-func (o VirtualMachinePropertiesResponsePtrOutput) Host() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Host
-	}).(SubResourceResponsePtrOutput)
-}
-
-// The virtual machine instance view.
-func (o VirtualMachinePropertiesResponsePtrOutput) InstanceView() VirtualMachineInstanceViewResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *VirtualMachineInstanceViewResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceView
-	}).(VirtualMachineInstanceViewResponsePtrOutput)
-}
-
-// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
-func (o VirtualMachinePropertiesResponsePtrOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LicenseType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the network interfaces of the virtual machine.
-func (o VirtualMachinePropertiesResponsePtrOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *NetworkProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkProfile
-	}).(NetworkProfileResponsePtrOutput)
-}
-
-// Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
-func (o VirtualMachinePropertiesResponsePtrOutput) OsProfile() OSProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *OSProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.OsProfile
-	}).(OSProfileResponsePtrOutput)
-}
-
-// Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
-func (o VirtualMachinePropertiesResponsePtrOutput) Priority() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Priority
-	}).(pulumi.StringPtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o VirtualMachinePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-func (o VirtualMachinePropertiesResponsePtrOutput) ProximityPlacementGroup() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ProximityPlacementGroup
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the storage settings for the virtual machine disks.
-func (o VirtualMachinePropertiesResponsePtrOutput) StorageProfile() StorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *StorageProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.StorageProfile
-	}).(StorageProfileResponsePtrOutput)
-}
-
-// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
-func (o VirtualMachinePropertiesResponsePtrOutput) VirtualMachineScaleSet() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualMachineScaleSet
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the VM unique ID which is a 128-bits identifier that is encoded and stored in all Azure IaaS VMs SMBIOS and can be read using platform BIOS commands.
-func (o VirtualMachinePropertiesResponsePtrOutput) VmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachinePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Describes a virtual machine scale set data disk.
 type VirtualMachineScaleSetDataDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
@@ -25730,12 +22614,16 @@ func (o VirtualMachineScaleSetExtensionProfileResponsePtrOutput) Extensions() Vi
 	}).(VirtualMachineScaleSetExtensionResponseArrayOutput)
 }
 
-// Describes the properties of a Virtual Machine Scale Set Extension.
-type VirtualMachineScaleSetExtensionPropertiesResponse struct {
+// Describes a Virtual Machine Scale Set Extension.
+type VirtualMachineScaleSetExtensionResponse struct {
 	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// Resource Id
+	Id string `pulumi:"id"`
+	// The name of the extension.
+	Name *string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
 	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
 	// Collection of extension names after which this extension needs to be provisioned.
@@ -25746,290 +22634,10 @@ type VirtualMachineScaleSetExtensionPropertiesResponse struct {
 	Publisher *string `pulumi:"publisher"`
 	// Json formatted public settings for the extension.
 	Settings map[string]interface{} `pulumi:"settings"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
-}
-
-// VirtualMachineScaleSetExtensionPropertiesResponseInput is an input type that accepts VirtualMachineScaleSetExtensionPropertiesResponseArgs and VirtualMachineScaleSetExtensionPropertiesResponseOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetExtensionPropertiesResponseInput` via:
-//
-//          VirtualMachineScaleSetExtensionPropertiesResponseArgs{...}
-type VirtualMachineScaleSetExtensionPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetExtensionPropertiesResponseOutput() VirtualMachineScaleSetExtensionPropertiesResponseOutput
-	ToVirtualMachineScaleSetExtensionPropertiesResponseOutputWithContext(context.Context) VirtualMachineScaleSetExtensionPropertiesResponseOutput
-}
-
-// Describes the properties of a Virtual Machine Scale Set Extension.
-type VirtualMachineScaleSetExtensionPropertiesResponseArgs struct {
-	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
-	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
-	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
-	// Collection of extension names after which this extension needs to be provisioned.
-	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The name of the extension handler publisher.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// Json formatted public settings for the extension.
-	Settings pulumi.MapInput `pulumi:"settings"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
-}
-
-func (VirtualMachineScaleSetExtensionPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetExtensionPropertiesResponse)(nil)).Elem()
-}
-
-func (i VirtualMachineScaleSetExtensionPropertiesResponseArgs) ToVirtualMachineScaleSetExtensionPropertiesResponseOutput() VirtualMachineScaleSetExtensionPropertiesResponseOutput {
-	return i.ToVirtualMachineScaleSetExtensionPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetExtensionPropertiesResponseArgs) ToVirtualMachineScaleSetExtensionPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionPropertiesResponseOutput)
-}
-
-func (i VirtualMachineScaleSetExtensionPropertiesResponseArgs) ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutput() VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetExtensionPropertiesResponseArgs) ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionPropertiesResponseOutput).ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// VirtualMachineScaleSetExtensionPropertiesResponsePtrInput is an input type that accepts VirtualMachineScaleSetExtensionPropertiesResponseArgs, VirtualMachineScaleSetExtensionPropertiesResponsePtr and VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetExtensionPropertiesResponsePtrInput` via:
-//
-//          VirtualMachineScaleSetExtensionPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualMachineScaleSetExtensionPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutput() VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput
-	ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutputWithContext(context.Context) VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput
-}
-
-type virtualMachineScaleSetExtensionPropertiesResponsePtrType VirtualMachineScaleSetExtensionPropertiesResponseArgs
-
-func VirtualMachineScaleSetExtensionPropertiesResponsePtr(v *VirtualMachineScaleSetExtensionPropertiesResponseArgs) VirtualMachineScaleSetExtensionPropertiesResponsePtrInput {
-	return (*virtualMachineScaleSetExtensionPropertiesResponsePtrType)(v)
-}
-
-func (*virtualMachineScaleSetExtensionPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetExtensionPropertiesResponse)(nil)).Elem()
-}
-
-func (i *virtualMachineScaleSetExtensionPropertiesResponsePtrType) ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutput() VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachineScaleSetExtensionPropertiesResponsePtrType) ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput)
-}
-
-// Describes the properties of a Virtual Machine Scale Set Extension.
-type VirtualMachineScaleSetExtensionPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetExtensionPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetExtensionPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) ToVirtualMachineScaleSetExtensionPropertiesResponseOutput() VirtualMachineScaleSetExtensionPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) ToVirtualMachineScaleSetExtensionPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutput() VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput {
-	return o.ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) *VirtualMachineScaleSetExtensionPropertiesResponse {
-		return &v
-	}).(VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput)
-}
-
-// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
-}
-
-// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) ForceUpdateTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
-}
-
-// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) ProtectedSettings() pulumi.MapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) map[string]interface{} {
-		return v.ProtectedSettings
-	}).(pulumi.MapOutput)
-}
-
-// Collection of extension names after which this extension needs to be provisioned.
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The name of the extension handler publisher.
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
-}
-
-// Json formatted public settings for the extension.
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) Settings() pulumi.MapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
-}
-
-// Specifies the type of the extension; an example is "CustomScriptExtension".
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the version of the script handler.
-func (o VirtualMachineScaleSetExtensionPropertiesResponseOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionPropertiesResponse) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
-}
-
-type VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetExtensionPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutput() VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) ToVirtualMachineScaleSetExtensionPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) Elem() VirtualMachineScaleSetExtensionPropertiesResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) VirtualMachineScaleSetExtensionPropertiesResponse {
-		return *v
-	}).(VirtualMachineScaleSetExtensionPropertiesResponseOutput)
-}
-
-// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AutoUpgradeMinorVersion
-	}).(pulumi.BoolPtrOutput)
-}
-
-// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) ForceUpdateTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ForceUpdateTag
-	}).(pulumi.StringPtrOutput)
-}
-
-// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) ProtectedSettings() pulumi.MapOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.ProtectedSettings
-	}).(pulumi.MapOutput)
-}
-
-// Collection of extension names after which this extension needs to be provisioned.
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisionAfterExtensions
-	}).(pulumi.StringArrayOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the extension handler publisher.
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Publisher
-	}).(pulumi.StringPtrOutput)
-}
-
-// Json formatted public settings for the extension.
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) Settings() pulumi.MapOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Settings
-	}).(pulumi.MapOutput)
-}
-
-// Specifies the type of the extension; an example is "CustomScriptExtension".
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the version of the script handler.
-func (o VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetExtensionPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TypeHandlerVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes a Virtual Machine Scale Set Extension.
-type VirtualMachineScaleSetExtensionResponse struct {
-	// Resource Id
-	Id string `pulumi:"id"`
-	// The name of the extension.
-	Name *string `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Scale Set Extension.
-	Properties *VirtualMachineScaleSetExtensionPropertiesResponse `pulumi:"properties"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
 // VirtualMachineScaleSetExtensionResponseInput is an input type that accepts VirtualMachineScaleSetExtensionResponseArgs and VirtualMachineScaleSetExtensionResponseOutput values.
@@ -26045,14 +22653,28 @@ type VirtualMachineScaleSetExtensionResponseInput interface {
 
 // Describes a Virtual Machine Scale Set Extension.
 type VirtualMachineScaleSetExtensionResponseArgs struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
 	// Resource Id
 	Id pulumi.StringInput `pulumi:"id"`
 	// The name of the extension.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Scale Set Extension.
-	Properties VirtualMachineScaleSetExtensionPropertiesResponsePtrInput `pulumi:"properties"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
+	// Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings pulumi.MapInput `pulumi:"settings"`
 	// Resource type
 	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
 }
 
 func (VirtualMachineScaleSetExtensionResponseArgs) ElementType() reflect.Type {
@@ -26107,6 +22729,16 @@ func (o VirtualMachineScaleSetExtensionResponseOutput) ToVirtualMachineScaleSetE
 	return o
 }
 
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o VirtualMachineScaleSetExtensionResponseOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+func (o VirtualMachineScaleSetExtensionResponseOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
 // Resource Id
 func (o VirtualMachineScaleSetExtensionResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) string { return v.Id }).(pulumi.StringOutput)
@@ -26117,16 +22749,39 @@ func (o VirtualMachineScaleSetExtensionResponseOutput) Name() pulumi.StringPtrOu
 	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of a Virtual Machine Scale Set Extension.
-func (o VirtualMachineScaleSetExtensionResponseOutput) Properties() VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) *VirtualMachineScaleSetExtensionPropertiesResponse {
-		return v.Properties
-	}).(VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput)
+// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+func (o VirtualMachineScaleSetExtensionResponseOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) map[string]interface{} { return v.ProtectedSettings }).(pulumi.MapOutput)
+}
+
+// Collection of extension names after which this extension needs to be provisioned.
+func (o VirtualMachineScaleSetExtensionResponseOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+}
+
+// The provisioning state, which only appears in the response.
+func (o VirtualMachineScaleSetExtensionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The name of the extension handler publisher.
+func (o VirtualMachineScaleSetExtensionResponseOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Json formatted public settings for the extension.
+func (o VirtualMachineScaleSetExtensionResponseOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
 }
 
 // Resource type
 func (o VirtualMachineScaleSetExtensionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the script handler.
+func (o VirtualMachineScaleSetExtensionResponseOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionResponse) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineScaleSetExtensionResponseArrayOutput struct{ *pulumi.OutputState }
@@ -26334,16 +22989,20 @@ func (o VirtualMachineScaleSetIPConfigurationArrayOutput) Index(i pulumi.IntInpu
 	}).(VirtualMachineScaleSetIPConfigurationOutput)
 }
 
-// Describes a virtual machine scale set network profile's IP configuration properties.
-type VirtualMachineScaleSetIPConfigurationPropertiesResponse struct {
+// Describes a virtual machine scale set network profile's IP configuration.
+type VirtualMachineScaleSetIPConfigurationResponse struct {
 	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
 	ApplicationGatewayBackendAddressPools []SubResourceResponse `pulumi:"applicationGatewayBackendAddressPools"`
 	// Specifies an array of references to application security group.
 	ApplicationSecurityGroups []SubResourceResponse `pulumi:"applicationSecurityGroups"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
 	LoadBalancerBackendAddressPools []SubResourceResponse `pulumi:"loadBalancerBackendAddressPools"`
 	// Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
 	LoadBalancerInboundNatPools []SubResourceResponse `pulumi:"loadBalancerInboundNatPools"`
+	// The IP configuration name.
+	Name string `pulumi:"name"`
 	// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
 	Primary *bool `pulumi:"primary"`
 	// Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
@@ -26352,279 +23011,6 @@ type VirtualMachineScaleSetIPConfigurationPropertiesResponse struct {
 	PublicIPAddressConfiguration *VirtualMachineScaleSetPublicIPAddressConfigurationResponse `pulumi:"publicIPAddressConfiguration"`
 	// Specifies the identifier of the subnet.
 	Subnet *ApiEntityReferenceResponse `pulumi:"subnet"`
-}
-
-// VirtualMachineScaleSetIPConfigurationPropertiesResponseInput is an input type that accepts VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs and VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetIPConfigurationPropertiesResponseInput` via:
-//
-//          VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs{...}
-type VirtualMachineScaleSetIPConfigurationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetIPConfigurationPropertiesResponseOutput() VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput
-	ToVirtualMachineScaleSetIPConfigurationPropertiesResponseOutputWithContext(context.Context) VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput
-}
-
-// Describes a virtual machine scale set network profile's IP configuration properties.
-type VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs struct {
-	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
-	ApplicationGatewayBackendAddressPools SubResourceResponseArrayInput `pulumi:"applicationGatewayBackendAddressPools"`
-	// Specifies an array of references to application security group.
-	ApplicationSecurityGroups SubResourceResponseArrayInput `pulumi:"applicationSecurityGroups"`
-	// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
-	LoadBalancerBackendAddressPools SubResourceResponseArrayInput `pulumi:"loadBalancerBackendAddressPools"`
-	// Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
-	LoadBalancerInboundNatPools SubResourceResponseArrayInput `pulumi:"loadBalancerInboundNatPools"`
-	// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-	Primary pulumi.BoolPtrInput `pulumi:"primary"`
-	// Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
-	PrivateIPAddressVersion pulumi.StringPtrInput `pulumi:"privateIPAddressVersion"`
-	// The publicIPAddressConfiguration.
-	PublicIPAddressConfiguration VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrInput `pulumi:"publicIPAddressConfiguration"`
-	// Specifies the identifier of the subnet.
-	Subnet ApiEntityReferenceResponsePtrInput `pulumi:"subnet"`
-}
-
-func (VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetIPConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetIPConfigurationPropertiesResponseOutput() VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput {
-	return i.ToVirtualMachineScaleSetIPConfigurationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetIPConfigurationPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput)
-}
-
-func (i VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput).ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrInput is an input type that accepts VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs, VirtualMachineScaleSetIPConfigurationPropertiesResponsePtr and VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrInput` via:
-//
-//          VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput
-	ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutputWithContext(context.Context) VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput
-}
-
-type virtualMachineScaleSetIPConfigurationPropertiesResponsePtrType VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs
-
-func VirtualMachineScaleSetIPConfigurationPropertiesResponsePtr(v *VirtualMachineScaleSetIPConfigurationPropertiesResponseArgs) VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrInput {
-	return (*virtualMachineScaleSetIPConfigurationPropertiesResponsePtrType)(v)
-}
-
-func (*virtualMachineScaleSetIPConfigurationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetIPConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *virtualMachineScaleSetIPConfigurationPropertiesResponsePtrType) ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachineScaleSetIPConfigurationPropertiesResponsePtrType) ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput)
-}
-
-// Describes a virtual machine scale set network profile's IP configuration properties.
-type VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetIPConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetIPConfigurationPropertiesResponseOutput() VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetIPConfigurationPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput {
-	return o.ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationPropertiesResponse) *VirtualMachineScaleSetIPConfigurationPropertiesResponse {
-		return &v
-	}).(VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput)
-}
-
-// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) ApplicationGatewayBackendAddressPools() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationPropertiesResponse) []SubResourceResponse {
-		return v.ApplicationGatewayBackendAddressPools
-	}).(SubResourceResponseArrayOutput)
-}
-
-// Specifies an array of references to application security group.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) ApplicationSecurityGroups() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationPropertiesResponse) []SubResourceResponse {
-		return v.ApplicationSecurityGroups
-	}).(SubResourceResponseArrayOutput)
-}
-
-// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) LoadBalancerBackendAddressPools() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationPropertiesResponse) []SubResourceResponse {
-		return v.LoadBalancerBackendAddressPools
-	}).(SubResourceResponseArrayOutput)
-}
-
-// Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) LoadBalancerInboundNatPools() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationPropertiesResponse) []SubResourceResponse {
-		return v.LoadBalancerInboundNatPools
-	}).(SubResourceResponseArrayOutput)
-}
-
-// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) Primary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationPropertiesResponse) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
-}
-
-// Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) PrivateIPAddressVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationPropertiesResponse) *string {
-		return v.PrivateIPAddressVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The publicIPAddressConfiguration.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) PublicIPAddressConfiguration() VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationPropertiesResponse) *VirtualMachineScaleSetPublicIPAddressConfigurationResponse {
-		return v.PublicIPAddressConfiguration
-	}).(VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput)
-}
-
-// Specifies the identifier of the subnet.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput) Subnet() ApiEntityReferenceResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationPropertiesResponse) *ApiEntityReferenceResponse {
-		return v.Subnet
-	}).(ApiEntityReferenceResponsePtrOutput)
-}
-
-type VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetIPConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) ToVirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) Elem() VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIPConfigurationPropertiesResponse) VirtualMachineScaleSetIPConfigurationPropertiesResponse {
-		return *v
-	}).(VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput)
-}
-
-// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) ApplicationGatewayBackendAddressPools() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIPConfigurationPropertiesResponse) []SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationGatewayBackendAddressPools
-	}).(SubResourceResponseArrayOutput)
-}
-
-// Specifies an array of references to application security group.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) ApplicationSecurityGroups() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIPConfigurationPropertiesResponse) []SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationSecurityGroups
-	}).(SubResourceResponseArrayOutput)
-}
-
-// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) LoadBalancerBackendAddressPools() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIPConfigurationPropertiesResponse) []SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.LoadBalancerBackendAddressPools
-	}).(SubResourceResponseArrayOutput)
-}
-
-// Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) LoadBalancerInboundNatPools() SubResourceResponseArrayOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIPConfigurationPropertiesResponse) []SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.LoadBalancerInboundNatPools
-	}).(SubResourceResponseArrayOutput)
-}
-
-// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) Primary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIPConfigurationPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Primary
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) PrivateIPAddressVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIPConfigurationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateIPAddressVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The publicIPAddressConfiguration.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) PublicIPAddressConfiguration() VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIPConfigurationPropertiesResponse) *VirtualMachineScaleSetPublicIPAddressConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PublicIPAddressConfiguration
-	}).(VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput)
-}
-
-// Specifies the identifier of the subnet.
-func (o VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput) Subnet() ApiEntityReferenceResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetIPConfigurationPropertiesResponse) *ApiEntityReferenceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Subnet
-	}).(ApiEntityReferenceResponsePtrOutput)
-}
-
-// Describes a virtual machine scale set network profile's IP configuration.
-type VirtualMachineScaleSetIPConfigurationResponse struct {
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// The IP configuration name.
-	Name string `pulumi:"name"`
-	// Describes a virtual machine scale set network profile's IP configuration properties.
-	Properties *VirtualMachineScaleSetIPConfigurationPropertiesResponse `pulumi:"properties"`
 }
 
 // VirtualMachineScaleSetIPConfigurationResponseInput is an input type that accepts VirtualMachineScaleSetIPConfigurationResponseArgs and VirtualMachineScaleSetIPConfigurationResponseOutput values.
@@ -26640,12 +23026,26 @@ type VirtualMachineScaleSetIPConfigurationResponseInput interface {
 
 // Describes a virtual machine scale set network profile's IP configuration.
 type VirtualMachineScaleSetIPConfigurationResponseArgs struct {
+	// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+	ApplicationGatewayBackendAddressPools SubResourceResponseArrayInput `pulumi:"applicationGatewayBackendAddressPools"`
+	// Specifies an array of references to application security group.
+	ApplicationSecurityGroups SubResourceResponseArrayInput `pulumi:"applicationSecurityGroups"`
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
+	LoadBalancerBackendAddressPools SubResourceResponseArrayInput `pulumi:"loadBalancerBackendAddressPools"`
+	// Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
+	LoadBalancerInboundNatPools SubResourceResponseArrayInput `pulumi:"loadBalancerInboundNatPools"`
 	// The IP configuration name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Describes a virtual machine scale set network profile's IP configuration properties.
-	Properties VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrInput `pulumi:"properties"`
+	// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+	PrivateIPAddressVersion pulumi.StringPtrInput `pulumi:"privateIPAddressVersion"`
+	// The publicIPAddressConfiguration.
+	PublicIPAddressConfiguration VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrInput `pulumi:"publicIPAddressConfiguration"`
+	// Specifies the identifier of the subnet.
+	Subnet ApiEntityReferenceResponsePtrInput `pulumi:"subnet"`
 }
 
 func (VirtualMachineScaleSetIPConfigurationResponseArgs) ElementType() reflect.Type {
@@ -26700,9 +23100,37 @@ func (o VirtualMachineScaleSetIPConfigurationResponseOutput) ToVirtualMachineSca
 	return o
 }
 
+// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+func (o VirtualMachineScaleSetIPConfigurationResponseOutput) ApplicationGatewayBackendAddressPools() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationResponse) []SubResourceResponse {
+		return v.ApplicationGatewayBackendAddressPools
+	}).(SubResourceResponseArrayOutput)
+}
+
+// Specifies an array of references to application security group.
+func (o VirtualMachineScaleSetIPConfigurationResponseOutput) ApplicationSecurityGroups() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationResponse) []SubResourceResponse {
+		return v.ApplicationSecurityGroups
+	}).(SubResourceResponseArrayOutput)
+}
+
 // Resource Id
 func (o VirtualMachineScaleSetIPConfigurationResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
+func (o VirtualMachineScaleSetIPConfigurationResponseOutput) LoadBalancerBackendAddressPools() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationResponse) []SubResourceResponse {
+		return v.LoadBalancerBackendAddressPools
+	}).(SubResourceResponseArrayOutput)
+}
+
+// Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.
+func (o VirtualMachineScaleSetIPConfigurationResponseOutput) LoadBalancerInboundNatPools() SubResourceResponseArrayOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationResponse) []SubResourceResponse {
+		return v.LoadBalancerInboundNatPools
+	}).(SubResourceResponseArrayOutput)
 }
 
 // The IP configuration name.
@@ -26710,11 +23138,26 @@ func (o VirtualMachineScaleSetIPConfigurationResponseOutput) Name() pulumi.Strin
 	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Describes a virtual machine scale set network profile's IP configuration properties.
-func (o VirtualMachineScaleSetIPConfigurationResponseOutput) Properties() VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationResponse) *VirtualMachineScaleSetIPConfigurationPropertiesResponse {
-		return v.Properties
-	}).(VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput)
+// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+func (o VirtualMachineScaleSetIPConfigurationResponseOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationResponse) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+func (o VirtualMachineScaleSetIPConfigurationResponseOutput) PrivateIPAddressVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationResponse) *string { return v.PrivateIPAddressVersion }).(pulumi.StringPtrOutput)
+}
+
+// The publicIPAddressConfiguration.
+func (o VirtualMachineScaleSetIPConfigurationResponseOutput) PublicIPAddressConfiguration() VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationResponse) *VirtualMachineScaleSetPublicIPAddressConfigurationResponse {
+		return v.PublicIPAddressConfiguration
+	}).(VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput)
+}
+
+// Specifies the identifier of the subnet.
+func (o VirtualMachineScaleSetIPConfigurationResponseOutput) Subnet() ApiEntityReferenceResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetIPConfigurationResponse) *ApiEntityReferenceResponse { return v.Subnet }).(ApiEntityReferenceResponsePtrOutput)
 }
 
 type VirtualMachineScaleSetIPConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
@@ -28141,255 +24584,24 @@ func (o VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrOutput) 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Describes a virtual machine scale set network profile's IP configuration.
-type VirtualMachineScaleSetNetworkConfigurationPropertiesResponse struct {
+// Describes a virtual machine scale set network profile's network configurations.
+type VirtualMachineScaleSetNetworkConfigurationResponse struct {
 	// The dns settings to be applied on the network interfaces.
 	DnsSettings *VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse `pulumi:"dnsSettings"`
 	// Specifies whether the network interface is accelerated networking-enabled.
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
 	// Whether IP forwarding enabled on this NIC.
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Specifies the IP configurations of the network interface.
 	IpConfigurations []VirtualMachineScaleSetIPConfigurationResponse `pulumi:"ipConfigurations"`
+	// The network configuration name.
+	Name string `pulumi:"name"`
 	// The network security group.
 	NetworkSecurityGroup *SubResourceResponse `pulumi:"networkSecurityGroup"`
 	// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
 	Primary *bool `pulumi:"primary"`
-}
-
-// VirtualMachineScaleSetNetworkConfigurationPropertiesResponseInput is an input type that accepts VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs and VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetNetworkConfigurationPropertiesResponseInput` via:
-//
-//          VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs{...}
-type VirtualMachineScaleSetNetworkConfigurationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput() VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput
-	ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutputWithContext(context.Context) VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput
-}
-
-// Describes a virtual machine scale set network profile's IP configuration.
-type VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs struct {
-	// The dns settings to be applied on the network interfaces.
-	DnsSettings VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrInput `pulumi:"dnsSettings"`
-	// Specifies whether the network interface is accelerated networking-enabled.
-	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
-	// Whether IP forwarding enabled on this NIC.
-	EnableIPForwarding pulumi.BoolPtrInput `pulumi:"enableIPForwarding"`
-	// Specifies the IP configurations of the network interface.
-	IpConfigurations VirtualMachineScaleSetIPConfigurationResponseArrayInput `pulumi:"ipConfigurations"`
-	// The network security group.
-	NetworkSecurityGroup SubResourceResponsePtrInput `pulumi:"networkSecurityGroup"`
-	// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-	Primary pulumi.BoolPtrInput `pulumi:"primary"`
-}
-
-func (VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetNetworkConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput() VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput {
-	return i.ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput)
-}
-
-func (i VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput).ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrInput is an input type that accepts VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs, VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtr and VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrInput` via:
-//
-//          VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput
-	ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutputWithContext(context.Context) VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput
-}
-
-type virtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrType VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs
-
-func VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtr(v *VirtualMachineScaleSetNetworkConfigurationPropertiesResponseArgs) VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrInput {
-	return (*virtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrType)(v)
-}
-
-func (*virtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetNetworkConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *virtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrType) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrType) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput)
-}
-
-// Describes a virtual machine scale set network profile's IP configuration.
-type VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetNetworkConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput() VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput {
-	return o.ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) *VirtualMachineScaleSetNetworkConfigurationPropertiesResponse {
-		return &v
-	}).(VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput)
-}
-
-// The dns settings to be applied on the network interfaces.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput) DnsSettings() VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) *VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse {
-		return v.DnsSettings
-	}).(VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrOutput)
-}
-
-// Specifies whether the network interface is accelerated networking-enabled.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) *bool {
-		return v.EnableAcceleratedNetworking
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether IP forwarding enabled on this NIC.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput) EnableIPForwarding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) *bool {
-		return v.EnableIPForwarding
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the IP configurations of the network interface.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput) IpConfigurations() VirtualMachineScaleSetIPConfigurationResponseArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) []VirtualMachineScaleSetIPConfigurationResponse {
-		return v.IpConfigurations
-	}).(VirtualMachineScaleSetIPConfigurationResponseArrayOutput)
-}
-
-// The network security group.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput) NetworkSecurityGroup() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) *SubResourceResponse {
-		return v.NetworkSecurityGroup
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput) Primary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
-}
-
-type VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetNetworkConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput) ToVirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput) Elem() VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) VirtualMachineScaleSetNetworkConfigurationPropertiesResponse {
-		return *v
-	}).(VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput)
-}
-
-// The dns settings to be applied on the network interfaces.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput) DnsSettings() VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) *VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DnsSettings
-	}).(VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrOutput)
-}
-
-// Specifies whether the network interface is accelerated networking-enabled.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableAcceleratedNetworking
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether IP forwarding enabled on this NIC.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput) EnableIPForwarding() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableIPForwarding
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the IP configurations of the network interface.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput) IpConfigurations() VirtualMachineScaleSetIPConfigurationResponseArrayOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) []VirtualMachineScaleSetIPConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.IpConfigurations
-	}).(VirtualMachineScaleSetIPConfigurationResponseArrayOutput)
-}
-
-// The network security group.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput) NetworkSecurityGroup() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkSecurityGroup
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-func (o VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput) Primary() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetNetworkConfigurationPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Primary
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Describes a virtual machine scale set network profile's network configurations.
-type VirtualMachineScaleSetNetworkConfigurationResponse struct {
-	// Resource Id
-	Id *string `pulumi:"id"`
-	// The network configuration name.
-	Name string `pulumi:"name"`
-	// Describes a virtual machine scale set network profile's IP configuration.
-	Properties *VirtualMachineScaleSetNetworkConfigurationPropertiesResponse `pulumi:"properties"`
 }
 
 // VirtualMachineScaleSetNetworkConfigurationResponseInput is an input type that accepts VirtualMachineScaleSetNetworkConfigurationResponseArgs and VirtualMachineScaleSetNetworkConfigurationResponseOutput values.
@@ -28405,12 +24617,22 @@ type VirtualMachineScaleSetNetworkConfigurationResponseInput interface {
 
 // Describes a virtual machine scale set network profile's network configurations.
 type VirtualMachineScaleSetNetworkConfigurationResponseArgs struct {
+	// The dns settings to be applied on the network interfaces.
+	DnsSettings VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrInput `pulumi:"dnsSettings"`
+	// Specifies whether the network interface is accelerated networking-enabled.
+	EnableAcceleratedNetworking pulumi.BoolPtrInput `pulumi:"enableAcceleratedNetworking"`
+	// Whether IP forwarding enabled on this NIC.
+	EnableIPForwarding pulumi.BoolPtrInput `pulumi:"enableIPForwarding"`
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the IP configurations of the network interface.
+	IpConfigurations VirtualMachineScaleSetIPConfigurationResponseArrayInput `pulumi:"ipConfigurations"`
 	// The network configuration name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Describes a virtual machine scale set network profile's IP configuration.
-	Properties VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrInput `pulumi:"properties"`
+	// The network security group.
+	NetworkSecurityGroup SubResourceResponsePtrInput `pulumi:"networkSecurityGroup"`
+	// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
 }
 
 func (VirtualMachineScaleSetNetworkConfigurationResponseArgs) ElementType() reflect.Type {
@@ -28465,9 +24687,33 @@ func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) ToVirtualMachi
 	return o
 }
 
+// The dns settings to be applied on the network interfaces.
+func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) DnsSettings() VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationResponse) *VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponse {
+		return v.DnsSettings
+	}).(VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrOutput)
+}
+
+// Specifies whether the network interface is accelerated networking-enabled.
+func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationResponse) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
+}
+
+// Whether IP forwarding enabled on this NIC.
+func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) EnableIPForwarding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationResponse) *bool { return v.EnableIPForwarding }).(pulumi.BoolPtrOutput)
+}
+
 // Resource Id
 func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the IP configurations of the network interface.
+func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) IpConfigurations() VirtualMachineScaleSetIPConfigurationResponseArrayOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationResponse) []VirtualMachineScaleSetIPConfigurationResponse {
+		return v.IpConfigurations
+	}).(VirtualMachineScaleSetIPConfigurationResponseArrayOutput)
 }
 
 // The network configuration name.
@@ -28475,11 +24721,16 @@ func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) Name() pulumi.
 	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Describes a virtual machine scale set network profile's IP configuration.
-func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) Properties() VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationResponse) *VirtualMachineScaleSetNetworkConfigurationPropertiesResponse {
-		return v.Properties
-	}).(VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput)
+// The network security group.
+func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) NetworkSecurityGroup() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationResponse) *SubResourceResponse {
+		return v.NetworkSecurityGroup
+	}).(SubResourceResponsePtrOutput)
+}
+
+// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+func (o VirtualMachineScaleSetNetworkConfigurationResponseOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetNetworkConfigurationResponse) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
 type VirtualMachineScaleSetNetworkConfigurationResponseArrayOutput struct{ *pulumi.OutputState }
@@ -29928,378 +26179,6 @@ func (o VirtualMachineScaleSetOSProfileResponsePtrOutput) WindowsConfiguration()
 	}).(WindowsConfigurationResponsePtrOutput)
 }
 
-// Describes the properties of a Virtual Machine Scale Set.
-type VirtualMachineScaleSetPropertiesResponse struct {
-	// Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-	AdditionalCapabilities *AdditionalCapabilitiesResponse `pulumi:"additionalCapabilities"`
-	// Policy for automatic repairs.
-	AutomaticRepairsPolicy *AutomaticRepairsPolicyResponse `pulumi:"automaticRepairsPolicy"`
-	// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
-	DoNotRunExtensionsOnOverprovisionedVMs *bool `pulumi:"doNotRunExtensionsOnOverprovisionedVMs"`
-	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
-	Overprovision *bool `pulumi:"overprovision"`
-	// Fault Domain count for each placement group.
-	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-	ProximityPlacementGroup *SubResourceResponse `pulumi:"proximityPlacementGroup"`
-	// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
-	ScaleInPolicy *ScaleInPolicyResponse `pulumi:"scaleInPolicy"`
-	// When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
-	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
-	UniqueId string `pulumi:"uniqueId"`
-	// The upgrade policy.
-	UpgradePolicy *UpgradePolicyResponse `pulumi:"upgradePolicy"`
-	// The virtual machine profile.
-	VirtualMachineProfile *VirtualMachineScaleSetVMProfileResponse `pulumi:"virtualMachineProfile"`
-	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
-	ZoneBalance *bool `pulumi:"zoneBalance"`
-}
-
-// VirtualMachineScaleSetPropertiesResponseInput is an input type that accepts VirtualMachineScaleSetPropertiesResponseArgs and VirtualMachineScaleSetPropertiesResponseOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetPropertiesResponseInput` via:
-//
-//          VirtualMachineScaleSetPropertiesResponseArgs{...}
-type VirtualMachineScaleSetPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetPropertiesResponseOutput() VirtualMachineScaleSetPropertiesResponseOutput
-	ToVirtualMachineScaleSetPropertiesResponseOutputWithContext(context.Context) VirtualMachineScaleSetPropertiesResponseOutput
-}
-
-// Describes the properties of a Virtual Machine Scale Set.
-type VirtualMachineScaleSetPropertiesResponseArgs struct {
-	// Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-	AdditionalCapabilities AdditionalCapabilitiesResponsePtrInput `pulumi:"additionalCapabilities"`
-	// Policy for automatic repairs.
-	AutomaticRepairsPolicy AutomaticRepairsPolicyResponsePtrInput `pulumi:"automaticRepairsPolicy"`
-	// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
-	DoNotRunExtensionsOnOverprovisionedVMs pulumi.BoolPtrInput `pulumi:"doNotRunExtensionsOnOverprovisionedVMs"`
-	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
-	Overprovision pulumi.BoolPtrInput `pulumi:"overprovision"`
-	// Fault Domain count for each placement group.
-	PlatformFaultDomainCount pulumi.IntPtrInput `pulumi:"platformFaultDomainCount"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-	ProximityPlacementGroup SubResourceResponsePtrInput `pulumi:"proximityPlacementGroup"`
-	// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
-	ScaleInPolicy ScaleInPolicyResponsePtrInput `pulumi:"scaleInPolicy"`
-	// When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
-	SinglePlacementGroup pulumi.BoolPtrInput `pulumi:"singlePlacementGroup"`
-	// Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
-	UniqueId pulumi.StringInput `pulumi:"uniqueId"`
-	// The upgrade policy.
-	UpgradePolicy UpgradePolicyResponsePtrInput `pulumi:"upgradePolicy"`
-	// The virtual machine profile.
-	VirtualMachineProfile VirtualMachineScaleSetVMProfileResponsePtrInput `pulumi:"virtualMachineProfile"`
-	// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
-	ZoneBalance pulumi.BoolPtrInput `pulumi:"zoneBalance"`
-}
-
-func (VirtualMachineScaleSetPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetPropertiesResponse)(nil)).Elem()
-}
-
-func (i VirtualMachineScaleSetPropertiesResponseArgs) ToVirtualMachineScaleSetPropertiesResponseOutput() VirtualMachineScaleSetPropertiesResponseOutput {
-	return i.ToVirtualMachineScaleSetPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetPropertiesResponseArgs) ToVirtualMachineScaleSetPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetPropertiesResponseOutput)
-}
-
-func (i VirtualMachineScaleSetPropertiesResponseArgs) ToVirtualMachineScaleSetPropertiesResponsePtrOutput() VirtualMachineScaleSetPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetPropertiesResponseArgs) ToVirtualMachineScaleSetPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetPropertiesResponseOutput).ToVirtualMachineScaleSetPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// VirtualMachineScaleSetPropertiesResponsePtrInput is an input type that accepts VirtualMachineScaleSetPropertiesResponseArgs, VirtualMachineScaleSetPropertiesResponsePtr and VirtualMachineScaleSetPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetPropertiesResponsePtrInput` via:
-//
-//          VirtualMachineScaleSetPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualMachineScaleSetPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetPropertiesResponsePtrOutput() VirtualMachineScaleSetPropertiesResponsePtrOutput
-	ToVirtualMachineScaleSetPropertiesResponsePtrOutputWithContext(context.Context) VirtualMachineScaleSetPropertiesResponsePtrOutput
-}
-
-type virtualMachineScaleSetPropertiesResponsePtrType VirtualMachineScaleSetPropertiesResponseArgs
-
-func VirtualMachineScaleSetPropertiesResponsePtr(v *VirtualMachineScaleSetPropertiesResponseArgs) VirtualMachineScaleSetPropertiesResponsePtrInput {
-	return (*virtualMachineScaleSetPropertiesResponsePtrType)(v)
-}
-
-func (*virtualMachineScaleSetPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetPropertiesResponse)(nil)).Elem()
-}
-
-func (i *virtualMachineScaleSetPropertiesResponsePtrType) ToVirtualMachineScaleSetPropertiesResponsePtrOutput() VirtualMachineScaleSetPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachineScaleSetPropertiesResponsePtrType) ToVirtualMachineScaleSetPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetPropertiesResponsePtrOutput)
-}
-
-// Describes the properties of a Virtual Machine Scale Set.
-type VirtualMachineScaleSetPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetPropertiesResponseOutput) ToVirtualMachineScaleSetPropertiesResponseOutput() VirtualMachineScaleSetPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetPropertiesResponseOutput) ToVirtualMachineScaleSetPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetPropertiesResponseOutput) ToVirtualMachineScaleSetPropertiesResponsePtrOutput() VirtualMachineScaleSetPropertiesResponsePtrOutput {
-	return o.ToVirtualMachineScaleSetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineScaleSetPropertiesResponseOutput) ToVirtualMachineScaleSetPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *VirtualMachineScaleSetPropertiesResponse {
-		return &v
-	}).(VirtualMachineScaleSetPropertiesResponsePtrOutput)
-}
-
-// Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) AdditionalCapabilities() AdditionalCapabilitiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *AdditionalCapabilitiesResponse {
-		return v.AdditionalCapabilities
-	}).(AdditionalCapabilitiesResponsePtrOutput)
-}
-
-// Policy for automatic repairs.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) AutomaticRepairsPolicy() AutomaticRepairsPolicyResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *AutomaticRepairsPolicyResponse {
-		return v.AutomaticRepairsPolicy
-	}).(AutomaticRepairsPolicyResponsePtrOutput)
-}
-
-// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) DoNotRunExtensionsOnOverprovisionedVMs() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *bool {
-		return v.DoNotRunExtensionsOnOverprovisionedVMs
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) Overprovision() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *bool { return v.Overprovision }).(pulumi.BoolPtrOutput)
-}
-
-// Fault Domain count for each placement group.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) PlatformFaultDomainCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *int { return v.PlatformFaultDomainCount }).(pulumi.IntPtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) ProximityPlacementGroup() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *SubResourceResponse {
-		return v.ProximityPlacementGroup
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) ScaleInPolicy() ScaleInPolicyResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *ScaleInPolicyResponse { return v.ScaleInPolicy }).(ScaleInPolicyResponsePtrOutput)
-}
-
-// When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) SinglePlacementGroup() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *bool { return v.SinglePlacementGroup }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) UniqueId() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) string { return v.UniqueId }).(pulumi.StringOutput)
-}
-
-// The upgrade policy.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) UpgradePolicy() UpgradePolicyResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *UpgradePolicyResponse { return v.UpgradePolicy }).(UpgradePolicyResponsePtrOutput)
-}
-
-// The virtual machine profile.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) VirtualMachineProfile() VirtualMachineScaleSetVMProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *VirtualMachineScaleSetVMProfileResponse {
-		return v.VirtualMachineProfile
-	}).(VirtualMachineScaleSetVMProfileResponsePtrOutput)
-}
-
-// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
-func (o VirtualMachineScaleSetPropertiesResponseOutput) ZoneBalance() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPropertiesResponse) *bool { return v.ZoneBalance }).(pulumi.BoolPtrOutput)
-}
-
-type VirtualMachineScaleSetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) ToVirtualMachineScaleSetPropertiesResponsePtrOutput() VirtualMachineScaleSetPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) ToVirtualMachineScaleSetPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) Elem() VirtualMachineScaleSetPropertiesResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) VirtualMachineScaleSetPropertiesResponse { return *v }).(VirtualMachineScaleSetPropertiesResponseOutput)
-}
-
-// Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) AdditionalCapabilities() AdditionalCapabilitiesResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *AdditionalCapabilitiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalCapabilities
-	}).(AdditionalCapabilitiesResponsePtrOutput)
-}
-
-// Policy for automatic repairs.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) AutomaticRepairsPolicy() AutomaticRepairsPolicyResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *AutomaticRepairsPolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AutomaticRepairsPolicy
-	}).(AutomaticRepairsPolicyResponsePtrOutput)
-}
-
-// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) DoNotRunExtensionsOnOverprovisionedVMs() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DoNotRunExtensionsOnOverprovisionedVMs
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) Overprovision() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Overprovision
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Fault Domain count for each placement group.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) PlatformFaultDomainCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PlatformFaultDomainCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) ProximityPlacementGroup() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ProximityPlacementGroup
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) ScaleInPolicy() ScaleInPolicyResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *ScaleInPolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ScaleInPolicy
-	}).(ScaleInPolicyResponsePtrOutput)
-}
-
-// When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) SinglePlacementGroup() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SinglePlacementGroup
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) UniqueId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UniqueId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The upgrade policy.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) UpgradePolicy() UpgradePolicyResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *UpgradePolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.UpgradePolicy
-	}).(UpgradePolicyResponsePtrOutput)
-}
-
-// The virtual machine profile.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) VirtualMachineProfile() VirtualMachineScaleSetVMProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *VirtualMachineScaleSetVMProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualMachineProfile
-	}).(VirtualMachineScaleSetVMProfileResponsePtrOutput)
-}
-
-// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
-func (o VirtualMachineScaleSetPropertiesResponsePtrOutput) ZoneBalance() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ZoneBalance
-	}).(pulumi.BoolPtrOutput)
-}
-
 // Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
 type VirtualMachineScaleSetPublicIPAddressConfiguration struct {
 	// The dns settings to be applied on the publicIP addresses .
@@ -30810,233 +26689,19 @@ func (o VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtr
 }
 
 // Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
-type VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse struct {
+type VirtualMachineScaleSetPublicIPAddressConfigurationResponse struct {
 	// The dns settings to be applied on the publicIP addresses .
 	DnsSettings *VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse `pulumi:"dnsSettings"`
 	// The idle timeout of the public IP address.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The list of IP tags associated with the public IP address.
 	IpTags []VirtualMachineScaleSetIpTagResponse `pulumi:"ipTags"`
+	// The publicIP address configuration name.
+	Name string `pulumi:"name"`
 	// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
 	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
 	// The PublicIPPrefix from which to allocate publicIP addresses.
 	PublicIPPrefix *SubResourceResponse `pulumi:"publicIPPrefix"`
-}
-
-// VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseInput is an input type that accepts VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs and VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseInput` via:
-//
-//          VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs{...}
-type VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput() VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput
-	ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutputWithContext(context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput
-}
-
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
-type VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs struct {
-	// The dns settings to be applied on the publicIP addresses .
-	DnsSettings VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrInput `pulumi:"dnsSettings"`
-	// The idle timeout of the public IP address.
-	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
-	// The list of IP tags associated with the public IP address.
-	IpTags VirtualMachineScaleSetIpTagResponseArrayInput `pulumi:"ipTags"`
-	// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
-	PublicIPAddressVersion pulumi.StringPtrInput `pulumi:"publicIPAddressVersion"`
-	// The PublicIPPrefix from which to allocate publicIP addresses.
-	PublicIPPrefix SubResourceResponsePtrInput `pulumi:"publicIPPrefix"`
-}
-
-func (VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput() VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput {
-	return i.ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput)
-}
-
-func (i VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput).ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrInput is an input type that accepts VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs, VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtr and VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrInput` via:
-//
-//          VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput
-	ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutputWithContext(context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput
-}
-
-type virtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrType VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs
-
-func VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtr(v *VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseArgs) VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrInput {
-	return (*virtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrType)(v)
-}
-
-func (*virtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *virtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrType) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrType) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput)
-}
-
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
-type VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput() VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput {
-	return o.ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) *VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse {
-		return &v
-	}).(VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput)
-}
-
-// The dns settings to be applied on the publicIP addresses .
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput) DnsSettings() VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) *VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse {
-		return v.DnsSettings
-	}).(VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrOutput)
-}
-
-// The idle timeout of the public IP address.
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) *int {
-		return v.IdleTimeoutInMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The list of IP tags associated with the public IP address.
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput) IpTags() VirtualMachineScaleSetIpTagResponseArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) []VirtualMachineScaleSetIpTagResponse {
-		return v.IpTags
-	}).(VirtualMachineScaleSetIpTagResponseArrayOutput)
-}
-
-// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput) PublicIPAddressVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) *string {
-		return v.PublicIPAddressVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The PublicIPPrefix from which to allocate publicIP addresses.
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput) PublicIPPrefix() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) *SubResourceResponse {
-		return v.PublicIPPrefix
-	}).(SubResourceResponsePtrOutput)
-}
-
-type VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput() VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput) ToVirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput) Elem() VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse {
-		return *v
-	}).(VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput)
-}
-
-// The dns settings to be applied on the publicIP addresses .
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput) DnsSettings() VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) *VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DnsSettings
-	}).(VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrOutput)
-}
-
-// The idle timeout of the public IP address.
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.IdleTimeoutInMinutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// The list of IP tags associated with the public IP address.
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput) IpTags() VirtualMachineScaleSetIpTagResponseArrayOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) []VirtualMachineScaleSetIpTagResponse {
-		if v == nil {
-			return nil
-		}
-		return v.IpTags
-	}).(VirtualMachineScaleSetIpTagResponseArrayOutput)
-}
-
-// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput) PublicIPAddressVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicIPAddressVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The PublicIPPrefix from which to allocate publicIP addresses.
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput) PublicIPPrefix() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PublicIPPrefix
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
-type VirtualMachineScaleSetPublicIPAddressConfigurationResponse struct {
-	// The publicIP address configuration name.
-	Name string `pulumi:"name"`
-	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
-	Properties *VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse `pulumi:"properties"`
 }
 
 // VirtualMachineScaleSetPublicIPAddressConfigurationResponseInput is an input type that accepts VirtualMachineScaleSetPublicIPAddressConfigurationResponseArgs and VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput values.
@@ -31052,10 +26717,18 @@ type VirtualMachineScaleSetPublicIPAddressConfigurationResponseInput interface {
 
 // Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
 type VirtualMachineScaleSetPublicIPAddressConfigurationResponseArgs struct {
+	// The dns settings to be applied on the publicIP addresses .
+	DnsSettings VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrInput `pulumi:"dnsSettings"`
+	// The idle timeout of the public IP address.
+	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
+	// The list of IP tags associated with the public IP address.
+	IpTags VirtualMachineScaleSetIpTagResponseArrayInput `pulumi:"ipTags"`
 	// The publicIP address configuration name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
-	Properties VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrInput `pulumi:"properties"`
+	// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+	PublicIPAddressVersion pulumi.StringPtrInput `pulumi:"publicIPAddressVersion"`
+	// The PublicIPPrefix from which to allocate publicIP addresses.
+	PublicIPPrefix SubResourceResponsePtrInput `pulumi:"publicIPPrefix"`
 }
 
 func (VirtualMachineScaleSetPublicIPAddressConfigurationResponseArgs) ElementType() reflect.Type {
@@ -31136,16 +26809,42 @@ func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput) ToVirt
 	}).(VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput)
 }
 
+// The dns settings to be applied on the publicIP addresses .
+func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput) DnsSettings() VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationResponse) *VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse {
+		return v.DnsSettings
+	}).(VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrOutput)
+}
+
+// The idle timeout of the public IP address.
+func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationResponse) *int { return v.IdleTimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The list of IP tags associated with the public IP address.
+func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput) IpTags() VirtualMachineScaleSetIpTagResponseArrayOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationResponse) []VirtualMachineScaleSetIpTagResponse {
+		return v.IpTags
+	}).(VirtualMachineScaleSetIpTagResponseArrayOutput)
+}
+
 // The publicIP address configuration name.
 func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput) Properties() VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationResponse) *VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse {
-		return v.Properties
-	}).(VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput)
+// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput) PublicIPAddressVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationResponse) *string {
+		return v.PublicIPAddressVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The PublicIPPrefix from which to allocate publicIP addresses.
+func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput) PublicIPPrefix() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetPublicIPAddressConfigurationResponse) *SubResourceResponse {
+		return v.PublicIPPrefix
+	}).(SubResourceResponsePtrOutput)
 }
 
 type VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
@@ -31168,6 +26867,36 @@ func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput) Ele
 	}).(VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput)
 }
 
+// The dns settings to be applied on the publicIP addresses .
+func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput) DnsSettings() VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationResponse) *VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DnsSettings
+	}).(VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrOutput)
+}
+
+// The idle timeout of the public IP address.
+func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput) IdleTimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The list of IP tags associated with the public IP address.
+func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput) IpTags() VirtualMachineScaleSetIpTagResponseArrayOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationResponse) []VirtualMachineScaleSetIpTagResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IpTags
+	}).(VirtualMachineScaleSetIpTagResponseArrayOutput)
+}
+
 // The publicIP address configuration name.
 func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationResponse) *string {
@@ -31178,14 +26907,24 @@ func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput) Nam
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
-func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput) Properties() VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationResponse) *VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponse {
+// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput) PublicIPAddressVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput)
+		return v.PublicIPAddressVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The PublicIPPrefix from which to allocate publicIP addresses.
+func (o VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput) PublicIPPrefix() SubResourceResponsePtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetPublicIPAddressConfigurationResponse) *SubResourceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIPPrefix
+	}).(SubResourceResponsePtrOutput)
 }
 
 // Describes a virtual machine scale set storage profile.
@@ -32774,418 +28513,6 @@ func (o VirtualMachineScaleSetVMProfileResponsePtrOutput) StorageProfile() Virtu
 	}).(VirtualMachineScaleSetStorageProfileResponsePtrOutput)
 }
 
-// Describes the properties of a virtual machine scale set virtual machine.
-type VirtualMachineScaleSetVMPropertiesResponse struct {
-	// Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-	AdditionalCapabilities *AdditionalCapabilitiesResponse `pulumi:"additionalCapabilities"`
-	// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-	AvailabilitySet *SubResourceResponse `pulumi:"availabilitySet"`
-	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-	DiagnosticsProfile *DiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
-	// Specifies the hardware settings for the virtual machine.
-	HardwareProfile *HardwareProfileResponse `pulumi:"hardwareProfile"`
-	// The virtual machine instance view.
-	InstanceView VirtualMachineScaleSetVMInstanceViewResponse `pulumi:"instanceView"`
-	// Specifies whether the latest model has been applied to the virtual machine.
-	LatestModelApplied bool `pulumi:"latestModelApplied"`
-	// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
-	LicenseType *string `pulumi:"licenseType"`
-	// Specifies whether the model applied to the virtual machine is the model of the virtual machine scale set or the customized model for the virtual machine.
-	ModelDefinitionApplied string `pulumi:"modelDefinitionApplied"`
-	// Specifies the network interfaces of the virtual machine.
-	NetworkProfile *NetworkProfileResponse `pulumi:"networkProfile"`
-	// Specifies the network profile configuration of the virtual machine.
-	NetworkProfileConfiguration *VirtualMachineScaleSetVMNetworkProfileConfigurationResponse `pulumi:"networkProfileConfiguration"`
-	// Specifies the operating system settings for the virtual machine.
-	OsProfile *OSProfileResponse `pulumi:"osProfile"`
-	// Specifies the protection policy of the virtual machine.
-	ProtectionPolicy *VirtualMachineScaleSetVMProtectionPolicyResponse `pulumi:"protectionPolicy"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile *StorageProfileResponse `pulumi:"storageProfile"`
-	// Azure VM unique ID.
-	VmId string `pulumi:"vmId"`
-}
-
-// VirtualMachineScaleSetVMPropertiesResponseInput is an input type that accepts VirtualMachineScaleSetVMPropertiesResponseArgs and VirtualMachineScaleSetVMPropertiesResponseOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetVMPropertiesResponseInput` via:
-//
-//          VirtualMachineScaleSetVMPropertiesResponseArgs{...}
-type VirtualMachineScaleSetVMPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetVMPropertiesResponseOutput() VirtualMachineScaleSetVMPropertiesResponseOutput
-	ToVirtualMachineScaleSetVMPropertiesResponseOutputWithContext(context.Context) VirtualMachineScaleSetVMPropertiesResponseOutput
-}
-
-// Describes the properties of a virtual machine scale set virtual machine.
-type VirtualMachineScaleSetVMPropertiesResponseArgs struct {
-	// Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-	AdditionalCapabilities AdditionalCapabilitiesResponsePtrInput `pulumi:"additionalCapabilities"`
-	// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-	AvailabilitySet SubResourceResponsePtrInput `pulumi:"availabilitySet"`
-	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-	DiagnosticsProfile DiagnosticsProfileResponsePtrInput `pulumi:"diagnosticsProfile"`
-	// Specifies the hardware settings for the virtual machine.
-	HardwareProfile HardwareProfileResponsePtrInput `pulumi:"hardwareProfile"`
-	// The virtual machine instance view.
-	InstanceView VirtualMachineScaleSetVMInstanceViewResponseInput `pulumi:"instanceView"`
-	// Specifies whether the latest model has been applied to the virtual machine.
-	LatestModelApplied pulumi.BoolInput `pulumi:"latestModelApplied"`
-	// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
-	LicenseType pulumi.StringPtrInput `pulumi:"licenseType"`
-	// Specifies whether the model applied to the virtual machine is the model of the virtual machine scale set or the customized model for the virtual machine.
-	ModelDefinitionApplied pulumi.StringInput `pulumi:"modelDefinitionApplied"`
-	// Specifies the network interfaces of the virtual machine.
-	NetworkProfile NetworkProfileResponsePtrInput `pulumi:"networkProfile"`
-	// Specifies the network profile configuration of the virtual machine.
-	NetworkProfileConfiguration VirtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrInput `pulumi:"networkProfileConfiguration"`
-	// Specifies the operating system settings for the virtual machine.
-	OsProfile OSProfileResponsePtrInput `pulumi:"osProfile"`
-	// Specifies the protection policy of the virtual machine.
-	ProtectionPolicy VirtualMachineScaleSetVMProtectionPolicyResponsePtrInput `pulumi:"protectionPolicy"`
-	// The provisioning state, which only appears in the response.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Specifies the storage settings for the virtual machine disks.
-	StorageProfile StorageProfileResponsePtrInput `pulumi:"storageProfile"`
-	// Azure VM unique ID.
-	VmId pulumi.StringInput `pulumi:"vmId"`
-}
-
-func (VirtualMachineScaleSetVMPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVMPropertiesResponse)(nil)).Elem()
-}
-
-func (i VirtualMachineScaleSetVMPropertiesResponseArgs) ToVirtualMachineScaleSetVMPropertiesResponseOutput() VirtualMachineScaleSetVMPropertiesResponseOutput {
-	return i.ToVirtualMachineScaleSetVMPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetVMPropertiesResponseArgs) ToVirtualMachineScaleSetVMPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMPropertiesResponseOutput)
-}
-
-func (i VirtualMachineScaleSetVMPropertiesResponseArgs) ToVirtualMachineScaleSetVMPropertiesResponsePtrOutput() VirtualMachineScaleSetVMPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetVMPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetVMPropertiesResponseArgs) ToVirtualMachineScaleSetVMPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMPropertiesResponseOutput).ToVirtualMachineScaleSetVMPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// VirtualMachineScaleSetVMPropertiesResponsePtrInput is an input type that accepts VirtualMachineScaleSetVMPropertiesResponseArgs, VirtualMachineScaleSetVMPropertiesResponsePtr and VirtualMachineScaleSetVMPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetVMPropertiesResponsePtrInput` via:
-//
-//          VirtualMachineScaleSetVMPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualMachineScaleSetVMPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetVMPropertiesResponsePtrOutput() VirtualMachineScaleSetVMPropertiesResponsePtrOutput
-	ToVirtualMachineScaleSetVMPropertiesResponsePtrOutputWithContext(context.Context) VirtualMachineScaleSetVMPropertiesResponsePtrOutput
-}
-
-type virtualMachineScaleSetVMPropertiesResponsePtrType VirtualMachineScaleSetVMPropertiesResponseArgs
-
-func VirtualMachineScaleSetVMPropertiesResponsePtr(v *VirtualMachineScaleSetVMPropertiesResponseArgs) VirtualMachineScaleSetVMPropertiesResponsePtrInput {
-	return (*virtualMachineScaleSetVMPropertiesResponsePtrType)(v)
-}
-
-func (*virtualMachineScaleSetVMPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetVMPropertiesResponse)(nil)).Elem()
-}
-
-func (i *virtualMachineScaleSetVMPropertiesResponsePtrType) ToVirtualMachineScaleSetVMPropertiesResponsePtrOutput() VirtualMachineScaleSetVMPropertiesResponsePtrOutput {
-	return i.ToVirtualMachineScaleSetVMPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachineScaleSetVMPropertiesResponsePtrType) ToVirtualMachineScaleSetVMPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMPropertiesResponsePtrOutput)
-}
-
-// Describes the properties of a virtual machine scale set virtual machine.
-type VirtualMachineScaleSetVMPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetVMPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVMPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) ToVirtualMachineScaleSetVMPropertiesResponseOutput() VirtualMachineScaleSetVMPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) ToVirtualMachineScaleSetVMPropertiesResponseOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMPropertiesResponseOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) ToVirtualMachineScaleSetVMPropertiesResponsePtrOutput() VirtualMachineScaleSetVMPropertiesResponsePtrOutput {
-	return o.ToVirtualMachineScaleSetVMPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) ToVirtualMachineScaleSetVMPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) *VirtualMachineScaleSetVMPropertiesResponse {
-		return &v
-	}).(VirtualMachineScaleSetVMPropertiesResponsePtrOutput)
-}
-
-// Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) AdditionalCapabilities() AdditionalCapabilitiesResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) *AdditionalCapabilitiesResponse {
-		return v.AdditionalCapabilities
-	}).(AdditionalCapabilitiesResponsePtrOutput)
-}
-
-// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) AvailabilitySet() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) *SubResourceResponse { return v.AvailabilitySet }).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) DiagnosticsProfile() DiagnosticsProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) *DiagnosticsProfileResponse {
-		return v.DiagnosticsProfile
-	}).(DiagnosticsProfileResponsePtrOutput)
-}
-
-// Specifies the hardware settings for the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) HardwareProfile() HardwareProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) *HardwareProfileResponse { return v.HardwareProfile }).(HardwareProfileResponsePtrOutput)
-}
-
-// The virtual machine instance view.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) InstanceView() VirtualMachineScaleSetVMInstanceViewResponseOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) VirtualMachineScaleSetVMInstanceViewResponse {
-		return v.InstanceView
-	}).(VirtualMachineScaleSetVMInstanceViewResponseOutput)
-}
-
-// Specifies whether the latest model has been applied to the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) LatestModelApplied() pulumi.BoolOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) bool { return v.LatestModelApplied }).(pulumi.BoolOutput)
-}
-
-// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) *string { return v.LicenseType }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether the model applied to the virtual machine is the model of the virtual machine scale set or the customized model for the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) ModelDefinitionApplied() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) string { return v.ModelDefinitionApplied }).(pulumi.StringOutput)
-}
-
-// Specifies the network interfaces of the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) *NetworkProfileResponse { return v.NetworkProfile }).(NetworkProfileResponsePtrOutput)
-}
-
-// Specifies the network profile configuration of the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) NetworkProfileConfiguration() VirtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) *VirtualMachineScaleSetVMNetworkProfileConfigurationResponse {
-		return v.NetworkProfileConfiguration
-	}).(VirtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrOutput)
-}
-
-// Specifies the operating system settings for the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) OsProfile() OSProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) *OSProfileResponse { return v.OsProfile }).(OSProfileResponsePtrOutput)
-}
-
-// Specifies the protection policy of the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) ProtectionPolicy() VirtualMachineScaleSetVMProtectionPolicyResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) *VirtualMachineScaleSetVMProtectionPolicyResponse {
-		return v.ProtectionPolicy
-	}).(VirtualMachineScaleSetVMProtectionPolicyResponsePtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Specifies the storage settings for the virtual machine disks.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) StorageProfile() StorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) *StorageProfileResponse { return v.StorageProfile }).(StorageProfileResponsePtrOutput)
-}
-
-// Azure VM unique ID.
-func (o VirtualMachineScaleSetVMPropertiesResponseOutput) VmId() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMPropertiesResponse) string { return v.VmId }).(pulumi.StringOutput)
-}
-
-type VirtualMachineScaleSetVMPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetVMPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineScaleSetVMPropertiesResponse)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) ToVirtualMachineScaleSetVMPropertiesResponsePtrOutput() VirtualMachineScaleSetVMPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) ToVirtualMachineScaleSetVMPropertiesResponsePtrOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) Elem() VirtualMachineScaleSetVMPropertiesResponseOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) VirtualMachineScaleSetVMPropertiesResponse {
-		return *v
-	}).(VirtualMachineScaleSetVMPropertiesResponseOutput)
-}
-
-// Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) AdditionalCapabilities() AdditionalCapabilitiesResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *AdditionalCapabilitiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AdditionalCapabilities
-	}).(AdditionalCapabilitiesResponsePtrOutput)
-}
-
-// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) AvailabilitySet() SubResourceResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *SubResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AvailabilitySet
-	}).(SubResourceResponsePtrOutput)
-}
-
-// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) DiagnosticsProfile() DiagnosticsProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *DiagnosticsProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.DiagnosticsProfile
-	}).(DiagnosticsProfileResponsePtrOutput)
-}
-
-// Specifies the hardware settings for the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) HardwareProfile() HardwareProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *HardwareProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.HardwareProfile
-	}).(HardwareProfileResponsePtrOutput)
-}
-
-// The virtual machine instance view.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) InstanceView() VirtualMachineScaleSetVMInstanceViewResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *VirtualMachineScaleSetVMInstanceViewResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceView
-	}).(VirtualMachineScaleSetVMInstanceViewResponsePtrOutput)
-}
-
-// Specifies whether the latest model has been applied to the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) LatestModelApplied() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.LatestModelApplied
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LicenseType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether the model applied to the virtual machine is the model of the virtual machine scale set or the customized model for the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) ModelDefinitionApplied() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ModelDefinitionApplied
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the network interfaces of the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) NetworkProfile() NetworkProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *NetworkProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkProfile
-	}).(NetworkProfileResponsePtrOutput)
-}
-
-// Specifies the network profile configuration of the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) NetworkProfileConfiguration() VirtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *VirtualMachineScaleSetVMNetworkProfileConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkProfileConfiguration
-	}).(VirtualMachineScaleSetVMNetworkProfileConfigurationResponsePtrOutput)
-}
-
-// Specifies the operating system settings for the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) OsProfile() OSProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *OSProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.OsProfile
-	}).(OSProfileResponsePtrOutput)
-}
-
-// Specifies the protection policy of the virtual machine.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) ProtectionPolicy() VirtualMachineScaleSetVMProtectionPolicyResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *VirtualMachineScaleSetVMProtectionPolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ProtectionPolicy
-	}).(VirtualMachineScaleSetVMProtectionPolicyResponsePtrOutput)
-}
-
-// The provisioning state, which only appears in the response.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the storage settings for the virtual machine disks.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) StorageProfile() StorageProfileResponsePtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *StorageProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.StorageProfile
-	}).(StorageProfileResponsePtrOutput)
-}
-
-// Azure VM unique ID.
-func (o VirtualMachineScaleSetVMPropertiesResponsePtrOutput) VmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineScaleSetVMPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.VmId
-	}).(pulumi.StringPtrOutput)
-}
-
 // The protection policy of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMProtectionPolicy struct {
 	// Indicates that the virtual machine scale set VM shouldn't be considered for deletion during a scale-in operation.
@@ -34423,8 +29750,6 @@ func init() {
 	pulumi.RegisterOutputType(AutomaticRepairsPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutomaticRepairsPolicyResponseOutput{})
 	pulumi.RegisterOutputType(AutomaticRepairsPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(AvailabilitySetPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(AvailabilitySetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(BillingProfileOutput{})
 	pulumi.RegisterOutputType(BillingProfilePtrOutput{})
 	pulumi.RegisterOutputType(BillingProfileResponseOutput{})
@@ -34447,12 +29772,8 @@ func init() {
 	pulumi.RegisterOutputType(DedicatedHostAllocatableVMResponseArrayOutput{})
 	pulumi.RegisterOutputType(DedicatedHostAvailableCapacityResponseOutput{})
 	pulumi.RegisterOutputType(DedicatedHostAvailableCapacityResponsePtrOutput{})
-	pulumi.RegisterOutputType(DedicatedHostGroupPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(DedicatedHostGroupPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DedicatedHostInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(DedicatedHostInstanceViewResponsePtrOutput{})
-	pulumi.RegisterOutputType(DedicatedHostPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(DedicatedHostPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticsProfileOutput{})
 	pulumi.RegisterOutputType(DiagnosticsProfilePtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticsProfileResponseOutput{})
@@ -34480,10 +29801,6 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionImagesPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionImagesResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionImagesResponsePtrOutput{})
-	pulumi.RegisterOutputType(GalleryApplicationPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(GalleryApplicationPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(GalleryApplicationVersionPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(GalleryApplicationVersionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionPublishingProfileOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionPublishingProfilePtrOutput{})
 	pulumi.RegisterOutputType(GalleryApplicationVersionPublishingProfileResponseOutput{})
@@ -34502,10 +29819,6 @@ func init() {
 	pulumi.RegisterOutputType(GalleryImageIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageIdentifierResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageIdentifierResponsePtrOutput{})
-	pulumi.RegisterOutputType(GalleryImagePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(GalleryImagePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(GalleryImageVersionPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(GalleryImageVersionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageVersionPublishingProfileOutput{})
 	pulumi.RegisterOutputType(GalleryImageVersionPublishingProfilePtrOutput{})
 	pulumi.RegisterOutputType(GalleryImageVersionPublishingProfileResponseOutput{})
@@ -34518,8 +29831,6 @@ func init() {
 	pulumi.RegisterOutputType(GalleryOSDiskImagePtrOutput{})
 	pulumi.RegisterOutputType(GalleryOSDiskImageResponseOutput{})
 	pulumi.RegisterOutputType(GalleryOSDiskImageResponsePtrOutput{})
-	pulumi.RegisterOutputType(GalleryPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(GalleryPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(HardwareProfileOutput{})
 	pulumi.RegisterOutputType(HardwareProfilePtrOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponseOutput{})
@@ -34532,8 +29843,6 @@ func init() {
 	pulumi.RegisterOutputType(ImageOSDiskPtrOutput{})
 	pulumi.RegisterOutputType(ImageOSDiskResponseOutput{})
 	pulumi.RegisterOutputType(ImageOSDiskResponsePtrOutput{})
-	pulumi.RegisterOutputType(ImagePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ImagePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImagePurchasePlanOutput{})
 	pulumi.RegisterOutputType(ImagePurchasePlanPtrOutput{})
 	pulumi.RegisterOutputType(ImagePurchasePlanResponseOutput{})
@@ -34572,8 +29881,6 @@ func init() {
 	pulumi.RegisterOutputType(ManagedDiskParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceReferenceOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceReferenceArrayOutput{})
-	pulumi.RegisterOutputType(NetworkInterfaceReferencePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(NetworkInterfaceReferencePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceReferenceResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceReferenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(NetworkProfileOutput{})
@@ -34596,8 +29903,6 @@ func init() {
 	pulumi.RegisterOutputType(PlanPtrOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponsePtrOutput{})
-	pulumi.RegisterOutputType(ProximityPlacementGroupPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ProximityPlacementGroupPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RecommendedMachineConfigurationOutput{})
 	pulumi.RegisterOutputType(RecommendedMachineConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RecommendedMachineConfigurationResponseOutput{})
@@ -34632,8 +29937,6 @@ func init() {
 	pulumi.RegisterOutputType(SshConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(SshPublicKeyTypeOutput{})
 	pulumi.RegisterOutputType(SshPublicKeyTypeArrayOutput{})
-	pulumi.RegisterOutputType(SshPublicKeyResourcePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SshPublicKeyResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SshPublicKeyResponseOutput{})
 	pulumi.RegisterOutputType(SshPublicKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageProfileOutput{})
@@ -34687,8 +29990,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineExtensionInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionInstanceViewResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionInstanceViewResponseArrayOutput{})
-	pulumi.RegisterOutputType(VirtualMachineExtensionPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(VirtualMachineExtensionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineHealthStatusResponseOutput{})
@@ -34701,8 +30002,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineIdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(VirtualMachineInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineInstanceViewResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachinePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(VirtualMachinePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskResponseOutput{})
@@ -34713,14 +30012,10 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionProfileResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetExtensionResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIPConfigurationOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIPConfigurationArrayOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetIPConfigurationPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetIPConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIPConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIPConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetIdentityOutput{})
@@ -34743,8 +30038,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetNetworkConfigurationDnsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetNetworkConfigurationDnsSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetNetworkConfigurationPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetNetworkConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetNetworkConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetNetworkConfigurationResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetNetworkProfileOutput{})
@@ -34759,16 +30052,12 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetOSProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetOSProfileResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetOSProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetPublicIPAddressConfigurationOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetPublicIPAddressConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetPublicIPAddressConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetPublicIPAddressConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetStorageProfileOutput{})
@@ -34785,8 +30074,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMProfileResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetVMPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetVMPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMProtectionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMProtectionPolicyResponseOutput{})

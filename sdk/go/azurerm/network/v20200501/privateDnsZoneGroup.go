@@ -18,8 +18,10 @@ type PrivateDnsZoneGroup struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Properties of the private dns zone group.
-	Properties PrivateDnsZoneGroupPropertiesFormatResponseOutput `pulumi:"properties"`
+	// A collection of private dns zone configurations of the private dns zone group.
+	PrivateDnsZoneConfigs PrivateDnsZoneConfigResponseArrayOutput `pulumi:"privateDnsZoneConfigs"`
+	// The provisioning state of the private dns zone group resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 }
 
 // NewPrivateDnsZoneGroup registers a new resource with the given unique name, arguments, and options.
@@ -63,8 +65,10 @@ type privateDnsZoneGroupState struct {
 	Etag *string `pulumi:"etag"`
 	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the private dns zone group.
-	Properties *PrivateDnsZoneGroupPropertiesFormatResponse `pulumi:"properties"`
+	// A collection of private dns zone configurations of the private dns zone group.
+	PrivateDnsZoneConfigs []PrivateDnsZoneConfigResponse `pulumi:"privateDnsZoneConfigs"`
+	// The provisioning state of the private dns zone group resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
 type PrivateDnsZoneGroupState struct {
@@ -72,8 +76,10 @@ type PrivateDnsZoneGroupState struct {
 	Etag pulumi.StringPtrInput
 	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the private dns zone group.
-	Properties PrivateDnsZoneGroupPropertiesFormatResponsePtrInput
+	// A collection of private dns zone configurations of the private dns zone group.
+	PrivateDnsZoneConfigs PrivateDnsZoneConfigResponseArrayInput
+	// The provisioning state of the private dns zone group resource.
+	ProvisioningState pulumi.StringPtrInput
 }
 
 func (PrivateDnsZoneGroupState) ElementType() reflect.Type {

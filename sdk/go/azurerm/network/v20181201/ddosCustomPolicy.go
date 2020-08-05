@@ -20,8 +20,14 @@ type DdosCustomPolicy struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the DDoS custom policy.
-	Properties DdosCustomPolicyPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The protocol-specific DDoS policy customization parameters.
+	ProtocolCustomSettings ProtocolCustomSettingsFormatResponseArrayOutput `pulumi:"protocolCustomSettings"`
+	// The provisioning state of the DDoS custom policy resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
+	PublicIPAddresses SubResourceResponseArrayOutput `pulumi:"publicIPAddresses"`
+	// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid pulumi.StringOutput `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -68,8 +74,14 @@ type ddosCustomPolicyState struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the DDoS custom policy.
-	Properties *DdosCustomPolicyPropertiesFormatResponse `pulumi:"properties"`
+	// The protocol-specific DDoS policy customization parameters.
+	ProtocolCustomSettings []ProtocolCustomSettingsFormatResponse `pulumi:"protocolCustomSettings"`
+	// The provisioning state of the DDoS custom policy resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
+	PublicIPAddresses []SubResourceResponse `pulumi:"publicIPAddresses"`
+	// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -83,8 +95,14 @@ type DdosCustomPolicyState struct {
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the DDoS custom policy.
-	Properties DdosCustomPolicyPropertiesFormatResponsePtrInput
+	// The protocol-specific DDoS policy customization parameters.
+	ProtocolCustomSettings ProtocolCustomSettingsFormatResponseArrayInput
+	// The provisioning state of the DDoS custom policy resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
+	PublicIPAddresses SubResourceResponseArrayInput
+	// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

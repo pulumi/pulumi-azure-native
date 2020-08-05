@@ -14,14 +14,24 @@ import (
 type Profile struct {
 	pulumi.CustomResourceState
 
+	// The DNS settings of the Traffic Manager profile.
+	DnsConfig DnsConfigResponsePtrOutput `pulumi:"dnsConfig"`
+	// The list of endpoints in the Traffic Manager profile.
+	Endpoints EndpointResponseArrayOutput `pulumi:"endpoints"`
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The endpoint monitoring settings of the Traffic Manager profile.
+	MonitorConfig MonitorConfigResponsePtrOutput `pulumi:"monitorConfig"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the Traffic Manager profile.
-	Properties ProfilePropertiesResponseOutput `pulumi:"properties"`
+	// The status of the Traffic Manager profile.
+	ProfileStatus pulumi.StringPtrOutput `pulumi:"profileStatus"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The traffic routing method of the Traffic Manager profile.
+	TrafficRoutingMethod pulumi.StringPtrOutput `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+	TrafficViewEnrollmentStatus pulumi.StringPtrOutput `pulumi:"trafficViewEnrollmentStatus"`
 	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -60,27 +70,47 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
+	// The DNS settings of the Traffic Manager profile.
+	DnsConfig *DnsConfigResponse `pulumi:"dnsConfig"`
+	// The list of endpoints in the Traffic Manager profile.
+	Endpoints []EndpointResponse `pulumi:"endpoints"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
+	// The endpoint monitoring settings of the Traffic Manager profile.
+	MonitorConfig *MonitorConfigResponse `pulumi:"monitorConfig"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The properties of the Traffic Manager profile.
-	Properties *ProfilePropertiesResponse `pulumi:"properties"`
+	// The status of the Traffic Manager profile.
+	ProfileStatus *string `pulumi:"profileStatus"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The traffic routing method of the Traffic Manager profile.
+	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+	TrafficViewEnrollmentStatus *string `pulumi:"trafficViewEnrollmentStatus"`
 	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type *string `pulumi:"type"`
 }
 
 type ProfileState struct {
+	// The DNS settings of the Traffic Manager profile.
+	DnsConfig DnsConfigResponsePtrInput
+	// The list of endpoints in the Traffic Manager profile.
+	Endpoints EndpointResponseArrayInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
+	// The endpoint monitoring settings of the Traffic Manager profile.
+	MonitorConfig MonitorConfigResponsePtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The properties of the Traffic Manager profile.
-	Properties ProfilePropertiesResponsePtrInput
+	// The status of the Traffic Manager profile.
+	ProfileStatus pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The traffic routing method of the Traffic Manager profile.
+	TrafficRoutingMethod pulumi.StringPtrInput
+	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+	TrafficViewEnrollmentStatus pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type pulumi.StringPtrInput
 }

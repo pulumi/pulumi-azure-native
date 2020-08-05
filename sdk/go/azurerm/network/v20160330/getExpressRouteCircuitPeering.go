@@ -27,9 +27,34 @@ type LookupExpressRouteCircuitPeeringArgs struct {
 
 // Peering in a ExpressRouteCircuit resource
 type LookupExpressRouteCircuitPeeringResult struct {
+	// Gets or sets the azure ASN
+	AzureASN *int `pulumi:"azureASN"`
 	// A unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// Gets or sets the Microsoft peering config
+	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfigResponse `pulumi:"microsoftPeeringConfig"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-	Name       *string                                            `pulumi:"name"`
-	Properties ExpressRouteCircuitPeeringPropertiesFormatResponse `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Gets or sets the peer ASN
+	PeerASN *int `pulumi:"peerASN"`
+	// Gets or sets PeeringType
+	PeeringType *string `pulumi:"peeringType"`
+	// Gets or sets the primary port
+	PrimaryAzurePort *string `pulumi:"primaryAzurePort"`
+	// Gets or sets the primary address prefix
+	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets the secondary port
+	SecondaryAzurePort *string `pulumi:"secondaryAzurePort"`
+	// Gets or sets the secondary address prefix
+	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
+	// Gets or sets the shared key
+	SharedKey *string `pulumi:"sharedKey"`
+	// Gets or sets state of Peering
+	State *string `pulumi:"state"`
+	// Gets or peering stats
+	Stats *ExpressRouteCircuitStatsResponse `pulumi:"stats"`
+	// Gets or sets the vlan id
+	VlanId *int `pulumi:"vlanId"`
 }

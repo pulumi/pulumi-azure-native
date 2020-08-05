@@ -31,8 +31,12 @@ type LookupFirewallPolicyRuleGroupResult struct {
 	Etag string `pulumi:"etag"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the firewall policy rule group.
-	Properties FirewallPolicyRuleGroupPropertiesResponse `pulumi:"properties"`
+	// Priority of the Firewall Policy Rule Group resource.
+	Priority *int `pulumi:"priority"`
+	// The provisioning state of the firewall policy rule group resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Group of Firewall Policy rules.
+	Rules []FirewallPolicyRuleResponse `pulumi:"rules"`
 	// Rule Group type.
 	Type string `pulumi:"type"`
 }

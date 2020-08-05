@@ -14,14 +14,16 @@ import (
 type NetworkExperimentProfile struct {
 	pulumi.CustomResourceState
 
+	// The state of the Experiment
+	EnabledState pulumi.StringPtrOutput `pulumi:"enabledState"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a Profile
-	Properties ProfilePropertiesResponseOutput `pulumi:"properties"`
+	// Resource status.
+	ResourceState pulumi.StringPtrOutput `pulumi:"resourceState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -62,14 +64,16 @@ func GetNetworkExperimentProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkExperimentProfile resources.
 type networkExperimentProfileState struct {
+	// The state of the Experiment
+	EnabledState *string `pulumi:"enabledState"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of a Profile
-	Properties *ProfilePropertiesResponse `pulumi:"properties"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -77,14 +81,16 @@ type networkExperimentProfileState struct {
 }
 
 type NetworkExperimentProfileState struct {
+	// The state of the Experiment
+	EnabledState pulumi.StringPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of a Profile
-	Properties ProfilePropertiesResponsePtrInput
+	// Resource status.
+	ResourceState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

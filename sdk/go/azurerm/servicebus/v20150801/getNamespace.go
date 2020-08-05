@@ -25,16 +25,28 @@ type LookupNamespaceArgs struct {
 
 // Description of a namespace resource.
 type LookupNamespaceResult struct {
+	// Indicates whether to create an ACS namespace.
+	CreateACSNamespace *bool `pulumi:"createACSNamespace"`
+	// The time the namespace was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// Specifies whether this instance is enabled.
+	Enabled *bool `pulumi:"enabled"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the namespace.
-	Properties NamespacePropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the namespace.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
 	// SKU of the namespace.
 	Sku *SkuResponse `pulumi:"sku"`
+	// State of the namespace.
+	Status *string `pulumi:"status"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
 }

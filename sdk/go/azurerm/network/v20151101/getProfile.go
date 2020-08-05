@@ -25,14 +25,22 @@ type LookupProfileArgs struct {
 
 // Class representing a Traffic Manager profile.
 type LookupProfileResult struct {
+	// Gets or sets the DNS settings of the Traffic Manager profile.
+	DnsConfig *DnsConfigResponse `pulumi:"dnsConfig"`
+	// Gets or sets the list of endpoints in the Traffic Manager profile.
+	Endpoints []EndpointResponse `pulumi:"endpoints"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
+	MonitorConfig *MonitorConfigResponse `pulumi:"monitorConfig"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Class representing the Traffic Manager profile properties.
-	Properties ProfilePropertiesResponse `pulumi:"properties"`
+	// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
+	ProfileStatus *string `pulumi:"profileStatus"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.
+	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

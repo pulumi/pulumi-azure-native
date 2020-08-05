@@ -25,14 +25,18 @@ type LookupBastionHostArgs struct {
 
 // Bastion Host resource.
 type LookupBastionHostResult struct {
+	// FQDN for the endpoint on which bastion host is accessible.
+	DnsName *string `pulumi:"dnsName"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// IP configuration of the Bastion Host resource.
+	IpConfigurations []BastionHostIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Represents the bastion host resource.
-	Properties BastionHostPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the bastion host resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

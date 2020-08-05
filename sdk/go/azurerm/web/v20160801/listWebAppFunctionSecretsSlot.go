@@ -27,12 +27,14 @@ type ListWebAppFunctionSecretsSlotArgs struct {
 
 // Function secrets.
 type ListWebAppFunctionSecretsSlotResult struct {
+	// Secret key.
+	Key *string `pulumi:"key"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// FunctionSecrets resource specific properties
-	Properties FunctionSecretsResponseProperties `pulumi:"properties"`
+	// Trigger URL.
+	TriggerUrl *string `pulumi:"triggerUrl"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

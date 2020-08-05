@@ -14,18 +14,34 @@ import (
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 
+	// The DNS settings in network interface.
+	DnsSettings NetworkInterfaceDnsSettingsResponsePtrOutput `pulumi:"dnsSettings"`
+	// Indicates whether IP forwarding is enabled on this network interface.
+	EnableIPForwarding pulumi.BoolPtrOutput `pulumi:"enableIPForwarding"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// A list of IPConfigurations of the network interface.
+	IpConfigurations NetworkInterfaceIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The MAC address of the network interface.
+	MacAddress pulumi.StringPtrOutput `pulumi:"macAddress"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// NetworkInterface properties.
-	Properties NetworkInterfacePropertiesFormatResponseOutput `pulumi:"properties"`
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup NetworkSecurityGroupResponsePtrOutput `pulumi:"networkSecurityGroup"`
+	// Gets whether this is a primary network interface on a virtual machine.
+	Primary pulumi.BoolPtrOutput `pulumi:"primary"`
+	// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// The resource GUID property of the network interface resource.
+	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The reference of a virtual machine.
+	VirtualMachine SubResourceResponsePtrOutput `pulumi:"virtualMachine"`
 }
 
 // NewNetworkInterface registers a new resource with the given unique name, arguments, and options.
@@ -62,33 +78,65 @@ func GetNetworkInterface(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkInterface resources.
 type networkInterfaceState struct {
+	// The DNS settings in network interface.
+	DnsSettings *NetworkInterfaceDnsSettingsResponse `pulumi:"dnsSettings"`
+	// Indicates whether IP forwarding is enabled on this network interface.
+	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// A list of IPConfigurations of the network interface.
+	IpConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// The MAC address of the network interface.
+	MacAddress *string `pulumi:"macAddress"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// NetworkInterface properties.
-	Properties *NetworkInterfacePropertiesFormatResponse `pulumi:"properties"`
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
+	// Gets whether this is a primary network interface on a virtual machine.
+	Primary *bool `pulumi:"primary"`
+	// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The resource GUID property of the network interface resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The reference of a virtual machine.
+	VirtualMachine *SubResourceResponse `pulumi:"virtualMachine"`
 }
 
 type NetworkInterfaceState struct {
+	// The DNS settings in network interface.
+	DnsSettings NetworkInterfaceDnsSettingsResponsePtrInput
+	// Indicates whether IP forwarding is enabled on this network interface.
+	EnableIPForwarding pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// A list of IPConfigurations of the network interface.
+	IpConfigurations NetworkInterfaceIPConfigurationResponseArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// The MAC address of the network interface.
+	MacAddress pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// NetworkInterface properties.
-	Properties NetworkInterfacePropertiesFormatResponsePtrInput
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup NetworkSecurityGroupResponsePtrInput
+	// Gets whether this is a primary network interface on a virtual machine.
+	Primary pulumi.BoolPtrInput
+	// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The resource GUID property of the network interface resource.
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The reference of a virtual machine.
+	VirtualMachine SubResourceResponsePtrInput
 }
 
 func (NetworkInterfaceState) ElementType() reflect.Type {

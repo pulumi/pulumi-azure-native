@@ -27,10 +27,18 @@ type LookupOpenIdConnectProviderArgs struct {
 
 // OpenId Connect Provider details.
 type LookupOpenIdConnectProviderResult struct {
+	// Client ID of developer console which is the client application.
+	ClientId string `pulumi:"clientId"`
+	// Client Secret of developer console which is the client application.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// User-friendly description of OpenID Connect Provider.
+	Description *string `pulumi:"description"`
+	// User-friendly OpenID Connect Provider name.
+	DisplayName string `pulumi:"displayName"`
+	// Metadata endpoint URI.
+	MetadataEndpoint string `pulumi:"metadataEndpoint"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// OpenId Connect Provider contract properties.
-	Properties OpenidConnectProviderContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

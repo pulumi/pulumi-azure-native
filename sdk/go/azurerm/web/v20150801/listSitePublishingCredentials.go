@@ -30,8 +30,13 @@ type ListSitePublishingCredentialsResult struct {
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string                `pulumi:"name"`
-	Properties UserResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Password used for publishing
+	PublishingPassword *string `pulumi:"publishingPassword"`
+	// Username used for publishing
+	PublishingUserName *string `pulumi:"publishingUserName"`
+	// Service Control Manager URI, including username and password
+	ScmUri *string `pulumi:"scmUri"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

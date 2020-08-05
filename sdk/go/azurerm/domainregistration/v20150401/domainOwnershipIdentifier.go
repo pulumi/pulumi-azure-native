@@ -18,8 +18,8 @@ type DomainOwnershipIdentifier struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// DomainOwnershipIdentifier resource specific properties
-	Properties DomainOwnershipIdentifierResponsePropertiesOutput `pulumi:"properties"`
+	// Ownership Id.
+	OwnershipId pulumi.StringPtrOutput `pulumi:"ownershipId"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,8 +65,8 @@ type domainOwnershipIdentifierState struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// DomainOwnershipIdentifier resource specific properties
-	Properties *DomainOwnershipIdentifierResponseProperties `pulumi:"properties"`
+	// Ownership Id.
+	OwnershipId *string `pulumi:"ownershipId"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -76,8 +76,8 @@ type DomainOwnershipIdentifierState struct {
 	Kind pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// DomainOwnershipIdentifier resource specific properties
-	Properties DomainOwnershipIdentifierResponsePropertiesPtrInput
+	// Ownership Id.
+	OwnershipId pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

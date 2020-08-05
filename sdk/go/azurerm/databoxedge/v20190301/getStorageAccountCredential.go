@@ -27,10 +27,22 @@ type LookupStorageAccountCredentialArgs struct {
 
 // The storage account credential.
 type LookupStorageAccountCredentialResult struct {
+	// Encrypted storage key.
+	AccountKey *AsymmetricEncryptedSecretResponse `pulumi:"accountKey"`
+	// Type of storage accessed on the storage account.
+	AccountType string `pulumi:"accountType"`
+	// Alias for the storage account.
+	Alias string `pulumi:"alias"`
+	// Blob end point for private clouds.
+	BlobDomainName *string `pulumi:"blobDomainName"`
+	// Connection string for the storage account. Use this string if username and account key are not specified.
+	ConnectionString *string `pulumi:"connectionString"`
 	// The object name.
 	Name string `pulumi:"name"`
-	// The storage account credential properties.
-	Properties StorageAccountCredentialPropertiesResponse `pulumi:"properties"`
+	// Signifies whether SSL needs to be enabled or not.
+	SslStatus string `pulumi:"sslStatus"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+	// Username for the storage account.
+	UserName *string `pulumi:"userName"`
 }

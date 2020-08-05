@@ -31,8 +31,8 @@ type LookupNetworkWatcherResult struct {
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The network watcher properties.
-	Properties NetworkWatcherPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

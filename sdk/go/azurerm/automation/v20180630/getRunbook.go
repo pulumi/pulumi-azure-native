@@ -27,14 +27,42 @@ type LookupRunbookArgs struct {
 
 // Definition of the runbook type.
 type LookupRunbookResult struct {
+	// Gets or sets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets or sets the draft runbook properties.
+	Draft *RunbookDraftResponse `pulumi:"draft"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
+	// Gets or sets the job count of the runbook.
+	JobCount *int `pulumi:"jobCount"`
+	// Gets or sets the last modified by.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
+	// Gets or sets the option to log activity trace of the runbook.
+	LogActivityTrace *int `pulumi:"logActivityTrace"`
+	// Gets or sets progress log option.
+	LogProgress *bool `pulumi:"logProgress"`
+	// Gets or sets verbose log option.
+	LogVerbose *bool `pulumi:"logVerbose"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Gets or sets the runbook properties.
-	Properties RunbookPropertiesResponse `pulumi:"properties"`
+	// Gets or sets the runbook output types.
+	OutputTypes []string `pulumi:"outputTypes"`
+	// Gets or sets the runbook parameters.
+	Parameters map[string]RunbookParameterResponse `pulumi:"parameters"`
+	// Gets or sets the provisioning state of the runbook.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets the published runbook content link.
+	PublishContentLink *ContentLinkResponse `pulumi:"publishContentLink"`
+	// Gets or sets the type of the runbook.
+	RunbookType *string `pulumi:"runbookType"`
+	// Gets or sets the state of the runbook.
+	State *string `pulumi:"state"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

@@ -25,16 +25,24 @@ type LookupNamespaceArgs struct {
 
 // Description of a namespace resource.
 type LookupNamespaceResult struct {
+	// The time the namespace was created.
+	CreatedAt string `pulumi:"createdAt"`
 	// The Geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// Identifier for Azure Insights metrics
+	MetricId string `pulumi:"metricId"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the namespace.
-	Properties SBNamespacePropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the namespace.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint string `pulumi:"serviceBusEndpoint"`
 	// Properties of Sku
 	Sku *SBSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The time the namespace was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
 }

@@ -25,12 +25,16 @@ type LookupWorkspaceArgs struct {
 
 // Batch AI Workspace information.
 type LookupWorkspaceResult struct {
+	// Time when the Workspace was created.
+	CreationTime string `pulumi:"creationTime"`
 	// The location of the resource
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties associated with the workspace.
-	Properties WorkspacePropertiesResponse `pulumi:"properties"`
+	// The provisioned state of the Workspace
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The time at which the workspace entered its current provisioning state.
+	ProvisioningStateTransitionTime string `pulumi:"provisioningStateTransitionTime"`
 	// The tags of the resource
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource

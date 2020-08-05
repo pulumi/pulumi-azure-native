@@ -27,10 +27,16 @@ type LookupCredentialArgs struct {
 
 // Definition of the credential.
 type LookupCredentialResult struct {
+	// Gets the creation time.
+	CreationTime string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets the last modified time.
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Gets or sets the properties of the credential.
-	Properties CredentialPropertiesResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// Gets the user name of the credential.
+	UserName string `pulumi:"userName"`
 }

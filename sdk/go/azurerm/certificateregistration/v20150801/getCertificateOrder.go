@@ -25,15 +25,46 @@ type LookupCertificateOrderArgs struct {
 
 // Certificate purchase order
 type LookupCertificateOrderResult struct {
+	// Auto renew
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// State of the Key Vault secret
+	Certificates map[string]CertificateOrderCertificateResponse `pulumi:"certificates"`
+	// Last CSR that was created for this order
+	Csr *string `pulumi:"csr"`
+	// Certificate distinguished name
+	DistinguishedName *string `pulumi:"distinguishedName"`
+	// Domain Verification Token
+	DomainVerificationToken *string `pulumi:"domainVerificationToken"`
+	// Certificate expiration time
+	ExpirationTime *string `pulumi:"expirationTime"`
+	// Intermediate certificate
+	Intermediate *CertificateDetailsResponse `pulumi:"intermediate"`
+	// Certificate Key Size
+	KeySize *int `pulumi:"keySize"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
+	// Certificate last issuance time
+	LastCertificateIssuanceTime *string `pulumi:"lastCertificateIssuanceTime"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string                            `pulumi:"name"`
-	Properties CertificateOrderResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Certificate product type
+	ProductType *string `pulumi:"productType"`
+	// Status of certificate order
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Root certificate
+	Root *CertificateDetailsResponse `pulumi:"root"`
+	// Current serial number of the certificate
+	SerialNumber *string `pulumi:"serialNumber"`
+	// Signed certificate
+	SignedCertificate *CertificateDetailsResponse `pulumi:"signedCertificate"`
+	// Current order status
+	Status *string `pulumi:"status"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Duration in years (must be between 1 and 3)
+	ValidityInYears *int `pulumi:"validityInYears"`
 }

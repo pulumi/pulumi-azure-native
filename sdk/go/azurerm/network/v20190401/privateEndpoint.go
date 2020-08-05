@@ -18,10 +18,18 @@ type PrivateEndpoint struct {
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayOutput `pulumi:"manualPrivateLinkServiceConnections"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the private endpoint.
-	Properties PrivateEndpointPropertiesResponseOutput `pulumi:"properties"`
+	// Gets an array of references to the network interfaces created for this private endpoint.
+	NetworkInterfaces NetworkInterfaceResponseArrayOutput `pulumi:"networkInterfaces"`
+	// A grouping of information about the connection to the remote resource.
+	PrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayOutput `pulumi:"privateLinkServiceConnections"`
+	// The provisioning state of the private endpoint.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The ID of the subnet from which the private IP will be allocated.
+	Subnet SubnetResponsePtrOutput `pulumi:"subnet"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -66,10 +74,18 @@ type privateEndpointState struct {
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnectionResponse `pulumi:"manualPrivateLinkServiceConnections"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the private endpoint.
-	Properties *PrivateEndpointPropertiesResponse `pulumi:"properties"`
+	// Gets an array of references to the network interfaces created for this private endpoint.
+	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
+	// A grouping of information about the connection to the remote resource.
+	PrivateLinkServiceConnections []PrivateLinkServiceConnectionResponse `pulumi:"privateLinkServiceConnections"`
+	// The provisioning state of the private endpoint.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The ID of the subnet from which the private IP will be allocated.
+	Subnet *SubnetResponse `pulumi:"subnet"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -81,10 +97,18 @@ type PrivateEndpointState struct {
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the private endpoint.
-	Properties PrivateEndpointPropertiesResponsePtrInput
+	// Gets an array of references to the network interfaces created for this private endpoint.
+	NetworkInterfaces NetworkInterfaceResponseArrayInput
+	// A grouping of information about the connection to the remote resource.
+	PrivateLinkServiceConnections PrivateLinkServiceConnectionResponseArrayInput
+	// The provisioning state of the private endpoint.
+	ProvisioningState pulumi.StringPtrInput
+	// The ID of the subnet from which the private IP will be allocated.
+	Subnet SubnetResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

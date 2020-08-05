@@ -27,10 +27,24 @@ type LookupDiagnosticArgs struct {
 
 // Diagnostic details.
 type LookupDiagnosticResult struct {
+	// Specifies for what type of messages sampling settings should not apply.
+	AlwaysLog *string `pulumi:"alwaysLog"`
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+	Backend *PipelineDiagnosticSettingsResponse `pulumi:"backend"`
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+	Frontend *PipelineDiagnosticSettingsResponse `pulumi:"frontend"`
+	// Sets correlation protocol to use for Application Insights diagnostics.
+	HttpCorrelationProtocol *string `pulumi:"httpCorrelationProtocol"`
+	// Log the ClientIP. Default is false.
+	LogClientIp *bool `pulumi:"logClientIp"`
+	// Resource Id of a target logger.
+	LoggerId string `pulumi:"loggerId"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Diagnostic entity contract properties.
-	Properties DiagnosticContractPropertiesResponse `pulumi:"properties"`
+	// Sampling settings for Diagnostic.
+	Sampling *SamplingSettingsResponse `pulumi:"sampling"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+	// The verbosity level applied to traces emitted by trace policies.
+	Verbosity *string `pulumi:"verbosity"`
 }

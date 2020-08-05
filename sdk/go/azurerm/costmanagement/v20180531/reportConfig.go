@@ -14,10 +14,16 @@ import (
 type ReportConfig struct {
 	pulumi.CustomResourceState
 
+	// Has definition for the report config.
+	Definition ReportConfigDefinitionResponseOutput `pulumi:"definition"`
+	// Has delivery information for the report config.
+	DeliveryInfo ReportConfigDeliveryInfoResponseOutput `pulumi:"deliveryInfo"`
+	// The format of the report being delivered.
+	Format pulumi.StringPtrOutput `pulumi:"format"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the report config.
-	Properties ReportConfigPropertiesResponseOutput `pulumi:"properties"`
+	// Has schedule information for the report config.
+	Schedule ReportConfigScheduleResponsePtrOutput `pulumi:"schedule"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -61,10 +67,16 @@ func GetReportConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReportConfig resources.
 type reportConfigState struct {
+	// Has definition for the report config.
+	Definition *ReportConfigDefinitionResponse `pulumi:"definition"`
+	// Has delivery information for the report config.
+	DeliveryInfo *ReportConfigDeliveryInfoResponse `pulumi:"deliveryInfo"`
+	// The format of the report being delivered.
+	Format *string `pulumi:"format"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of the report config.
-	Properties *ReportConfigPropertiesResponse `pulumi:"properties"`
+	// Has schedule information for the report config.
+	Schedule *ReportConfigScheduleResponse `pulumi:"schedule"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -72,10 +84,16 @@ type reportConfigState struct {
 }
 
 type ReportConfigState struct {
+	// Has definition for the report config.
+	Definition ReportConfigDefinitionResponsePtrInput
+	// Has delivery information for the report config.
+	DeliveryInfo ReportConfigDeliveryInfoResponsePtrInput
+	// The format of the report being delivered.
+	Format pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of the report config.
-	Properties ReportConfigPropertiesResponsePtrInput
+	// Has schedule information for the report config.
+	Schedule ReportConfigScheduleResponsePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

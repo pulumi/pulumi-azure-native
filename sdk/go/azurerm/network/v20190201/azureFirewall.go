@@ -14,16 +14,26 @@ import (
 type AzureFirewall struct {
 	pulumi.CustomResourceState
 
+	// Collection of application rule collections used by Azure Firewall.
+	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionResponseArrayOutput `pulumi:"applicationRuleCollections"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// IP configuration of the Azure Firewall resource.
+	IpConfigurations AzureFirewallIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the azure firewall.
-	Properties AzureFirewallPropertiesFormatResponseOutput `pulumi:"properties"`
+	// Collection of NAT rule collections used by Azure Firewall.
+	NatRuleCollections AzureFirewallNatRuleCollectionResponseArrayOutput `pulumi:"natRuleCollections"`
+	// Collection of network rule collections used by Azure Firewall.
+	NetworkRuleCollections AzureFirewallNetworkRuleCollectionResponseArrayOutput `pulumi:"networkRuleCollections"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode pulumi.StringPtrOutput `pulumi:"threatIntelMode"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,31 +72,51 @@ func GetAzureFirewall(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AzureFirewall resources.
 type azureFirewallState struct {
+	// Collection of application rule collections used by Azure Firewall.
+	ApplicationRuleCollections []AzureFirewallApplicationRuleCollectionResponse `pulumi:"applicationRuleCollections"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// IP configuration of the Azure Firewall resource.
+	IpConfigurations []AzureFirewallIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the azure firewall.
-	Properties *AzureFirewallPropertiesFormatResponse `pulumi:"properties"`
+	// Collection of NAT rule collections used by Azure Firewall.
+	NatRuleCollections []AzureFirewallNatRuleCollectionResponse `pulumi:"natRuleCollections"`
+	// Collection of network rule collections used by Azure Firewall.
+	NetworkRuleCollections []AzureFirewallNetworkRuleCollectionResponse `pulumi:"networkRuleCollections"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type AzureFirewallState struct {
+	// Collection of application rule collections used by Azure Firewall.
+	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionResponseArrayInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// IP configuration of the Azure Firewall resource.
+	IpConfigurations AzureFirewallIPConfigurationResponseArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the azure firewall.
-	Properties AzureFirewallPropertiesFormatResponsePtrInput
+	// Collection of NAT rule collections used by Azure Firewall.
+	NatRuleCollections AzureFirewallNatRuleCollectionResponseArrayInput
+	// Collection of network rule collections used by Azure Firewall.
+	NetworkRuleCollections AzureFirewallNetworkRuleCollectionResponseArrayInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

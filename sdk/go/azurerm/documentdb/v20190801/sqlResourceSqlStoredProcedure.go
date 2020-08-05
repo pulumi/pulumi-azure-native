@@ -17,9 +17,8 @@ type SqlResourceSqlStoredProcedure struct {
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the ARM resource.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB storedProcedure
-	Properties SqlStoredProcedureGetPropertiesResponseOutput `pulumi:"properties"`
+	Name     pulumi.StringOutput                                      `pulumi:"name"`
+	Resource SqlStoredProcedureGetPropertiesResponseResourcePtrOutput `pulumi:"resource"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of Azure resource.
@@ -78,9 +77,8 @@ type sqlResourceSqlStoredProcedureState struct {
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the ARM resource.
-	Name *string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB storedProcedure
-	Properties *SqlStoredProcedureGetPropertiesResponse `pulumi:"properties"`
+	Name     *string                                          `pulumi:"name"`
+	Resource *SqlStoredProcedureGetPropertiesResponseResource `pulumi:"resource"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags map[string]string `pulumi:"tags"`
 	// The type of Azure resource.
@@ -91,9 +89,8 @@ type SqlResourceSqlStoredProcedureState struct {
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// The name of the ARM resource.
-	Name pulumi.StringPtrInput
-	// The properties of an Azure Cosmos DB storedProcedure
-	Properties SqlStoredProcedureGetPropertiesResponsePtrInput
+	Name     pulumi.StringPtrInput
+	Resource SqlStoredProcedureGetPropertiesResponseResourcePtrInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags pulumi.StringMapInput
 	// The type of Azure resource.

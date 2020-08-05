@@ -27,10 +27,18 @@ type LookupConnectionTypeArgs struct {
 
 // Definition of the connection type.
 type LookupConnectionTypeResult struct {
+	// Gets the creation time.
+	CreationTime string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets the field definitions of the connection type.
+	FieldDefinitions map[string]FieldDefinitionResponse `pulumi:"fieldDefinitions"`
+	// Gets or sets a Boolean value to indicate if the connection type is global.
+	IsGlobal *bool `pulumi:"isGlobal"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// Gets the name of the connection type.
 	Name string `pulumi:"name"`
-	// Gets or sets the properties of the connection type.
-	Properties ConnectionTypePropertiesResponse `pulumi:"properties"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

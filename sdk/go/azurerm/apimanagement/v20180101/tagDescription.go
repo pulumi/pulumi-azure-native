@@ -14,10 +14,16 @@ import (
 type TagDescription struct {
 	pulumi.CustomResourceState
 
+	// Description of the Tag.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Tag name.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// Description of the external resources describing the tag.
+	ExternalDocsDescription pulumi.StringPtrOutput `pulumi:"externalDocsDescription"`
+	// Absolute URL of external resources describing the tag.
+	ExternalDocsUrl pulumi.StringPtrOutput `pulumi:"externalDocsUrl"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// TagDescription entity contract properties.
-	Properties TagDescriptionContractPropertiesResponseOutput `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +68,31 @@ func GetTagDescription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagDescription resources.
 type tagDescriptionState struct {
+	// Description of the Tag.
+	Description *string `pulumi:"description"`
+	// Tag name.
+	DisplayName *string `pulumi:"displayName"`
+	// Description of the external resources describing the tag.
+	ExternalDocsDescription *string `pulumi:"externalDocsDescription"`
+	// Absolute URL of external resources describing the tag.
+	ExternalDocsUrl *string `pulumi:"externalDocsUrl"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// TagDescription entity contract properties.
-	Properties *TagDescriptionContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
 
 type TagDescriptionState struct {
+	// Description of the Tag.
+	Description pulumi.StringPtrInput
+	// Tag name.
+	DisplayName pulumi.StringPtrInput
+	// Description of the external resources describing the tag.
+	ExternalDocsDescription pulumi.StringPtrInput
+	// Absolute URL of external resources describing the tag.
+	ExternalDocsUrl pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// TagDescription entity contract properties.
-	Properties TagDescriptionContractPropertiesResponsePtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

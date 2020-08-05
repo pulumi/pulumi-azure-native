@@ -14,10 +14,20 @@ import (
 type DscNodeConfiguration struct {
 	pulumi.CustomResourceState
 
+	// Gets or sets the configuration of the node.
+	Configuration DscConfigurationAssociationPropertyResponsePtrOutput `pulumi:"configuration"`
+	// Gets or sets creation time.
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
+	// If a new build version of NodeConfiguration is required.
+	IncrementNodeConfigurationBuild pulumi.BoolPtrOutput `pulumi:"incrementNodeConfigurationBuild"`
+	// Gets or sets the last modified time.
+	LastModifiedTime pulumi.StringPtrOutput `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the configuration properties.
-	Properties DscNodeConfigurationPropertiesResponseOutput `pulumi:"properties"`
+	// Number of nodes with this node configuration assigned
+	NodeCount pulumi.IntPtrOutput `pulumi:"nodeCount"`
+	// Source of node configuration.
+	Source pulumi.StringPtrOutput `pulumi:"source"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +75,39 @@ func GetDscNodeConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DscNodeConfiguration resources.
 type dscNodeConfigurationState struct {
+	// Gets or sets the configuration of the node.
+	Configuration *DscConfigurationAssociationPropertyResponse `pulumi:"configuration"`
+	// Gets or sets creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// If a new build version of NodeConfiguration is required.
+	IncrementNodeConfigurationBuild *bool `pulumi:"incrementNodeConfigurationBuild"`
+	// Gets or sets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Gets or sets the configuration properties.
-	Properties *DscNodeConfigurationPropertiesResponse `pulumi:"properties"`
+	// Number of nodes with this node configuration assigned
+	NodeCount *int `pulumi:"nodeCount"`
+	// Source of node configuration.
+	Source *string `pulumi:"source"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type DscNodeConfigurationState struct {
+	// Gets or sets the configuration of the node.
+	Configuration DscConfigurationAssociationPropertyResponsePtrInput
+	// Gets or sets creation time.
+	CreationTime pulumi.StringPtrInput
+	// If a new build version of NodeConfiguration is required.
+	IncrementNodeConfigurationBuild pulumi.BoolPtrInput
+	// Gets or sets the last modified time.
+	LastModifiedTime pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Gets or sets the configuration properties.
-	Properties DscNodeConfigurationPropertiesResponsePtrInput
+	// Number of nodes with this node configuration assigned
+	NodeCount pulumi.IntPtrInput
+	// Source of node configuration.
+	Source pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

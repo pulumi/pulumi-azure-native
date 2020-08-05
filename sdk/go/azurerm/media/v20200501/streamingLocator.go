@@ -14,10 +14,28 @@ import (
 type StreamingLocator struct {
 	pulumi.CustomResourceState
 
+	// Alternative Media ID of this Streaming Locator
+	AlternativeMediaId pulumi.StringPtrOutput `pulumi:"alternativeMediaId"`
+	// Asset Name
+	AssetName pulumi.StringOutput `pulumi:"assetName"`
+	// The ContentKeys used by this Streaming Locator.
+	ContentKeys StreamingLocatorContentKeyResponseArrayOutput `pulumi:"contentKeys"`
+	// The creation time of the Streaming Locator.
+	Created pulumi.StringOutput `pulumi:"created"`
+	// Name of the default ContentKeyPolicy used by this Streaming Locator.
+	DefaultContentKeyPolicyName pulumi.StringPtrOutput `pulumi:"defaultContentKeyPolicyName"`
+	// The end time of the Streaming Locator.
+	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
+	// A list of asset or account filters which apply to this streaming locator
+	Filters pulumi.StringArrayOutput `pulumi:"filters"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Streaming Locator.
-	Properties StreamingLocatorPropertiesResponseOutput `pulumi:"properties"`
+	// The start time of the Streaming Locator.
+	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
+	// The StreamingLocatorId of the Streaming Locator.
+	StreamingLocatorId pulumi.StringPtrOutput `pulumi:"streamingLocatorId"`
+	// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+	StreamingPolicyName pulumi.StringOutput `pulumi:"streamingPolicyName"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,19 +83,55 @@ func GetStreamingLocator(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamingLocator resources.
 type streamingLocatorState struct {
+	// Alternative Media ID of this Streaming Locator
+	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
+	// Asset Name
+	AssetName *string `pulumi:"assetName"`
+	// The ContentKeys used by this Streaming Locator.
+	ContentKeys []StreamingLocatorContentKeyResponse `pulumi:"contentKeys"`
+	// The creation time of the Streaming Locator.
+	Created *string `pulumi:"created"`
+	// Name of the default ContentKeyPolicy used by this Streaming Locator.
+	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
+	// The end time of the Streaming Locator.
+	EndTime *string `pulumi:"endTime"`
+	// A list of asset or account filters which apply to this streaming locator
+	Filters []string `pulumi:"filters"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Properties of the Streaming Locator.
-	Properties *StreamingLocatorPropertiesResponse `pulumi:"properties"`
+	// The start time of the Streaming Locator.
+	StartTime *string `pulumi:"startTime"`
+	// The StreamingLocatorId of the Streaming Locator.
+	StreamingLocatorId *string `pulumi:"streamingLocatorId"`
+	// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+	StreamingPolicyName *string `pulumi:"streamingPolicyName"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type StreamingLocatorState struct {
+	// Alternative Media ID of this Streaming Locator
+	AlternativeMediaId pulumi.StringPtrInput
+	// Asset Name
+	AssetName pulumi.StringPtrInput
+	// The ContentKeys used by this Streaming Locator.
+	ContentKeys StreamingLocatorContentKeyResponseArrayInput
+	// The creation time of the Streaming Locator.
+	Created pulumi.StringPtrInput
+	// Name of the default ContentKeyPolicy used by this Streaming Locator.
+	DefaultContentKeyPolicyName pulumi.StringPtrInput
+	// The end time of the Streaming Locator.
+	EndTime pulumi.StringPtrInput
+	// A list of asset or account filters which apply to this streaming locator
+	Filters pulumi.StringArrayInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Properties of the Streaming Locator.
-	Properties StreamingLocatorPropertiesResponsePtrInput
+	// The start time of the Streaming Locator.
+	StartTime pulumi.StringPtrInput
+	// The StreamingLocatorId of the Streaming Locator.
+	StreamingLocatorId pulumi.StringPtrInput
+	// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+	StreamingPolicyName pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

@@ -27,12 +27,18 @@ type LookupReferenceDataSetArgs struct {
 
 // A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
 type LookupReferenceDataSetResult struct {
+	// The time the resource was created.
+	CreationTime string `pulumi:"creationTime"`
+	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+	DataStringComparisonBehavior *string `pulumi:"dataStringComparisonBehavior"`
+	// The list of key properties for the reference data set.
+	KeyProperties []ReferenceDataSetKeyPropertyResponse `pulumi:"keyProperties"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of the reference data set.
-	Properties ReferenceDataSetResourcePropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

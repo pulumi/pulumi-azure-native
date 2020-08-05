@@ -29,10 +29,14 @@ type LookupFileShareArgs struct {
 type LookupFileShareResult struct {
 	// Resource Etag.
 	Etag string `pulumi:"etag"`
+	// Returns the date and time the share was last modified.
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
+	// A name-value pair to associate with the share as metadata.
+	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Properties of the file share.
-	Properties FileSharePropertiesResponse `pulumi:"properties"`
+	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
+	ShareQuota *int `pulumi:"shareQuota"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

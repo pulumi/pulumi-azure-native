@@ -25,16 +25,26 @@ type LookupAzureFirewallArgs struct {
 
 // Azure Firewall resource.
 type LookupAzureFirewallResult struct {
+	// Collection of application rule collections used by Azure Firewall.
+	ApplicationRuleCollections []AzureFirewallApplicationRuleCollectionResponse `pulumi:"applicationRuleCollections"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// IP configuration of the Azure Firewall resource.
+	IpConfigurations []AzureFirewallIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the azure firewall.
-	Properties AzureFirewallPropertiesFormatResponse `pulumi:"properties"`
+	// Collection of NAT rule collections used by Azure Firewall.
+	NatRuleCollections []AzureFirewallNatRuleCollectionResponse `pulumi:"natRuleCollections"`
+	// Collection of network rule collections used by Azure Firewall.
+	NetworkRuleCollections []AzureFirewallNetworkRuleCollectionResponse `pulumi:"networkRuleCollections"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 	// Resource type.
 	Type string `pulumi:"type"`
 	// A list of availability zones denoting where the resource needs to come from.

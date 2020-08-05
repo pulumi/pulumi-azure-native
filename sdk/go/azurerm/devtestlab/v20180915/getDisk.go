@@ -29,14 +29,32 @@ type LookupDiskArgs struct {
 
 // A Disk.
 type LookupDiskResult struct {
+	// The creation date of the disk.
+	CreatedDate string `pulumi:"createdDate"`
+	// When backed by a blob, the name of the VHD blob without extension.
+	DiskBlobName *string `pulumi:"diskBlobName"`
+	// The size of the disk in GibiBytes.
+	DiskSizeGiB *int `pulumi:"diskSizeGiB"`
+	// The storage type for the disk (i.e. Standard, Premium).
+	DiskType *string `pulumi:"diskType"`
+	// When backed by a blob, the URI of underlying blob.
+	DiskUri *string `pulumi:"diskUri"`
+	// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+	HostCaching *string `pulumi:"hostCaching"`
+	// The resource ID of the VM to which this disk is leased.
+	LeasedByLabVmId *string `pulumi:"leasedByLabVmId"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
+	// When backed by managed disk, this is the ID of the compute disk resource.
+	ManagedDiskId *string `pulumi:"managedDiskId"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties DiskPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
 }

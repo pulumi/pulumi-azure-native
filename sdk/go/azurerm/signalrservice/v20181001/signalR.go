@@ -14,18 +14,40 @@ import (
 type SignalR struct {
 	pulumi.CustomResourceState
 
+	// Cross-Origin Resource Sharing (CORS) settings.
+	Cors SignalRCorsSettingsResponsePtrOutput `pulumi:"cors"`
+	// The publicly accessible IP of the SignalR service.
+	ExternalIP pulumi.StringOutput `pulumi:"externalIP"`
+	// List of SignalR featureFlags. e.g. ServiceMode.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features SignalRFeatureResponseArrayOutput `pulumi:"features"`
+	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+	HostName pulumi.StringOutput `pulumi:"hostName"`
+	// Prefix for the hostName of the SignalR service. Retained for future use.
+	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+	HostNamePrefix pulumi.StringPtrOutput `pulumi:"hostNamePrefix"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the service.
-	Properties SignalRPropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning state of the resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+	PublicPort pulumi.IntOutput `pulumi:"publicPort"`
+	// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+	ServerPort pulumi.IntOutput `pulumi:"serverPort"`
 	// SKU of the service.
 	Sku ResourceSkuResponsePtrOutput `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the service - e.g. "Microsoft.SignalRService/SignalR"
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewSignalR registers a new resource with the given unique name, arguments, and options.
@@ -65,33 +87,77 @@ func GetSignalR(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SignalR resources.
 type signalRState struct {
+	// Cross-Origin Resource Sharing (CORS) settings.
+	Cors *SignalRCorsSettingsResponse `pulumi:"cors"`
+	// The publicly accessible IP of the SignalR service.
+	ExternalIP *string `pulumi:"externalIP"`
+	// List of SignalR featureFlags. e.g. ServiceMode.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features []SignalRFeatureResponse `pulumi:"features"`
+	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+	HostName *string `pulumi:"hostName"`
+	// Prefix for the hostName of the SignalR service. Retained for future use.
+	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+	HostNamePrefix *string `pulumi:"hostNamePrefix"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the service.
-	Properties *SignalRPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+	PublicPort *int `pulumi:"publicPort"`
+	// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+	ServerPort *int `pulumi:"serverPort"`
 	// SKU of the service.
 	Sku *ResourceSkuResponse `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the service - e.g. "Microsoft.SignalRService/SignalR"
 	Type *string `pulumi:"type"`
+	// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+	Version *string `pulumi:"version"`
 }
 
 type SignalRState struct {
+	// Cross-Origin Resource Sharing (CORS) settings.
+	Cors SignalRCorsSettingsResponsePtrInput
+	// The publicly accessible IP of the SignalR service.
+	ExternalIP pulumi.StringPtrInput
+	// List of SignalR featureFlags. e.g. ServiceMode.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features SignalRFeatureResponseArrayInput
+	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+	HostName pulumi.StringPtrInput
+	// Prefix for the hostName of the SignalR service. Retained for future use.
+	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+	HostNamePrefix pulumi.StringPtrInput
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the service.
-	Properties SignalRPropertiesResponsePtrInput
+	// Provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+	PublicPort pulumi.IntPtrInput
+	// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+	ServerPort pulumi.IntPtrInput
 	// SKU of the service.
 	Sku ResourceSkuResponsePtrInput
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags pulumi.StringMapInput
 	// The type of the service - e.g. "Microsoft.SignalRService/SignalR"
 	Type pulumi.StringPtrInput
+	// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+	Version pulumi.StringPtrInput
 }
 
 func (SignalRState) ElementType() reflect.Type {

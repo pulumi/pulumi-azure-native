@@ -14,14 +14,24 @@ import (
 type NetworkSecurityGroup struct {
 	pulumi.CustomResourceState
 
+	// Gets or sets Default security rules of network security group
+	DefaultSecurityRules SecurityRuleResponseArrayOutput `pulumi:"defaultSecurityRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Resource location
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Network Security Group resource
-	Properties NetworkSecurityGroupPropertiesFormatResponseOutput `pulumi:"properties"`
+	// Gets collection of references to Network Interfaces
+	NetworkInterfaces NetworkInterfaceResponseArrayOutput `pulumi:"networkInterfaces"`
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Gets or sets resource GUID property of the network security group resource
+	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
+	// Gets or sets Security rules of network security group
+	SecurityRules SecurityRuleResponseArrayOutput `pulumi:"securityRules"`
+	// Gets collection of references to subnets
+	Subnets SubnetResponseArrayOutput `pulumi:"subnets"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -62,14 +72,24 @@ func GetNetworkSecurityGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkSecurityGroup resources.
 type networkSecurityGroupState struct {
+	// Gets or sets Default security rules of network security group
+	DefaultSecurityRules []SecurityRuleResponse `pulumi:"defaultSecurityRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Network Security Group resource
-	Properties *NetworkSecurityGroupPropertiesFormatResponse `pulumi:"properties"`
+	// Gets collection of references to Network Interfaces
+	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets resource GUID property of the network security group resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Gets or sets Security rules of network security group
+	SecurityRules []SecurityRuleResponse `pulumi:"securityRules"`
+	// Gets collection of references to subnets
+	Subnets []SubnetResponse `pulumi:"subnets"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -77,14 +97,24 @@ type networkSecurityGroupState struct {
 }
 
 type NetworkSecurityGroupState struct {
+	// Gets or sets Default security rules of network security group
+	DefaultSecurityRules SecurityRuleResponseArrayInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Network Security Group resource
-	Properties NetworkSecurityGroupPropertiesFormatResponsePtrInput
+	// Gets collection of references to Network Interfaces
+	NetworkInterfaces NetworkInterfaceResponseArrayInput
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
+	// Gets or sets resource GUID property of the network security group resource
+	ResourceGuid pulumi.StringPtrInput
+	// Gets or sets Security rules of network security group
+	SecurityRules SecurityRuleResponseArrayInput
+	// Gets collection of references to subnets
+	Subnets SubnetResponseArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

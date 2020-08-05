@@ -14,16 +14,30 @@ import (
 type CustomImage struct {
 	pulumi.CustomResourceState
 
+	// The author of the custom image.
+	Author pulumi.StringPtrOutput `pulumi:"author"`
+	// The creation date of the custom image.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// The description of the custom image.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The location of the resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The Managed Image Id backing the custom image.
+	ManagedImageId pulumi.StringPtrOutput `pulumi:"managedImageId"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the resource.
-	Properties CustomImagePropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrOutput `pulumi:"uniqueIdentifier"`
+	// The VHD from which the image is to be created.
+	Vhd CustomImagePropertiesCustomResponsePtrOutput `pulumi:"vhd"`
+	// The virtual machine from which the image is to be created.
+	Vm CustomImagePropertiesFromVmResponsePtrOutput `pulumi:"vm"`
 }
 
 // NewCustomImage registers a new resource with the given unique name, arguments, and options.
@@ -63,29 +77,57 @@ func GetCustomImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CustomImage resources.
 type customImageState struct {
+	// The author of the custom image.
+	Author *string `pulumi:"author"`
+	// The creation date of the custom image.
+	CreationDate *string `pulumi:"creationDate"`
+	// The description of the custom image.
+	Description *string `pulumi:"description"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
+	// The Managed Image Id backing the custom image.
+	ManagedImageId *string `pulumi:"managedImageId"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *CustomImagePropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// The VHD from which the image is to be created.
+	Vhd *CustomImagePropertiesCustomResponse `pulumi:"vhd"`
+	// The virtual machine from which the image is to be created.
+	Vm *CustomImagePropertiesFromVmResponse `pulumi:"vm"`
 }
 
 type CustomImageState struct {
+	// The author of the custom image.
+	Author pulumi.StringPtrInput
+	// The creation date of the custom image.
+	CreationDate pulumi.StringPtrInput
+	// The description of the custom image.
+	Description pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
+	// The Managed Image Id backing the custom image.
+	ManagedImageId pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the resource.
-	Properties CustomImagePropertiesResponsePtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
+	// The VHD from which the image is to be created.
+	Vhd CustomImagePropertiesCustomResponsePtrInput
+	// The virtual machine from which the image is to be created.
+	Vm CustomImagePropertiesFromVmResponsePtrInput
 }
 
 func (CustomImageState) ElementType() reflect.Type {

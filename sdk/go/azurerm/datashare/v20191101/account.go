@@ -14,18 +14,24 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
+	// Time at which the account was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Identity Info on the Account
 	Identity IdentityResponseOutput `pulumi:"identity"`
 	// Location of the azure resource.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Name of the azure resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties on the account
-	Properties AccountPropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning state of the Account
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Tags on the azure resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of the azure resource
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Email of the user who created the resource
+	UserEmail pulumi.StringOutput `pulumi:"userEmail"`
+	// Name of the user who created the resource
+	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -65,33 +71,45 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
+	// Time at which the account was created.
+	CreatedAt *string `pulumi:"createdAt"`
 	// Identity Info on the Account
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Location of the azure resource.
 	Location *string `pulumi:"location"`
 	// Name of the azure resource
 	Name *string `pulumi:"name"`
-	// Properties on the account
-	Properties *AccountPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the Account
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Tags on the azure resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the azure resource
 	Type *string `pulumi:"type"`
+	// Email of the user who created the resource
+	UserEmail *string `pulumi:"userEmail"`
+	// Name of the user who created the resource
+	UserName *string `pulumi:"userName"`
 }
 
 type AccountState struct {
+	// Time at which the account was created.
+	CreatedAt pulumi.StringPtrInput
 	// Identity Info on the Account
 	Identity IdentityResponsePtrInput
 	// Location of the azure resource.
 	Location pulumi.StringPtrInput
 	// Name of the azure resource
 	Name pulumi.StringPtrInput
-	// Properties on the account
-	Properties AccountPropertiesResponsePtrInput
+	// Provisioning state of the Account
+	ProvisioningState pulumi.StringPtrInput
 	// Tags on the azure resource.
 	Tags pulumi.StringMapInput
 	// Type of the azure resource
 	Type pulumi.StringPtrInput
+	// Email of the user who created the resource
+	UserEmail pulumi.StringPtrInput
+	// Name of the user who created the resource
+	UserName pulumi.StringPtrInput
 }
 
 func (AccountState) ElementType() reflect.Type {

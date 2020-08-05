@@ -18,14 +18,22 @@ type AvailabilitySet struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The instance view of a resource.
-	Properties AvailabilitySetPropertiesResponseOutput `pulumi:"properties"`
+	// Fault Domain count.
+	PlatformFaultDomainCount pulumi.IntPtrOutput `pulumi:"platformFaultDomainCount"`
+	// Update Domain count.
+	PlatformUpdateDomainCount pulumi.IntPtrOutput `pulumi:"platformUpdateDomainCount"`
+	// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+	ProximityPlacementGroup SubResourceResponsePtrOutput `pulumi:"proximityPlacementGroup"`
 	// Sku of the availability set
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// The resource status information.
+	Statuses InstanceViewStatusResponseArrayOutput `pulumi:"statuses"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// A list of references to all virtual machines in the availability set.
+	VirtualMachines SubResourceResponseArrayOutput `pulumi:"virtualMachines"`
 }
 
 // NewAvailabilitySet registers a new resource with the given unique name, arguments, and options.
@@ -69,14 +77,22 @@ type availabilitySetState struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// The instance view of a resource.
-	Properties *AvailabilitySetPropertiesResponse `pulumi:"properties"`
+	// Fault Domain count.
+	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
+	// Update Domain count.
+	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
+	// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+	ProximityPlacementGroup *SubResourceResponse `pulumi:"proximityPlacementGroup"`
 	// Sku of the availability set
 	Sku *SkuResponse `pulumi:"sku"`
+	// The resource status information.
+	Statuses []InstanceViewStatusResponse `pulumi:"statuses"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// A list of references to all virtual machines in the availability set.
+	VirtualMachines []SubResourceResponse `pulumi:"virtualMachines"`
 }
 
 type AvailabilitySetState struct {
@@ -84,14 +100,22 @@ type AvailabilitySetState struct {
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// The instance view of a resource.
-	Properties AvailabilitySetPropertiesResponsePtrInput
+	// Fault Domain count.
+	PlatformFaultDomainCount pulumi.IntPtrInput
+	// Update Domain count.
+	PlatformUpdateDomainCount pulumi.IntPtrInput
+	// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+	ProximityPlacementGroup SubResourceResponsePtrInput
 	// Sku of the availability set
 	Sku SkuResponsePtrInput
+	// The resource status information.
+	Statuses InstanceViewStatusResponseArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// A list of references to all virtual machines in the availability set.
+	VirtualMachines SubResourceResponseArrayInput
 }
 
 func (AvailabilitySetState) ElementType() reflect.Type {

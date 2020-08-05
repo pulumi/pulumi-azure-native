@@ -27,12 +27,22 @@ type LookupEventHubArgs struct {
 
 // Single item in List or Get Event Hub operation
 type LookupEventHubResult struct {
+	// Exact time the Event Hub was created.
+	CreatedAt string `pulumi:"createdAt"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// Number of days to retain the events for this Event Hub.
+	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties supplied to the Create Or Update Event Hub operation.
-	Properties EventHubPropertiesResponse `pulumi:"properties"`
+	// Number of partitions created for the Event Hub.
+	PartitionCount *int `pulumi:"partitionCount"`
+	// Current number of shards on the Event Hub.
+	PartitionIds []string `pulumi:"partitionIds"`
+	// Enumerates the possible values for the status of the Event Hub.
+	Status *string `pulumi:"status"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
 }

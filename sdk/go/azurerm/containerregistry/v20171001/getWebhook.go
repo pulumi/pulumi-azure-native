@@ -27,12 +27,18 @@ type LookupWebhookArgs struct {
 
 // An object that represents a webhook for a container registry.
 type LookupWebhookResult struct {
+	// The list of actions that trigger the webhook to post notifications.
+	Actions []string `pulumi:"actions"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the webhook.
-	Properties WebhookPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the webhook at the time the operation was called.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+	Scope *string `pulumi:"scope"`
+	// The status of the webhook at the time the operation was called.
+	Status *string `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

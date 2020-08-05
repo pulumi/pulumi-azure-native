@@ -16,10 +16,18 @@ type ApplicationPackage struct {
 
 	// The ETag of the resource, used for concurrency statements.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The format of the application package, if the package is active.
+	Format pulumi.StringOutput `pulumi:"format"`
+	// The time at which the package was last activated, if the package is active.
+	LastActivationTime pulumi.StringOutput `pulumi:"lastActivationTime"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties associated with the Application Package.
-	Properties ApplicationPackagePropertiesResponseOutput `pulumi:"properties"`
+	// The current state of the application package.
+	State pulumi.StringOutput `pulumi:"state"`
+	// The URL for the application package in Azure Storage.
+	StorageUrl pulumi.StringOutput `pulumi:"storageUrl"`
+	// The UTC time at which the Azure Storage URL will expire.
+	StorageUrlExpiry pulumi.StringOutput `pulumi:"storageUrlExpiry"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -66,10 +74,18 @@ func GetApplicationPackage(ctx *pulumi.Context,
 type applicationPackageState struct {
 	// The ETag of the resource, used for concurrency statements.
 	Etag *string `pulumi:"etag"`
+	// The format of the application package, if the package is active.
+	Format *string `pulumi:"format"`
+	// The time at which the package was last activated, if the package is active.
+	LastActivationTime *string `pulumi:"lastActivationTime"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties associated with the Application Package.
-	Properties *ApplicationPackagePropertiesResponse `pulumi:"properties"`
+	// The current state of the application package.
+	State *string `pulumi:"state"`
+	// The URL for the application package in Azure Storage.
+	StorageUrl *string `pulumi:"storageUrl"`
+	// The UTC time at which the Azure Storage URL will expire.
+	StorageUrlExpiry *string `pulumi:"storageUrlExpiry"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -77,10 +93,18 @@ type applicationPackageState struct {
 type ApplicationPackageState struct {
 	// The ETag of the resource, used for concurrency statements.
 	Etag pulumi.StringPtrInput
+	// The format of the application package, if the package is active.
+	Format pulumi.StringPtrInput
+	// The time at which the package was last activated, if the package is active.
+	LastActivationTime pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties associated with the Application Package.
-	Properties ApplicationPackagePropertiesResponsePtrInput
+	// The current state of the application package.
+	State pulumi.StringPtrInput
+	// The URL for the application package in Azure Storage.
+	StorageUrl pulumi.StringPtrInput
+	// The UTC time at which the Azure Storage URL will expire.
+	StorageUrlExpiry pulumi.StringPtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

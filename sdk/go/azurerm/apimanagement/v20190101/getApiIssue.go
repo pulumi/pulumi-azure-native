@@ -31,10 +31,20 @@ type LookupApiIssueArgs struct {
 
 // Issue Contract details.
 type LookupApiIssueResult struct {
+	// A resource identifier for the API the issue was created for.
+	ApiId *string `pulumi:"apiId"`
+	// Date and time when the issue was created.
+	CreatedDate *string `pulumi:"createdDate"`
+	// Text describing the issue.
+	Description string `pulumi:"description"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Issue.
-	Properties IssueContractPropertiesResponse `pulumi:"properties"`
+	// Status of the issue.
+	State *string `pulumi:"state"`
+	// The issue title.
+	Title string `pulumi:"title"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+	// A resource identifier for the user created the issue.
+	UserId string `pulumi:"userId"`
 }

@@ -33,8 +33,10 @@ type ListWebAppHybridConnectionKeysSlotResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// HybridConnectionKey resource specific properties
-	Properties HybridConnectionKeyResponseProperties `pulumi:"properties"`
+	// The name of the send key.
+	SendKeyName string `pulumi:"sendKeyName"`
+	// The value of the send key.
+	SendKeyValue string `pulumi:"sendKeyValue"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

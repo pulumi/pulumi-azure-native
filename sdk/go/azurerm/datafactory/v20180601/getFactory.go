@@ -25,18 +25,26 @@ type LookupFactoryArgs struct {
 
 // Factory resource type.
 type LookupFactoryResult struct {
+	// Time the factory was created in ISO8601 format.
+	CreateTime string `pulumi:"createTime"`
 	// Etag identifies change in the resource.
 	ETag string `pulumi:"eTag"`
+	// List of parameters for factory.
+	GlobalParameters map[string]GlobalParameterSpecificationResponse `pulumi:"globalParameters"`
 	// Managed service identity of the factory.
 	Identity *FactoryIdentityResponse `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
 	Name string `pulumi:"name"`
-	// Properties of the factory.
-	Properties FactoryPropertiesResponse `pulumi:"properties"`
+	// Factory provisioning state, example Succeeded.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Git repo information of the factory.
+	RepoConfiguration *FactoryRepoConfigurationResponse `pulumi:"repoConfiguration"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
 	Type string `pulumi:"type"`
+	// Version of the factory.
+	Version string `pulumi:"version"`
 }

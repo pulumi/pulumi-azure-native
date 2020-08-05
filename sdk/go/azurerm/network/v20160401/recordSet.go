@@ -14,12 +14,32 @@ import (
 type RecordSet struct {
 	pulumi.CustomResourceState
 
+	// The list of A records in the record set.
+	ARecords ARecordResponseArrayOutput `pulumi:"ARecords"`
+	// The TTL (time-to-live) of the records in the record set.
+	TTL pulumi.IntPtrOutput `pulumi:"TTL"`
+	// The list of AAAA records in the record set.
+	AaaaRecords AaaaRecordResponseArrayOutput `pulumi:"aaaaRecords"`
+	// The CNAME record in the  record set.
+	CnameRecord CnameRecordResponsePtrOutput `pulumi:"cnameRecord"`
 	// The etag of the record set.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// The metadata attached to the record set.
+	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
+	// The list of MX records in the record set.
+	MxRecords MxRecordResponseArrayOutput `pulumi:"mxRecords"`
 	// The name of the record set.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The properties of the record set.
-	Properties RecordSetPropertiesResponseOutput `pulumi:"properties"`
+	// The list of NS records in the record set.
+	NsRecords NsRecordResponseArrayOutput `pulumi:"nsRecords"`
+	// The list of PTR records in the record set.
+	PtrRecords PtrRecordResponseArrayOutput `pulumi:"ptrRecords"`
+	// The SOA record in the record set.
+	SoaRecord SoaRecordResponsePtrOutput `pulumi:"soaRecord"`
+	// The list of SRV records in the record set.
+	SrvRecords SrvRecordResponseArrayOutput `pulumi:"srvRecords"`
+	// The list of TXT records in the record set.
+	TxtRecords TxtRecordResponseArrayOutput `pulumi:"txtRecords"`
 	// The type of the record set.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
@@ -64,23 +84,63 @@ func GetRecordSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RecordSet resources.
 type recordSetState struct {
+	// The list of A records in the record set.
+	ARecords []ARecordResponse `pulumi:"ARecords"`
+	// The TTL (time-to-live) of the records in the record set.
+	TTL *int `pulumi:"TTL"`
+	// The list of AAAA records in the record set.
+	AaaaRecords []AaaaRecordResponse `pulumi:"aaaaRecords"`
+	// The CNAME record in the  record set.
+	CnameRecord *CnameRecordResponse `pulumi:"cnameRecord"`
 	// The etag of the record set.
 	Etag *string `pulumi:"etag"`
+	// The metadata attached to the record set.
+	Metadata map[string]string `pulumi:"metadata"`
+	// The list of MX records in the record set.
+	MxRecords []MxRecordResponse `pulumi:"mxRecords"`
 	// The name of the record set.
 	Name *string `pulumi:"name"`
-	// The properties of the record set.
-	Properties *RecordSetPropertiesResponse `pulumi:"properties"`
+	// The list of NS records in the record set.
+	NsRecords []NsRecordResponse `pulumi:"nsRecords"`
+	// The list of PTR records in the record set.
+	PtrRecords []PtrRecordResponse `pulumi:"ptrRecords"`
+	// The SOA record in the record set.
+	SoaRecord *SoaRecordResponse `pulumi:"soaRecord"`
+	// The list of SRV records in the record set.
+	SrvRecords []SrvRecordResponse `pulumi:"srvRecords"`
+	// The list of TXT records in the record set.
+	TxtRecords []TxtRecordResponse `pulumi:"txtRecords"`
 	// The type of the record set.
 	Type *string `pulumi:"type"`
 }
 
 type RecordSetState struct {
+	// The list of A records in the record set.
+	ARecords ARecordResponseArrayInput
+	// The TTL (time-to-live) of the records in the record set.
+	TTL pulumi.IntPtrInput
+	// The list of AAAA records in the record set.
+	AaaaRecords AaaaRecordResponseArrayInput
+	// The CNAME record in the  record set.
+	CnameRecord CnameRecordResponsePtrInput
 	// The etag of the record set.
 	Etag pulumi.StringPtrInput
+	// The metadata attached to the record set.
+	Metadata pulumi.StringMapInput
+	// The list of MX records in the record set.
+	MxRecords MxRecordResponseArrayInput
 	// The name of the record set.
 	Name pulumi.StringPtrInput
-	// The properties of the record set.
-	Properties RecordSetPropertiesResponsePtrInput
+	// The list of NS records in the record set.
+	NsRecords NsRecordResponseArrayInput
+	// The list of PTR records in the record set.
+	PtrRecords PtrRecordResponseArrayInput
+	// The SOA record in the record set.
+	SoaRecord SoaRecordResponsePtrInput
+	// The list of SRV records in the record set.
+	SrvRecords SrvRecordResponseArrayInput
+	// The list of TXT records in the record set.
+	TxtRecords TxtRecordResponseArrayInput
 	// The type of the record set.
 	Type pulumi.StringPtrInput
 }

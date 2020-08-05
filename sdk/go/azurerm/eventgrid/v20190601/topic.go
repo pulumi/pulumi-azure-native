@@ -14,12 +14,14 @@ import (
 type Topic struct {
 	pulumi.CustomResourceState
 
+	// Endpoint for the topic.
+	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// Location of the resource.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the topic
-	Properties TopicPropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning state of the topic.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of the resource.
@@ -63,12 +65,14 @@ func GetTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Topic resources.
 type topicState struct {
+	// Endpoint for the topic.
+	Endpoint *string `pulumi:"endpoint"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// Name of the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the topic
-	Properties *TopicPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the topic.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the resource.
@@ -76,12 +80,14 @@ type topicState struct {
 }
 
 type TopicState struct {
+	// Endpoint for the topic.
+	Endpoint pulumi.StringPtrInput
 	// Location of the resource.
 	Location pulumi.StringPtrInput
 	// Name of the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the topic
-	Properties TopicPropertiesResponsePtrInput
+	// Provisioning state of the topic.
+	ProvisioningState pulumi.StringPtrInput
 	// Tags of the resource.
 	Tags pulumi.StringMapInput
 	// Type of the resource.

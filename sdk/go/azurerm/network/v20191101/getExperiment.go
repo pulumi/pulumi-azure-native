@@ -27,12 +27,24 @@ type LookupExperimentArgs struct {
 
 // Defines the properties of an Experiment
 type LookupExperimentResult struct {
+	// The description of the details or intents of the Experiment
+	Description *string `pulumi:"description"`
+	// The state of the Experiment
+	EnabledState *string `pulumi:"enabledState"`
+	// The endpoint A of an experiment
+	EndpointA *EndpointResponse `pulumi:"endpointA"`
+	// The endpoint B of an experiment
+	EndpointB *EndpointResponse `pulumi:"endpointB"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The properties of an Experiment
-	Properties ExperimentPropertiesResponse `pulumi:"properties"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
+	// The uri to the Script used in the Experiment
+	ScriptFileUri string `pulumi:"scriptFileUri"`
+	// The description of Experiment status from the server side
+	Status string `pulumi:"status"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

@@ -14,12 +14,18 @@ import (
 type WorkspaceConnection struct {
 	pulumi.CustomResourceState
 
+	// Authorization type of the workspace connection.
+	AuthType pulumi.StringPtrOutput `pulumi:"authType"`
+	// Category of the workspace connection.
+	Category pulumi.StringPtrOutput `pulumi:"category"`
 	// Friendly name of the workspace connection.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of workspace connection.
-	Properties WorkspaceConnectionPropsResponseOutput `pulumi:"properties"`
+	// Target of the workspace connection.
+	Target pulumi.StringPtrOutput `pulumi:"target"`
 	// Resource type of workspace connection.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Value details of the workspace connection.
+	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewWorkspaceConnection registers a new resource with the given unique name, arguments, and options.
@@ -59,21 +65,33 @@ func GetWorkspaceConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WorkspaceConnection resources.
 type workspaceConnectionState struct {
+	// Authorization type of the workspace connection.
+	AuthType *string `pulumi:"authType"`
+	// Category of the workspace connection.
+	Category *string `pulumi:"category"`
 	// Friendly name of the workspace connection.
 	Name *string `pulumi:"name"`
-	// Properties of workspace connection.
-	Properties *WorkspaceConnectionPropsResponse `pulumi:"properties"`
+	// Target of the workspace connection.
+	Target *string `pulumi:"target"`
 	// Resource type of workspace connection.
 	Type *string `pulumi:"type"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
 }
 
 type WorkspaceConnectionState struct {
+	// Authorization type of the workspace connection.
+	AuthType pulumi.StringPtrInput
+	// Category of the workspace connection.
+	Category pulumi.StringPtrInput
 	// Friendly name of the workspace connection.
 	Name pulumi.StringPtrInput
-	// Properties of workspace connection.
-	Properties WorkspaceConnectionPropsResponsePtrInput
+	// Target of the workspace connection.
+	Target pulumi.StringPtrInput
 	// Resource type of workspace connection.
 	Type pulumi.StringPtrInput
+	// Value details of the workspace connection.
+	Value pulumi.StringPtrInput
 }
 
 func (WorkspaceConnectionState) ElementType() reflect.Type {

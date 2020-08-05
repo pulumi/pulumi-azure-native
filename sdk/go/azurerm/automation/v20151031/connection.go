@@ -14,10 +14,18 @@ import (
 type Connection struct {
 	pulumi.CustomResourceState
 
+	// Gets or sets the connectionType of the connection.
+	ConnectionType ConnectionTypeAssociationPropertyResponsePtrOutput `pulumi:"connectionType"`
+	// Gets the creation time.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Gets the field definition values of the connection.
+	FieldDefinitionValues pulumi.StringMapOutput `pulumi:"fieldDefinitionValues"`
+	// Gets the last modified time.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the properties of the connection.
-	Properties ConnectionPropertiesResponseOutput `pulumi:"properties"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +70,35 @@ func GetConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Connection resources.
 type connectionState struct {
+	// Gets or sets the connectionType of the connection.
+	ConnectionType *ConnectionTypeAssociationPropertyResponse `pulumi:"connectionType"`
+	// Gets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets the field definition values of the connection.
+	FieldDefinitionValues map[string]string `pulumi:"fieldDefinitionValues"`
+	// Gets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Gets or sets the properties of the connection.
-	Properties *ConnectionPropertiesResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
 
 type ConnectionState struct {
+	// Gets or sets the connectionType of the connection.
+	ConnectionType ConnectionTypeAssociationPropertyResponsePtrInput
+	// Gets the creation time.
+	CreationTime pulumi.StringPtrInput
+	// Gets or sets the description.
+	Description pulumi.StringPtrInput
+	// Gets the field definition values of the connection.
+	FieldDefinitionValues pulumi.StringMapInput
+	// Gets the last modified time.
+	LastModifiedTime pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Gets or sets the properties of the connection.
-	Properties ConnectionPropertiesResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }

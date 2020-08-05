@@ -27,12 +27,36 @@ type LookupEndpointArgs struct {
 
 // CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
 type LookupEndpointResult struct {
+	// List of content types on which compression applies. The value should be a valid MIME type.
+	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
+	// List of rules defining user geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+	GeoFilters []GeoFilterResponse `pulumi:"geoFilters"`
+	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+	HostName string `pulumi:"hostName"`
+	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
+	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
+	// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The JSON object that contains the properties required to create an endpoint.
-	Properties EndpointPropertiesResponse `pulumi:"properties"`
+	// Customer can specify what scenario they want this CDN endpoint to optimize, e.g. Download, Media services. With this information we can apply scenario driven optimization.
+	OptimizationType *string `pulumi:"optimizationType"`
+	// The host header CDN sends along with content requests to origin. The default value is the host name of the origin.
+	OriginHostHeader *string `pulumi:"originHostHeader"`
+	// The path used when CDN sends request to origin.
+	OriginPath *string `pulumi:"originPath"`
+	// The source of the content being delivered via CDN.
+	Origins []DeepCreatedOriginResponse `pulumi:"origins"`
+	// Provisioning status of the endpoint.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Defines the query string caching behavior
+	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
+	// Resource status of the endpoint.
+	ResourceState string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

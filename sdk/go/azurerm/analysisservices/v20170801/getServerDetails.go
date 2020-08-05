@@ -25,14 +25,28 @@ type LookupServerDetailsArgs struct {
 
 // Represents an instance of an Analysis Services resource.
 type LookupServerDetailsResult struct {
+	// A collection of AS server administrators
+	AsAdministrators *ServerAdministratorsResponse `pulumi:"asAdministrators"`
+	// The SAS container URI to the backup container.
+	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
+	// The gateway details configured for the AS server.
+	GatewayDetails *GatewayDetailsResponse `pulumi:"gatewayDetails"`
+	// The firewall settings for the AS server.
+	IpV4FirewallSettings *IPv4FirewallSettingsResponse `pulumi:"ipV4FirewallSettings"`
 	// Location of the Analysis Services resource.
 	Location string `pulumi:"location"`
 	// The name of the Analysis Services resource.
 	Name string `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties AnalysisServicesServerPropertiesResponse `pulumi:"properties"`
+	// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
+	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
+	// The full name of the Analysis Services resource.
+	ServerFullName string `pulumi:"serverFullName"`
 	// The SKU of the Analysis Services resource.
 	Sku ResourceSkuResponse `pulumi:"sku"`
+	// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+	State string `pulumi:"state"`
 	// Key-value pairs of additional resource provisioning properties.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the Analysis Services resource.

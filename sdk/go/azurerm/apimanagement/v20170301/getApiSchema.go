@@ -29,10 +29,12 @@ type LookupApiSchemaArgs struct {
 
 // Schema Contract details.
 type LookupApiSchemaResult struct {
+	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+	ContentType string `pulumi:"contentType"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Schema.
-	Properties SchemaContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+	// Json escaped string defining the document representing the Schema.
+	Value *string `pulumi:"value"`
 }

@@ -14,14 +14,44 @@ import (
 type Subscription struct {
 	pulumi.CustomResourceState
 
+	// Last time there was a receive request to this subscription.
+	AccessedAt pulumi.StringOutput `pulumi:"accessedAt"`
+	// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle pulumi.StringPtrOutput `pulumi:"autoDeleteOnIdle"`
+	// Message Count Details.
+	CountDetails MessageCountDetailsResponseOutput `pulumi:"countDetails"`
+	// Exact time the message was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolPtrOutput `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
+	// Value that indicates whether a subscription has dead letter support when a message expires.
+	DeadLetteringOnMessageExpiration pulumi.BoolPtrOutput `pulumi:"deadLetteringOnMessageExpiration"`
+	// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive pulumi.StringPtrOutput `pulumi:"defaultMessageTimeToLive"`
+	// Value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
+	// Entity availability status for the topic.
+	EntityAvailabilityStatus pulumi.StringPtrOutput `pulumi:"entityAvailabilityStatus"`
+	// Value that indicates whether the entity description is read-only.
+	IsReadOnly pulumi.BoolPtrOutput `pulumi:"isReadOnly"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
+	// The lock duration time span for the subscription.
+	LockDuration pulumi.StringPtrOutput `pulumi:"lockDuration"`
+	// Number of maximum deliveries.
+	MaxDeliveryCount pulumi.IntPtrOutput `pulumi:"maxDeliveryCount"`
+	// Number of messages.
+	MessageCount pulumi.IntOutput `pulumi:"messageCount"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Description of Subscription Resource.
-	Properties SubscriptionPropertiesResponseOutput `pulumi:"properties"`
+	// Value indicating if a subscription supports the concept of sessions.
+	RequiresSession pulumi.BoolPtrOutput `pulumi:"requiresSession"`
+	// Enumerates the possible values for the status of a messaging entity.
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
@@ -67,25 +97,85 @@ func GetSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subscription resources.
 type subscriptionState struct {
+	// Last time there was a receive request to this subscription.
+	AccessedAt *string `pulumi:"accessedAt"`
+	// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// Message Count Details.
+	CountDetails *MessageCountDetailsResponse `pulumi:"countDetails"`
+	// Exact time the message was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+	DeadLetteringOnFilterEvaluationExceptions *bool `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
+	// Value that indicates whether a subscription has dead letter support when a message expires.
+	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
+	// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive *string `pulumi:"defaultMessageTimeToLive"`
+	// Value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
+	// Entity availability status for the topic.
+	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
+	// Value that indicates whether the entity description is read-only.
+	IsReadOnly *bool `pulumi:"isReadOnly"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// The lock duration time span for the subscription.
+	LockDuration *string `pulumi:"lockDuration"`
+	// Number of maximum deliveries.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// Number of messages.
+	MessageCount *int `pulumi:"messageCount"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Description of Subscription Resource.
-	Properties *SubscriptionPropertiesResponse `pulumi:"properties"`
+	// Value indicating if a subscription supports the concept of sessions.
+	RequiresSession *bool `pulumi:"requiresSession"`
+	// Enumerates the possible values for the status of a messaging entity.
+	Status *string `pulumi:"status"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 type SubscriptionState struct {
+	// Last time there was a receive request to this subscription.
+	AccessedAt pulumi.StringPtrInput
+	// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle pulumi.StringPtrInput
+	// Message Count Details.
+	CountDetails MessageCountDetailsResponsePtrInput
+	// Exact time the message was created.
+	CreatedAt pulumi.StringPtrInput
+	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolPtrInput
+	// Value that indicates whether a subscription has dead letter support when a message expires.
+	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
+	// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive pulumi.StringPtrInput
+	// Value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations pulumi.BoolPtrInput
+	// Entity availability status for the topic.
+	EntityAvailabilityStatus pulumi.StringPtrInput
+	// Value that indicates whether the entity description is read-only.
+	IsReadOnly pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// The lock duration time span for the subscription.
+	LockDuration pulumi.StringPtrInput
+	// Number of maximum deliveries.
+	MaxDeliveryCount pulumi.IntPtrInput
+	// Number of messages.
+	MessageCount pulumi.IntPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Description of Subscription Resource.
-	Properties SubscriptionPropertiesResponsePtrInput
+	// Value indicating if a subscription supports the concept of sessions.
+	RequiresSession pulumi.BoolPtrInput
+	// Enumerates the possible values for the status of a messaging entity.
+	Status pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// The exact time the message was updated.
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (SubscriptionState) ElementType() reflect.Type {

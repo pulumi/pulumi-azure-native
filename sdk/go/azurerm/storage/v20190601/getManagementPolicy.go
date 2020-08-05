@@ -27,10 +27,12 @@ type LookupManagementPolicyArgs struct {
 
 // The Get Storage Account ManagementPolicies operation response.
 type LookupManagementPolicyResult struct {
+	// Returns the date and time the ManagementPolicies was last modified.
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Returns the Storage Account Data Policies Rules.
-	Properties ManagementPolicyPropertiesResponse `pulumi:"properties"`
+	// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+	Policy ManagementPolicySchemaResponse `pulumi:"policy"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

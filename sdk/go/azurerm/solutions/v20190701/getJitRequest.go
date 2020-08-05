@@ -25,14 +25,28 @@ type LookupJitRequestArgs struct {
 
 // Information about JIT request definition.
 type LookupJitRequestResult struct {
+	// The parent application id.
+	ApplicationResourceId string `pulumi:"applicationResourceId"`
+	// The client entity that created the JIT request.
+	CreatedBy ApplicationClientDetailsResponse `pulumi:"createdBy"`
+	// The JIT authorization policies.
+	JitAuthorizationPolicies []JitAuthorizationPoliciesResponse `pulumi:"jitAuthorizationPolicies"`
+	// The JIT request state.
+	JitRequestState string `pulumi:"jitRequestState"`
+	// The JIT request properties.
+	JitSchedulingPolicy JitSchedulingPolicyResponse `pulumi:"jitSchedulingPolicy"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// The JIT request properties.
-	Properties JitRequestPropertiesResponse `pulumi:"properties"`
+	// The JIT request provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The publisher tenant id.
+	PublisherTenantId string `pulumi:"publisherTenantId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The client entity that last updated the JIT request.
+	UpdatedBy ApplicationClientDetailsResponse `pulumi:"updatedBy"`
 }

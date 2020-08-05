@@ -27,10 +27,18 @@ type LookupMigrationConfigArgs struct {
 
 // Single item in List or Get Migration Config operation
 type LookupMigrationConfigResult struct {
+	// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+	MigrationState string `pulumi:"migrationState"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties required to the Create Migration Configuration
-	Properties MigrationConfigPropertiesResponseProperties `pulumi:"properties"`
+	// Number of entities pending to be replicated.
+	PendingReplicationOperationsCount int `pulumi:"pendingReplicationOperationsCount"`
+	// Name to access Standard Namespace after migration
+	PostMigrationName string `pulumi:"postMigrationName"`
+	// Provisioning state of Migration Configuration
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
+	TargetNamespace string `pulumi:"targetNamespace"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

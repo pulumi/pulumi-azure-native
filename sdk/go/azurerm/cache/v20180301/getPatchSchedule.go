@@ -28,7 +28,7 @@ type LookupPatchScheduleResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// List of patch schedules for a Redis cache.
-	Properties ScheduleEntriesResponse `pulumi:"properties"`
+	ScheduleEntries []ScheduleEntryResponse `pulumi:"scheduleEntries"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

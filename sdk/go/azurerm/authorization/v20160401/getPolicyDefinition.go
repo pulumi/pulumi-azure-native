@@ -23,8 +23,14 @@ type LookupPolicyDefinitionArgs struct {
 
 // The policy definition.
 type LookupPolicyDefinitionResult struct {
+	// The policy definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy definition.
+	DisplayName *string `pulumi:"displayName"`
 	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
 	Name *string `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponse `pulumi:"properties"`
+	// The policy rule.
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType *string `pulumi:"policyType"`
 }

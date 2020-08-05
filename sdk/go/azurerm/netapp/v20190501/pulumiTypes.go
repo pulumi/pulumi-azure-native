@@ -10,70 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// NetApp account properties
-type AccountPropertiesResponse struct {
-	// Active Directories
-	ActiveDirectories []ActiveDirectoryResponse `pulumi:"activeDirectories"`
-	// Azure lifecycle management
-	ProvisioningState string `pulumi:"provisioningState"`
-}
-
-// AccountPropertiesResponseInput is an input type that accepts AccountPropertiesResponseArgs and AccountPropertiesResponseOutput values.
-// You can construct a concrete instance of `AccountPropertiesResponseInput` via:
-//
-//          AccountPropertiesResponseArgs{...}
-type AccountPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAccountPropertiesResponseOutput() AccountPropertiesResponseOutput
-	ToAccountPropertiesResponseOutputWithContext(context.Context) AccountPropertiesResponseOutput
-}
-
-// NetApp account properties
-type AccountPropertiesResponseArgs struct {
-	// Active Directories
-	ActiveDirectories ActiveDirectoryResponseArrayInput `pulumi:"activeDirectories"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-}
-
-func (AccountPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountPropertiesResponse)(nil)).Elem()
-}
-
-func (i AccountPropertiesResponseArgs) ToAccountPropertiesResponseOutput() AccountPropertiesResponseOutput {
-	return i.ToAccountPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AccountPropertiesResponseArgs) ToAccountPropertiesResponseOutputWithContext(ctx context.Context) AccountPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountPropertiesResponseOutput)
-}
-
-// NetApp account properties
-type AccountPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (AccountPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountPropertiesResponse)(nil)).Elem()
-}
-
-func (o AccountPropertiesResponseOutput) ToAccountPropertiesResponseOutput() AccountPropertiesResponseOutput {
-	return o
-}
-
-func (o AccountPropertiesResponseOutput) ToAccountPropertiesResponseOutputWithContext(ctx context.Context) AccountPropertiesResponseOutput {
-	return o
-}
-
-// Active Directories
-func (o AccountPropertiesResponseOutput) ActiveDirectories() ActiveDirectoryResponseArrayOutput {
-	return o.ApplyT(func(v AccountPropertiesResponse) []ActiveDirectoryResponse { return v.ActiveDirectories }).(ActiveDirectoryResponseArrayOutput)
-}
-
-// Azure lifecycle management
-func (o AccountPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
 // Active Directory
 type ActiveDirectory struct {
 	// Id of the Active Directory
@@ -255,31 +191,6 @@ func (i ActiveDirectoryResponseArgs) ToActiveDirectoryResponseOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryResponseOutput)
 }
 
-// ActiveDirectoryResponseArrayInput is an input type that accepts ActiveDirectoryResponseArray and ActiveDirectoryResponseArrayOutput values.
-// You can construct a concrete instance of `ActiveDirectoryResponseArrayInput` via:
-//
-//          ActiveDirectoryResponseArray{ ActiveDirectoryResponseArgs{...} }
-type ActiveDirectoryResponseArrayInput interface {
-	pulumi.Input
-
-	ToActiveDirectoryResponseArrayOutput() ActiveDirectoryResponseArrayOutput
-	ToActiveDirectoryResponseArrayOutputWithContext(context.Context) ActiveDirectoryResponseArrayOutput
-}
-
-type ActiveDirectoryResponseArray []ActiveDirectoryResponseInput
-
-func (ActiveDirectoryResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActiveDirectoryResponse)(nil)).Elem()
-}
-
-func (i ActiveDirectoryResponseArray) ToActiveDirectoryResponseArrayOutput() ActiveDirectoryResponseArrayOutput {
-	return i.ToActiveDirectoryResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ActiveDirectoryResponseArray) ToActiveDirectoryResponseArrayOutputWithContext(ctx context.Context) ActiveDirectoryResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryResponseArrayOutput)
-}
-
 // Active Directory
 type ActiveDirectoryResponseOutput struct{ *pulumi.OutputState }
 
@@ -333,26 +244,6 @@ func (o ActiveDirectoryResponseOutput) Status() pulumi.StringPtrOutput {
 // Username of Active Directory domain administrator
 func (o ActiveDirectoryResponseOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ActiveDirectoryResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
-}
-
-type ActiveDirectoryResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ActiveDirectoryResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActiveDirectoryResponse)(nil)).Elem()
-}
-
-func (o ActiveDirectoryResponseArrayOutput) ToActiveDirectoryResponseArrayOutput() ActiveDirectoryResponseArrayOutput {
-	return o
-}
-
-func (o ActiveDirectoryResponseArrayOutput) ToActiveDirectoryResponseArrayOutputWithContext(ctx context.Context) ActiveDirectoryResponseArrayOutput {
-	return o
-}
-
-func (o ActiveDirectoryResponseArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ActiveDirectoryResponse {
-		return vs[0].([]ActiveDirectoryResponse)[vs[1].(int)]
-	}).(ActiveDirectoryResponseOutput)
 }
 
 // Volume Export Policy Rule
@@ -843,31 +734,6 @@ func (i MountTargetPropertiesResponseArgs) ToMountTargetPropertiesResponseOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesResponseOutput)
 }
 
-// MountTargetPropertiesResponseArrayInput is an input type that accepts MountTargetPropertiesResponseArray and MountTargetPropertiesResponseArrayOutput values.
-// You can construct a concrete instance of `MountTargetPropertiesResponseArrayInput` via:
-//
-//          MountTargetPropertiesResponseArray{ MountTargetPropertiesResponseArgs{...} }
-type MountTargetPropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToMountTargetPropertiesResponseArrayOutput() MountTargetPropertiesResponseArrayOutput
-	ToMountTargetPropertiesResponseArrayOutputWithContext(context.Context) MountTargetPropertiesResponseArrayOutput
-}
-
-type MountTargetPropertiesResponseArray []MountTargetPropertiesResponseInput
-
-func (MountTargetPropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MountTargetPropertiesResponse)(nil)).Elem()
-}
-
-func (i MountTargetPropertiesResponseArray) ToMountTargetPropertiesResponseArrayOutput() MountTargetPropertiesResponseArrayOutput {
-	return i.ToMountTargetPropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i MountTargetPropertiesResponseArray) ToMountTargetPropertiesResponseArrayOutputWithContext(ctx context.Context) MountTargetPropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MountTargetPropertiesResponseArrayOutput)
-}
-
 // Mount target properties
 type MountTargetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
@@ -933,190 +799,6 @@ func (o MountTargetPropertiesResponseOutput) Subnet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MountTargetPropertiesResponse) *string { return v.Subnet }).(pulumi.StringPtrOutput)
 }
 
-type MountTargetPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (MountTargetPropertiesResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MountTargetPropertiesResponse)(nil)).Elem()
-}
-
-func (o MountTargetPropertiesResponseArrayOutput) ToMountTargetPropertiesResponseArrayOutput() MountTargetPropertiesResponseArrayOutput {
-	return o
-}
-
-func (o MountTargetPropertiesResponseArrayOutput) ToMountTargetPropertiesResponseArrayOutputWithContext(ctx context.Context) MountTargetPropertiesResponseArrayOutput {
-	return o
-}
-
-func (o MountTargetPropertiesResponseArrayOutput) Index(i pulumi.IntInput) MountTargetPropertiesResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MountTargetPropertiesResponse {
-		return vs[0].([]MountTargetPropertiesResponse)[vs[1].(int)]
-	}).(MountTargetPropertiesResponseOutput)
-}
-
-// Pool properties
-type PoolPropertiesResponse struct {
-	// UUID v4 used to identify the Pool
-	PoolId string `pulumi:"poolId"`
-	// Azure lifecycle management
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The service level of the file system
-	ServiceLevel string `pulumi:"serviceLevel"`
-	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size int `pulumi:"size"`
-}
-
-// PoolPropertiesResponseInput is an input type that accepts PoolPropertiesResponseArgs and PoolPropertiesResponseOutput values.
-// You can construct a concrete instance of `PoolPropertiesResponseInput` via:
-//
-//          PoolPropertiesResponseArgs{...}
-type PoolPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToPoolPropertiesResponseOutput() PoolPropertiesResponseOutput
-	ToPoolPropertiesResponseOutputWithContext(context.Context) PoolPropertiesResponseOutput
-}
-
-// Pool properties
-type PoolPropertiesResponseArgs struct {
-	// UUID v4 used to identify the Pool
-	PoolId pulumi.StringInput `pulumi:"poolId"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The service level of the file system
-	ServiceLevel pulumi.StringInput `pulumi:"serviceLevel"`
-	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-	Size pulumi.IntInput `pulumi:"size"`
-}
-
-func (PoolPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PoolPropertiesResponse)(nil)).Elem()
-}
-
-func (i PoolPropertiesResponseArgs) ToPoolPropertiesResponseOutput() PoolPropertiesResponseOutput {
-	return i.ToPoolPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i PoolPropertiesResponseArgs) ToPoolPropertiesResponseOutputWithContext(ctx context.Context) PoolPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PoolPropertiesResponseOutput)
-}
-
-// Pool properties
-type PoolPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (PoolPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PoolPropertiesResponse)(nil)).Elem()
-}
-
-func (o PoolPropertiesResponseOutput) ToPoolPropertiesResponseOutput() PoolPropertiesResponseOutput {
-	return o
-}
-
-func (o PoolPropertiesResponseOutput) ToPoolPropertiesResponseOutputWithContext(ctx context.Context) PoolPropertiesResponseOutput {
-	return o
-}
-
-// UUID v4 used to identify the Pool
-func (o PoolPropertiesResponseOutput) PoolId() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolPropertiesResponse) string { return v.PoolId }).(pulumi.StringOutput)
-}
-
-// Azure lifecycle management
-func (o PoolPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The service level of the file system
-func (o PoolPropertiesResponseOutput) ServiceLevel() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolPropertiesResponse) string { return v.ServiceLevel }).(pulumi.StringOutput)
-}
-
-// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-func (o PoolPropertiesResponseOutput) Size() pulumi.IntOutput {
-	return o.ApplyT(func(v PoolPropertiesResponse) int { return v.Size }).(pulumi.IntOutput)
-}
-
-// Snapshot properties
-type SnapshotPropertiesResponse struct {
-	// The creation date of the snapshot
-	CreationDate string `pulumi:"creationDate"`
-	// UUID v4 used to identify the FileSystem
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// Azure lifecycle management
-	ProvisioningState string `pulumi:"provisioningState"`
-	// UUID v4 used to identify the Snapshot
-	SnapshotId string `pulumi:"snapshotId"`
-}
-
-// SnapshotPropertiesResponseInput is an input type that accepts SnapshotPropertiesResponseArgs and SnapshotPropertiesResponseOutput values.
-// You can construct a concrete instance of `SnapshotPropertiesResponseInput` via:
-//
-//          SnapshotPropertiesResponseArgs{...}
-type SnapshotPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSnapshotPropertiesResponseOutput() SnapshotPropertiesResponseOutput
-	ToSnapshotPropertiesResponseOutputWithContext(context.Context) SnapshotPropertiesResponseOutput
-}
-
-// Snapshot properties
-type SnapshotPropertiesResponseArgs struct {
-	// The creation date of the snapshot
-	CreationDate pulumi.StringInput `pulumi:"creationDate"`
-	// UUID v4 used to identify the FileSystem
-	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// UUID v4 used to identify the Snapshot
-	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
-}
-
-func (SnapshotPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotPropertiesResponse)(nil)).Elem()
-}
-
-func (i SnapshotPropertiesResponseArgs) ToSnapshotPropertiesResponseOutput() SnapshotPropertiesResponseOutput {
-	return i.ToSnapshotPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SnapshotPropertiesResponseArgs) ToSnapshotPropertiesResponseOutputWithContext(ctx context.Context) SnapshotPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPropertiesResponseOutput)
-}
-
-// Snapshot properties
-type SnapshotPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (SnapshotPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotPropertiesResponse)(nil)).Elem()
-}
-
-func (o SnapshotPropertiesResponseOutput) ToSnapshotPropertiesResponseOutput() SnapshotPropertiesResponseOutput {
-	return o
-}
-
-func (o SnapshotPropertiesResponseOutput) ToSnapshotPropertiesResponseOutputWithContext(ctx context.Context) SnapshotPropertiesResponseOutput {
-	return o
-}
-
-// The creation date of the snapshot
-func (o SnapshotPropertiesResponseOutput) CreationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotPropertiesResponse) string { return v.CreationDate }).(pulumi.StringOutput)
-}
-
-// UUID v4 used to identify the FileSystem
-func (o SnapshotPropertiesResponseOutput) FileSystemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SnapshotPropertiesResponse) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
-}
-
-// Azure lifecycle management
-func (o SnapshotPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// UUID v4 used to identify the Snapshot
-func (o SnapshotPropertiesResponseOutput) SnapshotId() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotPropertiesResponse) string { return v.SnapshotId }).(pulumi.StringOutput)
-}
-
 // Set of export policy rules
 type VolumePropertiesExportPolicy struct {
 	// Export policy rule
@@ -1172,151 +854,6 @@ func (o VolumePropertiesExportPolicyOutput) Rules() ExportPolicyRuleArrayOutput 
 	return o.ApplyT(func(v VolumePropertiesExportPolicy) []ExportPolicyRule { return v.Rules }).(ExportPolicyRuleArrayOutput)
 }
 
-// Volume properties
-type VolumePropertiesResponse struct {
-	// Unique Baremetal Tenant Identifier.
-	BaremetalTenantId string `pulumi:"baremetalTenantId"`
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken string `pulumi:"creationToken"`
-	// Set of export policy rules
-	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
-	// Unique FileSystem Identifier.
-	FileSystemId string `pulumi:"fileSystemId"`
-	// List of mount targets
-	MountTargets []MountTargetPropertiesResponse `pulumi:"mountTargets"`
-	// Set of protocol types
-	ProtocolTypes []string `pulumi:"protocolTypes"`
-	// Azure lifecycle management
-	ProvisioningState string `pulumi:"provisioningState"`
-	// The service level of the file system
-	ServiceLevel *string `pulumi:"serviceLevel"`
-	// UUID v4 used to identify the Snapshot
-	SnapshotId *string `pulumi:"snapshotId"`
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId string `pulumi:"subnetId"`
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold int `pulumi:"usageThreshold"`
-}
-
-// VolumePropertiesResponseInput is an input type that accepts VolumePropertiesResponseArgs and VolumePropertiesResponseOutput values.
-// You can construct a concrete instance of `VolumePropertiesResponseInput` via:
-//
-//          VolumePropertiesResponseArgs{...}
-type VolumePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVolumePropertiesResponseOutput() VolumePropertiesResponseOutput
-	ToVolumePropertiesResponseOutputWithContext(context.Context) VolumePropertiesResponseOutput
-}
-
-// Volume properties
-type VolumePropertiesResponseArgs struct {
-	// Unique Baremetal Tenant Identifier.
-	BaremetalTenantId pulumi.StringInput `pulumi:"baremetalTenantId"`
-	// A unique file path for the volume. Used when creating mount targets
-	CreationToken pulumi.StringInput `pulumi:"creationToken"`
-	// Set of export policy rules
-	ExportPolicy VolumePropertiesResponseExportPolicyPtrInput `pulumi:"exportPolicy"`
-	// Unique FileSystem Identifier.
-	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// List of mount targets
-	MountTargets MountTargetPropertiesResponseArrayInput `pulumi:"mountTargets"`
-	// Set of protocol types
-	ProtocolTypes pulumi.StringArrayInput `pulumi:"protocolTypes"`
-	// Azure lifecycle management
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// The service level of the file system
-	ServiceLevel pulumi.StringPtrInput `pulumi:"serviceLevel"`
-	// UUID v4 used to identify the Snapshot
-	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
-	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-	UsageThreshold pulumi.IntInput `pulumi:"usageThreshold"`
-}
-
-func (VolumePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumePropertiesResponse)(nil)).Elem()
-}
-
-func (i VolumePropertiesResponseArgs) ToVolumePropertiesResponseOutput() VolumePropertiesResponseOutput {
-	return i.ToVolumePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VolumePropertiesResponseArgs) ToVolumePropertiesResponseOutputWithContext(ctx context.Context) VolumePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseOutput)
-}
-
-// Volume properties
-type VolumePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (VolumePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumePropertiesResponse)(nil)).Elem()
-}
-
-func (o VolumePropertiesResponseOutput) ToVolumePropertiesResponseOutput() VolumePropertiesResponseOutput {
-	return o
-}
-
-func (o VolumePropertiesResponseOutput) ToVolumePropertiesResponseOutputWithContext(ctx context.Context) VolumePropertiesResponseOutput {
-	return o
-}
-
-// Unique Baremetal Tenant Identifier.
-func (o VolumePropertiesResponseOutput) BaremetalTenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) string { return v.BaremetalTenantId }).(pulumi.StringOutput)
-}
-
-// A unique file path for the volume. Used when creating mount targets
-func (o VolumePropertiesResponseOutput) CreationToken() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) string { return v.CreationToken }).(pulumi.StringOutput)
-}
-
-// Set of export policy rules
-func (o VolumePropertiesResponseOutput) ExportPolicy() VolumePropertiesResponseExportPolicyPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) *VolumePropertiesResponseExportPolicy { return v.ExportPolicy }).(VolumePropertiesResponseExportPolicyPtrOutput)
-}
-
-// Unique FileSystem Identifier.
-func (o VolumePropertiesResponseOutput) FileSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) string { return v.FileSystemId }).(pulumi.StringOutput)
-}
-
-// List of mount targets
-func (o VolumePropertiesResponseOutput) MountTargets() MountTargetPropertiesResponseArrayOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) []MountTargetPropertiesResponse { return v.MountTargets }).(MountTargetPropertiesResponseArrayOutput)
-}
-
-// Set of protocol types
-func (o VolumePropertiesResponseOutput) ProtocolTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) []string { return v.ProtocolTypes }).(pulumi.StringArrayOutput)
-}
-
-// Azure lifecycle management
-func (o VolumePropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// The service level of the file system
-func (o VolumePropertiesResponseOutput) ServiceLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) *string { return v.ServiceLevel }).(pulumi.StringPtrOutput)
-}
-
-// UUID v4 used to identify the Snapshot
-func (o VolumePropertiesResponseOutput) SnapshotId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
-}
-
-// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-func (o VolumePropertiesResponseOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) string { return v.SubnetId }).(pulumi.StringOutput)
-}
-
-// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
-func (o VolumePropertiesResponseOutput) UsageThreshold() pulumi.IntOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) int { return v.UsageThreshold }).(pulumi.IntOutput)
-}
-
 // Set of export policy rules
 type VolumePropertiesResponseExportPolicy struct {
 	// Export policy rule
@@ -1352,47 +889,6 @@ func (i VolumePropertiesResponseExportPolicyArgs) ToVolumePropertiesResponseExpo
 	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyOutput)
 }
 
-func (i VolumePropertiesResponseExportPolicyArgs) ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput {
-	return i.ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i VolumePropertiesResponseExportPolicyArgs) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyOutput).ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx)
-}
-
-// VolumePropertiesResponseExportPolicyPtrInput is an input type that accepts VolumePropertiesResponseExportPolicyArgs, VolumePropertiesResponseExportPolicyPtr and VolumePropertiesResponseExportPolicyPtrOutput values.
-// You can construct a concrete instance of `VolumePropertiesResponseExportPolicyPtrInput` via:
-//
-//          VolumePropertiesResponseExportPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type VolumePropertiesResponseExportPolicyPtrInput interface {
-	pulumi.Input
-
-	ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput
-	ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Context) VolumePropertiesResponseExportPolicyPtrOutput
-}
-
-type volumePropertiesResponseExportPolicyPtrType VolumePropertiesResponseExportPolicyArgs
-
-func VolumePropertiesResponseExportPolicyPtr(v *VolumePropertiesResponseExportPolicyArgs) VolumePropertiesResponseExportPolicyPtrInput {
-	return (*volumePropertiesResponseExportPolicyPtrType)(v)
-}
-
-func (*volumePropertiesResponseExportPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VolumePropertiesResponseExportPolicy)(nil)).Elem()
-}
-
-func (i *volumePropertiesResponseExportPolicyPtrType) ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput {
-	return i.ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *volumePropertiesResponseExportPolicyPtrType) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyPtrOutput)
-}
-
 // Set of export policy rules
 type VolumePropertiesResponseExportPolicyOutput struct{ *pulumi.OutputState }
 
@@ -1408,65 +904,20 @@ func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseEx
 	return o
 }
 
-func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput {
-	return o.ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
-		return &v
-	}).(VolumePropertiesResponseExportPolicyPtrOutput)
-}
-
 // Export policy rule
 func (o VolumePropertiesResponseExportPolicyOutput) Rules() ExportPolicyRuleResponseArrayOutput {
 	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) []ExportPolicyRuleResponse { return v.Rules }).(ExportPolicyRuleResponseArrayOutput)
 }
 
-type VolumePropertiesResponseExportPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (VolumePropertiesResponseExportPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VolumePropertiesResponseExportPolicy)(nil)).Elem()
-}
-
-func (o VolumePropertiesResponseExportPolicyPtrOutput) ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput {
-	return o
-}
-
-func (o VolumePropertiesResponseExportPolicyPtrOutput) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
-	return o
-}
-
-func (o VolumePropertiesResponseExportPolicyPtrOutput) Elem() VolumePropertiesResponseExportPolicyOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy { return *v }).(VolumePropertiesResponseExportPolicyOutput)
-}
-
-// Export policy rule
-func (o VolumePropertiesResponseExportPolicyPtrOutput) Rules() ExportPolicyRuleResponseArrayOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) []ExportPolicyRuleResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Rules
-	}).(ExportPolicyRuleResponseArrayOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(AccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryResponseOutput{})
-	pulumi.RegisterOutputType(ActiveDirectoryResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleResponseOutput{})
 	pulumi.RegisterOutputType(ExportPolicyRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesOutput{})
 	pulumi.RegisterOutputType(MountTargetPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(MountTargetPropertiesResponseArrayOutput{})
-	pulumi.RegisterOutputType(PoolPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SnapshotPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesExportPolicyOutput{})
-	pulumi.RegisterOutputType(VolumePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesResponseExportPolicyOutput{})
-	pulumi.RegisterOutputType(VolumePropertiesResponseExportPolicyPtrOutput{})
 }

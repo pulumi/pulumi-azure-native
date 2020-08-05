@@ -27,13 +27,18 @@ type LookupCertificateOrderCertificateArgs struct {
 
 // Class representing the Key Vault container for certificate purchased through Azure
 type LookupCertificateOrderCertificateResult struct {
+	// Key Vault Csm resource Id
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Key Vault secret name
+	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string                                       `pulumi:"name"`
-	Properties CertificateOrderCertificateResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Status of the Key Vault secret
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

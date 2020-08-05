@@ -31,12 +31,28 @@ type LookupVolumeArgs struct {
 
 // The volume.
 type LookupVolumeResult struct {
+	// The IDs of the access control records, associated with the volume.
+	AccessControlRecordIds []string `pulumi:"accessControlRecordIds"`
+	// The IDs of the backup policies, in which this volume is part of.
+	BackupPolicyIds []string `pulumi:"backupPolicyIds"`
+	// The backup status of the volume.
+	BackupStatus string `pulumi:"backupStatus"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
+	// The monitoring status of the volume.
+	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The name of the object.
 	Name string `pulumi:"name"`
-	// The properties of the volume.
-	Properties VolumePropertiesResponse `pulumi:"properties"`
+	// The operation status on the volume.
+	OperationStatus string `pulumi:"operationStatus"`
+	// The size of the volume in bytes.
+	SizeInBytes int `pulumi:"sizeInBytes"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+	// The ID of the volume container, in which this volume is created.
+	VolumeContainerId string `pulumi:"volumeContainerId"`
+	// The volume status.
+	VolumeStatus string `pulumi:"volumeStatus"`
+	// The type of the volume.
+	VolumeType string `pulumi:"volumeType"`
 }

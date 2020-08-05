@@ -27,14 +27,34 @@ type LookupLiveEventArgs struct {
 
 // The Live Event.
 type LookupLiveEventResult struct {
+	// The exact time the Live Event was created.
+	Created string `pulumi:"created"`
+	// The Live Event access policies.
+	CrossSiteAccessPolicies *CrossSiteAccessPoliciesResponse `pulumi:"crossSiteAccessPolicies"`
+	// The Live Event description.
+	Description *string `pulumi:"description"`
+	// The Live Event encoding.
+	Encoding *LiveEventEncodingResponse `pulumi:"encoding"`
+	// The Live Event input.
+	Input LiveEventInputResponse `pulumi:"input"`
+	// The exact time the Live Event was last modified.
+	LastModified string `pulumi:"lastModified"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The Live Event properties.
-	Properties LiveEventPropertiesResponse `pulumi:"properties"`
+	// The Live Event preview.
+	Preview *LiveEventPreviewResponse `pulumi:"preview"`
+	// The provisioning state of the Live Event.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The resource state of the Live Event.
+	ResourceState string `pulumi:"resourceState"`
+	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+	StreamOptions []string `pulumi:"streamOptions"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+	UseStaticHostname *bool `pulumi:"useStaticHostname"`
 }

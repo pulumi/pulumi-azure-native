@@ -14,12 +14,46 @@ import (
 type Profile struct {
 	pulumi.CustomResourceState
 
+	// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+	ApiEntitySetName pulumi.StringPtrOutput `pulumi:"apiEntitySetName"`
+	// The attributes for the Type.
+	Attributes pulumi.StringArrayMapOutput `pulumi:"attributes"`
+	// Localized descriptions for the property.
+	Description pulumi.StringMapOutput `pulumi:"description"`
+	// Localized display names for the property.
+	DisplayName pulumi.StringMapOutput `pulumi:"displayName"`
+	// Type of entity.
+	EntityType pulumi.StringPtrOutput `pulumi:"entityType"`
+	// The properties of the Profile.
+	Fields PropertyDefinitionResponseArrayOutput `pulumi:"fields"`
+	// The instance count.
+	InstancesCount pulumi.IntPtrOutput `pulumi:"instancesCount"`
+	// Large Image associated with the Property or EntityType.
+	LargeImage pulumi.StringPtrOutput `pulumi:"largeImage"`
+	// The last changed time for the type definition.
+	LastChangedUtc pulumi.StringOutput `pulumi:"lastChangedUtc"`
+	// Any custom localized attributes for the Type.
+	LocalizedAttributes pulumi.StringMapMapOutput `pulumi:"localizedAttributes"`
+	// Medium Image associated with the Property or EntityType.
+	MediumImage pulumi.StringPtrOutput `pulumi:"mediumImage"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The profile type definition.
-	Properties ProfileTypeDefinitionResponseOutput `pulumi:"properties"`
+	// Provisioning state.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The schema org link. This helps ACI identify and suggest semantic models.
+	SchemaItemTypeLink pulumi.StringPtrOutput `pulumi:"schemaItemTypeLink"`
+	// Small Image associated with the Property or EntityType.
+	SmallImage pulumi.StringPtrOutput `pulumi:"smallImage"`
+	// The strong IDs.
+	StrongIds StrongIdResponseArrayOutput `pulumi:"strongIds"`
+	// The hub name.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
+	// The timestamp property name. Represents the time when the interaction or profile update happened.
+	TimestampFieldName pulumi.StringPtrOutput `pulumi:"timestampFieldName"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The name of the entity.
+	TypeName pulumi.StringPtrOutput `pulumi:"typeName"`
 }
 
 // NewProfile registers a new resource with the given unique name, arguments, and options.
@@ -59,21 +93,89 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
+	// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+	ApiEntitySetName *string `pulumi:"apiEntitySetName"`
+	// The attributes for the Type.
+	Attributes map[string][]string `pulumi:"attributes"`
+	// Localized descriptions for the property.
+	Description map[string]string `pulumi:"description"`
+	// Localized display names for the property.
+	DisplayName map[string]string `pulumi:"displayName"`
+	// Type of entity.
+	EntityType *string `pulumi:"entityType"`
+	// The properties of the Profile.
+	Fields []PropertyDefinitionResponse `pulumi:"fields"`
+	// The instance count.
+	InstancesCount *int `pulumi:"instancesCount"`
+	// Large Image associated with the Property or EntityType.
+	LargeImage *string `pulumi:"largeImage"`
+	// The last changed time for the type definition.
+	LastChangedUtc *string `pulumi:"lastChangedUtc"`
+	// Any custom localized attributes for the Type.
+	LocalizedAttributes map[string]map[string]string `pulumi:"localizedAttributes"`
+	// Medium Image associated with the Property or EntityType.
+	MediumImage *string `pulumi:"mediumImage"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The profile type definition.
-	Properties *ProfileTypeDefinitionResponse `pulumi:"properties"`
+	// Provisioning state.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The schema org link. This helps ACI identify and suggest semantic models.
+	SchemaItemTypeLink *string `pulumi:"schemaItemTypeLink"`
+	// Small Image associated with the Property or EntityType.
+	SmallImage *string `pulumi:"smallImage"`
+	// The strong IDs.
+	StrongIds []StrongIdResponse `pulumi:"strongIds"`
+	// The hub name.
+	TenantId *string `pulumi:"tenantId"`
+	// The timestamp property name. Represents the time when the interaction or profile update happened.
+	TimestampFieldName *string `pulumi:"timestampFieldName"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The name of the entity.
+	TypeName *string `pulumi:"typeName"`
 }
 
 type ProfileState struct {
+	// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+	ApiEntitySetName pulumi.StringPtrInput
+	// The attributes for the Type.
+	Attributes pulumi.StringArrayMapInput
+	// Localized descriptions for the property.
+	Description pulumi.StringMapInput
+	// Localized display names for the property.
+	DisplayName pulumi.StringMapInput
+	// Type of entity.
+	EntityType pulumi.StringPtrInput
+	// The properties of the Profile.
+	Fields PropertyDefinitionResponseArrayInput
+	// The instance count.
+	InstancesCount pulumi.IntPtrInput
+	// Large Image associated with the Property or EntityType.
+	LargeImage pulumi.StringPtrInput
+	// The last changed time for the type definition.
+	LastChangedUtc pulumi.StringPtrInput
+	// Any custom localized attributes for the Type.
+	LocalizedAttributes pulumi.StringMapMapInput
+	// Medium Image associated with the Property or EntityType.
+	MediumImage pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The profile type definition.
-	Properties ProfileTypeDefinitionResponsePtrInput
+	// Provisioning state.
+	ProvisioningState pulumi.StringPtrInput
+	// The schema org link. This helps ACI identify and suggest semantic models.
+	SchemaItemTypeLink pulumi.StringPtrInput
+	// Small Image associated with the Property or EntityType.
+	SmallImage pulumi.StringPtrInput
+	// The strong IDs.
+	StrongIds StrongIdResponseArrayInput
+	// The hub name.
+	TenantId pulumi.StringPtrInput
+	// The timestamp property name. Represents the time when the interaction or profile update happened.
+	TimestampFieldName pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The name of the entity.
+	TypeName pulumi.StringPtrInput
 }
 
 func (ProfileState) ElementType() reflect.Type {

@@ -25,18 +25,36 @@ type LookupAzureFirewallArgs struct {
 
 // Azure Firewall resource.
 type LookupAzureFirewallResult struct {
+	// Collection of application rule collections used by Azure Firewall.
+	ApplicationRuleCollections []AzureFirewallApplicationRuleCollectionResponse `pulumi:"applicationRuleCollections"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// The firewallPolicy associated with this azure firewall.
+	FirewallPolicy *SubResourceResponse `pulumi:"firewallPolicy"`
+	// IP addresses associated with AzureFirewall.
+	HubIpAddresses HubIPAddressesResponse `pulumi:"hubIpAddresses"`
+	// IP configuration of the Azure Firewall resource.
+	IpConfigurations []AzureFirewallIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the azure firewall.
-	Properties AzureFirewallPropertiesFormatResponse `pulumi:"properties"`
+	// Collection of NAT rule collections used by Azure Firewall.
+	NatRuleCollections []AzureFirewallNatRuleCollectionResponse `pulumi:"natRuleCollections"`
+	// Collection of network rule collections used by Azure Firewall.
+	NetworkRuleCollections []AzureFirewallNetworkRuleCollectionResponse `pulumi:"networkRuleCollections"`
+	// The provisioning state of the Azure firewall resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The Azure Firewall Resource SKU.
+	Sku *AzureFirewallSkuResponse `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The virtualHub to which the firewall belongs.
+	VirtualHub *SubResourceResponse `pulumi:"virtualHub"`
 	// A list of availability zones denoting where the resource needs to come from.
 	Zones []string `pulumi:"zones"`
 }

@@ -14,16 +14,30 @@ import (
 type MachineExtension struct {
 	pulumi.CustomResourceState
 
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
+	// How the extension handler should be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
+	// The machine extension instance view.
+	InstanceView MachineExtensionPropertiesResponseInstanceViewPtrOutput `pulumi:"instanceView"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes Machine Extension Properties.
-	Properties MachineExtensionResponsePropertiesOutput `pulumi:"properties"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.MapOutput `pulumi:"protectedSettings"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher pulumi.StringPtrOutput `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings pulumi.MapOutput `pulumi:"settings"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringPtrOutput `pulumi:"typeHandlerVersion"`
 }
 
 // NewMachineExtension registers a new resource with the given unique name, arguments, and options.
@@ -63,29 +77,57 @@ func GetMachineExtension(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MachineExtension resources.
 type machineExtensionState struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// How the extension handler should be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// The machine extension instance view.
+	InstanceView *MachineExtensionPropertiesResponseInstanceView `pulumi:"instanceView"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Describes Machine Extension Properties.
-	Properties *MachineExtensionResponseProperties `pulumi:"properties"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The name of the extension handler publisher.
+	Publisher *string `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings map[string]interface{} `pulumi:"settings"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
 type MachineExtensionState struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput
+	// How the extension handler should be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag pulumi.StringPtrInput
+	// The machine extension instance view.
+	InstanceView MachineExtensionPropertiesResponseInstanceViewPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Describes Machine Extension Properties.
-	Properties MachineExtensionResponsePropertiesPtrInput
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.MapInput
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// The name of the extension handler publisher.
+	Publisher pulumi.StringPtrInput
+	// Json formatted public settings for the extension.
+	Settings pulumi.MapInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringPtrInput
 }
 
 func (MachineExtensionState) ElementType() reflect.Type {

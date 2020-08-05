@@ -27,10 +27,46 @@ type LookupKpiArgs struct {
 
 // The KPI resource format.
 type LookupKpiResult struct {
+	// The aliases.
+	Aliases []KpiAliasResponse `pulumi:"aliases"`
+	// The calculation window.
+	CalculationWindow string `pulumi:"calculationWindow"`
+	// Name of calculation window field.
+	CalculationWindowFieldName *string `pulumi:"calculationWindowFieldName"`
+	// Localized description for the KPI.
+	Description map[string]string `pulumi:"description"`
+	// Localized display name for the KPI.
+	DisplayName map[string]string `pulumi:"displayName"`
+	// The mapping entity type.
+	EntityType string `pulumi:"entityType"`
+	// The mapping entity name.
+	EntityTypeName string `pulumi:"entityTypeName"`
+	// The computation expression for the KPI.
+	Expression string `pulumi:"expression"`
+	// The KPI extracts.
+	Extracts []KpiExtractResponse `pulumi:"extracts"`
+	// The filter expression for the KPI.
+	Filter *string `pulumi:"filter"`
+	// The computation function for the KPI.
+	Function string `pulumi:"function"`
+	// the group by properties for the KPI.
+	GroupBy []string `pulumi:"groupBy"`
+	// The KPI GroupByMetadata.
+	GroupByMetadata []KpiGroupByMetadataResponse `pulumi:"groupByMetadata"`
+	// The KPI name.
+	KpiName string `pulumi:"kpiName"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Defines the KPI Threshold limits.
-	Properties KpiDefinitionResponse `pulumi:"properties"`
+	// The participant profiles.
+	ParticipantProfilesMetadata []KpiParticipantProfilesMetadataResponse `pulumi:"participantProfilesMetadata"`
+	// Provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The hub name.
+	TenantId string `pulumi:"tenantId"`
+	// The KPI thresholds.
+	ThresHolds *KpiThresholdsResponse `pulumi:"thresHolds"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The unit of measurement for the KPI.
+	Unit *string `pulumi:"unit"`
 }

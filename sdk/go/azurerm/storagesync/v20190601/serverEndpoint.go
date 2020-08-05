@@ -14,12 +14,42 @@ import (
 type ServerEndpoint struct {
 	pulumi.CustomResourceState
 
+	// Cloud Tiering.
+	CloudTiering pulumi.StringPtrOutput `pulumi:"cloudTiering"`
+	// Cloud tiering status. Only populated if cloud tiering is enabled.
+	CloudTieringStatus ServerEndpointCloudTieringStatusResponseOutput `pulumi:"cloudTieringStatus"`
+	// Friendly Name
+	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
+	// Resource Last Operation Name
+	LastOperationName pulumi.StringOutput `pulumi:"lastOperationName"`
+	// ServerEndpoint lastWorkflowId
+	LastWorkflowId pulumi.StringOutput `pulumi:"lastWorkflowId"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Server Endpoint properties.
-	Properties ServerEndpointPropertiesResponseOutput `pulumi:"properties"`
+	// Offline data transfer
+	OfflineDataTransfer pulumi.StringPtrOutput `pulumi:"offlineDataTransfer"`
+	// Offline data transfer share name
+	OfflineDataTransferShareName pulumi.StringPtrOutput `pulumi:"offlineDataTransferShareName"`
+	// Offline data transfer storage account resource ID
+	OfflineDataTransferStorageAccountResourceId pulumi.StringOutput `pulumi:"offlineDataTransferStorageAccountResourceId"`
+	// Offline data transfer storage account tenant ID
+	OfflineDataTransferStorageAccountTenantId pulumi.StringOutput `pulumi:"offlineDataTransferStorageAccountTenantId"`
+	// ServerEndpoint Provisioning State
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Recall status. Only populated if cloud tiering is enabled.
+	RecallStatus ServerEndpointRecallStatusResponseOutput `pulumi:"recallStatus"`
+	// Server Local path.
+	ServerLocalPath pulumi.StringPtrOutput `pulumi:"serverLocalPath"`
+	// Server Resource Id.
+	ServerResourceId pulumi.StringPtrOutput `pulumi:"serverResourceId"`
+	// Server Endpoint sync status
+	SyncStatus ServerEndpointSyncStatusResponseOutput `pulumi:"syncStatus"`
+	// Tier files older than days.
+	TierFilesOlderThanDays pulumi.IntPtrOutput `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	VolumeFreeSpacePercent pulumi.IntPtrOutput `pulumi:"volumeFreeSpacePercent"`
 }
 
 // NewServerEndpoint registers a new resource with the given unique name, arguments, and options.
@@ -62,21 +92,81 @@ func GetServerEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerEndpoint resources.
 type serverEndpointState struct {
+	// Cloud Tiering.
+	CloudTiering *string `pulumi:"cloudTiering"`
+	// Cloud tiering status. Only populated if cloud tiering is enabled.
+	CloudTieringStatus *ServerEndpointCloudTieringStatusResponse `pulumi:"cloudTieringStatus"`
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Resource Last Operation Name
+	LastOperationName *string `pulumi:"lastOperationName"`
+	// ServerEndpoint lastWorkflowId
+	LastWorkflowId *string `pulumi:"lastWorkflowId"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Server Endpoint properties.
-	Properties *ServerEndpointPropertiesResponse `pulumi:"properties"`
+	// Offline data transfer
+	OfflineDataTransfer *string `pulumi:"offlineDataTransfer"`
+	// Offline data transfer share name
+	OfflineDataTransferShareName *string `pulumi:"offlineDataTransferShareName"`
+	// Offline data transfer storage account resource ID
+	OfflineDataTransferStorageAccountResourceId *string `pulumi:"offlineDataTransferStorageAccountResourceId"`
+	// Offline data transfer storage account tenant ID
+	OfflineDataTransferStorageAccountTenantId *string `pulumi:"offlineDataTransferStorageAccountTenantId"`
+	// ServerEndpoint Provisioning State
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Recall status. Only populated if cloud tiering is enabled.
+	RecallStatus *ServerEndpointRecallStatusResponse `pulumi:"recallStatus"`
+	// Server Local path.
+	ServerLocalPath *string `pulumi:"serverLocalPath"`
+	// Server Resource Id.
+	ServerResourceId *string `pulumi:"serverResourceId"`
+	// Server Endpoint sync status
+	SyncStatus *ServerEndpointSyncStatusResponse `pulumi:"syncStatus"`
+	// Tier files older than days.
+	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
+	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
 }
 
 type ServerEndpointState struct {
+	// Cloud Tiering.
+	CloudTiering pulumi.StringPtrInput
+	// Cloud tiering status. Only populated if cloud tiering is enabled.
+	CloudTieringStatus ServerEndpointCloudTieringStatusResponsePtrInput
+	// Friendly Name
+	FriendlyName pulumi.StringPtrInput
+	// Resource Last Operation Name
+	LastOperationName pulumi.StringPtrInput
+	// ServerEndpoint lastWorkflowId
+	LastWorkflowId pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Server Endpoint properties.
-	Properties ServerEndpointPropertiesResponsePtrInput
+	// Offline data transfer
+	OfflineDataTransfer pulumi.StringPtrInput
+	// Offline data transfer share name
+	OfflineDataTransferShareName pulumi.StringPtrInput
+	// Offline data transfer storage account resource ID
+	OfflineDataTransferStorageAccountResourceId pulumi.StringPtrInput
+	// Offline data transfer storage account tenant ID
+	OfflineDataTransferStorageAccountTenantId pulumi.StringPtrInput
+	// ServerEndpoint Provisioning State
+	ProvisioningState pulumi.StringPtrInput
+	// Recall status. Only populated if cloud tiering is enabled.
+	RecallStatus ServerEndpointRecallStatusResponsePtrInput
+	// Server Local path.
+	ServerLocalPath pulumi.StringPtrInput
+	// Server Resource Id.
+	ServerResourceId pulumi.StringPtrInput
+	// Server Endpoint sync status
+	SyncStatus ServerEndpointSyncStatusResponsePtrInput
+	// Tier files older than days.
+	TierFilesOlderThanDays pulumi.IntPtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
+	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	VolumeFreeSpacePercent pulumi.IntPtrInput
 }
 
 func (ServerEndpointState) ElementType() reflect.Type {

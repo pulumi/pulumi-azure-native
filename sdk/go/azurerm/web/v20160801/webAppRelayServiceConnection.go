@@ -14,12 +14,17 @@ import (
 type WebAppRelayServiceConnection struct {
 	pulumi.CustomResourceState
 
+	BiztalkUri             pulumi.StringPtrOutput `pulumi:"biztalkUri"`
+	EntityConnectionString pulumi.StringPtrOutput `pulumi:"entityConnectionString"`
+	EntityName             pulumi.StringPtrOutput `pulumi:"entityName"`
+	Hostname               pulumi.StringPtrOutput `pulumi:"hostname"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// RelayServiceConnectionEntity resource specific properties
-	Properties RelayServiceConnectionEntityResponsePropertiesOutput `pulumi:"properties"`
+	Name                     pulumi.StringOutput    `pulumi:"name"`
+	Port                     pulumi.IntPtrOutput    `pulumi:"port"`
+	ResourceConnectionString pulumi.StringPtrOutput `pulumi:"resourceConnectionString"`
+	ResourceType             pulumi.StringPtrOutput `pulumi:"resourceType"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -58,23 +63,33 @@ func GetWebAppRelayServiceConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppRelayServiceConnection resources.
 type webAppRelayServiceConnectionState struct {
+	BiztalkUri             *string `pulumi:"biztalkUri"`
+	EntityConnectionString *string `pulumi:"entityConnectionString"`
+	EntityName             *string `pulumi:"entityName"`
+	Hostname               *string `pulumi:"hostname"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
-	Name *string `pulumi:"name"`
-	// RelayServiceConnectionEntity resource specific properties
-	Properties *RelayServiceConnectionEntityResponseProperties `pulumi:"properties"`
+	Name                     *string `pulumi:"name"`
+	Port                     *int    `pulumi:"port"`
+	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
+	ResourceType             *string `pulumi:"resourceType"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type WebAppRelayServiceConnectionState struct {
+	BiztalkUri             pulumi.StringPtrInput
+	EntityConnectionString pulumi.StringPtrInput
+	EntityName             pulumi.StringPtrInput
+	Hostname               pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Name.
-	Name pulumi.StringPtrInput
-	// RelayServiceConnectionEntity resource specific properties
-	Properties RelayServiceConnectionEntityResponsePropertiesPtrInput
+	Name                     pulumi.StringPtrInput
+	Port                     pulumi.IntPtrInput
+	ResourceConnectionString pulumi.StringPtrInput
+	ResourceType             pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

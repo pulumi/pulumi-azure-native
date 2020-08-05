@@ -31,10 +31,12 @@ type LookupBlobContainerImmutabilityPolicyArgs struct {
 type LookupBlobContainerImmutabilityPolicyResult struct {
 	// Resource Etag.
 	Etag string `pulumi:"etag"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays int `pulumi:"immutabilityPeriodSinceCreationInDays"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties ImmutabilityPolicyPropertyResponse `pulumi:"properties"`
+	// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+	State string `pulumi:"state"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

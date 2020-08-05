@@ -14,14 +14,18 @@ import (
 type BastionHost struct {
 	pulumi.CustomResourceState
 
+	// FQDN for the endpoint on which bastion host is accessible.
+	DnsName pulumi.StringPtrOutput `pulumi:"dnsName"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// IP configuration of the Bastion Host resource.
+	IpConfigurations BastionHostIPConfigurationResponseArrayOutput `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Represents the bastion host resource.
-	Properties BastionHostPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the bastion host resource.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -62,14 +66,18 @@ func GetBastionHost(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BastionHost resources.
 type bastionHostState struct {
+	// FQDN for the endpoint on which bastion host is accessible.
+	DnsName *string `pulumi:"dnsName"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// IP configuration of the Bastion Host resource.
+	IpConfigurations []BastionHostIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Represents the bastion host resource.
-	Properties *BastionHostPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the bastion host resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -77,14 +85,18 @@ type bastionHostState struct {
 }
 
 type BastionHostState struct {
+	// FQDN for the endpoint on which bastion host is accessible.
+	DnsName pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// IP configuration of the Bastion Host resource.
+	IpConfigurations BastionHostIPConfigurationResponseArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Represents the bastion host resource.
-	Properties BastionHostPropertiesFormatResponsePtrInput
+	// The provisioning state of the bastion host resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

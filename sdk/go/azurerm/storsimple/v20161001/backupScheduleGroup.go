@@ -16,8 +16,8 @@ type BackupScheduleGroup struct {
 
 	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of BackupScheduleGroup
-	Properties BackupScheduleGroupPropertiesResponseOutput `pulumi:"properties"`
+	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+	StartTime TimeResponseOutput `pulumi:"startTime"`
 	// The type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -67,8 +67,8 @@ func GetBackupScheduleGroup(ctx *pulumi.Context,
 type backupScheduleGroupState struct {
 	// The name.
 	Name *string `pulumi:"name"`
-	// Properties of BackupScheduleGroup
-	Properties *BackupScheduleGroupPropertiesResponse `pulumi:"properties"`
+	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+	StartTime *TimeResponse `pulumi:"startTime"`
 	// The type.
 	Type *string `pulumi:"type"`
 }
@@ -76,8 +76,8 @@ type backupScheduleGroupState struct {
 type BackupScheduleGroupState struct {
 	// The name.
 	Name pulumi.StringPtrInput
-	// Properties of BackupScheduleGroup
-	Properties BackupScheduleGroupPropertiesResponsePtrInput
+	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+	StartTime TimeResponsePtrInput
 	// The type.
 	Type pulumi.StringPtrInput
 }

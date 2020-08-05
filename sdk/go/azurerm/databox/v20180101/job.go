@@ -14,14 +14,28 @@ import (
 type Job struct {
 	pulumi.CustomResourceState
 
+	// Reason for cancellation.
+	CancellationReason pulumi.StringOutput `pulumi:"cancellationReason"`
+	// Details of a job run. This field will only be sent for expand details filter.
+	Details JobDetailsResponsePtrOutput `pulumi:"details"`
+	// Top level error for the job.
+	Error ErrorResponseOutput `pulumi:"error"`
+	// Describes whether the job is cancellable or not.
+	IsCancellable pulumi.BoolOutput `pulumi:"isCancellable"`
+	// Describes whether the job is deletable or not.
+	IsDeletable pulumi.BoolOutput `pulumi:"isDeletable"`
+	// Describes whether the shipping address is editable or not.
+	IsShippingAddressEditable pulumi.BoolOutput `pulumi:"isShippingAddressEditable"`
 	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Name of the object.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of a job.
-	Properties JobPropertiesResponseOutput `pulumi:"properties"`
 	// The sku type.
 	Sku SkuResponseOutput `pulumi:"sku"`
+	// Time at which the job was started in UTC ISO 8601 format.
+	StartTime pulumi.StringOutput `pulumi:"startTime"`
+	// Name of the stage which is in progress.
+	Status pulumi.StringOutput `pulumi:"status"`
 	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Type of the object.
@@ -68,14 +82,28 @@ func GetJob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Job resources.
 type jobState struct {
+	// Reason for cancellation.
+	CancellationReason *string `pulumi:"cancellationReason"`
+	// Details of a job run. This field will only be sent for expand details filter.
+	Details *JobDetailsResponse `pulumi:"details"`
+	// Top level error for the job.
+	Error *ErrorResponse `pulumi:"error"`
+	// Describes whether the job is cancellable or not.
+	IsCancellable *bool `pulumi:"isCancellable"`
+	// Describes whether the job is deletable or not.
+	IsDeletable *bool `pulumi:"isDeletable"`
+	// Describes whether the shipping address is editable or not.
+	IsShippingAddressEditable *bool `pulumi:"isShippingAddressEditable"`
 	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
 	Location *string `pulumi:"location"`
 	// Name of the object.
 	Name *string `pulumi:"name"`
-	// Properties of a job.
-	Properties *JobPropertiesResponse `pulumi:"properties"`
 	// The sku type.
 	Sku *SkuResponse `pulumi:"sku"`
+	// Time at which the job was started in UTC ISO 8601 format.
+	StartTime *string `pulumi:"startTime"`
+	// Name of the stage which is in progress.
+	Status *string `pulumi:"status"`
 	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the object.
@@ -83,14 +111,28 @@ type jobState struct {
 }
 
 type JobState struct {
+	// Reason for cancellation.
+	CancellationReason pulumi.StringPtrInput
+	// Details of a job run. This field will only be sent for expand details filter.
+	Details JobDetailsResponsePtrInput
+	// Top level error for the job.
+	Error ErrorResponsePtrInput
+	// Describes whether the job is cancellable or not.
+	IsCancellable pulumi.BoolPtrInput
+	// Describes whether the job is deletable or not.
+	IsDeletable pulumi.BoolPtrInput
+	// Describes whether the shipping address is editable or not.
+	IsShippingAddressEditable pulumi.BoolPtrInput
 	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
 	Location pulumi.StringPtrInput
 	// Name of the object.
 	Name pulumi.StringPtrInput
-	// Properties of a job.
-	Properties JobPropertiesResponsePtrInput
 	// The sku type.
 	Sku SkuResponsePtrInput
+	// Time at which the job was started in UTC ISO 8601 format.
+	StartTime pulumi.StringPtrInput
+	// Name of the stage which is in progress.
+	Status pulumi.StringPtrInput
 	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
 	Tags pulumi.StringMapInput
 	// Type of the object.

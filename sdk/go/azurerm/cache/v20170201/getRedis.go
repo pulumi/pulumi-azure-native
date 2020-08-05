@@ -25,14 +25,40 @@ type LookupRedisArgs struct {
 
 // A single Redis item in List or Get Operation.
 type LookupRedisResult struct {
+	// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
+	AccessKeys RedisAccessKeysResponse `pulumi:"accessKeys"`
+	// Specifies whether the non-ssl Redis server port (6379) is enabled.
+	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
+	// Redis host name.
+	HostName string `pulumi:"hostName"`
+	// List of the linked servers associated with the cache
+	LinkedServers RedisLinkedServerListResponse `pulumi:"linkedServers"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Redis cache properties.
-	Properties RedisResourcePropertiesResponse `pulumi:"properties"`
+	// Redis non-SSL port.
+	Port int `pulumi:"port"`
+	// Redis instance provisioning status.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
+	// Redis version.
+	RedisVersion string `pulumi:"redisVersion"`
+	// The number of shards to be created on a Premium Cluster Cache.
+	ShardCount *int `pulumi:"shardCount"`
+	// The SKU of the Redis cache to deploy.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Redis SSL port.
+	SslPort int `pulumi:"sslPort"`
+	// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+	StaticIP *string `pulumi:"staticIP"`
+	// The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+	SubnetId *string `pulumi:"subnetId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// tenantSettings
+	TenantSettings map[string]string `pulumi:"tenantSettings"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

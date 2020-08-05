@@ -16,8 +16,8 @@ type ChapSetting struct {
 
 	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Chap properties
-	Properties ChapPropertiesResponseOutput `pulumi:"properties"`
+	// The chap password.
+	Password AsymmetricEncryptedSecretResponseOutput `pulumi:"password"`
 	// The type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -67,8 +67,8 @@ func GetChapSetting(ctx *pulumi.Context,
 type chapSettingState struct {
 	// The name.
 	Name *string `pulumi:"name"`
-	// Chap properties
-	Properties *ChapPropertiesResponse `pulumi:"properties"`
+	// The chap password.
+	Password *AsymmetricEncryptedSecretResponse `pulumi:"password"`
 	// The type.
 	Type *string `pulumi:"type"`
 }
@@ -76,8 +76,8 @@ type chapSettingState struct {
 type ChapSettingState struct {
 	// The name.
 	Name pulumi.StringPtrInput
-	// Chap properties
-	Properties ChapPropertiesResponsePtrInput
+	// The chap password.
+	Password AsymmetricEncryptedSecretResponsePtrInput
 	// The type.
 	Type pulumi.StringPtrInput
 }

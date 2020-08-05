@@ -31,8 +31,12 @@ type LookupRouteFilterResult struct {
 	Location string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Route Filter Resource
-	Properties RouteFilterPropertiesFormatResponse `pulumi:"properties"`
+	// A collection of references to express route circuit peerings.
+	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Collection of RouteFilterRules contained within a route filter.
+	Rules []RouteFilterRuleResponse `pulumi:"rules"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

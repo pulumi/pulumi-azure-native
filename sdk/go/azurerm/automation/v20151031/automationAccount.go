@@ -14,14 +14,24 @@ import (
 type AutomationAccount struct {
 	pulumi.CustomResourceState
 
+	// Gets the creation time.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Gets or sets the etag of the resource.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// Gets or sets the last modified by.
+	LastModifiedBy pulumi.StringPtrOutput `pulumi:"lastModifiedBy"`
+	// Gets the last modified time.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the automation account properties.
-	Properties AutomationAccountPropertiesResponseOutput `pulumi:"properties"`
+	// Gets or sets the SKU of account.
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
+	// Gets status of account.
+	State pulumi.StringOutput `pulumi:"state"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -62,14 +72,24 @@ func GetAutomationAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AutomationAccount resources.
 type automationAccountState struct {
+	// Gets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
+	// Gets or sets the last modified by.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// Gets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Gets or sets the automation account properties.
-	Properties *AutomationAccountPropertiesResponse `pulumi:"properties"`
+	// Gets or sets the SKU of account.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Gets status of account.
+	State *string `pulumi:"state"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -77,14 +97,24 @@ type automationAccountState struct {
 }
 
 type AutomationAccountState struct {
+	// Gets the creation time.
+	CreationTime pulumi.StringPtrInput
+	// Gets or sets the description.
+	Description pulumi.StringPtrInput
 	// Gets or sets the etag of the resource.
 	Etag pulumi.StringPtrInput
+	// Gets or sets the last modified by.
+	LastModifiedBy pulumi.StringPtrInput
+	// Gets the last modified time.
+	LastModifiedTime pulumi.StringPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Gets or sets the automation account properties.
-	Properties AutomationAccountPropertiesResponsePtrInput
+	// Gets or sets the SKU of account.
+	Sku SkuResponsePtrInput
+	// Gets status of account.
+	State pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource.

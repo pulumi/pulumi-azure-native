@@ -29,8 +29,16 @@ type ListWebAppPublishingCredentialsResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// User resource specific properties
-	Properties UserResponseProperties `pulumi:"properties"`
+	// Password used for publishing.
+	PublishingPassword *string `pulumi:"publishingPassword"`
+	// Password hash used for publishing.
+	PublishingPasswordHash *string `pulumi:"publishingPasswordHash"`
+	// Password hash salt used for publishing.
+	PublishingPasswordHashSalt *string `pulumi:"publishingPasswordHashSalt"`
+	// Username used for publishing.
+	PublishingUserName string `pulumi:"publishingUserName"`
+	// Url of SCM site.
+	ScmUri *string `pulumi:"scmUri"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

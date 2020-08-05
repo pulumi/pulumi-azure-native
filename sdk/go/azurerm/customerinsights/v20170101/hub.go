@@ -14,16 +14,24 @@ import (
 type Hub struct {
 	pulumi.CustomResourceState
 
+	// API endpoint URL of the hub.
+	ApiEndpoint pulumi.StringOutput `pulumi:"apiEndpoint"`
+	// Billing settings of the hub.
+	HubBillingInfo HubBillingInfoFormatResponsePtrOutput `pulumi:"hubBillingInfo"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of hub.
-	Properties HubPropertiesFormatResponseOutput `pulumi:"properties"`
+	// Provisioning state of the hub.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+	TenantFeatures pulumi.IntPtrOutput `pulumi:"tenantFeatures"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Web endpoint URL of the hub.
+	WebEndpoint pulumi.StringOutput `pulumi:"webEndpoint"`
 }
 
 // NewHub registers a new resource with the given unique name, arguments, and options.
@@ -60,29 +68,45 @@ func GetHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Hub resources.
 type hubState struct {
+	// API endpoint URL of the hub.
+	ApiEndpoint *string `pulumi:"apiEndpoint"`
+	// Billing settings of the hub.
+	HubBillingInfo *HubBillingInfoFormatResponse `pulumi:"hubBillingInfo"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of hub.
-	Properties *HubPropertiesFormatResponse `pulumi:"properties"`
+	// Provisioning state of the hub.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+	TenantFeatures *int `pulumi:"tenantFeatures"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// Web endpoint URL of the hub.
+	WebEndpoint *string `pulumi:"webEndpoint"`
 }
 
 type HubState struct {
+	// API endpoint URL of the hub.
+	ApiEndpoint pulumi.StringPtrInput
+	// Billing settings of the hub.
+	HubBillingInfo HubBillingInfoFormatResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of hub.
-	Properties HubPropertiesFormatResponsePtrInput
+	// Provisioning state of the hub.
+	ProvisioningState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+	TenantFeatures pulumi.IntPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// Web endpoint URL of the hub.
+	WebEndpoint pulumi.StringPtrInput
 }
 
 func (HubState) ElementType() reflect.Type {

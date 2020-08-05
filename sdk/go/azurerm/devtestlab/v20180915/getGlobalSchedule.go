@@ -25,14 +25,34 @@ type LookupGlobalScheduleArgs struct {
 
 // A schedule.
 type LookupGlobalScheduleResult struct {
+	// The creation date of the schedule.
+	CreatedDate string `pulumi:"createdDate"`
+	// If the schedule will occur once each day of the week, specify the daily recurrence.
+	DailyRecurrence *DayDetailsResponse `pulumi:"dailyRecurrence"`
+	// If the schedule will occur multiple times a day, specify the hourly recurrence.
+	HourlyRecurrence *HourDetailsResponse `pulumi:"hourlyRecurrence"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties SchedulePropertiesResponse `pulumi:"properties"`
+	// Notification settings.
+	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
+	// The provisioning status of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The status of the schedule (i.e. Enabled, Disabled)
+	Status *string `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The resource ID to which the schedule belongs
+	TargetResourceId *string `pulumi:"targetResourceId"`
+	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+	TaskType *string `pulumi:"taskType"`
+	// The time zone ID (e.g. Pacific Standard time).
+	TimeZoneId *string `pulumi:"timeZoneId"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
+	// If the schedule will occur only some days of the week, specify the weekly recurrence.
+	WeeklyRecurrence *WeekDetailsResponse `pulumi:"weeklyRecurrence"`
 }

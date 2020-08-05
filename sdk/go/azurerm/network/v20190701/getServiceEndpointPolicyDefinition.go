@@ -27,10 +27,16 @@ type LookupServiceEndpointPolicyDefinitionArgs struct {
 
 // Service Endpoint policy definitions.
 type LookupServiceEndpointPolicyDefinitionResult struct {
+	// A description for this rule. Restricted to 140 chars.
+	Description *string `pulumi:"description"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the service endpoint policy definition.
-	Properties ServiceEndpointPolicyDefinitionPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the service endpoint policy definition resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Service endpoint name.
+	Service *string `pulumi:"service"`
+	// A list of service resources.
+	ServiceResources []string `pulumi:"serviceResources"`
 }

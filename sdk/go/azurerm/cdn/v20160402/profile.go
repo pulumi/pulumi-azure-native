@@ -17,8 +17,11 @@ type Profile struct {
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
-	Name       pulumi.StringOutput             `pulumi:"name"`
-	Properties ProfilePropertiesResponseOutput `pulumi:"properties"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Provisioning status of the profile.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// Resource status of the profile.
+	ResourceState pulumi.StringOutput `pulumi:"resourceState"`
 	// The SKU (pricing tier) of the CDN profile.
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags
@@ -70,8 +73,11 @@ type profileState struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
-	Name       *string                    `pulumi:"name"`
-	Properties *ProfilePropertiesResponse `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Provisioning status of the profile.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource status of the profile.
+	ResourceState *string `pulumi:"resourceState"`
 	// The SKU (pricing tier) of the CDN profile.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource tags
@@ -84,8 +90,11 @@ type ProfileState struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Resource name
-	Name       pulumi.StringPtrInput
-	Properties ProfilePropertiesResponsePtrInput
+	Name pulumi.StringPtrInput
+	// Provisioning status of the profile.
+	ProvisioningState pulumi.StringPtrInput
+	// Resource status of the profile.
+	ResourceState pulumi.StringPtrInput
 	// The SKU (pricing tier) of the CDN profile.
 	Sku SkuResponsePtrInput
 	// Resource tags

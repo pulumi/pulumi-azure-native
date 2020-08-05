@@ -14,14 +14,28 @@ import (
 type PublicIPAddress struct {
 	pulumi.CustomResourceState
 
+	// The FQDN of the DNS record associated with the public IP address.
+	DnsSettings PublicIPAddressDnsSettingsResponsePtrOutput `pulumi:"dnsSettings"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// The idle timeout of the public IP address.
+	IdleTimeoutInMinutes pulumi.IntPtrOutput `pulumi:"idleTimeoutInMinutes"`
+	// The IP address associated with the public IP address resource.
+	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
+	// The IP configuration associated with the public IP address.
+	IpConfiguration IPConfigurationResponseOutput `pulumi:"ipConfiguration"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Public IP address properties.
-	Properties PublicIPAddressPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+	PublicIPAddressVersion pulumi.StringPtrOutput `pulumi:"publicIPAddressVersion"`
+	// The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+	PublicIPAllocationMethod pulumi.StringPtrOutput `pulumi:"publicIPAllocationMethod"`
+	// The resource GUID property of the public IP resource.
+	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
 	// The public IP address SKU.
 	Sku PublicIPAddressSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
@@ -66,14 +80,28 @@ func GetPublicIPAddress(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PublicIPAddress resources.
 type publicIPAddressState struct {
+	// The FQDN of the DNS record associated with the public IP address.
+	DnsSettings *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The idle timeout of the public IP address.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
+	// The IP address associated with the public IP address resource.
+	IpAddress *string `pulumi:"ipAddress"`
+	// The IP configuration associated with the public IP address.
+	IpConfiguration *IPConfigurationResponse `pulumi:"ipConfiguration"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Public IP address properties.
-	Properties *PublicIPAddressPropertiesFormatResponse `pulumi:"properties"`
+	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
+	// The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+	PublicIPAllocationMethod *string `pulumi:"publicIPAllocationMethod"`
+	// The resource GUID property of the public IP resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The public IP address SKU.
 	Sku *PublicIPAddressSkuResponse `pulumi:"sku"`
 	// Resource tags.
@@ -85,14 +113,28 @@ type publicIPAddressState struct {
 }
 
 type PublicIPAddressState struct {
+	// The FQDN of the DNS record associated with the public IP address.
+	DnsSettings PublicIPAddressDnsSettingsResponsePtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The idle timeout of the public IP address.
+	IdleTimeoutInMinutes pulumi.IntPtrInput
+	// The IP address associated with the public IP address resource.
+	IpAddress pulumi.StringPtrInput
+	// The IP configuration associated with the public IP address.
+	IpConfiguration IPConfigurationResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Public IP address properties.
-	Properties PublicIPAddressPropertiesFormatResponsePtrInput
+	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+	PublicIPAddressVersion pulumi.StringPtrInput
+	// The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+	PublicIPAllocationMethod pulumi.StringPtrInput
+	// The resource GUID property of the public IP resource.
+	ResourceGuid pulumi.StringPtrInput
 	// The public IP address SKU.
 	Sku PublicIPAddressSkuResponsePtrInput
 	// Resource tags.

@@ -18,10 +18,12 @@ type BandwidthSetting struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The name of the object.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the bandwidth setting.
-	Properties BandwidthRateSettingPropertiesResponseOutput `pulumi:"properties"`
+	// The schedules.
+	Schedules BandwidthScheduleResponseArrayOutput `pulumi:"schedules"`
 	// The hierarchical type of the object.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The number of volumes that uses the bandwidth setting.
+	VolumeCount pulumi.IntOutput `pulumi:"volumeCount"`
 }
 
 // NewBandwidthSetting registers a new resource with the given unique name, arguments, and options.
@@ -68,10 +70,12 @@ type bandwidthSettingState struct {
 	Kind *string `pulumi:"kind"`
 	// The name of the object.
 	Name *string `pulumi:"name"`
-	// The properties of the bandwidth setting.
-	Properties *BandwidthRateSettingPropertiesResponse `pulumi:"properties"`
+	// The schedules.
+	Schedules []BandwidthScheduleResponse `pulumi:"schedules"`
 	// The hierarchical type of the object.
 	Type *string `pulumi:"type"`
+	// The number of volumes that uses the bandwidth setting.
+	VolumeCount *int `pulumi:"volumeCount"`
 }
 
 type BandwidthSettingState struct {
@@ -79,10 +83,12 @@ type BandwidthSettingState struct {
 	Kind pulumi.StringPtrInput
 	// The name of the object.
 	Name pulumi.StringPtrInput
-	// The properties of the bandwidth setting.
-	Properties BandwidthRateSettingPropertiesResponsePtrInput
+	// The schedules.
+	Schedules BandwidthScheduleResponseArrayInput
 	// The hierarchical type of the object.
 	Type pulumi.StringPtrInput
+	// The number of volumes that uses the bandwidth setting.
+	VolumeCount pulumi.IntPtrInput
 }
 
 func (BandwidthSettingState) ElementType() reflect.Type {

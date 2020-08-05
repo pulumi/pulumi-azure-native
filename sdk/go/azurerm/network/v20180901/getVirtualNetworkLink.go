@@ -33,10 +33,16 @@ type LookupVirtualNetworkLinkResult struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Properties of the virtual network link to the Private DNS zone.
-	Properties VirtualNetworkLinkPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+	RegistrationEnabled *bool `pulumi:"registrationEnabled"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
 	Type string `pulumi:"type"`
+	// The reference of the virtual network.
+	VirtualNetwork *SubResourceResponse `pulumi:"virtualNetwork"`
+	// The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
+	VirtualNetworkLinkState string `pulumi:"virtualNetworkLinkState"`
 }

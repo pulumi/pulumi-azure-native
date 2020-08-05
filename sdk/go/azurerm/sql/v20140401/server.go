@@ -14,18 +14,30 @@ import (
 type Server struct {
 	pulumi.CustomResourceState
 
+	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin pulumi.StringPtrOutput `pulumi:"administratorLogin"`
+	// The administrator login password (required for server creation).
+	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
+	// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
+	ExternalAdministratorLogin pulumi.StringOutput `pulumi:"externalAdministratorLogin"`
+	// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
+	ExternalAdministratorSid pulumi.StringOutput `pulumi:"externalAdministratorSid"`
+	// The fully qualified domain name of the server.
+	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// Kind of sql server.  This is metadata used for the Azure portal experience.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Represents the properties of the resource.
-	Properties ServerPropertiesResponseOutput `pulumi:"properties"`
+	// The state of the server.
+	State pulumi.StringOutput `pulumi:"state"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The version of the server.
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -65,33 +77,57 @@ func GetServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Server resources.
 type serverState struct {
+	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin *string `pulumi:"administratorLogin"`
+	// The administrator login password (required for server creation).
+	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
+	// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
+	ExternalAdministratorLogin *string `pulumi:"externalAdministratorLogin"`
+	// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
+	ExternalAdministratorSid *string `pulumi:"externalAdministratorSid"`
+	// The fully qualified domain name of the server.
+	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// Kind of sql server.  This is metadata used for the Azure portal experience.
 	Kind *string `pulumi:"kind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Represents the properties of the resource.
-	Properties *ServerPropertiesResponse `pulumi:"properties"`
+	// The state of the server.
+	State *string `pulumi:"state"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type *string `pulumi:"type"`
+	// The version of the server.
+	Version *string `pulumi:"version"`
 }
 
 type ServerState struct {
+	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin pulumi.StringPtrInput
+	// The administrator login password (required for server creation).
+	AdministratorLoginPassword pulumi.StringPtrInput
+	// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
+	ExternalAdministratorLogin pulumi.StringPtrInput
+	// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
+	ExternalAdministratorSid pulumi.StringPtrInput
+	// The fully qualified domain name of the server.
+	FullyQualifiedDomainName pulumi.StringPtrInput
 	// Kind of sql server.  This is metadata used for the Azure portal experience.
 	Kind pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Represents the properties of the resource.
-	Properties ServerPropertiesResponsePtrInput
+	// The state of the server.
+	State pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.
 	Type pulumi.StringPtrInput
+	// The version of the server.
+	Version pulumi.StringPtrInput
 }
 
 func (ServerState) ElementType() reflect.Type {

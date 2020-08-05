@@ -14,12 +14,24 @@ import (
 type BudgetByResourceGroupName struct {
 	pulumi.CustomResourceState
 
+	// The total amount of cost to track with the budget
+	Amount pulumi.Float64Output `pulumi:"amount"`
+	// The category of the budget, whether the budget tracks cost or usage.
+	Category pulumi.StringOutput `pulumi:"category"`
+	// The current amount of cost which is being tracked for a budget.
+	CurrentSpend CurrentSpendResponseOutput `pulumi:"currentSpend"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrOutput `pulumi:"eTag"`
+	// May be used to filter budgets by resource group, resource, or meter.
+	Filters FiltersResponsePtrOutput `pulumi:"filters"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the budget.
-	Properties BudgetPropertiesResponseOutput `pulumi:"properties"`
+	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+	Notifications NotificationResponseMapOutput `pulumi:"notifications"`
+	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+	TimeGrain pulumi.StringOutput `pulumi:"timeGrain"`
+	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+	TimePeriod BudgetTimePeriodResponseOutput `pulumi:"timePeriod"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -70,23 +82,47 @@ func GetBudgetByResourceGroupName(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BudgetByResourceGroupName resources.
 type budgetByResourceGroupNameState struct {
+	// The total amount of cost to track with the budget
+	Amount *float64 `pulumi:"amount"`
+	// The category of the budget, whether the budget tracks cost or usage.
+	Category *string `pulumi:"category"`
+	// The current amount of cost which is being tracked for a budget.
+	CurrentSpend *CurrentSpendResponse `pulumi:"currentSpend"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
+	// May be used to filter budgets by resource group, resource, or meter.
+	Filters *FiltersResponse `pulumi:"filters"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of the budget.
-	Properties *BudgetPropertiesResponse `pulumi:"properties"`
+	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+	Notifications map[string]NotificationResponse `pulumi:"notifications"`
+	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+	TimeGrain *string `pulumi:"timeGrain"`
+	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+	TimePeriod *BudgetTimePeriodResponse `pulumi:"timePeriod"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
 
 type BudgetByResourceGroupNameState struct {
+	// The total amount of cost to track with the budget
+	Amount pulumi.Float64PtrInput
+	// The category of the budget, whether the budget tracks cost or usage.
+	Category pulumi.StringPtrInput
+	// The current amount of cost which is being tracked for a budget.
+	CurrentSpend CurrentSpendResponsePtrInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
+	// May be used to filter budgets by resource group, resource, or meter.
+	Filters FiltersResponsePtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of the budget.
-	Properties BudgetPropertiesResponsePtrInput
+	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+	Notifications NotificationResponseMapInput
+	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+	TimeGrain pulumi.StringPtrInput
+	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+	TimePeriod BudgetTimePeriodResponsePtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

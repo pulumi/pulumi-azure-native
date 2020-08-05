@@ -33,8 +33,8 @@ type LookupApplicationTypeResult struct {
 	Location *string `pulumi:"location"`
 	// Azure resource name.
 	Name string `pulumi:"name"`
-	// The application type name properties
-	Properties ApplicationTypeResourcePropertiesResponse `pulumi:"properties"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type.

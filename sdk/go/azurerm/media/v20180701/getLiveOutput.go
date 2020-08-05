@@ -29,10 +29,28 @@ type LookupLiveOutputArgs struct {
 
 // The Live Output.
 type LookupLiveOutputResult struct {
+	// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+	ArchiveWindowLength string `pulumi:"archiveWindowLength"`
+	// The asset name.
+	AssetName string `pulumi:"assetName"`
+	// The exact time the Live Output was created.
+	Created string `pulumi:"created"`
+	// The description of the Live Output.
+	Description *string `pulumi:"description"`
+	// The HLS configuration.
+	Hls *HlsResponse `pulumi:"hls"`
+	// The exact time the Live Output was last modified.
+	LastModified string `pulumi:"lastModified"`
+	// The manifest file name.  If not provided, the service will generate one automatically.
+	ManifestName *string `pulumi:"manifestName"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The Live Output properties.
-	Properties LiveOutputPropertiesResponse `pulumi:"properties"`
+	// The output snapshot time.
+	OutputSnapTime *int `pulumi:"outputSnapTime"`
+	// The provisioning state of the Live Output.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The resource state of the Live Output.
+	ResourceState string `pulumi:"resourceState"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

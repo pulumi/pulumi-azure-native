@@ -25,10 +25,18 @@ type LookupRoleDefinitionArgs struct {
 
 // Role definition.
 type LookupRoleDefinitionResult struct {
+	// Role definition assignable scopes.
+	AssignableScopes []string `pulumi:"assignableScopes"`
+	// The role definition description.
+	Description *string `pulumi:"description"`
 	// The role definition name.
 	Name string `pulumi:"name"`
-	// Role definition properties.
-	Properties RoleDefinitionPropertiesResponse `pulumi:"properties"`
+	// Role definition permissions.
+	Permissions []PermissionResponse `pulumi:"permissions"`
+	// The role name.
+	RoleName *string `pulumi:"roleName"`
+	// The role type.
+	RoleType *string `pulumi:"roleType"`
 	// The role definition type.
 	Type string `pulumi:"type"`
 }

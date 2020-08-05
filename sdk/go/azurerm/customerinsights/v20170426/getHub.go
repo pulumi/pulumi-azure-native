@@ -25,14 +25,22 @@ type LookupHubArgs struct {
 
 // Hub resource.
 type LookupHubResult struct {
+	// API endpoint URL of the hub.
+	ApiEndpoint string `pulumi:"apiEndpoint"`
+	// Billing settings of the hub.
+	HubBillingInfo *HubBillingInfoFormatResponse `pulumi:"hubBillingInfo"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of hub.
-	Properties HubPropertiesFormatResponse `pulumi:"properties"`
+	// Provisioning state of the hub.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+	TenantFeatures *int `pulumi:"tenantFeatures"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// Web endpoint URL of the hub.
+	WebEndpoint string `pulumi:"webEndpoint"`
 }

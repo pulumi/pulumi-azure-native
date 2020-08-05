@@ -14,12 +14,18 @@ import (
 type AlertRule struct {
 	pulumi.CustomResourceState
 
+	// the condition that results in the alert rule being activated.
+	Condition RuleConditionResponseOutput `pulumi:"condition"`
+	// the description of the alert rule that will be included in the alert email.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// the flag that indicates whether the alert rule is enabled.
+	IsEnabled pulumi.BoolOutput `pulumi:"isEnabled"`
+	// Last time the rule was updated in ISO8601 format.
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The alert rule properties of the resource.
-	Properties AlertRuleResponseOutput `pulumi:"properties"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Azure resource type
@@ -69,12 +75,18 @@ func GetAlertRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertRule resources.
 type alertRuleState struct {
+	// the condition that results in the alert rule being activated.
+	Condition *RuleConditionResponse `pulumi:"condition"`
+	// the description of the alert rule that will be included in the alert email.
+	Description *string `pulumi:"description"`
+	// the flag that indicates whether the alert rule is enabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Last time the rule was updated in ISO8601 format.
+	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
-	// The alert rule properties of the resource.
-	Properties *AlertRuleResponse `pulumi:"properties"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Azure resource type
@@ -82,12 +94,18 @@ type alertRuleState struct {
 }
 
 type AlertRuleState struct {
+	// the condition that results in the alert rule being activated.
+	Condition RuleConditionResponsePtrInput
+	// the description of the alert rule that will be included in the alert email.
+	Description pulumi.StringPtrInput
+	// the flag that indicates whether the alert rule is enabled.
+	IsEnabled pulumi.BoolPtrInput
+	// Last time the rule was updated in ISO8601 format.
+	LastUpdatedTime pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
-	// The alert rule properties of the resource.
-	Properties AlertRuleResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Azure resource type

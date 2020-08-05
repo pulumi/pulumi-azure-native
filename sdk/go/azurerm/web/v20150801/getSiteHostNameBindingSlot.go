@@ -27,13 +27,24 @@ type LookupSiteHostNameBindingSlotArgs struct {
 
 // A host name binding object
 type LookupSiteHostNameBindingSlotResult struct {
+	// Azure resource name
+	AzureResourceName *string `pulumi:"azureResourceName"`
+	// Azure resource type
+	AzureResourceType *string `pulumi:"azureResourceType"`
+	// Custom DNS record type
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
+	// Fully qualified ARM domain resource URI
+	DomainId *string `pulumi:"domainId"`
+	// Host name type
+	HostNameType *string `pulumi:"hostNameType"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string                           `pulumi:"name"`
-	Properties HostNameBindingResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Web app name
+	SiteName *string `pulumi:"siteName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

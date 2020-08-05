@@ -14,10 +14,12 @@ import (
 type Database struct {
 	pulumi.CustomResourceState
 
+	// The charset of the database.
+	Charset pulumi.StringPtrOutput `pulumi:"charset"`
+	// The collation of the database.
+	Collation pulumi.StringPtrOutput `pulumi:"collation"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a database.
-	Properties DatabasePropertiesResponseOutput `pulumi:"properties"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -59,19 +61,23 @@ func GetDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Database resources.
 type databaseState struct {
+	// The charset of the database.
+	Charset *string `pulumi:"charset"`
+	// The collation of the database.
+	Collation *string `pulumi:"collation"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// The properties of a database.
-	Properties *DatabasePropertiesResponse `pulumi:"properties"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type DatabaseState struct {
+	// The charset of the database.
+	Charset pulumi.StringPtrInput
+	// The collation of the database.
+	Collation pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// The properties of a database.
-	Properties DatabasePropertiesResponsePtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

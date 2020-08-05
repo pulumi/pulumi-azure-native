@@ -14,13 +14,44 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
+	// If true then domain will renewed automatically
+	AutoRenew pulumi.BoolPtrOutput `pulumi:"autoRenew"`
+	// Legal agreement consent
+	Consent DomainPurchaseConsentResponsePtrOutput `pulumi:"consent"`
+	// Admin contact information
+	ContactAdmin ContactResponsePtrOutput `pulumi:"contactAdmin"`
+	// Billing contact information
+	ContactBilling ContactResponsePtrOutput `pulumi:"contactBilling"`
+	// Registrant contact information
+	ContactRegistrant ContactResponsePtrOutput `pulumi:"contactRegistrant"`
+	// Technical contact information
+	ContactTech ContactResponsePtrOutput `pulumi:"contactTech"`
+	// Domain creation timestamp
+	CreatedTime pulumi.StringPtrOutput `pulumi:"createdTime"`
+	// Reasons why domain is not renewable
+	DomainNotRenewableReasons pulumi.StringArrayOutput `pulumi:"domainNotRenewableReasons"`
+	// Domain expiration timestamp
+	ExpirationTime pulumi.StringPtrOutput `pulumi:"expirationTime"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
+	// Timestamp when the domain was renewed last time
+	LastRenewedTime pulumi.StringPtrOutput `pulumi:"lastRenewedTime"`
 	// Resource Location
 	Location pulumi.StringOutput `pulumi:"location"`
+	// All hostnames derived from the domain and assigned to Azure resources
+	ManagedHostNames HostNameResponseArrayOutput `pulumi:"managedHostNames"`
 	// Resource Name
-	Name       pulumi.StringPtrOutput         `pulumi:"name"`
-	Properties DomainResponsePropertiesOutput `pulumi:"properties"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Name servers
+	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
+	// If true then domain privacy is enabled for this domain
+	Privacy pulumi.BoolPtrOutput `pulumi:"privacy"`
+	// Domain provisioning state
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
+	ReadyForDnsRecordManagement pulumi.BoolPtrOutput `pulumi:"readyForDnsRecordManagement"`
+	// Domain registration status
+	RegistrationStatus pulumi.StringPtrOutput `pulumi:"registrationStatus"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -64,13 +95,44 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
+	// If true then domain will renewed automatically
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// Legal agreement consent
+	Consent *DomainPurchaseConsentResponse `pulumi:"consent"`
+	// Admin contact information
+	ContactAdmin *ContactResponse `pulumi:"contactAdmin"`
+	// Billing contact information
+	ContactBilling *ContactResponse `pulumi:"contactBilling"`
+	// Registrant contact information
+	ContactRegistrant *ContactResponse `pulumi:"contactRegistrant"`
+	// Technical contact information
+	ContactTech *ContactResponse `pulumi:"contactTech"`
+	// Domain creation timestamp
+	CreatedTime *string `pulumi:"createdTime"`
+	// Reasons why domain is not renewable
+	DomainNotRenewableReasons []string `pulumi:"domainNotRenewableReasons"`
+	// Domain expiration timestamp
+	ExpirationTime *string `pulumi:"expirationTime"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
+	// Timestamp when the domain was renewed last time
+	LastRenewedTime *string `pulumi:"lastRenewedTime"`
 	// Resource Location
 	Location *string `pulumi:"location"`
+	// All hostnames derived from the domain and assigned to Azure resources
+	ManagedHostNames []HostNameResponse `pulumi:"managedHostNames"`
 	// Resource Name
-	Name       *string                   `pulumi:"name"`
-	Properties *DomainResponseProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Name servers
+	NameServers []string `pulumi:"nameServers"`
+	// If true then domain privacy is enabled for this domain
+	Privacy *bool `pulumi:"privacy"`
+	// Domain provisioning state
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
+	ReadyForDnsRecordManagement *bool `pulumi:"readyForDnsRecordManagement"`
+	// Domain registration status
+	RegistrationStatus *string `pulumi:"registrationStatus"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -78,13 +140,44 @@ type domainState struct {
 }
 
 type DomainState struct {
+	// If true then domain will renewed automatically
+	AutoRenew pulumi.BoolPtrInput
+	// Legal agreement consent
+	Consent DomainPurchaseConsentResponsePtrInput
+	// Admin contact information
+	ContactAdmin ContactResponsePtrInput
+	// Billing contact information
+	ContactBilling ContactResponsePtrInput
+	// Registrant contact information
+	ContactRegistrant ContactResponsePtrInput
+	// Technical contact information
+	ContactTech ContactResponsePtrInput
+	// Domain creation timestamp
+	CreatedTime pulumi.StringPtrInput
+	// Reasons why domain is not renewable
+	DomainNotRenewableReasons pulumi.StringArrayInput
+	// Domain expiration timestamp
+	ExpirationTime pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
+	// Timestamp when the domain was renewed last time
+	LastRenewedTime pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringPtrInput
+	// All hostnames derived from the domain and assigned to Azure resources
+	ManagedHostNames HostNameResponseArrayInput
 	// Resource Name
-	Name       pulumi.StringPtrInput
-	Properties DomainResponsePropertiesPtrInput
+	Name pulumi.StringPtrInput
+	// Name servers
+	NameServers pulumi.StringArrayInput
+	// If true then domain privacy is enabled for this domain
+	Privacy pulumi.BoolPtrInput
+	// Domain provisioning state
+	ProvisioningState pulumi.StringPtrInput
+	// If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
+	ReadyForDnsRecordManagement pulumi.BoolPtrInput
+	// Domain registration status
+	RegistrationStatus pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

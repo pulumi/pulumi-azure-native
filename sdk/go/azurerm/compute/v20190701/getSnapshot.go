@@ -25,18 +25,38 @@ type LookupSnapshotArgs struct {
 
 // Snapshot resource.
 type LookupSnapshotResult struct {
+	// Disk source information. CreationData information cannot be changed after the disk has been created.
+	CreationData CreationDataResponse `pulumi:"creationData"`
+	// The size of the disk in bytes. This field is read only.
+	DiskSizeBytes int `pulumi:"diskSizeBytes"`
+	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+	DiskSizeGB *int `pulumi:"diskSizeGB"`
+	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+	Encryption *EncryptionResponse `pulumi:"encryption"`
+	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+	EncryptionSettingsCollection *EncryptionSettingsCollectionResponse `pulumi:"encryptionSettingsCollection"`
+	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+	HyperVGeneration *string `pulumi:"hyperVGeneration"`
+	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+	Incremental *bool `pulumi:"incremental"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Unused. Always Null.
 	ManagedBy string `pulumi:"managedBy"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Snapshot resource properties.
-	Properties SnapshotPropertiesResponse `pulumi:"properties"`
+	// The Operating System type.
+	OsType *string `pulumi:"osType"`
+	// The disk provisioning state.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
 	Sku *SnapshotSkuResponse `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// The time when the disk was created.
+	TimeCreated string `pulumi:"timeCreated"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Unique Guid identifying the resource.
+	UniqueId string `pulumi:"uniqueId"`
 }

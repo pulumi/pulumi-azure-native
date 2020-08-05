@@ -25,14 +25,24 @@ type LookupAutomationAccountArgs struct {
 
 // Definition of the automation account type.
 type LookupAutomationAccountResult struct {
+	// Gets the creation time.
+	CreationTime string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
+	// Gets or sets the last modified by.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// Gets the last modified time.
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Gets or sets the automation account properties.
-	Properties AutomationAccountPropertiesResponse `pulumi:"properties"`
+	// Gets or sets the SKU of account.
+	Sku *SkuResponse `pulumi:"sku"`
+	// Gets status of account.
+	State string `pulumi:"state"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

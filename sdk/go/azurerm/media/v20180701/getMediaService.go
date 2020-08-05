@@ -27,10 +27,12 @@ type LookupMediaServiceArgs struct {
 type LookupMediaServiceResult struct {
 	// The Azure Region of the resource.
 	Location *string `pulumi:"location"`
+	// The Media Services account ID.
+	MediaServiceId string `pulumi:"mediaServiceId"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties MediaServicePropertiesResponse `pulumi:"properties"`
+	// The storage accounts for this resource.
+	StorageAccounts []StorageAccountResponse `pulumi:"storageAccounts"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.

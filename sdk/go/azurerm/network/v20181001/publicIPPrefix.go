@@ -16,12 +16,26 @@ type PublicIPPrefix struct {
 
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// The allocated Prefix
+	IpPrefix pulumi.StringPtrOutput `pulumi:"ipPrefix"`
+	// The list of tags associated with the public IP prefix.
+	IpTags IpTagResponseArrayOutput `pulumi:"ipTags"`
+	// The reference to load balancer frontend IP configuration associated with the public IP prefix.
+	LoadBalancerFrontendIpConfiguration SubResourceResponseOutput `pulumi:"loadBalancerFrontendIpConfiguration"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Public IP prefix properties.
-	Properties PublicIPPrefixPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The Length of the Public IP Prefix.
+	PrefixLength pulumi.IntPtrOutput `pulumi:"prefixLength"`
+	// The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+	PublicIPAddressVersion pulumi.StringPtrOutput `pulumi:"publicIPAddressVersion"`
+	// The list of all referenced PublicIPAddresses
+	PublicIPAddresses ReferencedPublicIpAddressResponseArrayOutput `pulumi:"publicIPAddresses"`
+	// The resource GUID property of the public IP prefix resource.
+	ResourceGuid pulumi.StringPtrOutput `pulumi:"resourceGuid"`
 	// The public IP prefix SKU.
 	Sku PublicIPPrefixSkuResponsePtrOutput `pulumi:"sku"`
 	// Resource tags.
@@ -68,12 +82,26 @@ func GetPublicIPPrefix(ctx *pulumi.Context,
 type publicIPPrefixState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The allocated Prefix
+	IpPrefix *string `pulumi:"ipPrefix"`
+	// The list of tags associated with the public IP prefix.
+	IpTags []IpTagResponse `pulumi:"ipTags"`
+	// The reference to load balancer frontend IP configuration associated with the public IP prefix.
+	LoadBalancerFrontendIpConfiguration *SubResourceResponse `pulumi:"loadBalancerFrontendIpConfiguration"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Public IP prefix properties.
-	Properties *PublicIPPrefixPropertiesFormatResponse `pulumi:"properties"`
+	// The Length of the Public IP Prefix.
+	PrefixLength *int `pulumi:"prefixLength"`
+	// The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
+	// The list of all referenced PublicIPAddresses
+	PublicIPAddresses []ReferencedPublicIpAddressResponse `pulumi:"publicIPAddresses"`
+	// The resource GUID property of the public IP prefix resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The public IP prefix SKU.
 	Sku *PublicIPPrefixSkuResponse `pulumi:"sku"`
 	// Resource tags.
@@ -87,12 +115,26 @@ type publicIPPrefixState struct {
 type PublicIPPrefixState struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The allocated Prefix
+	IpPrefix pulumi.StringPtrInput
+	// The list of tags associated with the public IP prefix.
+	IpTags IpTagResponseArrayInput
+	// The reference to load balancer frontend IP configuration associated with the public IP prefix.
+	LoadBalancerFrontendIpConfiguration SubResourceResponsePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Public IP prefix properties.
-	Properties PublicIPPrefixPropertiesFormatResponsePtrInput
+	// The Length of the Public IP Prefix.
+	PrefixLength pulumi.IntPtrInput
+	// The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+	PublicIPAddressVersion pulumi.StringPtrInput
+	// The list of all referenced PublicIPAddresses
+	PublicIPAddresses ReferencedPublicIpAddressResponseArrayInput
+	// The resource GUID property of the public IP prefix resource.
+	ResourceGuid pulumi.StringPtrInput
 	// The public IP prefix SKU.
 	Sku PublicIPPrefixSkuResponsePtrInput
 	// Resource tags.

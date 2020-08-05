@@ -1751,205 +1751,20 @@ func (o OutputDataSourceResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties that are associated with an output.
-type OutputPropertiesResponse struct {
+// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+type OutputResponse struct {
 	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
 	Datasource *OutputDataSourceResponse `pulumi:"datasource"`
 	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
 	Diagnostics DiagnosticsResponse `pulumi:"diagnostics"`
 	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 	Etag string `pulumi:"etag"`
-	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization *SerializationResponse `pulumi:"serialization"`
-}
-
-// OutputPropertiesResponseInput is an input type that accepts OutputPropertiesResponseArgs and OutputPropertiesResponseOutput values.
-// You can construct a concrete instance of `OutputPropertiesResponseInput` via:
-//
-//          OutputPropertiesResponseArgs{...}
-type OutputPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToOutputPropertiesResponseOutput() OutputPropertiesResponseOutput
-	ToOutputPropertiesResponseOutputWithContext(context.Context) OutputPropertiesResponseOutput
-}
-
-// The properties that are associated with an output.
-type OutputPropertiesResponseArgs struct {
-	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-	Datasource OutputDataSourceResponsePtrInput `pulumi:"datasource"`
-	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-	Diagnostics DiagnosticsResponseInput `pulumi:"diagnostics"`
-	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-	Serialization SerializationResponsePtrInput `pulumi:"serialization"`
-}
-
-func (OutputPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputPropertiesResponse)(nil)).Elem()
-}
-
-func (i OutputPropertiesResponseArgs) ToOutputPropertiesResponseOutput() OutputPropertiesResponseOutput {
-	return i.ToOutputPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i OutputPropertiesResponseArgs) ToOutputPropertiesResponseOutputWithContext(ctx context.Context) OutputPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputPropertiesResponseOutput)
-}
-
-func (i OutputPropertiesResponseArgs) ToOutputPropertiesResponsePtrOutput() OutputPropertiesResponsePtrOutput {
-	return i.ToOutputPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OutputPropertiesResponseArgs) ToOutputPropertiesResponsePtrOutputWithContext(ctx context.Context) OutputPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputPropertiesResponseOutput).ToOutputPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// OutputPropertiesResponsePtrInput is an input type that accepts OutputPropertiesResponseArgs, OutputPropertiesResponsePtr and OutputPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `OutputPropertiesResponsePtrInput` via:
-//
-//          OutputPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type OutputPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToOutputPropertiesResponsePtrOutput() OutputPropertiesResponsePtrOutput
-	ToOutputPropertiesResponsePtrOutputWithContext(context.Context) OutputPropertiesResponsePtrOutput
-}
-
-type outputPropertiesResponsePtrType OutputPropertiesResponseArgs
-
-func OutputPropertiesResponsePtr(v *OutputPropertiesResponseArgs) OutputPropertiesResponsePtrInput {
-	return (*outputPropertiesResponsePtrType)(v)
-}
-
-func (*outputPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputPropertiesResponse)(nil)).Elem()
-}
-
-func (i *outputPropertiesResponsePtrType) ToOutputPropertiesResponsePtrOutput() OutputPropertiesResponsePtrOutput {
-	return i.ToOutputPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *outputPropertiesResponsePtrType) ToOutputPropertiesResponsePtrOutputWithContext(ctx context.Context) OutputPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputPropertiesResponsePtrOutput)
-}
-
-// The properties that are associated with an output.
-type OutputPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (OutputPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputPropertiesResponse)(nil)).Elem()
-}
-
-func (o OutputPropertiesResponseOutput) ToOutputPropertiesResponseOutput() OutputPropertiesResponseOutput {
-	return o
-}
-
-func (o OutputPropertiesResponseOutput) ToOutputPropertiesResponseOutputWithContext(ctx context.Context) OutputPropertiesResponseOutput {
-	return o
-}
-
-func (o OutputPropertiesResponseOutput) ToOutputPropertiesResponsePtrOutput() OutputPropertiesResponsePtrOutput {
-	return o.ToOutputPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OutputPropertiesResponseOutput) ToOutputPropertiesResponsePtrOutputWithContext(ctx context.Context) OutputPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v OutputPropertiesResponse) *OutputPropertiesResponse {
-		return &v
-	}).(OutputPropertiesResponsePtrOutput)
-}
-
-// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-func (o OutputPropertiesResponseOutput) Datasource() OutputDataSourceResponsePtrOutput {
-	return o.ApplyT(func(v OutputPropertiesResponse) *OutputDataSourceResponse { return v.Datasource }).(OutputDataSourceResponsePtrOutput)
-}
-
-// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-func (o OutputPropertiesResponseOutput) Diagnostics() DiagnosticsResponseOutput {
-	return o.ApplyT(func(v OutputPropertiesResponse) DiagnosticsResponse { return v.Diagnostics }).(DiagnosticsResponseOutput)
-}
-
-// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-func (o OutputPropertiesResponseOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v OutputPropertiesResponse) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-func (o OutputPropertiesResponseOutput) Serialization() SerializationResponsePtrOutput {
-	return o.ApplyT(func(v OutputPropertiesResponse) *SerializationResponse { return v.Serialization }).(SerializationResponsePtrOutput)
-}
-
-type OutputPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (OutputPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OutputPropertiesResponse)(nil)).Elem()
-}
-
-func (o OutputPropertiesResponsePtrOutput) ToOutputPropertiesResponsePtrOutput() OutputPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o OutputPropertiesResponsePtrOutput) ToOutputPropertiesResponsePtrOutputWithContext(ctx context.Context) OutputPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o OutputPropertiesResponsePtrOutput) Elem() OutputPropertiesResponseOutput {
-	return o.ApplyT(func(v *OutputPropertiesResponse) OutputPropertiesResponse { return *v }).(OutputPropertiesResponseOutput)
-}
-
-// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-func (o OutputPropertiesResponsePtrOutput) Datasource() OutputDataSourceResponsePtrOutput {
-	return o.ApplyT(func(v *OutputPropertiesResponse) *OutputDataSourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Datasource
-	}).(OutputDataSourceResponsePtrOutput)
-}
-
-// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-func (o OutputPropertiesResponsePtrOutput) Diagnostics() DiagnosticsResponsePtrOutput {
-	return o.ApplyT(func(v *OutputPropertiesResponse) *DiagnosticsResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Diagnostics
-	}).(DiagnosticsResponsePtrOutput)
-}
-
-// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-func (o OutputPropertiesResponsePtrOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OutputPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-func (o OutputPropertiesResponsePtrOutput) Serialization() SerializationResponsePtrOutput {
-	return o.ApplyT(func(v *OutputPropertiesResponse) *SerializationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Serialization
-	}).(SerializationResponsePtrOutput)
-}
-
-// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-type OutputResponse struct {
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-	Properties *OutputPropertiesResponse `pulumi:"properties"`
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization *SerializationResponse `pulumi:"serialization"`
 	// Resource type
 	Type string `pulumi:"type"`
 }
@@ -1967,12 +1782,18 @@ type OutputResponseInput interface {
 
 // An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 type OutputResponseArgs struct {
+	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+	Datasource OutputDataSourceResponsePtrInput `pulumi:"datasource"`
+	// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+	Diagnostics DiagnosticsResponseInput `pulumi:"diagnostics"`
+	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Resource Id
 	Id pulumi.StringInput `pulumi:"id"`
 	// Resource name
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-	Properties OutputPropertiesResponsePtrInput `pulumi:"properties"`
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization SerializationResponsePtrInput `pulumi:"serialization"`
 	// Resource type
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2029,6 +1850,21 @@ func (o OutputResponseOutput) ToOutputResponseOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+func (o OutputResponseOutput) Datasource() OutputDataSourceResponsePtrOutput {
+	return o.ApplyT(func(v OutputResponse) *OutputDataSourceResponse { return v.Datasource }).(OutputDataSourceResponsePtrOutput)
+}
+
+// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+func (o OutputResponseOutput) Diagnostics() DiagnosticsResponseOutput {
+	return o.ApplyT(func(v OutputResponse) DiagnosticsResponse { return v.Diagnostics }).(DiagnosticsResponseOutput)
+}
+
+// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+func (o OutputResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v OutputResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
 // Resource Id
 func (o OutputResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v OutputResponse) string { return v.Id }).(pulumi.StringOutput)
@@ -2039,9 +1875,9 @@ func (o OutputResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OutputResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-func (o OutputResponseOutput) Properties() OutputPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v OutputResponse) *OutputPropertiesResponse { return v.Properties }).(OutputPropertiesResponsePtrOutput)
+// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+func (o OutputResponseOutput) Serialization() SerializationResponsePtrOutput {
+	return o.ApplyT(func(v OutputResponse) *SerializationResponse { return v.Serialization }).(SerializationResponsePtrOutput)
 }
 
 // Resource type
@@ -2605,482 +2441,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties that are associated with a streaming job.
-type StreamingJobPropertiesResponse struct {
-	// Controls certain runtime behaviors of the streaming job.
-	CompatibilityLevel *string `pulumi:"compatibilityLevel"`
-	// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
-	CreatedDate string `pulumi:"createdDate"`
-	// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
-	DataLocale *string `pulumi:"dataLocale"`
-	// The current entity tag for the streaming job. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-	Etag string `pulumi:"etag"`
-	// The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
-	EventsLateArrivalMaxDelayInSeconds *int `pulumi:"eventsLateArrivalMaxDelayInSeconds"`
-	// The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
-	EventsOutOfOrderMaxDelayInSeconds *int `pulumi:"eventsOutOfOrderMaxDelayInSeconds"`
-	// Indicates the policy to apply to events that arrive out of order in the input event stream.
-	EventsOutOfOrderPolicy *string `pulumi:"eventsOutOfOrderPolicy"`
-	// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-	Functions []FunctionResponse `pulumi:"functions"`
-	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
-	Inputs []InputResponse `pulumi:"inputs"`
-	// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
-	JobId string `pulumi:"jobId"`
-	// Describes the state of the streaming job.
-	JobState string `pulumi:"jobState"`
-	// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
-	LastOutputEventTime string `pulumi:"lastOutputEventTime"`
-	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
-	OutputErrorPolicy *string `pulumi:"outputErrorPolicy"`
-	// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
-	OutputStartMode *string `pulumi:"outputStartMode"`
-	// Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
-	OutputStartTime *string `pulumi:"outputStartTime"`
-	// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
-	Outputs []OutputResponse `pulumi:"outputs"`
-	// Describes the provisioning status of the streaming job.
-	ProvisioningState string `pulumi:"provisioningState"`
-	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-	Transformation *TransformationResponse `pulumi:"transformation"`
-}
-
-// StreamingJobPropertiesResponseInput is an input type that accepts StreamingJobPropertiesResponseArgs and StreamingJobPropertiesResponseOutput values.
-// You can construct a concrete instance of `StreamingJobPropertiesResponseInput` via:
-//
-//          StreamingJobPropertiesResponseArgs{...}
-type StreamingJobPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToStreamingJobPropertiesResponseOutput() StreamingJobPropertiesResponseOutput
-	ToStreamingJobPropertiesResponseOutputWithContext(context.Context) StreamingJobPropertiesResponseOutput
-}
-
-// The properties that are associated with a streaming job.
-type StreamingJobPropertiesResponseArgs struct {
-	// Controls certain runtime behaviors of the streaming job.
-	CompatibilityLevel pulumi.StringPtrInput `pulumi:"compatibilityLevel"`
-	// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
-	CreatedDate pulumi.StringInput `pulumi:"createdDate"`
-	// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
-	DataLocale pulumi.StringPtrInput `pulumi:"dataLocale"`
-	// The current entity tag for the streaming job. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
-	EventsLateArrivalMaxDelayInSeconds pulumi.IntPtrInput `pulumi:"eventsLateArrivalMaxDelayInSeconds"`
-	// The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
-	EventsOutOfOrderMaxDelayInSeconds pulumi.IntPtrInput `pulumi:"eventsOutOfOrderMaxDelayInSeconds"`
-	// Indicates the policy to apply to events that arrive out of order in the input event stream.
-	EventsOutOfOrderPolicy pulumi.StringPtrInput `pulumi:"eventsOutOfOrderPolicy"`
-	// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-	Functions FunctionResponseArrayInput `pulumi:"functions"`
-	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
-	Inputs InputResponseArrayInput `pulumi:"inputs"`
-	// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
-	JobId pulumi.StringInput `pulumi:"jobId"`
-	// Describes the state of the streaming job.
-	JobState pulumi.StringInput `pulumi:"jobState"`
-	// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
-	LastOutputEventTime pulumi.StringInput `pulumi:"lastOutputEventTime"`
-	// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
-	OutputErrorPolicy pulumi.StringPtrInput `pulumi:"outputErrorPolicy"`
-	// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
-	OutputStartMode pulumi.StringPtrInput `pulumi:"outputStartMode"`
-	// Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
-	OutputStartTime pulumi.StringPtrInput `pulumi:"outputStartTime"`
-	// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
-	Outputs OutputResponseArrayInput `pulumi:"outputs"`
-	// Describes the provisioning status of the streaming job.
-	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
-	// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-	Transformation TransformationResponsePtrInput `pulumi:"transformation"`
-}
-
-func (StreamingJobPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingJobPropertiesResponse)(nil)).Elem()
-}
-
-func (i StreamingJobPropertiesResponseArgs) ToStreamingJobPropertiesResponseOutput() StreamingJobPropertiesResponseOutput {
-	return i.ToStreamingJobPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i StreamingJobPropertiesResponseArgs) ToStreamingJobPropertiesResponseOutputWithContext(ctx context.Context) StreamingJobPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingJobPropertiesResponseOutput)
-}
-
-func (i StreamingJobPropertiesResponseArgs) ToStreamingJobPropertiesResponsePtrOutput() StreamingJobPropertiesResponsePtrOutput {
-	return i.ToStreamingJobPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i StreamingJobPropertiesResponseArgs) ToStreamingJobPropertiesResponsePtrOutputWithContext(ctx context.Context) StreamingJobPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingJobPropertiesResponseOutput).ToStreamingJobPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// StreamingJobPropertiesResponsePtrInput is an input type that accepts StreamingJobPropertiesResponseArgs, StreamingJobPropertiesResponsePtr and StreamingJobPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `StreamingJobPropertiesResponsePtrInput` via:
-//
-//          StreamingJobPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type StreamingJobPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToStreamingJobPropertiesResponsePtrOutput() StreamingJobPropertiesResponsePtrOutput
-	ToStreamingJobPropertiesResponsePtrOutputWithContext(context.Context) StreamingJobPropertiesResponsePtrOutput
-}
-
-type streamingJobPropertiesResponsePtrType StreamingJobPropertiesResponseArgs
-
-func StreamingJobPropertiesResponsePtr(v *StreamingJobPropertiesResponseArgs) StreamingJobPropertiesResponsePtrInput {
-	return (*streamingJobPropertiesResponsePtrType)(v)
-}
-
-func (*streamingJobPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamingJobPropertiesResponse)(nil)).Elem()
-}
-
-func (i *streamingJobPropertiesResponsePtrType) ToStreamingJobPropertiesResponsePtrOutput() StreamingJobPropertiesResponsePtrOutput {
-	return i.ToStreamingJobPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *streamingJobPropertiesResponsePtrType) ToStreamingJobPropertiesResponsePtrOutputWithContext(ctx context.Context) StreamingJobPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingJobPropertiesResponsePtrOutput)
-}
-
-// The properties that are associated with a streaming job.
-type StreamingJobPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (StreamingJobPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingJobPropertiesResponse)(nil)).Elem()
-}
-
-func (o StreamingJobPropertiesResponseOutput) ToStreamingJobPropertiesResponseOutput() StreamingJobPropertiesResponseOutput {
-	return o
-}
-
-func (o StreamingJobPropertiesResponseOutput) ToStreamingJobPropertiesResponseOutputWithContext(ctx context.Context) StreamingJobPropertiesResponseOutput {
-	return o
-}
-
-func (o StreamingJobPropertiesResponseOutput) ToStreamingJobPropertiesResponsePtrOutput() StreamingJobPropertiesResponsePtrOutput {
-	return o.ToStreamingJobPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o StreamingJobPropertiesResponseOutput) ToStreamingJobPropertiesResponsePtrOutputWithContext(ctx context.Context) StreamingJobPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) *StreamingJobPropertiesResponse {
-		return &v
-	}).(StreamingJobPropertiesResponsePtrOutput)
-}
-
-// Controls certain runtime behaviors of the streaming job.
-func (o StreamingJobPropertiesResponseOutput) CompatibilityLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) *string { return v.CompatibilityLevel }).(pulumi.StringPtrOutput)
-}
-
-// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
-func (o StreamingJobPropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) string { return v.CreatedDate }).(pulumi.StringOutput)
-}
-
-// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
-func (o StreamingJobPropertiesResponseOutput) DataLocale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) *string { return v.DataLocale }).(pulumi.StringPtrOutput)
-}
-
-// The current entity tag for the streaming job. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-func (o StreamingJobPropertiesResponseOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
-func (o StreamingJobPropertiesResponseOutput) EventsLateArrivalMaxDelayInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) *int { return v.EventsLateArrivalMaxDelayInSeconds }).(pulumi.IntPtrOutput)
-}
-
-// The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
-func (o StreamingJobPropertiesResponseOutput) EventsOutOfOrderMaxDelayInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) *int { return v.EventsOutOfOrderMaxDelayInSeconds }).(pulumi.IntPtrOutput)
-}
-
-// Indicates the policy to apply to events that arrive out of order in the input event stream.
-func (o StreamingJobPropertiesResponseOutput) EventsOutOfOrderPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) *string { return v.EventsOutOfOrderPolicy }).(pulumi.StringPtrOutput)
-}
-
-// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-func (o StreamingJobPropertiesResponseOutput) Functions() FunctionResponseArrayOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) []FunctionResponse { return v.Functions }).(FunctionResponseArrayOutput)
-}
-
-// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
-func (o StreamingJobPropertiesResponseOutput) Inputs() InputResponseArrayOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) []InputResponse { return v.Inputs }).(InputResponseArrayOutput)
-}
-
-// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
-func (o StreamingJobPropertiesResponseOutput) JobId() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) string { return v.JobId }).(pulumi.StringOutput)
-}
-
-// Describes the state of the streaming job.
-func (o StreamingJobPropertiesResponseOutput) JobState() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) string { return v.JobState }).(pulumi.StringOutput)
-}
-
-// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
-func (o StreamingJobPropertiesResponseOutput) LastOutputEventTime() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) string { return v.LastOutputEventTime }).(pulumi.StringOutput)
-}
-
-// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
-func (o StreamingJobPropertiesResponseOutput) OutputErrorPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) *string { return v.OutputErrorPolicy }).(pulumi.StringPtrOutput)
-}
-
-// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
-func (o StreamingJobPropertiesResponseOutput) OutputStartMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) *string { return v.OutputStartMode }).(pulumi.StringPtrOutput)
-}
-
-// Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
-func (o StreamingJobPropertiesResponseOutput) OutputStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) *string { return v.OutputStartTime }).(pulumi.StringPtrOutput)
-}
-
-// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
-func (o StreamingJobPropertiesResponseOutput) Outputs() OutputResponseArrayOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) []OutputResponse { return v.Outputs }).(OutputResponseArrayOutput)
-}
-
-// Describes the provisioning status of the streaming job.
-func (o StreamingJobPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
-}
-
-// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
-func (o StreamingJobPropertiesResponseOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-func (o StreamingJobPropertiesResponseOutput) Transformation() TransformationResponsePtrOutput {
-	return o.ApplyT(func(v StreamingJobPropertiesResponse) *TransformationResponse { return v.Transformation }).(TransformationResponsePtrOutput)
-}
-
-type StreamingJobPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (StreamingJobPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamingJobPropertiesResponse)(nil)).Elem()
-}
-
-func (o StreamingJobPropertiesResponsePtrOutput) ToStreamingJobPropertiesResponsePtrOutput() StreamingJobPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o StreamingJobPropertiesResponsePtrOutput) ToStreamingJobPropertiesResponsePtrOutputWithContext(ctx context.Context) StreamingJobPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o StreamingJobPropertiesResponsePtrOutput) Elem() StreamingJobPropertiesResponseOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) StreamingJobPropertiesResponse { return *v }).(StreamingJobPropertiesResponseOutput)
-}
-
-// Controls certain runtime behaviors of the streaming job.
-func (o StreamingJobPropertiesResponsePtrOutput) CompatibilityLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CompatibilityLevel
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
-func (o StreamingJobPropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
-func (o StreamingJobPropertiesResponsePtrOutput) DataLocale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DataLocale
-	}).(pulumi.StringPtrOutput)
-}
-
-// The current entity tag for the streaming job. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-func (o StreamingJobPropertiesResponsePtrOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
-func (o StreamingJobPropertiesResponsePtrOutput) EventsLateArrivalMaxDelayInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.EventsLateArrivalMaxDelayInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
-func (o StreamingJobPropertiesResponsePtrOutput) EventsOutOfOrderMaxDelayInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.EventsOutOfOrderMaxDelayInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// Indicates the policy to apply to events that arrive out of order in the input event stream.
-func (o StreamingJobPropertiesResponsePtrOutput) EventsOutOfOrderPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EventsOutOfOrderPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-func (o StreamingJobPropertiesResponsePtrOutput) Functions() FunctionResponseArrayOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) []FunctionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Functions
-	}).(FunctionResponseArrayOutput)
-}
-
-// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
-func (o StreamingJobPropertiesResponsePtrOutput) Inputs() InputResponseArrayOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) []InputResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Inputs
-	}).(InputResponseArrayOutput)
-}
-
-// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
-func (o StreamingJobPropertiesResponsePtrOutput) JobId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.JobId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the state of the streaming job.
-func (o StreamingJobPropertiesResponsePtrOutput) JobState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.JobState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
-func (o StreamingJobPropertiesResponsePtrOutput) LastOutputEventTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastOutputEventTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
-func (o StreamingJobPropertiesResponsePtrOutput) OutputErrorPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OutputErrorPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-// This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
-func (o StreamingJobPropertiesResponsePtrOutput) OutputStartMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OutputStartMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
-func (o StreamingJobPropertiesResponsePtrOutput) OutputStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OutputStartTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
-func (o StreamingJobPropertiesResponsePtrOutput) Outputs() OutputResponseArrayOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) []OutputResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Outputs
-	}).(OutputResponseArrayOutput)
-}
-
-// Describes the provisioning status of the streaming job.
-func (o StreamingJobPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
-func (o StreamingJobPropertiesResponsePtrOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *SkuResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Sku
-	}).(SkuResponsePtrOutput)
-}
-
-// Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
-func (o StreamingJobPropertiesResponsePtrOutput) Transformation() TransformationResponsePtrOutput {
-	return o.ApplyT(func(v *StreamingJobPropertiesResponse) *TransformationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Transformation
-	}).(TransformationResponsePtrOutput)
-}
-
 // A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
 type Transformation struct {
 	// Resource name
@@ -3253,186 +2613,18 @@ func (o TransformationPtrOutput) StreamingUnits() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The properties that are associated with a transformation.
-type TransformationPropertiesResponse struct {
-	// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-	Etag string `pulumi:"etag"`
-	// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
-	Query *string `pulumi:"query"`
-	// Specifies the number of streaming units that the streaming job uses.
-	StreamingUnits *int `pulumi:"streamingUnits"`
-}
-
-// TransformationPropertiesResponseInput is an input type that accepts TransformationPropertiesResponseArgs and TransformationPropertiesResponseOutput values.
-// You can construct a concrete instance of `TransformationPropertiesResponseInput` via:
-//
-//          TransformationPropertiesResponseArgs{...}
-type TransformationPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToTransformationPropertiesResponseOutput() TransformationPropertiesResponseOutput
-	ToTransformationPropertiesResponseOutputWithContext(context.Context) TransformationPropertiesResponseOutput
-}
-
-// The properties that are associated with a transformation.
-type TransformationPropertiesResponseArgs struct {
-	// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
-	Query pulumi.StringPtrInput `pulumi:"query"`
-	// Specifies the number of streaming units that the streaming job uses.
-	StreamingUnits pulumi.IntPtrInput `pulumi:"streamingUnits"`
-}
-
-func (TransformationPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransformationPropertiesResponse)(nil)).Elem()
-}
-
-func (i TransformationPropertiesResponseArgs) ToTransformationPropertiesResponseOutput() TransformationPropertiesResponseOutput {
-	return i.ToTransformationPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i TransformationPropertiesResponseArgs) ToTransformationPropertiesResponseOutputWithContext(ctx context.Context) TransformationPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransformationPropertiesResponseOutput)
-}
-
-func (i TransformationPropertiesResponseArgs) ToTransformationPropertiesResponsePtrOutput() TransformationPropertiesResponsePtrOutput {
-	return i.ToTransformationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TransformationPropertiesResponseArgs) ToTransformationPropertiesResponsePtrOutputWithContext(ctx context.Context) TransformationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransformationPropertiesResponseOutput).ToTransformationPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// TransformationPropertiesResponsePtrInput is an input type that accepts TransformationPropertiesResponseArgs, TransformationPropertiesResponsePtr and TransformationPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `TransformationPropertiesResponsePtrInput` via:
-//
-//          TransformationPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type TransformationPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToTransformationPropertiesResponsePtrOutput() TransformationPropertiesResponsePtrOutput
-	ToTransformationPropertiesResponsePtrOutputWithContext(context.Context) TransformationPropertiesResponsePtrOutput
-}
-
-type transformationPropertiesResponsePtrType TransformationPropertiesResponseArgs
-
-func TransformationPropertiesResponsePtr(v *TransformationPropertiesResponseArgs) TransformationPropertiesResponsePtrInput {
-	return (*transformationPropertiesResponsePtrType)(v)
-}
-
-func (*transformationPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransformationPropertiesResponse)(nil)).Elem()
-}
-
-func (i *transformationPropertiesResponsePtrType) ToTransformationPropertiesResponsePtrOutput() TransformationPropertiesResponsePtrOutput {
-	return i.ToTransformationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *transformationPropertiesResponsePtrType) ToTransformationPropertiesResponsePtrOutputWithContext(ctx context.Context) TransformationPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransformationPropertiesResponsePtrOutput)
-}
-
-// The properties that are associated with a transformation.
-type TransformationPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (TransformationPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransformationPropertiesResponse)(nil)).Elem()
-}
-
-func (o TransformationPropertiesResponseOutput) ToTransformationPropertiesResponseOutput() TransformationPropertiesResponseOutput {
-	return o
-}
-
-func (o TransformationPropertiesResponseOutput) ToTransformationPropertiesResponseOutputWithContext(ctx context.Context) TransformationPropertiesResponseOutput {
-	return o
-}
-
-func (o TransformationPropertiesResponseOutput) ToTransformationPropertiesResponsePtrOutput() TransformationPropertiesResponsePtrOutput {
-	return o.ToTransformationPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TransformationPropertiesResponseOutput) ToTransformationPropertiesResponsePtrOutputWithContext(ctx context.Context) TransformationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v TransformationPropertiesResponse) *TransformationPropertiesResponse {
-		return &v
-	}).(TransformationPropertiesResponsePtrOutput)
-}
-
-// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-func (o TransformationPropertiesResponseOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v TransformationPropertiesResponse) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
-func (o TransformationPropertiesResponseOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TransformationPropertiesResponse) *string { return v.Query }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the number of streaming units that the streaming job uses.
-func (o TransformationPropertiesResponseOutput) StreamingUnits() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TransformationPropertiesResponse) *int { return v.StreamingUnits }).(pulumi.IntPtrOutput)
-}
-
-type TransformationPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (TransformationPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransformationPropertiesResponse)(nil)).Elem()
-}
-
-func (o TransformationPropertiesResponsePtrOutput) ToTransformationPropertiesResponsePtrOutput() TransformationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o TransformationPropertiesResponsePtrOutput) ToTransformationPropertiesResponsePtrOutputWithContext(ctx context.Context) TransformationPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o TransformationPropertiesResponsePtrOutput) Elem() TransformationPropertiesResponseOutput {
-	return o.ApplyT(func(v *TransformationPropertiesResponse) TransformationPropertiesResponse { return *v }).(TransformationPropertiesResponseOutput)
-}
-
-// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-func (o TransformationPropertiesResponsePtrOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TransformationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
-func (o TransformationPropertiesResponsePtrOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TransformationPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Query
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the number of streaming units that the streaming job uses.
-func (o TransformationPropertiesResponsePtrOutput) StreamingUnits() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TransformationPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.StreamingUnits
-	}).(pulumi.IntPtrOutput)
-}
-
 // A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
 type TransformationResponse struct {
+	// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag string `pulumi:"etag"`
 	// Resource Id
 	Id string `pulumi:"id"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// The properties that are associated with a transformation. Required on PUT (CreateOrReplace) requests.
-	Properties *TransformationPropertiesResponse `pulumi:"properties"`
+	// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
+	Query *string `pulumi:"query"`
+	// Specifies the number of streaming units that the streaming job uses.
+	StreamingUnits *int `pulumi:"streamingUnits"`
 	// Resource type
 	Type string `pulumi:"type"`
 }
@@ -3450,12 +2642,16 @@ type TransformationResponseInput interface {
 
 // A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.
 type TransformationResponseArgs struct {
+	// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Resource Id
 	Id pulumi.StringInput `pulumi:"id"`
 	// Resource name
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The properties that are associated with a transformation. Required on PUT (CreateOrReplace) requests.
-	Properties TransformationPropertiesResponsePtrInput `pulumi:"properties"`
+	// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+	// Specifies the number of streaming units that the streaming job uses.
+	StreamingUnits pulumi.IntPtrInput `pulumi:"streamingUnits"`
 	// Resource type
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -3538,6 +2734,11 @@ func (o TransformationResponseOutput) ToTransformationResponsePtrOutputWithConte
 	}).(TransformationResponsePtrOutput)
 }
 
+// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+func (o TransformationResponseOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v TransformationResponse) string { return v.Etag }).(pulumi.StringOutput)
+}
+
 // Resource Id
 func (o TransformationResponseOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TransformationResponse) string { return v.Id }).(pulumi.StringOutput)
@@ -3548,9 +2749,14 @@ func (o TransformationResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The properties that are associated with a transformation. Required on PUT (CreateOrReplace) requests.
-func (o TransformationResponseOutput) Properties() TransformationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v TransformationResponse) *TransformationPropertiesResponse { return v.Properties }).(TransformationPropertiesResponsePtrOutput)
+// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
+func (o TransformationResponseOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TransformationResponse) *string { return v.Query }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the number of streaming units that the streaming job uses.
+func (o TransformationResponseOutput) StreamingUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TransformationResponse) *int { return v.StreamingUnits }).(pulumi.IntPtrOutput)
 }
 
 // Resource type
@@ -3576,6 +2782,16 @@ func (o TransformationResponsePtrOutput) Elem() TransformationResponseOutput {
 	return o.ApplyT(func(v *TransformationResponse) TransformationResponse { return *v }).(TransformationResponseOutput)
 }
 
+// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+func (o TransformationResponsePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
 // Resource Id
 func (o TransformationResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransformationResponse) *string {
@@ -3596,14 +2812,24 @@ func (o TransformationResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties that are associated with a transformation. Required on PUT (CreateOrReplace) requests.
-func (o TransformationResponsePtrOutput) Properties() TransformationPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *TransformationResponse) *TransformationPropertiesResponse {
+// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
+func (o TransformationResponsePtrOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransformationResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(TransformationPropertiesResponsePtrOutput)
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the number of streaming units that the streaming job uses.
+func (o TransformationResponsePtrOutput) StreamingUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransformationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StreamingUnits
+	}).(pulumi.IntPtrOutput)
 }
 
 // Resource type
@@ -3643,8 +2869,6 @@ func init() {
 	pulumi.RegisterOutputType(OutputDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(OutputDataSourceResponseOutput{})
 	pulumi.RegisterOutputType(OutputDataSourceResponsePtrOutput{})
-	pulumi.RegisterOutputType(OutputPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(OutputPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(OutputResponseOutput{})
 	pulumi.RegisterOutputType(OutputResponseArrayOutput{})
 	pulumi.RegisterOutputType(SerializationOutput{})
@@ -3655,12 +2879,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(StreamingJobPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(StreamingJobPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TransformationOutput{})
 	pulumi.RegisterOutputType(TransformationPtrOutput{})
-	pulumi.RegisterOutputType(TransformationPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(TransformationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TransformationResponseOutput{})
 	pulumi.RegisterOutputType(TransformationResponsePtrOutput{})
 }

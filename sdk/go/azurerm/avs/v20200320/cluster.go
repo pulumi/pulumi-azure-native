@@ -14,10 +14,16 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
+	// The identity
+	ClusterId pulumi.IntOutput `pulumi:"clusterId"`
+	// The cluster size
+	ClusterSize pulumi.IntOutput `pulumi:"clusterSize"`
+	// The hosts
+	Hosts pulumi.StringArrayOutput `pulumi:"hosts"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of a cluster resource
-	Properties ClusterPropertiesResponseOutput `pulumi:"properties"`
+	// The state of the cluster provisioning
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The cluster SKU
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// Resource type.
@@ -67,10 +73,16 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
+	// The identity
+	ClusterId *int `pulumi:"clusterId"`
+	// The cluster size
+	ClusterSize *int `pulumi:"clusterSize"`
+	// The hosts
+	Hosts []string `pulumi:"hosts"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// The properties of a cluster resource
-	Properties *ClusterPropertiesResponse `pulumi:"properties"`
+	// The state of the cluster provisioning
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The cluster SKU
 	Sku *SkuResponse `pulumi:"sku"`
 	// Resource type.
@@ -78,10 +90,16 @@ type clusterState struct {
 }
 
 type ClusterState struct {
+	// The identity
+	ClusterId pulumi.IntPtrInput
+	// The cluster size
+	ClusterSize pulumi.IntPtrInput
+	// The hosts
+	Hosts pulumi.StringArrayInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// The properties of a cluster resource
-	Properties ClusterPropertiesResponsePtrInput
+	// The state of the cluster provisioning
+	ProvisioningState pulumi.StringPtrInput
 	// The cluster SKU
 	Sku SkuResponsePtrInput
 	// Resource type.

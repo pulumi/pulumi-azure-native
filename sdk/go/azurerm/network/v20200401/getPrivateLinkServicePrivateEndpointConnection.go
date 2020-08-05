@@ -29,10 +29,16 @@ type LookupPrivateLinkServicePrivateEndpointConnectionArgs struct {
 type LookupPrivateLinkServicePrivateEndpointConnectionResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// The consumer link id.
+	LinkIdentifier string `pulumi:"linkIdentifier"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the private end point connection.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }

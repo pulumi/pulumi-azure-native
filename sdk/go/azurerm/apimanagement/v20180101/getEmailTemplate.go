@@ -27,10 +27,20 @@ type LookupEmailTemplateArgs struct {
 
 // Email Template details.
 type LookupEmailTemplateResult struct {
+	// Email Template Body. This should be a valid XDocument
+	Body string `pulumi:"body"`
+	// Description of the Email Template.
+	Description *string `pulumi:"description"`
+	// Whether the template is the default template provided by Api Management or has been edited.
+	IsDefault bool `pulumi:"isDefault"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Email Template entity contract properties.
-	Properties EmailTemplateContractPropertiesResponse `pulumi:"properties"`
+	// Email Template Parameter values.
+	Parameters []EmailTemplateParametersContractPropertiesResponse `pulumi:"parameters"`
+	// Subject of the Template.
+	Subject string `pulumi:"subject"`
+	// Title of the Template.
+	Title *string `pulumi:"title"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

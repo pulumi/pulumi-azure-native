@@ -29,10 +29,42 @@ type LookupSubscriptionArgs struct {
 
 // Description of subscription resource.
 type LookupSubscriptionResult struct {
+	// Last time there was a receive request to this subscription.
+	AccessedAt string `pulumi:"accessedAt"`
+	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// Message count details
+	CountDetails MessageCountDetailsResponse `pulumi:"countDetails"`
+	// Exact time the message was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+	DeadLetteringOnFilterEvaluationExceptions *bool `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
+	// Value that indicates whether a subscription has dead letter support when a message expires.
+	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
+	// ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive *string `pulumi:"defaultMessageTimeToLive"`
+	// ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
+	// Value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
+	// Queue/Topic name to forward the Dead Letter message
+	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
+	// Queue/Topic name to forward the messages
+	ForwardTo *string `pulumi:"forwardTo"`
+	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
+	LockDuration *string `pulumi:"lockDuration"`
+	// Number of maximum deliveries.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// Number of messages.
+	MessageCount int `pulumi:"messageCount"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Properties of subscriptions resource.
-	Properties SBSubscriptionPropertiesResponse `pulumi:"properties"`
+	// Value indicating if a subscription supports the concept of sessions.
+	RequiresSession *bool `pulumi:"requiresSession"`
+	// Enumerates the possible values for the status of a messaging entity.
+	Status *string `pulumi:"status"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// The exact time the message was updated.
+	UpdatedAt string `pulumi:"updatedAt"`
 }

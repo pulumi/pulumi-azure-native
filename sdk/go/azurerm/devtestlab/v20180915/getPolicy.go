@@ -29,14 +29,30 @@ type LookupPolicyArgs struct {
 
 // A Policy.
 type LookupPolicyResult struct {
+	// The creation date of the policy.
+	CreatedDate string `pulumi:"createdDate"`
+	// The description of the policy.
+	Description *string `pulumi:"description"`
+	// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+	EvaluatorType *string `pulumi:"evaluatorType"`
+	// The fact data of the policy.
+	FactData *string `pulumi:"factData"`
+	// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+	FactName *string `pulumi:"factName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties PolicyPropertiesResponse `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The status of the policy.
+	Status *string `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+	Threshold *string `pulumi:"threshold"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier string `pulumi:"uniqueIdentifier"`
 }

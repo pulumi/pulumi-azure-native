@@ -18,8 +18,14 @@ type GalleryImageVersion struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Describes the properties of a gallery Image Version.
-	Properties GalleryImageVersionPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile GalleryImageVersionPublishingProfileResponsePtrOutput `pulumi:"publishingProfile"`
+	// This is the replication status of the gallery Image Version.
+	ReplicationStatus ReplicationStatusResponseOutput `pulumi:"replicationStatus"`
+	// This is the storage profile of a Gallery Image Version.
+	StorageProfile GalleryImageVersionStorageProfileResponseOutput `pulumi:"storageProfile"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
@@ -76,8 +82,14 @@ type galleryImageVersionState struct {
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Describes the properties of a gallery Image Version.
-	Properties *GalleryImageVersionPropertiesResponse `pulumi:"properties"`
+	// The provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile *GalleryImageVersionPublishingProfileResponse `pulumi:"publishingProfile"`
+	// This is the replication status of the gallery Image Version.
+	ReplicationStatus *ReplicationStatusResponse `pulumi:"replicationStatus"`
+	// This is the storage profile of a Gallery Image Version.
+	StorageProfile *GalleryImageVersionStorageProfileResponse `pulumi:"storageProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -89,8 +101,14 @@ type GalleryImageVersionState struct {
 	Location pulumi.StringPtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Describes the properties of a gallery Image Version.
-	Properties GalleryImageVersionPropertiesResponsePtrInput
+	// The provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile GalleryImageVersionPublishingProfileResponsePtrInput
+	// This is the replication status of the gallery Image Version.
+	ReplicationStatus ReplicationStatusResponsePtrInput
+	// This is the storage profile of a Gallery Image Version.
+	StorageProfile GalleryImageVersionStorageProfileResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

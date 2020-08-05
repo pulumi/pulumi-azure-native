@@ -14,10 +14,12 @@ import (
 type ManagementPolicy struct {
 	pulumi.CustomResourceState
 
+	// Returns the date and time the ManagementPolicies was last modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Returns the Storage Account Data Policies Rules.
-	Properties ManagementPolicyPropertiesResponseOutput `pulumi:"properties"`
+	// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+	Policy ManagementPolicySchemaResponseOutput `pulumi:"policy"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,19 +64,23 @@ func GetManagementPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagementPolicy resources.
 type managementPolicyState struct {
+	// Returns the date and time the ManagementPolicies was last modified.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Returns the Storage Account Data Policies Rules.
-	Properties *ManagementPolicyPropertiesResponse `pulumi:"properties"`
+	// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+	Policy *ManagementPolicySchemaResponse `pulumi:"policy"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 }
 
 type ManagementPolicyState struct {
+	// Returns the date and time the ManagementPolicies was last modified.
+	LastModifiedTime pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Returns the Storage Account Data Policies Rules.
-	Properties ManagementPolicyPropertiesResponsePtrInput
+	// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+	Policy ManagementPolicySchemaResponsePtrInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 }

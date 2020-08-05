@@ -25,14 +25,18 @@ type LookupUserAssignedIdentityArgs struct {
 
 // Describes an identity resource.
 type LookupUserAssignedIdentityResult struct {
+	// The id of the app associated with the identity. This is a random generated UUID by MSI.
+	ClientId string `pulumi:"clientId"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The properties associated with the identity.
-	Properties UserAssignedIdentityPropertiesResponse `pulumi:"properties"`
+	// The id of the service principal object associated with the created identity.
+	PrincipalId string `pulumi:"principalId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The id of the tenant which the identity belongs to.
+	TenantId string `pulumi:"tenantId"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

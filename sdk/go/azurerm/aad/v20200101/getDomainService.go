@@ -25,16 +25,36 @@ type LookupDomainServiceArgs struct {
 
 // Domain service.
 type LookupDomainServiceResult struct {
+	// Deployment Id
+	DeploymentId string `pulumi:"deploymentId"`
+	// The name of the Azure domain that the user would like to deploy Domain Services to.
+	DomainName *string `pulumi:"domainName"`
+	// DomainSecurity Settings
+	DomainSecuritySettings *DomainSecuritySettingsResponse `pulumi:"domainSecuritySettings"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
+	// Enabled or Disabled flag to turn on Group-based filtered sync
+	FilteredSync *string `pulumi:"filteredSync"`
+	// Secure LDAP Settings
+	LdapsSettings *LdapsSettingsResponse `pulumi:"ldapsSettings"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Domain service properties
-	Properties DomainServicePropertiesResponse `pulumi:"properties"`
+	// Notification Settings
+	NotificationSettings *NotificationSettingsResponse `pulumi:"notificationSettings"`
+	// the current deployment or provisioning state, which only appears in the response.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// List of ReplicaSets
+	ReplicaSets []ReplicaSetResponse `pulumi:"replicaSets"`
+	// SyncOwner ReplicaSet Id
+	SyncOwner string `pulumi:"syncOwner"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Azure Active Directory Tenant Id
+	TenantId string `pulumi:"tenantId"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Data Model Version
+	Version int `pulumi:"version"`
 }

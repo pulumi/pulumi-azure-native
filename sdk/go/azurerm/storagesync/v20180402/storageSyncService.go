@@ -18,8 +18,10 @@ type StorageSyncService struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Storage Sync Service properties.
-	Properties StorageSyncServicePropertiesResponseOutput `pulumi:"properties"`
+	// Storage Sync service status.
+	StorageSyncServiceStatus pulumi.IntOutput `pulumi:"storageSyncServiceStatus"`
+	// Storage Sync service Uid
+	StorageSyncServiceUid pulumi.StringOutput `pulumi:"storageSyncServiceUid"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -64,8 +66,10 @@ type storageSyncServiceState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Storage Sync Service properties.
-	Properties *StorageSyncServicePropertiesResponse `pulumi:"properties"`
+	// Storage Sync service status.
+	StorageSyncServiceStatus *int `pulumi:"storageSyncServiceStatus"`
+	// Storage Sync service Uid
+	StorageSyncServiceUid *string `pulumi:"storageSyncServiceUid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -77,8 +81,10 @@ type StorageSyncServiceState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Storage Sync Service properties.
-	Properties StorageSyncServicePropertiesResponsePtrInput
+	// Storage Sync service status.
+	StorageSyncServiceStatus pulumi.IntPtrInput
+	// Storage Sync service Uid
+	StorageSyncServiceUid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

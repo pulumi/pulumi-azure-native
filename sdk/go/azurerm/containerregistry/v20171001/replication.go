@@ -18,8 +18,10 @@ type Replication struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The properties of the replication.
-	Properties ReplicationPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning state of the replication at the time the operation was called.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The status of the replication at the time the operation was called.
+	Status StatusResponseOutput `pulumi:"status"`
 	// The tags of the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource.
@@ -70,8 +72,10 @@ type replicationState struct {
 	Location *string `pulumi:"location"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// The properties of the replication.
-	Properties *ReplicationPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the replication at the time the operation was called.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The status of the replication at the time the operation was called.
+	Status *StatusResponse `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource.
@@ -83,8 +87,10 @@ type ReplicationState struct {
 	Location pulumi.StringPtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// The properties of the replication.
-	Properties ReplicationPropertiesResponsePtrInput
+	// The provisioning state of the replication at the time the operation was called.
+	ProvisioningState pulumi.StringPtrInput
+	// The status of the replication at the time the operation was called.
+	Status StatusResponsePtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The type of the resource.

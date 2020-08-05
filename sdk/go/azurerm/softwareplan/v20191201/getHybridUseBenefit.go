@@ -25,12 +25,16 @@ type LookupHybridUseBenefitArgs struct {
 
 // Response on GET of a hybrid use benefit
 type LookupHybridUseBenefitResult struct {
+	// Created date
+	CreatedDate string `pulumi:"createdDate"`
 	// Indicates the revision of the hybrid use benefit
 	Etag int `pulumi:"etag"`
+	// Last updated date
+	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Property bag for a hybrid use benefit response
-	Properties HybridUseBenefitPropertiesResponse `pulumi:"properties"`
+	// Provisioning state
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Hybrid use benefit SKU
 	Sku SkuResponse `pulumi:"sku"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

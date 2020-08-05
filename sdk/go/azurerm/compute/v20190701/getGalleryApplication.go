@@ -27,12 +27,22 @@ type LookupGalleryApplicationArgs struct {
 
 // Specifies information about the gallery Application Definition that you want to create or update.
 type LookupGalleryApplicationResult struct {
+	// The description of this gallery Application Definition resource. This property is updatable.
+	Description *string `pulumi:"description"`
+	// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
+	// The Eula agreement for the gallery Application Definition.
+	Eula *string `pulumi:"eula"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Describes the properties of a gallery Application Definition.
-	Properties GalleryApplicationPropertiesResponse `pulumi:"properties"`
+	// The privacy statement uri.
+	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
+	// The release note uri.
+	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
+	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+	SupportedOSType string `pulumi:"supportedOSType"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type

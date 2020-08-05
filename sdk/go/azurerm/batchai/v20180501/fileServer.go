@@ -14,12 +14,26 @@ import (
 type FileServer struct {
 	pulumi.CustomResourceState
 
+	// Time when the FileServer was created.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// Information about disks attached to File Server VM.
+	DataDisks DataDisksResponsePtrOutput `pulumi:"dataDisks"`
+	// File Server mount settings.
+	MountSettings MountSettingsResponseOutput `pulumi:"mountSettings"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// File Server properties.
-	Properties FileServerPropertiesResponseOutput `pulumi:"properties"`
+	// Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Time when the provisioning state was changed.
+	ProvisioningStateTransitionTime pulumi.StringOutput `pulumi:"provisioningStateTransitionTime"`
+	// SSH configuration for accessing the File Server node.
+	SshConfiguration SshConfigurationResponsePtrOutput `pulumi:"sshConfiguration"`
+	// File Server virtual network subnet resource ID.
+	Subnet ResourceIdResponsePtrOutput `pulumi:"subnet"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// VM size of the File Server.
+	VmSize pulumi.StringPtrOutput `pulumi:"vmSize"`
 }
 
 // NewFileServer registers a new resource with the given unique name, arguments, and options.
@@ -68,21 +82,49 @@ func GetFileServer(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FileServer resources.
 type fileServerState struct {
+	// Time when the FileServer was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// Information about disks attached to File Server VM.
+	DataDisks *DataDisksResponse `pulumi:"dataDisks"`
+	// File Server mount settings.
+	MountSettings *MountSettingsResponse `pulumi:"mountSettings"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// File Server properties.
-	Properties *FileServerPropertiesResponse `pulumi:"properties"`
+	// Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Time when the provisioning state was changed.
+	ProvisioningStateTransitionTime *string `pulumi:"provisioningStateTransitionTime"`
+	// SSH configuration for accessing the File Server node.
+	SshConfiguration *SshConfigurationResponse `pulumi:"sshConfiguration"`
+	// File Server virtual network subnet resource ID.
+	Subnet *ResourceIdResponse `pulumi:"subnet"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// VM size of the File Server.
+	VmSize *string `pulumi:"vmSize"`
 }
 
 type FileServerState struct {
+	// Time when the FileServer was created.
+	CreationTime pulumi.StringPtrInput
+	// Information about disks attached to File Server VM.
+	DataDisks DataDisksResponsePtrInput
+	// File Server mount settings.
+	MountSettings MountSettingsResponsePtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// File Server properties.
-	Properties FileServerPropertiesResponsePtrInput
+	// Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
+	ProvisioningState pulumi.StringPtrInput
+	// Time when the provisioning state was changed.
+	ProvisioningStateTransitionTime pulumi.StringPtrInput
+	// SSH configuration for accessing the File Server node.
+	SshConfiguration SshConfigurationResponsePtrInput
+	// File Server virtual network subnet resource ID.
+	Subnet ResourceIdResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// VM size of the File Server.
+	VmSize pulumi.StringPtrInput
 }
 
 func (FileServerState) ElementType() reflect.Type {

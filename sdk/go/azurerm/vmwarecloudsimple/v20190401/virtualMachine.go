@@ -14,16 +14,58 @@ import (
 type VirtualMachine struct {
 	pulumi.CustomResourceState
 
+	// The amount of memory
+	AmountOfRam pulumi.IntOutput `pulumi:"amountOfRam"`
+	// The list of Virtual Disks' Controllers
+	Controllers VirtualDiskControllerResponseArrayOutput `pulumi:"controllers"`
+	// Virtual machine properties
+	Customization GuestOSCustomizationResponsePtrOutput `pulumi:"customization"`
+	// The list of Virtual Disks
+	Disks VirtualDiskResponseArrayOutput `pulumi:"disks"`
+	// The DNS name of Virtual Machine in VCenter
+	Dnsname pulumi.StringOutput `pulumi:"dnsname"`
+	// Expose Guest OS or not
+	ExposeToGuestVM pulumi.BoolPtrOutput `pulumi:"exposeToGuestVM"`
+	// The path to virtual machine folder in VCenter
+	Folder pulumi.StringOutput `pulumi:"folder"`
+	// The name of Guest OS
+	GuestOS pulumi.StringOutput `pulumi:"guestOS"`
+	// The Guest OS type
+	GuestOSType pulumi.StringOutput `pulumi:"guestOSType"`
 	// Azure region
 	Location pulumi.StringOutput `pulumi:"location"`
 	// {virtualMachineName}
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Virtual machine properties
-	Properties VirtualMachinePropertiesResponseOutput `pulumi:"properties"`
+	// The list of Virtual NICs
+	Nics VirtualNicResponseArrayOutput `pulumi:"nics"`
+	// The number of CPU cores
+	NumberOfCores pulumi.IntOutput `pulumi:"numberOfCores"`
+	// Password for login. Deprecated - use customization property
+	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// Private Cloud Id
+	PrivateCloudId pulumi.StringOutput `pulumi:"privateCloudId"`
+	// The provisioning status of the resource
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// The public ip of Virtual Machine
+	PublicIP pulumi.StringOutput `pulumi:"publicIP"`
+	// Virtual Machines Resource Pool
+	ResourcePool ResourcePoolResponsePtrOutput `pulumi:"resourcePool"`
+	// The status of Virtual machine
+	Status pulumi.StringOutput `pulumi:"status"`
 	// The list of tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Virtual Machine Template Id
+	TemplateId pulumi.StringPtrOutput `pulumi:"templateId"`
 	// {resourceProviderNamespace}/{resourceType}
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Username for login. Deprecated - use customization property
+	Username pulumi.StringPtrOutput `pulumi:"username"`
+	// The list of Virtual VSphere Networks
+	VSphereNetworks pulumi.StringArrayOutput `pulumi:"vSphereNetworks"`
+	// The internal id of Virtual Machine in VCenter
+	VmId pulumi.StringOutput `pulumi:"vmId"`
+	// VMware tools version
+	Vmwaretools pulumi.StringOutput `pulumi:"vmwaretools"`
 }
 
 // NewVirtualMachine registers a new resource with the given unique name, arguments, and options.
@@ -75,29 +117,113 @@ func GetVirtualMachine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualMachine resources.
 type virtualMachineState struct {
+	// The amount of memory
+	AmountOfRam *int `pulumi:"amountOfRam"`
+	// The list of Virtual Disks' Controllers
+	Controllers []VirtualDiskControllerResponse `pulumi:"controllers"`
+	// Virtual machine properties
+	Customization *GuestOSCustomizationResponse `pulumi:"customization"`
+	// The list of Virtual Disks
+	Disks []VirtualDiskResponse `pulumi:"disks"`
+	// The DNS name of Virtual Machine in VCenter
+	Dnsname *string `pulumi:"dnsname"`
+	// Expose Guest OS or not
+	ExposeToGuestVM *bool `pulumi:"exposeToGuestVM"`
+	// The path to virtual machine folder in VCenter
+	Folder *string `pulumi:"folder"`
+	// The name of Guest OS
+	GuestOS *string `pulumi:"guestOS"`
+	// The Guest OS type
+	GuestOSType *string `pulumi:"guestOSType"`
 	// Azure region
 	Location *string `pulumi:"location"`
 	// {virtualMachineName}
 	Name *string `pulumi:"name"`
-	// Virtual machine properties
-	Properties *VirtualMachinePropertiesResponse `pulumi:"properties"`
+	// The list of Virtual NICs
+	Nics []VirtualNicResponse `pulumi:"nics"`
+	// The number of CPU cores
+	NumberOfCores *int `pulumi:"numberOfCores"`
+	// Password for login. Deprecated - use customization property
+	Password *string `pulumi:"password"`
+	// Private Cloud Id
+	PrivateCloudId *string `pulumi:"privateCloudId"`
+	// The provisioning status of the resource
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The public ip of Virtual Machine
+	PublicIP *string `pulumi:"publicIP"`
+	// Virtual Machines Resource Pool
+	ResourcePool *ResourcePoolResponse `pulumi:"resourcePool"`
+	// The status of Virtual machine
+	Status *string `pulumi:"status"`
 	// The list of tags
 	Tags map[string]string `pulumi:"tags"`
+	// Virtual Machine Template Id
+	TemplateId *string `pulumi:"templateId"`
 	// {resourceProviderNamespace}/{resourceType}
 	Type *string `pulumi:"type"`
+	// Username for login. Deprecated - use customization property
+	Username *string `pulumi:"username"`
+	// The list of Virtual VSphere Networks
+	VSphereNetworks []string `pulumi:"vSphereNetworks"`
+	// The internal id of Virtual Machine in VCenter
+	VmId *string `pulumi:"vmId"`
+	// VMware tools version
+	Vmwaretools *string `pulumi:"vmwaretools"`
 }
 
 type VirtualMachineState struct {
+	// The amount of memory
+	AmountOfRam pulumi.IntPtrInput
+	// The list of Virtual Disks' Controllers
+	Controllers VirtualDiskControllerResponseArrayInput
+	// Virtual machine properties
+	Customization GuestOSCustomizationResponsePtrInput
+	// The list of Virtual Disks
+	Disks VirtualDiskResponseArrayInput
+	// The DNS name of Virtual Machine in VCenter
+	Dnsname pulumi.StringPtrInput
+	// Expose Guest OS or not
+	ExposeToGuestVM pulumi.BoolPtrInput
+	// The path to virtual machine folder in VCenter
+	Folder pulumi.StringPtrInput
+	// The name of Guest OS
+	GuestOS pulumi.StringPtrInput
+	// The Guest OS type
+	GuestOSType pulumi.StringPtrInput
 	// Azure region
 	Location pulumi.StringPtrInput
 	// {virtualMachineName}
 	Name pulumi.StringPtrInput
-	// Virtual machine properties
-	Properties VirtualMachinePropertiesResponsePtrInput
+	// The list of Virtual NICs
+	Nics VirtualNicResponseArrayInput
+	// The number of CPU cores
+	NumberOfCores pulumi.IntPtrInput
+	// Password for login. Deprecated - use customization property
+	Password pulumi.StringPtrInput
+	// Private Cloud Id
+	PrivateCloudId pulumi.StringPtrInput
+	// The provisioning status of the resource
+	ProvisioningState pulumi.StringPtrInput
+	// The public ip of Virtual Machine
+	PublicIP pulumi.StringPtrInput
+	// Virtual Machines Resource Pool
+	ResourcePool ResourcePoolResponsePtrInput
+	// The status of Virtual machine
+	Status pulumi.StringPtrInput
 	// The list of tags
 	Tags pulumi.StringMapInput
+	// Virtual Machine Template Id
+	TemplateId pulumi.StringPtrInput
 	// {resourceProviderNamespace}/{resourceType}
 	Type pulumi.StringPtrInput
+	// Username for login. Deprecated - use customization property
+	Username pulumi.StringPtrInput
+	// The list of Virtual VSphere Networks
+	VSphereNetworks pulumi.StringArrayInput
+	// The internal id of Virtual Machine in VCenter
+	VmId pulumi.StringPtrInput
+	// VMware tools version
+	Vmwaretools pulumi.StringPtrInput
 }
 
 func (VirtualMachineState) ElementType() reflect.Type {

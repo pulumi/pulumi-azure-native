@@ -25,16 +25,32 @@ type LookupPrivateLinkServiceArgs struct {
 
 // Private link service resource.
 type LookupPrivateLinkServiceResult struct {
+	// The alias of the private link service.
+	Alias string `pulumi:"alias"`
+	// The auto-approval list of the private link service.
+	AutoApproval *PrivateLinkServicePropertiesResponseAutoApproval `pulumi:"autoApproval"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The list of Fqdn.
+	Fqdns []string `pulumi:"fqdns"`
+	// An array of references to the private link service IP configuration.
+	IpConfigurations []PrivateLinkServiceIpConfigurationResponse `pulumi:"ipConfigurations"`
+	// An array of references to the load balancer IP configurations.
+	LoadBalancerFrontendIpConfigurations []FrontendIPConfigurationResponse `pulumi:"loadBalancerFrontendIpConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the private link service.
-	Properties PrivateLinkServicePropertiesResponse `pulumi:"properties"`
+	// Gets an array of references to the network interfaces created for this private link service.
+	NetworkInterfaces []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
+	// An array of list about connections to the private endpoint.
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	// The provisioning state of the private link service.
+	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The visibility list of the private link service.
+	Visibility *PrivateLinkServicePropertiesResponseVisibility `pulumi:"visibility"`
 }

@@ -27,10 +27,16 @@ type LookupTransformArgs struct {
 
 // A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
 type LookupTransformResult struct {
+	// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	Created string `pulumi:"created"`
+	// An optional verbose description of the Transform.
+	Description *string `pulumi:"description"`
+	// The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+	LastModified string `pulumi:"lastModified"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties TransformPropertiesResponse `pulumi:"properties"`
+	// An array of one or more TransformOutputs that the Transform should generate.
+	Outputs []TransformOutputResponse `pulumi:"outputs"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 }

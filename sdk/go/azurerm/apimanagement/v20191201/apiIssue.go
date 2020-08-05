@@ -14,12 +14,22 @@ import (
 type ApiIssue struct {
 	pulumi.CustomResourceState
 
+	// A resource identifier for the API the issue was created for.
+	ApiId pulumi.StringPtrOutput `pulumi:"apiId"`
+	// Date and time when the issue was created.
+	CreatedDate pulumi.StringPtrOutput `pulumi:"createdDate"`
+	// Text describing the issue.
+	Description pulumi.StringOutput `pulumi:"description"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the Issue.
-	Properties IssueContractPropertiesResponseOutput `pulumi:"properties"`
+	// Status of the issue.
+	State pulumi.StringPtrOutput `pulumi:"state"`
+	// The issue title.
+	Title pulumi.StringOutput `pulumi:"title"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// A resource identifier for the user created the issue.
+	UserId pulumi.StringOutput `pulumi:"userId"`
 }
 
 // NewApiIssue registers a new resource with the given unique name, arguments, and options.
@@ -71,21 +81,41 @@ func GetApiIssue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApiIssue resources.
 type apiIssueState struct {
+	// A resource identifier for the API the issue was created for.
+	ApiId *string `pulumi:"apiId"`
+	// Date and time when the issue was created.
+	CreatedDate *string `pulumi:"createdDate"`
+	// Text describing the issue.
+	Description *string `pulumi:"description"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of the Issue.
-	Properties *IssueContractPropertiesResponse `pulumi:"properties"`
+	// Status of the issue.
+	State *string `pulumi:"state"`
+	// The issue title.
+	Title *string `pulumi:"title"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
+	// A resource identifier for the user created the issue.
+	UserId *string `pulumi:"userId"`
 }
 
 type ApiIssueState struct {
+	// A resource identifier for the API the issue was created for.
+	ApiId pulumi.StringPtrInput
+	// Date and time when the issue was created.
+	CreatedDate pulumi.StringPtrInput
+	// Text describing the issue.
+	Description pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of the Issue.
-	Properties IssueContractPropertiesResponsePtrInput
+	// Status of the issue.
+	State pulumi.StringPtrInput
+	// The issue title.
+	Title pulumi.StringPtrInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
+	// A resource identifier for the user created the issue.
+	UserId pulumi.StringPtrInput
 }
 
 func (ApiIssueState) ElementType() reflect.Type {

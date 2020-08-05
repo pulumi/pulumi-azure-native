@@ -27,12 +27,36 @@ type LookupFileShareArgs struct {
 
 // Properties of the file share, including Id, resource name, resource type, Etag.
 type LookupFileShareResult struct {
+	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+	AccessTier *string `pulumi:"accessTier"`
+	// Indicates the last modification time for share access tier.
+	AccessTierChangeTime string `pulumi:"accessTierChangeTime"`
+	// Indicates if there is a pending transition for access tier.
+	AccessTierStatus string `pulumi:"accessTierStatus"`
+	// Indicates whether the share was deleted.
+	Deleted bool `pulumi:"deleted"`
+	// The deleted time if the share was deleted.
+	DeletedTime string `pulumi:"deletedTime"`
+	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
+	EnabledProtocols *string `pulumi:"enabledProtocols"`
 	// Resource Etag.
 	Etag string `pulumi:"etag"`
+	// Returns the date and time the share was last modified.
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
+	// A name-value pair to associate with the share as metadata.
+	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource
 	Name string `pulumi:"name"`
-	// Properties of the file share.
-	Properties FileSharePropertiesResponse `pulumi:"properties"`
+	// Remaining retention days for share that was soft deleted.
+	RemainingRetentionDays int `pulumi:"remainingRetentionDays"`
+	// The property is for NFS share only. The default is NoRootSquash.
+	RootSquash *string `pulumi:"rootSquash"`
+	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+	ShareQuota *int `pulumi:"shareQuota"`
+	// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
+	ShareUsageBytes int `pulumi:"shareUsageBytes"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+	// The version of the share.
+	Version string `pulumi:"version"`
 }

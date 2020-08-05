@@ -27,10 +27,38 @@ type LookupSubnetArgs struct {
 
 // Subnet in a virtual network resource.
 type LookupSubnetResult struct {
+	// The address prefix for the subnet.
+	AddressPrefix *string `pulumi:"addressPrefix"`
+	// List of  address prefixes for the subnet.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
+	// Gets an array of references to the delegations on the subnet.
+	Delegations []DelegationResponse `pulumi:"delegations"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// An array of references to interface endpoints
+	InterfaceEndpoints []InterfaceEndpointResponse `pulumi:"interfaceEndpoints"`
+	// Array of IP configuration profiles which reference this subnet.
+	IpConfigurationProfiles []IPConfigurationProfileResponse `pulumi:"ipConfigurationProfiles"`
+	// Gets an array of references to the network interface IP configurations using subnet.
+	IpConfigurations []IPConfigurationResponse `pulumi:"ipConfigurations"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the subnet.
-	Properties SubnetPropertiesFormatResponse `pulumi:"properties"`
+	// Nat gateway associated with this subnet.
+	NatGateway *SubResourceResponse `pulumi:"natGateway"`
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup *NetworkSecurityGroupResponse `pulumi:"networkSecurityGroup"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+	Purpose string `pulumi:"purpose"`
+	// Gets an array of references to the external resources using subnet.
+	ResourceNavigationLinks []ResourceNavigationLinkResponse `pulumi:"resourceNavigationLinks"`
+	// The reference of the RouteTable resource.
+	RouteTable *RouteTableResponse `pulumi:"routeTable"`
+	// Gets an array of references to services injecting into this subnet.
+	ServiceAssociationLinks []ServiceAssociationLinkResponse `pulumi:"serviceAssociationLinks"`
+	// An array of service endpoint policies.
+	ServiceEndpointPolicies []ServiceEndpointPolicyResponse `pulumi:"serviceEndpointPolicies"`
+	// An array of service endpoints.
+	ServiceEndpoints []ServiceEndpointPropertiesFormatResponse `pulumi:"serviceEndpoints"`
 }

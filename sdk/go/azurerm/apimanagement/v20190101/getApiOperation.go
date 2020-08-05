@@ -29,10 +29,24 @@ type LookupApiOperationArgs struct {
 
 // Api Operation details.
 type LookupApiOperationResult struct {
+	// Description of the operation. May include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	// Operation Name.
+	DisplayName string `pulumi:"displayName"`
+	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+	Method string `pulumi:"method"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Operation Contract.
-	Properties OperationContractPropertiesResponse `pulumi:"properties"`
+	// Operation Policies
+	Policies *string `pulumi:"policies"`
+	// An entity containing request details.
+	Request *RequestContractResponse `pulumi:"request"`
+	// Array of Operation responses.
+	Responses []ResponseContractResponse `pulumi:"responses"`
+	// Collection of URL template parameters.
+	TemplateParameters []ParameterContractResponse `pulumi:"templateParameters"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+	// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+	UrlTemplate string `pulumi:"urlTemplate"`
 }

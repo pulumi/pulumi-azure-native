@@ -18,8 +18,10 @@ type WebAppSwiftVirtualNetworkConnection struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// SwiftVirtualNetwork resource specific properties
-	Properties SwiftVirtualNetworkResponsePropertiesOutput `pulumi:"properties"`
+	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+	SubnetResourceId pulumi.StringPtrOutput `pulumi:"subnetResourceId"`
+	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
+	SwiftSupported pulumi.BoolPtrOutput `pulumi:"swiftSupported"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -62,8 +64,10 @@ type webAppSwiftVirtualNetworkConnectionState struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
-	// SwiftVirtualNetwork resource specific properties
-	Properties *SwiftVirtualNetworkResponseProperties `pulumi:"properties"`
+	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+	SubnetResourceId *string `pulumi:"subnetResourceId"`
+	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
+	SwiftSupported *bool `pulumi:"swiftSupported"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -73,8 +77,10 @@ type WebAppSwiftVirtualNetworkConnectionState struct {
 	Kind pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
-	// SwiftVirtualNetwork resource specific properties
-	Properties SwiftVirtualNetworkResponsePropertiesPtrInput
+	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+	SubnetResourceId pulumi.StringPtrInput
+	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
+	SwiftSupported pulumi.BoolPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }

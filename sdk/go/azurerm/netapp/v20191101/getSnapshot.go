@@ -31,12 +31,18 @@ type LookupSnapshotArgs struct {
 
 // Snapshot of a Volume
 type LookupSnapshotResult struct {
+	// The creation date of the snapshot
+	Created string `pulumi:"created"`
+	// UUID v4 used to identify the FileSystem
+	FileSystemId *string `pulumi:"fileSystemId"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name
 	Name string `pulumi:"name"`
-	// Snapshot Properties
-	Properties SnapshotPropertiesResponse `pulumi:"properties"`
+	// Azure lifecycle management
+	ProvisioningState string `pulumi:"provisioningState"`
+	// UUID v4 used to identify the Snapshot
+	SnapshotId string `pulumi:"snapshotId"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

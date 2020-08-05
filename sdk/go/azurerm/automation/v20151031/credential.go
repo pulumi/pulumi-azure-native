@@ -14,12 +14,18 @@ import (
 type Credential struct {
 	pulumi.CustomResourceState
 
+	// Gets the creation time.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Gets the last modified time.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Gets or sets the properties of the credential.
-	Properties CredentialPropertiesResponseOutput `pulumi:"properties"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Gets the user name of the credential.
+	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
 // NewCredential registers a new resource with the given unique name, arguments, and options.
@@ -65,21 +71,33 @@ func GetCredential(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Credential resources.
 type credentialState struct {
+	// Gets the creation time.
+	CreationTime *string `pulumi:"creationTime"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
+	// Gets the last modified time.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
-	// Gets or sets the properties of the credential.
-	Properties *CredentialPropertiesResponse `pulumi:"properties"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
+	// Gets the user name of the credential.
+	UserName *string `pulumi:"userName"`
 }
 
 type CredentialState struct {
+	// Gets the creation time.
+	CreationTime pulumi.StringPtrInput
+	// Gets or sets the description.
+	Description pulumi.StringPtrInput
+	// Gets the last modified time.
+	LastModifiedTime pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
-	// Gets or sets the properties of the credential.
-	Properties CredentialPropertiesResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
+	// Gets the user name of the credential.
+	UserName pulumi.StringPtrInput
 }
 
 func (CredentialState) ElementType() reflect.Type {

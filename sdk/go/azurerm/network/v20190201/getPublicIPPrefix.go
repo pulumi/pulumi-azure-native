@@ -27,12 +27,26 @@ type LookupPublicIPPrefixArgs struct {
 type LookupPublicIPPrefixResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The allocated Prefix.
+	IpPrefix *string `pulumi:"ipPrefix"`
+	// The list of tags associated with the public IP prefix.
+	IpTags []IpTagResponse `pulumi:"ipTags"`
+	// The reference to load balancer frontend IP configuration associated with the public IP prefix.
+	LoadBalancerFrontendIpConfiguration SubResourceResponse `pulumi:"loadBalancerFrontendIpConfiguration"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Public IP prefix properties.
-	Properties PublicIPPrefixPropertiesFormatResponse `pulumi:"properties"`
+	// The Length of the Public IP Prefix.
+	PrefixLength *int `pulumi:"prefixLength"`
+	// The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The public IP address version.
+	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
+	// The list of all referenced PublicIPAddresses.
+	PublicIPAddresses []ReferencedPublicIpAddressResponse `pulumi:"publicIPAddresses"`
+	// The resource GUID property of the public IP prefix resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The public IP prefix SKU.
 	Sku *PublicIPPrefixSkuResponse `pulumi:"sku"`
 	// Resource tags.

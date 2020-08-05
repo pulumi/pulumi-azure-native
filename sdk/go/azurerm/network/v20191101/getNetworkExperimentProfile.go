@@ -25,14 +25,16 @@ type LookupNetworkExperimentProfileArgs struct {
 
 // Defines an Network Experiment Profile and lists of Experiments
 type LookupNetworkExperimentProfileResult struct {
+	// The state of the Experiment
+	EnabledState *string `pulumi:"enabledState"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// The properties of a Profile
-	Properties ProfilePropertiesResponse `pulumi:"properties"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.

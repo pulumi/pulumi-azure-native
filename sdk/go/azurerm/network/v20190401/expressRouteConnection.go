@@ -14,10 +14,16 @@ import (
 type ExpressRouteConnection struct {
 	pulumi.CustomResourceState
 
+	// Authorization key to establish the connection.
+	AuthorizationKey pulumi.StringPtrOutput `pulumi:"authorizationKey"`
+	// The ExpressRoute circuit peering.
+	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponseOutput `pulumi:"expressRouteCircuitPeering"`
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the express route connection.
-	Properties ExpressRouteConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// The routing weight associated to the connection.
+	RoutingWeight pulumi.IntPtrOutput `pulumi:"routingWeight"`
 }
 
 // NewExpressRouteConnection registers a new resource with the given unique name, arguments, and options.
@@ -60,17 +66,29 @@ func GetExpressRouteConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteConnection resources.
 type expressRouteConnectionState struct {
+	// Authorization key to establish the connection.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The ExpressRoute circuit peering.
+	ExpressRouteCircuitPeering *ExpressRouteCircuitPeeringIdResponse `pulumi:"expressRouteCircuitPeering"`
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the express route connection.
-	Properties *ExpressRouteConnectionPropertiesResponse `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The routing weight associated to the connection.
+	RoutingWeight *int `pulumi:"routingWeight"`
 }
 
 type ExpressRouteConnectionState struct {
+	// Authorization key to establish the connection.
+	AuthorizationKey pulumi.StringPtrInput
+	// The ExpressRoute circuit peering.
+	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponsePtrInput
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the express route connection.
-	Properties ExpressRouteConnectionPropertiesResponsePtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// The routing weight associated to the connection.
+	RoutingWeight pulumi.IntPtrInput
 }
 
 func (ExpressRouteConnectionState) ElementType() reflect.Type {

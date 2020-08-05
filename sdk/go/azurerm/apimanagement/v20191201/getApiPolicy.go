@@ -31,10 +31,12 @@ type LookupApiPolicyArgs struct {
 
 // Policy Contract details.
 type LookupApiPolicyResult struct {
+	// Format of the policyContent.
+	Format *string `pulumi:"format"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesResponse `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
+	// Contents of the Policy as defined by the format.
+	Value string `pulumi:"value"`
 }

@@ -14,16 +14,32 @@ import (
 type ContainerService struct {
 	pulumi.CustomResourceState
 
+	// Properties of the agent pool.
+	AgentPoolProfiles ContainerServiceAgentPoolProfileResponseArrayOutput `pulumi:"agentPoolProfiles"`
+	// Properties to configure a custom container service cluster.
+	CustomProfile ContainerServiceCustomProfileResponsePtrOutput `pulumi:"customProfile"`
+	// Profile for diagnostics in the container service cluster.
+	DiagnosticsProfile ContainerServiceDiagnosticsProfileResponsePtrOutput `pulumi:"diagnosticsProfile"`
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile ContainerServiceLinuxProfileResponseOutput `pulumi:"linuxProfile"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Profile for the container service master.
+	MasterProfile ContainerServiceMasterProfileResponseOutput `pulumi:"masterProfile"`
 	// Resource name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the container service.
-	Properties ContainerServicePropertiesResponseOutput `pulumi:"properties"`
+	// Profile for the container service orchestrator.
+	OrchestratorProfile ContainerServiceOrchestratorProfileResponseOutput `pulumi:"orchestratorProfile"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+	ServicePrincipalProfile ContainerServiceServicePrincipalProfileResponsePtrOutput `pulumi:"servicePrincipalProfile"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Profile for Windows VMs in the container service cluster.
+	WindowsProfile ContainerServiceWindowsProfileResponsePtrOutput `pulumi:"windowsProfile"`
 }
 
 // NewContainerService registers a new resource with the given unique name, arguments, and options.
@@ -72,29 +88,61 @@ func GetContainerService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerService resources.
 type containerServiceState struct {
+	// Properties of the agent pool.
+	AgentPoolProfiles []ContainerServiceAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
+	// Properties to configure a custom container service cluster.
+	CustomProfile *ContainerServiceCustomProfileResponse `pulumi:"customProfile"`
+	// Profile for diagnostics in the container service cluster.
+	DiagnosticsProfile *ContainerServiceDiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile *ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// Profile for the container service master.
+	MasterProfile *ContainerServiceMasterProfileResponse `pulumi:"masterProfile"`
 	// Resource name
 	Name *string `pulumi:"name"`
-	// Properties of the container service.
-	Properties *ContainerServicePropertiesResponse `pulumi:"properties"`
+	// Profile for the container service orchestrator.
+	OrchestratorProfile *ContainerServiceOrchestratorProfileResponse `pulumi:"orchestratorProfile"`
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+	ServicePrincipalProfile *ContainerServiceServicePrincipalProfileResponse `pulumi:"servicePrincipalProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Profile for Windows VMs in the container service cluster.
+	WindowsProfile *ContainerServiceWindowsProfileResponse `pulumi:"windowsProfile"`
 }
 
 type ContainerServiceState struct {
+	// Properties of the agent pool.
+	AgentPoolProfiles ContainerServiceAgentPoolProfileResponseArrayInput
+	// Properties to configure a custom container service cluster.
+	CustomProfile ContainerServiceCustomProfileResponsePtrInput
+	// Profile for diagnostics in the container service cluster.
+	DiagnosticsProfile ContainerServiceDiagnosticsProfileResponsePtrInput
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile ContainerServiceLinuxProfileResponsePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
+	// Profile for the container service master.
+	MasterProfile ContainerServiceMasterProfileResponsePtrInput
 	// Resource name
 	Name pulumi.StringPtrInput
-	// Properties of the container service.
-	Properties ContainerServicePropertiesResponsePtrInput
+	// Profile for the container service orchestrator.
+	OrchestratorProfile ContainerServiceOrchestratorProfileResponsePtrInput
+	// The current deployment or provisioning state, which only appears in the response.
+	ProvisioningState pulumi.StringPtrInput
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+	ServicePrincipalProfile ContainerServiceServicePrincipalProfileResponsePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Profile for Windows VMs in the container service cluster.
+	WindowsProfile ContainerServiceWindowsProfileResponsePtrInput
 }
 
 func (ContainerServiceState) ElementType() reflect.Type {

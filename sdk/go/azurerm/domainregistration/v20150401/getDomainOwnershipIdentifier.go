@@ -31,8 +31,8 @@ type LookupDomainOwnershipIdentifierResult struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// DomainOwnershipIdentifier resource specific properties
-	Properties DomainOwnershipIdentifierResponseProperties `pulumi:"properties"`
+	// Ownership Id.
+	OwnershipId *string `pulumi:"ownershipId"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

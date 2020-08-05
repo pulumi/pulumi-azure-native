@@ -14,16 +14,42 @@ import (
 type ExpressRouteCircuit struct {
 	pulumi.CustomResourceState
 
+	// Allow classic operations
+	AllowClassicOperations pulumi.BoolPtrOutput `pulumi:"allowClassicOperations"`
+	// Flag to enable Global Reach on the circuit.
+	AllowGlobalReach pulumi.BoolPtrOutput `pulumi:"allowGlobalReach"`
+	// The list of authorizations.
+	Authorizations ExpressRouteCircuitAuthorizationResponseArrayOutput `pulumi:"authorizations"`
+	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+	BandwidthInGbps pulumi.Float64PtrOutput `pulumi:"bandwidthInGbps"`
+	// The CircuitProvisioningState state of the resource.
+	CircuitProvisioningState pulumi.StringPtrOutput `pulumi:"circuitProvisioningState"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+	ExpressRoutePort SubResourceResponsePtrOutput `pulumi:"expressRoutePort"`
+	// The GatewayManager Etag.
+	GatewayManagerEtag pulumi.StringPtrOutput `pulumi:"gatewayManagerEtag"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of ExpressRouteCircuit.
-	Properties ExpressRouteCircuitPropertiesFormatResponseOutput `pulumi:"properties"`
+	// The list of peerings.
+	Peerings ExpressRouteCircuitPeeringResponseArrayOutput `pulumi:"peerings"`
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
+	// The ServiceKey.
+	ServiceKey pulumi.StringPtrOutput `pulumi:"serviceKey"`
+	// The ServiceProviderNotes.
+	ServiceProviderNotes pulumi.StringPtrOutput `pulumi:"serviceProviderNotes"`
+	// The ServiceProviderProperties.
+	ServiceProviderProperties ExpressRouteCircuitServiceProviderPropertiesResponsePtrOutput `pulumi:"serviceProviderProperties"`
+	// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+	ServiceProviderProvisioningState pulumi.StringPtrOutput `pulumi:"serviceProviderProvisioningState"`
 	// The SKU.
 	Sku ExpressRouteCircuitSkuResponsePtrOutput `pulumi:"sku"`
+	// The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
+	Stag pulumi.IntOutput `pulumi:"stag"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type.
@@ -64,16 +90,42 @@ func GetExpressRouteCircuit(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExpressRouteCircuit resources.
 type expressRouteCircuitState struct {
+	// Allow classic operations
+	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
+	// Flag to enable Global Reach on the circuit.
+	AllowGlobalReach *bool `pulumi:"allowGlobalReach"`
+	// The list of authorizations.
+	Authorizations []ExpressRouteCircuitAuthorizationResponse `pulumi:"authorizations"`
+	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
+	// The CircuitProvisioningState state of the resource.
+	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+	ExpressRoutePort *SubResourceResponse `pulumi:"expressRoutePort"`
+	// The GatewayManager Etag.
+	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.
 	Name *string `pulumi:"name"`
-	// Properties of ExpressRouteCircuit.
-	Properties *ExpressRouteCircuitPropertiesFormatResponse `pulumi:"properties"`
+	// The list of peerings.
+	Peerings []ExpressRouteCircuitPeeringResponse `pulumi:"peerings"`
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// The ServiceKey.
+	ServiceKey *string `pulumi:"serviceKey"`
+	// The ServiceProviderNotes.
+	ServiceProviderNotes *string `pulumi:"serviceProviderNotes"`
+	// The ServiceProviderProperties.
+	ServiceProviderProperties *ExpressRouteCircuitServiceProviderPropertiesResponse `pulumi:"serviceProviderProperties"`
+	// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
 	// The SKU.
 	Sku *ExpressRouteCircuitSkuResponse `pulumi:"sku"`
+	// The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
+	Stag *int `pulumi:"stag"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
@@ -81,16 +133,42 @@ type expressRouteCircuitState struct {
 }
 
 type ExpressRouteCircuitState struct {
+	// Allow classic operations
+	AllowClassicOperations pulumi.BoolPtrInput
+	// Flag to enable Global Reach on the circuit.
+	AllowGlobalReach pulumi.BoolPtrInput
+	// The list of authorizations.
+	Authorizations ExpressRouteCircuitAuthorizationResponseArrayInput
+	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+	BandwidthInGbps pulumi.Float64PtrInput
+	// The CircuitProvisioningState state of the resource.
+	CircuitProvisioningState pulumi.StringPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+	ExpressRoutePort SubResourceResponsePtrInput
+	// The GatewayManager Etag.
+	GatewayManagerEtag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Resource name.
 	Name pulumi.StringPtrInput
-	// Properties of ExpressRouteCircuit.
-	Properties ExpressRouteCircuitPropertiesFormatResponsePtrInput
+	// The list of peerings.
+	Peerings ExpressRouteCircuitPeeringResponseArrayInput
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
+	// The ServiceKey.
+	ServiceKey pulumi.StringPtrInput
+	// The ServiceProviderNotes.
+	ServiceProviderNotes pulumi.StringPtrInput
+	// The ServiceProviderProperties.
+	ServiceProviderProperties ExpressRouteCircuitServiceProviderPropertiesResponsePtrInput
+	// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+	ServiceProviderProvisioningState pulumi.StringPtrInput
 	// The SKU.
 	Sku ExpressRouteCircuitSkuResponsePtrInput
+	// The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
+	Stag pulumi.IntPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Resource type.

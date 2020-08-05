@@ -27,12 +27,25 @@ type LookupWebAppVnetConnectionSlotArgs struct {
 
 // Virtual Network information contract.
 type LookupWebAppVnetConnectionSlotResult struct {
+	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+	// Point-To-Site VPN connection.
+	CertBlob *string `pulumi:"certBlob"`
+	// The client certificate thumbprint.
+	CertThumbprint string `pulumi:"certThumbprint"`
+	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+	DnsServers *string `pulumi:"dnsServers"`
+	// Flag that is used to denote if this is VNET injection
+	IsSwift *bool `pulumi:"isSwift"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// VnetInfo resource specific properties
-	Properties VnetInfoResponseProperties `pulumi:"properties"`
+	// <code>true</code> if a resync is required; otherwise, <code>false</code>.
+	ResyncRequired bool `pulumi:"resyncRequired"`
+	// The routes that this Virtual Network connection uses.
+	Routes []VnetRouteResponse `pulumi:"routes"`
 	// Resource type.
 	Type string `pulumi:"type"`
+	// The Virtual Network's resource ID.
+	VnetResourceId *string `pulumi:"vnetResourceId"`
 }

@@ -25,12 +25,20 @@ type LookupWebAppSourceControlSlotArgs struct {
 
 // Source control configuration for an app.
 type LookupWebAppSourceControlSlotResult struct {
+	// Name of branch to use for deployment.
+	Branch *string `pulumi:"branch"`
+	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
+	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+	IsManualIntegration *bool `pulumi:"isManualIntegration"`
+	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+	IsMercurial *bool `pulumi:"isMercurial"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.
 	Name string `pulumi:"name"`
-	// SiteSourceControl resource specific properties
-	Properties SiteSourceControlResponseProperties `pulumi:"properties"`
+	// Repository or source control URL.
+	RepoUrl *string `pulumi:"repoUrl"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

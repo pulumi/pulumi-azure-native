@@ -16,8 +16,12 @@ type SignalRPrivateEndpointConnection struct {
 
 	// The name of the resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Properties of the private endpoint connection
-	Properties PrivateEndpointConnectionPropertiesResponseOutput `pulumi:"properties"`
+	// Private endpoint associated with the private endpoint connection
+	PrivateEndpoint PrivateEndpointResponsePtrOutput `pulumi:"privateEndpoint"`
+	// Connection state
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrOutput `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint connection
+	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -61,8 +65,12 @@ func GetSignalRPrivateEndpointConnection(ctx *pulumi.Context,
 type signalRPrivateEndpointConnectionState struct {
 	// The name of the resource.
 	Name *string `pulumi:"name"`
-	// Properties of the private endpoint connection
-	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
+	// Private endpoint associated with the private endpoint connection
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// Connection state
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint connection
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
 	Type *string `pulumi:"type"`
 }
@@ -70,8 +78,12 @@ type signalRPrivateEndpointConnectionState struct {
 type SignalRPrivateEndpointConnectionState struct {
 	// The name of the resource.
 	Name pulumi.StringPtrInput
-	// Properties of the private endpoint connection
-	Properties PrivateEndpointConnectionPropertiesResponsePtrInput
+	// Private endpoint associated with the private endpoint connection
+	PrivateEndpoint PrivateEndpointResponsePtrInput
+	// Connection state
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponsePtrInput
+	// Provisioning state of the private endpoint connection
+	ProvisioningState pulumi.StringPtrInput
 	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
 	Type pulumi.StringPtrInput
 }

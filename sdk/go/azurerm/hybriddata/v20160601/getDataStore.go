@@ -27,10 +27,18 @@ type LookupDataStoreArgs struct {
 
 // Data store.
 type LookupDataStoreResult struct {
+	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+	CustomerSecrets []CustomerSecretResponse `pulumi:"customerSecrets"`
+	// The arm id of the data store type.
+	DataStoreTypeId string `pulumi:"dataStoreTypeId"`
+	// A generic json used differently by each data source type.
+	ExtendedProperties map[string]interface{} `pulumi:"extendedProperties"`
 	// Name of the object.
 	Name string `pulumi:"name"`
-	// DataStore properties.
-	Properties DataStorePropertiesResponse `pulumi:"properties"`
+	// Arm Id for the manager resource to which the data source is associated. This is optional.
+	RepositoryId *string `pulumi:"repositoryId"`
+	// State of the data source.
+	State string `pulumi:"state"`
 	// Type of the object.
 	Type string `pulumi:"type"`
 }

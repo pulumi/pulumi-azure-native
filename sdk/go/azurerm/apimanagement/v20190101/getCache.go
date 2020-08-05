@@ -27,10 +27,14 @@ type LookupCacheArgs struct {
 
 // Cache details.
 type LookupCacheResult struct {
+	// Runtime connection string to cache
+	ConnectionString string `pulumi:"connectionString"`
+	// Cache description
+	Description *string `pulumi:"description"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Cache properties details.
-	Properties CacheContractPropertiesResponse `pulumi:"properties"`
+	// Original uri of entity in external system cache points to
+	ResourceId *string `pulumi:"resourceId"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

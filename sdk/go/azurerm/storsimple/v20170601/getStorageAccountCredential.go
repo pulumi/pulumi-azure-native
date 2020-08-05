@@ -27,12 +27,18 @@ type LookupStorageAccountCredentialArgs struct {
 
 // The storage account credential.
 type LookupStorageAccountCredentialResult struct {
+	// The details of the storage account password.
+	AccessKey *AsymmetricEncryptedSecretResponse `pulumi:"accessKey"`
+	// The storage endpoint
+	EndPoint string `pulumi:"endPoint"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The name of the object.
 	Name string `pulumi:"name"`
-	// The storage account credential properties.
-	Properties StorageAccountCredentialPropertiesResponse `pulumi:"properties"`
+	// Signifies whether SSL needs to be enabled or not.
+	SslStatus string `pulumi:"sslStatus"`
 	// The hierarchical type of the object.
 	Type string `pulumi:"type"`
+	// The count of volumes using this storage account credential.
+	VolumesCount int `pulumi:"volumesCount"`
 }
