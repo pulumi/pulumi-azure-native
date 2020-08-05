@@ -36,6 +36,22 @@ export interface GetEnvironmentArgs {
  */
 export interface GetEnvironmentResult {
     /**
+     * The time the resource was created.
+     */
+    readonly creationTime: string;
+    /**
+     * The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+     */
+    readonly dataAccessFqdn: string;
+    /**
+     * An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+     */
+    readonly dataAccessId: string;
+    /**
+     * ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+     */
+    readonly dataRetentionTime: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -44,13 +60,25 @@ export interface GetEnvironmentResult {
      */
     readonly name: string;
     /**
-     * Properties of the environment.
+     * The list of partition keys according to which the data in the environment will be ordered.
      */
-    readonly properties: outputs.timeseriesinsights.v20171115.EnvironmentResourcePropertiesResponse;
+    readonly partitionKeyProperties?: outputs.timeseriesinsights.v20171115.PartitionKeyPropertyResponse[];
+    /**
+     * Provisioning state of the resource.
+     */
+    readonly provisioningState?: string;
     /**
      * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
      */
     readonly sku?: outputs.timeseriesinsights.v20171115.SkuResponse;
+    /**
+     * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+     */
+    readonly status?: outputs.timeseriesinsights.v20171115.EnvironmentStatusResponse;
+    /**
+     * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+     */
+    readonly storageLimitExceededBehavior?: string;
     /**
      * Resource tags
      */

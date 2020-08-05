@@ -46,15 +46,47 @@ export interface GetEndpointArgs {
  */
 export interface GetEndpointResult {
     /**
+     * Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+     */
+    readonly endpointLocation?: string;
+    /**
+     * The monitoring status of the endpoint.
+     */
+    readonly endpointMonitorStatus?: string;
+    /**
+     * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+     */
+    readonly endpointStatus?: string;
+    /**
+     * The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+     */
+    readonly geoMapping?: string[];
+    /**
+     * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+     */
+    readonly minChildEndpoints?: number;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The properties of the Traffic Manager endpoint.
+     * The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
      */
-    readonly properties: outputs.network.v20180201.EndpointPropertiesResponse;
+    readonly priority?: number;
+    /**
+     * The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+     */
+    readonly target?: string;
+    /**
+     * The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+     */
+    readonly targetResourceId?: string;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
     readonly type: string;
+    /**
+     * The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+     */
+    readonly weight?: number;
 }

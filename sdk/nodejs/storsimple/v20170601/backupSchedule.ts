@@ -37,17 +37,37 @@ export class BackupSchedule extends pulumi.CustomResource {
     }
 
     /**
+     * The type of backup which needs to be taken.
+     */
+    public readonly backupType!: pulumi.Output<string>;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * The last successful backup run which was triggered for the schedule.
+     */
+    public /*out*/ readonly lastSuccessfulRun!: pulumi.Output<string>;
     /**
      * The name of the object.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the backup schedule.
+     * The number of backups to be retained.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.BackupSchedulePropertiesResponse>;
+    public readonly retentionCount!: pulumi.Output<number>;
+    /**
+     * The schedule recurrence.
+     */
+    public readonly scheduleRecurrence!: pulumi.Output<outputs.storsimple.v20170601.ScheduleRecurrenceResponse>;
+    /**
+     * The schedule status.
+     */
+    public readonly scheduleStatus!: pulumi.Output<string>;
+    /**
+     * The start time of the schedule.
+     */
+    public readonly startTime!: pulumi.Output<string>;
     /**
      * The hierarchical type of the object.
      */
@@ -107,7 +127,7 @@ export class BackupSchedule extends pulumi.CustomResource {
             inputs["scheduleRecurrence"] = args ? args.scheduleRecurrence : undefined;
             inputs["scheduleStatus"] = args ? args.scheduleStatus : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastSuccessfulRun"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

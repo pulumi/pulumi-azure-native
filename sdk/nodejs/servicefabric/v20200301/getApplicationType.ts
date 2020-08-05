@@ -53,9 +53,9 @@ export interface GetApplicationTypeResult {
      */
     readonly name: string;
     /**
-     * The application type name properties
+     * The current deployment or provisioning state, which only appears in the response.
      */
-    readonly properties: outputs.servicefabric.v20200301.ApplicationTypeResourcePropertiesResponse;
+    readonly provisioningState: string;
     /**
      * Azure resource tags.
      */

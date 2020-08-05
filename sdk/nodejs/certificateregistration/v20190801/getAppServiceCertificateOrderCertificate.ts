@@ -41,6 +41,14 @@ export interface GetAppServiceCertificateOrderCertificateArgs {
  */
 export interface GetAppServiceCertificateOrderCertificateResult {
     /**
+     * Key Vault resource Id.
+     */
+    readonly keyVaultId?: string;
+    /**
+     * Key Vault secret name.
+     */
+    readonly keyVaultSecretName?: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -53,9 +61,9 @@ export interface GetAppServiceCertificateOrderCertificateResult {
      */
     readonly name: string;
     /**
-     * Core resource properties
+     * Status of the Key Vault secret.
      */
-    readonly properties: outputs.certificateregistration.v20190801.AppServiceCertificateResponse;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

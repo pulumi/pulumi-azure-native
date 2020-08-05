@@ -46,15 +46,39 @@ export interface GetCustomDomainArgs {
  */
 export interface GetCustomDomainResult {
     /**
+     * Certificate parameters for securing custom HTTPS
+     */
+    readonly customHttpsParameters?: outputs.cdn.v20190615.CustomDomainHttpsParametersResponse;
+    /**
+     * Provisioning status of Custom Https of the custom domain.
+     */
+    readonly customHttpsProvisioningState: string;
+    /**
+     * Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+     */
+    readonly customHttpsProvisioningSubstate: string;
+    /**
+     * The host name of the custom domain. Must be a domain name.
+     */
+    readonly hostName: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The JSON object that contains the properties of the custom domain to create.
+     * Provisioning status of the custom domain.
      */
-    readonly properties: outputs.cdn.v20190615.CustomDomainPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Resource status of the custom domain.
+     */
+    readonly resourceState: string;
     /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+     */
+    readonly validationData?: string;
 }

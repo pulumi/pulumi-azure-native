@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,13 +43,37 @@ export class PrivateZone extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    public /*out*/ readonly maxNumberOfRecordSets!: pulumi.Output<number>;
+    /**
+     * The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    public /*out*/ readonly maxNumberOfVirtualNetworkLinks!: pulumi.Output<number>;
+    /**
+     * The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    public /*out*/ readonly maxNumberOfVirtualNetworkLinksWithRegistration!: pulumi.Output<number>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Private DNS zone.
+     * The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180901.PrivateZonePropertiesResponse>;
+    public /*out*/ readonly numberOfRecordSets!: pulumi.Output<number>;
+    /**
+     * The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    public /*out*/ readonly numberOfVirtualNetworkLinks!: pulumi.Output<number>;
+    /**
+     * The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    public /*out*/ readonly numberOfVirtualNetworkLinksWithRegistration!: pulumi.Output<number>;
+    /**
+     * The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -85,7 +107,13 @@ export class PrivateZone extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["maxNumberOfRecordSets"] = undefined /*out*/;
+            inputs["maxNumberOfVirtualNetworkLinks"] = undefined /*out*/;
+            inputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
+            inputs["numberOfRecordSets"] = undefined /*out*/;
+            inputs["numberOfVirtualNetworkLinks"] = undefined /*out*/;
+            inputs["numberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

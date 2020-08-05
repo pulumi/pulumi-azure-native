@@ -37,6 +37,10 @@ export class CapacityDetails extends pulumi.CustomResource {
     }
 
     /**
+     * A collection of Dedicated capacity administrators
+     */
+    public readonly administration!: pulumi.Output<outputs.powerbidedicated.v20171001.DedicatedCapacityAdministratorsResponse | undefined>;
+    /**
      * Location of the PowerBI Dedicated resource.
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,13 +49,17 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the provision operation request.
+     * The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.powerbidedicated.v20171001.DedicatedCapacityPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The SKU of the PowerBI Dedicated resource.
      */
     public readonly sku!: pulumi.Output<outputs.powerbidedicated.v20171001.ResourceSkuResponse>;
+    /**
+     * The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
@@ -92,7 +100,8 @@ export class CapacityDetails extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

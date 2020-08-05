@@ -43,13 +43,25 @@ export interface GetPrivateEndpointConnectionArgs {
 
 export interface GetPrivateEndpointConnectionResult {
     /**
+     * GroupIds from the private link service resource.
+     */
+    readonly groupIds?: string[];
+    /**
      * Name of the resource.
      */
     readonly name: string;
     /**
-     * Properties of the PrivateEndpointConnection.
+     * The Private Endpoint resource for this Connection.
      */
-    readonly properties: outputs.eventgrid.v20200601.PrivateEndpointConnectionPropertiesResponse;
+    readonly privateEndpoint?: outputs.eventgrid.v20200601.PrivateEndpointResponse;
+    /**
+     * Details about the state of the connection.
+     */
+    readonly privateLinkServiceConnectionState?: outputs.eventgrid.v20200601.ConnectionStateResponse;
+    /**
+     * Provisioning state of the Private Endpoint Connection.
+     */
+    readonly provisioningState?: string;
     /**
      * Type of the resource.
      */

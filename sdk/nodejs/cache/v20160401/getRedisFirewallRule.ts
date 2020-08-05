@@ -41,13 +41,17 @@ export interface GetRedisFirewallRuleArgs {
  */
 export interface GetRedisFirewallRuleResult {
     /**
+     * highest IP address included in the range
+     */
+    readonly endIP: string;
+    /**
      * name of the firewall rule
      */
     readonly name: string;
     /**
-     * redis cache firewall rule properties
+     * lowest IP address included in the range
      */
-    readonly properties: outputs.cache.v20160401.RedisFirewallRulePropertiesResponse;
+    readonly startIP: string;
     /**
      * type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
      */

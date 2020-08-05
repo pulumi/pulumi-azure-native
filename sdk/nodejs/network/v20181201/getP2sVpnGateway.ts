@@ -48,9 +48,13 @@ export interface GetP2sVpnGatewayResult {
      */
     readonly name: string;
     /**
-     * Parameters for P2SVpnGateway
+     * The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
      */
-    readonly properties: outputs.network.v20181201.P2SVpnGatewayPropertiesResponse;
+    readonly p2SVpnServerConfiguration?: outputs.network.v20181201.SubResourceResponse;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState?: string;
     /**
      * Resource tags.
      */
@@ -59,4 +63,20 @@ export interface GetP2sVpnGatewayResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The VirtualHub to which the gateway belongs
+     */
+    readonly virtualHub?: outputs.network.v20181201.SubResourceResponse;
+    /**
+     * The reference of the address space resource which represents Address space for P2S VpnClient.
+     */
+    readonly vpnClientAddressPool?: outputs.network.v20181201.AddressSpaceResponse;
+    /**
+     * All P2S VPN clients' connection health status.
+     */
+    readonly vpnClientConnectionHealth: outputs.network.v20181201.VpnClientConnectionHealthResponse;
+    /**
+     * The scale unit for this p2s vpn gateway.
+     */
+    readonly vpnGatewayScaleUnit?: number;
 }

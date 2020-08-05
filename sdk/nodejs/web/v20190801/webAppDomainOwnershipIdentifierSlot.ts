@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,13 +43,13 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Identifier resource specific properties
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.IdentifierResponseProperties>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * String representation of the identity.
+     */
+    public readonly value!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WebAppDomainOwnershipIdentifierSlot resource with the given unique name, arguments, and options.
@@ -80,7 +78,6 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
             inputs["value"] = args ? args.value : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

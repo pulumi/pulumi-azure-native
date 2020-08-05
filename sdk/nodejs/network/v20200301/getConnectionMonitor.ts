@@ -41,6 +41,22 @@ export interface GetConnectionMonitorArgs {
  */
 export interface GetConnectionMonitorResult {
     /**
+     * Determines if the connection monitor will start automatically once created.
+     */
+    readonly autoStart?: boolean;
+    /**
+     * Type of connection monitor.
+     */
+    readonly connectionMonitorType: string;
+    /**
+     * Describes the destination of connection monitor.
+     */
+    readonly destination?: outputs.network.v20200301.ConnectionMonitorDestinationResponse;
+    /**
+     * List of connection monitor endpoints.
+     */
+    readonly endpoints?: outputs.network.v20200301.ConnectionMonitorEndpointResponse[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -49,17 +65,49 @@ export interface GetConnectionMonitorResult {
      */
     readonly location?: string;
     /**
+     * Monitoring interval in seconds.
+     */
+    readonly monitoringIntervalInSeconds?: number;
+    /**
+     * The monitoring status of the connection monitor.
+     */
+    readonly monitoringStatus: string;
+    /**
      * Name of the connection monitor.
      */
     readonly name: string;
     /**
-     * Properties of the connection monitor result.
+     * Optional notes to be associated with the connection monitor.
      */
-    readonly properties: outputs.network.v20200301.ConnectionMonitorResultPropertiesResponse;
+    readonly notes?: string;
+    /**
+     * List of connection monitor outputs.
+     */
+    readonly outputs?: outputs.network.v20200301.ConnectionMonitorOutputResponse[];
+    /**
+     * The provisioning state of the connection monitor.
+     */
+    readonly provisioningState: string;
+    /**
+     * Describes the source of connection monitor.
+     */
+    readonly source?: outputs.network.v20200301.ConnectionMonitorSourceResponse;
+    /**
+     * The date and time when the connection monitor was started.
+     */
+    readonly startTime: string;
     /**
      * Connection monitor tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * List of connection monitor test configurations.
+     */
+    readonly testConfigurations?: outputs.network.v20200301.ConnectionMonitorTestConfigurationResponse[];
+    /**
+     * List of connection monitor test groups.
+     */
+    readonly testGroups?: outputs.network.v20200301.ConnectionMonitorTestGroupResponse[];
     /**
      * Connection monitor type.
      */

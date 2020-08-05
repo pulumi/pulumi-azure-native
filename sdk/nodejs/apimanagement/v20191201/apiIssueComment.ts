@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,25 @@ export class ApiIssueComment extends pulumi.CustomResource {
     }
 
     /**
+     * Date and time when the comment was created.
+     */
+    public readonly createdDate!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Issue Comment.
+     * Comment text.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.IssueCommentContractPropertiesResponse>;
+    public readonly text!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * A resource identifier for the user who left the comment.
+     */
+    public readonly userId!: pulumi.Output<string>;
 
     /**
      * Create a ApiIssueComment resource with the given unique name, arguments, and options.
@@ -91,7 +97,6 @@ export class ApiIssueComment extends pulumi.CustomResource {
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["text"] = args ? args.text : undefined;
             inputs["userId"] = args ? args.userId : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

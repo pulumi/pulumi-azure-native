@@ -51,13 +51,21 @@ export interface GetApiIssueAttachmentArgs {
  */
 export interface GetApiIssueAttachmentResult {
     /**
+     * An HTTP link or Base64-encoded binary data.
+     */
+    readonly content: string;
+    /**
+     * Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+     */
+    readonly contentFormat: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the Issue Attachment.
+     * Filename by which the binary data will be saved.
      */
-    readonly properties: outputs.apimanagement.v20180101.IssueAttachmentContractPropertiesResponse;
+    readonly title: string;
     /**
      * Resource type for API Management resource.
      */

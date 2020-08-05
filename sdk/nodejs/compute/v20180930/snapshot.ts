@@ -37,6 +37,22 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
+     * Disk source information. CreationData information cannot be changed after the disk has been created.
+     */
+    public readonly creationData!: pulumi.Output<outputs.compute.v20180930.CreationDataResponse>;
+    /**
+     * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+     */
+    public readonly diskSizeGB!: pulumi.Output<number | undefined>;
+    /**
+     * Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+     */
+    public readonly encryptionSettingsCollection!: pulumi.Output<outputs.compute.v20180930.EncryptionSettingsCollectionResponse | undefined>;
+    /**
+     * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+     */
+    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -49,9 +65,13 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Snapshot resource properties.
+     * The Operating System type.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20180930.SnapshotPropertiesResponse>;
+    public readonly osType!: pulumi.Output<string | undefined>;
+    /**
+     * The disk provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
      */
@@ -60,6 +80,10 @@ export class Snapshot extends pulumi.CustomResource {
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The time when the disk was created.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
      * Resource type
      */
@@ -101,7 +125,8 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["managedBy"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["timeCreated"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

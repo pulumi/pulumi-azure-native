@@ -36,6 +36,38 @@ export interface GetWebTestArgs {
  */
 export interface GetWebTestResult {
     /**
+     * An XML configuration specification for a WebTest.
+     */
+    readonly Configuration?: outputs.insights.v20150501.WebTestPropertiesResponseConfiguration;
+    /**
+     * Purpose/user defined descriptive test for this WebTest.
+     */
+    readonly Description?: string;
+    /**
+     * Is the test actively being monitored.
+     */
+    readonly Enabled?: boolean;
+    /**
+     * Interval in seconds between test runs for this WebTest. Default value is 300.
+     */
+    readonly Frequency?: number;
+    /**
+     * A list of where to physically run the tests from to give global coverage for accessibility of your application.
+     */
+    readonly Locations: outputs.insights.v20150501.WebTestGeolocationResponse[];
+    /**
+     * Allow for retries should this WebTest fail.
+     */
+    readonly RetryEnabled?: boolean;
+    /**
+     * Unique ID of this WebTest. This is typically the same value as the Name field.
+     */
+    readonly SyntheticMonitorId: string;
+    /**
+     * Seconds until this WebTest will timeout and fail. Default value is 30.
+     */
+    readonly Timeout?: number;
+    /**
      * The kind of web test that this web test watches. Choices are ping and multistep.
      */
     readonly kind?: string;
@@ -48,9 +80,9 @@ export interface GetWebTestResult {
      */
     readonly name: string;
     /**
-     * Metadata describing a web test for an Azure resource.
+     * Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
      */
-    readonly properties: outputs.insights.v20150501.WebTestPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * Resource tags
      */
@@ -59,4 +91,12 @@ export interface GetWebTestResult {
      * Azure resource type
      */
     readonly type: string;
+    /**
+     * The kind of web test this is, valid choices are ping and multistep.
+     */
+    readonly webTestKind: string;
+    /**
+     * User defined name if this WebTest.
+     */
+    readonly webTestName: string;
 }

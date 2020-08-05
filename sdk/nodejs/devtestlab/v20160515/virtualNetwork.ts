@@ -37,6 +37,26 @@ export class VirtualNetwork extends pulumi.CustomResource {
     }
 
     /**
+     * The allowed subnets of the virtual network.
+     */
+    public readonly allowedSubnets!: pulumi.Output<outputs.devtestlab.v20160515.SubnetResponse[] | undefined>;
+    /**
+     * The creation date of the virtual network.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * The description of the virtual network.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The Microsoft.Network resource identifier of the virtual network.
+     */
+    public readonly externalProviderResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * The external subnet properties.
+     */
+    public readonly externalSubnets!: pulumi.Output<outputs.devtestlab.v20160515.ExternalSubnetResponse[] | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +65,13 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.VirtualNetworkPropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The subnet overrides of the virtual network.
+     */
+    public readonly subnetOverrides!: pulumi.Output<outputs.devtestlab.v20160515.SubnetOverrideResponse[] | undefined>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +80,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -91,7 +119,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["subnetOverrides"] = args ? args.subnetOverrides : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

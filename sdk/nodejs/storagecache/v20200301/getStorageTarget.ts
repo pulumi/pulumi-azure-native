@@ -41,15 +41,39 @@ export interface GetStorageTargetArgs {
  */
 export interface GetStorageTargetResult {
     /**
+     * Properties when targetType is clfs.
+     */
+    readonly clfs?: outputs.storagecache.v20200301.ClfsTargetResponse;
+    /**
+     * List of Cache namespace junctions to target for namespace associations.
+     */
+    readonly junctions?: outputs.storagecache.v20200301.NamespaceJunctionResponse[];
+    /**
      * Name of the Storage Target.
      */
     readonly name: string;
     /**
-     * StorageTarget properties
+     * Properties when targetType is nfs3.
      */
-    readonly properties: outputs.storagecache.v20200301.StorageTargetPropertiesResponse;
+    readonly nfs3?: outputs.storagecache.v20200301.Nfs3TargetResponse;
+    /**
+     * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+     */
+    readonly provisioningState?: string;
+    /**
+     * Type of the Storage Target.
+     */
+    readonly targetBaseType: string;
+    /**
+     * Type of the Storage Target.
+     */
+    readonly targetType?: string;
     /**
      * Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
      */
     readonly type: string;
+    /**
+     * Properties when targetType is unknown.
+     */
+    readonly unknown?: outputs.storagecache.v20200301.UnknownTargetResponse;
 }

@@ -41,6 +41,10 @@ export class NatGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The idle timeout of the nat gateway.
+     */
+    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -49,13 +53,29 @@ export class NatGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Nat Gateway properties.
+     * The provisioning state of the NAT gateway resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191201.NatGatewayPropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * An array of public ip addresses associated with the nat gateway resource.
+     */
+    public readonly publicIpAddresses!: pulumi.Output<outputs.network.v20191201.SubResourceResponse[] | undefined>;
+    /**
+     * An array of public ip prefixes associated with the nat gateway resource.
+     */
+    public readonly publicIpPrefixes!: pulumi.Output<outputs.network.v20191201.SubResourceResponse[] | undefined>;
+    /**
+     * The resource GUID property of the NAT gateway resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
      * The nat gateway SKU.
      */
     public readonly sku!: pulumi.Output<outputs.network.v20191201.NatGatewaySkuResponse | undefined>;
+    /**
+     * An array of references to the subnets using this nat gateway resource.
+     */
+    public /*out*/ readonly subnets!: pulumi.Output<outputs.network.v20191201.SubResourceResponse[]>;
     /**
      * Resource tags.
      */
@@ -99,7 +119,9 @@ export class NatGateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["subnets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

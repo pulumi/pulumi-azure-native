@@ -37,21 +37,41 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
+     * The time the Namespace was created.
+     */
+    public readonly createdAt!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether this instance is enabled.
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Identifier for Azure Insights metrics
+     */
+    public /*out*/ readonly metricId!: pulumi.Output<string>;
     /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Namespace supplied for create or update Namespace operation
+     * Provisioning state of the Namespace.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20140901.NamespacePropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Endpoint you can use to perform Service Bus operations.
+     */
+    public readonly serviceBusEndpoint!: pulumi.Output<string | undefined>;
     /**
      * SKU parameters supplied to the create Namespace operation
      */
     public readonly sku!: pulumi.Output<outputs.eventhub.v20140901.SkuResponse | undefined>;
+    /**
+     * State of the Namespace.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -60,6 +80,10 @@ export class Namespace extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The time the Namespace was updated.
+     */
+    public readonly updatedAt!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -94,7 +118,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["updatedAt"] = args ? args.updatedAt : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["metricId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

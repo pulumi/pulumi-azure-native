@@ -41,12 +41,63 @@ export interface GetExpressRouteCircuitPeeringArgs {
  */
 export interface GetExpressRouteCircuitPeeringResult {
     /**
+     * Gets or sets the azure ASN
+     */
+    readonly azureASN?: number;
+    /**
      * A unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: string;
     /**
+     * Gets or sets the Microsoft peering config
+     */
+    readonly microsoftPeeringConfig?: outputs.network.v20160330.ExpressRouteCircuitPeeringConfigResponse;
+    /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
     readonly name?: string;
-    readonly properties: outputs.network.v20160330.ExpressRouteCircuitPeeringPropertiesFormatResponse;
+    /**
+     * Gets or sets the peer ASN
+     */
+    readonly peerASN?: number;
+    /**
+     * Gets or sets PeeringType
+     */
+    readonly peeringType?: string;
+    /**
+     * Gets or sets the primary port
+     */
+    readonly primaryAzurePort?: string;
+    /**
+     * Gets or sets the primary address prefix
+     */
+    readonly primaryPeerAddressPrefix?: string;
+    /**
+     * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    readonly provisioningState?: string;
+    /**
+     * Gets or sets the secondary port
+     */
+    readonly secondaryAzurePort?: string;
+    /**
+     * Gets or sets the secondary address prefix
+     */
+    readonly secondaryPeerAddressPrefix?: string;
+    /**
+     * Gets or sets the shared key
+     */
+    readonly sharedKey?: string;
+    /**
+     * Gets or sets state of Peering
+     */
+    readonly state?: string;
+    /**
+     * Gets or peering stats
+     */
+    readonly stats?: outputs.network.v20160330.ExpressRouteCircuitStatsResponse;
+    /**
+     * Gets or sets the vlan id
+     */
+    readonly vlanId?: number;
 }

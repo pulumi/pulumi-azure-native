@@ -37,6 +37,10 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
+     * The time the data should be kept in cache for fast queries in TimeSpan.
+     */
+    public readonly hotCachePeriod!: pulumi.Output<string | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +49,17 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The database properties.
+     * The provisioned state of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.kusto.v20190515.DatabasePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The time the data should be kept before it stops being accessible to queries in TimeSpan.
+     */
+    public readonly softDeletePeriod!: pulumi.Output<string | undefined>;
+    /**
+     * The statistics of the database.
+     */
+    public readonly statistics!: pulumi.Output<outputs.kusto.v20190515.DatabaseStatisticsResponse | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -82,7 +94,7 @@ export class Database extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["softDeletePeriod"] = args ? args.softDeletePeriod : undefined;
             inputs["statistics"] = args ? args.statistics : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

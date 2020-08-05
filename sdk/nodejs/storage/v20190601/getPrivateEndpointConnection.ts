@@ -45,9 +45,17 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * Resource properties.
+     * The resource of private end point.
      */
-    readonly properties: outputs.storage.v20190601.PrivateEndpointConnectionPropertiesResponse;
+    readonly privateEndpoint?: outputs.storage.v20190601.PrivateEndpointResponse;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    readonly privateLinkServiceConnectionState: outputs.storage.v20190601.PrivateLinkServiceConnectionStateResponse;
+    /**
+     * The provisioning state of the private endpoint connection resource.
+     */
+    readonly provisioningState?: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

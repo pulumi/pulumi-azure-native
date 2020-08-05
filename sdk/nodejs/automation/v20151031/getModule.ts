@@ -41,9 +41,41 @@ export interface GetModuleArgs {
  */
 export interface GetModuleResult {
     /**
+     * Gets or sets the activity count of the module.
+     */
+    readonly activityCount?: number;
+    /**
+     * Gets or sets the contentLink of the module.
+     */
+    readonly contentLink?: outputs.automation.v20151031.ContentLinkResponse;
+    /**
+     * Gets or sets the creation time.
+     */
+    readonly creationTime?: string;
+    /**
+     * Gets or sets the description.
+     */
+    readonly description?: string;
+    /**
+     * Gets or sets the error info of the module.
+     */
+    readonly error?: outputs.automation.v20151031.ModuleErrorInfoResponse;
+    /**
      * Gets or sets the etag of the resource.
      */
     readonly etag?: string;
+    /**
+     * Gets or sets type of module, if its composite or not.
+     */
+    readonly isComposite?: boolean;
+    /**
+     * Gets or sets the isGlobal flag of the module.
+     */
+    readonly isGlobal?: boolean;
+    /**
+     * Gets or sets the last modified time.
+     */
+    readonly lastModifiedTime?: string;
     /**
      * The Azure Region where the resource lives
      */
@@ -53,9 +85,13 @@ export interface GetModuleResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the module properties.
+     * Gets or sets the provisioning state of the module.
      */
-    readonly properties: outputs.automation.v20151031.ModulePropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * Gets or sets the size in bytes of the module.
+     */
+    readonly sizeInBytes?: number;
     /**
      * Resource tags.
      */
@@ -64,4 +100,8 @@ export interface GetModuleResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * Gets or sets the version of the module.
+     */
+    readonly version?: string;
 }

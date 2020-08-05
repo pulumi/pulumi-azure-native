@@ -45,9 +45,9 @@ export interface GetDomainTopicResult {
      */
     readonly name: string;
     /**
-     * Properties of the Domain Topic.
+     * Provisioning state of the domain topic.
      */
-    readonly properties: outputs.eventgrid.v20200601.DomainTopicPropertiesResponse;
+    readonly provisioningState?: string;
     /**
      * Type of the resource.
      */

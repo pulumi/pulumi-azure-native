@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,21 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
+     * Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+     */
+    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Certificate properties details.
+     * Subject attribute of the certificate.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.CertificateContractPropertiesResponse>;
+    public /*out*/ readonly subject!: pulumi.Output<string>;
+    /**
+     * Thumbprint of the certificate.
+     */
+    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
@@ -82,7 +88,9 @@ export class Certificate extends pulumi.CustomResource {
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["expirationDate"] = undefined /*out*/;
+            inputs["subject"] = undefined /*out*/;
+            inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

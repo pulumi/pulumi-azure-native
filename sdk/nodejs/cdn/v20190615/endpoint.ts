@@ -37,6 +37,34 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
+     * List of content types on which compression applies. The value should be a valid MIME type.
+     */
+    public readonly contentTypesToCompress!: pulumi.Output<string[] | undefined>;
+    /**
+     * A policy that specifies the delivery rules to be used for an endpoint.
+     */
+    public readonly deliveryPolicy!: pulumi.Output<outputs.cdn.v20190615.EndpointPropertiesUpdateParametersResponseDeliveryPolicy | undefined>;
+    /**
+     * List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+     */
+    public readonly geoFilters!: pulumi.Output<outputs.cdn.v20190615.GeoFilterResponse[] | undefined>;
+    /**
+     * The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+     */
+    public /*out*/ readonly hostName!: pulumi.Output<string>;
+    /**
+     * Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+     */
+    public readonly isCompressionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+     */
+    public readonly isHttpAllowed!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+     */
+    public readonly isHttpsAllowed!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +73,37 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The JSON object that contains the properties required to create an endpoint.
+     * Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20190615.EndpointPropertiesResponse>;
+    public readonly optimizationType!: pulumi.Output<string | undefined>;
+    /**
+     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+     */
+    public readonly originHostHeader!: pulumi.Output<string | undefined>;
+    /**
+     * A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
+     */
+    public readonly originPath!: pulumi.Output<string | undefined>;
+    /**
+     * The source of the content being delivered via CDN.
+     */
+    public readonly origins!: pulumi.Output<outputs.cdn.v20190615.DeepCreatedOriginResponse[]>;
+    /**
+     * Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path.
+     */
+    public readonly probePath!: pulumi.Output<string | undefined>;
+    /**
+     * Provisioning status of the endpoint.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+     */
+    public readonly queryStringCachingBehavior!: pulumi.Output<string | undefined>;
+    /**
+     * Resource status of the endpoint.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -56,6 +112,10 @@ export class Endpoint extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Defines the Web Application Firewall policy for the endpoint (if applicable)
+     */
+    public readonly webApplicationFirewallPolicyLink!: pulumi.Output<outputs.cdn.v20190615.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -103,7 +163,9 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["webApplicationFirewallPolicyLink"] = args ? args.webApplicationFirewallPolicyLink : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["hostName"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

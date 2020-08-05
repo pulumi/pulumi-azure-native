@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,10 +35,29 @@ export class Origin extends pulumi.CustomResource {
     }
 
     /**
+     * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+     */
+    public readonly hostName!: pulumi.Output<string>;
+    /**
+     * The value of the HTTP port. Must be between 1 and 65535.
+     */
+    public readonly httpPort!: pulumi.Output<number | undefined>;
+    /**
+     * The value of the https port. Must be between 1 and 65535.
+     */
+    public readonly httpsPort!: pulumi.Output<number | undefined>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20160402.OriginPropertiesResponse>;
+    /**
+     * Provisioning status of the origin.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Resource status of the origin.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * Resource type
      */
@@ -81,7 +98,8 @@ export class Origin extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

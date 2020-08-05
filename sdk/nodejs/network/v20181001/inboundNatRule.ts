@@ -37,17 +37,49 @@ export class InboundNatRule extends pulumi.CustomResource {
     }
 
     /**
+     * A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+     */
+    public /*out*/ readonly backendIPConfiguration!: pulumi.Output<outputs.network.v20181001.NetworkInterfaceIPConfigurationResponse>;
+    /**
+     * The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+     */
+    public readonly backendPort!: pulumi.Output<number | undefined>;
+    /**
+     * Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+     */
+    public readonly enableFloatingIP!: pulumi.Output<boolean | undefined>;
+    /**
+     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     */
+    public readonly enableTcpReset!: pulumi.Output<boolean | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * A reference to frontend IP addresses.
+     */
+    public readonly frontendIPConfiguration!: pulumi.Output<outputs.network.v20181001.SubResourceResponse | undefined>;
+    /**
+     * The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+     */
+    public readonly frontendPort!: pulumi.Output<number | undefined>;
+    /**
+     * The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+     */
+    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of load balancer inbound nat rule.
+     * The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181001.InboundNatRulePropertiesFormatResponse>;
+    public readonly protocol!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
 
     /**
      * Create a InboundNatRule resource with the given unique name, arguments, and options.
@@ -84,7 +116,7 @@ export class InboundNatRule extends pulumi.CustomResource {
             inputs["protocol"] = args ? args.protocol : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["backendIPConfiguration"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

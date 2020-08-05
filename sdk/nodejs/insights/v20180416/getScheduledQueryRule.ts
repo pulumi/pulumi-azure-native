@@ -36,6 +36,18 @@ export interface GetScheduledQueryRuleArgs {
  */
 export interface GetScheduledQueryRuleResult {
     /**
+     * The description of the Log Search rule.
+     */
+    readonly description?: string;
+    /**
+     * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+     */
+    readonly enabled?: string;
+    /**
+     * Last time the rule was updated in IS08601 format.
+     */
+    readonly lastUpdatedTime: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -44,9 +56,17 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly name: string;
     /**
-     * The rule properties of the resource.
+     * Provisioning state of the scheduled query rule
      */
-    readonly properties: outputs.insights.v20180416.LogSearchRuleResponse;
+    readonly provisioningState: string;
+    /**
+     * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+     */
+    readonly schedule?: outputs.insights.v20180416.ScheduleResponse;
+    /**
+     * Data Source against which rule will Query Data
+     */
+    readonly source: outputs.insights.v20180416.SourceResponse;
     /**
      * Resource tags
      */

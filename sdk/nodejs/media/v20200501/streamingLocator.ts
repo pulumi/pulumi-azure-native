@@ -37,13 +37,49 @@ export class StreamingLocator extends pulumi.CustomResource {
     }
 
     /**
+     * Alternative Media ID of this Streaming Locator
+     */
+    public readonly alternativeMediaId!: pulumi.Output<string | undefined>;
+    /**
+     * Asset Name
+     */
+    public readonly assetName!: pulumi.Output<string>;
+    /**
+     * The ContentKeys used by this Streaming Locator.
+     */
+    public readonly contentKeys!: pulumi.Output<outputs.media.v20200501.StreamingLocatorContentKeyResponse[] | undefined>;
+    /**
+     * The creation time of the Streaming Locator.
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * Name of the default ContentKeyPolicy used by this Streaming Locator.
+     */
+    public readonly defaultContentKeyPolicyName!: pulumi.Output<string | undefined>;
+    /**
+     * The end time of the Streaming Locator.
+     */
+    public readonly endTime!: pulumi.Output<string | undefined>;
+    /**
+     * A list of asset or account filters which apply to this streaming locator
+     */
+    public readonly filters!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Streaming Locator.
+     * The start time of the Streaming Locator.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20200501.StreamingLocatorPropertiesResponse>;
+    public readonly startTime!: pulumi.Output<string | undefined>;
+    /**
+     * The StreamingLocatorId of the Streaming Locator.
+     */
+    public readonly streamingLocatorId!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+     */
+    public readonly streamingPolicyName!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -89,7 +125,7 @@ export class StreamingLocator extends pulumi.CustomResource {
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["streamingLocatorId"] = args ? args.streamingLocatorId : undefined;
             inputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -36,13 +36,41 @@ export interface GetEventSubscriptionArgs {
  */
 export interface GetEventSubscriptionResult {
     /**
+     * The DeadLetter destination of the event subscription.
+     */
+    readonly deadLetterDestination?: outputs.eventgrid.v20190601.DeadLetterDestinationResponse;
+    /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     */
+    readonly destination?: outputs.eventgrid.v20190601.EventSubscriptionDestinationResponse;
+    /**
+     * Expiration time of the event subscription.
+     */
+    readonly expirationTimeUtc?: string;
+    /**
+     * Information about the filter for the event subscription.
+     */
+    readonly filter?: outputs.eventgrid.v20190601.EventSubscriptionFilterResponse;
+    /**
+     * List of user defined labels.
+     */
+    readonly labels?: string[];
+    /**
      * Name of the resource.
      */
     readonly name: string;
     /**
-     * Properties of the event subscription
+     * Provisioning state of the event subscription.
      */
-    readonly properties: outputs.eventgrid.v20190601.EventSubscriptionPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+     */
+    readonly retryPolicy?: outputs.eventgrid.v20190601.RetryPolicyResponse;
+    /**
+     * Name of the topic of the event subscription.
+     */
+    readonly topic: string;
     /**
      * Type of the resource.
      */

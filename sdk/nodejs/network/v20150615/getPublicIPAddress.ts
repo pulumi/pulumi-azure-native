@@ -36,9 +36,22 @@ export interface GetPublicIPAddressArgs {
  */
 export interface GetPublicIPAddressResult {
     /**
+     * The FQDN of the DNS record associated with the public IP address.
+     */
+    readonly dnsSettings?: outputs.network.v20150615.PublicIPAddressDnsSettingsResponse;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
+    /**
+     * The idle timeout of the public IP address.
+     */
+    readonly idleTimeoutInMinutes?: number;
+    readonly ipAddress?: string;
+    /**
+     * IPConfiguration
+     */
+    readonly ipConfiguration?: outputs.network.v20150615.IPConfigurationResponse;
     /**
      * Resource location.
      */
@@ -48,9 +61,17 @@ export interface GetPublicIPAddressResult {
      */
     readonly name: string;
     /**
-     * Public IP address properties.
+     * The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly properties: outputs.network.v20150615.PublicIPAddressPropertiesFormatResponse;
+    readonly provisioningState?: string;
+    /**
+     * The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+     */
+    readonly publicIPAllocationMethod?: string;
+    /**
+     * The resource GUID property of the public IP resource.
+     */
+    readonly resourceGuid?: string;
     /**
      * Resource tags.
      */

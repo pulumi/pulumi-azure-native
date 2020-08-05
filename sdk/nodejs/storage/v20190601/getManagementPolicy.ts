@@ -41,13 +41,17 @@ export interface GetManagementPolicyArgs {
  */
 export interface GetManagementPolicyResult {
     /**
+     * Returns the date and time the ManagementPolicies was last modified.
+     */
+    readonly lastModifiedTime: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Returns the Storage Account Data Policies Rules.
+     * The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
      */
-    readonly properties: outputs.storage.v20190601.ManagementPolicyPropertiesResponse;
+    readonly policy: outputs.storage.v20190601.ManagementPolicySchemaResponse;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

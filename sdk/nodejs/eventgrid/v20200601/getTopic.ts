@@ -36,17 +36,43 @@ export interface GetTopicArgs {
  */
 export interface GetTopicResult {
     /**
+     * Endpoint for the topic.
+     */
+    readonly endpoint: string;
+    /**
+     * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+     */
+    readonly inboundIpRules?: outputs.eventgrid.v20200601.InboundIpRuleResponse[];
+    /**
+     * This determines the format that Event Grid should expect for incoming events published to the topic.
+     */
+    readonly inputSchema?: string;
+    /**
+     * This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
+     */
+    readonly inputSchemaMapping?: outputs.eventgrid.v20200601.InputSchemaMappingResponse;
+    /**
      * Location of the resource.
      */
     readonly location: string;
     /**
+     * Metric resource id for the topic.
+     */
+    readonly metricResourceId: string;
+    /**
      * Name of the resource.
      */
     readonly name: string;
+    readonly privateEndpointConnections?: outputs.eventgrid.v20200601.PrivateEndpointConnectionResponse[];
     /**
-     * Properties of the topic.
+     * Provisioning state of the topic.
      */
-    readonly properties: outputs.eventgrid.v20200601.TopicPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled. 
+     * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * Tags of the resource.
      */

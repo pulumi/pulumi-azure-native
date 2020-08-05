@@ -41,6 +41,14 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
+     * The creation date of the user profile.
+     */
+    readonly createdDate: string;
+    /**
+     * The identity of the user.
+     */
+    readonly identity?: outputs.devtestlab.v20180915.UserIdentityResponse;
+    /**
      * The location of the resource.
      */
     readonly location?: string;
@@ -49,9 +57,13 @@ export interface GetUserResult {
      */
     readonly name: string;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties: outputs.devtestlab.v20180915.UserPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The secret store of the user.
+     */
+    readonly secretStore?: outputs.devtestlab.v20180915.UserSecretStoreResponse;
     /**
      * The tags of the resource.
      */
@@ -60,4 +72,8 @@ export interface GetUserResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier: string;
 }

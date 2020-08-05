@@ -37,6 +37,42 @@ export class VirtualMachine extends pulumi.CustomResource {
     }
 
     /**
+     * The amount of memory
+     */
+    public readonly amountOfRam!: pulumi.Output<number>;
+    /**
+     * The list of Virtual Disks' Controllers
+     */
+    public /*out*/ readonly controllers!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.VirtualDiskControllerResponse[]>;
+    /**
+     * Virtual machine properties
+     */
+    public readonly customization!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.GuestOSCustomizationResponse | undefined>;
+    /**
+     * The list of Virtual Disks
+     */
+    public readonly disks!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.VirtualDiskResponse[] | undefined>;
+    /**
+     * The DNS name of Virtual Machine in VCenter
+     */
+    public /*out*/ readonly dnsname!: pulumi.Output<string>;
+    /**
+     * Expose Guest OS or not
+     */
+    public readonly exposeToGuestVM!: pulumi.Output<boolean | undefined>;
+    /**
+     * The path to virtual machine folder in VCenter
+     */
+    public /*out*/ readonly folder!: pulumi.Output<string>;
+    /**
+     * The name of Guest OS
+     */
+    public /*out*/ readonly guestOS!: pulumi.Output<string>;
+    /**
+     * The Guest OS type
+     */
+    public /*out*/ readonly guestOSType!: pulumi.Output<string>;
+    /**
      * Azure region
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,17 +81,65 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Virtual machine properties
+     * The list of Virtual NICs
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.VirtualMachinePropertiesResponse>;
+    public readonly nics!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.VirtualNicResponse[] | undefined>;
+    /**
+     * The number of CPU cores
+     */
+    public readonly numberOfCores!: pulumi.Output<number>;
+    /**
+     * Password for login. Deprecated - use customization property
+     */
+    public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * Private Cloud Id
+     */
+    public readonly privateCloudId!: pulumi.Output<string>;
+    /**
+     * The provisioning status of the resource
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The public ip of Virtual Machine
+     */
+    public /*out*/ readonly publicIP!: pulumi.Output<string>;
+    /**
+     * Virtual Machines Resource Pool
+     */
+    public readonly resourcePool!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.ResourcePoolResponse | undefined>;
+    /**
+     * The status of Virtual machine
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * The list of tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Virtual Machine Template Id
+     */
+    public readonly templateId!: pulumi.Output<string | undefined>;
+    /**
      * {resourceProviderNamespace}/{resourceType}
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Username for login. Deprecated - use customization property
+     */
+    public readonly username!: pulumi.Output<string | undefined>;
+    /**
+     * The list of Virtual VSphere Networks
+     */
+    public readonly vSphereNetworks!: pulumi.Output<string[] | undefined>;
+    /**
+     * The internal id of Virtual Machine in VCenter
+     */
+    public /*out*/ readonly vmId!: pulumi.Output<string>;
+    /**
+     * VMware tools version
+     */
+    public /*out*/ readonly vmwaretools!: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -108,8 +192,17 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["templateId"] = args ? args.templateId : undefined;
             inputs["username"] = args ? args.username : undefined;
             inputs["vSphereNetworks"] = args ? args.vSphereNetworks : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["controllers"] = undefined /*out*/;
+            inputs["dnsname"] = undefined /*out*/;
+            inputs["folder"] = undefined /*out*/;
+            inputs["guestOS"] = undefined /*out*/;
+            inputs["guestOSType"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicIP"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["vmId"] = undefined /*out*/;
+            inputs["vmwaretools"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -41,13 +41,17 @@ export interface GetFirewallRuleArgs {
  */
 export interface GetFirewallRuleResult {
     /**
+     * The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+     */
+    readonly endIpAddress: string;
+    /**
      * The resource name.
      */
     readonly name: string;
     /**
-     * The firewall rule properties.
+     * The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
      */
-    readonly properties: outputs.datalakestore.v20161101.FirewallRulePropertiesResponse;
+    readonly startIpAddress: string;
     /**
      * The resource type.
      */

@@ -45,9 +45,13 @@ export interface GetNotebookWorkspaceResult {
      */
     readonly name: string;
     /**
-     * Resource properties.
+     * Specifies the endpoint of Notebook server.
      */
-    readonly properties: outputs.documentdb.v20200401.NotebookWorkspacePropertiesResponse;
+    readonly notebookServerEndpoint: string;
+    /**
+     * Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
+     */
+    readonly status: string;
     /**
      * The type of Azure resource.
      */

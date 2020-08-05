@@ -35,6 +35,10 @@ export interface GetWebAppRelayServiceConnectionArgs {
  * Hybrid Connection for an App Service app.
  */
 export interface GetWebAppRelayServiceConnectionResult {
+    readonly biztalkUri?: string;
+    readonly entityConnectionString?: string;
+    readonly entityName?: string;
+    readonly hostname?: string;
     /**
      * Kind of resource.
      */
@@ -43,10 +47,9 @@ export interface GetWebAppRelayServiceConnectionResult {
      * Resource Name.
      */
     readonly name: string;
-    /**
-     * RelayServiceConnectionEntity resource specific properties
-     */
-    readonly properties: outputs.web.v20160801.RelayServiceConnectionEntityResponseProperties;
+    readonly port?: number;
+    readonly resourceConnectionString?: string;
+    readonly resourceType?: string;
     /**
      * Resource type.
      */

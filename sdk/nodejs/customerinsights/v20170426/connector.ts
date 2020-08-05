@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,53 @@ export class Connector extends pulumi.CustomResource {
     }
 
     /**
+     * ID of the connector.
+     */
+    public /*out*/ readonly connectorId!: pulumi.Output<number>;
+    /**
+     * Name of the connector.
+     */
+    public /*out*/ readonly connectorName!: pulumi.Output<string | undefined>;
+    /**
+     * The connector properties.
+     */
+    public readonly connectorProperties!: pulumi.Output<{[key: string]: {[key: string]: any}}>;
+    /**
+     * Type of connector.
+     */
+    public readonly connectorType!: pulumi.Output<string>;
+    /**
+     * The created time.
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * Description of the connector.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Display name of the connector.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * If this is an internal connector.
+     */
+    public readonly isInternal!: pulumi.Output<boolean | undefined>;
+    /**
+     * The last modified time.
+     */
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of connector.
+     * State of connector.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.ConnectorResponse>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * The hub name.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -85,7 +123,12 @@ export class Connector extends pulumi.CustomResource {
             inputs["isInternal"] = args ? args.isInternal : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["connectorId"] = undefined /*out*/;
+            inputs["connectorName"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["lastModified"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

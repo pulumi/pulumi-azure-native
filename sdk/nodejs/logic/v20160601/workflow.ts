@@ -37,6 +37,26 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /**
+     * Gets the access endpoint.
+     */
+    public /*out*/ readonly accessEndpoint!: pulumi.Output<string>;
+    /**
+     * Gets the changed time.
+     */
+    public /*out*/ readonly changedTime!: pulumi.Output<string>;
+    /**
+     * Gets the created time.
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+     */
+    public readonly definition!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The integration account.
+     */
+    public /*out*/ readonly integrationAccount!: pulumi.Output<outputs.logic.v20160601.ResourceReferenceResponse | undefined>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +65,21 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The workflow properties.
+     * The parameters.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20160601.WorkflowPropertiesResponse>;
+    public readonly parameters!: pulumi.Output<{[key: string]: outputs.logic.v20160601.WorkflowParameterResponse} | undefined>;
+    /**
+     * Gets the provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The sku.
+     */
+    public readonly sku!: pulumi.Output<outputs.logic.v20160601.SkuResponse | undefined>;
+    /**
+     * The state.
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
     /**
      * The resource tags.
      */
@@ -56,6 +88,10 @@ export class Workflow extends pulumi.CustomResource {
      * Gets the resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Gets the version.
+     */
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -84,8 +120,13 @@ export class Workflow extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["accessEndpoint"] = undefined /*out*/;
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["integrationAccount"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

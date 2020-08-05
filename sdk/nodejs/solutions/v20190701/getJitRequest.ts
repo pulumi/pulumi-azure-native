@@ -36,6 +36,26 @@ export interface GetJitRequestArgs {
  */
 export interface GetJitRequestResult {
     /**
+     * The parent application id.
+     */
+    readonly applicationResourceId: string;
+    /**
+     * The client entity that created the JIT request.
+     */
+    readonly createdBy: outputs.solutions.v20190701.ApplicationClientDetailsResponse;
+    /**
+     * The JIT authorization policies.
+     */
+    readonly jitAuthorizationPolicies: outputs.solutions.v20190701.JitAuthorizationPoliciesResponse[];
+    /**
+     * The JIT request state.
+     */
+    readonly jitRequestState: string;
+    /**
+     * The JIT request properties.
+     */
+    readonly jitSchedulingPolicy: outputs.solutions.v20190701.JitSchedulingPolicyResponse;
+    /**
      * Resource location
      */
     readonly location?: string;
@@ -44,9 +64,13 @@ export interface GetJitRequestResult {
      */
     readonly name: string;
     /**
-     * The JIT request properties.
+     * The JIT request provisioning state.
      */
-    readonly properties: outputs.solutions.v20190701.JitRequestPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The publisher tenant id.
+     */
+    readonly publisherTenantId: string;
     /**
      * Resource tags
      */
@@ -55,4 +79,8 @@ export interface GetJitRequestResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * The client entity that last updated the JIT request.
+     */
+    readonly updatedBy: outputs.solutions.v20190701.ApplicationClientDetailsResponse;
 }

@@ -44,11 +44,27 @@ export interface ListWebAppPublishingCredentialsResult {
      */
     readonly name: string;
     /**
-     * User resource specific properties
+     * Password used for publishing.
      */
-    readonly properties: outputs.web.v20160801.UserResponseProperties;
+    readonly publishingPassword?: string;
+    /**
+     * Password hash used for publishing.
+     */
+    readonly publishingPasswordHash?: string;
+    /**
+     * Password hash salt used for publishing.
+     */
+    readonly publishingPasswordHashSalt?: string;
+    /**
+     * Username used for publishing.
+     */
+    readonly publishingUserName: string;
     /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * Username
+     */
+    readonly userName?: string;
 }

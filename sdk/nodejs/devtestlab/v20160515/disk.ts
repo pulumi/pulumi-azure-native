@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,49 @@ export class Disk extends pulumi.CustomResource {
     }
 
     /**
+     * The creation date of the disk.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * When backed by a blob, the name of the VHD blob without extension.
+     */
+    public readonly diskBlobName!: pulumi.Output<string | undefined>;
+    /**
+     * The size of the disk in Gibibytes.
+     */
+    public readonly diskSizeGiB!: pulumi.Output<number | undefined>;
+    /**
+     * The storage type for the disk (i.e. Standard, Premium).
+     */
+    public readonly diskType!: pulumi.Output<string | undefined>;
+    /**
+     * When backed by a blob, the URI of underlying blob.
+     */
+    public readonly diskUri!: pulumi.Output<string | undefined>;
+    /**
+     * The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+     */
+    public readonly hostCaching!: pulumi.Output<string | undefined>;
+    /**
+     * The resource ID of the VM to which this disk is leased.
+     */
+    public readonly leasedByLabVmId!: pulumi.Output<string | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * When backed by managed disk, this is the ID of the compute disk resource.
+     */
+    public readonly managedDiskId!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.DiskPropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +86,10 @@ export class Disk extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Disk resource with the given unique name, arguments, and options.
@@ -97,7 +131,7 @@ export class Disk extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
             inputs["userName"] = args ? args.userName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

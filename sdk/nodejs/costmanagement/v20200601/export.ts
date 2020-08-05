@@ -37,17 +37,37 @@ export class Export extends pulumi.CustomResource {
     }
 
     /**
+     * Has the definition for the export.
+     */
+    public readonly definition!: pulumi.Output<outputs.costmanagement.v20200601.ExportDefinitionResponse>;
+    /**
+     * Has delivery information for the export.
+     */
+    public readonly deliveryInfo!: pulumi.Output<outputs.costmanagement.v20200601.ExportDeliveryInfoResponse>;
+    /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
+    /**
+     * The format of the export being delivered. Currently only 'Csv' is supported.
+     */
+    public readonly format!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the export.
+     * If the export has an active schedule, provides an estimate of the next execution time.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.costmanagement.v20200601.ExportPropertiesResponse>;
+    public /*out*/ readonly nextRunTimeEstimate!: pulumi.Output<string>;
+    /**
+     * If requested, has the most recent execution history for the export.
+     */
+    public /*out*/ readonly runHistory!: pulumi.Output<outputs.costmanagement.v20200601.ExportExecutionListResultResponse | undefined>;
+    /**
+     * Has schedule information for the export.
+     */
+    public readonly schedule!: pulumi.Output<outputs.costmanagement.v20200601.ExportScheduleResponse | undefined>;
     /**
      * Resource type.
      */
@@ -85,7 +105,8 @@ export class Export extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["scope"] = args ? args.scope : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["nextRunTimeEstimate"] = undefined /*out*/;
+            inputs["runHistory"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

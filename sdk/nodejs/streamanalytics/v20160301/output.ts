@@ -37,13 +37,25 @@ export class Output extends pulumi.CustomResource {
     }
 
     /**
+     * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+     */
+    public readonly datasource!: pulumi.Output<outputs.streamanalytics.v20160301.OutputDataSourceResponse | undefined>;
+    /**
+     * Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+     */
+    public /*out*/ readonly diagnostics!: pulumi.Output<outputs.streamanalytics.v20160301.DiagnosticsResponse>;
+    /**
+     * The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
+     * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.streamanalytics.v20160301.OutputPropertiesResponse>;
+    public readonly serialization!: pulumi.Output<outputs.streamanalytics.v20160301.SerializationResponse | undefined>;
     /**
      * Resource type
      */
@@ -76,7 +88,8 @@ export class Output extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serialization"] = args ? args.serialization : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["diagnostics"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

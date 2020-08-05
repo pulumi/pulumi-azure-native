@@ -41,15 +41,51 @@ export interface GetP2sVpnServerConfigurationArgs {
  */
 export interface GetP2sVpnServerConfigurationResult {
     /**
-     * Gets a unique read-only string that changes whenever the resource is updated.
+     * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
     /**
-     * The name of the resource that is unique within a resource group. This name can be used to access the resource.
+     * The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
      */
     readonly name?: string;
     /**
-     * Properties of the P2SVpnServer configuration.
+     * List of references to P2SVpnGateways.
      */
-    readonly properties: outputs.network.v20190201.P2SVpnServerConfigurationPropertiesResponse;
+    readonly p2SVpnGateways: outputs.network.v20190201.SubResourceResponse[];
+    /**
+     * Radius client root certificate of P2SVpnServerConfiguration.
+     */
+    readonly p2SVpnServerConfigRadiusClientRootCertificates?: outputs.network.v20190201.P2SVpnServerConfigRadiusClientRootCertificateResponse[];
+    /**
+     * Radius Server root certificate of P2SVpnServerConfiguration.
+     */
+    readonly p2SVpnServerConfigRadiusServerRootCertificates?: outputs.network.v20190201.P2SVpnServerConfigRadiusServerRootCertificateResponse[];
+    /**
+     * VPN client revoked certificate of P2SVpnServerConfiguration.
+     */
+    readonly p2SVpnServerConfigVpnClientRevokedCertificates?: outputs.network.v20190201.P2SVpnServerConfigVpnClientRevokedCertificateResponse[];
+    /**
+     * VPN client root certificate of P2SVpnServerConfiguration.
+     */
+    readonly p2SVpnServerConfigVpnClientRootCertificates?: outputs.network.v20190201.P2SVpnServerConfigVpnClientRootCertificateResponse[];
+    /**
+     * The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    readonly provisioningState: string;
+    /**
+     * The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
+     */
+    readonly radiusServerAddress?: string;
+    /**
+     * The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
+     */
+    readonly radiusServerSecret?: string;
+    /**
+     * VpnClientIpsecPolicies for P2SVpnServerConfiguration.
+     */
+    readonly vpnClientIpsecPolicies?: outputs.network.v20190201.IpsecPolicyResponse[];
+    /**
+     * VPN protocols for the P2SVpnServerConfiguration.
+     */
+    readonly vpnProtocols?: string[];
 }

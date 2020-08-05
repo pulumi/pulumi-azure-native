@@ -45,9 +45,9 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Namespace AuthorizationRule.
+     * The rights associated with the rule.
      */
-    public readonly properties!: pulumi.Output<outputs.notificationhubs.v20160301.SharedAccessAuthorizationRulePropertiesResponse>;
+    public /*out*/ readonly rights!: pulumi.Output<string[] | undefined>;
     /**
      * The sku of the created namespace
      */
@@ -100,6 +100,7 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["rights"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -36,21 +36,37 @@ export interface GetCacheArgs {
  */
 export interface GetCacheResult {
     /**
+     * The size of this Cache, in GB.
+     */
+    readonly cacheSizeGB?: number;
+    /**
+     * Health of the Cache.
+     */
+    readonly health: outputs.storagecache.v20191101.CacheHealthResponse;
+    /**
      * Region name string.
      */
     readonly location?: string;
+    /**
+     * Array of IP addresses that can be used by clients mounting this Cache.
+     */
+    readonly mountAddresses: string[];
     /**
      * Name of Cache.
      */
     readonly name: string;
     /**
-     * Properties of the Cache.
+     * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly properties: outputs.storagecache.v20191101.CacheResponseProperties;
+    readonly provisioningState?: string;
     /**
      * SKU for the Cache.
      */
     readonly sku?: outputs.storagecache.v20191101.CacheResponseSku;
+    /**
+     * Subnet used for the Cache.
+     */
+    readonly subnet?: string;
     /**
      * ARM tags as name/value pairs.
      */
@@ -59,4 +75,8 @@ export interface GetCacheResult {
      * Type of the Cache; Microsoft.StorageCache/Cache
      */
     readonly type: string;
+    /**
+     * Upgrade status of the Cache.
+     */
+    readonly upgradeStatus?: outputs.storagecache.v20191101.CacheUpgradeStatusResponse;
 }

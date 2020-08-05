@@ -37,13 +37,37 @@ export class Assessment extends pulumi.CustomResource {
     }
 
     /**
+     * Additional data regarding the assessment
+     */
+    public readonly additionalData!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * User friendly display name of the assessment
+     */
+    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    /**
+     * Links relevant to the assessment
+     */
+    public /*out*/ readonly links!: pulumi.Output<outputs.security.v20200101.AssessmentLinksResponse | undefined>;
+    /**
+     * Describes properties of an assessment metadata.
+     */
+    public readonly metadata!: pulumi.Output<outputs.security.v20200101.SecurityAssessmentMetadataPropertiesResponse | undefined>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Describes properties of an assessment.
+     * Data regarding 3rd party partner integration
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20200101.SecurityAssessmentPropertiesResponse>;
+    public readonly partnersData!: pulumi.Output<outputs.security.v20200101.SecurityAssessmentPartnerDataResponse | undefined>;
+    /**
+     * Details of the resource that was assessed
+     */
+    public readonly resourceDetails!: pulumi.Output<outputs.security.v20200101.ResourceDetailsResponse>;
+    /**
+     * The result of the assessment
+     */
+    public readonly status!: pulumi.Output<outputs.security.v20200101.AssessmentStatusResponse>;
     /**
      * Resource type
      */
@@ -81,7 +105,8 @@ export class Assessment extends pulumi.CustomResource {
             inputs["resourceDetails"] = args ? args.resourceDetails : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["status"] = args ? args.status : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["displayName"] = undefined /*out*/;
+            inputs["links"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

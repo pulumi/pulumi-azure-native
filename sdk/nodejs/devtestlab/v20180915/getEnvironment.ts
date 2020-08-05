@@ -46,6 +46,18 @@ export interface GetEnvironmentArgs {
  */
 export interface GetEnvironmentResult {
     /**
+     * The display name of the Azure Resource Manager template that produced the environment.
+     */
+    readonly armTemplateDisplayName?: string;
+    /**
+     * The creator of the environment.
+     */
+    readonly createdByUser: string;
+    /**
+     * The deployment properties of the environment.
+     */
+    readonly deploymentProperties?: outputs.devtestlab.v20180915.EnvironmentDeploymentPropertiesResponse;
+    /**
      * The location of the resource.
      */
     readonly location?: string;
@@ -54,9 +66,13 @@ export interface GetEnvironmentResult {
      */
     readonly name: string;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties: outputs.devtestlab.v20180915.EnvironmentPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The identifier of the resource group containing the environment's resources.
+     */
+    readonly resourceGroupId: string;
     /**
      * The tags of the resource.
      */
@@ -65,4 +81,8 @@ export interface GetEnvironmentResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier: string;
 }

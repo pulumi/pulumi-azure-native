@@ -37,17 +37,33 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
     }
 
     /**
+     * The changed time.
+     */
+    public /*out*/ readonly changedTime!: pulumi.Output<string>;
+    /**
+     * The created time.
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The key details in the key vault.
+     */
+    public readonly key!: pulumi.Output<outputs.logic.v20190501.KeyVaultKeyReferenceResponse | undefined>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Gets the resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The integration account certificate properties.
+     * The public certificate.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20190501.IntegrationAccountCertificatePropertiesResponse>;
+    public readonly publicCertificate!: pulumi.Output<string | undefined>;
     /**
      * The resource tags.
      */
@@ -87,7 +103,8 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
             inputs["publicCertificate"] = args ? args.publicCertificate : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

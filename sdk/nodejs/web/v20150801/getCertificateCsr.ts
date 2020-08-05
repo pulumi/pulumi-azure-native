@@ -36,6 +36,18 @@ export interface GetCertificateCsrArgs {
  */
 export interface GetCertificateCsrResult {
     /**
+     * Actual CSR string created
+     */
+    readonly csrString?: string;
+    /**
+     * Distinguished name of certificate to be created
+     */
+    readonly distinguishedName?: string;
+    /**
+     * Hosting environment
+     */
+    readonly hostingEnvironment?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;
@@ -47,7 +59,18 @@ export interface GetCertificateCsrResult {
      * Resource Name
      */
     readonly name?: string;
-    readonly properties: outputs.web.v20150801.CsrResponseProperties;
+    /**
+     * PFX password
+     */
+    readonly password?: string;
+    /**
+     * PFX certificate of created certificate
+     */
+    readonly pfxBlob?: string;
+    /**
+     * Hash of the certificates public key
+     */
+    readonly publicKeyHash?: string;
     /**
      * Resource tags
      */

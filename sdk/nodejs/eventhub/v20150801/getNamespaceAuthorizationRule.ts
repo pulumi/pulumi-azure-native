@@ -49,9 +49,9 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly name: string;
     /**
-     * Properties supplied to create or update SharedAccessAuthorizationRule
+     * The rights associated with the rule.
      */
-    readonly properties: outputs.eventhub.v20150801.SharedAccessAuthorizationRulePropertiesResponse;
+    readonly rights: string[];
     /**
      * Resource type
      */

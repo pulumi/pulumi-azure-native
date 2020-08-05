@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,25 @@ export class ContentType extends pulumi.CustomResource {
     }
 
     /**
+     * Content type description.
+     */
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the content type.
+     * Content type schema.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.ContentTypeContractPropertiesResponse>;
+    public /*out*/ readonly schema!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Content type version.
+     */
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ContentType resource with the given unique name, arguments, and options.
@@ -74,8 +80,10 @@ export class ContentType extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["schema"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

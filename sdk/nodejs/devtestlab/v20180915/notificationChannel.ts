@@ -37,6 +37,22 @@ export class NotificationChannel extends pulumi.CustomResource {
     }
 
     /**
+     * The creation date of the notification channel.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * Description of notification.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+     */
+    public readonly emailRecipient!: pulumi.Output<string | undefined>;
+    /**
+     * The list of event for which this notification is enabled.
+     */
+    public readonly events!: pulumi.Output<outputs.devtestlab.v20180915.EventResponse[] | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +61,13 @@ export class NotificationChannel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The locale to use when sending a notification (fallback for unsupported languages is EN).
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.NotificationChannelPropertiesResponse>;
+    public readonly notificationLocale!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning status of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +76,14 @@ export class NotificationChannel extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    /**
+     * The webhook URL to send notifications to.
+     */
+    public readonly webHookUrl!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -89,8 +117,10 @@ export class NotificationChannel extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["webHookUrl"] = args ? args.webHookUrl : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -41,13 +41,21 @@ export interface GetCertificateArgs {
  */
 export interface GetCertificateResult {
     /**
+     * Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+     */
+    readonly expirationDate: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Certificate properties details.
+     * Subject attribute of the certificate.
      */
-    readonly properties: outputs.apimanagement.v20190101.CertificateContractPropertiesResponse;
+    readonly subject: string;
+    /**
+     * Thumbprint of the certificate.
+     */
+    readonly thumbprint: string;
     /**
      * Resource type for API Management resource.
      */

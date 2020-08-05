@@ -41,9 +41,13 @@ export class RulesEngine extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Rules Engine Configuration.
+     * Resource status.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.RulesEnginePropertiesResponse>;
+    public readonly resourceState!: pulumi.Output<string | undefined>;
+    /**
+     * A list of rules that define a particular Rules Engine Configuration.
+     */
+    public readonly rules!: pulumi.Output<outputs.network.v20200401.RulesEngineRuleResponse[] | undefined>;
     /**
      * Resource type.
      */
@@ -76,7 +80,6 @@ export class RulesEngine extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceState"] = args ? args.resourceState : undefined;
             inputs["rules"] = args ? args.rules : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

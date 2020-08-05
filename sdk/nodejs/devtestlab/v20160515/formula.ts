@@ -37,6 +37,22 @@ export class Formula extends pulumi.CustomResource {
     }
 
     /**
+     * The author of the formula.
+     */
+    public readonly author!: pulumi.Output<string | undefined>;
+    /**
+     * The creation date of the formula.
+     */
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
+     * The description of the formula.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The content of the formula.
+     */
+    public readonly formulaContent!: pulumi.Output<outputs.devtestlab.v20160515.LabVirtualMachineCreationParameterResponse | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +61,13 @@ export class Formula extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The OS type of the formula.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.FormulaPropertiesResponse>;
+    public readonly osType!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning status of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +76,14 @@ export class Formula extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * Information about a VM from which a formula is to be created.
+     */
+    public readonly vm!: pulumi.Output<outputs.devtestlab.v20160515.FormulaPropertiesFromVmResponse | undefined>;
 
     /**
      * Create a Formula resource with the given unique name, arguments, and options.
@@ -91,7 +119,7 @@ export class Formula extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
             inputs["vm"] = args ? args.vm : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

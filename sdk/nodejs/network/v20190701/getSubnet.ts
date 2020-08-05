@@ -41,15 +41,79 @@ export interface GetSubnetArgs {
  */
 export interface GetSubnetResult {
     /**
+     * The address prefix for the subnet.
+     */
+    readonly addressPrefix?: string;
+    /**
+     * List of address prefixes for the subnet.
+     */
+    readonly addressPrefixes?: string[];
+    /**
+     * An array of references to the delegations on the subnet.
+     */
+    readonly delegations?: outputs.network.v20190701.DelegationResponse[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
+    /**
+     * Array of IP configuration profiles which reference this subnet.
+     */
+    readonly ipConfigurationProfiles: outputs.network.v20190701.IPConfigurationProfileResponse[];
+    /**
+     * An array of references to the network interface IP configurations using subnet.
+     */
+    readonly ipConfigurations: outputs.network.v20190701.IPConfigurationResponse[];
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: string;
     /**
-     * Properties of the subnet.
+     * Nat gateway associated with this subnet.
      */
-    readonly properties: outputs.network.v20190701.SubnetPropertiesFormatResponse;
+    readonly natGateway?: outputs.network.v20190701.SubResourceResponse;
+    /**
+     * The reference of the NetworkSecurityGroup resource.
+     */
+    readonly networkSecurityGroup?: outputs.network.v20190701.NetworkSecurityGroupResponse;
+    /**
+     * Enable or Disable apply network policies on private end point in the subnet.
+     */
+    readonly privateEndpointNetworkPolicies?: string;
+    /**
+     * An array of references to private endpoints.
+     */
+    readonly privateEndpoints: outputs.network.v20190701.PrivateEndpointResponse[];
+    /**
+     * Enable or Disable apply network policies on private link service in the subnet.
+     */
+    readonly privateLinkServiceNetworkPolicies?: string;
+    /**
+     * The provisioning state of the subnet resource.
+     */
+    readonly provisioningState?: string;
+    /**
+     * A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+     */
+    readonly purpose: string;
+    /**
+     * An array of references to the external resources using subnet.
+     */
+    readonly resourceNavigationLinks?: outputs.network.v20190701.ResourceNavigationLinkResponse[];
+    /**
+     * The reference of the RouteTable resource.
+     */
+    readonly routeTable?: outputs.network.v20190701.RouteTableResponse;
+    /**
+     * An array of references to services injecting into this subnet.
+     */
+    readonly serviceAssociationLinks?: outputs.network.v20190701.ServiceAssociationLinkResponse[];
+    /**
+     * An array of service endpoint policies.
+     */
+    readonly serviceEndpointPolicies?: outputs.network.v20190701.ServiceEndpointPolicyResponse[];
+    /**
+     * An array of service endpoints.
+     */
+    readonly serviceEndpoints?: outputs.network.v20190701.ServiceEndpointPropertiesFormatResponse[];
 }

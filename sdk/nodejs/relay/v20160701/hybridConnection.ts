@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,33 @@ export class HybridConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The time the HybridConnection was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The number of listeners for this HybridConnection. min : 1 and max:25 supported
+     */
+    public /*out*/ readonly listenerCount!: pulumi.Output<number>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of HybridConnection
+     * true if client authorization is needed for this HybridConnection; otherwise, false.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.relay.v20160701.HybridConnectionPropertiesResponse>;
+    public readonly requiresClientAuthorization!: pulumi.Output<boolean | undefined>;
     /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The time the namespace was updated.
+     */
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+     */
+    public readonly userMetadata!: pulumi.Output<string | undefined>;
 
     /**
      * Create a HybridConnection resource with the given unique name, arguments, and options.
@@ -76,8 +90,10 @@ export class HybridConnection extends pulumi.CustomResource {
             inputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userMetadata"] = args ? args.userMetadata : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["listenerCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

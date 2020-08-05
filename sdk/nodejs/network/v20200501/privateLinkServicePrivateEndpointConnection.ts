@@ -41,13 +41,25 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The consumer link id.
+     */
+    public /*out*/ readonly linkIdentifier!: pulumi.Output<string>;
+    /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the private end point connection.
+     * The resource of private end point.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.PrivateEndpointConnectionPropertiesResponse>;
+    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.network.v20200501.PrivateEndpointResponse>;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.network.v20200501.PrivateLinkServiceConnectionStateResponse | undefined>;
+    /**
+     * The provisioning state of the private endpoint connection resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The resource type.
      */
@@ -81,7 +93,9 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["linkIdentifier"] = undefined /*out*/;
+            inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

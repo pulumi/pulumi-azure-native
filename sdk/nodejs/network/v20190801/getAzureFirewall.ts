@@ -36,9 +36,25 @@ export interface GetAzureFirewallArgs {
  */
 export interface GetAzureFirewallResult {
     /**
+     * Collection of application rule collections used by Azure Firewall.
+     */
+    readonly applicationRuleCollections?: outputs.network.v20190801.AzureFirewallApplicationRuleCollectionResponse[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * The firewallPolicy associated with this azure firewall.
+     */
+    readonly firewallPolicy?: outputs.network.v20190801.SubResourceResponse;
+    /**
+     * IP addresses associated with AzureFirewall.
+     */
+    readonly hubIpAddresses: outputs.network.v20190801.HubIPAddressesResponse;
+    /**
+     * IP configuration of the Azure Firewall resource.
+     */
+    readonly ipConfigurations?: outputs.network.v20190801.AzureFirewallIPConfigurationResponse[];
     /**
      * Resource location.
      */
@@ -48,17 +64,37 @@ export interface GetAzureFirewallResult {
      */
     readonly name: string;
     /**
-     * Properties of the azure firewall.
+     * Collection of NAT rule collections used by Azure Firewall.
      */
-    readonly properties: outputs.network.v20190801.AzureFirewallPropertiesFormatResponse;
+    readonly natRuleCollections?: outputs.network.v20190801.AzureFirewallNatRuleCollectionResponse[];
+    /**
+     * Collection of network rule collections used by Azure Firewall.
+     */
+    readonly networkRuleCollections?: outputs.network.v20190801.AzureFirewallNetworkRuleCollectionResponse[];
+    /**
+     * The provisioning state of the Azure firewall resource.
+     */
+    readonly provisioningState?: string;
+    /**
+     * The Azure Firewall Resource SKU.
+     */
+    readonly sku?: outputs.network.v20190801.AzureFirewallSkuResponse;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The operation mode for Threat Intelligence.
+     */
+    readonly threatIntelMode?: string;
+    /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The virtualHub to which the firewall belongs.
+     */
+    readonly virtualHub?: outputs.network.v20190801.SubResourceResponse;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */

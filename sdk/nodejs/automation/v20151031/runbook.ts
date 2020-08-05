@@ -37,21 +37,77 @@ export class Runbook extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the draft runbook properties.
+     */
+    public readonly draft!: pulumi.Output<outputs.automation.v20151031.RunbookDraftResponse | undefined>;
+    /**
      * Gets or sets the etag of the resource.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the job count of the runbook.
+     */
+    public /*out*/ readonly jobCount!: pulumi.Output<number | undefined>;
+    /**
+     * Gets or sets the last modified by.
+     */
+    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Gets or sets the option to log activity trace of the runbook.
+     */
+    public readonly logActivityTrace!: pulumi.Output<number | undefined>;
+    /**
+     * Gets or sets progress log option.
+     */
+    public readonly logProgress!: pulumi.Output<boolean | undefined>;
+    /**
+     * Gets or sets verbose log option.
+     */
+    public readonly logVerbose!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the runbook properties.
+     * Gets or sets the runbook output types.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.RunbookPropertiesResponse>;
+    public /*out*/ readonly outputTypes!: pulumi.Output<string[] | undefined>;
+    /**
+     * Gets or sets the runbook parameters.
+     */
+    public /*out*/ readonly parameters!: pulumi.Output<{[key: string]: outputs.automation.v20151031.RunbookParameterResponse} | undefined>;
+    /**
+     * Gets or sets the provisioning state of the runbook.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the published runbook content link.
+     */
+    public readonly publishContentLink!: pulumi.Output<outputs.automation.v20151031.ContentLinkResponse | undefined>;
+    /**
+     * Gets or sets the type of the runbook.
+     */
+    public readonly runbookType!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the state of the runbook.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -98,8 +154,15 @@ export class Runbook extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["runbookType"] = args ? args.runbookType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["creationTime"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["jobCount"] = undefined /*out*/;
+            inputs["lastModifiedBy"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["outputTypes"] = undefined /*out*/;
+            inputs["parameters"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

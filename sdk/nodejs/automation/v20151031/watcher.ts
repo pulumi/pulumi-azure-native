@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,9 +35,29 @@ export class Watcher extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Gets or sets the description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Gets or sets the etag of the resource.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the frequency at which the watcher is invoked.
+     */
+    public readonly executionFrequencyInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * Details of the user who last modified the watcher.
+     */
+    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
+    /**
+     * Gets or sets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
      * The Azure Region where the resource lives
      */
@@ -49,9 +67,21 @@ export class Watcher extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the watcher properties.
+     * Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.WatcherPropertiesResponse>;
+    public readonly scriptName!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the parameters of the script.
+     */
+    public readonly scriptParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Gets or sets the name of the hybrid worker group the watcher will run on.
+     */
+    public readonly scriptRunOn!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the current status of the watcher.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -94,7 +124,10 @@ export class Watcher extends pulumi.CustomResource {
             inputs["scriptParameters"] = args ? args.scriptParameters : undefined;
             inputs["scriptRunOn"] = args ? args.scriptRunOn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["lastModifiedBy"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

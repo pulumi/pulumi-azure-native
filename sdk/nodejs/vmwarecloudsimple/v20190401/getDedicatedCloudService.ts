@@ -36,6 +36,14 @@ export interface GetDedicatedCloudServiceArgs {
  */
 export interface GetDedicatedCloudServiceResult {
     /**
+     * gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+     */
+    readonly gatewaySubnet: string;
+    /**
+     * indicates whether account onboarded or not in a given region
+     */
+    readonly isAccountOnboarded: string;
+    /**
      * Azure region
      */
     readonly location: string;
@@ -44,9 +52,13 @@ export interface GetDedicatedCloudServiceResult {
      */
     readonly name: string;
     /**
-     * The properties of Dedicated Node Service
+     * total nodes purchased
      */
-    readonly properties: outputs.vmwarecloudsimple.v20190401.DedicatedCloudServicePropertiesResponse;
+    readonly nodes: number;
+    /**
+     * link to a service management web portal
+     */
+    readonly serviceURL: string;
     /**
      * The list of tags
      */

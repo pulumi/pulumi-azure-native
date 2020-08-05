@@ -37,6 +37,30 @@ export class LiveEvent extends pulumi.CustomResource {
     }
 
     /**
+     * The exact time the Live Event was created.
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * The Live Event access policies.
+     */
+    public readonly crossSiteAccessPolicies!: pulumi.Output<outputs.media.v20180701.CrossSiteAccessPoliciesResponse | undefined>;
+    /**
+     * The Live Event description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The Live Event encoding.
+     */
+    public readonly encoding!: pulumi.Output<outputs.media.v20180701.LiveEventEncodingResponse | undefined>;
+    /**
+     * The Live Event input.
+     */
+    public readonly input!: pulumi.Output<outputs.media.v20180701.LiveEventInputResponse>;
+    /**
+     * The exact time the Live Event was last modified.
+     */
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    /**
      * The Azure Region of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +69,21 @@ export class LiveEvent extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Live Event properties.
+     * The Live Event preview.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.LiveEventPropertiesResponse>;
+    public readonly preview!: pulumi.Output<outputs.media.v20180701.LiveEventPreviewResponse | undefined>;
+    /**
+     * The provisioning state of the Live Event.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The resource state of the Live Event.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    /**
+     * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+     */
+    public readonly streamOptions!: pulumi.Output<string[] | undefined>;
     /**
      * Resource tags.
      */
@@ -56,6 +92,10 @@ export class LiveEvent extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+     */
+    public readonly vanityUrl!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a LiveEvent resource with the given unique name, arguments, and options.
@@ -95,7 +135,10 @@ export class LiveEvent extends pulumi.CustomResource {
             inputs["streamOptions"] = args ? args.streamOptions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vanityUrl"] = args ? args.vanityUrl : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["lastModified"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

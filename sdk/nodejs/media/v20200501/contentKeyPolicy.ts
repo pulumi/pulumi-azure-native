@@ -37,13 +37,29 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The creation date of the Policy
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * A description for the Policy.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The last modified date of the Policy
+     */
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the Content Key Policy.
+     * The Key Policy options.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20200501.ContentKeyPolicyPropertiesResponse>;
+    public readonly options!: pulumi.Output<outputs.media.v20200501.ContentKeyPolicyOptionResponse[]>;
+    /**
+     * The legacy Policy ID.
+     */
+    public /*out*/ readonly policyId!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -79,7 +95,9 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["options"] = args ? args.options : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["lastModified"] = undefined /*out*/;
+            inputs["policyId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -41,6 +41,18 @@ export class PublicIPPrefix extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The allocated Prefix.
+     */
+    public /*out*/ readonly ipPrefix!: pulumi.Output<string>;
+    /**
+     * The list of tags associated with the public IP prefix.
+     */
+    public readonly ipTags!: pulumi.Output<outputs.network.v20200401.IpTagResponse[] | undefined>;
+    /**
+     * The reference to load balancer frontend IP configuration associated with the public IP prefix.
+     */
+    public /*out*/ readonly loadBalancerFrontendIpConfiguration!: pulumi.Output<outputs.network.v20200401.SubResourceResponse>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -49,9 +61,25 @@ export class PublicIPPrefix extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Public IP prefix properties.
+     * The Length of the Public IP Prefix.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.PublicIPPrefixPropertiesFormatResponse>;
+    public readonly prefixLength!: pulumi.Output<number | undefined>;
+    /**
+     * The provisioning state of the public IP prefix resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The public IP address version.
+     */
+    public readonly publicIPAddressVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The list of all referenced PublicIPAddresses.
+     */
+    public /*out*/ readonly publicIPAddresses!: pulumi.Output<outputs.network.v20200401.ReferencedPublicIpAddressResponse[]>;
+    /**
+     * The resource GUID property of the public IP prefix resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
      * The public IP prefix SKU.
      */
@@ -99,7 +127,11 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ipPrefix"] = undefined /*out*/;
+            inputs["loadBalancerFrontendIpConfiguration"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicIPAddresses"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

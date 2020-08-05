@@ -36,6 +36,10 @@ export interface GetDedicatedHostGroupArgs {
  */
 export interface GetDedicatedHostGroupResult {
     /**
+     * A list of references to all dedicated hosts in the dedicated host group.
+     */
+    readonly hosts: outputs.compute.v20190701.SubResourceReadOnlyResponse[];
+    /**
      * Resource location
      */
     readonly location: string;
@@ -44,9 +48,9 @@ export interface GetDedicatedHostGroupResult {
      */
     readonly name: string;
     /**
-     * Dedicated Host Group Properties.
+     * Number of fault domains that the host group can span.
      */
-    readonly properties: outputs.compute.v20190701.DedicatedHostGroupPropertiesResponse;
+    readonly platformFaultDomainCount: number;
     /**
      * Resource tags
      */

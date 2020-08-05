@@ -37,17 +37,89 @@ export class Kpi extends pulumi.CustomResource {
     }
 
     /**
+     * The aliases.
+     */
+    public readonly aliases!: pulumi.Output<outputs.customerinsights.v20170101.KpiAliasResponse[] | undefined>;
+    /**
+     * The calculation window.
+     */
+    public readonly calculationWindow!: pulumi.Output<string>;
+    /**
+     * Name of calculation window field.
+     */
+    public readonly calculationWindowFieldName!: pulumi.Output<string | undefined>;
+    /**
+     * Localized description for the KPI.
+     */
+    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Localized display name for the KPI.
+     */
+    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The mapping entity type.
+     */
+    public readonly entityType!: pulumi.Output<string>;
+    /**
+     * The mapping entity name.
+     */
+    public readonly entityTypeName!: pulumi.Output<string>;
+    /**
+     * The computation expression for the KPI.
+     */
+    public readonly expression!: pulumi.Output<string>;
+    /**
+     * The KPI extracts.
+     */
+    public readonly extracts!: pulumi.Output<outputs.customerinsights.v20170101.KpiExtractResponse[] | undefined>;
+    /**
+     * The filter expression for the KPI.
+     */
+    public readonly filter!: pulumi.Output<string | undefined>;
+    /**
+     * The computation function for the KPI.
+     */
+    public readonly function!: pulumi.Output<string>;
+    /**
+     * the group by properties for the KPI.
+     */
+    public readonly groupBy!: pulumi.Output<string[] | undefined>;
+    /**
+     * The KPI GroupByMetadata.
+     */
+    public /*out*/ readonly groupByMetadata!: pulumi.Output<outputs.customerinsights.v20170101.KpiGroupByMetadataResponse[]>;
+    /**
+     * The KPI name.
+     */
+    public /*out*/ readonly kpiName!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Defines the KPI Threshold limits.
+     * The participant profiles.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.KpiDefinitionResponse>;
+    public /*out*/ readonly participantProfilesMetadata!: pulumi.Output<outputs.customerinsights.v20170101.KpiParticipantProfilesMetadataResponse[]>;
+    /**
+     * Provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The hub name.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    /**
+     * The KPI thresholds.
+     */
+    public readonly thresHolds!: pulumi.Output<outputs.customerinsights.v20170101.KpiThresholdsResponse | undefined>;
     /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unit of measurement for the KPI.
+     */
+    public readonly unit!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Kpi resource with the given unique name, arguments, and options.
@@ -103,7 +175,11 @@ export class Kpi extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["thresHolds"] = args ? args.thresHolds : undefined;
             inputs["unit"] = args ? args.unit : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["groupByMetadata"] = undefined /*out*/;
+            inputs["kpiName"] = undefined /*out*/;
+            inputs["participantProfilesMetadata"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

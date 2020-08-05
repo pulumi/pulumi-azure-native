@@ -44,9 +44,13 @@ export interface GetWebAppSwiftVirtualNetworkConnectionResult {
      */
     readonly name: string;
     /**
-     * SwiftVirtualNetwork resource specific properties
+     * The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
      */
-    readonly properties: outputs.web.v20181101.SwiftVirtualNetworkResponseProperties;
+    readonly subnetResourceId?: string;
+    /**
+     * A flag that specifies if the scale unit this Web App is on supports Swift integration.
+     */
+    readonly swiftSupported?: boolean;
     /**
      * Resource type.
      */

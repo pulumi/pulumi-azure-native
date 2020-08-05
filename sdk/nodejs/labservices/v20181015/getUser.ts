@@ -46,6 +46,22 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
+     * The user email address, as it was specified during registration.
+     */
+    readonly email: string;
+    /**
+     * The user family name, as it was specified during registration.
+     */
+    readonly familyName: string;
+    /**
+     * The user given name, as it was specified during registration.
+     */
+    readonly givenName: string;
+    /**
+     * The details of the latest operation. ex: status, error
+     */
+    readonly latestOperationResult: outputs.labservices.v20181015.LatestOperationResultResponse;
+    /**
      * The location of the resource.
      */
     readonly location?: string;
@@ -54,15 +70,27 @@ export interface GetUserResult {
      */
     readonly name: string;
     /**
-     * These are the properties for the user registered under a lab.
+     * The provisioning status of the resource.
      */
-    readonly properties: outputs.labservices.v20181015.UserPropertiesResponse;
+    readonly provisioningState?: string;
     /**
      * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The user tenant ID, as it was specified during registration.
+     */
+    readonly tenantId: string;
+    /**
+     * How long the user has used his VMs in this lab
+     */
+    readonly totalUsage: string;
+    /**
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: string;
 }

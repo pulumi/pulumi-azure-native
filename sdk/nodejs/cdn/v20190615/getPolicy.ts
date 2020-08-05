@@ -36,6 +36,14 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
+     * Describes custom rules inside the policy.
+     */
+    readonly customRules?: outputs.cdn.v20190615.CustomRuleListResponse;
+    /**
+     * Describes Azure CDN endpoints associated with this Web Application Firewall policy.
+     */
+    readonly endpointLinks: outputs.cdn.v20190615.CdnEndpointResponse[];
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
@@ -44,13 +52,26 @@ export interface GetPolicyResult {
      */
     readonly location: string;
     /**
+     * Describes managed rules inside the policy.
+     */
+    readonly managedRules?: outputs.cdn.v20190615.ManagedRuleSetListResponse;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the web application firewall policy.
+     * Describes  policySettings for policy
      */
-    readonly properties: outputs.cdn.v20190615.CdnWebApplicationFirewallPolicyPropertiesResponse;
+    readonly policySettings?: outputs.cdn.v20190615.PolicySettingsResponse;
+    /**
+     * Provisioning state of the WebApplicationFirewallPolicy.
+     */
+    readonly provisioningState: string;
+    /**
+     * Describes rate limit rules inside the policy.
+     */
+    readonly rateLimitRules?: outputs.cdn.v20190615.RateLimitRuleListResponse;
+    readonly resourceState: string;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
      */

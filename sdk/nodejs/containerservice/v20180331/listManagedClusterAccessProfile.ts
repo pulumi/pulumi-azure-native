@@ -41,6 +41,10 @@ export interface ListManagedClusterAccessProfileArgs {
  */
 export interface ListManagedClusterAccessProfileResult {
     /**
+     * Base64-encoded Kubernetes configuration file.
+     */
+    readonly kubeConfig?: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -48,10 +52,6 @@ export interface ListManagedClusterAccessProfileResult {
      * Resource name
      */
     readonly name: string;
-    /**
-     * AccessProfile of a managed cluster.
-     */
-    readonly properties: outputs.containerservice.v20180331.AccessProfileResponse;
     /**
      * Resource tags
      */

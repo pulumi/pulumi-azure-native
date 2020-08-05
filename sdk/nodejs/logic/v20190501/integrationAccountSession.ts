@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,18 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
     }
 
     /**
+     * The changed time.
+     */
+    public /*out*/ readonly changedTime!: pulumi.Output<string>;
+    /**
+     * The session content.
+     */
+    public readonly content!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The created time.
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -44,10 +54,6 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
      * Gets the resource name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The integration account session properties.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20190501.IntegrationAccountSessionPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -85,7 +91,8 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

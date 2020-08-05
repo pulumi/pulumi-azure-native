@@ -37,21 +37,135 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     }
 
     /**
+     * List of comma separated strings describing which VM sizes are allowed for front-ends.
+     */
+    public /*out*/ readonly allowedMultiSizes!: pulumi.Output<string>;
+    /**
+     * List of comma separated strings describing which VM sizes are allowed for workers.
+     */
+    public /*out*/ readonly allowedWorkerSizes!: pulumi.Output<string>;
+    /**
+     * API Management Account associated with the App Service Environment.
+     */
+    public readonly apiManagementAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * Custom settings for changing the behavior of the App Service Environment.
+     */
+    public readonly clusterSettings!: pulumi.Output<outputs.web.v20180201.NameValuePairResponse[] | undefined>;
+    /**
+     * Edition of the metadata database for the App Service Environment, e.g. "Standard".
+     */
+    public /*out*/ readonly databaseEdition!: pulumi.Output<string>;
+    /**
+     * Service objective of the metadata database for the App Service Environment, e.g. "S0".
+     */
+    public /*out*/ readonly databaseServiceObjective!: pulumi.Output<string>;
+    /**
+     * Default Scale Factor for FrontEnds.
+     */
+    public /*out*/ readonly defaultFrontEndScaleFactor!: pulumi.Output<number>;
+    /**
+     * DNS suffix of the App Service Environment.
+     */
+    public readonly dnsSuffix!: pulumi.Output<string | undefined>;
+    /**
+     * True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+     * (most likely because NSG blocked the incoming traffic).
+     */
+    public readonly dynamicCacheEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Current total, used, and available worker capacities.
+     */
+    public /*out*/ readonly environmentCapacities!: pulumi.Output<outputs.web.v20180201.StampCapacityResponse[]>;
+    /**
+     * True/false indicating whether the App Service Environment is healthy.
+     */
+    public /*out*/ readonly environmentIsHealthy!: pulumi.Output<boolean>;
+    /**
+     * Detailed message about with results of the last check of the App Service Environment.
+     */
+    public /*out*/ readonly environmentStatus!: pulumi.Output<string>;
+    /**
+     * Scale factor for front-ends.
+     */
+    public readonly frontEndScaleFactor!: pulumi.Output<number | undefined>;
+    /**
+     * Flag that displays whether an ASE has linux workers or not
+     */
+    public readonly hasLinuxWorkers!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+     */
+    public readonly internalLoadBalancingMode!: pulumi.Output<string | undefined>;
+    /**
+     * Number of IP SSL addresses reserved for the App Service Environment.
+     */
+    public readonly ipsslAddressCount!: pulumi.Output<number | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * Last deployment action on the App Service Environment.
+     */
+    public /*out*/ readonly lastAction!: pulumi.Output<string>;
+    /**
+     * Result of the last deployment action on the App Service Environment.
+     */
+    public /*out*/ readonly lastActionResult!: pulumi.Output<string>;
     /**
      * Resource Location.
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Maximum number of VMs in the App Service Environment.
+     */
+    public /*out*/ readonly maximumNumberOfMachines!: pulumi.Output<number>;
+    /**
+     * Number of front-end instances.
+     */
+    public readonly multiRoleCount!: pulumi.Output<number | undefined>;
+    /**
+     * Front-end VM size, e.g. "Medium", "Large".
+     */
+    public readonly multiSize!: pulumi.Output<string | undefined>;
+    /**
      * Resource Name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Core resource properties
+     * Access control list for controlling traffic to the App Service Environment.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20180201.AppServiceEnvironmentResponse>;
+    public readonly networkAccessControlList!: pulumi.Output<outputs.web.v20180201.NetworkAccessControlEntryResponse[] | undefined>;
+    /**
+     * Provisioning state of the App Service Environment.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource group of the App Service Environment.
+     */
+    public /*out*/ readonly resourceGroup!: pulumi.Output<string>;
+    /**
+     * Key Vault ID for ILB App Service Environment default SSL certificate
+     */
+    public readonly sslCertKeyVaultId!: pulumi.Output<string | undefined>;
+    /**
+     * Key Vault Secret Name for ILB App Service Environment default SSL certificate
+     */
+    public readonly sslCertKeyVaultSecretName!: pulumi.Output<string | undefined>;
+    /**
+     * Current status of the App Service Environment.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Subscription of the App Service Environment.
+     */
+    public /*out*/ readonly subscriptionId!: pulumi.Output<string>;
+    /**
+     * <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+     *  (most likely because NSG blocked the incoming traffic).
+     */
+    public readonly suspended!: pulumi.Output<boolean | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +174,38 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Number of upgrade domains of the App Service Environment.
+     */
+    public /*out*/ readonly upgradeDomains!: pulumi.Output<number>;
+    /**
+     * User added ip ranges to whitelist on ASE db
+     */
+    public readonly userWhitelistedIpRanges!: pulumi.Output<string[] | undefined>;
+    /**
+     * Description of IP SSL mapping for the App Service Environment.
+     */
+    public /*out*/ readonly vipMappings!: pulumi.Output<outputs.web.v20180201.VirtualIPMappingResponse[]>;
+    /**
+     * Description of the Virtual Network.
+     */
+    public readonly virtualNetwork!: pulumi.Output<outputs.web.v20180201.VirtualNetworkProfileResponse>;
+    /**
+     * Name of the Virtual Network for the App Service Environment.
+     */
+    public readonly vnetName!: pulumi.Output<string | undefined>;
+    /**
+     * Resource group of the Virtual Network.
+     */
+    public readonly vnetResourceGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * Subnet of the Virtual Network.
+     */
+    public readonly vnetSubnetName!: pulumi.Output<string | undefined>;
+    /**
+     * Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
+     */
+    public readonly workerPools!: pulumi.Output<outputs.web.v20180201.WorkerPoolResponse[]>;
 
     /**
      * Create a AppServiceEnvironment resource with the given unique name, arguments, and options.
@@ -114,8 +260,24 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             inputs["vnetResourceGroupName"] = args ? args.vnetResourceGroupName : undefined;
             inputs["vnetSubnetName"] = args ? args.vnetSubnetName : undefined;
             inputs["workerPools"] = args ? args.workerPools : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["allowedMultiSizes"] = undefined /*out*/;
+            inputs["allowedWorkerSizes"] = undefined /*out*/;
+            inputs["databaseEdition"] = undefined /*out*/;
+            inputs["databaseServiceObjective"] = undefined /*out*/;
+            inputs["defaultFrontEndScaleFactor"] = undefined /*out*/;
+            inputs["environmentCapacities"] = undefined /*out*/;
+            inputs["environmentIsHealthy"] = undefined /*out*/;
+            inputs["environmentStatus"] = undefined /*out*/;
+            inputs["lastAction"] = undefined /*out*/;
+            inputs["lastActionResult"] = undefined /*out*/;
+            inputs["maximumNumberOfMachines"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGroup"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["subscriptionId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["upgradeDomains"] = undefined /*out*/;
+            inputs["vipMappings"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

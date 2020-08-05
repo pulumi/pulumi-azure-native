@@ -37,9 +37,41 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The authorizationKey.
+     */
+    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    /**
+     * Virtual network Gateway connection status. Possible values are 'Unknown', 'Connecting', 'Connected' and 'NotConnected'.
+     */
+    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    /**
+     * Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
+     */
+    public readonly connectionType!: pulumi.Output<string>;
+    /**
+     * The egress bytes transferred in this connection.
+     */
+    public /*out*/ readonly egressBytesTransferred!: pulumi.Output<number>;
+    /**
+     * EnableBgp flag
+     */
+    public readonly enableBgp!: pulumi.Output<boolean | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * The ingress bytes transferred in this connection.
+     */
+    public /*out*/ readonly ingressBytesTransferred!: pulumi.Output<number>;
+    /**
+     * The IPSec Policies to be considered by this connection.
+     */
+    public readonly ipsecPolicies!: pulumi.Output<outputs.network.v20180601.IpsecPolicyResponse[] | undefined>;
+    /**
+     * The reference to local network gateway resource.
+     */
+    public readonly localNetworkGateway2!: pulumi.Output<outputs.network.v20180601.LocalNetworkGatewayResponse | undefined>;
     /**
      * Resource location.
      */
@@ -49,17 +81,49 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the virtual network gateway connection.
+     * The reference to peerings resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180601.VirtualNetworkGatewayConnectionPropertiesFormatResponse>;
+    public readonly peer!: pulumi.Output<outputs.network.v20180601.SubResourceResponse | undefined>;
+    /**
+     * The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The resource GUID property of the VirtualNetworkGatewayConnection resource.
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
+     * The routing weight.
+     */
+    public readonly routingWeight!: pulumi.Output<number | undefined>;
+    /**
+     * The IPSec shared key.
+     */
+    public readonly sharedKey!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Collection of all tunnels' connection health status.
+     */
+    public /*out*/ readonly tunnelConnectionStatus!: pulumi.Output<outputs.network.v20180601.TunnelConnectionHealthResponse[]>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Enable policy-based traffic selectors.
+     */
+    public readonly usePolicyBasedTrafficSelectors!: pulumi.Output<boolean | undefined>;
+    /**
+     * The reference to virtual network gateway resource.
+     */
+    public readonly virtualNetworkGateway1!: pulumi.Output<outputs.network.v20180601.VirtualNetworkGatewayResponse>;
+    /**
+     * The reference to virtual network gateway resource.
+     */
+    public readonly virtualNetworkGateway2!: pulumi.Output<outputs.network.v20180601.VirtualNetworkGatewayResponse | undefined>;
 
     /**
      * Create a VirtualNetworkGatewayConnection resource with the given unique name, arguments, and options.
@@ -104,7 +168,11 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
             inputs["virtualNetworkGateway1"] = args ? args.virtualNetworkGateway1 : undefined;
             inputs["virtualNetworkGateway2"] = args ? args.virtualNetworkGateway2 : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["connectionStatus"] = undefined /*out*/;
+            inputs["egressBytesTransferred"] = undefined /*out*/;
+            inputs["ingressBytesTransferred"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["tunnelConnectionStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

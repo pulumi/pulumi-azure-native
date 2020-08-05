@@ -37,6 +37,18 @@ export class ConfigurationStore extends pulumi.CustomResource {
     }
 
     /**
+     * The creation date of configuration store.
+     */
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
+     * The encryption settings of the configuration store.
+     */
+    public readonly encryption!: pulumi.Output<outputs.appconfiguration.v20200601.EncryptionPropertiesResponse | undefined>;
+    /**
+     * The DNS endpoint where the configuration store API will be available.
+     */
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
      * The managed identity information, if configured.
      */
     public readonly identity!: pulumi.Output<outputs.appconfiguration.v20200601.ResourceIdentityResponse | undefined>;
@@ -49,9 +61,17 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of a configuration store.
+     * The list of private endpoint connections that are set up for this resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.appconfiguration.v20200601.ConfigurationStorePropertiesResponse>;
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.appconfiguration.v20200601.PrivateEndpointConnectionReferenceResponse[]>;
+    /**
+     * The provisioning state of the configuration store.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The sku of the configuration store.
      */
@@ -98,7 +118,10 @@ export class ConfigurationStore extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["endpoint"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

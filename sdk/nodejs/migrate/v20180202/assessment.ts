@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,21 +35,101 @@ export class Assessment extends pulumi.CustomResource {
     }
 
     /**
+     * AHUB discount on windows virtual machines.
+     */
+    public readonly azureHybridUseBenefit!: pulumi.Output<string>;
+    /**
+     * Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+     */
+    public readonly azureLocation!: pulumi.Output<string>;
+    /**
+     * Offer code according to which cost estimation is done.
+     */
+    public readonly azureOfferCode!: pulumi.Output<string>;
+    /**
+     * Pricing tier for Size evaluation.
+     */
+    public readonly azurePricingTier!: pulumi.Output<string>;
+    /**
+     * Storage Redundancy type offered by Azure.
+     */
+    public readonly azureStorageRedundancy!: pulumi.Output<string>;
+    /**
+     * Confidence rating percentage for assessment. Can be in the range [0, 100].
+     */
+    public /*out*/ readonly confidenceRatingInPercentage!: pulumi.Output<number>;
+    /**
+     * Time when this project was created. Date-Time represented in ISO-8601 format.
+     */
+    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    /**
+     * Currency to report prices in.
+     */
+    public readonly currency!: pulumi.Output<string>;
+    /**
+     * Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+     */
+    public readonly discountPercentage!: pulumi.Output<number>;
+    /**
      * For optimistic concurrency control.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
+    /**
+     * Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+     */
+    public /*out*/ readonly monthlyBandwidthCost!: pulumi.Output<number>;
+    /**
+     * Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+     */
+    public /*out*/ readonly monthlyComputeCost!: pulumi.Output<number>;
+    /**
+     * Monthly storage cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
+     */
+    public /*out*/ readonly monthlyStorageCost!: pulumi.Output<number>;
     /**
      * Unique name of an assessment.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the assessment.
+     * Number of assessed machines part of this assessment.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.migrate.v20180202.AssessmentPropertiesResponse>;
+    public /*out*/ readonly numberOfMachines!: pulumi.Output<number>;
+    /**
+     * Percentile of performance data used to recommend Azure size.
+     */
+    public readonly percentile!: pulumi.Output<string>;
+    /**
+     * Time when the Azure Prices were queried. Date-Time represented in ISO-8601 format.
+     */
+    public /*out*/ readonly pricesTimestamp!: pulumi.Output<string>;
+    /**
+     * Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+     */
+    public readonly scalingFactor!: pulumi.Output<number>;
+    /**
+     * Assessment sizing criterion.
+     */
+    public readonly sizingCriterion!: pulumi.Output<string>;
+    /**
+     * User configurable setting that describes the status of the assessment.
+     */
+    public readonly stage!: pulumi.Output<string>;
+    /**
+     * Whether the assessment has been created and is valid.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Time range of performance data used to recommend a size.
+     */
+    public readonly timeRange!: pulumi.Output<string>;
     /**
      * Type of the object = [Microsoft.Migrate/projects/groups/assessments].
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Time when this project was last updated. Date-Time represented in ISO-8601 format.
+     */
+    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
 
     /**
      * Create a Assessment resource with the given unique name, arguments, and options.
@@ -131,8 +209,16 @@ export class Assessment extends pulumi.CustomResource {
             inputs["sizingCriterion"] = args ? args.sizingCriterion : undefined;
             inputs["stage"] = args ? args.stage : undefined;
             inputs["timeRange"] = args ? args.timeRange : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["confidenceRatingInPercentage"] = undefined /*out*/;
+            inputs["createdTimestamp"] = undefined /*out*/;
+            inputs["monthlyBandwidthCost"] = undefined /*out*/;
+            inputs["monthlyComputeCost"] = undefined /*out*/;
+            inputs["monthlyStorageCost"] = undefined /*out*/;
+            inputs["numberOfMachines"] = undefined /*out*/;
+            inputs["pricesTimestamp"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedTimestamp"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

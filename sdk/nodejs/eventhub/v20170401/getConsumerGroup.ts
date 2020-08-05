@@ -46,15 +46,23 @@ export interface GetConsumerGroupArgs {
  */
 export interface GetConsumerGroupResult {
     /**
+     * Exact time the message was created.
+     */
+    readonly createdAt: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Single item in List or Get Consumer group operation
-     */
-    readonly properties: outputs.eventhub.v20170401.ConsumerGroupResponseProperties;
-    /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The exact time the message was updated.
+     */
+    readonly updatedAt: string;
+    /**
+     * User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+     */
+    readonly userMetadata?: string;
 }

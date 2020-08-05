@@ -41,15 +41,23 @@ export interface GetContentTypeArgs {
  */
 export interface GetContentTypeResult {
     /**
+     * Content type description.
+     */
+    readonly description?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the content type.
+     * Content type schema.
      */
-    readonly properties: outputs.apimanagement.v20191201.ContentTypeContractPropertiesResponse;
+    readonly schema?: {[key: string]: any};
     /**
      * Resource type for API Management resource.
      */
     readonly type: string;
+    /**
+     * Content type version.
+     */
+    readonly version?: string;
 }

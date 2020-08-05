@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,69 @@ export class ShareSubscription extends pulumi.CustomResource {
     }
 
     /**
+     * Time at which the share subscription was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The invitation id.
+     */
+    public readonly invitationId!: pulumi.Output<string>;
+    /**
      * Name of the azure resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties on the share subscription
+     * Email of the provider who created the resource
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datashare.v20191101.ShareSubscriptionPropertiesResponse>;
+    public /*out*/ readonly providerEmail!: pulumi.Output<string>;
+    /**
+     * Name of the provider who created the resource
+     */
+    public /*out*/ readonly providerName!: pulumi.Output<string>;
+    /**
+     * Tenant name of the provider who created the resource
+     */
+    public /*out*/ readonly providerTenantName!: pulumi.Output<string>;
+    /**
+     * Provisioning state of the share subscription
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Description of share
+     */
+    public /*out*/ readonly shareDescription!: pulumi.Output<string>;
+    /**
+     * Kind of share
+     */
+    public /*out*/ readonly shareKind!: pulumi.Output<string>;
+    /**
+     * Name of the share
+     */
+    public /*out*/ readonly shareName!: pulumi.Output<string>;
+    /**
+     * Gets the current status of share subscription.
+     */
+    public /*out*/ readonly shareSubscriptionStatus!: pulumi.Output<string>;
+    /**
+     * Terms of a share
+     */
+    public /*out*/ readonly shareTerms!: pulumi.Output<string>;
+    /**
+     * Source share location.
+     */
+    public readonly sourceShareLocation!: pulumi.Output<string>;
     /**
      * Type of the azure resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Email of the user who created the resource
+     */
+    public /*out*/ readonly userEmail!: pulumi.Output<string>;
+    /**
+     * Name of the user who created the resource
+     */
+    public /*out*/ readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a ShareSubscription resource with the given unique name, arguments, and options.
@@ -82,8 +132,19 @@ export class ShareSubscription extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sourceShareLocation"] = args ? args.sourceShareLocation : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["providerEmail"] = undefined /*out*/;
+            inputs["providerName"] = undefined /*out*/;
+            inputs["providerTenantName"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["shareDescription"] = undefined /*out*/;
+            inputs["shareKind"] = undefined /*out*/;
+            inputs["shareName"] = undefined /*out*/;
+            inputs["shareSubscriptionStatus"] = undefined /*out*/;
+            inputs["shareTerms"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["userEmail"] = undefined /*out*/;
+            inputs["userName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

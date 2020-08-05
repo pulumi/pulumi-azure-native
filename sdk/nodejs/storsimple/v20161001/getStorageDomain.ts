@@ -41,13 +41,21 @@ export interface GetStorageDomainArgs {
  */
 export interface GetStorageDomainResult {
     /**
+     * The encryption key used to encrypt the data. This is a user secret.
+     */
+    readonly encryptionKey?: outputs.storsimple.v20161001.AsymmetricEncryptedSecretResponse;
+    /**
+     * The encryption status "Enabled | Disabled".
+     */
+    readonly encryptionStatus: string;
+    /**
      * The name.
      */
     readonly name: string;
     /**
-     * The properties.
+     * The storage account credentials.
      */
-    readonly properties: outputs.storsimple.v20161001.StorageDomainPropertiesResponse;
+    readonly storageAccountCredentialIds: string[];
     /**
      * The type.
      */

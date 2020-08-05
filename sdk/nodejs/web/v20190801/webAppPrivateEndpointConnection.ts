@@ -45,9 +45,14 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Core resource properties
+     * PrivateEndpoint of a remote private endpoint connection
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.RemotePrivateEndpointConnectionResponse>;
+    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.web.v20190801.ArmIdWrapperResponse | undefined>;
+    /**
+     * The state of a private link connection
+     */
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.web.v20190801.PrivateLinkConnectionStateResponse | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -76,7 +81,8 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["privateEndpoint"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

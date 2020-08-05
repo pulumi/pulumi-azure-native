@@ -41,6 +41,18 @@ export interface GetVirtualNetworkPeeringArgs {
  */
 export interface GetVirtualNetworkPeeringResult {
     /**
+     * Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+     */
+    readonly allowForwardedTraffic?: boolean;
+    /**
+     * If gateway links can be used in remote virtual networking to link to this virtual network.
+     */
+    readonly allowGatewayTransit?: boolean;
+    /**
+     * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+     */
+    readonly allowVirtualNetworkAccess?: boolean;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -49,7 +61,23 @@ export interface GetVirtualNetworkPeeringResult {
      */
     readonly name?: string;
     /**
-     * Properties of the virtual network peering.
+     * The status of the virtual network peering.
      */
-    readonly properties: outputs.network.v20200301.VirtualNetworkPeeringPropertiesFormatResponse;
+    readonly peeringState?: string;
+    /**
+     * The provisioning state of the virtual network peering resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The reference to the remote virtual network address space.
+     */
+    readonly remoteAddressSpace?: outputs.network.v20200301.AddressSpaceResponse;
+    /**
+     * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+     */
+    readonly remoteVirtualNetwork?: outputs.network.v20200301.SubResourceResponse;
+    /**
+     * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+     */
+    readonly useRemoteGateways?: boolean;
 }

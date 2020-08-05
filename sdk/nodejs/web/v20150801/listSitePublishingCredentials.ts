@@ -47,7 +47,18 @@ export interface ListSitePublishingCredentialsResult {
      * Resource Name
      */
     readonly name?: string;
-    readonly properties: outputs.web.v20150801.UserResponseProperties;
+    /**
+     * Password used for publishing
+     */
+    readonly publishingPassword?: string;
+    /**
+     * Username used for publishing
+     */
+    readonly publishingUserName?: string;
+    /**
+     * Service Control Manager URI, including username and password
+     */
+    readonly scmUri?: string;
     /**
      * Resource tags
      */

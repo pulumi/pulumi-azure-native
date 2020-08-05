@@ -36,9 +36,17 @@ export interface GetInterfaceEndpointArgs {
  */
 export interface GetInterfaceEndpointResult {
     /**
+     * A reference to the service being brought into the virtual network.
+     */
+    readonly endpointService?: outputs.network.v20181201.EndpointServiceResponse;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
+    /**
+     * A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+     */
+    readonly fqdn?: string;
     /**
      * Resource location.
      */
@@ -48,9 +56,21 @@ export interface GetInterfaceEndpointResult {
      */
     readonly name: string;
     /**
-     * Properties of the interface endpoint.
+     * Gets an array of references to the network interfaces created for this interface endpoint.
      */
-    readonly properties: outputs.network.v20181201.InterfaceEndpointPropertiesResponse;
+    readonly networkInterfaces: outputs.network.v20181201.NetworkInterfaceResponse[];
+    /**
+     * A read-only property that identifies who created this interface endpoint.
+     */
+    readonly owner: string;
+    /**
+     * The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    readonly provisioningState: string;
+    /**
+     * The ID of the subnet from which the private IP will be allocated.
+     */
+    readonly subnet?: outputs.network.v20181201.SubnetResponse;
     /**
      * Resource tags.
      */

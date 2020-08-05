@@ -46,13 +46,25 @@ export interface GetFileServerArgs {
  */
 export interface GetFileServerResult {
     /**
+     * The backup policy id.
+     */
+    readonly backupScheduleGroupId: string;
+    /**
+     * The description of the file server
+     */
+    readonly description?: string;
+    /**
+     * Domain of the file server
+     */
+    readonly domainName: string;
+    /**
      * The name.
      */
     readonly name: string;
     /**
-     * The properties.
+     * The storage domain id.
      */
-    readonly properties: outputs.storsimple.v20161001.FileServerPropertiesResponse;
+    readonly storageDomainId: string;
     /**
      * The type.
      */

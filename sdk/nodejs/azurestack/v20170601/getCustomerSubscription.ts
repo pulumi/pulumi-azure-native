@@ -49,9 +49,9 @@ export interface GetCustomerSubscriptionResult {
      */
     readonly name: string;
     /**
-     * Customer subscription properties.
+     * Tenant Id.
      */
-    readonly properties: outputs.azurestack.v20170601.CustomerSubscriptionPropertiesResponse;
+    readonly tenantId?: string;
     /**
      * Type of Resource.
      */

@@ -44,9 +44,13 @@ export interface GetProfileResult {
      */
     readonly name: string;
     /**
-     * The JSON object that contains the properties required to create a profile.
+     * Provisioning status of the profile.
      */
-    readonly properties: outputs.cdn.v20190615.ProfilePropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Resource status of the profile.
+     */
+    readonly resourceState: string;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
      */

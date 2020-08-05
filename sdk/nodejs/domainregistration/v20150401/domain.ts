@@ -36,26 +36,100 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
+    public readonly authCode!: pulumi.Output<string | undefined>;
+    /**
+     * <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
+     */
+    public readonly autoRenew!: pulumi.Output<boolean | undefined>;
+    /**
+     * Legal agreement consent.
+     */
+    public readonly consent!: pulumi.Output<outputs.domainregistration.v20150401.DomainPurchaseConsentResponse>;
+    /**
+     * Administrative contact.
+     */
+    public readonly contactAdmin!: pulumi.Output<outputs.domainregistration.v20150401.ContactResponse>;
+    /**
+     * Billing contact.
+     */
+    public readonly contactBilling!: pulumi.Output<outputs.domainregistration.v20150401.ContactResponse>;
+    /**
+     * Registrant contact.
+     */
+    public readonly contactRegistrant!: pulumi.Output<outputs.domainregistration.v20150401.ContactResponse>;
+    /**
+     * Technical contact.
+     */
+    public readonly contactTech!: pulumi.Output<outputs.domainregistration.v20150401.ContactResponse>;
+    /**
+     * Domain creation timestamp.
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * Current DNS type
+     */
+    public readonly dnsType!: pulumi.Output<string | undefined>;
+    /**
+     * Azure DNS Zone to use
+     */
+    public readonly dnsZoneId!: pulumi.Output<string | undefined>;
+    /**
+     * Reasons why domain is not renewable.
+     */
+    public /*out*/ readonly domainNotRenewableReasons!: pulumi.Output<string[]>;
+    /**
+     * Domain expiration timestamp.
+     */
+    public /*out*/ readonly expirationTime!: pulumi.Output<string>;
     /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
+     * Timestamp when the domain was renewed last time.
+     */
+    public /*out*/ readonly lastRenewedTime!: pulumi.Output<string>;
+    /**
      * Resource Location.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * All hostnames derived from the domain and assigned to Azure resources.
+     */
+    public /*out*/ readonly managedHostNames!: pulumi.Output<outputs.domainregistration.v20150401.HostNameResponse[]>;
     /**
      * Resource Name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Domain resource specific properties
+     * Name servers.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.domainregistration.v20150401.DomainResponseProperties>;
+    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
+    /**
+     * <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
+     */
+    public readonly privacy!: pulumi.Output<boolean | undefined>;
+    /**
+     * Domain provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
+     *  it is hosted on name servers Azure has programmatic access to.
+     */
+    public /*out*/ readonly readyForDnsRecordManagement!: pulumi.Output<boolean>;
+    /**
+     * Domain registration status.
+     */
+    public /*out*/ readonly registrationStatus!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Target DNS type (would be used for migration)
+     */
+    public readonly targetDnsType!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -114,7 +188,15 @@ export class Domain extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetDnsType"] = args ? args.targetDnsType : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["domainNotRenewableReasons"] = undefined /*out*/;
+            inputs["expirationTime"] = undefined /*out*/;
+            inputs["lastRenewedTime"] = undefined /*out*/;
+            inputs["managedHostNames"] = undefined /*out*/;
+            inputs["nameServers"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["readyForDnsRecordManagement"] = undefined /*out*/;
+            inputs["registrationStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

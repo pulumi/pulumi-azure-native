@@ -36,13 +36,25 @@ export interface GetExportArgs {
  */
 export interface GetExportResult {
     /**
+     * Has definition for the export.
+     */
+    readonly definition: outputs.costmanagement.v20190101.QueryDefinitionResponse;
+    /**
+     * Has delivery information for the export.
+     */
+    readonly deliveryInfo: outputs.costmanagement.v20190101.ExportDeliveryInfoResponse;
+    /**
+     * The format of the export being delivered.
+     */
+    readonly format?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The properties of the export.
+     * Has schedule information for the export.
      */
-    readonly properties: outputs.costmanagement.v20190101.ExportPropertiesResponse;
+    readonly schedule?: outputs.costmanagement.v20190101.ExportScheduleResponse;
     /**
      * Resource tags.
      */

@@ -36,6 +36,10 @@ export interface GetSecurityPartnerProviderArgs {
  */
 export interface GetSecurityPartnerProviderResult {
     /**
+     * The connection status with the Security Partner Provider.
+     */
+    readonly connectionStatus: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -48,9 +52,13 @@ export interface GetSecurityPartnerProviderResult {
      */
     readonly name: string;
     /**
-     * Properties of the Security Partner Provider.
+     * The provisioning state of the Security Partner Provider resource.
      */
-    readonly properties: outputs.network.v20200401.SecurityPartnerProviderPropertiesFormatResponse;
+    readonly provisioningState: string;
+    /**
+     * The security provider name.
+     */
+    readonly securityProviderName?: string;
     /**
      * Resource tags.
      */
@@ -59,4 +67,8 @@ export interface GetSecurityPartnerProviderResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The virtualHub to which the Security Partner Provider belongs.
+     */
+    readonly virtualHub?: outputs.network.v20200401.SubResourceResponse;
 }

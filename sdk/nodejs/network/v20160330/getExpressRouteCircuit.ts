@@ -36,6 +36,18 @@ export interface GetExpressRouteCircuitArgs {
  */
 export interface GetExpressRouteCircuitResult {
     /**
+     * allow classic operations
+     */
+    readonly allowClassicOperations?: boolean;
+    /**
+     * Gets or sets list of authorizations
+     */
+    readonly authorizations?: outputs.network.v20160330.ExpressRouteCircuitAuthorizationResponse[];
+    /**
+     * Gets or sets CircuitProvisioningState state of the resource 
+     */
+    readonly circuitProvisioningState?: string;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: string;
@@ -48,9 +60,29 @@ export interface GetExpressRouteCircuitResult {
      */
     readonly name: string;
     /**
-     * Properties of ExpressRouteCircuit
+     * Gets or sets list of peerings
      */
-    readonly properties: outputs.network.v20160330.ExpressRouteCircuitPropertiesFormatResponse;
+    readonly peerings?: outputs.network.v20160330.ExpressRouteCircuitPeeringResponse[];
+    /**
+     * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    readonly provisioningState?: string;
+    /**
+     * Gets or sets ServiceKey
+     */
+    readonly serviceKey?: string;
+    /**
+     * Gets or sets ServiceProviderNotes
+     */
+    readonly serviceProviderNotes?: string;
+    /**
+     * Gets or sets ServiceProviderProperties
+     */
+    readonly serviceProviderProperties?: outputs.network.v20160330.ExpressRouteCircuitServiceProviderPropertiesResponse;
+    /**
+     * Gets or sets ServiceProviderProvisioningState state of the resource 
+     */
+    readonly serviceProviderProvisioningState?: string;
     /**
      * Gets or sets sku
      */

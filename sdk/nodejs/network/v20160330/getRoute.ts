@@ -41,6 +41,10 @@ export interface GetRouteArgs {
  */
 export interface GetRouteResult {
     /**
+     * Gets or sets the destination CIDR to which the route applies.
+     */
+    readonly addressPrefix?: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: string;
@@ -49,7 +53,15 @@ export interface GetRouteResult {
      */
     readonly name?: string;
     /**
-     * Route resource
+     * Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
      */
-    readonly properties: outputs.network.v20160330.RoutePropertiesFormatResponse;
+    readonly nextHopIpAddress?: string;
+    /**
+     * Gets or sets the type of Azure hop the packet should be sent to.
+     */
+    readonly nextHopType: string;
+    /**
+     * Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+     */
+    readonly provisioningState?: string;
 }

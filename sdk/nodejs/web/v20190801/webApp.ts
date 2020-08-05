@@ -37,33 +37,177 @@ export class WebApp extends pulumi.CustomResource {
     }
 
     /**
+     * Management information availability state for the app.
+     */
+    public /*out*/ readonly availabilityState!: pulumi.Output<string>;
+    /**
+     * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
+     */
+    public readonly clientAffinityEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
+     */
+    public readonly clientCertEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * client certificate authentication comma-separated exclusion paths
+     */
+    public readonly clientCertExclusionPaths!: pulumi.Output<string | undefined>;
+    /**
+     * If specified during app creation, the app is cloned from a source app.
+     */
+    public readonly cloningInfo!: pulumi.Output<outputs.web.v20190801.CloningInfoResponse | undefined>;
+    /**
+     * Size of the function container.
+     */
+    public readonly containerSize!: pulumi.Output<number | undefined>;
+    /**
+     * Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+     */
+    public readonly dailyMemoryTimeQuota!: pulumi.Output<number | undefined>;
+    /**
+     * Default hostname of the app. Read-only.
+     */
+    public /*out*/ readonly defaultHostName!: pulumi.Output<string>;
+    /**
+     * <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enabled hostnames for the app.Hostnames need to be assigned (see HostNames) AND enabled. Otherwise,
+     * the app is not served on those hostnames.
+     */
+    public /*out*/ readonly enabledHostNames!: pulumi.Output<string[]>;
+    /**
+     * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+     */
+    public readonly hostNameSslStates!: pulumi.Output<outputs.web.v20190801.HostNameSslStateResponse[] | undefined>;
+    /**
+     * Hostnames associated with the app.
+     */
+    public /*out*/ readonly hostNames!: pulumi.Output<string[]>;
+    /**
+     * <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
+     *  If <code>true</code>, the app is only accessible via API management process.
+     */
+    public readonly hostNamesDisabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * App Service Environment to use for the app.
+     */
+    public readonly hostingEnvironmentProfile!: pulumi.Output<outputs.web.v20190801.HostingEnvironmentProfileResponse | undefined>;
+    /**
+     * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+     * http requests
+     */
+    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
+    /**
+     * Hyper-V sandbox.
+     */
+    public readonly hyperV!: pulumi.Output<boolean | undefined>;
+    /**
      * Managed service identity.
      */
     public readonly identity!: pulumi.Output<outputs.web.v20190801.ManagedServiceIdentityResponse | undefined>;
+    /**
+     * Specifies an operation id if this site has a pending operation.
+     */
+    public /*out*/ readonly inProgressOperationId!: pulumi.Output<string>;
+    /**
+     * <code>true</code> if the app is a default container; otherwise, <code>false</code>.
+     */
+    public /*out*/ readonly isDefaultContainer!: pulumi.Output<boolean>;
+    /**
+     * Obsolete: Hyper-V sandbox.
+     */
+    public readonly isXenon!: pulumi.Output<boolean | undefined>;
     /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
+     * Last time the app was modified, in UTC. Read-only.
+     */
+    public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
+    /**
      * Resource Location.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Maximum number of workers.
+     * This only applies to Functions container.
+     */
+    public /*out*/ readonly maxNumberOfWorkers!: pulumi.Output<number>;
     /**
      * Resource Name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Site resource specific properties
+     * List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from tenants that site can be hosted with current settings. Read-only.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.SiteResponseProperties>;
+    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
+    /**
+     * List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
+     */
+    public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
+    /**
+     * Site redundancy mode
+     */
+    public readonly redundancyMode!: pulumi.Output<string | undefined>;
+    /**
+     * Name of the repository site.
+     */
+    public /*out*/ readonly repositorySiteName!: pulumi.Output<string>;
+    /**
+     * <code>true</code> if reserved; otherwise, <code>false</code>.
+     */
+    public readonly reserved!: pulumi.Output<boolean | undefined>;
+    /**
+     * Name of the resource group the app belongs to. Read-only.
+     */
+    public /*out*/ readonly resourceGroup!: pulumi.Output<string>;
+    /**
+     * <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
+     */
+    public readonly scmSiteAlsoStopped!: pulumi.Output<boolean | undefined>;
+    /**
+     * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+     */
+    public readonly serverFarmId!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration of the app.
+     */
+    public readonly siteConfig!: pulumi.Output<outputs.web.v20190801.SiteConfigResponse | undefined>;
+    /**
+     * Status of the last deployment slot swap operation.
+     */
+    public /*out*/ readonly slotSwapStatus!: pulumi.Output<outputs.web.v20190801.SlotSwapStatusResponse>;
+    /**
+     * Current state of the app.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * App suspended till in case memory-time quota is exceeded.
+     */
+    public /*out*/ readonly suspendedTill!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Specifies which deployment slot this app will swap into. Read-only.
+     */
+    public /*out*/ readonly targetSwapSlot!: pulumi.Output<string>;
+    /**
+     * Azure Traffic Manager hostnames associated with the app. Read-only.
+     */
+    public /*out*/ readonly trafficManagerHostNames!: pulumi.Output<string[]>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * State indicating whether the app has exceeded its quota usage. Read-only.
+     */
+    public /*out*/ readonly usageState!: pulumi.Output<string>;
 
     /**
      * Create a WebApp resource with the given unique name, arguments, and options.
@@ -111,8 +255,25 @@ export class WebApp extends pulumi.CustomResource {
             inputs["serverFarmId"] = args ? args.serverFarmId : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["availabilityState"] = undefined /*out*/;
+            inputs["defaultHostName"] = undefined /*out*/;
+            inputs["enabledHostNames"] = undefined /*out*/;
+            inputs["hostNames"] = undefined /*out*/;
+            inputs["inProgressOperationId"] = undefined /*out*/;
+            inputs["isDefaultContainer"] = undefined /*out*/;
+            inputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            inputs["maxNumberOfWorkers"] = undefined /*out*/;
+            inputs["outboundIpAddresses"] = undefined /*out*/;
+            inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
+            inputs["repositorySiteName"] = undefined /*out*/;
+            inputs["resourceGroup"] = undefined /*out*/;
+            inputs["slotSwapStatus"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["suspendedTill"] = undefined /*out*/;
+            inputs["targetSwapSlot"] = undefined /*out*/;
+            inputs["trafficManagerHostNames"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["usageState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

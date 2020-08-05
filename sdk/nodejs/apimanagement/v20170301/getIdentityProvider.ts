@@ -41,13 +41,37 @@ export interface GetIdentityProviderArgs {
  */
 export interface GetIdentityProviderResult {
     /**
+     * List of Allowed Tenants when configuring Azure Active Directory login.
+     */
+    readonly allowedTenants?: string[];
+    /**
+     * Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+     */
+    readonly clientId: string;
+    /**
+     * Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
+     */
+    readonly clientSecret: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Identity Provider contract properties.
+     * Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
      */
-    readonly properties: outputs.apimanagement.v20170301.IdentityProviderContractPropertiesResponse;
+    readonly passwordResetPolicyName?: string;
+    /**
+     * Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+     */
+    readonly profileEditingPolicyName?: string;
+    /**
+     * Signin Policy Name. Only applies to AAD B2C Identity Provider.
+     */
+    readonly signinPolicyName?: string;
+    /**
+     * Signup Policy Name. Only applies to AAD B2C Identity Provider.
+     */
+    readonly signupPolicyName?: string;
     /**
      * Resource type for API Management resource.
      */

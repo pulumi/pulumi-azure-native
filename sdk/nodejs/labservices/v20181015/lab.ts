@@ -37,17 +37,41 @@ export class Lab extends pulumi.CustomResource {
     }
 
     /**
+     * Object id of the user that created the lab.
+     */
+    public /*out*/ readonly createdByObjectId!: pulumi.Output<string>;
+    /**
+     * Lab creator name
+     */
+    public /*out*/ readonly createdByUserPrincipalName!: pulumi.Output<string>;
+    /**
+     * Creation date for the lab
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * Invitation code that users can use to join a lab.
+     */
+    public /*out*/ readonly invitationCode!: pulumi.Output<string>;
+    /**
+     * The details of the latest operation. ex: status, error
+     */
+    public /*out*/ readonly latestOperationResult!: pulumi.Output<outputs.labservices.v20181015.LatestOperationResultResponse>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Maximum number of users allowed in the lab.
+     */
+    public readonly maxUsersInLab!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.labservices.v20181015.LabPropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +80,22 @@ export class Lab extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * Maximum duration a user can use an environment for in the lab.
+     */
+    public readonly usageQuota!: pulumi.Output<string | undefined>;
+    /**
+     * Lab user access mode (open to all vs. restricted to those listed on the lab).
+     */
+    public readonly userAccessMode!: pulumi.Output<string | undefined>;
+    /**
+     * Maximum value MaxUsersInLab can be set to, as specified by the service
+     */
+    public /*out*/ readonly userQuota!: pulumi.Output<number>;
 
     /**
      * Create a Lab resource with the given unique name, arguments, and options.
@@ -89,8 +129,13 @@ export class Lab extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
             inputs["usageQuota"] = args ? args.usageQuota : undefined;
             inputs["userAccessMode"] = args ? args.userAccessMode : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdByObjectId"] = undefined /*out*/;
+            inputs["createdByUserPrincipalName"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["invitationCode"] = undefined /*out*/;
+            inputs["latestOperationResult"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["userQuota"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

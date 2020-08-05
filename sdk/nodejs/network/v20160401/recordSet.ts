@@ -37,17 +37,57 @@ export class RecordSet extends pulumi.CustomResource {
     }
 
     /**
+     * The list of A records in the record set.
+     */
+    public readonly ARecords!: pulumi.Output<outputs.network.v20160401.ARecordResponse[] | undefined>;
+    /**
+     * The TTL (time-to-live) of the records in the record set.
+     */
+    public readonly TTL!: pulumi.Output<number | undefined>;
+    /**
+     * The list of AAAA records in the record set.
+     */
+    public readonly aaaaRecords!: pulumi.Output<outputs.network.v20160401.AaaaRecordResponse[] | undefined>;
+    /**
+     * The CNAME record in the  record set.
+     */
+    public readonly cnameRecord!: pulumi.Output<outputs.network.v20160401.CnameRecordResponse | undefined>;
+    /**
      * The etag of the record set.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * The metadata attached to the record set.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The list of MX records in the record set.
+     */
+    public readonly mxRecords!: pulumi.Output<outputs.network.v20160401.MxRecordResponse[] | undefined>;
     /**
      * The name of the record set.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The properties of the record set.
+     * The list of NS records in the record set.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160401.RecordSetPropertiesResponse>;
+    public readonly nsRecords!: pulumi.Output<outputs.network.v20160401.NsRecordResponse[] | undefined>;
+    /**
+     * The list of PTR records in the record set.
+     */
+    public readonly ptrRecords!: pulumi.Output<outputs.network.v20160401.PtrRecordResponse[] | undefined>;
+    /**
+     * The SOA record in the record set.
+     */
+    public readonly soaRecord!: pulumi.Output<outputs.network.v20160401.SoaRecordResponse | undefined>;
+    /**
+     * The list of SRV records in the record set.
+     */
+    public readonly srvRecords!: pulumi.Output<outputs.network.v20160401.SrvRecordResponse[] | undefined>;
+    /**
+     * The list of TXT records in the record set.
+     */
+    public readonly txtRecords!: pulumi.Output<outputs.network.v20160401.TxtRecordResponse[] | undefined>;
     /**
      * The type of the record set.
      */
@@ -96,7 +136,6 @@ export class RecordSet extends pulumi.CustomResource {
             inputs["txtRecords"] = args ? args.txtRecords : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

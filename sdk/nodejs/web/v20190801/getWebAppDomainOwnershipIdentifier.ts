@@ -44,11 +44,11 @@ export interface GetWebAppDomainOwnershipIdentifierResult {
      */
     readonly name: string;
     /**
-     * Identifier resource specific properties
-     */
-    readonly properties: outputs.web.v20190801.IdentifierResponseProperties;
-    /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * String representation of the identity.
+     */
+    readonly value?: string;
 }

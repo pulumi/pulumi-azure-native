@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,29 @@ export class Credential extends pulumi.CustomResource {
     }
 
     /**
+     * Gets the creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Gets or sets the description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the properties of the credential.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.CredentialPropertiesResponse>;
-    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Gets the user name of the credential.
+     */
+    public readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a Credential resource with the given unique name, arguments, and options.
@@ -83,7 +93,8 @@ export class Credential extends pulumi.CustomResource {
             inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userName"] = args ? args.userName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

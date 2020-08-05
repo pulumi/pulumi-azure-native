@@ -37,6 +37,19 @@ export class SiteVNETConnectionSlot extends pulumi.CustomResource {
     }
 
     /**
+     * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+     *             Point-To-Site VPN connection.
+     */
+    public readonly certBlob!: pulumi.Output<string | undefined>;
+    /**
+     * The client certificate thumbprint
+     */
+    public readonly certThumbprint!: pulumi.Output<string | undefined>;
+    /**
+     * Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+     */
+    public readonly dnsServers!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -48,7 +61,14 @@ export class SiteVNETConnectionSlot extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.VnetInfoResponseProperties>;
+    /**
+     * Flag to determine if a resync is required
+     */
+    public readonly resyncRequired!: pulumi.Output<boolean | undefined>;
+    /**
+     * The routes that this virtual network connection uses.
+     */
+    public readonly routes!: pulumi.Output<outputs.web.v20150801.VnetRouteResponse[] | undefined>;
     /**
      * Resource tags
      */
@@ -57,6 +77,10 @@ export class SiteVNETConnectionSlot extends pulumi.CustomResource {
      * Resource type
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * The vnet resource id
+     */
+    public readonly vnetResourceId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SiteVNETConnectionSlot resource with the given unique name, arguments, and options.
@@ -97,7 +121,6 @@ export class SiteVNETConnectionSlot extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

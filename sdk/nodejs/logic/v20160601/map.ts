@@ -37,17 +37,45 @@ export class Map extends pulumi.CustomResource {
     }
 
     /**
+     * The changed time.
+     */
+    public /*out*/ readonly changedTime!: pulumi.Output<string>;
+    /**
+     * The content.
+     */
+    public readonly content!: pulumi.Output<string | undefined>;
+    /**
+     * The content link.
+     */
+    public /*out*/ readonly contentLink!: pulumi.Output<outputs.logic.v20160601.ContentLinkResponse>;
+    /**
+     * The content type.
+     */
+    public readonly contentType!: pulumi.Output<string | undefined>;
+    /**
+     * The created time.
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The map type.
+     */
+    public readonly mapType!: pulumi.Output<string>;
+    /**
+     * The metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Gets the resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The integration account map properties.
+     * The parameters schema of integration account map.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountMapPropertiesResponse>;
+    public readonly parametersSchema!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountMapPropertiesResponseParametersSchema | undefined>;
     /**
      * The resource tags.
      */
@@ -92,7 +120,9 @@ export class Map extends pulumi.CustomResource {
             inputs["parametersSchema"] = args ? args.parametersSchema : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["contentLink"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -41,6 +41,14 @@ export interface GetRouteFilterRuleArgs {
  */
 export interface GetRouteFilterRuleResult {
     /**
+     * The access type of the rule.
+     */
+    readonly access: string;
+    /**
+     * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+     */
+    readonly communities: string[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -53,7 +61,11 @@ export interface GetRouteFilterRuleResult {
      */
     readonly name?: string;
     /**
-     * Properties of the route filter rule.
+     * The provisioning state of the route filter rule resource.
      */
-    readonly properties: outputs.network.v20200301.RouteFilterRulePropertiesFormatResponse;
+    readonly provisioningState: string;
+    /**
+     * The rule type of the rule.
+     */
+    readonly routeFilterRuleType: string;
 }

@@ -37,13 +37,33 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the configuration of the node.
+     */
+    public readonly configuration!: pulumi.Output<outputs.automation.v20180115.DscConfigurationAssociationPropertyResponse | undefined>;
+    /**
+     * Gets or sets creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
+    /**
+     * If a new build version of NodeConfiguration is required.
+     */
+    public readonly incrementNodeConfigurationBuild!: pulumi.Output<boolean | undefined>;
+    /**
+     * Gets or sets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the configuration properties.
+     * Number of nodes with this node configuration assigned
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20180115.DscNodeConfigurationPropertiesResponse>;
+    public /*out*/ readonly nodeCount!: pulumi.Output<number | undefined>;
+    /**
+     * Source of node configuration.
+     */
+    public readonly source!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
@@ -84,7 +104,9 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["nodeCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

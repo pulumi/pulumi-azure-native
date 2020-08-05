@@ -31,13 +31,17 @@ export interface GetManagementLockArgs {
  */
 export interface GetManagementLockResult {
     /**
+     * The lock level of the management lock.
+     */
+    readonly level?: string;
+    /**
      * The name of the lock.
      */
     readonly name?: string;
     /**
-     * The properties of the lock.
+     * The notes of the management lock.
      */
-    readonly properties: outputs.authorization.v20150101.ManagementLockPropertiesResponse;
+    readonly notes?: string;
     /**
      * The type of the lock.
      */

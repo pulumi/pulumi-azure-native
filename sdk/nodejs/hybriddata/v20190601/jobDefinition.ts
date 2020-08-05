@@ -37,17 +37,49 @@ export class JobDefinition extends pulumi.CustomResource {
     }
 
     /**
+     * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+     */
+    public readonly customerSecrets!: pulumi.Output<outputs.hybriddata.v20190601.CustomerSecretResponse[] | undefined>;
+    /**
+     * A generic json used differently by each data service type.
+     */
+    public readonly dataServiceInput!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Data Sink Id associated to the job definition.
+     */
+    public readonly dataSinkId!: pulumi.Output<string>;
+    /**
+     * Data Source Id associated to the job definition.
+     */
+    public readonly dataSourceId!: pulumi.Output<string>;
+    /**
+     * Last modified time of the job definition.
+     */
+    public readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    /**
      * Name of the object.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * JobDefinition properties.
+     * This is the preferred geo location for the job to run.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.hybriddata.v20190601.JobDefinitionPropertiesResponse>;
+    public readonly runLocation!: pulumi.Output<string | undefined>;
+    /**
+     * Schedule for running the job definition
+     */
+    public readonly schedules!: pulumi.Output<outputs.hybriddata.v20190601.ScheduleResponse[] | undefined>;
+    /**
+     * State of the job definition.
+     */
+    public readonly state!: pulumi.Output<string>;
     /**
      * Type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+     */
+    public readonly userConfirmation!: pulumi.Output<string | undefined>;
 
     /**
      * Create a JobDefinition resource with the given unique name, arguments, and options.
@@ -96,7 +128,6 @@ export class JobDefinition extends pulumi.CustomResource {
             inputs["schedules"] = args ? args.schedules : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["userConfirmation"] = args ? args.userConfirmation : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

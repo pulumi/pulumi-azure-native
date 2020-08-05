@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,29 @@ export class ApiRelease extends pulumi.CustomResource {
     }
 
     /**
+     * Identifier of the API the release belongs to.
+     */
+    public readonly apiId!: pulumi.Output<string | undefined>;
+    /**
+     * The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
+     */
+    public /*out*/ readonly createdDateTime!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * ApiRelease entity contract properties.
+     * Release Notes
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.ApiReleaseContractPropertiesResponse>;
+    public readonly notes!: pulumi.Output<string | undefined>;
     /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The time the API release was updated.
+     */
+    public /*out*/ readonly updatedDateTime!: pulumi.Output<string>;
 
     /**
      * Create a ApiRelease resource with the given unique name, arguments, and options.
@@ -79,8 +89,9 @@ export class ApiRelease extends pulumi.CustomResource {
             inputs["notes"] = args ? args.notes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdDateTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedDateTime"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

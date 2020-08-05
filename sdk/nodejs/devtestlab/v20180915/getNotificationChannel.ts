@@ -41,6 +41,22 @@ export interface GetNotificationChannelArgs {
  */
 export interface GetNotificationChannelResult {
     /**
+     * The creation date of the notification channel.
+     */
+    readonly createdDate: string;
+    /**
+     * Description of notification.
+     */
+    readonly description?: string;
+    /**
+     * The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+     */
+    readonly emailRecipient?: string;
+    /**
+     * The list of event for which this notification is enabled.
+     */
+    readonly events?: outputs.devtestlab.v20180915.EventResponse[];
+    /**
      * The location of the resource.
      */
     readonly location?: string;
@@ -49,9 +65,13 @@ export interface GetNotificationChannelResult {
      */
     readonly name: string;
     /**
-     * The properties of the resource.
+     * The locale to use when sending a notification (fallback for unsupported languages is EN).
      */
-    readonly properties: outputs.devtestlab.v20180915.NotificationChannelPropertiesResponse;
+    readonly notificationLocale?: string;
+    /**
+     * The provisioning status of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * The tags of the resource.
      */
@@ -60,4 +80,12 @@ export interface GetNotificationChannelResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier: string;
+    /**
+     * The webhook URL to send notifications to.
+     */
+    readonly webHookUrl?: string;
 }

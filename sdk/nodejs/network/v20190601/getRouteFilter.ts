@@ -40,6 +40,10 @@ export interface GetRouteFilterResult {
      */
     readonly etag: string;
     /**
+     * A collection of references to express route circuit ipv6 peerings.
+     */
+    readonly ipv6Peerings?: outputs.network.v20190601.ExpressRouteCircuitPeeringResponse[];
+    /**
      * Resource location.
      */
     readonly location: string;
@@ -48,9 +52,17 @@ export interface GetRouteFilterResult {
      */
     readonly name: string;
     /**
-     * Properties of the route filter.
+     * A collection of references to express route circuit peerings.
      */
-    readonly properties: outputs.network.v20190601.RouteFilterPropertiesFormatResponse;
+    readonly peerings?: outputs.network.v20190601.ExpressRouteCircuitPeeringResponse[];
+    /**
+     * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+     */
+    readonly provisioningState: string;
+    /**
+     * Collection of RouteFilterRules contained within a route filter.
+     */
+    readonly rules?: outputs.network.v20190601.RouteFilterRuleResponse[];
     /**
      * Resource tags.
      */

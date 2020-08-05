@@ -37,6 +37,14 @@ export class NetworkProfile extends pulumi.CustomResource {
     }
 
     /**
+     * List of chid container network interface configurations.
+     */
+    public readonly containerNetworkInterfaceConfigurations!: pulumi.Output<outputs.network.v20191101.ContainerNetworkInterfaceConfigurationResponse[] | undefined>;
+    /**
+     * List of child container network interfaces.
+     */
+    public /*out*/ readonly containerNetworkInterfaces!: pulumi.Output<outputs.network.v20191101.ContainerNetworkInterfaceResponse[]>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +57,13 @@ export class NetworkProfile extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Network profile properties.
+     * The provisioning state of the network profile resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.NetworkProfilePropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The resource GUID property of the network profile resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -86,8 +98,10 @@ export class NetworkProfile extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["containerNetworkInterfaces"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

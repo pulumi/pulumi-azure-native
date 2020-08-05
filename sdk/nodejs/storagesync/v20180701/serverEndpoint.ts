@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,53 @@ export class ServerEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * Cloud Tiering.
+     */
+    public readonly cloudTiering!: pulumi.Output<string | undefined>;
+    /**
+     * Friendly Name
+     */
+    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    /**
+     * Resource Last Operation Name
+     */
+    public /*out*/ readonly lastOperationName!: pulumi.Output<string | undefined>;
+    /**
+     * ServerEndpoint lastWorkflowId
+     */
+    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Server Endpoint properties.
+     * ServerEndpoint Provisioning State
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20180701.ServerEndpointPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Server Local path.
+     */
+    public readonly serverLocalPath!: pulumi.Output<string | undefined>;
+    /**
+     * Server Resource Id.
+     */
+    public readonly serverResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * Sync Health Status
+     */
+    public /*out*/ readonly syncStatus!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Tier files older than days.
+     */
+    public readonly tierFilesOlderThanDays!: pulumi.Output<number | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Level of free space to be maintained by Cloud Tiering if it is enabled.
+     */
+    public readonly volumeFreeSpacePercent!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ServerEndpoint resource with the given unique name, arguments, and options.
@@ -84,7 +118,10 @@ export class ServerEndpoint extends pulumi.CustomResource {
             inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
             inputs["tierFilesOlderThanDays"] = args ? args.tierFilesOlderThanDays : undefined;
             inputs["volumeFreeSpacePercent"] = args ? args.volumeFreeSpacePercent : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastOperationName"] = undefined /*out*/;
+            inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["syncStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

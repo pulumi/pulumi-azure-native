@@ -37,21 +37,65 @@ export class Device extends pulumi.CustomResource {
     }
 
     /**
+     * Type of compute roles configured.
+     */
+    public /*out*/ readonly configuredRoleTypes!: pulumi.Output<string[]>;
+    /**
+     * The Data Box Edge/Gateway device culture.
+     */
+    public /*out*/ readonly culture!: pulumi.Output<string>;
+    /**
+     * The status of the Data Box Edge/Gateway device.
+     */
+    public readonly dataBoxEdgeDeviceStatus!: pulumi.Output<string | undefined>;
+    /**
+     * The Description of the Data Box Edge/Gateway device.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The device software version number of the device (eg: 1.2.18105.6).
+     */
+    public /*out*/ readonly deviceHcsVersion!: pulumi.Output<string>;
+    /**
+     * The Data Box Edge/Gateway device local capacity in MB.
+     */
+    public /*out*/ readonly deviceLocalCapacity!: pulumi.Output<number>;
+    /**
+     * The Data Box Edge/Gateway device model.
+     */
+    public /*out*/ readonly deviceModel!: pulumi.Output<string>;
+    /**
+     * The Data Box Edge/Gateway device software version.
+     */
+    public /*out*/ readonly deviceSoftwareVersion!: pulumi.Output<string>;
+    /**
+     * The type of the Data Box Edge/Gateway device.
+     */
+    public /*out*/ readonly deviceType!: pulumi.Output<string>;
+    /**
      * The etag for the devices.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * The Data Box Edge/Gateway device name.
+     */
+    public readonly friendlyName!: pulumi.Output<string | undefined>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The description of the Data Box Edge/Gateway device model.
+     */
+    public readonly modelDescription!: pulumi.Output<string | undefined>;
+    /**
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the Data Box Edge/Gateway device.
+     * The Serial Number of Data Box Edge/Gateway device.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190301.DataBoxEdgeDevicePropertiesResponse>;
+    public /*out*/ readonly serialNumber!: pulumi.Output<string>;
     /**
      * The SKU type.
      */
@@ -60,6 +104,10 @@ export class Device extends pulumi.CustomResource {
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The Data Box Edge/Gateway device timezone.
+     */
+    public /*out*/ readonly timeZone!: pulumi.Output<string>;
     /**
      * The hierarchical type of the object.
      */
@@ -97,7 +145,15 @@ export class Device extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["configuredRoleTypes"] = undefined /*out*/;
+            inputs["culture"] = undefined /*out*/;
+            inputs["deviceHcsVersion"] = undefined /*out*/;
+            inputs["deviceLocalCapacity"] = undefined /*out*/;
+            inputs["deviceModel"] = undefined /*out*/;
+            inputs["deviceSoftwareVersion"] = undefined /*out*/;
+            inputs["deviceType"] = undefined /*out*/;
+            inputs["serialNumber"] = undefined /*out*/;
+            inputs["timeZone"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

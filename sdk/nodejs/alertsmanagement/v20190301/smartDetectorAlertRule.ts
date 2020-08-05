@@ -37,13 +37,41 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     }
 
     /**
+     * The alert rule actions.
+     */
+    public readonly actionGroups!: pulumi.Output<outputs.alertsmanagement.v20190301.ActionGroupsInformationResponse>;
+    /**
+     * The alert rule description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The alert rule's detector.
+     */
+    public readonly detector!: pulumi.Output<outputs.alertsmanagement.v20190301.DetectorResponse>;
+    /**
+     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+     */
+    public readonly frequency!: pulumi.Output<string>;
+    /**
      * The resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the alert rule.
+     * The alert rule resources scope.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.alertsmanagement.v20190301.AlertRulePropertiesResponse>;
+    public readonly scope!: pulumi.Output<string[]>;
+    /**
+     * The alert rule severity.
+     */
+    public readonly severity!: pulumi.Output<string>;
+    /**
+     * The alert rule state.
+     */
+    public readonly state!: pulumi.Output<string>;
+    /**
+     * The alert rule throttling information.
+     */
+    public readonly throttling!: pulumi.Output<outputs.alertsmanagement.v20190301.ThrottlingInformationResponse | undefined>;
     /**
      * The resource type.
      */
@@ -96,7 +124,6 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             inputs["severity"] = args ? args.severity : undefined;
             inputs["state"] = args ? args.state : undefined;
             inputs["throttling"] = args ? args.throttling : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -37,13 +37,29 @@ export class ConnectionType extends pulumi.CustomResource {
     }
 
     /**
+     * Gets the creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Gets or sets the description.
+     */
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the field definitions of the connection type.
+     */
+    public readonly fieldDefinitions!: pulumi.Output<{[key: string]: outputs.automation.v20151031.FieldDefinitionResponse}>;
+    /**
+     * Gets or sets a Boolean value to indicate if the connection type is global.
+     */
+    public readonly isGlobal!: pulumi.Output<boolean | undefined>;
+    /**
+     * Gets or sets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    /**
      * Gets the name of the connection type.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Gets or sets the properties of the connection type.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.ConnectionTypePropertiesResponse>;
     /**
      * Resource type
      */
@@ -79,7 +95,9 @@ export class ConnectionType extends pulumi.CustomResource {
             inputs["isGlobal"] = args ? args.isGlobal : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

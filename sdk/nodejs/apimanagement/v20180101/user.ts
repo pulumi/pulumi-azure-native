@@ -37,13 +37,41 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
+     * Email address.
+     */
+    public readonly email!: pulumi.Output<string | undefined>;
+    /**
+     * First name.
+     */
+    public readonly firstName!: pulumi.Output<string | undefined>;
+    /**
+     * Collection of groups user is part of.
+     */
+    public /*out*/ readonly groups!: pulumi.Output<outputs.apimanagement.v20180101.GroupContractPropertiesResponse[]>;
+    /**
+     * Collection of user identities.
+     */
+    public readonly identities!: pulumi.Output<outputs.apimanagement.v20180101.UserIdentityContractResponse[] | undefined>;
+    /**
+     * Last name.
+     */
+    public readonly lastName!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * User entity contract properties.
+     * Optional note about a user set by the administrator.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.UserContractPropertiesResponse>;
+    public readonly note!: pulumi.Output<string | undefined>;
+    /**
+     * Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+     */
+    public /*out*/ readonly registrationDate!: pulumi.Output<string | undefined>;
+    /**
+     * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
     /**
      * Resource type for API Management resource.
      */
@@ -91,7 +119,8 @@ export class User extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["state"] = args ? args.state : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["groups"] = undefined /*out*/;
+            inputs["registrationDate"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

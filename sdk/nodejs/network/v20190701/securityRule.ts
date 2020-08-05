@@ -37,6 +37,38 @@ export class SecurityRule extends pulumi.CustomResource {
     }
 
     /**
+     * The network traffic is allowed or denied.
+     */
+    public readonly access!: pulumi.Output<string>;
+    /**
+     * A description for this rule. Restricted to 140 chars.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+     */
+    public readonly destinationAddressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The destination address prefixes. CIDR or destination IP ranges.
+     */
+    public readonly destinationAddressPrefixes!: pulumi.Output<string[] | undefined>;
+    /**
+     * The application security group specified as destination.
+     */
+    public readonly destinationApplicationSecurityGroups!: pulumi.Output<outputs.network.v20190701.ApplicationSecurityGroupResponse[] | undefined>;
+    /**
+     * The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+     */
+    public readonly destinationPortRange!: pulumi.Output<string | undefined>;
+    /**
+     * The destination port ranges.
+     */
+    public readonly destinationPortRanges!: pulumi.Output<string[] | undefined>;
+    /**
+     * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+     */
+    public readonly direction!: pulumi.Output<string>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -45,9 +77,37 @@ export class SecurityRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the security rule.
+     * The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190701.SecurityRulePropertiesFormatResponse>;
+    public readonly priority!: pulumi.Output<number | undefined>;
+    /**
+     * Network protocol this rule applies to.
+     */
+    public readonly protocol!: pulumi.Output<string>;
+    /**
+     * The provisioning state of the security rule resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+     */
+    public readonly sourceAddressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The CIDR or source IP ranges.
+     */
+    public readonly sourceAddressPrefixes!: pulumi.Output<string[] | undefined>;
+    /**
+     * The application security group specified as source.
+     */
+    public readonly sourceApplicationSecurityGroups!: pulumi.Output<outputs.network.v20190701.ApplicationSecurityGroupResponse[] | undefined>;
+    /**
+     * The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+     */
+    public readonly sourcePortRange!: pulumi.Output<string | undefined>;
+    /**
+     * The source port ranges.
+     */
+    public readonly sourcePortRanges!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a SecurityRule resource with the given unique name, arguments, and options.
@@ -101,7 +161,6 @@ export class SecurityRule extends pulumi.CustomResource {
             inputs["sourceApplicationSecurityGroups"] = args ? args.sourceApplicationSecurityGroups : undefined;
             inputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
             inputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,37 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The policy definition description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the policy definition.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The policy definition metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+     */
+    public readonly mode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the policy definition.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The policy definition properties.
+     * Required if a parameter is used in policy rule.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.management.v20180501.PolicyDefinitionPropertiesResponse>;
+    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The policy rule.
+     */
+    public readonly policyRule!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+     */
+    public readonly policyType!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */
@@ -77,7 +99,6 @@ export class PolicyDefinitionAtManagementGroup extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["policyRule"] = args ? args.policyRule : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

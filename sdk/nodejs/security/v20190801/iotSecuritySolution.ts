@@ -37,6 +37,26 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     }
 
     /**
+     * List of resources that were automatically discovered as relevant to the security solution.
+     */
+    public /*out*/ readonly autoDiscoveredResources!: pulumi.Output<string[]>;
+    /**
+     * Disabled data sources. Disabling these data sources compromises the system.
+     */
+    public readonly disabledDataSources!: pulumi.Output<string[] | undefined>;
+    /**
+     * Resource display name.
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
+     * List of additional options for exporting to workspace data.
+     */
+    public readonly export!: pulumi.Output<string[] | undefined>;
+    /**
+     * IoT Hub resource IDs
+     */
+    public readonly iotHubs!: pulumi.Output<string[]>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +65,13 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Security Solution data
+     * List of the configuration status for each recommendation type.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20190801.IoTSecuritySolutionPropertiesResponse>;
+    public readonly recommendationsConfiguration!: pulumi.Output<outputs.security.v20190801.RecommendationConfigurationPropertiesResponse[] | undefined>;
+    /**
+     * Status of the IoT Security solution.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -56,6 +80,18 @@ export class IotSecuritySolution extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Unmasked IP address logging status
+     */
+    public readonly unmaskedIpLoggingStatus!: pulumi.Output<string | undefined>;
+    /**
+     * Properties of the IoT Security solution's user defined resources.
+     */
+    public readonly userDefinedResources!: pulumi.Output<outputs.security.v20190801.UserDefinedResourcesPropertiesResponse | undefined>;
+    /**
+     * Workspace resource ID
+     */
+    public readonly workspace!: pulumi.Output<string | undefined>;
 
     /**
      * Create a IotSecuritySolution resource with the given unique name, arguments, and options.
@@ -95,7 +131,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
             inputs["unmaskedIpLoggingStatus"] = args ? args.unmaskedIpLoggingStatus : undefined;
             inputs["userDefinedResources"] = args ? args.userDefinedResources : undefined;
             inputs["workspace"] = args ? args.workspace : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["autoDiscoveredResources"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

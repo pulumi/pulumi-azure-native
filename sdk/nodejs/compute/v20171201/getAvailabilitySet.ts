@@ -44,13 +44,21 @@ export interface GetAvailabilitySetResult {
      */
     readonly name: string;
     /**
-     * The instance view of a resource.
+     * Fault Domain count.
      */
-    readonly properties: outputs.compute.v20171201.AvailabilitySetPropertiesResponse;
+    readonly platformFaultDomainCount?: number;
+    /**
+     * Update Domain count.
+     */
+    readonly platformUpdateDomainCount?: number;
     /**
      * Sku of the availability set
      */
     readonly sku?: outputs.compute.v20171201.SkuResponse;
+    /**
+     * The resource status information.
+     */
+    readonly statuses: outputs.compute.v20171201.InstanceViewStatusResponse[];
     /**
      * Resource tags
      */
@@ -59,4 +67,8 @@ export interface GetAvailabilitySetResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * A list of references to all virtual machines in the availability set.
+     */
+    readonly virtualMachines?: outputs.compute.v20171201.SubResourceResponse[];
 }

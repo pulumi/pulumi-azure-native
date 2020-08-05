@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
+     * Windows IoT Device Service OEM AAD domain
+     */
+    public readonly adminDomainName!: pulumi.Output<string | undefined>;
+    /**
+     * Windows IoT Device Service ODM AAD domain
+     */
+    public readonly billingDomainName!: pulumi.Output<string | undefined>;
+    /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
@@ -49,9 +55,17 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of a Windows IoT Device Service.
+     * Windows IoT Device Service notes.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.windowsiot.v20190601.DeviceServicePropertiesResponse>;
+    public readonly notes!: pulumi.Output<string | undefined>;
+    /**
+     * Windows IoT Device Service device allocation,
+     */
+    public readonly quantity!: pulumi.Output<number | undefined>;
+    /**
+     * Windows IoT Device Service start date,
+     */
+    public /*out*/ readonly startDate!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -88,7 +102,7 @@ export class Service extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["startDate"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

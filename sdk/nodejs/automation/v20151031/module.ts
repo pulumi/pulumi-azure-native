@@ -37,9 +37,41 @@ export class Module extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the activity count of the module.
+     */
+    public /*out*/ readonly activityCount!: pulumi.Output<number | undefined>;
+    /**
+     * Gets or sets the contentLink of the module.
+     */
+    public readonly contentLink!: pulumi.Output<outputs.automation.v20151031.ContentLinkResponse | undefined>;
+    /**
+     * Gets or sets the creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the description.
+     */
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the error info of the module.
+     */
+    public /*out*/ readonly error!: pulumi.Output<outputs.automation.v20151031.ModuleErrorInfoResponse | undefined>;
+    /**
      * Gets or sets the etag of the resource.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets type of module, if its composite or not.
+     */
+    public /*out*/ readonly isComposite!: pulumi.Output<boolean | undefined>;
+    /**
+     * Gets or sets the isGlobal flag of the module.
+     */
+    public /*out*/ readonly isGlobal!: pulumi.Output<boolean | undefined>;
+    /**
+     * Gets or sets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
@@ -49,9 +81,13 @@ export class Module extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the module properties.
+     * Gets or sets the provisioning state of the module.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.ModulePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the size in bytes of the module.
+     */
+    public /*out*/ readonly sizeInBytes!: pulumi.Output<number | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +96,10 @@ export class Module extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Gets or sets the version of the module.
+     */
+    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Module resource with the given unique name, arguments, and options.
@@ -92,9 +132,18 @@ export class Module extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["activityCount"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
+            inputs["error"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["isComposite"] = undefined /*out*/;
+            inputs["isGlobal"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sizeInBytes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -41,6 +41,10 @@ export interface GetVirtualApplianceSiteArgs {
  */
 export interface GetVirtualApplianceSiteResult {
     /**
+     * Address Prefix.
+     */
+    readonly addressPrefix?: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -49,9 +53,13 @@ export interface GetVirtualApplianceSiteResult {
      */
     readonly name?: string;
     /**
-     * The properties of the Virtual Appliance Sites.
+     * Office 365 Policy.
      */
-    readonly properties: outputs.network.v20200501.VirtualApplianceSitePropertiesResponse;
+    readonly o365Policy?: outputs.network.v20200501.Office365PolicyPropertiesResponse;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * Site type.
      */

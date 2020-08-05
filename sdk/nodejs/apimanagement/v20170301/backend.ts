@@ -37,17 +37,49 @@ export class Backend extends pulumi.CustomResource {
     }
 
     /**
+     * Backend Credentials Contract Properties
+     */
+    public readonly credentials!: pulumi.Output<outputs.apimanagement.v20170301.BackendCredentialsContractResponse | undefined>;
+    /**
+     * Backend Description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Backend entity contract properties.
+     * Backend Properties contract
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.BackendContractPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.BackendPropertiesResponse>;
+    /**
+     * Backend communication protocol.
+     */
+    public readonly protocol!: pulumi.Output<string>;
+    /**
+     * Backend Proxy Contract Properties
+     */
+    public readonly proxy!: pulumi.Output<outputs.apimanagement.v20170301.BackendProxyContractResponse | undefined>;
+    /**
+     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+     */
+    public readonly resourceId!: pulumi.Output<string | undefined>;
+    /**
+     * Backend Title.
+     */
+    public readonly title!: pulumi.Output<string | undefined>;
+    /**
+     * Backend TLS Properties
+     */
+    public readonly tls!: pulumi.Output<outputs.apimanagement.v20170301.BackendTlsPropertiesResponse | undefined>;
     /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Runtime Url of the Backend.
+     */
+    public readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Backend resource with the given unique name, arguments, and options.

@@ -36,17 +36,37 @@ export interface GetBatchAccountArgs {
  */
 export interface GetBatchAccountResult {
     /**
+     * The account endpoint used to interact with the Batch service.
+     */
+    readonly accountEndpoint: string;
+    readonly activeJobAndJobScheduleQuota: number;
+    /**
+     * Contains information about the auto-storage account associated with a Batch account.
+     */
+    readonly autoStorage: outputs.batch.v20170901.AutoStoragePropertiesResponse;
+    readonly dedicatedCoreQuota: number;
+    /**
+     * Identifies the Azure key vault associated with a Batch account.
+     */
+    readonly keyVaultReference: outputs.batch.v20170901.KeyVaultReferenceResponse;
+    /**
      * The location of the resource.
      */
     readonly location: string;
+    readonly lowPriorityCoreQuota: number;
     /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The properties associated with the account.
+     * The allocation mode for creating pools in the Batch account.
      */
-    readonly properties: outputs.batch.v20170901.BatchAccountPropertiesResponse;
+    readonly poolAllocationMode: string;
+    readonly poolQuota: number;
+    /**
+     * The provisioned state of the resource
+     */
+    readonly provisioningState: string;
     /**
      * The tags of the resource.
      */

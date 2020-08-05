@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,25 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
+     * true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+     */
+    public /*out*/ readonly builtIn!: pulumi.Output<boolean>;
+    /**
+     * Group description. Can contain HTML formatting tags.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Group name.
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
+     * For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+     */
+    public readonly externalId!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Group entity contract properties.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.GroupContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -81,7 +91,7 @@ export class Group extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["builtIn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

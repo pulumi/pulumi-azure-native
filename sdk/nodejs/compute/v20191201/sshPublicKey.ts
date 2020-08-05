@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,9 +43,9 @@ export class SshPublicKey extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the SSH public key.
+     * SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20191201.SshPublicKeyResourcePropertiesResponse>;
+    public readonly publicKey!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -84,7 +82,6 @@ export class SshPublicKey extends pulumi.CustomResource {
             inputs["publicKey"] = args ? args.publicKey : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

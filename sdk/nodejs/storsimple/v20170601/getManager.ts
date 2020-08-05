@@ -36,6 +36,10 @@ export interface GetManagerArgs {
  */
 export interface GetManagerResult {
     /**
+     * Represents the type of StorSimple Manager.
+     */
+    readonly cisIntrinsicSettings?: outputs.storsimple.v20170601.ManagerIntrinsicSettingsResponse;
+    /**
      * The etag of the manager.
      */
     readonly etag?: string;
@@ -48,9 +52,13 @@ export interface GetManagerResult {
      */
     readonly name: string;
     /**
-     * The properties of the StorSimple Manager.
+     * Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
      */
-    readonly properties: outputs.storsimple.v20170601.ManagerPropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * Specifies the Sku.
+     */
+    readonly sku?: outputs.storsimple.v20170601.ManagerSkuResponse;
     /**
      * The tags attached to the resource.
      */

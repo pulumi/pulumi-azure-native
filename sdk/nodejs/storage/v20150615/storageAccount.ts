@@ -37,6 +37,22 @@ export class StorageAccount extends pulumi.CustomResource {
     }
 
     /**
+     * The type of the storage account.
+     */
+    public readonly accountType!: pulumi.Output<string | undefined>;
+    /**
+     * The creation date and time of the storage account in UTC.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
+    /**
+     * The custom domain the user assigned to this storage account.
+     */
+    public /*out*/ readonly customDomain!: pulumi.Output<outputs.storage.v20150615.CustomDomainResponse | undefined>;
+    /**
+     * The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+     */
+    public /*out*/ readonly lastGeoFailoverTime!: pulumi.Output<string | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +61,33 @@ export class StorageAccount extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the storage account.
+     * The URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20150615.StorageAccountPropertiesResponse>;
+    public /*out*/ readonly primaryEndpoints!: pulumi.Output<outputs.storage.v20150615.EndpointsResponse | undefined>;
+    /**
+     * The location of the primary data center for the storage account.
+     */
+    public /*out*/ readonly primaryLocation!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the storage account at the time the operation was called.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+     */
+    public /*out*/ readonly secondaryEndpoints!: pulumi.Output<outputs.storage.v20150615.EndpointsResponse | undefined>;
+    /**
+     * The location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
+     */
+    public /*out*/ readonly secondaryLocation!: pulumi.Output<string | undefined>;
+    /**
+     * The status indicating whether the primary location of the storage account is available or unavailable.
+     */
+    public /*out*/ readonly statusOfPrimary!: pulumi.Output<string | undefined>;
+    /**
+     * The status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
+     */
+    public /*out*/ readonly statusOfSecondary!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -87,7 +127,16 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["customDomain"] = undefined /*out*/;
+            inputs["lastGeoFailoverTime"] = undefined /*out*/;
+            inputs["primaryEndpoints"] = undefined /*out*/;
+            inputs["primaryLocation"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["secondaryEndpoints"] = undefined /*out*/;
+            inputs["secondaryLocation"] = undefined /*out*/;
+            inputs["statusOfPrimary"] = undefined /*out*/;
+            inputs["statusOfSecondary"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

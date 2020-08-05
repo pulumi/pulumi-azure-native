@@ -45,9 +45,17 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Describes the properties of an Image.
+     * The provisioning state.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20181001.ImagePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The source virtual machine from which Image is created.
+     */
+    public readonly sourceVirtualMachine!: pulumi.Output<outputs.compute.v20181001.SubResourceResponse | undefined>;
+    /**
+     * Specifies the storage settings for the virtual machine disks.
+     */
+    public readonly storageProfile!: pulumi.Output<outputs.compute.v20181001.ImageStorageProfileResponse | undefined>;
     /**
      * Resource tags
      */
@@ -85,7 +93,7 @@ export class Image extends pulumi.CustomResource {
             inputs["sourceVirtualMachine"] = args ? args.sourceVirtualMachine : undefined;
             inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

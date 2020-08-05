@@ -41,13 +41,25 @@ export interface GetServerAzureADAdministratorArgs {
  */
 export interface GetServerAzureADAdministratorResult {
     /**
+     * The type of administrator.
+     */
+    readonly administratorType: string;
+    /**
+     * The server administrator login value.
+     */
+    readonly login: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The properties of the resource.
+     * The server administrator Sid (Secure ID).
      */
-    readonly properties: outputs.sql.v20140401.ServerAdministratorPropertiesResponse;
+    readonly sid: string;
+    /**
+     * The server Active Directory Administrator tenant id.
+     */
+    readonly tenantId: string;
     /**
      * Resource type.
      */

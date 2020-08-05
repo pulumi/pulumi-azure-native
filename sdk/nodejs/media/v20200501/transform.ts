@@ -37,13 +37,25 @@ export class Transform extends pulumi.CustomResource {
     }
 
     /**
+     * The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * An optional verbose description of the Transform.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+     */
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The resource properties.
+     * An array of one or more TransformOutputs that the Transform should generate.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20200501.TransformPropertiesResponse>;
+    public readonly outputs!: pulumi.Output<outputs.media.v20200501.TransformOutputResponse[]>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -79,7 +91,8 @@ export class Transform extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["outputs"] = args ? args.outputs : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["lastModified"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -37,17 +37,83 @@ export class Lab extends pulumi.CustomResource {
     }
 
     /**
+     * The properties of any lab announcement associated with this lab
+     */
+    public readonly announcement!: pulumi.Output<outputs.devtestlab.v20180915.LabAnnouncementPropertiesResponse | undefined>;
+    /**
+     * The lab's artifact storage account.
+     */
+    public /*out*/ readonly artifactsStorageAccount!: pulumi.Output<string>;
+    /**
+     * The creation date of the lab.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * The lab's default premium storage account.
+     */
+    public /*out*/ readonly defaultPremiumStorageAccount!: pulumi.Output<string>;
+    /**
+     * The lab's default storage account.
+     */
+    public /*out*/ readonly defaultStorageAccount!: pulumi.Output<string>;
+    /**
+     * The access rights to be granted to the user when provisioning an environment
+     */
+    public readonly environmentPermission!: pulumi.Output<string | undefined>;
+    /**
+     * Extended properties of the lab used for experimental features
+     */
+    public readonly extendedProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+     */
+    public readonly labStorageType!: pulumi.Output<string | undefined>;
+    /**
+     * The load balancer used to for lab VMs that use shared IP address.
+     */
+    public /*out*/ readonly loadBalancerId!: pulumi.Output<string>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+     */
+    public readonly mandatoryArtifactsResourceIdsLinux!: pulumi.Output<string[] | undefined>;
+    /**
+     * The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+     */
+    public readonly mandatoryArtifactsResourceIdsWindows!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.LabPropertiesResponse>;
+    public /*out*/ readonly networkSecurityGroupId!: pulumi.Output<string>;
+    /**
+     * The lab's premium data disk storage account.
+     */
+    public /*out*/ readonly premiumDataDiskStorageAccount!: pulumi.Output<string>;
+    /**
+     * The setting to enable usage of premium data disks.
+     * When its value is 'Enabled', creation of standard or premium data disks is allowed.
+     * When its value is 'Disabled', only creation of standard data disks is allowed.
+     */
+    public readonly premiumDataDisks!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning status of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The public IP address for the lab's load balancer.
+     */
+    public /*out*/ readonly publicIpId!: pulumi.Output<string>;
+    /**
+     * The properties of any lab support message associated with this lab
+     */
+    public readonly support!: pulumi.Output<outputs.devtestlab.v20180915.LabSupportPropertiesResponse | undefined>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +122,18 @@ export class Lab extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    /**
+     * The lab's Key vault.
+     */
+    public /*out*/ readonly vaultName!: pulumi.Output<string>;
+    /**
+     * The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
+     */
+    public /*out*/ readonly vmCreationResourceGroup!: pulumi.Output<string>;
 
     /**
      * Create a Lab resource with the given unique name, arguments, and options.
@@ -88,8 +166,19 @@ export class Lab extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["support"] = args ? args.support : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["artifactsStorageAccount"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["defaultPremiumStorageAccount"] = undefined /*out*/;
+            inputs["defaultStorageAccount"] = undefined /*out*/;
+            inputs["loadBalancerId"] = undefined /*out*/;
+            inputs["networkSecurityGroupId"] = undefined /*out*/;
+            inputs["premiumDataDiskStorageAccount"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["publicIpId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["uniqueIdentifier"] = undefined /*out*/;
+            inputs["vaultName"] = undefined /*out*/;
+            inputs["vmCreationResourceGroup"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

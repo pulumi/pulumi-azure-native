@@ -37,9 +37,17 @@ export class Factory extends pulumi.CustomResource {
     }
 
     /**
+     * Time the factory was created in ISO8601 format.
+     */
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    /**
      * Etag identifies change in the resource.
      */
     public /*out*/ readonly eTag!: pulumi.Output<string>;
+    /**
+     * List of parameters for factory.
+     */
+    public readonly globalParameters!: pulumi.Output<{[key: string]: outputs.datafactory.v20180601.GlobalParameterSpecificationResponse} | undefined>;
     /**
      * Managed service identity of the factory.
      */
@@ -53,9 +61,13 @@ export class Factory extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the factory.
+     * Factory provisioning state, example Succeeded.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datafactory.v20180601.FactoryPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Git repo information of the factory.
+     */
+    public readonly repoConfiguration!: pulumi.Output<outputs.datafactory.v20180601.FactoryRepoConfigurationResponse | undefined>;
     /**
      * The resource tags.
      */
@@ -64,6 +76,10 @@ export class Factory extends pulumi.CustomResource {
      * The resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Version of the factory.
+     */
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a Factory resource with the given unique name, arguments, and options.
@@ -91,9 +107,11 @@ export class Factory extends pulumi.CustomResource {
             inputs["repoConfiguration"] = args ? args.repoConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["createTime"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

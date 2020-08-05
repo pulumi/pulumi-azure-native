@@ -36,17 +36,29 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
+     * The time the namespace was created.
+     */
+    readonly createdAt: string;
+    /**
      * The Geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * Identifier for Azure Insights metrics
+     */
+    readonly metricId: string;
     /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Properties of the namespace.
+     * Provisioning state of the namespace.
      */
-    readonly properties: outputs.servicebus.v20170401.SBNamespacePropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Endpoint you can use to perform Service Bus operations.
+     */
+    readonly serviceBusEndpoint: string;
     /**
      * Properties of Sku
      */
@@ -59,4 +71,8 @@ export interface GetNamespaceResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * The time the namespace was updated.
+     */
+    readonly updatedAt: string;
 }

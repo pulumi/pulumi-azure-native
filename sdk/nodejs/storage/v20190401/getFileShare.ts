@@ -45,13 +45,21 @@ export interface GetFileShareResult {
      */
     readonly etag: string;
     /**
+     * Returns the date and time the share was last modified.
+     */
+    readonly lastModifiedTime: string;
+    /**
+     * A name-value pair to associate with the share as metadata.
+     */
+    readonly metadata?: {[key: string]: string};
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Properties of the file share.
+     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
      */
-    readonly properties: outputs.storage.v20190401.FileSharePropertiesResponse;
+    readonly shareQuota?: number;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

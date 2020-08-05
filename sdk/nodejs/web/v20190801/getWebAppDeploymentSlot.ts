@@ -41,17 +41,49 @@ export interface GetWebAppDeploymentSlotArgs {
  */
 export interface GetWebAppDeploymentSlotResult {
     /**
+     * True if deployment is currently active, false if completed and null if not started.
+     */
+    readonly active?: boolean;
+    /**
+     * Who authored the deployment.
+     */
+    readonly author?: string;
+    /**
+     * Author email.
+     */
+    readonly author_email?: string;
+    /**
+     * Who performed the deployment.
+     */
+    readonly deployer?: string;
+    /**
+     * Details on deployment.
+     */
+    readonly details?: string;
+    /**
+     * End time.
+     */
+    readonly end_time?: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
+    /**
+     * Details about deployment status.
+     */
+    readonly message?: string;
     /**
      * Resource Name.
      */
     readonly name: string;
     /**
-     * Deployment resource specific properties
+     * Start time.
      */
-    readonly properties: outputs.web.v20190801.DeploymentResponseProperties;
+    readonly start_time?: string;
+    /**
+     * Deployment status.
+     */
+    readonly status?: number;
     /**
      * Resource type.
      */

@@ -36,17 +36,25 @@ export interface GetHybridUseBenefitArgs {
  */
 export interface GetHybridUseBenefitResult {
     /**
+     * Created date
+     */
+    readonly createdDate: string;
+    /**
      * Indicates the revision of the hybrid use benefit
      */
     readonly etag: number;
+    /**
+     * Last updated date
+     */
+    readonly lastUpdatedDate: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Property bag for a hybrid use benefit response
+     * Provisioning state
      */
-    readonly properties: outputs.softwareplan.v20191201.HybridUseBenefitPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * Hybrid use benefit SKU
      */

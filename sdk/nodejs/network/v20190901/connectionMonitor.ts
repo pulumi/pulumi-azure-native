@@ -37,6 +37,14 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     }
 
     /**
+     * Determines if the connection monitor will start automatically once created.
+     */
+    public readonly autoStart!: pulumi.Output<boolean | undefined>;
+    /**
+     * Describes the destination of connection monitor.
+     */
+    public readonly destination!: pulumi.Output<outputs.network.v20190901.ConnectionMonitorDestinationResponse>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
@@ -45,13 +53,29 @@ export class ConnectionMonitor extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Monitoring interval in seconds.
+     */
+    public readonly monitoringIntervalInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The monitoring status of the connection monitor.
+     */
+    public /*out*/ readonly monitoringStatus!: pulumi.Output<string | undefined>;
+    /**
      * Name of the connection monitor.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the connection monitor result.
+     * The provisioning state of the connection monitor.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.ConnectionMonitorResultPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Describes the source of connection monitor.
+     */
+    public readonly source!: pulumi.Output<outputs.network.v20190901.ConnectionMonitorSourceResponse>;
+    /**
+     * The date and time when the connection monitor was started.
+     */
+    public /*out*/ readonly startTime!: pulumi.Output<string | undefined>;
     /**
      * Connection monitor tags.
      */
@@ -99,7 +123,9 @@ export class ConnectionMonitor extends pulumi.CustomResource {
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["monitoringStatus"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["startTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

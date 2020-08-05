@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,45 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     }
 
     /**
+     * A string that describes Claim Type for authorization rule.
+     */
+    public readonly claimType!: pulumi.Output<string | undefined>;
+    /**
+     * A string that describes Claim Value of authorization rule.
+     */
+    public readonly claimValue!: pulumi.Output<string | undefined>;
+    /**
+     * The time the namespace was created.
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * A string that describes the Key Name of authorization rule.
+     */
+    public readonly keyName!: pulumi.Output<string | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The time the namespace was updated.
+     */
+    public /*out*/ readonly modifiedTime!: pulumi.Output<string>;
     /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * AuthorizationRule properties.
+     * A base64-encoded 256-bit primary key for signing and validating the SAS token.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20140901.SharedAccessAuthorizationRulePropertiesResponse>;
+    public readonly primaryKey!: pulumi.Output<string | undefined>;
+    /**
+     * The rights associated with the rule.
+     */
+    public readonly rights!: pulumi.Output<string[]>;
+    /**
+     * A base64-encoded 256-bit primary key for signing and validating the SAS token.
+     */
+    public readonly secondaryKey!: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
@@ -88,7 +114,8 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rights"] = args ? args.rights : undefined;
             inputs["secondaryKey"] = args ? args.secondaryKey : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["modifiedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

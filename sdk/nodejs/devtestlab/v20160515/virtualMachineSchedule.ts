@@ -37,6 +37,18 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
     }
 
     /**
+     * The creation date of the schedule.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * If the schedule will occur once each day of the week, specify the daily recurrence.
+     */
+    public readonly dailyRecurrence!: pulumi.Output<outputs.devtestlab.v20160515.DayDetailsResponse | undefined>;
+    /**
+     * If the schedule will occur multiple times a day, specify the hourly recurrence.
+     */
+    public readonly hourlyRecurrence!: pulumi.Output<outputs.devtestlab.v20160515.HourDetailsResponse | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,17 +57,45 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * Notification settings.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.SchedulePropertiesResponse>;
+    public readonly notificationSettings!: pulumi.Output<outputs.devtestlab.v20160515.NotificationSettingsResponse | undefined>;
+    /**
+     * The provisioning status of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the schedule (i.e. Enabled, Disabled)
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The resource ID to which the schedule belongs
+     */
+    public readonly targetResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+     */
+    public readonly taskType!: pulumi.Output<string | undefined>;
+    /**
+     * The time zone ID (e.g. Pacific Standard time).
+     */
+    public readonly timeZoneId!: pulumi.Output<string | undefined>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * If the schedule will occur only some days of the week, specify the weekly recurrence.
+     */
+    public readonly weeklyRecurrence!: pulumi.Output<outputs.devtestlab.v20160515.WeekDetailsResponse | undefined>;
 
     /**
      * Create a VirtualMachineSchedule resource with the given unique name, arguments, and options.
@@ -98,7 +138,7 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
             inputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
             inputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -36,6 +36,22 @@ export interface GetActivityLogAlertArgs {
  */
 export interface GetActivityLogAlertResult {
     /**
+     * The actions that will activate when the condition is met.
+     */
+    readonly actions: outputs.insights.v20170401.ActivityLogAlertActionListResponse;
+    /**
+     * The condition that will cause this alert to activate.
+     */
+    readonly condition: outputs.insights.v20170401.ActivityLogAlertAllOfConditionResponse;
+    /**
+     * A description of this activity log alert.
+     */
+    readonly description?: string;
+    /**
+     * Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+     */
+    readonly enabled?: boolean;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -44,9 +60,9 @@ export interface GetActivityLogAlertResult {
      */
     readonly name: string;
     /**
-     * The activity log alert properties of the resource.
+     * A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
      */
-    readonly properties: outputs.insights.v20170401.ActivityLogAlertResponse;
+    readonly scopes: string[];
     /**
      * Resource tags
      */

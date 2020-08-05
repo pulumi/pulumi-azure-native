@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -49,9 +47,13 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of resource.
+     * The name of the partner server.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.sql.v20140401.ServerCommunicationLinkPropertiesResponse>;
+    public readonly partnerServer!: pulumi.Output<string>;
+    /**
+     * The state.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -88,7 +90,7 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

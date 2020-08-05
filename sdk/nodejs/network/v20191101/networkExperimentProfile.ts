@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
     }
 
     /**
+     * The state of the Experiment
+     */
+    public readonly enabledState!: pulumi.Output<string | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -49,9 +51,9 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of a Profile
+     * Resource status.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.ProfilePropertiesResponse>;
+    public readonly resourceState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -87,7 +89,6 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceState"] = args ? args.resourceState : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -37,9 +37,33 @@ export class ApplicationGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Backend address pool of the application gateway resource.
+     */
+    public readonly backendAddressPools!: pulumi.Output<outputs.network.v20150615.ApplicationGatewayBackendAddressPoolResponse[] | undefined>;
+    /**
+     * Backend http settings of the application gateway resource.
+     */
+    public readonly backendHttpSettingsCollection!: pulumi.Output<outputs.network.v20150615.ApplicationGatewayBackendHttpSettingsResponse[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Frontend IP addresses of the application gateway resource.
+     */
+    public readonly frontendIPConfigurations!: pulumi.Output<outputs.network.v20150615.ApplicationGatewayFrontendIPConfigurationResponse[] | undefined>;
+    /**
+     * Frontend ports of the application gateway resource.
+     */
+    public readonly frontendPorts!: pulumi.Output<outputs.network.v20150615.ApplicationGatewayFrontendPortResponse[] | undefined>;
+    /**
+     * Gets or sets subnets of application gateway resource
+     */
+    public readonly gatewayIPConfigurations!: pulumi.Output<outputs.network.v20150615.ApplicationGatewayIPConfigurationResponse[] | undefined>;
+    /**
+     * Http listeners of the application gateway resource.
+     */
+    public readonly httpListeners!: pulumi.Output<outputs.network.v20150615.ApplicationGatewayHttpListenerResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +73,33 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the application gateway.
+     * Operational state of the application gateway resource. Possible values are: 'Stopped', 'Started', 'Running', and 'Stopping'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20150615.ApplicationGatewayPropertiesFormatResponse>;
+    public /*out*/ readonly operationalState!: pulumi.Output<string>;
+    /**
+     * Probes of the application gateway resource.
+     */
+    public readonly probes!: pulumi.Output<outputs.network.v20150615.ApplicationGatewayProbeResponse[] | undefined>;
+    /**
+     * Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Request routing rules of the application gateway resource.
+     */
+    public readonly requestRoutingRules!: pulumi.Output<outputs.network.v20150615.ApplicationGatewayRequestRoutingRuleResponse[] | undefined>;
+    /**
+     * Resource GUID property of the application gateway resource.
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
+     * SKU of the application gateway resource.
+     */
+    public readonly sku!: pulumi.Output<outputs.network.v20150615.ApplicationGatewaySkuResponse | undefined>;
+    /**
+     * SSL certificates of the application gateway resource.
+     */
+    public readonly sslCertificates!: pulumi.Output<outputs.network.v20150615.ApplicationGatewaySslCertificateResponse[] | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +108,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * URL path map of the application gateway resource.
+     */
+    public readonly urlPathMaps!: pulumi.Output<outputs.network.v20150615.ApplicationGatewayUrlPathMapResponse[] | undefined>;
 
     /**
      * Create a ApplicationGateway resource with the given unique name, arguments, and options.
@@ -99,7 +151,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["sslCertificates"] = args ? args.sslCertificates : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["operationalState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

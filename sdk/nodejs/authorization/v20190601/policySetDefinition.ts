@@ -37,13 +37,33 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     }
 
     /**
+     * The policy set definition description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the policy set definition.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The policy set definition metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The name of the policy set definition.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The policy definition properties.
+     * The policy set definition parameters that can be used in policy definition references.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20190601.PolicySetDefinitionPropertiesResponse>;
+    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * An array of policy definition references.
+     */
+    public readonly policyDefinitions!: pulumi.Output<outputs.authorization.v20190601.PolicyDefinitionReferenceResponse[]>;
+    /**
+     * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+     */
+    public readonly policyType!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource (Microsoft.Authorization/policySetDefinitions).
      */
@@ -75,7 +95,6 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

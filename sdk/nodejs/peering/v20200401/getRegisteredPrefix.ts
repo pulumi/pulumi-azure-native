@@ -41,13 +41,29 @@ export interface GetRegisteredPrefixArgs {
  */
 export interface GetRegisteredPrefixResult {
     /**
+     * The error message associated with the validation state, if any.
+     */
+    readonly errorMessage: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The properties that define a registered prefix.
+     * The peering service prefix key that is to be shared with the customer.
      */
-    readonly properties: outputs.peering.v20200401.PeeringRegisteredPrefixPropertiesResponse;
+    readonly peeringServicePrefixKey: string;
+    /**
+     * The customer's prefix from which traffic originates.
+     */
+    readonly prefix?: string;
+    /**
+     * The prefix validation state.
+     */
+    readonly prefixValidationState: string;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * The type of the resource.
      */

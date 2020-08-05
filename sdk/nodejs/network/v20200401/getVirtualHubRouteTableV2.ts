@@ -41,6 +41,10 @@ export interface GetVirtualHubRouteTableV2Args {
  */
 export interface GetVirtualHubRouteTableV2Result {
     /**
+     * List of all connections attached to this route table v2.
+     */
+    readonly attachedConnections?: string[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -49,7 +53,11 @@ export interface GetVirtualHubRouteTableV2Result {
      */
     readonly name?: string;
     /**
-     * Properties of the virtual hub route table v2.
+     * The provisioning state of the virtual hub route table v2 resource.
      */
-    readonly properties: outputs.network.v20200401.VirtualHubRouteTableV2PropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * List of all routes.
+     */
+    readonly routes?: outputs.network.v20200401.VirtualHubRouteV2Response[];
 }

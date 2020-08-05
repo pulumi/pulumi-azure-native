@@ -44,9 +44,17 @@ export interface GetPeeringServiceResult {
      */
     readonly name: string;
     /**
-     * The properties that define a peering service.
+     * The PeeringServiceLocation of the Customer.
      */
-    readonly properties: outputs.peering.v20200401.PeeringServicePropertiesResponse;
+    readonly peeringServiceLocation?: string;
+    /**
+     * The MAPS Provider Name.
+     */
+    readonly peeringServiceProvider?: string;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * The SKU that defines the type of the peering service.
      */

@@ -46,15 +46,83 @@ export interface GetServerEndpointArgs {
  */
 export interface GetServerEndpointResult {
     /**
+     * Cloud Tiering.
+     */
+    readonly cloudTiering?: string;
+    /**
+     * Cloud tiering status. Only populated if cloud tiering is enabled.
+     */
+    readonly cloudTieringStatus: outputs.storagesync.v20200301.ServerEndpointCloudTieringStatusResponse;
+    /**
+     * Friendly Name
+     */
+    readonly friendlyName?: string;
+    /**
+     * Policy for how namespace and files are recalled during FastDr.
+     */
+    readonly initialDownloadPolicy?: string;
+    /**
+     * Resource Last Operation Name
+     */
+    readonly lastOperationName: string;
+    /**
+     * ServerEndpoint lastWorkflowId
+     */
+    readonly lastWorkflowId: string;
+    /**
+     * Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
+     */
+    readonly localCacheMode?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Server Endpoint properties.
+     * Offline data transfer
      */
-    readonly properties: outputs.storagesync.v20200301.ServerEndpointPropertiesResponse;
+    readonly offlineDataTransfer?: string;
+    /**
+     * Offline data transfer share name
+     */
+    readonly offlineDataTransferShareName?: string;
+    /**
+     * Offline data transfer storage account resource ID
+     */
+    readonly offlineDataTransferStorageAccountResourceId: string;
+    /**
+     * Offline data transfer storage account tenant ID
+     */
+    readonly offlineDataTransferStorageAccountTenantId: string;
+    /**
+     * ServerEndpoint Provisioning State
+     */
+    readonly provisioningState: string;
+    /**
+     * Recall status. Only populated if cloud tiering is enabled.
+     */
+    readonly recallStatus: outputs.storagesync.v20200301.ServerEndpointRecallStatusResponse;
+    /**
+     * Server Local path.
+     */
+    readonly serverLocalPath?: string;
+    /**
+     * Server Resource Id.
+     */
+    readonly serverResourceId?: string;
+    /**
+     * Server Endpoint sync status
+     */
+    readonly syncStatus: outputs.storagesync.v20200301.ServerEndpointSyncStatusResponse;
+    /**
+     * Tier files older than days.
+     */
+    readonly tierFilesOlderThanDays?: number;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
+    /**
+     * Level of free space to be maintained by Cloud Tiering if it is enabled.
+     */
+    readonly volumeFreeSpacePercent?: number;
 }

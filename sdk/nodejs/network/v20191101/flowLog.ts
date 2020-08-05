@@ -37,9 +37,21 @@ export class FlowLog extends pulumi.CustomResource {
     }
 
     /**
+     * Flag to enable/disable flow logging.
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Parameters that define the configuration of traffic analytics.
+     */
+    public readonly flowAnalyticsConfiguration!: pulumi.Output<outputs.network.v20191101.TrafficAnalyticsPropertiesResponse | undefined>;
+    /**
+     * Parameters that define the flow log format.
+     */
+    public readonly format!: pulumi.Output<outputs.network.v20191101.FlowLogFormatParametersResponse | undefined>;
     /**
      * Resource location.
      */
@@ -49,13 +61,29 @@ export class FlowLog extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the flow log.
+     * The provisioning state of the flow log.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.FlowLogPropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Parameters that define the retention policy for flow log.
+     */
+    public readonly retentionPolicy!: pulumi.Output<outputs.network.v20191101.RetentionPolicyParametersResponse | undefined>;
+    /**
+     * ID of the storage account which is used to store the flow log.
+     */
+    public readonly storageId!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Guid of network security group to which flow log will be applied.
+     */
+    public /*out*/ readonly targetResourceGuid!: pulumi.Output<string>;
+    /**
+     * ID of network security group to which flow log will be applied.
+     */
+    public readonly targetResourceId!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -102,7 +130,8 @@ export class FlowLog extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["targetResourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

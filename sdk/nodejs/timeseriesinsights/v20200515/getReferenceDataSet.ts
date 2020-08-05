@@ -41,6 +41,18 @@ export interface GetReferenceDataSetArgs {
  */
 export interface GetReferenceDataSetResult {
     /**
+     * The time the resource was created.
+     */
+    readonly creationTime: string;
+    /**
+     * The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+     */
+    readonly dataStringComparisonBehavior?: string;
+    /**
+     * The list of key properties for the reference data set.
+     */
+    readonly keyProperties: outputs.timeseriesinsights.v20200515.ReferenceDataSetKeyPropertyResponse[];
+    /**
      * Resource location
      */
     readonly location: string;
@@ -49,9 +61,9 @@ export interface GetReferenceDataSetResult {
      */
     readonly name: string;
     /**
-     * Properties of the reference data set.
+     * Provisioning state of the resource.
      */
-    readonly properties: outputs.timeseriesinsights.v20200515.ReferenceDataSetResourcePropertiesResponse;
+    readonly provisioningState?: string;
     /**
      * Resource tags
      */

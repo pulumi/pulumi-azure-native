@@ -41,6 +41,22 @@ export interface GetDedicatedHostArgs {
  */
 export interface GetDedicatedHostResult {
     /**
+     * Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+     */
+    readonly autoReplaceOnFailure?: boolean;
+    /**
+     * A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+     */
+    readonly hostId: string;
+    /**
+     * The dedicated host instance view.
+     */
+    readonly instanceView: outputs.compute.v20200601.DedicatedHostInstanceViewResponse;
+    /**
+     * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+     */
+    readonly licenseType?: string;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -49,9 +65,17 @@ export interface GetDedicatedHostResult {
      */
     readonly name: string;
     /**
-     * Properties of the dedicated host.
+     * Fault domain of the dedicated host within a dedicated host group.
      */
-    readonly properties: outputs.compute.v20200601.DedicatedHostPropertiesResponse;
+    readonly platformFaultDomain?: number;
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    readonly provisioningState: string;
+    /**
+     * The date when the host was first provisioned.
+     */
+    readonly provisioningTime: string;
     /**
      * SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
      */
@@ -64,4 +88,8 @@ export interface GetDedicatedHostResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * A list of references to all virtual machines in the Dedicated Host.
+     */
+    readonly virtualMachines: outputs.compute.v20200601.SubResourceReadOnlyResponse[];
 }

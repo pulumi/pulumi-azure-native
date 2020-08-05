@@ -37,17 +37,41 @@ export class NotificationHub extends pulumi.CustomResource {
     }
 
     /**
+     * The AdmCredential of the created NotificationHub
+     */
+    public readonly admCredential!: pulumi.Output<outputs.notificationhubs.v20160301.AdmCredentialResponse | undefined>;
+    /**
+     * The ApnsCredential of the created NotificationHub
+     */
+    public readonly apnsCredential!: pulumi.Output<outputs.notificationhubs.v20160301.ApnsCredentialResponse | undefined>;
+    /**
+     * The AuthorizationRules of the created NotificationHub
+     */
+    public readonly authorizationRules!: pulumi.Output<outputs.notificationhubs.v20160301.SharedAccessAuthorizationRulePropertiesResponse[] | undefined>;
+    /**
+     * The BaiduCredential of the created NotificationHub
+     */
+    public readonly baiduCredential!: pulumi.Output<outputs.notificationhubs.v20160301.BaiduCredentialResponse | undefined>;
+    /**
+     * The GcmCredential of the created NotificationHub
+     */
+    public readonly gcmCredential!: pulumi.Output<outputs.notificationhubs.v20160301.GcmCredentialResponse | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The MpnsCredential of the created NotificationHub
+     */
+    public readonly mpnsCredential!: pulumi.Output<outputs.notificationhubs.v20160301.MpnsCredentialResponse | undefined>;
     /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the NotificationHub.
+     * The RegistrationTtl of the created NotificationHub
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.notificationhubs.v20160301.NotificationHubPropertiesResponse>;
+    public readonly registrationTtl!: pulumi.Output<string | undefined>;
     /**
      * The sku of the created namespace
      */
@@ -60,6 +84,10 @@ export class NotificationHub extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The WnsCredential of the created NotificationHub
+     */
+    public readonly wnsCredential!: pulumi.Output<outputs.notificationhubs.v20160301.WnsCredentialResponse | undefined>;
 
     /**
      * Create a NotificationHub resource with the given unique name, arguments, and options.
@@ -100,7 +128,6 @@ export class NotificationHub extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["wnsCredential"] = args ? args.wnsCredential : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

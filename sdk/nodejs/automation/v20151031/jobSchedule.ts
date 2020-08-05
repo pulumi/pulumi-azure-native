@@ -37,13 +37,29 @@ export class JobSchedule extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets the id of job schedule.
+     */
+    public /*out*/ readonly jobScheduleId!: pulumi.Output<string | undefined>;
+    /**
      * Gets the name of the variable.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the properties of the job schedule.
+     * Gets or sets the parameters of the job schedule.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.JobSchedulePropertiesResponse>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Gets or sets the hybrid worker group that the scheduled job should run on.
+     */
+    public readonly runOn!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the runbook.
+     */
+    public readonly runbook!: pulumi.Output<outputs.automation.v20151031.RunbookAssociationPropertyResponse | undefined>;
+    /**
+     * Gets or sets the schedule.
+     */
+    public readonly schedule!: pulumi.Output<outputs.automation.v20151031.ScheduleAssociationPropertyResponse | undefined>;
     /**
      * Resource type
      */
@@ -84,7 +100,7 @@ export class JobSchedule extends pulumi.CustomResource {
             inputs["runOn"] = args ? args.runOn : undefined;
             inputs["runbook"] = args ? args.runbook : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["jobScheduleId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

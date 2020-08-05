@@ -37,6 +37,14 @@ export class VirtualNetwork extends pulumi.CustomResource {
     }
 
     /**
+     * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+     */
+    public readonly addressSpace!: pulumi.Output<outputs.network.v20170301.AddressSpaceResponse | undefined>;
+    /**
+     * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+     */
+    public readonly dhcpOptions!: pulumi.Output<outputs.network.v20170301.DhcpOptionsResponse | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -48,7 +56,18 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20170301.VirtualNetworkPropertiesFormatResponse>;
+    /**
+     * The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The resourceGuid property of the Virtual Network resource.
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
+     * A list of subnets in a Virtual Network.
+     */
+    public readonly subnets!: pulumi.Output<outputs.network.v20170301.SubnetResponse[] | undefined>;
     /**
      * Resource tags.
      */
@@ -57,6 +76,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * A list of peerings in a Virtual Network.
+     */
+    public readonly virtualNetworkPeerings!: pulumi.Output<outputs.network.v20170301.VirtualNetworkPeeringResponse[] | undefined>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -89,7 +112,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkPeerings"] = args ? args.virtualNetworkPeerings : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

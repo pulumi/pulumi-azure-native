@@ -36,6 +36,26 @@ export interface GetSiteHostNameBindingArgs {
  */
 export interface GetSiteHostNameBindingResult {
     /**
+     * Azure resource name
+     */
+    readonly azureResourceName?: string;
+    /**
+     * Azure resource type
+     */
+    readonly azureResourceType?: string;
+    /**
+     * Custom DNS record type
+     */
+    readonly customHostNameDnsRecordType?: string;
+    /**
+     * Fully qualified ARM domain resource URI
+     */
+    readonly domainId?: string;
+    /**
+     * Host name type
+     */
+    readonly hostNameType?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;
@@ -47,7 +67,10 @@ export interface GetSiteHostNameBindingResult {
      * Resource Name
      */
     readonly name?: string;
-    readonly properties: outputs.web.v20150801.HostNameBindingResponseProperties;
+    /**
+     * Web app name
+     */
+    readonly siteName?: string;
     /**
      * Resource tags
      */

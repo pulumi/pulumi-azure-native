@@ -49,9 +49,9 @@ export interface GetDomainOwnershipIdentifierResult {
      */
     readonly name: string;
     /**
-     * DomainOwnershipIdentifier resource specific properties
+     * Ownership Id.
      */
-    readonly properties: outputs.domainregistration.v20150401.DomainOwnershipIdentifierResponseProperties;
+    readonly ownershipId?: string;
     /**
      * Resource type.
      */

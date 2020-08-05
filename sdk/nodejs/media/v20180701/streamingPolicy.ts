@@ -37,13 +37,33 @@ export class StreamingPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Configuration of CommonEncryptionCbcs
+     */
+    public readonly commonEncryptionCbcs!: pulumi.Output<outputs.media.v20180701.CommonEncryptionCbcsResponse | undefined>;
+    /**
+     * Configuration of CommonEncryptionCenc
+     */
+    public readonly commonEncryptionCenc!: pulumi.Output<outputs.media.v20180701.CommonEncryptionCencResponse | undefined>;
+    /**
+     * Creation time of Streaming Policy
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * Default ContentKey used by current Streaming Policy
+     */
+    public readonly defaultContentKeyPolicyName!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration of EnvelopeEncryption
+     */
+    public readonly envelopeEncryption!: pulumi.Output<outputs.media.v20180701.EnvelopeEncryptionResponse | undefined>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Class to specify properties of Streaming Policy
+     * Configurations of NoEncryption
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.StreamingPolicyPropertiesResponse>;
+    public readonly noEncryption!: pulumi.Output<outputs.media.v20180701.NoEncryptionResponse | undefined>;
     /**
      * The type of the resource.
      */
@@ -79,7 +99,7 @@ export class StreamingPolicy extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["noEncryption"] = args ? args.noEncryption : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

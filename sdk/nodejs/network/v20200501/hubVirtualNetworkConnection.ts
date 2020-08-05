@@ -37,6 +37,18 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+     */
+    public readonly allowHubToRemoteVnetTransit!: pulumi.Output<boolean | undefined>;
+    /**
+     * Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+     */
+    public readonly allowRemoteVnetToUseHubVnetGateways!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable internet security.
+     */
+    public readonly enableInternetSecurity!: pulumi.Output<boolean | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -45,9 +57,17 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the hub virtual network connection.
+     * The provisioning state of the hub virtual network connection resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.HubVirtualNetworkConnectionPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Reference to the remote virtual network.
+     */
+    public readonly remoteVirtualNetwork!: pulumi.Output<outputs.network.v20200501.SubResourceResponse | undefined>;
+    /**
+     * The Routing Configuration indicating the associated and propagated route tables on this connection.
+     */
+    public readonly routingConfiguration!: pulumi.Output<outputs.network.v20200501.RoutingConfigurationResponse | undefined>;
 
     /**
      * Create a HubVirtualNetworkConnection resource with the given unique name, arguments, and options.
@@ -81,7 +101,7 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
             inputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
             inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

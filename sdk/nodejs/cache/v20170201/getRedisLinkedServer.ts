@@ -36,13 +36,25 @@ export interface GetRedisLinkedServerArgs {
  */
 export interface GetRedisLinkedServerResult {
     /**
+     * Fully qualified resourceId of the linked redis cache.
+     */
+    readonly linkedRedisCacheId: string;
+    /**
+     * Location of the linked redis cache.
+     */
+    readonly linkedRedisCacheLocation: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the linked server.
+     * Terminal state of the link between primary and secondary redis cache.
      */
-    readonly properties: outputs.cache.v20170201.RedisLinkedServerPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Role of the linked server.
+     */
+    readonly serverRole: string;
     /**
      * Resource type.
      */

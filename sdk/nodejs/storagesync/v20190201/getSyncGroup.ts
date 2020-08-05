@@ -45,11 +45,15 @@ export interface GetSyncGroupResult {
      */
     readonly name: string;
     /**
-     * SyncGroup properties.
+     * Sync group status
      */
-    readonly properties: outputs.storagesync.v20190201.SyncGroupPropertiesResponse;
+    readonly syncGroupStatus: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
+    /**
+     * Unique Id
+     */
+    readonly uniqueId?: string;
 }

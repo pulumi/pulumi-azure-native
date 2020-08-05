@@ -36,17 +36,26 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
+     * The time the namespace was created.
+     */
+    readonly createdAt: string;
+    /**
      * Resource location.
      */
     readonly location: string;
     /**
+     * Identifier for Azure Insights metrics.
+     */
+    readonly metricId: string;
+    /**
      * Resource name.
      */
     readonly name: string;
+    readonly provisioningState: string;
     /**
-     * Description of Relay namespace
+     * Endpoint you can use to perform Service Bus operations.
      */
-    readonly properties: outputs.relay.v20170401.RelayNamespacePropertiesResponse;
+    readonly serviceBusEndpoint: string;
     /**
      * SKU of the namespace.
      */
@@ -59,4 +68,8 @@ export interface GetNamespaceResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The time the namespace was updated.
+     */
+    readonly updatedAt: string;
 }

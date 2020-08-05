@@ -46,6 +46,22 @@ export interface GetVolumeContainerArgs {
  */
 export interface GetVolumeContainerResult {
     /**
+     * The bandwidth-rate set on the volume container.
+     */
+    readonly bandWidthRateInMbps?: number;
+    /**
+     * The ID of the bandwidth setting associated with the volume container.
+     */
+    readonly bandwidthSettingId?: string;
+    /**
+     * The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+     */
+    readonly encryptionKey?: outputs.storsimple.v20170601.AsymmetricEncryptedSecretResponse;
+    /**
+     * The flag to denote whether encryption is enabled or not.
+     */
+    readonly encryptionStatus: string;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     readonly kind?: string;
@@ -54,11 +70,23 @@ export interface GetVolumeContainerResult {
      */
     readonly name: string;
     /**
-     * The volume container properties.
+     * The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
      */
-    readonly properties: outputs.storsimple.v20170601.VolumeContainerPropertiesResponse;
+    readonly ownerShipStatus: string;
+    /**
+     * The path ID of storage account associated with the volume container.
+     */
+    readonly storageAccountCredentialId: string;
+    /**
+     * The total cloud storage for the volume container.
+     */
+    readonly totalCloudStorageUsageInBytes: number;
     /**
      * The hierarchical type of the object.
      */
     readonly type: string;
+    /**
+     * The number of volumes in the volume Container.
+     */
+    readonly volumeCount: number;
 }

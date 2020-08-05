@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,30 @@ export class SiteDeploymentSlot extends pulumi.CustomResource {
     }
 
     /**
+     * Active
+     */
+    public readonly active!: pulumi.Output<boolean | undefined>;
+    /**
+     * Author
+     */
+    public readonly author!: pulumi.Output<string | undefined>;
+    /**
+     * AuthorEmail
+     */
+    public readonly author_email!: pulumi.Output<string | undefined>;
+    /**
+     * Deployer
+     */
+    public readonly deployer!: pulumi.Output<string | undefined>;
+    /**
+     * Detail
+     */
+    public readonly details!: pulumi.Output<string | undefined>;
+    /**
+     * EndTime
+     */
+    public readonly end_time!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,10 +67,21 @@ export class SiteDeploymentSlot extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Message
+     */
+    public readonly message!: pulumi.Output<string | undefined>;
+    /**
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.DeploymentResponseProperties>;
+    /**
+     * StartTime
+     */
+    public readonly start_time!: pulumi.Output<string | undefined>;
+    /**
+     * Status
+     */
+    public readonly status!: pulumi.Output<number | undefined>;
     /**
      * Resource tags
      */
@@ -99,7 +132,6 @@ export class SiteDeploymentSlot extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

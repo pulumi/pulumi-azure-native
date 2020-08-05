@@ -36,6 +36,18 @@ export interface GetMachineExtensionArgs {
  */
 export interface GetMachineExtensionResult {
     /**
+     * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+     */
+    readonly autoUpgradeMinorVersion?: boolean;
+    /**
+     * How the extension handler should be forced to update even if the extension configuration has not changed.
+     */
+    readonly forceUpdateTag?: string;
+    /**
+     * The machine extension instance view.
+     */
+    readonly instanceView?: outputs.hybridcompute.v20191212.MachineExtensionPropertiesResponseInstanceView;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -44,9 +56,21 @@ export interface GetMachineExtensionResult {
      */
     readonly name: string;
     /**
-     * Describes Machine Extension Properties.
+     * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    readonly properties: outputs.hybridcompute.v20191212.MachineExtensionResponseProperties;
+    readonly protectedSettings?: {[key: string]: any};
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    readonly provisioningState: string;
+    /**
+     * The name of the extension handler publisher.
+     */
+    readonly publisher?: string;
+    /**
+     * Json formatted public settings for the extension.
+     */
+    readonly settings?: {[key: string]: any};
     /**
      * Resource tags.
      */
@@ -55,4 +79,8 @@ export interface GetMachineExtensionResult {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
+    /**
+     * Specifies the version of the script handler.
+     */
+    readonly typeHandlerVersion?: string;
 }

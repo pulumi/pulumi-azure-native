@@ -41,13 +41,29 @@ export interface GetJobScheduleArgs {
  */
 export interface GetJobScheduleResult {
     /**
+     * Gets or sets the id of job schedule.
+     */
+    readonly jobScheduleId?: string;
+    /**
      * Gets the name of the variable.
      */
     readonly name: string;
     /**
-     * Gets or sets the properties of the job schedule.
+     * Gets or sets the parameters of the job schedule.
      */
-    readonly properties: outputs.automation.v20151031.JobSchedulePropertiesResponse;
+    readonly parameters?: {[key: string]: string};
+    /**
+     * Gets or sets the hybrid worker group that the scheduled job should run on.
+     */
+    readonly runOn?: string;
+    /**
+     * Gets or sets the runbook.
+     */
+    readonly runbook?: outputs.automation.v20151031.RunbookAssociationPropertyResponse;
+    /**
+     * Gets or sets the schedule.
+     */
+    readonly schedule?: outputs.automation.v20151031.ScheduleAssociationPropertyResponse;
     /**
      * Resource type
      */

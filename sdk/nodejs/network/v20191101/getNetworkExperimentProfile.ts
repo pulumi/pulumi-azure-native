@@ -36,6 +36,10 @@ export interface GetNetworkExperimentProfileArgs {
  */
 export interface GetNetworkExperimentProfileResult {
     /**
+     * The state of the Experiment
+     */
+    readonly enabledState?: string;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
@@ -48,9 +52,9 @@ export interface GetNetworkExperimentProfileResult {
      */
     readonly name: string;
     /**
-     * The properties of a Profile
+     * Resource status.
      */
-    readonly properties: outputs.network.v20191101.ProfilePropertiesResponse;
+    readonly resourceState?: string;
     /**
      * Resource tags.
      */

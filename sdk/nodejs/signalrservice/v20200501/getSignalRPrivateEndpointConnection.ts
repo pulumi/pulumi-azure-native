@@ -45,9 +45,17 @@ export interface GetSignalRPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * Properties of the private endpoint connection
+     * Private endpoint associated with the private endpoint connection
      */
-    readonly properties: outputs.signalrservice.v20200501.PrivateEndpointConnectionPropertiesResponse;
+    readonly privateEndpoint?: outputs.signalrservice.v20200501.PrivateEndpointResponse;
+    /**
+     * Connection state
+     */
+    readonly privateLinkServiceConnectionState?: outputs.signalrservice.v20200501.PrivateLinkServiceConnectionStateResponse;
+    /**
+     * Provisioning state of the private endpoint connection
+     */
+    readonly provisioningState: string;
     /**
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */

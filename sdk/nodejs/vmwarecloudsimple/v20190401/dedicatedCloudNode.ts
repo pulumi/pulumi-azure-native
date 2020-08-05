@@ -37,21 +37,65 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
     }
 
     /**
+     * Availability Zone id, e.g. "az1"
+     */
+    public readonly availabilityZoneId!: pulumi.Output<string>;
+    /**
+     * Availability Zone name, e.g. "Availability Zone 1"
+     */
+    public /*out*/ readonly availabilityZoneName!: pulumi.Output<string>;
+    /**
+     * VMWare Cloud Rack Name
+     */
+    public /*out*/ readonly cloudRackName!: pulumi.Output<string>;
+    /**
+     * date time the resource was created
+     */
+    public /*out*/ readonly created!: pulumi.Output<{[key: string]: any}>;
+    /**
      * Azure region
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * {dedicatedCloudNodeName}
+     * SKU's name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Dedicated Cloud Nodes properties
+     * count of nodes to create
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.DedicatedCloudNodePropertiesResponse>;
+    public readonly nodesCount!: pulumi.Output<number>;
+    /**
+     * Placement Group id, e.g. "n1"
+     */
+    public readonly placementGroupId!: pulumi.Output<string>;
+    /**
+     * Placement Name, e.g. "Placement Group 1"
+     */
+    public /*out*/ readonly placementGroupName!: pulumi.Output<string>;
+    /**
+     * Private Cloud Id
+     */
+    public /*out*/ readonly privateCloudId!: pulumi.Output<string>;
+    /**
+     * Resource Pool Name
+     */
+    public /*out*/ readonly privateCloudName!: pulumi.Output<string>;
+    /**
+     * The provisioning status of the resource
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * purchase id
+     */
+    public readonly purchaseId!: pulumi.Output<string>;
     /**
      * Dedicated Cloud Nodes SKU
      */
     public readonly sku!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.SkuResponse | undefined>;
+    /**
+     * Node status, indicates is private cloud set up on this node or not
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Dedicated Cloud Nodes tags
      */
@@ -60,6 +104,10 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
      * {resourceProviderNamespace}/{resourceType}
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * VMWare Cluster Name
+     */
+    public /*out*/ readonly vmwareClusterName!: pulumi.Output<string>;
 
     /**
      * Create a DedicatedCloudNode resource with the given unique name, arguments, and options.
@@ -112,8 +160,16 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["availabilityZoneName"] = undefined /*out*/;
+            inputs["cloudRackName"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["placementGroupName"] = undefined /*out*/;
+            inputs["privateCloudId"] = undefined /*out*/;
+            inputs["privateCloudName"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["vmwareClusterName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

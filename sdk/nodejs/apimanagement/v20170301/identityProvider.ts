@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,37 @@ export class IdentityProvider extends pulumi.CustomResource {
     }
 
     /**
+     * List of Allowed Tenants when configuring Azure Active Directory login.
+     */
+    public readonly allowedTenants!: pulumi.Output<string[] | undefined>;
+    /**
+     * Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+     */
+    public readonly clientId!: pulumi.Output<string>;
+    /**
+     * Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
+     */
+    public readonly clientSecret!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Identity Provider contract properties.
+     * Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.IdentityProviderContractPropertiesResponse>;
+    public readonly passwordResetPolicyName!: pulumi.Output<string | undefined>;
+    /**
+     * Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+     */
+    public readonly profileEditingPolicyName!: pulumi.Output<string | undefined>;
+    /**
+     * Signin Policy Name. Only applies to AAD B2C Identity Provider.
+     */
+    public readonly signinPolicyName!: pulumi.Output<string | undefined>;
+    /**
+     * Signup Policy Name. Only applies to AAD B2C Identity Provider.
+     */
+    public readonly signupPolicyName!: pulumi.Output<string | undefined>;
     /**
      * Resource type for API Management resource.
      */
@@ -88,7 +110,6 @@ export class IdentityProvider extends pulumi.CustomResource {
             inputs["signinPolicyName"] = args ? args.signinPolicyName : undefined;
             inputs["signupPolicyName"] = args ? args.signupPolicyName : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

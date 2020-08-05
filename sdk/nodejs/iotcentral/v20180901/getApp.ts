@@ -36,6 +36,14 @@ export interface GetAppArgs {
  */
 export interface GetAppResult {
     /**
+     * The ID of the application.
+     */
+    readonly applicationId: string;
+    /**
+     * The display name of the application.
+     */
+    readonly displayName?: string;
+    /**
      * The resource location.
      */
     readonly location: string;
@@ -44,17 +52,21 @@ export interface GetAppResult {
      */
     readonly name: string;
     /**
-     * The common properties of an IoT Central application.
-     */
-    readonly properties: outputs.iotcentral.v20180901.AppPropertiesResponse;
-    /**
      * A valid instance SKU.
      */
     readonly sku: outputs.iotcentral.v20180901.AppSkuInfoResponse;
     /**
+     * The subdomain of the application.
+     */
+    readonly subdomain?: string;
+    /**
      * The resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+     */
+    readonly template?: string;
     /**
      * The resource type.
      */

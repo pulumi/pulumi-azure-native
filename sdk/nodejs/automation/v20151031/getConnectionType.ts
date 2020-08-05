@@ -41,13 +41,29 @@ export interface GetConnectionTypeArgs {
  */
 export interface GetConnectionTypeResult {
     /**
+     * Gets the creation time.
+     */
+    readonly creationTime: string;
+    /**
+     * Gets or sets the description.
+     */
+    readonly description?: string;
+    /**
+     * Gets the field definitions of the connection type.
+     */
+    readonly fieldDefinitions: {[key: string]: outputs.automation.v20151031.FieldDefinitionResponse};
+    /**
+     * Gets or sets a Boolean value to indicate if the connection type is global.
+     */
+    readonly isGlobal?: boolean;
+    /**
+     * Gets or sets the last modified time.
+     */
+    readonly lastModifiedTime?: string;
+    /**
      * Gets the name of the connection type.
      */
     readonly name: string;
-    /**
-     * Gets or sets the properties of the connection type.
-     */
-    readonly properties: outputs.automation.v20151031.ConnectionTypePropertiesResponse;
     /**
      * Resource type
      */

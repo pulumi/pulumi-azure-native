@@ -41,9 +41,17 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the private endpoint connection
+     * Private endpoint associated with the private endpoint connection
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.signalrservice.v20200501.PrivateEndpointConnectionPropertiesResponse>;
+    public readonly privateEndpoint!: pulumi.Output<outputs.signalrservice.v20200501.PrivateEndpointResponse | undefined>;
+    /**
+     * Connection state
+     */
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.signalrservice.v20200501.PrivateLinkServiceConnectionStateResponse | undefined>;
+    /**
+     * Provisioning state of the private endpoint connection
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */
@@ -76,7 +84,7 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

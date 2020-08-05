@@ -41,13 +41,29 @@ export interface GetMigrationConfigArgs {
  */
 export interface GetMigrationConfigResult {
     /**
+     * State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+     */
+    readonly migrationState: string;
+    /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Properties required to the Create Migration Configuration
+     * Number of entities pending to be replicated.
      */
-    readonly properties: outputs.servicebus.v20170401.MigrationConfigPropertiesResponseProperties;
+    readonly pendingReplicationOperationsCount: number;
+    /**
+     * Name to access Standard Namespace after migration
+     */
+    readonly postMigrationName: string;
+    /**
+     * Provisioning state of Migration Configuration 
+     */
+    readonly provisioningState: string;
+    /**
+     * Existing premium Namespace ARM Id name which has no entities, will be used for migration
+     */
+    readonly targetNamespace: string;
     /**
      * Resource type
      */

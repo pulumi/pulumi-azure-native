@@ -37,6 +37,14 @@ export class VpnGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Local network gateway's BGP speaker settings.
+     */
+    public readonly bgpSettings!: pulumi.Output<outputs.network.v20191101.BgpSettingsResponse | undefined>;
+    /**
+     * List of all vpn connections to the gateway.
+     */
+    public readonly connections!: pulumi.Output<outputs.network.v20191101.VpnConnectionResponse[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +57,9 @@ export class VpnGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the VPN gateway.
+     * The provisioning state of the VPN gateway resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.VpnGatewayPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -60,6 +68,14 @@ export class VpnGateway extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The VirtualHub to which the gateway belongs.
+     */
+    public readonly virtualHub!: pulumi.Output<outputs.network.v20191101.SubResourceResponse | undefined>;
+    /**
+     * The scale unit for this vpn gateway.
+     */
+    public readonly vpnGatewayScaleUnit!: pulumi.Output<number | undefined>;
 
     /**
      * Create a VpnGateway resource with the given unique name, arguments, and options.
@@ -93,7 +109,7 @@ export class VpnGateway extends pulumi.CustomResource {
             inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

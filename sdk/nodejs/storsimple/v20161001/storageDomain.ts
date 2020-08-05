@@ -37,13 +37,21 @@ export class StorageDomain extends pulumi.CustomResource {
     }
 
     /**
+     * The encryption key used to encrypt the data. This is a user secret.
+     */
+    public readonly encryptionKey!: pulumi.Output<outputs.storsimple.v20161001.AsymmetricEncryptedSecretResponse | undefined>;
+    /**
+     * The encryption status "Enabled | Disabled".
+     */
+    public readonly encryptionStatus!: pulumi.Output<string>;
+    /**
      * The name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties.
+     * The storage account credentials.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.StorageDomainPropertiesResponse>;
+    public readonly storageAccountCredentialIds!: pulumi.Output<string[]>;
     /**
      * The type.
      */
@@ -83,7 +91,6 @@ export class StorageDomain extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountCredentialIds"] = args ? args.storageAccountCredentialIds : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

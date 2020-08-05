@@ -37,9 +37,57 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * The unique identifier associated with this Data Lake Store account.
+     */
+    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    /**
+     * The account creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The commitment tier in use for the current month.
+     */
+    public /*out*/ readonly currentTier!: pulumi.Output<string>;
+    /**
+     * The default owner group for all new folders and files created in the Data Lake Store account.
+     */
+    public readonly defaultGroup!: pulumi.Output<string>;
+    /**
+     * The Key Vault encryption configuration.
+     */
+    public readonly encryptionConfig!: pulumi.Output<outputs.datalakestore.v20161101.EncryptionConfigResponse>;
+    /**
+     * The current state of encryption provisioning for this Data Lake Store account.
+     */
+    public /*out*/ readonly encryptionProvisioningState!: pulumi.Output<string>;
+    /**
+     * The current state of encryption for this Data Lake Store account.
+     */
+    public readonly encryptionState!: pulumi.Output<string>;
+    /**
+     * The full CName endpoint for this account.
+     */
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+     */
+    public readonly firewallAllowAzureIps!: pulumi.Output<string>;
+    /**
+     * The list of firewall rules associated with this Data Lake Store account.
+     */
+    public readonly firewallRules!: pulumi.Output<outputs.datalakestore.v20161101.FirewallRuleResponse[]>;
+    /**
+     * The current state of the IP address firewall for this Data Lake Store account.
+     */
+    public readonly firewallState!: pulumi.Output<string>;
+    /**
      * The Key Vault encryption identity, if any.
      */
     public readonly identity!: pulumi.Output<outputs.datalakestore.v20161101.EncryptionIdentityResponse>;
+    /**
+     * The account last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
      * The resource location.
      */
@@ -49,17 +97,37 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Data Lake Store account properties.
+     * The commitment tier to use for next month.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datalakestore.v20161101.DataLakeStoreAccountPropertiesResponse>;
+    public readonly newTier!: pulumi.Output<string>;
+    /**
+     * The provisioning status of the Data Lake Store account.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The state of the Data Lake Store account.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * The resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
+     * The current state of the trusted identity provider feature for this Data Lake Store account.
+     */
+    public readonly trustedIdProviderState!: pulumi.Output<string>;
+    /**
+     * The list of trusted identity providers associated with this Data Lake Store account.
+     */
+    public readonly trustedIdProviders!: pulumi.Output<outputs.datalakestore.v20161101.TrustedIdProviderResponse[]>;
+    /**
      * The resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The list of virtual network rules associated with this Data Lake Store account.
+     */
+    public readonly virtualNetworkRules!: pulumi.Output<outputs.datalakestore.v20161101.VirtualNetworkRuleResponse[]>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -98,7 +166,14 @@ export class Account extends pulumi.CustomResource {
             inputs["trustedIdProviderState"] = args ? args.trustedIdProviderState : undefined;
             inputs["trustedIdProviders"] = args ? args.trustedIdProviders : undefined;
             inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["accountId"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["currentTier"] = undefined /*out*/;
+            inputs["encryptionProvisioningState"] = undefined /*out*/;
+            inputs["endpoint"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

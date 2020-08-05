@@ -37,13 +37,25 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The allow-list custom alert rules.
+     */
+    public readonly allowlistRules!: pulumi.Output<outputs.security.v20190801.AllowlistCustomAlertRuleResponse[] | undefined>;
+    /**
+     * The deny-list custom alert rules.
+     */
+    public readonly denylistRules!: pulumi.Output<outputs.security.v20190801.DenylistCustomAlertRuleResponse[] | undefined>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Device Security group data
+     * The list of custom alert threshold rules.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20190801.DeviceSecurityGroupPropertiesResponse>;
+    public readonly thresholdRules!: pulumi.Output<outputs.security.v20190801.ThresholdCustomAlertRuleResponse[] | undefined>;
+    /**
+     * The list of custom alert time-window rules.
+     */
+    public readonly timeWindowRules!: pulumi.Output<outputs.security.v20190801.TimeWindowCustomAlertRuleResponse[] | undefined>;
     /**
      * Resource type
      */
@@ -74,7 +86,6 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["thresholdRules"] = args ? args.thresholdRules : undefined;
             inputs["timeWindowRules"] = args ? args.timeWindowRules : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

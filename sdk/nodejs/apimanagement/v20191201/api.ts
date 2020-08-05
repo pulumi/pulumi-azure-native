@@ -37,13 +37,81 @@ export class Api extends pulumi.CustomResource {
     }
 
     /**
+     * Describes the Revision of the Api. If no value is provided, default revision 1 is created
+     */
+    public readonly apiRevision!: pulumi.Output<string | undefined>;
+    /**
+     * Description of the Api Revision.
+     */
+    public readonly apiRevisionDescription!: pulumi.Output<string | undefined>;
+    /**
+     * Type of API.
+     */
+    public readonly apiType!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates the Version identifier of the API if the API is versioned
+     */
+    public readonly apiVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Description of the Api Version.
+     */
+    public readonly apiVersionDescription!: pulumi.Output<string | undefined>;
+    /**
+     * Version set details
+     */
+    public readonly apiVersionSet!: pulumi.Output<outputs.apimanagement.v20191201.ApiVersionSetContractDetailsResponse | undefined>;
+    /**
+     * A resource identifier for the related ApiVersionSet.
+     */
+    public readonly apiVersionSetId!: pulumi.Output<string | undefined>;
+    /**
+     * Collection of authentication settings included into this API.
+     */
+    public readonly authenticationSettings!: pulumi.Output<outputs.apimanagement.v20191201.AuthenticationSettingsContractResponse | undefined>;
+    /**
+     * Description of the API. May include HTML formatting tags.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * API name. Must be 1 to 300 characters long.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates if API revision is current api revision.
+     */
+    public readonly isCurrent!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates if API revision is accessible via the gateway.
+     */
+    public /*out*/ readonly isOnline!: pulumi.Output<boolean>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Api entity contract properties.
+     * Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.ApiContractPropertiesResponse>;
+    public readonly path!: pulumi.Output<string>;
+    /**
+     * Describes on which protocols the operations in this API can be invoked.
+     */
+    public readonly protocols!: pulumi.Output<string[] | undefined>;
+    /**
+     * Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+     */
+    public readonly serviceUrl!: pulumi.Output<string | undefined>;
+    /**
+     * API identifier of the source API.
+     */
+    public readonly sourceApiId!: pulumi.Output<string | undefined>;
+    /**
+     * Protocols over which API is made available.
+     */
+    public readonly subscriptionKeyParameterNames!: pulumi.Output<outputs.apimanagement.v20191201.SubscriptionKeyParameterNamesContractResponse | undefined>;
+    /**
+     * Specifies whether an API or Product subscription is required for accessing the API.
+     */
+    public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
     /**
      * Resource type for API Management resource.
      */
@@ -98,7 +166,7 @@ export class Api extends pulumi.CustomResource {
             inputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
             inputs["value"] = args ? args.value : undefined;
             inputs["wsdlSelector"] = args ? args.wsdlSelector : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["isOnline"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -37,17 +37,101 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * The unique identifier associated with this Data Lake Analytics account.
+     */
+    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    /**
+     * The list of compute policies associated with this account.
+     */
+    public readonly computePolicies!: pulumi.Output<outputs.datalakeanalytics.v20161101.ComputePolicyResponse[]>;
+    /**
+     * The account creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The commitment tier in use for the current month.
+     */
+    public /*out*/ readonly currentTier!: pulumi.Output<string>;
+    /**
+     * The list of Data Lake Store accounts associated with this account.
+     */
+    public readonly dataLakeStoreAccounts!: pulumi.Output<outputs.datalakeanalytics.v20161101.DataLakeStoreAccountInformationResponse[]>;
+    /**
+     * The default Data Lake Store account associated with this account.
+     */
+    public readonly defaultDataLakeStoreAccount!: pulumi.Output<string>;
+    /**
+     * The full CName endpoint for this account.
+     */
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+     */
+    public readonly firewallAllowAzureIps!: pulumi.Output<string>;
+    /**
+     * The list of firewall rules associated with this account.
+     */
+    public readonly firewallRules!: pulumi.Output<outputs.datalakeanalytics.v20161101.FirewallRuleResponse[]>;
+    /**
+     * The current state of the IP address firewall for this account.
+     */
+    public readonly firewallState!: pulumi.Output<string>;
+    /**
+     * The account last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The maximum supported degree of parallelism for this account.
+     */
+    public readonly maxDegreeOfParallelism!: pulumi.Output<number>;
+    /**
+     * The maximum supported degree of parallelism per job for this account.
+     */
+    public readonly maxDegreeOfParallelismPerJob!: pulumi.Output<number>;
+    /**
+     * The maximum supported jobs running under the account at the same time.
+     */
+    public readonly maxJobCount!: pulumi.Output<number>;
+    /**
+     * The minimum supported priority per job for this account.
+     */
+    public readonly minPriorityPerJob!: pulumi.Output<number>;
     /**
      * The resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties defined by Data Lake Analytics all properties are specific to each resource provider.
+     * The commitment tier for the next month.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datalakeanalytics.v20161101.DataLakeAnalyticsAccountPropertiesResponse>;
+    public readonly newTier!: pulumi.Output<string>;
+    /**
+     * The provisioning status of the Data Lake Analytics account.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The number of days that job metadata is retained.
+     */
+    public readonly queryStoreRetention!: pulumi.Output<number>;
+    /**
+     * The state of the Data Lake Analytics account.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * The list of Azure Blob Storage accounts associated with this account.
+     */
+    public readonly storageAccounts!: pulumi.Output<outputs.datalakeanalytics.v20161101.StorageAccountInformationResponse[]>;
+    /**
+     * The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
+     */
+    public /*out*/ readonly systemMaxDegreeOfParallelism!: pulumi.Output<number>;
+    /**
+     * The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
+     */
+    public /*out*/ readonly systemMaxJobCount!: pulumi.Output<number>;
     /**
      * The resource tags.
      */
@@ -102,7 +186,15 @@ export class Account extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["accountId"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["currentTier"] = undefined /*out*/;
+            inputs["endpoint"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["systemMaxDegreeOfParallelism"] = undefined /*out*/;
+            inputs["systemMaxJobCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

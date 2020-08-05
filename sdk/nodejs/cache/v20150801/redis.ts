@@ -37,6 +37,18 @@ export class Redis extends pulumi.CustomResource {
     }
 
     /**
+     * Redis cache access keys.
+     */
+    public /*out*/ readonly accessKeys!: pulumi.Output<outputs.cache.v20150801.RedisAccessKeysResponse | undefined>;
+    /**
+     * If the value is true, then the non-SLL Redis server port (6379) will be enabled.
+     */
+    public readonly enableNonSslPort!: pulumi.Output<boolean | undefined>;
+    /**
+     * Redis host name.
+     */
+    public /*out*/ readonly hostName!: pulumi.Output<string | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,17 +57,57 @@ export class Redis extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Redis cache properties.
+     * Redis non-SSL port.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cache.v20150801.RedisReadablePropertiesWithAccessKeyResponse>;
+    public /*out*/ readonly port!: pulumi.Output<number | undefined>;
+    /**
+     * Redis instance provisioning status.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+     */
+    public readonly redisConfiguration!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
+     */
+    public readonly redisVersion!: pulumi.Output<string | undefined>;
+    /**
+     * The number of shards to be created on a Premium Cluster Cache.
+     */
+    public readonly shardCount!: pulumi.Output<number | undefined>;
+    /**
+     * What SKU of Redis cache to deploy.
+     */
+    public readonly sku!: pulumi.Output<outputs.cache.v20150801.SkuResponse>;
+    /**
+     * Redis SSL port.
+     */
+    public /*out*/ readonly sslPort!: pulumi.Output<number | undefined>;
+    /**
+     * Required when deploying a Redis cache inside an existing Azure Virtual Network.
+     */
+    public readonly staticIP!: pulumi.Output<string | undefined>;
+    /**
+     * Required when deploying a Redis cache inside an existing Azure Virtual Network.
+     */
+    public readonly subnet!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * tenantSettings
+     */
+    public readonly tenantSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
+     */
+    public readonly virtualNetwork!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Redis resource with the given unique name, arguments, and options.
@@ -95,7 +147,11 @@ export class Redis extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenantSettings"] = args ? args.tenantSettings : undefined;
             inputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["accessKeys"] = undefined /*out*/;
+            inputs["hostName"] = undefined /*out*/;
+            inputs["port"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["sslPort"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -41,13 +41,33 @@ export interface GetStreamingPolicyArgs {
  */
 export interface GetStreamingPolicyResult {
     /**
+     * Configuration of CommonEncryptionCbcs
+     */
+    readonly commonEncryptionCbcs?: outputs.media.v20180701.CommonEncryptionCbcsResponse;
+    /**
+     * Configuration of CommonEncryptionCenc
+     */
+    readonly commonEncryptionCenc?: outputs.media.v20180701.CommonEncryptionCencResponse;
+    /**
+     * Creation time of Streaming Policy
+     */
+    readonly created: string;
+    /**
+     * Default ContentKey used by current Streaming Policy
+     */
+    readonly defaultContentKeyPolicyName?: string;
+    /**
+     * Configuration of EnvelopeEncryption
+     */
+    readonly envelopeEncryption?: outputs.media.v20180701.EnvelopeEncryptionResponse;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * Class to specify properties of Streaming Policy
+     * Configurations of NoEncryption
      */
-    readonly properties: outputs.media.v20180701.StreamingPolicyPropertiesResponse;
+    readonly noEncryption?: outputs.media.v20180701.NoEncryptionResponse;
     /**
      * The type of the resource.
      */

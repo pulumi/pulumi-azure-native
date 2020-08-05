@@ -46,6 +46,26 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
+     * The creation date of the policy.
+     */
+    readonly createdDate: string;
+    /**
+     * The description of the policy.
+     */
+    readonly description?: string;
+    /**
+     * The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+     */
+    readonly evaluatorType?: string;
+    /**
+     * The fact data of the policy.
+     */
+    readonly factData?: string;
+    /**
+     * The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+     */
+    readonly factName?: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;
@@ -54,15 +74,27 @@ export interface GetPolicyResult {
      */
     readonly name: string;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties: outputs.devtestlab.v20160515.PolicyPropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * The status of the policy.
+     */
+    readonly status?: string;
     /**
      * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+     */
+    readonly threshold?: string;
+    /**
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: string;
 }

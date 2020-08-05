@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,81 @@ export class RegisteredServer extends pulumi.CustomResource {
     }
 
     /**
+     * Registered Server Agent Version
+     */
+    public readonly agentVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Registered Server clusterId
+     */
+    public readonly clusterId!: pulumi.Output<string | undefined>;
+    /**
+     * Registered Server clusterName
+     */
+    public readonly clusterName!: pulumi.Output<string | undefined>;
+    /**
+     * Resource discoveryEndpointUri
+     */
+    public /*out*/ readonly discoveryEndpointUri!: pulumi.Output<string | undefined>;
+    /**
+     * Friendly Name
+     */
+    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    /**
+     * Registered Server last heart beat
+     */
+    public readonly lastHeartBeat!: pulumi.Output<string | undefined>;
+    /**
+     * Resource Last Operation Name
+     */
+    public /*out*/ readonly lastOperationName!: pulumi.Output<string | undefined>;
+    /**
+     * Registered Server lastWorkflowId
+     */
+    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string | undefined>;
+    /**
+     * Management Endpoint Uri
+     */
+    public /*out*/ readonly managementEndpointUri!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * RegisteredServer properties.
+     * Registered Server Provisioning State
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20180402.RegisteredServerPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Resource Location
+     */
+    public /*out*/ readonly resourceLocation!: pulumi.Output<string | undefined>;
+    /**
+     * Registered Server Certificate
+     */
+    public readonly serverCertificate!: pulumi.Output<string | undefined>;
+    /**
+     * Registered Server serverId
+     */
+    public /*out*/ readonly serverId!: pulumi.Output<string | undefined>;
+    /**
+     * Registered Server Management Error Code
+     */
+    public /*out*/ readonly serverManagementtErrorCode!: pulumi.Output<number | undefined>;
+    /**
+     * Registered Server OS Version
+     */
+    public readonly serverOSVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Registered Server serverRole
+     */
+    public readonly serverRole!: pulumi.Output<string | undefined>;
+    /**
+     * Service Location
+     */
+    public /*out*/ readonly serviceLocation!: pulumi.Output<string | undefined>;
+    /**
+     * Registered Server storageSyncServiceUid
+     */
+    public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -84,7 +150,16 @@ export class RegisteredServer extends pulumi.CustomResource {
             inputs["serverRole"] = args ? args.serverRole : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["discoveryEndpointUri"] = undefined /*out*/;
+            inputs["lastOperationName"] = undefined /*out*/;
+            inputs["lastWorkflowId"] = undefined /*out*/;
+            inputs["managementEndpointUri"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceLocation"] = undefined /*out*/;
+            inputs["serverId"] = undefined /*out*/;
+            inputs["serverManagementtErrorCode"] = undefined /*out*/;
+            inputs["serviceLocation"] = undefined /*out*/;
+            inputs["storageSyncServiceUid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -37,6 +37,22 @@ export class BatchAccount extends pulumi.CustomResource {
     }
 
     /**
+     * The endpoint used by this account to interact with the Batch services.
+     */
+    public /*out*/ readonly accountEndpoint!: pulumi.Output<string>;
+    /**
+     * The active job and job schedule quota for this Batch account.
+     */
+    public /*out*/ readonly activeJobAndJobScheduleQuota!: pulumi.Output<number>;
+    /**
+     * The properties and status of any auto storage account associated with the account.
+     */
+    public readonly autoStorage!: pulumi.Output<outputs.batch.v20151201.AutoStoragePropertiesResponse | undefined>;
+    /**
+     * The core quota for this Batch account.
+     */
+    public /*out*/ readonly coreQuota!: pulumi.Output<number>;
+    /**
      * The location of the resource
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +61,13 @@ export class BatchAccount extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties associated with the account.
+     * The pool quota for this Batch account.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.batch.v20151201.BatchAccountPropertiesResponse>;
+    public /*out*/ readonly poolQuota!: pulumi.Output<number>;
+    /**
+     * The provisioned state of the resource
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource
      */
@@ -84,7 +104,11 @@ export class BatchAccount extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["accountEndpoint"] = undefined /*out*/;
+            inputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
+            inputs["coreQuota"] = undefined /*out*/;
+            inputs["poolQuota"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

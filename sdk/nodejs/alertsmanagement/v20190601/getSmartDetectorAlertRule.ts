@@ -41,6 +41,22 @@ export interface GetSmartDetectorAlertRuleArgs {
  */
 export interface GetSmartDetectorAlertRuleResult {
     /**
+     * The alert rule actions.
+     */
+    readonly actionGroups: outputs.alertsmanagement.v20190601.ActionGroupsInformationResponse;
+    /**
+     * The alert rule description.
+     */
+    readonly description?: string;
+    /**
+     * The alert rule's detector.
+     */
+    readonly detector: outputs.alertsmanagement.v20190601.DetectorResponse;
+    /**
+     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+     */
+    readonly frequency: string;
+    /**
      * The resource location.
      */
     readonly location?: string;
@@ -49,13 +65,25 @@ export interface GetSmartDetectorAlertRuleResult {
      */
     readonly name: string;
     /**
-     * The properties of the alert rule.
+     * The alert rule resources scope.
      */
-    readonly properties: outputs.alertsmanagement.v20190601.AlertRulePropertiesResponse;
+    readonly scope: string[];
+    /**
+     * The alert rule severity.
+     */
+    readonly severity: string;
+    /**
+     * The alert rule state.
+     */
+    readonly state: string;
     /**
      * The resource tags.
      */
     readonly tags?: {[key: string]: any};
+    /**
+     * The alert rule throttling information.
+     */
+    readonly throttling?: outputs.alertsmanagement.v20190601.ThrottlingInformationResponse;
     /**
      * The resource type.
      */

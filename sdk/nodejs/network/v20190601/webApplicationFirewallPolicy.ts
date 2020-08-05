@@ -37,6 +37,14 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * A collection of references to application gateways.
+     */
+    public /*out*/ readonly applicationGateways!: pulumi.Output<outputs.network.v20190601.ApplicationGatewayResponse[]>;
+    /**
+     * Describes custom rules inside the policy.
+     */
+    public readonly customRules!: pulumi.Output<outputs.network.v20190601.WebApplicationFirewallCustomRuleResponse[] | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -49,9 +57,17 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the web application firewall policy.
+     * Describes policySettings for policy.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190601.WebApplicationFirewallPolicyPropertiesFormatResponse>;
+    public readonly policySettings!: pulumi.Output<outputs.network.v20190601.PolicySettingsResponse | undefined>;
+    /**
+     * Provisioning state of the WebApplicationFirewallPolicy.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource status of the policy.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -88,7 +104,9 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             inputs["policySettings"] = args ? args.policySettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["applicationGateways"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

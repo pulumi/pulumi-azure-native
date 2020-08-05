@@ -37,13 +37,17 @@ export class ManagementPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Returns the date and time the ManagementPolicies was last modified.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Returns the Storage Account Data Policies Rules.
+     * The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190401.ManagementPolicyPropertiesResponse>;
+    public readonly policy!: pulumi.Output<outputs.storage.v20190401.ManagementPolicySchemaResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -78,7 +82,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

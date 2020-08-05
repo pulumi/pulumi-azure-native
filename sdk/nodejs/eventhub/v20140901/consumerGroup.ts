@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class ConsumerGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Exact time the message was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The path of the Event Hub.
+     */
+    public /*out*/ readonly eventHubPath!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,13 +51,17 @@ export class ConsumerGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20140901.ConsumerGroupPropertiesResponse>;
-    /**
      * Resource type
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * The exact time the message was updated.
+     */
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * The user metadata.
+     */
+    public readonly userMetadata!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ConsumerGroup resource with the given unique name, arguments, and options.
@@ -88,7 +98,9 @@ export class ConsumerGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["userMetadata"] = args ? args.userMetadata : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["eventHubPath"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

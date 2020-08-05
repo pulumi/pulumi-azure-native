@@ -37,17 +37,46 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
+     * Endpoint for the domain.
+     */
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+     */
+    public readonly inboundIpRules!: pulumi.Output<outputs.eventgrid.v20200601.InboundIpRuleResponse[] | undefined>;
+    /**
+     * This determines the format that Event Grid should expect for incoming events published to the domain.
+     */
+    public readonly inputSchema!: pulumi.Output<string | undefined>;
+    /**
+     * Information about the InputSchemaMapping which specified the info about mapping event payload.
+     */
+    public readonly inputSchemaMapping!: pulumi.Output<outputs.eventgrid.v20200601.InputSchemaMappingResponse | undefined>;
+    /**
      * Location of the resource.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Metric resource id for the domain.
+     */
+    public /*out*/ readonly metricResourceId!: pulumi.Output<string>;
     /**
      * Name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the domain.
+     * List of private endpoint connections.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.eventgrid.v20200601.DomainPropertiesResponse>;
+    public readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.v20200601.PrivateEndpointConnectionResponse[] | undefined>;
+    /**
+     * Provisioning state of the domain.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled. 
+     * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Tags of the resource.
      */
@@ -88,7 +117,9 @@ export class Domain extends pulumi.CustomResource {
             inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["endpoint"] = undefined /*out*/;
+            inputs["metricResourceId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

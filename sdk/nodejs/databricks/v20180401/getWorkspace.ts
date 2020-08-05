@@ -36,21 +36,45 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * The workspace provider authorizations.
+     */
+    readonly authorizations?: outputs.databricks.v20180401.WorkspaceProviderAuthorizationResponse[];
+    /**
+     * Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+     */
+    readonly createdBy?: outputs.databricks.v20180401.CreatedByResponse;
+    /**
+     * Specifies the date and time when the workspace is created.
+     */
+    readonly createdDateTime?: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * The managed resource group Id.
+     */
+    readonly managedResourceGroupId: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The workspace properties.
+     * The workspace's custom parameters.
      */
-    readonly properties: outputs.databricks.v20180401.WorkspacePropertiesResponse;
+    readonly parameters?: outputs.databricks.v20180401.WorkspaceCustomParametersResponse;
+    /**
+     * The workspace provisioning state.
+     */
+    readonly provisioningState: string;
     /**
      * The SKU of the resource.
      */
     readonly sku?: outputs.databricks.v20180401.SkuResponse;
+    /**
+     * The details of Managed Identity of Storage Account
+     */
+    readonly storageAccountIdentity?: outputs.databricks.v20180401.ManagedIdentityConfigurationResponse;
     /**
      * Resource tags.
      */
@@ -59,4 +83,20 @@ export interface GetWorkspaceResult {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     readonly type: string;
+    /**
+     * The blob URI where the UI definition file is located.
+     */
+    readonly uiDefinitionUri?: string;
+    /**
+     * Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+     */
+    readonly updatedBy?: outputs.databricks.v20180401.CreatedByResponse;
+    /**
+     * The unique identifier of the databricks workspace in databricks control plane.
+     */
+    readonly workspaceId: string;
+    /**
+     * The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+     */
+    readonly workspaceUrl: string;
 }

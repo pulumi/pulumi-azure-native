@@ -46,17 +46,49 @@ export interface GetDiskArgs {
  */
 export interface GetDiskResult {
     /**
+     * The creation date of the disk.
+     */
+    readonly createdDate: string;
+    /**
+     * When backed by a blob, the name of the VHD blob without extension.
+     */
+    readonly diskBlobName?: string;
+    /**
+     * The size of the disk in GibiBytes.
+     */
+    readonly diskSizeGiB?: number;
+    /**
+     * The storage type for the disk (i.e. Standard, Premium).
+     */
+    readonly diskType?: string;
+    /**
+     * When backed by a blob, the URI of underlying blob.
+     */
+    readonly diskUri?: string;
+    /**
+     * The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+     */
+    readonly hostCaching?: string;
+    /**
+     * The resource ID of the VM to which this disk is leased.
+     */
+    readonly leasedByLabVmId?: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;
+    /**
+     * When backed by managed disk, this is the ID of the compute disk resource.
+     */
+    readonly managedDiskId?: string;
     /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties: outputs.devtestlab.v20180915.DiskPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * The tags of the resource.
      */
@@ -65,4 +97,8 @@ export interface GetDiskResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier: string;
 }

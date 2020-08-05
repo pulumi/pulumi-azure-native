@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,9 +43,17 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The properties of the Virtual Router Peering.
+     * Peer ASN.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.VirtualRouterPeeringPropertiesResponse>;
+    public readonly peerAsn!: pulumi.Output<number | undefined>;
+    /**
+     * Peer IP.
+     */
+    public readonly peerIp!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Peering type.
      */
@@ -82,7 +88,7 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -37,6 +37,10 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
     }
 
     /**
+     * A list of references to all availability sets in the proximity placement group.
+     */
+    public /*out*/ readonly availabilitySets!: pulumi.Output<outputs.compute.v20180401.SubResourceResponse[]>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +49,9 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Describes the properties of a Proximity Placement Group.
+     * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20180401.ProximityPlacementGroupPropertiesResponse>;
+    public readonly proximityPlacementGroupType!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -56,6 +60,14 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * A list of references to all virtual machine scale sets in the proximity placement group.
+     */
+    public /*out*/ readonly virtualMachineScaleSets!: pulumi.Output<outputs.compute.v20180401.SubResourceResponse[]>;
+    /**
+     * A list of references to all virtual machines in the proximity placement group.
+     */
+    public /*out*/ readonly virtualMachines!: pulumi.Output<outputs.compute.v20180401.SubResourceResponse[]>;
 
     /**
      * Create a ProximityPlacementGroup resource with the given unique name, arguments, and options.
@@ -84,8 +96,10 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
             inputs["proximityPlacementGroupType"] = args ? args.proximityPlacementGroupType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["availabilitySets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualMachineScaleSets"] = undefined /*out*/;
+            inputs["virtualMachines"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

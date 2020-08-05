@@ -37,17 +37,29 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
+     * The time the namespace was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Identifier for Azure Insights metrics
+     */
+    public /*out*/ readonly metricId!: pulumi.Output<string>;
     /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Description of Relay Namespace
+     * Provisioning state of the namespace.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.relay.v20160701.RelayNamespacePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Endpoint you can use to perform Service Bus operations.
+     */
+    public /*out*/ readonly serviceBusEndpoint!: pulumi.Output<string>;
     /**
      * Sku of the Namespace.
      */
@@ -60,6 +72,10 @@ export class Namespace extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The time the namespace was updated.
+     */
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -88,8 +104,12 @@ export class Namespace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["metricId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["serviceBusEndpoint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

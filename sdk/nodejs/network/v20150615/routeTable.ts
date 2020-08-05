@@ -49,9 +49,17 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Route Table resource
+     * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20150615.RouteTablePropertiesFormatResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Collection of routes contained within a route table.
+     */
+    public readonly routes!: pulumi.Output<outputs.network.v20150615.RouteResponse[] | undefined>;
+    /**
+     * A collection of references to subnets.
+     */
+    public readonly subnets!: pulumi.Output<outputs.network.v20150615.SubnetResponse[] | undefined>;
     /**
      * Resource tags.
      */
@@ -89,7 +97,6 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["routes"] = args ? args.routes : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

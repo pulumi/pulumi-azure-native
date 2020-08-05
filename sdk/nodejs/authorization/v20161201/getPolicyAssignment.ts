@@ -36,13 +36,29 @@ export interface GetPolicyAssignmentArgs {
  */
 export interface GetPolicyAssignmentResult {
     /**
+     * This message will be part of response in case of policy violation.
+     */
+    readonly description?: string;
+    /**
+     * The display name of the policy assignment.
+     */
+    readonly displayName?: string;
+    /**
      * The name of the policy assignment.
      */
     readonly name?: string;
     /**
-     * Properties for the policy assignment.
+     * Required if a parameter is used in policy rule.
      */
-    readonly properties: outputs.authorization.v20161201.PolicyAssignmentPropertiesResponse;
+    readonly parameters?: {[key: string]: any};
+    /**
+     * The ID of the policy definition.
+     */
+    readonly policyDefinitionId?: string;
+    /**
+     * The scope for the policy assignment.
+     */
+    readonly scope?: string;
     /**
      * The type of the policy assignment.
      */

@@ -46,15 +46,43 @@ export interface GetApiOperationArgs {
  */
 export interface GetApiOperationResult {
     /**
+     * Description of the operation. May include HTML formatting tags.
+     */
+    readonly description?: string;
+    /**
+     * Operation Name.
+     */
+    readonly displayName: string;
+    /**
+     * A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+     */
+    readonly method: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the Operation Contract.
+     * Operation Policies
      */
-    readonly properties: outputs.apimanagement.v20190101.OperationContractPropertiesResponse;
+    readonly policies?: string;
+    /**
+     * An entity containing request details.
+     */
+    readonly request?: outputs.apimanagement.v20190101.RequestContractResponse;
+    /**
+     * Array of Operation responses.
+     */
+    readonly responses?: outputs.apimanagement.v20190101.ResponseContractResponse[];
+    /**
+     * Collection of URL template parameters.
+     */
+    readonly templateParameters?: outputs.apimanagement.v20190101.ParameterContractResponse[];
     /**
      * Resource type for API Management resource.
      */
     readonly type: string;
+    /**
+     * Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+     */
+    readonly urlTemplate: string;
 }

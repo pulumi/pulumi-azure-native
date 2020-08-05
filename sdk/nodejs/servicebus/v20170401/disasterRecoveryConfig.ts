@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,29 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
     }
 
     /**
+     * Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+     */
+    public readonly alternateName!: pulumi.Output<string | undefined>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+     * ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20170401.ArmDisasterRecoveryResponseProperties>;
+    public readonly partnerNamespace!: pulumi.Output<string | undefined>;
+    /**
+     * Number of entities pending to be replicated.
+     */
+    public /*out*/ readonly pendingReplicationOperationsCount!: pulumi.Output<number>;
+    /**
+     * Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+     */
+    public /*out*/ readonly role!: pulumi.Output<string>;
     /**
      * Resource type
      */
@@ -76,7 +90,9 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["partnerNamespace"] = args ? args.partnerNamespace : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["pendingReplicationOperationsCount"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["role"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

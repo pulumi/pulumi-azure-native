@@ -37,33 +37,89 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
+     */
+    public readonly additionalCapabilities!: pulumi.Output<outputs.compute.v20200601.AdditionalCapabilitiesResponse | undefined>;
+    /**
+     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+     */
+    public readonly availabilitySet!: pulumi.Output<outputs.compute.v20200601.SubResourceResponse | undefined>;
+    /**
+     * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+     */
+    public readonly diagnosticsProfile!: pulumi.Output<outputs.compute.v20200601.DiagnosticsProfileResponse | undefined>;
+    /**
+     * Specifies the hardware settings for the virtual machine.
+     */
+    public readonly hardwareProfile!: pulumi.Output<outputs.compute.v20200601.HardwareProfileResponse | undefined>;
+    /**
      * The virtual machine instance ID.
      */
     public /*out*/ readonly instanceId!: pulumi.Output<string>;
+    /**
+     * The virtual machine instance view.
+     */
+    public /*out*/ readonly instanceView!: pulumi.Output<outputs.compute.v20200601.VirtualMachineScaleSetVMInstanceViewResponse>;
+    /**
+     * Specifies whether the latest model has been applied to the virtual machine.
+     */
+    public /*out*/ readonly latestModelApplied!: pulumi.Output<boolean>;
+    /**
+     * Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
+     */
+    public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Specifies whether the model applied to the virtual machine is the model of the virtual machine scale set or the customized model for the virtual machine.
+     */
+    public /*out*/ readonly modelDefinitionApplied!: pulumi.Output<string>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the network interfaces of the virtual machine.
+     */
+    public readonly networkProfile!: pulumi.Output<outputs.compute.v20200601.NetworkProfileResponse | undefined>;
+    /**
+     * Specifies the network profile configuration of the virtual machine.
+     */
+    public readonly networkProfileConfiguration!: pulumi.Output<outputs.compute.v20200601.VirtualMachineScaleSetVMNetworkProfileConfigurationResponse | undefined>;
+    /**
+     * Specifies the operating system settings for the virtual machine.
+     */
+    public readonly osProfile!: pulumi.Output<outputs.compute.v20200601.OSProfileResponse | undefined>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
     public readonly plan!: pulumi.Output<outputs.compute.v20200601.PlanResponse | undefined>;
     /**
-     * Describes the properties of a virtual machine scale set virtual machine.
+     * Specifies the protection policy of the virtual machine.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20200601.VirtualMachineScaleSetVMPropertiesResponse>;
+    public readonly protectionPolicy!: pulumi.Output<outputs.compute.v20200601.VirtualMachineScaleSetVMProtectionPolicyResponse | undefined>;
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The virtual machine child extension resources.
      */
     public /*out*/ readonly resources!: pulumi.Output<outputs.compute.v20200601.VirtualMachineExtensionResponse[]>;
     /**
+     * Specifies the Security related profile settings for the virtual machine.
+     */
+    public readonly securityProfile!: pulumi.Output<outputs.compute.v20200601.SecurityProfileResponse | undefined>;
+    /**
      * The virtual machine SKU.
      */
     public /*out*/ readonly sku!: pulumi.Output<outputs.compute.v20200601.SkuResponse>;
+    /**
+     * Specifies the storage settings for the virtual machine disks.
+     */
+    public readonly storageProfile!: pulumi.Output<outputs.compute.v20200601.StorageProfileResponse | undefined>;
     /**
      * Resource tags
      */
@@ -72,6 +128,10 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Azure VM unique ID.
+     */
+    public /*out*/ readonly vmId!: pulumi.Output<string>;
     /**
      * The virtual machine zones.
      */
@@ -120,10 +180,14 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
             inputs["instanceId"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["instanceView"] = undefined /*out*/;
+            inputs["latestModelApplied"] = undefined /*out*/;
+            inputs["modelDefinitionApplied"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["resources"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["vmId"] = undefined /*out*/;
             inputs["zones"] = undefined /*out*/;
         }
         if (!opts) {

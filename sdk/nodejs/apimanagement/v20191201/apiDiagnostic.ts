@@ -37,17 +37,45 @@ export class ApiDiagnostic extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies for what type of messages sampling settings should not apply.
+     */
+    public readonly alwaysLog!: pulumi.Output<string | undefined>;
+    /**
+     * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+     */
+    public readonly backend!: pulumi.Output<outputs.apimanagement.v20191201.PipelineDiagnosticSettingsResponse | undefined>;
+    /**
+     * Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+     */
+    public readonly frontend!: pulumi.Output<outputs.apimanagement.v20191201.PipelineDiagnosticSettingsResponse | undefined>;
+    /**
+     * Sets correlation protocol to use for Application Insights diagnostics.
+     */
+    public readonly httpCorrelationProtocol!: pulumi.Output<string | undefined>;
+    /**
+     * Log the ClientIP. Default is false.
+     */
+    public readonly logClientIp!: pulumi.Output<boolean | undefined>;
+    /**
+     * Resource Id of a target logger.
+     */
+    public readonly loggerId!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Diagnostic entity contract properties.
+     * Sampling settings for Diagnostic.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.DiagnosticContractPropertiesResponse>;
+    public readonly sampling!: pulumi.Output<outputs.apimanagement.v20191201.SamplingSettingsResponse | undefined>;
     /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The verbosity level applied to traces emitted by trace policies.
+     */
+    public readonly verbosity!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiDiagnostic resource with the given unique name, arguments, and options.
@@ -89,7 +117,6 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             inputs["sampling"] = args ? args.sampling : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["verbosity"] = args ? args.verbosity : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

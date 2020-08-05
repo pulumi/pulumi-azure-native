@@ -37,9 +37,37 @@ export class ApplicationGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Authentication certificates of the application gateway resource.
+     */
+    public readonly authenticationCertificates!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayAuthenticationCertificateResponse[] | undefined>;
+    /**
+     * Backend address pool of the application gateway resource.
+     */
+    public readonly backendAddressPools!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayBackendAddressPoolResponse[] | undefined>;
+    /**
+     * Backend http settings of the application gateway resource.
+     */
+    public readonly backendHttpSettingsCollection!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayBackendHttpSettingsResponse[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Frontend IP addresses of the application gateway resource.
+     */
+    public readonly frontendIPConfigurations!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayFrontendIPConfigurationResponse[] | undefined>;
+    /**
+     * Frontend ports of the application gateway resource.
+     */
+    public readonly frontendPorts!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayFrontendPortResponse[] | undefined>;
+    /**
+     * Subnets of application the gateway resource.
+     */
+    public readonly gatewayIPConfigurations!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayIPConfigurationResponse[] | undefined>;
+    /**
+     * Http listeners of the application gateway resource.
+     */
+    public readonly httpListeners!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayHttpListenerResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +77,41 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the application gateway.
+     * Operational state of the application gateway resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayPropertiesFormatResponse>;
+    public /*out*/ readonly operationalState!: pulumi.Output<string>;
+    /**
+     * Probes of the application gateway resource.
+     */
+    public readonly probes!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayProbeResponse[] | undefined>;
+    /**
+     * Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Redirect configurations of the application gateway resource.
+     */
+    public readonly redirectConfigurations!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayRedirectConfigurationResponse[] | undefined>;
+    /**
+     * Request routing rules of the application gateway resource.
+     */
+    public readonly requestRoutingRules!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayRequestRoutingRuleResponse[] | undefined>;
+    /**
+     * Resource GUID property of the application gateway resource.
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
+     * SKU of the application gateway resource.
+     */
+    public readonly sku!: pulumi.Output<outputs.network.v20170901.ApplicationGatewaySkuResponse | undefined>;
+    /**
+     * SSL certificates of the application gateway resource.
+     */
+    public readonly sslCertificates!: pulumi.Output<outputs.network.v20170901.ApplicationGatewaySslCertificateResponse[] | undefined>;
+    /**
+     * SSL policy of the application gateway resource.
+     */
+    public readonly sslPolicy!: pulumi.Output<outputs.network.v20170901.ApplicationGatewaySslPolicyResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +120,14 @@ export class ApplicationGateway extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * URL path map of the application gateway resource.
+     */
+    public readonly urlPathMaps!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayUrlPathMapResponse[] | undefined>;
+    /**
+     * Web application firewall configuration.
+     */
+    public readonly webApplicationFirewallConfiguration!: pulumi.Output<outputs.network.v20170901.ApplicationGatewayWebApplicationFirewallConfigurationResponse | undefined>;
 
     /**
      * Create a ApplicationGateway resource with the given unique name, arguments, and options.
@@ -103,7 +171,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
             inputs["webApplicationFirewallConfiguration"] = args ? args.webApplicationFirewallConfiguration : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["operationalState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

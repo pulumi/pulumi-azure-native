@@ -51,15 +51,43 @@ export interface GetIscsiDiskArgs {
  */
 export interface GetIscsiDiskResult {
     /**
+     * The access control records.
+     */
+    readonly accessControlRecords: string[];
+    /**
+     * The data policy.
+     */
+    readonly dataPolicy: string;
+    /**
+     * The description.
+     */
+    readonly description?: string;
+    /**
+     * The disk status.
+     */
+    readonly diskStatus: string;
+    /**
+     * The local used capacity in bytes.
+     */
+    readonly localUsedCapacityInBytes: number;
+    /**
+     * The monitoring.
+     */
+    readonly monitoringStatus: string;
+    /**
      * The name.
      */
     readonly name: string;
     /**
-     * The properties.
+     * The provisioned capacity in bytes.
      */
-    readonly properties: outputs.storsimple.v20161001.ISCSIDiskPropertiesResponse;
+    readonly provisionedCapacityInBytes: number;
     /**
      * The type.
      */
     readonly type: string;
+    /**
+     * The used capacity in bytes.
+     */
+    readonly usedCapacityInBytes: number;
 }

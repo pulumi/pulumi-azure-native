@@ -37,9 +37,33 @@ export class PrivateLinkService extends pulumi.CustomResource {
     }
 
     /**
+     * The alias of the private link service.
+     */
+    public /*out*/ readonly alias!: pulumi.Output<string>;
+    /**
+     * The auto-approval list of the private link service.
+     */
+    public readonly autoApproval!: pulumi.Output<outputs.network.v20191101.PrivateLinkServicePropertiesResponseAutoApproval | undefined>;
+    /**
+     * Whether the private link service is enabled for proxy protocol or not.
+     */
+    public readonly enableProxyProtocol!: pulumi.Output<boolean | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The list of Fqdn.
+     */
+    public readonly fqdns!: pulumi.Output<string[] | undefined>;
+    /**
+     * An array of private link service IP configurations.
+     */
+    public readonly ipConfigurations!: pulumi.Output<outputs.network.v20191101.PrivateLinkServiceIpConfigurationResponse[] | undefined>;
+    /**
+     * An array of references to the load balancer IP configurations.
+     */
+    public readonly loadBalancerFrontendIpConfigurations!: pulumi.Output<outputs.network.v20191101.FrontendIPConfigurationResponse[] | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +73,17 @@ export class PrivateLinkService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the private link service.
+     * An array of references to the network interfaces created for this private link service.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.PrivateLinkServicePropertiesResponse>;
+    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.network.v20191101.NetworkInterfaceResponse[]>;
+    /**
+     * An array of list about connections to the private endpoint.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.network.v20191101.PrivateEndpointConnectionResponse[]>;
+    /**
+     * The provisioning state of the private link service resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -60,6 +92,10 @@ export class PrivateLinkService extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The visibility list of the private link service.
+     */
+    public readonly visibility!: pulumi.Output<outputs.network.v20191101.PrivateLinkServicePropertiesResponseVisibility | undefined>;
 
     /**
      * Create a PrivateLinkService resource with the given unique name, arguments, and options.
@@ -91,8 +127,11 @@ export class PrivateLinkService extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["visibility"] = args ? args.visibility : undefined;
+            inputs["alias"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["networkInterfaces"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -36,21 +36,49 @@ export interface GetWebApplicationFirewallPolicyArgs {
  */
 export interface GetWebApplicationFirewallPolicyResult {
     /**
+     * A collection of references to application gateways.
+     */
+    readonly applicationGateways: outputs.network.v20191201.ApplicationGatewayResponse[];
+    /**
+     * The custom rules inside the policy.
+     */
+    readonly customRules?: outputs.network.v20191201.WebApplicationFirewallCustomRuleResponse[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * A collection of references to application gateway http listeners.
+     */
+    readonly httpListeners: outputs.network.v20191201.SubResourceResponse[];
     /**
      * Resource location.
      */
     readonly location?: string;
     /**
+     * Describes the managedRules structure.
+     */
+    readonly managedRules: outputs.network.v20191201.ManagedRulesDefinitionResponse;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the web application firewall policy.
+     * A collection of references to application gateway path rules.
      */
-    readonly properties: outputs.network.v20191201.WebApplicationFirewallPolicyPropertiesFormatResponse;
+    readonly pathBasedRules: outputs.network.v20191201.SubResourceResponse[];
+    /**
+     * The PolicySettings for policy.
+     */
+    readonly policySettings?: outputs.network.v20191201.PolicySettingsResponse;
+    /**
+     * The provisioning state of the web application firewall policy resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * Resource status of the policy.
+     */
+    readonly resourceState: string;
     /**
      * Resource tags.
      */

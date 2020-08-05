@@ -37,9 +37,17 @@ export class VirtualHub extends pulumi.CustomResource {
     }
 
     /**
+     * Address-prefix for this VirtualHub.
+     */
+    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The expressRouteGateway associated with this VirtualHub
+     */
+    public readonly expressRouteGateway!: pulumi.Output<outputs.network.v20180801.SubResourceResponse | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +57,17 @@ export class VirtualHub extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Parameters for VirtualHub
+     * The P2SVpnGateway associated with this VirtualHub
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180801.VirtualHubPropertiesResponse>;
+    public readonly p2SVpnGateway!: pulumi.Output<outputs.network.v20180801.SubResourceResponse | undefined>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The routeTable associated with this virtual hub.
+     */
+    public readonly routeTable!: pulumi.Output<outputs.network.v20180801.VirtualHubRouteTableResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +76,18 @@ export class VirtualHub extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * list of all vnet connections with this VirtualHub.
+     */
+    public readonly virtualNetworkConnections!: pulumi.Output<outputs.network.v20180801.HubVirtualNetworkConnectionResponse[] | undefined>;
+    /**
+     * The VirtualWAN to which the VirtualHub belongs
+     */
+    public readonly virtualWan!: pulumi.Output<outputs.network.v20180801.SubResourceResponse | undefined>;
+    /**
+     * The VpnGateway associated with this VirtualHub
+     */
+    public readonly vpnGateway!: pulumi.Output<outputs.network.v20180801.SubResourceResponse | undefined>;
 
     /**
      * Create a VirtualHub resource with the given unique name, arguments, and options.
@@ -97,7 +125,6 @@ export class VirtualHub extends pulumi.CustomResource {
             inputs["virtualWan"] = args ? args.virtualWan : undefined;
             inputs["vpnGateway"] = args ? args.vpnGateway : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

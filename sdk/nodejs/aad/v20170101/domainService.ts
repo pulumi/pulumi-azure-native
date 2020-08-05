@@ -37,9 +37,41 @@ export class DomainService extends pulumi.CustomResource {
     }
 
     /**
+     * List of Domain Controller IP Address
+     */
+    public /*out*/ readonly domainControllerIpAddress!: pulumi.Output<string[]>;
+    /**
+     * The name of the Azure domain that the user would like to deploy Domain Services to.
+     */
+    public readonly domainName!: pulumi.Output<string | undefined>;
+    /**
+     * DomainSecurity Settings
+     */
+    public readonly domainSecuritySettings!: pulumi.Output<outputs.aad.v20170101.DomainSecuritySettingsResponse | undefined>;
+    /**
      * Resource etag
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Enabled or Disabled flag to turn on Group-based filtered sync
+     */
+    public readonly filteredSync!: pulumi.Output<string | undefined>;
+    /**
+     * List of Domain Health Alerts
+     */
+    public /*out*/ readonly healthAlerts!: pulumi.Output<outputs.aad.v20170101.HealthAlertResponse[]>;
+    /**
+     * Last domain evaluation run DateTime
+     */
+    public /*out*/ readonly healthLastEvaluated!: pulumi.Output<string>;
+    /**
+     * List of Domain Health Monitors
+     */
+    public /*out*/ readonly healthMonitors!: pulumi.Output<outputs.aad.v20170101.HealthMonitorResponse[]>;
+    /**
+     * Secure LDAP Settings
+     */
+    public readonly ldapsSettings!: pulumi.Output<outputs.aad.v20170101.LdapsSettingsResponse | undefined>;
     /**
      * Resource location
      */
@@ -49,17 +81,37 @@ export class DomainService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Domain service properties
+     * Notification Settings
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.aad.v20170101.DomainServicePropertiesResponse>;
+    public readonly notificationSettings!: pulumi.Output<outputs.aad.v20170101.NotificationSettingsResponse | undefined>;
+    /**
+     * the current deployment or provisioning state, which only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Status of Domain Service instance
+     */
+    public /*out*/ readonly serviceStatus!: pulumi.Output<string>;
+    /**
+     * The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+     */
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Azure Active Directory tenant id
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Virtual network site id
+     */
+    public /*out*/ readonly vnetSiteId!: pulumi.Output<string>;
 
     /**
      * Create a DomainService resource with the given unique name, arguments, and options.
@@ -91,8 +143,15 @@ export class DomainService extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["domainControllerIpAddress"] = undefined /*out*/;
+            inputs["healthAlerts"] = undefined /*out*/;
+            inputs["healthLastEvaluated"] = undefined /*out*/;
+            inputs["healthMonitors"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["serviceStatus"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["vnetSiteId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

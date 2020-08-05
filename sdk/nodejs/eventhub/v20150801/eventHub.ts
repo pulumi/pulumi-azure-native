@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,21 +35,41 @@ export class EventHub extends pulumi.CustomResource {
     }
 
     /**
+     * Exact time the Event Hub was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Number of days to retain the events for this Event Hub.
+     */
+    public readonly messageRetentionInDays!: pulumi.Output<number | undefined>;
     /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties supplied to the Create Or Update Event Hub operation.
+     * Number of partitions created for the Event Hub.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20150801.EventHubPropertiesResponse>;
+    public readonly partitionCount!: pulumi.Output<number | undefined>;
+    /**
+     * Current number of shards on the Event Hub.
+     */
+    public /*out*/ readonly partitionIds!: pulumi.Output<string[]>;
+    /**
+     * Enumerates the possible values for the status of the Event Hub.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * The exact time the message was updated.
+     */
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a EventHub resource with the given unique name, arguments, and options.
@@ -86,7 +104,9 @@ export class EventHub extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["partitionIds"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

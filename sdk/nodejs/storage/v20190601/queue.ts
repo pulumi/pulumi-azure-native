@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 export class Queue extends pulumi.CustomResource {
@@ -34,13 +32,17 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /**
+     * Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+     */
+    public /*out*/ readonly approximateMessageCount!: pulumi.Output<number>;
+    /**
+     * A name-value pair that represents queue metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * Queue resource properties.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190601.QueuePropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -72,7 +74,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["approximateMessageCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

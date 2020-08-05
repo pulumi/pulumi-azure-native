@@ -41,12 +41,31 @@ export interface GetSubnetArgs {
  */
 export interface GetSubnetResult {
     /**
+     * Gets or sets Address prefix for the subnet.
+     */
+    readonly addressPrefix?: string;
+    /**
      * A unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: string;
     /**
+     * Gets array of references to the network interface IP configurations using subnet
+     */
+    readonly ipConfigurations?: outputs.network.v20160330.IPConfigurationResponse[];
+    /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource
      */
     readonly name?: string;
-    readonly properties: outputs.network.v20160330.SubnetPropertiesFormatResponse;
+    /**
+     * Gets or sets the reference of the NetworkSecurityGroup resource
+     */
+    readonly networkSecurityGroup?: outputs.network.v20160330.NetworkSecurityGroupResponse;
+    /**
+     * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    readonly provisioningState?: string;
+    /**
+     * Gets or sets the reference of the RouteTable resource
+     */
+    readonly routeTable?: outputs.network.v20160330.RouteTableResponse;
 }

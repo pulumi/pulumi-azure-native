@@ -43,7 +43,18 @@ export interface GetProfileResult {
      * Resource name
      */
     readonly name: string;
-    readonly properties: outputs.cdn.v20150601.ProfilePropertiesResponse;
+    /**
+     * Provisioning status of the profile.
+     */
+    readonly provisioningState?: string;
+    /**
+     * Resource status of the profile.
+     */
+    readonly resourceState: string;
+    /**
+     * The SKU (pricing tier) of the CDN profile.
+     */
+    readonly sku?: outputs.cdn.v20150601.SkuResponse;
     /**
      * Resource tags
      */

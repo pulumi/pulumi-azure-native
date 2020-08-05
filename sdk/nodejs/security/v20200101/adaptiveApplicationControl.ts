@@ -34,6 +34,15 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
     }
 
     /**
+     * The configuration status of the VM/server group or machine or rule on the machine
+     */
+    public /*out*/ readonly configurationStatus!: pulumi.Output<string>;
+    /**
+     * The application control policy enforcement/protection mode of the VM/server group
+     */
+    public readonly enforcementMode!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly issues!: pulumi.Output<outputs.security.v20200101.AppWhitelistingIssueSummaryResponse[]>;
+    /**
      * Location where the resource is stored
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
@@ -41,14 +50,24 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly pathRecommendations!: pulumi.Output<outputs.security.v20200101.PathRecommendationResponse[] | undefined>;
     /**
-     * Represents a VM/server group and set of rules to be allowed running on a machine
+     * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20200101.AppWhitelistingGroupDataResponse>;
+    public readonly protectionMode!: pulumi.Output<outputs.security.v20200101.ProtectionModeResponse | undefined>;
+    /**
+     * The recommendation status of the VM/server group or VM/server
+     */
+    public /*out*/ readonly recommendationStatus!: pulumi.Output<string>;
+    /**
+     * The source type of the VM/server group
+     */
+    public /*out*/ readonly sourceSystem!: pulumi.Output<string>;
     /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly vmRecommendations!: pulumi.Output<outputs.security.v20200101.VmRecommendationResponse[] | undefined>;
 
     /**
      * Create a AdaptiveApplicationControl resource with the given unique name, arguments, and options.
@@ -75,8 +94,11 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
             inputs["pathRecommendations"] = args ? args.pathRecommendations : undefined;
             inputs["protectionMode"] = args ? args.protectionMode : undefined;
             inputs["vmRecommendations"] = args ? args.vmRecommendations : undefined;
+            inputs["configurationStatus"] = undefined /*out*/;
+            inputs["issues"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["recommendationStatus"] = undefined /*out*/;
+            inputs["sourceSystem"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

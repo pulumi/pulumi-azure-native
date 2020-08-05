@@ -38,6 +38,18 @@ export class Task extends pulumi.CustomResource {
     }
 
     /**
+     * The machine configuration of the run agent.
+     */
+    public readonly agentConfiguration!: pulumi.Output<outputs.containerregistry.v20190401.AgentPropertiesResponse | undefined>;
+    /**
+     * The creation date of task.
+     */
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
+     * The properties that describes a set of credentials that will be used when this run is invoked.
+     */
+    public readonly credentials!: pulumi.Output<outputs.containerregistry.v20190401.CredentialsResponse | undefined>;
+    /**
      * Identity for the resource.
      */
     public readonly identity!: pulumi.Output<outputs.containerregistry.v20190401.IdentityPropertiesResponse | undefined>;
@@ -50,13 +62,33 @@ export class Task extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of a task.
+     * The platform properties against which the run has to happen.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.containerregistry.v20190401.TaskPropertiesResponse>;
+    public readonly platform!: pulumi.Output<outputs.containerregistry.v20190401.PlatformPropertiesResponse>;
+    /**
+     * The provisioning state of the task.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The current status of task.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
+    /**
+     * The properties of a task step.
+     */
+    public readonly step!: pulumi.Output<outputs.containerregistry.v20190401.TaskStepPropertiesResponse>;
     /**
      * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Run timeout in seconds.
+     */
+    public readonly timeout!: pulumi.Output<number | undefined>;
+    /**
+     * The properties that describe all triggers for the task.
+     */
+    public readonly trigger!: pulumi.Output<outputs.containerregistry.v20190401.TriggerPropertiesResponse | undefined>;
     /**
      * The type of the resource.
      */
@@ -106,7 +138,8 @@ export class Task extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["trigger"] = args ? args.trigger : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

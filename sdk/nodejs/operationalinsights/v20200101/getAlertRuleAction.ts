@@ -50,15 +50,19 @@ export interface GetAlertRuleActionResult {
      */
     readonly etag?: string;
     /**
+     * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+     */
+    readonly logicAppResourceId: string;
+    /**
      * Azure resource name
      */
     readonly name: string;
     /**
-     * Action properties for get request
-     */
-    readonly properties: outputs.operationalinsights.v20200101.ActionResponsePropertiesResponse;
-    /**
      * Azure resource type
      */
     readonly type: string;
+    /**
+     * The name of the logic app's workflow.
+     */
+    readonly workflowId?: string;
 }

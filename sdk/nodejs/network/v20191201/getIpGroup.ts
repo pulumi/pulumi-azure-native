@@ -40,6 +40,14 @@ export interface GetIpGroupResult {
      */
     readonly etag: string;
     /**
+     * List of references to Azure resources that this IpGroups is associated with.
+     */
+    readonly firewalls: outputs.network.v20191201.SubResourceResponse[];
+    /**
+     * IpAddresses/IpAddressPrefixes in the IpGroups resource.
+     */
+    readonly ipAddresses?: string[];
+    /**
      * Resource location.
      */
     readonly location?: string;
@@ -48,9 +56,9 @@ export interface GetIpGroupResult {
      */
     readonly name: string;
     /**
-     * Properties of the IpGroups.
+     * The provisioning state of the IpGroups resource.
      */
-    readonly properties: outputs.network.v20191201.IpGroupPropertiesFormatResponse;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

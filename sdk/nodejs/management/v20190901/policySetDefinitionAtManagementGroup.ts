@@ -37,13 +37,37 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
     }
 
     /**
+     * The policy set definition description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the policy set definition.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The name of the policy set definition.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The policy definition properties.
+     * The policy set definition parameters that can be used in policy definition references.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.management.v20190901.PolicySetDefinitionPropertiesResponse>;
+    public readonly parameters!: pulumi.Output<{[key: string]: outputs.management.v20190901.ParameterDefinitionsValueResponse} | undefined>;
+    /**
+     * The metadata describing groups of policy definition references within the policy set definition.
+     */
+    public readonly policyDefinitionGroups!: pulumi.Output<outputs.management.v20190901.PolicyDefinitionGroupResponse[] | undefined>;
+    /**
+     * An array of policy definition references.
+     */
+    public readonly policyDefinitions!: pulumi.Output<outputs.management.v20190901.PolicyDefinitionReferenceResponse[]>;
+    /**
+     * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+     */
+    public readonly policyType!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource (Microsoft.Authorization/policySetDefinitions).
      */
@@ -80,7 +104,6 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
             inputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
             inputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

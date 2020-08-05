@@ -41,6 +41,10 @@ export interface ListWebAppFunctionSecretsSlotArgs {
  */
 export interface ListWebAppFunctionSecretsSlotResult {
     /**
+     * Secret key.
+     */
+    readonly key?: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -49,9 +53,9 @@ export interface ListWebAppFunctionSecretsSlotResult {
      */
     readonly name: string;
     /**
-     * FunctionSecrets resource specific properties
+     * Trigger URL.
      */
-    readonly properties: outputs.web.v20180201.FunctionSecretsResponseProperties;
+    readonly trigger_url?: string;
     /**
      * Resource type.
      */

@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,41 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * Whether or not failover can be done automatically.
+     */
+    public /*out*/ readonly autoFailover!: pulumi.Output<string>;
+    /**
+     * How aggressive the automatic failover should be.
+     */
+    public /*out*/ readonly failoverPolicy!: pulumi.Output<string>;
+    /**
      * Location of the server that contains this disaster recovery configuration.
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
+     * Logical name of the server.
+     */
+    public /*out*/ readonly logicalServerName!: pulumi.Output<string>;
     /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties representing the resource.
+     * Logical name of the partner server.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.sql.v20140401.DisasterRecoveryConfigurationPropertiesResponse>;
+    public /*out*/ readonly partnerLogicalServerName!: pulumi.Output<string>;
+    /**
+     * Id of the partner server.
+     */
+    public /*out*/ readonly partnerServerId!: pulumi.Output<string>;
+    /**
+     * The role of the current server in the disaster recovery configuration.
+     */
+    public /*out*/ readonly role!: pulumi.Output<string>;
+    /**
+     * The status of the disaster recovery configuration.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -78,8 +100,14 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["autoFailover"] = undefined /*out*/;
+            inputs["failoverPolicy"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["logicalServerName"] = undefined /*out*/;
+            inputs["partnerLogicalServerName"] = undefined /*out*/;
+            inputs["partnerServerId"] = undefined /*out*/;
+            inputs["role"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

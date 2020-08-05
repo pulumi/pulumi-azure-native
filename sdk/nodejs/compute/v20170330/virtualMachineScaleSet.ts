@@ -49,13 +49,21 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+     */
+    public readonly overprovision!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
     public readonly plan!: pulumi.Output<outputs.compute.v20170330.PlanResponse | undefined>;
     /**
-     * Describes the properties of a Virtual Machine Scale Set.
+     * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20170330.VirtualMachineScaleSetPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+     */
+    public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
     /**
      * The virtual machine scale set sku.
      */
@@ -68,6 +76,18 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
+     */
+    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    /**
+     * The upgrade policy.
+     */
+    public readonly upgradePolicy!: pulumi.Output<outputs.compute.v20170330.UpgradePolicyResponse | undefined>;
+    /**
+     * The virtual machine profile.
+     */
+    public readonly virtualMachineProfile!: pulumi.Output<outputs.compute.v20170330.VirtualMachineScaleSetVMProfileResponse | undefined>;
     /**
      * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
      */
@@ -107,8 +127,9 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             inputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
             inputs["zones"] = args ? args.zones : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["uniqueId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -36,9 +36,29 @@ export interface GetDomainServiceArgs {
  */
 export interface GetDomainServiceResult {
     /**
+     * Deployment Id
+     */
+    readonly deploymentId: string;
+    /**
+     * The name of the Azure domain that the user would like to deploy Domain Services to.
+     */
+    readonly domainName?: string;
+    /**
+     * DomainSecurity Settings
+     */
+    readonly domainSecuritySettings?: outputs.aad.v20200101.DomainSecuritySettingsResponse;
+    /**
      * Resource etag
      */
     readonly etag?: string;
+    /**
+     * Enabled or Disabled flag to turn on Group-based filtered sync
+     */
+    readonly filteredSync?: string;
+    /**
+     * Secure LDAP Settings
+     */
+    readonly ldapsSettings?: outputs.aad.v20200101.LdapsSettingsResponse;
     /**
      * Resource location
      */
@@ -48,15 +68,35 @@ export interface GetDomainServiceResult {
      */
     readonly name: string;
     /**
-     * Domain service properties
+     * Notification Settings
      */
-    readonly properties: outputs.aad.v20200101.DomainServicePropertiesResponse;
+    readonly notificationSettings?: outputs.aad.v20200101.NotificationSettingsResponse;
+    /**
+     * the current deployment or provisioning state, which only appears in the response.
+     */
+    readonly provisioningState: string;
+    /**
+     * List of ReplicaSets
+     */
+    readonly replicaSets?: outputs.aad.v20200101.ReplicaSetResponse[];
+    /**
+     * SyncOwner ReplicaSet Id
+     */
+    readonly syncOwner: string;
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Azure Active Directory Tenant Id
+     */
+    readonly tenantId: string;
+    /**
      * Resource type
      */
     readonly type: string;
+    /**
+     * Data Model Version
+     */
+    readonly version: number;
 }

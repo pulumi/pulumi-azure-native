@@ -45,13 +45,25 @@ export interface GetApplicationGatewayPrivateEndpointConnectionResult {
      */
     readonly etag: string;
     /**
+     * The consumer link id.
+     */
+    readonly linkIdentifier: string;
+    /**
      * Name of the private endpoint connection on an application gateway.
      */
     readonly name?: string;
     /**
-     * Properties of the application gateway private endpoint connection.
+     * The resource of private end point.
      */
-    readonly properties: outputs.network.v20200501.ApplicationGatewayPrivateEndpointConnectionPropertiesResponse;
+    readonly privateEndpoint: outputs.network.v20200501.PrivateEndpointResponse;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    readonly privateLinkServiceConnectionState?: outputs.network.v20200501.PrivateLinkServiceConnectionStateResponse;
+    /**
+     * The provisioning state of the application gateway private endpoint connection resource.
+     */
+    readonly provisioningState: string;
     /**
      * Type of the resource.
      */

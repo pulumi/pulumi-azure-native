@@ -41,13 +41,29 @@ export interface GetContentKeyPolicyArgs {
  */
 export interface GetContentKeyPolicyResult {
     /**
+     * The creation date of the Policy
+     */
+    readonly created: string;
+    /**
+     * A description for the Policy.
+     */
+    readonly description?: string;
+    /**
+     * The last modified date of the Policy
+     */
+    readonly lastModified: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The properties of the Content Key Policy.
+     * The Key Policy options.
      */
-    readonly properties: outputs.media.v20180701.ContentKeyPolicyPropertiesResponse;
+    readonly options: outputs.media.v20180701.ContentKeyPolicyOptionResponse[];
+    /**
+     * The legacy Policy ID.
+     */
+    readonly policyId: string;
     /**
      * The type of the resource.
      */

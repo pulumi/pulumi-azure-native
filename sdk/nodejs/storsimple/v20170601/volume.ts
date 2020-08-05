@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,21 +35,53 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /**
+     * The IDs of the access control records, associated with the volume.
+     */
+    public readonly accessControlRecordIds!: pulumi.Output<string[]>;
+    /**
+     * The IDs of the backup policies, in which this volume is part of.
+     */
+    public /*out*/ readonly backupPolicyIds!: pulumi.Output<string[]>;
+    /**
+     * The backup status of the volume.
+     */
+    public /*out*/ readonly backupStatus!: pulumi.Output<string>;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * The monitoring status of the volume.
+     */
+    public readonly monitoringStatus!: pulumi.Output<string>;
     /**
      * The name of the object.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the volume.
+     * The operation status on the volume.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.VolumePropertiesResponse>;
+    public /*out*/ readonly operationStatus!: pulumi.Output<string>;
+    /**
+     * The size of the volume in bytes.
+     */
+    public readonly sizeInBytes!: pulumi.Output<number>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The ID of the volume container, in which this volume is created.
+     */
+    public /*out*/ readonly volumeContainerId!: pulumi.Output<string>;
+    /**
+     * The volume status.
+     */
+    public readonly volumeStatus!: pulumi.Output<string>;
+    /**
+     * The type of the volume.
+     */
+    public readonly volumeType!: pulumi.Output<string>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -107,8 +137,11 @@ export class Volume extends pulumi.CustomResource {
             inputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
             inputs["volumeStatus"] = args ? args.volumeStatus : undefined;
             inputs["volumeType"] = args ? args.volumeType : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["backupPolicyIds"] = undefined /*out*/;
+            inputs["backupStatus"] = undefined /*out*/;
+            inputs["operationStatus"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["volumeContainerId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

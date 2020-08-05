@@ -36,6 +36,32 @@ export interface GetSignalRArgs {
  */
 export interface GetSignalRResult {
     /**
+     * Cross-Origin Resource Sharing (CORS) settings.
+     */
+    readonly cors?: outputs.signalrservice.v20181001.SignalRCorsSettingsResponse;
+    /**
+     * The publicly accessible IP of the SignalR service.
+     */
+    readonly externalIP: string;
+    /**
+     * List of SignalR featureFlags. e.g. ServiceMode.
+     * 
+     * FeatureFlags that are not included in the parameters for the update operation will not be modified.
+     * And the response will only include featureFlags that are explicitly set. 
+     * When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+     * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+     */
+    readonly features?: outputs.signalrservice.v20181001.SignalRFeatureResponse[];
+    /**
+     * FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+     */
+    readonly hostName: string;
+    /**
+     * Prefix for the hostName of the SignalR service. Retained for future use.
+     * The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+     */
+    readonly hostNamePrefix?: string;
+    /**
      * The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
      */
     readonly location?: string;
@@ -44,9 +70,17 @@ export interface GetSignalRResult {
      */
     readonly name: string;
     /**
-     * The properties of the service.
+     * Provisioning state of the resource.
      */
-    readonly properties: outputs.signalrservice.v20181001.SignalRPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+     */
+    readonly publicPort: number;
+    /**
+     * The publicly accessible port of the SignalR service which is designed for customer server side usage.
+     */
+    readonly serverPort: number;
     /**
      * SKU of the service.
      */
@@ -59,4 +93,8 @@ export interface GetSignalRResult {
      * The type of the service - e.g. "Microsoft.SignalRService/SignalR"
      */
     readonly type: string;
+    /**
+     * Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+     */
+    readonly version?: string;
 }

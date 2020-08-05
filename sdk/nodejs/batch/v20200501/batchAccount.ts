@@ -37,21 +37,67 @@ export class BatchAccount extends pulumi.CustomResource {
     }
 
     /**
+     * The account endpoint used to interact with the Batch service.
+     */
+    public /*out*/ readonly accountEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly activeJobAndJobScheduleQuota!: pulumi.Output<number>;
+    /**
+     * Contains information about the auto-storage account associated with a Batch account.
+     */
+    public readonly autoStorage!: pulumi.Output<outputs.batch.v20200501.AutoStoragePropertiesResponse>;
+    /**
+     * For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+     */
+    public /*out*/ readonly dedicatedCoreQuota!: pulumi.Output<number>;
+    /**
+     * A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+     */
+    public /*out*/ readonly dedicatedCoreQuotaPerVMFamily!: pulumi.Output<outputs.batch.v20200501.VirtualMachineFamilyCoreQuotaResponse[]>;
+    /**
+     * Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+     */
+    public /*out*/ readonly dedicatedCoreQuotaPerVMFamilyEnforced!: pulumi.Output<boolean>;
+    /**
+     * Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
+     */
+    public readonly encryption!: pulumi.Output<outputs.batch.v20200501.EncryptionPropertiesResponse>;
+    /**
      * The identity of the Batch account.
      */
     public readonly identity!: pulumi.Output<outputs.batch.v20200501.BatchAccountIdentityResponse | undefined>;
+    /**
+     * Identifies the Azure key vault associated with a Batch account.
+     */
+    public readonly keyVaultReference!: pulumi.Output<outputs.batch.v20200501.KeyVaultReferenceResponse>;
     /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+     */
+    public /*out*/ readonly lowPriorityCoreQuota!: pulumi.Output<number>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties associated with the account.
+     * The allocation mode for creating pools in the Batch account.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.batch.v20200501.BatchAccountPropertiesResponse>;
+    public readonly poolAllocationMode!: pulumi.Output<string>;
+    public /*out*/ readonly poolQuota!: pulumi.Output<number>;
+    /**
+     * List of private endpoint connections associated with the Batch account
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.batch.v20200501.PrivateEndpointConnectionResponse[]>;
+    /**
+     * The provisioned state of the resource
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * If not specified, the default value is 'enabled'.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string>;
     /**
      * The tags of the resource.
      */
@@ -93,7 +139,15 @@ export class BatchAccount extends pulumi.CustomResource {
             inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["accountEndpoint"] = undefined /*out*/;
+            inputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
+            inputs["dedicatedCoreQuota"] = undefined /*out*/;
+            inputs["dedicatedCoreQuotaPerVMFamily"] = undefined /*out*/;
+            inputs["dedicatedCoreQuotaPerVMFamilyEnforced"] = undefined /*out*/;
+            inputs["lowPriorityCoreQuota"] = undefined /*out*/;
+            inputs["poolQuota"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

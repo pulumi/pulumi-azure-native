@@ -45,9 +45,9 @@ export interface GetTableResult {
      */
     readonly name: string;
     /**
-     * Table resource properties.
+     * Table name under the specified account
      */
-    readonly properties: outputs.storage.v20190601.TablePropertiesResponse;
+    readonly tableName: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

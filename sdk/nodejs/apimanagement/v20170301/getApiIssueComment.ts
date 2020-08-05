@@ -51,15 +51,23 @@ export interface GetApiIssueCommentArgs {
  */
 export interface GetApiIssueCommentResult {
     /**
+     * Date and time when the comment was created.
+     */
+    readonly createdDate?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the Issue Comment.
+     * Comment text.
      */
-    readonly properties: outputs.apimanagement.v20170301.IssueCommentContractPropertiesResponse;
+    readonly text: string;
     /**
      * Resource type for API Management resource.
      */
     readonly type: string;
+    /**
+     * A resource identifier for the user who left the comment.
+     */
+    readonly userId: string;
 }

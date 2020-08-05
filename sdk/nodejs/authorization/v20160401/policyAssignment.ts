@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,21 @@ export class PolicyAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * The display name of the policy assignment.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
      * The name of the policy assignment.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties for the policy assignment.
+     * The ID of the policy definition.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20160401.PolicyAssignmentPropertiesResponse>;
+    public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
+    /**
+     * The scope for the policy assignment.
+     */
+    public readonly scope!: pulumi.Output<string | undefined>;
     /**
      * The type of the policy assignment.
      */
@@ -74,7 +80,6 @@ export class PolicyAssignment extends pulumi.CustomResource {
             inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

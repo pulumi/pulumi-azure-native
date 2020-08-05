@@ -37,6 +37,38 @@ export class ManagedCluster extends pulumi.CustomResource {
     }
 
     /**
+     * Profile of Azure Active Directory configuration.
+     */
+    public readonly aadProfile!: pulumi.Output<outputs.containerservice.v20180331.ManagedClusterAADProfileResponse | undefined>;
+    /**
+     * Profile of managed cluster add-on.
+     */
+    public readonly addonProfiles!: pulumi.Output<{[key: string]: outputs.containerservice.v20180331.ManagedClusterAddonProfileResponse} | undefined>;
+    /**
+     * Properties of the agent pool. Currently only one agent pool can exist.
+     */
+    public readonly agentPoolProfiles!: pulumi.Output<outputs.containerservice.v20180331.ManagedClusterAgentPoolProfileResponse[] | undefined>;
+    /**
+     * DNS prefix specified when creating the managed cluster.
+     */
+    public readonly dnsPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * Whether to enable Kubernetes Role-Based Access Control.
+     */
+    public readonly enableRBAC!: pulumi.Output<boolean | undefined>;
+    /**
+     * FQDN for the master pool.
+     */
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    /**
+     * Version of Kubernetes specified when creating the managed cluster.
+     */
+    public readonly kubernetesVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Profile for Linux VMs in the container service cluster.
+     */
+    public readonly linuxProfile!: pulumi.Output<outputs.containerservice.v20180331.ContainerServiceLinuxProfileResponse | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +77,21 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of a managed cluster.
+     * Profile of network configuration.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.containerservice.v20180331.ManagedClusterPropertiesResponse>;
+    public readonly networkProfile!: pulumi.Output<outputs.containerservice.v20180331.ContainerServiceNetworkProfileResponse | undefined>;
+    /**
+     * Name of the resource group containing agent pool nodes.
+     */
+    public /*out*/ readonly nodeResourceGroup!: pulumi.Output<string>;
+    /**
+     * The current deployment or provisioning state, which only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+     */
+    public readonly servicePrincipalProfile!: pulumi.Output<outputs.containerservice.v20180331.ManagedClusterServicePrincipalProfileResponse | undefined>;
     /**
      * Resource tags
      */
@@ -92,7 +136,9 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["fqdn"] = undefined /*out*/;
+            inputs["nodeResourceGroup"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

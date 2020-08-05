@@ -37,13 +37,37 @@ export class PolicyDefinition extends pulumi.CustomResource {
     }
 
     /**
+     * The policy definition description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the policy definition.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+     */
+    public readonly mode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the policy definition.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The policy definition properties.
+     * The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20190901.PolicyDefinitionPropertiesResponse>;
+    public readonly parameters!: pulumi.Output<{[key: string]: outputs.authorization.v20190901.ParameterDefinitionsValueResponse} | undefined>;
+    /**
+     * The policy rule.
+     */
+    public readonly policyRule!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+     */
+    public readonly policyType!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions).
      */
@@ -73,7 +97,6 @@ export class PolicyDefinition extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["policyRule"] = args ? args.policyRule : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

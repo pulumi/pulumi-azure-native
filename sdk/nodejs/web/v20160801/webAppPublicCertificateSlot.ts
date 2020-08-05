@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
     }
 
     /**
+     * Public Certificate byte array
+     */
+    public readonly blob!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,9 +47,13 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * PublicCertificate resource specific properties
+     * Public Certificate Location
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.PublicCertificateResponseProperties>;
+    public readonly publicCertificateLocation!: pulumi.Output<string | undefined>;
+    /**
+     * Certificate Thumbprint
+     */
+    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -81,7 +87,7 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
             inputs["publicCertificateLocation"] = args ? args.publicCertificateLocation : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["thumbprint"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

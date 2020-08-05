@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,18 @@ export class GalleryApplication extends pulumi.CustomResource {
     }
 
     /**
+     * The description of this gallery Application Definition resource. This property is updatable.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+     */
+    public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
+    /**
+     * The Eula agreement for the gallery Application Definition.
+     */
+    public readonly eula!: pulumi.Output<string | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +55,17 @@ export class GalleryApplication extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Describes the properties of a gallery Application Definition.
+     * The privacy statement uri.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20191201.GalleryApplicationPropertiesResponse>;
+    public readonly privacyStatementUri!: pulumi.Output<string | undefined>;
+    /**
+     * The release note uri.
+     */
+    public readonly releaseNoteUri!: pulumi.Output<string | undefined>;
+    /**
+     * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     */
+    public readonly supportedOSType!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -96,7 +114,6 @@ export class GalleryApplication extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["supportedOSType"] = args ? args.supportedOSType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

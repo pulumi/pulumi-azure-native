@@ -36,6 +36,14 @@ export interface GetServerDetailsArgs {
  */
 export interface GetServerDetailsResult {
     /**
+     * A collection of AS server administrators
+     */
+    readonly asAdministrators?: outputs.analysisservices.v20160516.ServerAdministratorsResponse;
+    /**
+     * The container URI of backup blob.
+     */
+    readonly backupBlobContainerUri?: string;
+    /**
      * Location of the Analysis Services resource.
      */
     readonly location: string;
@@ -44,13 +52,21 @@ export interface GetServerDetailsResult {
      */
     readonly name: string;
     /**
-     * Properties of the provision operation request.
+     * The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
      */
-    readonly properties: outputs.analysisservices.v20160516.AnalysisServicesServerPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The full name of the Analysis Services resource.
+     */
+    readonly serverFullName: string;
     /**
      * The SKU of the Analysis Services resource.
      */
     readonly sku: outputs.analysisservices.v20160516.ResourceSkuResponse;
+    /**
+     * The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+     */
+    readonly state: string;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */

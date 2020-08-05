@@ -36,6 +36,10 @@ export interface GetRouteTableArgs {
  */
 export interface GetRouteTableResult {
     /**
+     * Whether to disable the routes learned by BGP on that route table. True means disable.
+     */
+    readonly disableBgpRoutePropagation?: boolean;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
@@ -48,9 +52,17 @@ export interface GetRouteTableResult {
      */
     readonly name: string;
     /**
-     * Properties of the route table.
+     * The provisioning state of the route table resource.
      */
-    readonly properties: outputs.network.v20190701.RouteTablePropertiesFormatResponse;
+    readonly provisioningState?: string;
+    /**
+     * Collection of routes contained within a route table.
+     */
+    readonly routes?: outputs.network.v20190701.RouteResponse[];
+    /**
+     * A collection of references to subnets.
+     */
+    readonly subnets: outputs.network.v20190701.SubnetResponse[];
     /**
      * Resource tags.
      */

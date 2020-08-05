@@ -37,9 +37,17 @@ export class IpAllocation extends pulumi.CustomResource {
     }
 
     /**
+     * IpAllocation tags.
+     */
+    public readonly allocationTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The IPAM allocation ID.
+     */
+    public readonly ipamAllocationId!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -49,9 +57,21 @@ export class IpAllocation extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the IpAllocation.
+     * The address prefix for the IpAllocation.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.IpAllocationPropertiesFormatResponse>;
+    public readonly prefix!: pulumi.Output<string | undefined>;
+    /**
+     * The address prefix length for the IpAllocation.
+     */
+    public readonly prefixLength!: pulumi.Output<number | undefined>;
+    /**
+     * The address prefix Type for the IpAllocation.
+     */
+    public readonly prefixType!: pulumi.Output<string | undefined>;
+    /**
+     * The Subnet that using the prefix of this IpAllocation resource.
+     */
+    public /*out*/ readonly subnet!: pulumi.Output<outputs.network.v20200501.SubResourceResponse>;
     /**
      * Resource tags.
      */
@@ -60,6 +80,10 @@ export class IpAllocation extends pulumi.CustomResource {
      * Resource type.
      */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * The VirtualNetwork that using the prefix of this IpAllocation resource.
+     */
+    public /*out*/ readonly virtualNetwork!: pulumi.Output<outputs.network.v20200501.SubResourceResponse>;
 
     /**
      * Create a IpAllocation resource with the given unique name, arguments, and options.
@@ -92,7 +116,8 @@ export class IpAllocation extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["subnet"] = undefined /*out*/;
+            inputs["virtualNetwork"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

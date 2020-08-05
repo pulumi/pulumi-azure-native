@@ -37,17 +37,37 @@ export class BatchAccount extends pulumi.CustomResource {
     }
 
     /**
+     * The account endpoint used to interact with the Batch service.
+     */
+    public /*out*/ readonly accountEndpoint!: pulumi.Output<string>;
+    public /*out*/ readonly activeJobAndJobScheduleQuota!: pulumi.Output<number>;
+    /**
+     * Contains information about the auto-storage account associated with a Batch account.
+     */
+    public readonly autoStorage!: pulumi.Output<outputs.batch.v20170501.AutoStoragePropertiesResponse>;
+    public /*out*/ readonly dedicatedCoreQuota!: pulumi.Output<number>;
+    /**
+     * Identifies the Azure key vault associated with a Batch account.
+     */
+    public readonly keyVaultReference!: pulumi.Output<outputs.batch.v20170501.KeyVaultReferenceResponse>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string>;
+    public /*out*/ readonly lowPriorityCoreQuota!: pulumi.Output<number>;
     /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties associated with the account.
+     * The allocation mode for creating pools in the Batch account.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.batch.v20170501.BatchAccountPropertiesResponse>;
+    public readonly poolAllocationMode!: pulumi.Output<string>;
+    public /*out*/ readonly poolQuota!: pulumi.Output<number>;
+    /**
+     * The provisioned state of the resource
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The tags of the resource.
      */
@@ -86,7 +106,12 @@ export class BatchAccount extends pulumi.CustomResource {
             inputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["accountEndpoint"] = undefined /*out*/;
+            inputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
+            inputs["dedicatedCoreQuota"] = undefined /*out*/;
+            inputs["lowPriorityCoreQuota"] = undefined /*out*/;
+            inputs["poolQuota"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

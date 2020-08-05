@@ -41,6 +41,26 @@ export interface GetElasticPoolArgs {
  */
 export interface GetElasticPoolResult {
     /**
+     * The creation date of the elastic pool (ISO8601 format).
+     */
+    readonly creationDate: string;
+    /**
+     * The maximum DTU any one database can consume.
+     */
+    readonly databaseDtuMax?: number;
+    /**
+     * The minimum DTU all databases are guaranteed.
+     */
+    readonly databaseDtuMin?: number;
+    /**
+     * The total shared DTU for the database elastic pool.
+     */
+    readonly dtu?: number;
+    /**
+     * The edition of the elastic pool.
+     */
+    readonly edition?: string;
+    /**
      * Kind of elastic pool.  This is metadata used for the Azure portal experience.
      */
     readonly kind: string;
@@ -53,9 +73,13 @@ export interface GetElasticPoolResult {
      */
     readonly name: string;
     /**
-     * The properties representing the resource.
+     * The state of the elastic pool.
      */
-    readonly properties: outputs.sql.v20140401.ElasticPoolPropertiesResponse;
+    readonly state: string;
+    /**
+     * Gets storage limit for the database elastic pool in MB.
+     */
+    readonly storageMB?: number;
     /**
      * Resource tags.
      */
@@ -64,4 +88,8 @@ export interface GetElasticPoolResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+     */
+    readonly zoneRedundant?: boolean;
 }

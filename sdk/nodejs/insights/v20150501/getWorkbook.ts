@@ -36,6 +36,10 @@ export interface GetWorkbookArgs {
  */
 export interface GetWorkbookResult {
     /**
+     * Workbook category, as defined by the user at creation time.
+     */
+    readonly category: string;
+    /**
      * The kind of workbook. Choices are user and shared.
      */
     readonly kind?: string;
@@ -48,15 +52,39 @@ export interface GetWorkbookResult {
      */
     readonly name: string;
     /**
-     * Metadata describing a web test for an Azure resource.
+     * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
-    readonly properties: outputs.insights.v20150501.WorkbookPropertiesResponse;
+    readonly serializedData: string;
+    /**
+     * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+     */
+    readonly sharedTypeKind: string;
+    /**
+     * Optional resourceId for a source resource.
+     */
+    readonly sourceResourceId?: string;
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Date and time in UTC of the last modification that was made to this workbook definition.
+     */
+    readonly timeModified: string;
+    /**
      * Azure resource type
      */
     readonly type: string;
+    /**
+     * Unique user id of the specific user that owns this workbook.
+     */
+    readonly userId: string;
+    /**
+     * This instance's version of the data model. This can change as new features are added that can be marked workbook.
+     */
+    readonly version?: string;
+    /**
+     * Internally assigned unique id of the workbook definition.
+     */
+    readonly workbookId: string;
 }

@@ -37,6 +37,18 @@ export class Cache extends pulumi.CustomResource {
     }
 
     /**
+     * The size of this Cache, in GB.
+     */
+    public readonly cacheSizeGB!: pulumi.Output<number | undefined>;
+    /**
+     * Specifies encryption settings of the cache.
+     */
+    public readonly encryptionSettings!: pulumi.Output<outputs.storagecache.v20200301.CacheEncryptionSettingsResponse | undefined>;
+    /**
+     * Health of the Cache.
+     */
+    public /*out*/ readonly health!: pulumi.Output<outputs.storagecache.v20200301.CacheHealthResponse>;
+    /**
      * The identity of the cache, if configured.
      */
     public readonly identity!: pulumi.Output<outputs.storagecache.v20200301.CacheIdentityResponse | undefined>;
@@ -45,17 +57,33 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * Array of IP addresses that can be used by clients mounting this Cache.
+     */
+    public /*out*/ readonly mountAddresses!: pulumi.Output<string[]>;
+    /**
      * Name of Cache.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Cache.
+     * Specifies network settings of the cache.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storagecache.v20200301.CacheResponseProperties>;
+    public readonly networkSettings!: pulumi.Output<outputs.storagecache.v20200301.CacheNetworkSettingsResponse | undefined>;
+    /**
+     * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies security settings of the cache.
+     */
+    public readonly securitySettings!: pulumi.Output<outputs.storagecache.v20200301.CacheSecuritySettingsResponse | undefined>;
     /**
      * SKU for the Cache.
      */
     public readonly sku!: pulumi.Output<outputs.storagecache.v20200301.CacheResponseSku | undefined>;
+    /**
+     * Subnet used for the Cache.
+     */
+    public readonly subnet!: pulumi.Output<string | undefined>;
     /**
      * ARM tags as name/value pairs.
      */
@@ -64,6 +92,10 @@ export class Cache extends pulumi.CustomResource {
      * Type of the Cache; Microsoft.StorageCache/Cache
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Upgrade status of the Cache.
+     */
+    public /*out*/ readonly upgradeStatus!: pulumi.Output<outputs.storagecache.v20200301.CacheUpgradeStatusResponse | undefined>;
 
     /**
      * Create a Cache resource with the given unique name, arguments, and options.
@@ -96,8 +128,10 @@ export class Cache extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["health"] = undefined /*out*/;
+            inputs["mountAddresses"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["upgradeStatus"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

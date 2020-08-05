@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,26 @@ export class ElasticPool extends pulumi.CustomResource {
     }
 
     /**
+     * The creation date of the elastic pool (ISO8601 format).
+     */
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
+     * The maximum DTU any one database can consume.
+     */
+    public readonly databaseDtuMax!: pulumi.Output<number | undefined>;
+    /**
+     * The minimum DTU all databases are guaranteed.
+     */
+    public readonly databaseDtuMin!: pulumi.Output<number | undefined>;
+    /**
+     * The total shared DTU for the database elastic pool.
+     */
+    public readonly dtu!: pulumi.Output<number | undefined>;
+    /**
+     * The edition of the elastic pool.
+     */
+    public readonly edition!: pulumi.Output<string | undefined>;
+    /**
      * Kind of elastic pool.  This is metadata used for the Azure portal experience.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
@@ -49,9 +67,13 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties representing the resource.
+     * The state of the elastic pool.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.sql.v20140401.ElasticPoolPropertiesResponse>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Gets storage limit for the database elastic pool in MB.
+     */
+    public readonly storageMB!: pulumi.Output<number | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +82,10 @@ export class ElasticPool extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ElasticPool resource with the given unique name, arguments, and options.
@@ -97,8 +123,9 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["storageMB"] = args ? args.storageMB : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            inputs["creationDate"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

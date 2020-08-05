@@ -43,11 +43,22 @@ export interface GetDiskAccessResult {
      * Resource name
      */
     readonly name: string;
-    readonly properties: outputs.compute.v20200501.DiskAccessPropertiesResponse;
+    /**
+     * A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
+     */
+    readonly privateEndpointConnections: outputs.compute.v20200501.PrivateEndpointConnectionResponse[];
+    /**
+     * The disk access resource provisioning state.
+     */
+    readonly provisioningState: string;
     /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The time when the disk access was created.
+     */
+    readonly timeCreated: string;
     /**
      * Resource type
      */

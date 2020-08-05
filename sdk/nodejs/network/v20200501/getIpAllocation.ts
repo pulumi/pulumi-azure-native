@@ -36,9 +36,17 @@ export interface GetIpAllocationArgs {
  */
 export interface GetIpAllocationResult {
     /**
+     * IpAllocation tags.
+     */
+    readonly allocationTags?: {[key: string]: string};
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * The IPAM allocation ID.
+     */
+    readonly ipamAllocationId?: string;
     /**
      * Resource location.
      */
@@ -48,9 +56,21 @@ export interface GetIpAllocationResult {
      */
     readonly name: string;
     /**
-     * Properties of the IpAllocation.
+     * The address prefix for the IpAllocation.
      */
-    readonly properties: outputs.network.v20200501.IpAllocationPropertiesFormatResponse;
+    readonly prefix?: string;
+    /**
+     * The address prefix length for the IpAllocation.
+     */
+    readonly prefixLength?: number;
+    /**
+     * The address prefix Type for the IpAllocation.
+     */
+    readonly prefixType?: string;
+    /**
+     * The Subnet that using the prefix of this IpAllocation resource.
+     */
+    readonly subnet: outputs.network.v20200501.SubResourceResponse;
     /**
      * Resource tags.
      */
@@ -59,4 +79,8 @@ export interface GetIpAllocationResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The VirtualNetwork that using the prefix of this IpAllocation resource.
+     */
+    readonly virtualNetwork: outputs.network.v20200501.SubResourceResponse;
 }

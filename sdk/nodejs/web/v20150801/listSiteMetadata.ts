@@ -48,10 +48,6 @@ export interface ListSiteMetadataResult {
      */
     readonly name?: string;
     /**
-     * Settings
-     */
-    readonly properties: {[key: string]: string};
-    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};

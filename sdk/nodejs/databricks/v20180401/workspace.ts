@@ -37,21 +37,45 @@ export class Workspace extends pulumi.CustomResource {
     }
 
     /**
+     * The workspace provider authorizations.
+     */
+    public readonly authorizations!: pulumi.Output<outputs.databricks.v20180401.WorkspaceProviderAuthorizationResponse[] | undefined>;
+    /**
+     * Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+     */
+    public /*out*/ readonly createdBy!: pulumi.Output<outputs.databricks.v20180401.CreatedByResponse | undefined>;
+    /**
+     * Specifies the date and time when the workspace is created.
+     */
+    public readonly createdDateTime!: pulumi.Output<string | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The managed resource group Id.
+     */
+    public readonly managedResourceGroupId!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The workspace properties.
+     * The workspace's custom parameters.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.databricks.v20180401.WorkspacePropertiesResponse>;
+    public readonly parameters!: pulumi.Output<outputs.databricks.v20180401.WorkspaceCustomParametersResponse | undefined>;
+    /**
+     * The workspace provisioning state.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The SKU of the resource.
      */
     public readonly sku!: pulumi.Output<outputs.databricks.v20180401.SkuResponse | undefined>;
+    /**
+     * The details of Managed Identity of Storage Account
+     */
+    public /*out*/ readonly storageAccountIdentity!: pulumi.Output<outputs.databricks.v20180401.ManagedIdentityConfigurationResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +84,22 @@ export class Workspace extends pulumi.CustomResource {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The blob URI where the UI definition file is located.
+     */
+    public readonly uiDefinitionUri!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+     */
+    public /*out*/ readonly updatedBy!: pulumi.Output<outputs.databricks.v20180401.CreatedByResponse | undefined>;
+    /**
+     * The unique identifier of the databricks workspace in databricks control plane.
+     */
+    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
+    /**
+     * The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+     */
+    public /*out*/ readonly workspaceUrl!: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -96,8 +136,13 @@ export class Workspace extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdBy"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["storageAccountIdentity"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedBy"] = undefined /*out*/;
+            inputs["workspaceId"] = undefined /*out*/;
+            inputs["workspaceUrl"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

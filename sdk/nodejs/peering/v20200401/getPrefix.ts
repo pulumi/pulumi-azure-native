@@ -41,13 +41,37 @@ export interface GetPrefixArgs {
  */
 export interface GetPrefixResult {
     /**
+     * The error message for validation state
+     */
+    readonly errorMessage: string;
+    /**
+     * The list of events for peering service prefix
+     */
+    readonly events: outputs.peering.v20200401.PeeringServicePrefixEventResponse[];
+    /**
+     * The prefix learned type
+     */
+    readonly learnedType: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * Gets or sets the peering prefix properties.
+     * The peering service prefix key
      */
-    readonly properties: outputs.peering.v20200401.PeeringServicePrefixPropertiesResponse;
+    readonly peeringServicePrefixKey?: string;
+    /**
+     * The prefix from which your traffic originates.
+     */
+    readonly prefix?: string;
+    /**
+     * The prefix validation state
+     */
+    readonly prefixValidationState: string;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * The type of the resource.
      */

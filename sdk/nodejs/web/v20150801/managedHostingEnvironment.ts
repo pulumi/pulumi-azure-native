@@ -37,18 +37,110 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
     }
 
     /**
+     * List of comma separated strings describing which VM sizes are allowed for front-ends
+     */
+    public readonly allowedMultiSizes!: pulumi.Output<string | undefined>;
+    /**
+     * List of comma separated strings describing which VM sizes are allowed for workers
+     */
+    public readonly allowedWorkerSizes!: pulumi.Output<string | undefined>;
+    /**
+     * Api Management Account associated with this Hosting Environment
+     */
+    public readonly apiManagementAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * Custom settings for changing the behavior of the hosting environment
+     */
+    public readonly clusterSettings!: pulumi.Output<outputs.web.v20150801.NameValuePairResponse[] | undefined>;
+    /**
+     * Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
+     */
+    public readonly databaseEdition!: pulumi.Output<string | undefined>;
+    /**
+     * Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
+     */
+    public readonly databaseServiceObjective!: pulumi.Output<string | undefined>;
+    /**
+     * DNS suffix of the hostingEnvironment (App Service Environment)
+     */
+    public readonly dnsSuffix!: pulumi.Output<string | undefined>;
+    /**
+     * Current total, used, and available worker capacities
+     */
+    public readonly environmentCapacities!: pulumi.Output<outputs.web.v20150801.StampCapacityResponse[] | undefined>;
+    /**
+     * True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
+     */
+    public readonly environmentIsHealthy!: pulumi.Output<boolean | undefined>;
+    /**
+     * Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
+     */
+    public readonly environmentStatus!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
+     */
+    public readonly internalLoadBalancingMode!: pulumi.Output<string | undefined>;
+    /**
+     * Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
+     */
+    public readonly ipsslAddressCount!: pulumi.Output<number | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * Last deployment action on this hostingEnvironment (App Service Environment)
+     */
+    public readonly lastAction!: pulumi.Output<string | undefined>;
+    /**
+     * Result of the last deployment action on this hostingEnvironment (App Service Environment)
+     */
+    public readonly lastActionResult!: pulumi.Output<string | undefined>;
     /**
      * Resource Location
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Maximum number of VMs in this hostingEnvironment (App Service Environment)
+     */
+    public readonly maximumNumberOfMachines!: pulumi.Output<number | undefined>;
+    /**
+     * Number of front-end instances
+     */
+    public readonly multiRoleCount!: pulumi.Output<number | undefined>;
+    /**
+     * Front-end VM size, e.g. "Medium", "Large"
+     */
+    public readonly multiSize!: pulumi.Output<string | undefined>;
+    /**
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.HostingEnvironmentResponseProperties>;
+    /**
+     * Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
+     */
+    public readonly networkAccessControlList!: pulumi.Output<outputs.web.v20150801.NetworkAccessControlEntryResponse[] | undefined>;
+    /**
+     * Provisioning state of the hostingEnvironment (App Service Environment)
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Resource group of the hostingEnvironment (App Service Environment)
+     */
+    public readonly resourceGroup!: pulumi.Output<string | undefined>;
+    /**
+     * Current status of the hostingEnvironment (App Service Environment)
+     */
+    public readonly status!: pulumi.Output<string>;
+    /**
+     * Subscription of the hostingEnvironment (App Service Environment)
+     */
+    public readonly subscriptionId!: pulumi.Output<string | undefined>;
+    /**
+     * True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+     *             (most likely because NSG blocked the incoming traffic)
+     */
+    public readonly suspended!: pulumi.Output<boolean | undefined>;
     /**
      * Resource tags
      */
@@ -57,6 +149,34 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
      * Resource type
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * Number of upgrade domains of this hostingEnvironment (App Service Environment)
+     */
+    public readonly upgradeDomains!: pulumi.Output<number | undefined>;
+    /**
+     * Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
+     */
+    public readonly vipMappings!: pulumi.Output<outputs.web.v20150801.VirtualIPMappingResponse[] | undefined>;
+    /**
+     * Description of the hostingEnvironment's (App Service Environment) virtual network
+     */
+    public readonly virtualNetwork!: pulumi.Output<outputs.web.v20150801.VirtualNetworkProfileResponse | undefined>;
+    /**
+     * Name of the hostingEnvironment's (App Service Environment) virtual network
+     */
+    public readonly vnetName!: pulumi.Output<string | undefined>;
+    /**
+     * Resource group of the hostingEnvironment's (App Service Environment) virtual network
+     */
+    public readonly vnetResourceGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * Subnet of the hostingEnvironment's (App Service Environment) virtual network
+     */
+    public readonly vnetSubnetName!: pulumi.Output<string | undefined>;
+    /**
+     * Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
+     */
+    public readonly workerPools!: pulumi.Output<outputs.web.v20150801.WorkerPoolResponse[] | undefined>;
 
     /**
      * Create a ManagedHostingEnvironment resource with the given unique name, arguments, and options.
@@ -120,7 +240,6 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
             inputs["vnetResourceGroupName"] = args ? args.vnetResourceGroupName : undefined;
             inputs["vnetSubnetName"] = args ? args.vnetSubnetName : undefined;
             inputs["workerPools"] = args ? args.workerPools : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

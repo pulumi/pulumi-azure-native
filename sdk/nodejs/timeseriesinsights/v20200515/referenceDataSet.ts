@@ -37,6 +37,18 @@ export class ReferenceDataSet extends pulumi.CustomResource {
     }
 
     /**
+     * The time the resource was created.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+     */
+    public readonly dataStringComparisonBehavior!: pulumi.Output<string | undefined>;
+    /**
+     * The list of key properties for the reference data set.
+     */
+    public readonly keyProperties!: pulumi.Output<outputs.timeseriesinsights.v20200515.ReferenceDataSetKeyPropertyResponse[]>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +57,9 @@ export class ReferenceDataSet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the reference data set.
+     * Provisioning state of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.timeseriesinsights.v20200515.ReferenceDataSetResourcePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -92,7 +104,8 @@ export class ReferenceDataSet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

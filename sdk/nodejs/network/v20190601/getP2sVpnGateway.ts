@@ -36,6 +36,10 @@ export interface GetP2sVpnGatewayArgs {
  */
 export interface GetP2sVpnGatewayResult {
     /**
+     * The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
+     */
+    readonly customRoutes?: outputs.network.v20190601.AddressSpaceResponse;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -48,9 +52,13 @@ export interface GetP2sVpnGatewayResult {
      */
     readonly name: string;
     /**
-     * Properties of the P2SVpnGateway.
+     * The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
      */
-    readonly properties: outputs.network.v20190601.P2SVpnGatewayPropertiesResponse;
+    readonly p2SVpnServerConfiguration?: outputs.network.v20190601.SubResourceResponse;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState?: string;
     /**
      * Resource tags.
      */
@@ -59,4 +67,20 @@ export interface GetP2sVpnGatewayResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The VirtualHub to which the gateway belongs.
+     */
+    readonly virtualHub?: outputs.network.v20190601.SubResourceResponse;
+    /**
+     * The reference of the address space resource which represents Address space for P2S VpnClient.
+     */
+    readonly vpnClientAddressPool?: outputs.network.v20190601.AddressSpaceResponse;
+    /**
+     * All P2S VPN clients' connection health status.
+     */
+    readonly vpnClientConnectionHealth: outputs.network.v20190601.VpnClientConnectionHealthResponse;
+    /**
+     * The scale unit for this p2s vpn gateway.
+     */
+    readonly vpnGatewayScaleUnit?: number;
 }

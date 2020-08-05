@@ -41,6 +41,14 @@ export interface GetCertificateOrderCertificateArgs {
  */
 export interface GetCertificateOrderCertificateResult {
     /**
+     * Key Vault Csm resource Id
+     */
+    readonly keyVaultId?: string;
+    /**
+     * Key Vault secret name
+     */
+    readonly keyVaultSecretName?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;
@@ -52,7 +60,10 @@ export interface GetCertificateOrderCertificateResult {
      * Resource Name
      */
     readonly name?: string;
-    readonly properties: outputs.certificateregistration.v20150801.CertificateOrderCertificateResponseProperties;
+    /**
+     * Status of the Key Vault secret
+     */
+    readonly provisioningState?: string;
     /**
      * Resource tags
      */

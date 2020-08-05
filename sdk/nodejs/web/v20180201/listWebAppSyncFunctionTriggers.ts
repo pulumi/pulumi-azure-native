@@ -36,6 +36,10 @@ export interface ListWebAppSyncFunctionTriggersArgs {
  */
 export interface ListWebAppSyncFunctionTriggersResult {
     /**
+     * Secret key.
+     */
+    readonly key?: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -44,9 +48,9 @@ export interface ListWebAppSyncFunctionTriggersResult {
      */
     readonly name: string;
     /**
-     * FunctionSecrets resource specific properties
+     * Trigger URL.
      */
-    readonly properties: outputs.web.v20180201.FunctionSecretsResponseProperties;
+    readonly trigger_url?: string;
     /**
      * Resource type.
      */

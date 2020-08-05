@@ -53,9 +53,13 @@ export interface GetVirtualNetworkLinkResult {
      */
     readonly name: string;
     /**
-     * Properties of the virtual network link to the Private DNS zone.
+     * The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
      */
-    readonly properties: outputs.network.v20180901.VirtualNetworkLinkPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+     */
+    readonly registrationEnabled?: boolean;
     /**
      * Resource tags.
      */
@@ -64,4 +68,12 @@ export interface GetVirtualNetworkLinkResult {
      * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
      */
     readonly type: string;
+    /**
+     * The reference of the virtual network.
+     */
+    readonly virtualNetwork?: outputs.network.v20180901.SubResourceResponse;
+    /**
+     * The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
+     */
+    readonly virtualNetworkLinkState: string;
 }

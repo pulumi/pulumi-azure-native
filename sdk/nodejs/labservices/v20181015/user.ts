@@ -37,6 +37,22 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
+     * The user email address, as it was specified during registration.
+     */
+    public /*out*/ readonly email!: pulumi.Output<string>;
+    /**
+     * The user family name, as it was specified during registration.
+     */
+    public /*out*/ readonly familyName!: pulumi.Output<string>;
+    /**
+     * The user given name, as it was specified during registration.
+     */
+    public /*out*/ readonly givenName!: pulumi.Output<string>;
+    /**
+     * The details of the latest operation. ex: status, error
+     */
+    public /*out*/ readonly latestOperationResult!: pulumi.Output<outputs.labservices.v20181015.LatestOperationResultResponse>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,17 +61,29 @@ export class User extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * These are the properties for the user registered under a lab.
+     * The provisioning status of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.labservices.v20181015.UserPropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The user tenant ID, as it was specified during registration.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    /**
+     * How long the user has used his VMs in this lab
+     */
+    public /*out*/ readonly totalUsage!: pulumi.Output<string>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -90,7 +118,12 @@ export class User extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["email"] = undefined /*out*/;
+            inputs["familyName"] = undefined /*out*/;
+            inputs["givenName"] = undefined /*out*/;
+            inputs["latestOperationResult"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
+            inputs["totalUsage"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

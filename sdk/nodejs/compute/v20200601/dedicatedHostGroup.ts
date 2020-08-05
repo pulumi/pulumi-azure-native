@@ -37,6 +37,14 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     }
 
     /**
+     * A list of references to all dedicated hosts in the dedicated host group.
+     */
+    public /*out*/ readonly hosts!: pulumi.Output<outputs.compute.v20200601.SubResourceReadOnlyResponse[]>;
+    /**
+     * The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
+     */
+    public /*out*/ readonly instanceView!: pulumi.Output<outputs.compute.v20200601.DedicatedHostGroupInstanceViewResponse>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +53,13 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Dedicated Host Group Properties.
+     * Number of fault domains that the host group can span.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20200601.DedicatedHostGroupPropertiesResponse>;
+    public readonly platformFaultDomainCount!: pulumi.Output<number>;
+    /**
+     * Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
+     */
+    public readonly supportAutomaticPlacement!: pulumi.Output<boolean | undefined>;
     /**
      * Resource tags
      */
@@ -93,7 +105,8 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             inputs["supportAutomaticPlacement"] = args ? args.supportAutomaticPlacement : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["hosts"] = undefined /*out*/;
+            inputs["instanceView"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

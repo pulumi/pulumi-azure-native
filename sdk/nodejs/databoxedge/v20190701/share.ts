@@ -37,17 +37,53 @@ export class Share extends pulumi.CustomResource {
     }
 
     /**
+     * Access protocol to be used by the share.
+     */
+    public readonly accessProtocol!: pulumi.Output<string>;
+    /**
+     * Azure container mapping for the share.
+     */
+    public readonly azureContainerInfo!: pulumi.Output<outputs.databoxedge.v20190701.AzureContainerInfoResponse | undefined>;
+    /**
+     * List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+     */
+    public readonly clientAccessRights!: pulumi.Output<outputs.databoxedge.v20190701.ClientAccessRightResponse[] | undefined>;
+    /**
+     * Data policy of the share.
+     */
+    public readonly dataPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * Description for the share.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Current monitoring status of the share.
+     */
+    public readonly monitoringStatus!: pulumi.Output<string>;
+    /**
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The share properties.
+     * Details of the refresh job on this share.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190701.SharePropertiesResponse>;
+    public readonly refreshDetails!: pulumi.Output<outputs.databoxedge.v20190701.RefreshDetailsResponse | undefined>;
+    /**
+     * Share mount point to the role.
+     */
+    public /*out*/ readonly shareMappings!: pulumi.Output<outputs.databoxedge.v20190701.MountPointMapResponse[]>;
+    /**
+     * Current status of the share.
+     */
+    public readonly shareStatus!: pulumi.Output<string>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Mapping of users and corresponding access rights on the share (required for SMB protocol).
+     */
+    public readonly userAccessRights!: pulumi.Output<outputs.databoxedge.v20190701.UserAccessRightResponse[] | undefined>;
 
     /**
      * Create a Share resource with the given unique name, arguments, and options.
@@ -92,7 +128,7 @@ export class Share extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareStatus"] = args ? args.shareStatus : undefined;
             inputs["userAccessRights"] = args ? args.userAccessRights : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["shareMappings"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

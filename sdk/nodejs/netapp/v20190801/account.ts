@@ -37,6 +37,10 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * Active Directories
+     */
+    public readonly activeDirectories!: pulumi.Output<outputs.netapp.v20190801.ActiveDirectoryResponse[] | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +49,9 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * NetApp Account properties
+     * Azure lifecycle management
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.netapp.v20190801.AccountPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -84,7 +88,7 @@ export class Account extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

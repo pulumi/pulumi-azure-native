@@ -37,21 +37,37 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
+     * The DNS settings of the Traffic Manager profile.
+     */
+    public readonly dnsConfig!: pulumi.Output<outputs.network.v20170501.DnsConfigResponse | undefined>;
+    /**
+     * The list of endpoints in the Traffic Manager profile.
+     */
+    public readonly endpoints!: pulumi.Output<outputs.network.v20170501.EndpointResponse[] | undefined>;
+    /**
      * The Azure Region where the resource lives
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The endpoint monitoring settings of the Traffic Manager profile.
+     */
+    public readonly monitorConfig!: pulumi.Output<outputs.network.v20170501.MonitorConfigResponse | undefined>;
     /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the Traffic Manager profile.
+     * The status of the Traffic Manager profile.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20170501.ProfilePropertiesResponse>;
+    public readonly profileStatus!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The traffic routing method of the Traffic Manager profile.
+     */
+    public readonly trafficRoutingMethod!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
@@ -85,7 +101,6 @@ export class Profile extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

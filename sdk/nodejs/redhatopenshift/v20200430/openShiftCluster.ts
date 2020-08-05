@@ -37,17 +37,45 @@ export class OpenShiftCluster extends pulumi.CustomResource {
     }
 
     /**
+     * The cluster API server profile.
+     */
+    public readonly apiserverProfile!: pulumi.Output<outputs.redhatopenshift.v20200430.APIServerProfileResponse | undefined>;
+    /**
+     * The cluster profile.
+     */
+    public readonly clusterProfile!: pulumi.Output<outputs.redhatopenshift.v20200430.ClusterProfileResponse | undefined>;
+    /**
+     * The console profile.
+     */
+    public readonly consoleProfile!: pulumi.Output<outputs.redhatopenshift.v20200430.ConsoleProfileResponse | undefined>;
+    /**
+     * The cluster ingress profiles.
+     */
+    public readonly ingressProfiles!: pulumi.Output<outputs.redhatopenshift.v20200430.IngressProfileResponse[] | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The cluster master profile.
+     */
+    public readonly masterProfile!: pulumi.Output<outputs.redhatopenshift.v20200430.MasterProfileResponse | undefined>;
     /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The cluster properties.
+     * The cluster network profile.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.redhatopenshift.v20200430.OpenShiftClusterPropertiesResponse>;
+    public readonly networkProfile!: pulumi.Output<outputs.redhatopenshift.v20200430.NetworkProfileResponse | undefined>;
+    /**
+     * The cluster provisioning state (immutable).
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The cluster service principal profile.
+     */
+    public readonly servicePrincipalProfile!: pulumi.Output<outputs.redhatopenshift.v20200430.ServicePrincipalProfileResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -56,6 +84,10 @@ export class OpenShiftCluster extends pulumi.CustomResource {
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The cluster worker profiles.
+     */
+    public readonly workerProfiles!: pulumi.Output<outputs.redhatopenshift.v20200430.WorkerProfileResponse[] | undefined>;
 
     /**
      * Create a OpenShiftCluster resource with the given unique name, arguments, and options.
@@ -92,7 +124,6 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workerProfiles"] = args ? args.workerProfiles : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

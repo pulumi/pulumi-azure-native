@@ -37,6 +37,26 @@ export class EnvironmentSetting extends pulumi.CustomResource {
     }
 
     /**
+     * Describes the user's progress in configuring their environment setting
+     */
+    public readonly configurationState!: pulumi.Output<string | undefined>;
+    /**
+     * Describes the environment and its resource settings
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Time when the template VM was last changed.
+     */
+    public /*out*/ readonly lastChanged!: pulumi.Output<string>;
+    /**
+     * Time when the template VM was last sent for publishing.
+     */
+    public /*out*/ readonly lastPublished!: pulumi.Output<string>;
+    /**
+     * The details of the latest operation. ex: status, error
+     */
+    public /*out*/ readonly latestOperationResult!: pulumi.Output<outputs.labservices.v20181015.LatestOperationResultResponse>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,17 +65,33 @@ export class EnvironmentSetting extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the Environment Setting resource
+     * The provisioning status of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.labservices.v20181015.EnvironmentSettingPropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Describes the readiness of this environment setting
+     */
+    public /*out*/ readonly publishingState!: pulumi.Output<string>;
+    /**
+     * The resource specific settings
+     */
+    public readonly resourceSettings!: pulumi.Output<outputs.labservices.v20181015.ResourceSettingsResponse>;
     /**
      * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Brief title describing the environment and its resource settings
+     */
+    public readonly title!: pulumi.Output<string | undefined>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EnvironmentSetting resource with the given unique name, arguments, and options.
@@ -97,7 +133,10 @@ export class EnvironmentSetting extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["title"] = args ? args.title : undefined;
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastChanged"] = undefined /*out*/;
+            inputs["lastPublished"] = undefined /*out*/;
+            inputs["latestOperationResult"] = undefined /*out*/;
+            inputs["publishingState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

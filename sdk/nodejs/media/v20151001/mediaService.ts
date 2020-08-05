@@ -37,6 +37,10 @@ export class MediaService extends pulumi.CustomResource {
     }
 
     /**
+     * Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
+     */
+    public /*out*/ readonly apiEndpoints!: pulumi.Output<outputs.media.v20151001.ApiEndpointResponse[]>;
+    /**
      * The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +49,9 @@ export class MediaService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The additional properties of a Media Service resource.
+     * The storage accounts for this resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20151001.MediaServicePropertiesResponse>;
+    public readonly storageAccounts!: pulumi.Output<outputs.media.v20151001.StorageAccountResponse[] | undefined>;
     /**
      * Tags to help categorize the resource in the Azure portal.
      */
@@ -81,7 +85,7 @@ export class MediaService extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["apiEndpoints"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

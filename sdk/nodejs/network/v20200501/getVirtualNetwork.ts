@@ -36,9 +36,37 @@ export interface GetVirtualNetworkArgs {
  */
 export interface GetVirtualNetworkResult {
     /**
+     * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+     */
+    readonly addressSpace?: outputs.network.v20200501.AddressSpaceResponse;
+    /**
+     * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+     */
+    readonly bgpCommunities?: outputs.network.v20200501.VirtualNetworkBgpCommunitiesResponse;
+    /**
+     * The DDoS protection plan associated with the virtual network.
+     */
+    readonly ddosProtectionPlan?: outputs.network.v20200501.SubResourceResponse;
+    /**
+     * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+     */
+    readonly dhcpOptions?: outputs.network.v20200501.DhcpOptionsResponse;
+    /**
+     * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+     */
+    readonly enableDdosProtection?: boolean;
+    /**
+     * Indicates if VM protection is enabled for all the subnets in the virtual network.
+     */
+    readonly enableVmProtection?: boolean;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * Array of IpAllocation which reference this VNET.
+     */
+    readonly ipAllocations?: outputs.network.v20200501.SubResourceResponse[];
     /**
      * Resource location.
      */
@@ -48,9 +76,17 @@ export interface GetVirtualNetworkResult {
      */
     readonly name: string;
     /**
-     * Properties of the virtual network.
+     * The provisioning state of the virtual network resource.
      */
-    readonly properties: outputs.network.v20200501.VirtualNetworkPropertiesFormatResponse;
+    readonly provisioningState: string;
+    /**
+     * The resourceGuid property of the Virtual Network resource.
+     */
+    readonly resourceGuid: string;
+    /**
+     * A list of subnets in a Virtual Network.
+     */
+    readonly subnets?: outputs.network.v20200501.SubnetResponse[];
     /**
      * Resource tags.
      */
@@ -59,4 +95,8 @@ export interface GetVirtualNetworkResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * A list of peerings in a Virtual Network.
+     */
+    readonly virtualNetworkPeerings?: outputs.network.v20200501.VirtualNetworkPeeringResponse[];
 }

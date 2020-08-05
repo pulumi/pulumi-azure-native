@@ -45,9 +45,13 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Describes the properties of a Virtual Machine Scale Set.
+     * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20150615.VirtualMachineScaleSetPropertiesResponse>;
+    public readonly overProvision!: pulumi.Output<boolean | undefined>;
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The virtual machine scale set sku.
      */
@@ -60,6 +64,14 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The upgrade policy.
+     */
+    public readonly upgradePolicy!: pulumi.Output<outputs.compute.v20150615.UpgradePolicyResponse | undefined>;
+    /**
+     * The virtual machine profile.
+     */
+    public readonly virtualMachineProfile!: pulumi.Output<outputs.compute.v20150615.VirtualMachineScaleSetVMProfileResponse | undefined>;
 
     /**
      * Create a VirtualMachineScaleSet resource with the given unique name, arguments, and options.
@@ -92,7 +104,6 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             inputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

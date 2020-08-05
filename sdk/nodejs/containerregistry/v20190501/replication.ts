@@ -45,9 +45,13 @@ export class Replication extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the replication.
+     * The provisioning state of the replication at the time the operation was called.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.containerregistry.v20190501.ReplicationPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The status of the replication at the time the operation was called.
+     */
+    public /*out*/ readonly status!: pulumi.Output<outputs.containerregistry.v20190501.StatusResponse>;
     /**
      * The tags of the resource.
      */
@@ -87,7 +91,8 @@ export class Replication extends pulumi.CustomResource {
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

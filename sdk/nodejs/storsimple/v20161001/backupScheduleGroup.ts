@@ -41,9 +41,9 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of BackupScheduleGroup
+     * The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.BackupScheduleGroupPropertiesResponse>;
+    public readonly startTime!: pulumi.Output<outputs.storsimple.v20161001.TimeResponse>;
     /**
      * The type.
      */
@@ -82,7 +82,6 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

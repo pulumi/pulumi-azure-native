@@ -49,9 +49,17 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * Resource properties.
+     * Properties of the private endpoint object.
      */
-    readonly properties: outputs.keyvault.v20190901.PrivateEndpointConnectionPropertiesResponse;
+    readonly privateEndpoint?: outputs.keyvault.v20190901.PrivateEndpointResponse;
+    /**
+     * Approval state of the private link connection.
+     */
+    readonly privateLinkServiceConnectionState?: outputs.keyvault.v20190901.PrivateLinkServiceConnectionStateResponse;
+    /**
+     * Provisioning state of the private endpoint connection.
+     */
+    readonly provisioningState?: string;
     /**
      * Tags assigned to the key vault resource.
      */

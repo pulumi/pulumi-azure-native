@@ -41,10 +41,21 @@ export interface GetAccessPolicyArgs {
  */
 export interface GetAccessPolicyResult {
     /**
+     * An description of the access policy.
+     */
+    readonly description?: string;
+    /**
      * Resource name
      */
     readonly name: string;
-    readonly properties: outputs.timeseriesinsights.v20171115.AccessPolicyResourcePropertiesResponse;
+    /**
+     * The objectId of the principal in Azure Active Directory.
+     */
+    readonly principalObjectId?: string;
+    /**
+     * The list of roles the principal is assigned on the environment.
+     */
+    readonly roles?: string[];
     /**
      * Resource type
      */

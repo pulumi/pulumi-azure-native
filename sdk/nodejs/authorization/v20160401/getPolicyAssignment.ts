@@ -36,13 +36,21 @@ export interface GetPolicyAssignmentArgs {
  */
 export interface GetPolicyAssignmentResult {
     /**
+     * The display name of the policy assignment.
+     */
+    readonly displayName?: string;
+    /**
      * The name of the policy assignment.
      */
     readonly name?: string;
     /**
-     * Properties for the policy assignment.
+     * The ID of the policy definition.
      */
-    readonly properties: outputs.authorization.v20160401.PolicyAssignmentPropertiesResponse;
+    readonly policyDefinitionId?: string;
+    /**
+     * The scope for the policy assignment.
+     */
+    readonly scope?: string;
     /**
      * The type of the policy assignment.
      */

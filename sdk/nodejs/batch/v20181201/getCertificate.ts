@@ -41,17 +41,40 @@ export interface GetCertificateArgs {
  */
 export interface GetCertificateResult {
     /**
+     * This is only returned when the certificate provisioningState is 'Failed'.
+     */
+    readonly deleteCertificateError: outputs.batch.v20181201.DeleteCertificateErrorResponse;
+    /**
      * The ETag of the resource, used for concurrency statements.
      */
     readonly etag: string;
+    /**
+     * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+     */
+    readonly format?: string;
     /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The properties associated with the certificate.
+     * The previous provisioned state of the resource
      */
-    readonly properties: outputs.batch.v20181201.CertificatePropertiesResponse;
+    readonly previousProvisioningState: string;
+    readonly previousProvisioningStateTransitionTime: string;
+    readonly provisioningState: string;
+    readonly provisioningStateTransitionTime: string;
+    /**
+     * The public key of the certificate.
+     */
+    readonly publicData: string;
+    /**
+     * This must match the thumbprint from the name.
+     */
+    readonly thumbprint?: string;
+    /**
+     * This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+     */
+    readonly thumbprintAlgorithm?: string;
     /**
      * The type of the resource.
      */

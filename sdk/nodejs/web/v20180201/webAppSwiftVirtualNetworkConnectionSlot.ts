@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,9 +43,13 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * SwiftVirtualNetwork resource specific properties
+     * The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20180201.SwiftVirtualNetworkResponseProperties>;
+    public readonly subnetResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * A flag that specifies if the scale unit this Web App is on supports Swift integration.
+     */
+    public readonly swiftSupported!: pulumi.Output<boolean | undefined>;
     /**
      * Resource type.
      */
@@ -77,7 +79,6 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
             inputs["swiftSupported"] = args ? args.swiftSupported : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

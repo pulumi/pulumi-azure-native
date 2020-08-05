@@ -36,6 +36,18 @@ export interface GetVirtualNetworkTapArgs {
  */
 export interface GetVirtualNetworkTapResult {
     /**
+     * The reference to the private IP address on the internal Load Balancer that will receive the tap.
+     */
+    readonly destinationLoadBalancerFrontEndIPConfiguration?: outputs.network.v20190701.FrontendIPConfigurationResponse;
+    /**
+     * The reference to the private IP Address of the collector nic that will receive the tap.
+     */
+    readonly destinationNetworkInterfaceIPConfiguration?: outputs.network.v20190701.NetworkInterfaceIPConfigurationResponse;
+    /**
+     * The VXLAN destination port that will receive the tapped traffic.
+     */
+    readonly destinationPort?: number;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
@@ -48,9 +60,17 @@ export interface GetVirtualNetworkTapResult {
      */
     readonly name: string;
     /**
-     * Virtual Network Tap Properties.
+     * Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
      */
-    readonly properties: outputs.network.v20190701.VirtualNetworkTapPropertiesFormatResponse;
+    readonly networkInterfaceTapConfigurations: outputs.network.v20190701.NetworkInterfaceTapConfigurationResponse[];
+    /**
+     * The provisioning state of the virtual network tap resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The resource GUID property of the virtual network tap resource.
+     */
+    readonly resourceGuid: string;
     /**
      * Resource tags.
      */

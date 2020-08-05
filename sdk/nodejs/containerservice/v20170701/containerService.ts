@@ -37,17 +37,45 @@ export class ContainerService extends pulumi.CustomResource {
     }
 
     /**
+     * Properties of the agent pool.
+     */
+    public readonly agentPoolProfiles!: pulumi.Output<outputs.containerservice.v20170701.ContainerServiceAgentPoolProfileResponse[] | undefined>;
+    /**
+     * Properties to configure a custom container service cluster.
+     */
+    public readonly customProfile!: pulumi.Output<outputs.containerservice.v20170701.ContainerServiceCustomProfileResponse | undefined>;
+    /**
+     * Profile for diagnostics in the container service cluster.
+     */
+    public readonly diagnosticsProfile!: pulumi.Output<outputs.containerservice.v20170701.ContainerServiceDiagnosticsProfileResponse | undefined>;
+    /**
+     * Profile for Linux VMs in the container service cluster.
+     */
+    public readonly linuxProfile!: pulumi.Output<outputs.containerservice.v20170701.ContainerServiceLinuxProfileResponse>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Profile for the container service master.
+     */
+    public readonly masterProfile!: pulumi.Output<outputs.containerservice.v20170701.ContainerServiceMasterProfileResponse>;
     /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the container service.
+     * Profile for the container service orchestrator.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.containerservice.v20170701.ContainerServicePropertiesResponse>;
+    public readonly orchestratorProfile!: pulumi.Output<outputs.containerservice.v20170701.ContainerServiceOrchestratorProfileResponse>;
+    /**
+     * The current deployment or provisioning state, which only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+     */
+    public readonly servicePrincipalProfile!: pulumi.Output<outputs.containerservice.v20170701.ContainerServiceServicePrincipalProfileResponse | undefined>;
     /**
      * Resource tags
      */
@@ -56,6 +84,10 @@ export class ContainerService extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Profile for Windows VMs in the container service cluster.
+     */
+    public readonly windowsProfile!: pulumi.Output<outputs.containerservice.v20170701.ContainerServiceWindowsProfileResponse | undefined>;
 
     /**
      * Create a ContainerService resource with the given unique name, arguments, and options.
@@ -100,7 +132,7 @@ export class ContainerService extends pulumi.CustomResource {
             inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["windowsProfile"] = args ? args.windowsProfile : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

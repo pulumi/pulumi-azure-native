@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,45 @@ export class IscsiDisk extends pulumi.CustomResource {
     }
 
     /**
+     * The access control records.
+     */
+    public readonly accessControlRecords!: pulumi.Output<string[]>;
+    /**
+     * The data policy.
+     */
+    public readonly dataPolicy!: pulumi.Output<string>;
+    /**
+     * The description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The disk status.
+     */
+    public readonly diskStatus!: pulumi.Output<string>;
+    /**
+     * The local used capacity in bytes.
+     */
+    public /*out*/ readonly localUsedCapacityInBytes!: pulumi.Output<number>;
+    /**
+     * The monitoring.
+     */
+    public readonly monitoringStatus!: pulumi.Output<string>;
+    /**
      * The name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties.
+     * The provisioned capacity in bytes.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ISCSIDiskPropertiesResponse>;
+    public readonly provisionedCapacityInBytes!: pulumi.Output<number>;
     /**
      * The type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The used capacity in bytes.
+     */
+    public /*out*/ readonly usedCapacityInBytes!: pulumi.Output<number>;
 
     /**
      * Create a IscsiDisk resource with the given unique name, arguments, and options.
@@ -103,8 +129,9 @@ export class IscsiDisk extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["provisionedCapacityInBytes"] = args ? args.provisionedCapacityInBytes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["localUsedCapacityInBytes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["usedCapacityInBytes"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

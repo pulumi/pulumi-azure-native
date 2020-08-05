@@ -37,6 +37,70 @@ export class DatabaseAccount extends pulumi.CustomResource {
     }
 
     /**
+     * API specific properties.
+     */
+    public readonly apiProperties!: pulumi.Output<outputs.documentdb.v20200401.ApiPropertiesResponse | undefined>;
+    /**
+     * List of Cosmos DB capabilities for the account
+     */
+    public readonly capabilities!: pulumi.Output<outputs.documentdb.v20200401.CapabilityResponse[] | undefined>;
+    /**
+     * The cassandra connector offer type for the Cosmos DB database C* account.
+     */
+    public readonly connectorOffer!: pulumi.Output<string | undefined>;
+    /**
+     * The consistency policy for the Cosmos DB database account.
+     */
+    public readonly consistencyPolicy!: pulumi.Output<outputs.documentdb.v20200401.ConsistencyPolicyResponse | undefined>;
+    /**
+     * The offer type for the Cosmos DB database account. Default value: Standard.
+     */
+    public readonly databaseAccountOfferType!: pulumi.Output<string>;
+    /**
+     * Disable write operations on metadata resources (databases, containers, throughput) via account keys
+     */
+    public readonly disableKeyBasedMetadataWriteAccess!: pulumi.Output<boolean | undefined>;
+    /**
+     * The connection endpoint for the Cosmos DB database account.
+     */
+    public /*out*/ readonly documentEndpoint!: pulumi.Output<string>;
+    /**
+     * Flag to indicate whether to enable storage analytics.
+     */
+    public readonly enableAnalyticalStorage!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+     */
+    public readonly enableAutomaticFailover!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables the cassandra connector on the Cosmos DB C* account
+     */
+    public readonly enableCassandraConnector!: pulumi.Output<boolean | undefined>;
+    /**
+     * Flag to indicate whether Free Tier is enabled.
+     */
+    public readonly enableFreeTier!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables the account to write in multiple locations
+     */
+    public readonly enableMultipleWriteLocations!: pulumi.Output<boolean | undefined>;
+    /**
+     * An array that contains the regions ordered by their failover priorities.
+     */
+    public /*out*/ readonly failoverPolicies!: pulumi.Output<outputs.documentdb.v20200401.FailoverPolicyResponse[]>;
+    /**
+     * List of IpRules.
+     */
+    public readonly ipRules!: pulumi.Output<outputs.documentdb.v20200401.IpAddressOrRangeResponse[] | undefined>;
+    /**
+     * Flag to indicate whether to enable/disable Virtual Network ACL rules.
+     */
+    public readonly isVirtualNetworkFilterEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The URI of the key vault
+     */
+    public readonly keyVaultKeyUri!: pulumi.Output<string | undefined>;
+    /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,13 +109,29 @@ export class DatabaseAccount extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * An array that contains all of the locations enabled for the Cosmos DB account.
+     */
+    public readonly locations!: pulumi.Output<outputs.documentdb.v20200401.LocationResponse[]>;
+    /**
      * The name of the ARM resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties for the database account.
+     * List of Private Endpoint Connections configured for the Cosmos DB account.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.v20200401.DatabaseAccountGetPropertiesResponse>;
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.documentdb.v20200401.PrivateEndpointConnectionResponse[]>;
+    /**
+     * The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'DeletionFailed' – the Cosmos DB account deletion failed.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Whether requests from Public Network are allowed
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
+     * An array that contains of the read locations enabled for the Cosmos DB account.
+     */
+    public /*out*/ readonly readLocations!: pulumi.Output<outputs.documentdb.v20200401.LocationResponse[]>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -60,6 +140,14 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * The type of Azure resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * List of Virtual Network ACL rules configured for the Cosmos DB account.
+     */
+    public readonly virtualNetworkRules!: pulumi.Output<outputs.documentdb.v20200401.VirtualNetworkRuleResponse[] | undefined>;
+    /**
+     * An array that contains the write location for the Cosmos DB account.
+     */
+    public /*out*/ readonly writeLocations!: pulumi.Output<outputs.documentdb.v20200401.LocationResponse[]>;
 
     /**
      * Create a DatabaseAccount resource with the given unique name, arguments, and options.
@@ -108,8 +196,13 @@ export class DatabaseAccount extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["documentEndpoint"] = undefined /*out*/;
+            inputs["failoverPolicies"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["readLocations"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["writeLocations"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

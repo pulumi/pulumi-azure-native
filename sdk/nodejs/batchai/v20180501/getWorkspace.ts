@@ -36,6 +36,10 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * Time when the Workspace was created.
+     */
+    readonly creationTime: string;
+    /**
      * The location of the resource
      */
     readonly location: string;
@@ -44,9 +48,13 @@ export interface GetWorkspaceResult {
      */
     readonly name: string;
     /**
-     * The properties associated with the workspace.
+     * The provisioned state of the Workspace
      */
-    readonly properties: outputs.batchai.v20180501.WorkspacePropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The time at which the workspace entered its current provisioning state.
+     */
+    readonly provisioningStateTransitionTime: string;
     /**
      * The tags of the resource
      */

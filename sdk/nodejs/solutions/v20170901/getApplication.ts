@@ -36,6 +36,10 @@ export interface GetApplicationArgs {
  */
 export interface GetApplicationResult {
     /**
+     * The fully qualified path of managed application definition Id.
+     */
+    readonly applicationDefinitionId?: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.solutions.v20170901.IdentityResponse;
@@ -52,17 +56,29 @@ export interface GetApplicationResult {
      */
     readonly managedBy?: string;
     /**
+     * The managed resource group Id.
+     */
+    readonly managedResourceGroupId: string;
+    /**
      * Resource name
      */
     readonly name: string;
+    /**
+     * Name and value pairs that define the managed application outputs.
+     */
+    readonly outputs: {[key: string]: any};
+    /**
+     * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+     */
+    readonly parameters?: {[key: string]: any};
     /**
      * The plan information.
      */
     readonly plan?: outputs.solutions.v20170901.PlanResponse;
     /**
-     * The managed application properties.
+     * The managed application provisioning state.
      */
-    readonly properties: outputs.solutions.v20170901.ApplicationPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * The SKU of the resource.
      */
@@ -75,4 +91,8 @@ export interface GetApplicationResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * The blob URI where the UI definition file is located.
+     */
+    readonly uiDefinitionUri?: string;
 }

@@ -37,17 +37,33 @@ export class PeerAsn extends pulumi.CustomResource {
     }
 
     /**
+     * The error message for the validation state
+     */
+    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties that define a peer's ASN.
+     * The Autonomous System Number (ASN) of the peer.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.peering.v20200401.PeerAsnPropertiesResponse>;
+    public readonly peerAsn!: pulumi.Output<number | undefined>;
+    /**
+     * The contact details of the peer.
+     */
+    public readonly peerContactDetail!: pulumi.Output<outputs.peering.v20200401.ContactDetailResponse[] | undefined>;
+    /**
+     * The name of the peer.
+     */
+    public readonly peerName!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The validation state of the ASN associated with the peer.
+     */
+    public readonly validationState!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PeerAsn resource with the given unique name, arguments, and options.
@@ -70,7 +86,7 @@ export class PeerAsn extends pulumi.CustomResource {
             inputs["peerContactDetail"] = args ? args.peerContactDetail : undefined;
             inputs["peerName"] = args ? args.peerName : undefined;
             inputs["validationState"] = args ? args.validationState : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["errorMessage"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

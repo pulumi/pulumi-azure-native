@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class Registration extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the billing mode for the Azure Stack registration.
+     */
+    public /*out*/ readonly billingModel!: pulumi.Output<string | undefined>;
+    /**
+     * The identifier of the registered Azure Stack.
+     */
+    public /*out*/ readonly cloudId!: pulumi.Output<string | undefined>;
+    /**
      * The entity tag used for optimistic concurrency when modifying the resource.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
@@ -49,9 +55,9 @@ export class Registration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Registration resource.
+     * The object identifier associated with the Azure Stack connecting to Azure.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.azurestack.v20170601.RegistrationPropertiesResponse>;
+    public /*out*/ readonly objectId!: pulumi.Output<string | undefined>;
     /**
      * Custom tags for the resource.
      */
@@ -90,8 +96,10 @@ export class Registration extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["registrationToken"] = args ? args.registrationToken : undefined;
             inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            inputs["billingModel"] = undefined /*out*/;
+            inputs["cloudId"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["objectId"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

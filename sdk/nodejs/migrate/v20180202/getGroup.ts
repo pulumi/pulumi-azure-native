@@ -41,19 +41,31 @@ export interface GetGroupArgs {
  */
 export interface GetGroupResult {
     /**
+     * List of References to Assessments created on this group.
+     */
+    readonly assessments: string[];
+    /**
+     * Time when this project was created. Date-Time represented in ISO-8601 format.
+     */
+    readonly createdTimestamp: string;
+    /**
      * For optimistic concurrency control.
      */
     readonly eTag?: string;
+    /**
+     * List of machine names that are part of this group.
+     */
+    readonly machines: string[];
     /**
      * Name of the group.
      */
     readonly name: string;
     /**
-     * Properties of the group.
-     */
-    readonly properties: outputs.migrate.v20180202.GroupPropertiesResponse;
-    /**
      * Type of the object = [Microsoft.Migrate/projects/groups].
      */
     readonly type: string;
+    /**
+     * Time when this project was last updated. Date-Time represented in ISO-8601 format.
+     */
+    readonly updatedTimestamp: string;
 }

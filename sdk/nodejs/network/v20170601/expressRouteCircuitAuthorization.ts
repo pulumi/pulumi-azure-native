@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     }
 
     /**
+     * The authorization key.
+     */
+    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    /**
+     * AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+     */
+    public readonly authorizationUseStatus!: pulumi.Output<string | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -44,7 +50,10 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20170601.AuthorizationPropertiesFormatResponse>;
+    /**
+     * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ExpressRouteCircuitAuthorization resource with the given unique name, arguments, and options.
@@ -76,7 +85,6 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

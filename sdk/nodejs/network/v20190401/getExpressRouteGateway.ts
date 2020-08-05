@@ -36,9 +36,17 @@ export interface GetExpressRouteGatewayArgs {
  */
 export interface GetExpressRouteGatewayResult {
     /**
+     * Configuration for auto scaling.
+     */
+    readonly autoScaleConfiguration?: outputs.network.v20190401.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * List of ExpressRoute connections to the ExpressRoute gateway.
+     */
+    readonly expressRouteConnections: outputs.network.v20190401.ExpressRouteConnectionResponse[];
     /**
      * Resource location.
      */
@@ -48,9 +56,9 @@ export interface GetExpressRouteGatewayResult {
      */
     readonly name: string;
     /**
-     * Properties of the express route gateway.
+     * The provisioning state of the resource.
      */
-    readonly properties: outputs.network.v20190401.ExpressRouteGatewayPropertiesResponse;
+    readonly provisioningState?: string;
     /**
      * Resource tags.
      */
@@ -59,4 +67,8 @@ export interface GetExpressRouteGatewayResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+     */
+    readonly virtualHub: outputs.network.v20190401.VirtualHubIdResponse;
 }

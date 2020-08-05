@@ -36,6 +36,14 @@ export interface GetNetworkVirtualApplianceArgs {
  */
 export interface GetNetworkVirtualApplianceResult {
     /**
+     * BootStrapConfigurationBlob storage URLs.
+     */
+    readonly bootStrapConfigurationBlob?: string[];
+    /**
+     * CloudInitConfigurationBlob storage URLs.
+     */
+    readonly cloudInitConfigurationBlob?: string[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -52,9 +60,9 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly name: string;
     /**
-     * Properties of the Network Virtual Appliance.
+     * The provisioning state of the resource.
      */
-    readonly properties: outputs.network.v20200301.NetworkVirtualAppliancePropertiesFormatResponse;
+    readonly provisioningState: string;
     /**
      * Network Virtual Appliance SKU.
      */
@@ -67,4 +75,16 @@ export interface GetNetworkVirtualApplianceResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * VirtualAppliance ASN.
+     */
+    readonly virtualApplianceAsn?: number;
+    /**
+     * List of Virtual Appliance Network Interfaces.
+     */
+    readonly virtualApplianceNics: outputs.network.v20200301.VirtualApplianceNicPropertiesResponse[];
+    /**
+     * The Virtual Hub where Network Virtual Appliance is being deployed.
+     */
+    readonly virtualHub?: outputs.network.v20200301.SubResourceResponse;
 }

@@ -37,6 +37,78 @@ export class VirtualMachine extends pulumi.CustomResource {
     }
 
     /**
+     * Indicates whether another user can take ownership of the virtual machine
+     */
+    public readonly allowClaim!: pulumi.Output<boolean | undefined>;
+    /**
+     * The applicable schedule for the virtual machine.
+     */
+    public readonly applicableSchedule!: pulumi.Output<outputs.devtestlab.v20160515.ApplicableScheduleResponse | undefined>;
+    /**
+     * The artifact deployment status for the virtual machine.
+     */
+    public readonly artifactDeploymentStatus!: pulumi.Output<outputs.devtestlab.v20160515.ArtifactDeploymentStatusPropertiesResponse | undefined>;
+    /**
+     * The artifacts to be installed on the virtual machine.
+     */
+    public readonly artifacts!: pulumi.Output<outputs.devtestlab.v20160515.ArtifactInstallPropertiesResponse[] | undefined>;
+    /**
+     * The resource identifier (Microsoft.Compute) of the virtual machine.
+     */
+    public /*out*/ readonly computeId!: pulumi.Output<string>;
+    /**
+     * The compute virtual machine properties.
+     */
+    public readonly computeVm!: pulumi.Output<outputs.devtestlab.v20160515.ComputeVmPropertiesResponse | undefined>;
+    /**
+     * The email address of creator of the virtual machine.
+     */
+    public readonly createdByUser!: pulumi.Output<string | undefined>;
+    /**
+     * The object identifier of the creator of the virtual machine.
+     */
+    public readonly createdByUserId!: pulumi.Output<string | undefined>;
+    /**
+     * The creation date of the virtual machine.
+     */
+    public readonly createdDate!: pulumi.Output<string | undefined>;
+    /**
+     * The custom image identifier of the virtual machine.
+     */
+    public readonly customImageId!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether the virtual machine is to be created without a public IP address.
+     */
+    public readonly disallowPublicIpAddress!: pulumi.Output<boolean | undefined>;
+    /**
+     * The resource ID of the environment that contains this virtual machine, if any.
+     */
+    public readonly environmentId!: pulumi.Output<string | undefined>;
+    /**
+     * The expiration date for VM.
+     */
+    public readonly expirationDate!: pulumi.Output<string | undefined>;
+    /**
+     * The fully-qualified domain name of the virtual machine.
+     */
+    public readonly fqdn!: pulumi.Output<string | undefined>;
+    /**
+     * The Microsoft Azure Marketplace image reference of the virtual machine.
+     */
+    public readonly galleryImageReference!: pulumi.Output<outputs.devtestlab.v20160515.GalleryImageReferenceResponse | undefined>;
+    /**
+     * Indicates whether this virtual machine uses an SSH key for authentication.
+     */
+    public readonly isAuthenticationWithSshKey!: pulumi.Output<boolean | undefined>;
+    /**
+     * The lab subnet name of the virtual machine.
+     */
+    public readonly labSubnetName!: pulumi.Output<string | undefined>;
+    /**
+     * The lab virtual network identifier of the virtual machine.
+     */
+    public readonly labVirtualNetworkId!: pulumi.Output<string | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +117,45 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The network interface properties.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.LabVirtualMachinePropertiesResponse>;
+    public readonly networkInterface!: pulumi.Output<outputs.devtestlab.v20160515.NetworkInterfacePropertiesResponse | undefined>;
+    /**
+     * The notes of the virtual machine.
+     */
+    public readonly notes!: pulumi.Output<string | undefined>;
+    /**
+     * The OS type of the virtual machine.
+     */
+    public readonly osType!: pulumi.Output<string | undefined>;
+    /**
+     * The object identifier of the owner of the virtual machine.
+     */
+    public readonly ownerObjectId!: pulumi.Output<string | undefined>;
+    /**
+     * The user principal name of the virtual machine owner.
+     */
+    public readonly ownerUserPrincipalName!: pulumi.Output<string | undefined>;
+    /**
+     * The password of the virtual machine administrator.
+     */
+    public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning status of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The size of the virtual machine.
+     */
+    public readonly size!: pulumi.Output<string | undefined>;
+    /**
+     * The SSH key of the virtual machine administrator.
+     */
+    public readonly sshKey!: pulumi.Output<string | undefined>;
+    /**
+     * Storage type to use for virtual machine (i.e. Standard, Premium).
+     */
+    public readonly storageType!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +164,18 @@ export class VirtualMachine extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The user name of the virtual machine.
+     */
+    public readonly userName!: pulumi.Output<string | undefined>;
+    /**
+     * Tells source of creation of lab virtual machine. Output property only.
+     */
+    public readonly virtualMachineCreationSource!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -114,7 +234,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
             inputs["userName"] = args ? args.userName : undefined;
             inputs["virtualMachineCreationSource"] = args ? args.virtualMachineCreationSource : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["computeId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

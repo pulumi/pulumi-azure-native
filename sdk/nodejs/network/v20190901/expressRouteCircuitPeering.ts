@@ -37,21 +37,97 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     }
 
     /**
+     * The Azure ASN.
+     */
+    public readonly azureASN!: pulumi.Output<number | undefined>;
+    /**
+     * The list of circuit connections associated with Azure Private Peering for this circuit.
+     */
+    public readonly connections!: pulumi.Output<outputs.network.v20190901.ExpressRouteCircuitConnectionResponse[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The ExpressRoute connection.
+     */
+    public /*out*/ readonly expressRouteConnection!: pulumi.Output<outputs.network.v20190901.ExpressRouteConnectionIdResponse | undefined>;
+    /**
+     * The GatewayManager Etag.
+     */
+    public readonly gatewayManagerEtag!: pulumi.Output<string | undefined>;
+    /**
+     * The IPv6 peering configuration.
+     */
+    public readonly ipv6PeeringConfig!: pulumi.Output<outputs.network.v20190901.Ipv6ExpressRouteCircuitPeeringConfigResponse | undefined>;
+    /**
+     * Who was the last to modify the peering.
+     */
+    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
+    /**
+     * The Microsoft peering configuration.
+     */
+    public readonly microsoftPeeringConfig!: pulumi.Output<outputs.network.v20190901.ExpressRouteCircuitPeeringConfigResponse | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the express route circuit peering.
+     * The peer ASN.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.ExpressRouteCircuitPeeringPropertiesFormatResponse>;
+    public readonly peerASN!: pulumi.Output<number | undefined>;
+    /**
+     * The list of peered circuit connections associated with Azure Private Peering for this circuit.
+     */
+    public /*out*/ readonly peeredConnections!: pulumi.Output<outputs.network.v20190901.PeerExpressRouteCircuitConnectionResponse[]>;
+    /**
+     * The peering type.
+     */
+    public readonly peeringType!: pulumi.Output<string | undefined>;
+    /**
+     * The primary port.
+     */
+    public readonly primaryAzurePort!: pulumi.Output<string | undefined>;
+    /**
+     * The primary address prefix.
+     */
+    public readonly primaryPeerAddressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning state of the express route circuit peering resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The reference of the RouteFilter resource.
+     */
+    public readonly routeFilter!: pulumi.Output<outputs.network.v20190901.SubResourceResponse | undefined>;
+    /**
+     * The secondary port.
+     */
+    public readonly secondaryAzurePort!: pulumi.Output<string | undefined>;
+    /**
+     * The secondary address prefix.
+     */
+    public readonly secondaryPeerAddressPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The shared key.
+     */
+    public readonly sharedKey!: pulumi.Output<string | undefined>;
+    /**
+     * The peering state.
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
+    /**
+     * The peering stats of express route circuit.
+     */
+    public readonly stats!: pulumi.Output<outputs.network.v20190901.ExpressRouteCircuitStatsResponse | undefined>;
     /**
      * Type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The VLAN ID.
+     */
+    public readonly vlanId!: pulumi.Output<number | undefined>;
 
     /**
      * Create a ExpressRouteCircuitPeering resource with the given unique name, arguments, and options.
@@ -96,7 +172,10 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["stats"] = args ? args.stats : undefined;
             inputs["vlanId"] = args ? args.vlanId : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["expressRouteConnection"] = undefined /*out*/;
+            inputs["lastModifiedBy"] = undefined /*out*/;
+            inputs["peeredConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

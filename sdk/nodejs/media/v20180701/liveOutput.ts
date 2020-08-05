@@ -37,13 +37,49 @@ export class LiveOutput extends pulumi.CustomResource {
     }
 
     /**
+     * ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+     */
+    public readonly archiveWindowLength!: pulumi.Output<string>;
+    /**
+     * The asset name.
+     */
+    public readonly assetName!: pulumi.Output<string>;
+    /**
+     * The exact time the Live Output was created.
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * The description of the Live Output.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The HLS configuration.
+     */
+    public readonly hls!: pulumi.Output<outputs.media.v20180701.HlsResponse | undefined>;
+    /**
+     * The exact time the Live Output was last modified.
+     */
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    /**
+     * The manifest file name.  If not provided, the service will generate one automatically.
+     */
+    public readonly manifestName!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Live Output properties.
+     * The output snapshot time.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.LiveOutputPropertiesResponse>;
+    public readonly outputSnapTime!: pulumi.Output<number | undefined>;
+    /**
+     * The provisioning state of the Live Output.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The resource state of the Live Output.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -90,7 +126,10 @@ export class LiveOutput extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["outputSnapTime"] = args ? args.outputSnapTime : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["lastModified"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

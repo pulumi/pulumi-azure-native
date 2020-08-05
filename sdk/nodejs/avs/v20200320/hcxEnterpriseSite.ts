@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,17 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
     }
 
     /**
+     * The activation key
+     */
+    public /*out*/ readonly activationKey!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of an HCX Enterprise Site resource
+     * The status of the HCX Enterprise Site
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.avs.v20200320.HcxEnterpriseSitePropertiesResponse>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -74,7 +76,8 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["activationKey"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

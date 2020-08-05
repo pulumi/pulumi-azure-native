@@ -37,6 +37,10 @@ export class Manager extends pulumi.CustomResource {
     }
 
     /**
+     * Represents the type of StorSimple Manager.
+     */
+    public readonly cisIntrinsicSettings!: pulumi.Output<outputs.storsimple.v20170601.ManagerIntrinsicSettingsResponse | undefined>;
+    /**
      * The etag of the manager.
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -49,9 +53,13 @@ export class Manager extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the StorSimple Manager.
+     * Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.ManagerPropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the Sku.
+     */
+    public readonly sku!: pulumi.Output<outputs.storsimple.v20170601.ManagerSkuResponse | undefined>;
     /**
      * The tags attached to the resource.
      */
@@ -91,7 +99,6 @@ export class Manager extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -41,13 +41,33 @@ export interface GetStorageAccountArgs {
  */
 export interface GetStorageAccountResult {
     /**
+     * BlobEndpoint of Storage Account
+     */
+    readonly blobEndpoint: string;
+    /**
+     * The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+     */
+    readonly containerCount: number;
+    /**
+     * Data policy of the storage Account.
+     */
+    readonly dataPolicy?: string;
+    /**
+     * Description for the storage Account.
+     */
+    readonly description?: string;
+    /**
      * The object name.
      */
     readonly name: string;
     /**
-     * The Storage Account properties.
+     * Storage Account Credential Id
      */
-    readonly properties: outputs.databoxedge.v20190801.StorageAccountPropertiesResponse;
+    readonly storageAccountCredentialId?: string;
+    /**
+     * Current status of the storage account
+     */
+    readonly storageAccountStatus?: string;
     /**
      * The hierarchical type of the object.
      */

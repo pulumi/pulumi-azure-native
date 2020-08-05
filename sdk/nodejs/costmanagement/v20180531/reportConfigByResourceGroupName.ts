@@ -37,13 +37,25 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
     }
 
     /**
+     * Has definition for the report config.
+     */
+    public readonly definition!: pulumi.Output<outputs.costmanagement.v20180531.ReportConfigDefinitionResponse>;
+    /**
+     * Has delivery information for the report config.
+     */
+    public readonly deliveryInfo!: pulumi.Output<outputs.costmanagement.v20180531.ReportConfigDeliveryInfoResponse>;
+    /**
+     * The format of the report being delivered.
+     */
+    public readonly format!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the report config.
+     * Has schedule information for the report config.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.costmanagement.v20180531.ReportConfigPropertiesResponse>;
+    public readonly schedule!: pulumi.Output<outputs.costmanagement.v20180531.ReportConfigScheduleResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -84,7 +96,6 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

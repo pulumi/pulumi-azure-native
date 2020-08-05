@@ -41,21 +41,57 @@ export interface GetSchemaArgs {
  */
 export interface GetSchemaResult {
     /**
+     * The changed time.
+     */
+    readonly changedTime: string;
+    /**
+     * The content.
+     */
+    readonly content?: string;
+    /**
+     * The content link.
+     */
+    readonly contentLink: outputs.logic.v20160601.ContentLinkResponse;
+    /**
+     * The content type.
+     */
+    readonly contentType?: string;
+    /**
+     * The created time.
+     */
+    readonly createdTime: string;
+    /**
+     * The document name.
+     */
+    readonly documentName?: string;
+    /**
+     * The file name.
+     */
+    readonly fileName?: string;
+    /**
      * The resource location.
      */
     readonly location?: string;
+    /**
+     * The metadata.
+     */
+    readonly metadata?: {[key: string]: any};
     /**
      * Gets the resource name.
      */
     readonly name: string;
     /**
-     * The integration account schema properties.
+     * The schema type.
      */
-    readonly properties: outputs.logic.v20160601.IntegrationAccountSchemaPropertiesResponse;
+    readonly schemaType: string;
     /**
      * The resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The target namespace of the schema.
+     */
+    readonly targetNamespace?: string;
     /**
      * Gets the resource type.
      */

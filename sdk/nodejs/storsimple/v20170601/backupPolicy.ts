@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,21 +35,45 @@ export class BackupPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
+     */
+    public /*out*/ readonly backupPolicyCreationType!: pulumi.Output<string>;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * The time of the last backup for the backup policy.
+     */
+    public /*out*/ readonly lastBackupTime!: pulumi.Output<string>;
     /**
      * The name of the object.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the backup policy.
+     * The time of the next backup for the backup policy.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.BackupPolicyPropertiesResponse>;
+    public /*out*/ readonly nextBackupTime!: pulumi.Output<string>;
+    /**
+     * Indicates whether at least one of the schedules in the backup policy is active or not.
+     */
+    public /*out*/ readonly scheduledBackupStatus!: pulumi.Output<string>;
+    /**
+     * The count of schedules the backup policy contains.
+     */
+    public /*out*/ readonly schedulesCount!: pulumi.Output<number>;
+    /**
+     * If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
+     */
+    public /*out*/ readonly ssmHostName!: pulumi.Output<string>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The path IDs of the volumes which are part of the backup policy.
+     */
+    public readonly volumeIds!: pulumi.Output<string[]>;
 
     /**
      * Create a BackupPolicy resource with the given unique name, arguments, and options.
@@ -87,7 +109,12 @@ export class BackupPolicy extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["volumeIds"] = args ? args.volumeIds : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["backupPolicyCreationType"] = undefined /*out*/;
+            inputs["lastBackupTime"] = undefined /*out*/;
+            inputs["nextBackupTime"] = undefined /*out*/;
+            inputs["scheduledBackupStatus"] = undefined /*out*/;
+            inputs["schedulesCount"] = undefined /*out*/;
+            inputs["ssmHostName"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -37,6 +37,14 @@ export class VirtualNetwork extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+     */
+    public readonly addressSpace!: pulumi.Output<outputs.network.v20160330.AddressSpaceResponse | undefined>;
+    /**
+     * Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+     */
+    public readonly dhcpOptions!: pulumi.Output<outputs.network.v20160330.DhcpOptionsResponse | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -48,7 +56,18 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160330.VirtualNetworkPropertiesFormatResponse>;
+    /**
+     * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets resource GUID property of the VirtualNetwork resource
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets List of subnets in a VirtualNetwork
+     */
+    public readonly subnets!: pulumi.Output<outputs.network.v20160330.SubnetResponse[] | undefined>;
     /**
      * Resource tags
      */
@@ -88,7 +107,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

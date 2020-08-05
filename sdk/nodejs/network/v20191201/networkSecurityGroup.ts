@@ -37,9 +37,17 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The default security rules of network security group.
+     */
+    public /*out*/ readonly defaultSecurityRules!: pulumi.Output<outputs.network.v20191201.SecurityRuleResponse[]>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * A collection of references to flow log resources.
+     */
+    public /*out*/ readonly flowLogs!: pulumi.Output<outputs.network.v20191201.FlowLogResponse[]>;
     /**
      * Resource location.
      */
@@ -49,9 +57,25 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the network security group.
+     * A collection of references to network interfaces.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191201.NetworkSecurityGroupPropertiesFormatResponse>;
+    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.network.v20191201.NetworkInterfaceResponse[]>;
+    /**
+     * The provisioning state of the network security group resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The resource GUID property of the network security group resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
+     * A collection of security rules of the network security group.
+     */
+    public readonly securityRules!: pulumi.Output<outputs.network.v20191201.SecurityRuleResponse[] | undefined>;
+    /**
+     * A collection of references to subnets.
+     */
+    public /*out*/ readonly subnets!: pulumi.Output<outputs.network.v20191201.SubnetResponse[]>;
     /**
      * Resource tags.
      */
@@ -86,8 +110,13 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["securityRules"] = args ? args.securityRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["defaultSecurityRules"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["flowLogs"] = undefined /*out*/;
+            inputs["networkInterfaces"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["subnets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

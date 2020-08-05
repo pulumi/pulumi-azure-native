@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,9 +43,9 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * SharedAccessAuthorizationRule properties.
+     * The rights associated with the rule.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20150801.SharedAccessAuthorizationRulePropertiesResponse>;
+    public readonly rights!: pulumi.Output<string[]>;
     /**
      * Resource type
      */
@@ -87,7 +85,6 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             inputs["queueName"] = args ? args.queueName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rights"] = args ? args.rights : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -37,9 +37,29 @@ export class DomainService extends pulumi.CustomResource {
     }
 
     /**
+     * Deployment Id
+     */
+    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    /**
+     * The name of the Azure domain that the user would like to deploy Domain Services to.
+     */
+    public readonly domainName!: pulumi.Output<string | undefined>;
+    /**
+     * DomainSecurity Settings
+     */
+    public readonly domainSecuritySettings!: pulumi.Output<outputs.aad.v20200101.DomainSecuritySettingsResponse | undefined>;
+    /**
      * Resource etag
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Enabled or Disabled flag to turn on Group-based filtered sync
+     */
+    public readonly filteredSync!: pulumi.Output<string | undefined>;
+    /**
+     * Secure LDAP Settings
+     */
+    public readonly ldapsSettings!: pulumi.Output<outputs.aad.v20200101.LdapsSettingsResponse | undefined>;
     /**
      * Resource location
      */
@@ -49,17 +69,37 @@ export class DomainService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Domain service properties
+     * Notification Settings
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.aad.v20200101.DomainServicePropertiesResponse>;
+    public readonly notificationSettings!: pulumi.Output<outputs.aad.v20200101.NotificationSettingsResponse | undefined>;
+    /**
+     * the current deployment or provisioning state, which only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * List of ReplicaSets
+     */
+    public readonly replicaSets!: pulumi.Output<outputs.aad.v20200101.ReplicaSetResponse[] | undefined>;
+    /**
+     * SyncOwner ReplicaSet Id
+     */
+    public /*out*/ readonly syncOwner!: pulumi.Output<string>;
     /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Azure Active Directory Tenant Id
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Data Model Version
+     */
+    public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
      * Create a DomainService resource with the given unique name, arguments, and options.
@@ -91,8 +131,12 @@ export class DomainService extends pulumi.CustomResource {
             inputs["replicaSets"] = args ? args.replicaSets : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["deploymentId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["syncOwner"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

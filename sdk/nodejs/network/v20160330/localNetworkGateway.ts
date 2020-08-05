@@ -37,9 +37,21 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Local network gateway's BGP speaker settings
+     */
+    public readonly bgpSettings!: pulumi.Output<outputs.network.v20160330.BgpSettingsResponse | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * IP address of local network gateway.
+     */
+    public readonly gatewayIpAddress!: pulumi.Output<string | undefined>;
+    /**
+     * Local network site Address space
+     */
+    public readonly localNetworkAddressSpace!: pulumi.Output<outputs.network.v20160330.AddressSpaceResponse | undefined>;
     /**
      * Resource location
      */
@@ -49,9 +61,13 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * LocalNetworkGateway properties
+     * Gets or sets Provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160330.LocalNetworkGatewayPropertiesFormatResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets resource GUID property of the LocalNetworkGateway resource
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -91,7 +107,6 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

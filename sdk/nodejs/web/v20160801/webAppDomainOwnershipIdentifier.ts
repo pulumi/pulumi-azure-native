@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -45,10 +43,6 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Identifier resource specific properties
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.IdentifierResponseProperties>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -76,7 +70,6 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

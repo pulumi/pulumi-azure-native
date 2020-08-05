@@ -37,13 +37,37 @@ export class Order extends pulumi.CustomResource {
     }
 
     /**
+     * The contact details.
+     */
+    public readonly contactInformation!: pulumi.Output<outputs.databoxedge.v20190801.ContactDetailsResponse>;
+    /**
+     * Current status of the order.
+     */
+    public readonly currentStatus!: pulumi.Output<outputs.databoxedge.v20190801.OrderStatusResponse | undefined>;
+    /**
+     * Tracking information for the package delivered to the customer whether it has an original or a replacement device.
+     */
+    public /*out*/ readonly deliveryTrackingInfo!: pulumi.Output<outputs.databoxedge.v20190801.TrackingInfoResponse[]>;
+    /**
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The order properties.
+     * List of status changes in the order.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.OrderPropertiesResponse>;
+    public /*out*/ readonly orderHistory!: pulumi.Output<outputs.databoxedge.v20190801.OrderStatusResponse[]>;
+    /**
+     * Tracking information for the package returned from the customer whether it has an original or a replacement device.
+     */
+    public /*out*/ readonly returnTrackingInfo!: pulumi.Output<outputs.databoxedge.v20190801.TrackingInfoResponse[]>;
+    /**
+     * Serial number of the device.
+     */
+    public /*out*/ readonly serialNumber!: pulumi.Output<string>;
+    /**
+     * The shipping address.
+     */
+    public readonly shippingAddress!: pulumi.Output<outputs.databoxedge.v20190801.AddressResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -79,7 +103,10 @@ export class Order extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shippingAddress"] = args ? args.shippingAddress : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["deliveryTrackingInfo"] = undefined /*out*/;
+            inputs["orderHistory"] = undefined /*out*/;
+            inputs["returnTrackingInfo"] = undefined /*out*/;
+            inputs["serialNumber"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -36,9 +36,45 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
+     * ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+     */
+    readonly applicationInsights?: string;
+    /**
+     * ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+     */
+    readonly containerRegistry?: string;
+    /**
+     * The creation time of the machine learning workspace in ISO8601 format.
+     */
+    readonly creationTime: string;
+    /**
+     * The description of this workspace.
+     */
+    readonly description?: string;
+    /**
+     * Url for the discovery service to identify regional endpoints for machine learning experimentation services
+     */
+    readonly discoveryUrl?: string;
+    /**
+     * The encryption settings of Azure ML workspace.
+     */
+    readonly encryption?: outputs.machinelearningservices.v20200101.EncryptionPropertyResponse;
+    /**
+     * The friendly name for this workspace. This name in mutable
+     */
+    readonly friendlyName?: string;
+    /**
+     * The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
+     */
+    readonly hbiWorkspace?: boolean;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.machinelearningservices.v20200101.IdentityResponse;
+    /**
+     * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+     */
+    readonly keyVault?: string;
     /**
      * Specifies the location of the resource.
      */
@@ -48,13 +84,21 @@ export interface GetWorkspaceResult {
      */
     readonly name: string;
     /**
-     * The properties of the machine learning workspace.
+     * The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
      */
-    readonly properties: outputs.machinelearningservices.v20200101.WorkspacePropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
+     */
+    readonly serviceProvisionedResourceGroup: string;
     /**
      * The sku of the workspace.
      */
     readonly sku?: outputs.machinelearningservices.v20200101.SkuResponse;
+    /**
+     * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+     */
+    readonly storageAccount?: string;
     /**
      * Contains resource tags defined as key/value pairs.
      */
@@ -63,4 +107,8 @@ export interface GetWorkspaceResult {
      * Specifies the type of the resource.
      */
     readonly type: string;
+    /**
+     * The immutable id associated with this workspace.
+     */
+    readonly workspaceId: string;
 }

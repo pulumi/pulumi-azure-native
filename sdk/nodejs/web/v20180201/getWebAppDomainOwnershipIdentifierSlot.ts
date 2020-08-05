@@ -49,10 +49,6 @@ export interface GetWebAppDomainOwnershipIdentifierSlotResult {
      */
     readonly name: string;
     /**
-     * Identifier resource specific properties
-     */
-    readonly properties: outputs.web.v20180201.IdentifierResponseProperties;
-    /**
      * Resource type.
      */
     readonly type: string;

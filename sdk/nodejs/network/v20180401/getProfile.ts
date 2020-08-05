@@ -36,21 +36,45 @@ export interface GetProfileArgs {
  */
 export interface GetProfileResult {
     /**
+     * The DNS settings of the Traffic Manager profile.
+     */
+    readonly dnsConfig?: outputs.network.v20180401.DnsConfigResponse;
+    /**
+     * The list of endpoints in the Traffic Manager profile.
+     */
+    readonly endpoints?: outputs.network.v20180401.EndpointResponse[];
+    /**
      * The Azure Region where the resource lives
      */
     readonly location?: string;
+    /**
+     * Maximum number of endpoints to be returned for MultiValue routing type.
+     */
+    readonly maxReturn?: number;
+    /**
+     * The endpoint monitoring settings of the Traffic Manager profile.
+     */
+    readonly monitorConfig?: outputs.network.v20180401.MonitorConfigResponse;
     /**
      * The name of the resource
      */
     readonly name?: string;
     /**
-     * The properties of the Traffic Manager profile.
+     * The status of the Traffic Manager profile.
      */
-    readonly properties: outputs.network.v20180401.ProfilePropertiesResponse;
+    readonly profileStatus?: string;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * The traffic routing method of the Traffic Manager profile.
+     */
+    readonly trafficRoutingMethod?: string;
+    /**
+     * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+     */
+    readonly trafficViewEnrollmentStatus?: string;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */

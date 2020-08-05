@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -49,9 +47,9 @@ export class ApplicationType extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The application type name properties
+     * The current deployment or provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.servicefabric.v20200301.ApplicationTypeResourcePropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Azure resource tags.
      */
@@ -89,7 +87,7 @@ export class ApplicationType extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

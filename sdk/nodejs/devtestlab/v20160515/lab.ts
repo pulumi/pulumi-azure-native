@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,26 @@ export class Lab extends pulumi.CustomResource {
     }
 
     /**
+     * The lab's artifact storage account.
+     */
+    public /*out*/ readonly artifactsStorageAccount!: pulumi.Output<string>;
+    /**
+     * The creation date of the lab.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * The lab's default premium storage account.
+     */
+    public /*out*/ readonly defaultPremiumStorageAccount!: pulumi.Output<string>;
+    /**
+     * The lab's default storage account.
+     */
+    public /*out*/ readonly defaultStorageAccount!: pulumi.Output<string>;
+    /**
+     * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+     */
+    public readonly labStorageType!: pulumi.Output<string | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +63,19 @@ export class Lab extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The lab's premium data disk storage account.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.LabPropertiesResponse>;
+    public /*out*/ readonly premiumDataDiskStorageAccount!: pulumi.Output<string>;
+    /**
+     * The setting to enable usage of premium data disks.
+     * When its value is 'Enabled', creation of standard or premium data disks is allowed.
+     * When its value is 'Disabled', only creation of standard data disks is allowed.
+     */
+    public readonly premiumDataDisks!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning status of the resource.
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +84,14 @@ export class Lab extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The lab's Key vault.
+     */
+    public /*out*/ readonly vaultName!: pulumi.Output<string>;
 
     /**
      * Create a Lab resource with the given unique name, arguments, and options.
@@ -84,8 +120,13 @@ export class Lab extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["artifactsStorageAccount"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
+            inputs["defaultPremiumStorageAccount"] = undefined /*out*/;
+            inputs["defaultStorageAccount"] = undefined /*out*/;
+            inputs["premiumDataDiskStorageAccount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["vaultName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

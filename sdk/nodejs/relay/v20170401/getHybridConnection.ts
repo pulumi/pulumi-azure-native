@@ -41,15 +41,31 @@ export interface GetHybridConnectionArgs {
  */
 export interface GetHybridConnectionResult {
     /**
+     * The time the hybrid connection was created.
+     */
+    readonly createdAt: string;
+    /**
+     * The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
+     */
+    readonly listenerCount: number;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the HybridConnection.
+     * Returns true if client authorization is needed for this hybrid connection; otherwise, false.
      */
-    readonly properties: outputs.relay.v20170401.HybridConnectionResponseProperties;
+    readonly requiresClientAuthorization?: boolean;
     /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The time the namespace was updated.
+     */
+    readonly updatedAt: string;
+    /**
+     * The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+     */
+    readonly userMetadata?: string;
 }

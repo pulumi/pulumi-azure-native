@@ -41,17 +41,77 @@ export interface GetStreamingEndpointArgs {
  */
 export interface GetStreamingEndpointResult {
     /**
+     * The access control definition of the StreamingEndpoint.
+     */
+    readonly accessControl?: outputs.media.v20200501.StreamingEndpointAccessControlResponse;
+    /**
+     * The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+     */
+    readonly availabilitySetName?: string;
+    /**
+     * The CDN enabled flag.
+     */
+    readonly cdnEnabled?: boolean;
+    /**
+     * The CDN profile name.
+     */
+    readonly cdnProfile?: string;
+    /**
+     * The CDN provider name.
+     */
+    readonly cdnProvider?: string;
+    /**
+     * The exact time the StreamingEndpoint was created.
+     */
+    readonly created: string;
+    /**
+     * The StreamingEndpoint access policies.
+     */
+    readonly crossSiteAccessPolicies?: outputs.media.v20200501.CrossSiteAccessPoliciesResponse;
+    /**
+     * The custom host names of the StreamingEndpoint
+     */
+    readonly customHostNames?: string[];
+    /**
+     * The StreamingEndpoint description.
+     */
+    readonly description?: string;
+    /**
+     * The free trial expiration time.
+     */
+    readonly freeTrialEndTime: string;
+    /**
+     * The StreamingEndpoint host name.
+     */
+    readonly hostName: string;
+    /**
+     * The exact time the StreamingEndpoint was last modified.
+     */
+    readonly lastModified: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * Max cache age
+     */
+    readonly maxCacheAge?: number;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The StreamingEndpoint properties.
+     * The provisioning state of the StreamingEndpoint.
      */
-    readonly properties: outputs.media.v20200501.StreamingEndpointPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The resource state of the StreamingEndpoint.
+     */
+    readonly resourceState: string;
+    /**
+     * The number of scale units.  Use the Scale operation to adjust this value.
+     */
+    readonly scaleUnits: number;
     /**
      * Resource tags.
      */

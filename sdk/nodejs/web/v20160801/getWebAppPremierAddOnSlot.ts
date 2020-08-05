@@ -49,13 +49,29 @@ export interface GetWebAppPremierAddOnSlotResult {
      */
     readonly location: string;
     /**
+     * Premier add on Marketplace offer.
+     */
+    readonly marketplaceOffer?: string;
+    /**
+     * Premier add on Marketplace publisher.
+     */
+    readonly marketplacePublisher?: string;
+    /**
      * Resource Name.
      */
     readonly name: string;
     /**
-     * PremierAddOn resource specific properties
+     * Premier add on Name.
      */
-    readonly properties: outputs.web.v20160801.PremierAddOnResponseProperties;
+    readonly premierAddOnName?: string;
+    /**
+     * Premier add on Product.
+     */
+    readonly product?: string;
+    /**
+     * Premier add on SKU.
+     */
+    readonly sku?: string;
     /**
      * Resource tags.
      */
@@ -64,4 +80,8 @@ export interface GetWebAppPremierAddOnSlotResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * Premier add on Vendor.
+     */
+    readonly vendor?: string;
 }

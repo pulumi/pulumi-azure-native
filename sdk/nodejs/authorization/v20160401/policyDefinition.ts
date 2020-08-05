@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,25 @@ export class PolicyDefinition extends pulumi.CustomResource {
     }
 
     /**
+     * The policy definition description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the policy definition.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
      * The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The policy definition properties.
+     * The policy rule.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20160401.PolicyDefinitionPropertiesResponse>;
+    public readonly policyRule!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+     */
+    public readonly policyType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PolicyDefinition resource with the given unique name, arguments, and options.
@@ -66,7 +76,6 @@ export class PolicyDefinition extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["policyRule"] = args ? args.policyRule : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

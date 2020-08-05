@@ -36,21 +36,41 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
+     * The time the Namespace was created.
+     */
+    readonly createdAt?: string;
+    /**
+     * Specifies whether this instance is enabled.
+     */
+    readonly enabled?: boolean;
+    /**
      * Resource location
      */
     readonly location: string;
+    /**
+     * Identifier for Azure Insights metrics
+     */
+    readonly metricId: string;
     /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Properties of the Namespace supplied for create or update Namespace operation
+     * Provisioning state of the Namespace.
      */
-    readonly properties: outputs.eventhub.v20140901.NamespacePropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * Endpoint you can use to perform Service Bus operations.
+     */
+    readonly serviceBusEndpoint?: string;
     /**
      * SKU parameters supplied to the create Namespace operation
      */
     readonly sku?: outputs.eventhub.v20140901.SkuResponse;
+    /**
+     * State of the Namespace.
+     */
+    readonly status?: string;
     /**
      * Resource tags
      */
@@ -59,4 +79,8 @@ export interface GetNamespaceResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * The time the Namespace was updated.
+     */
+    readonly updatedAt?: string;
 }

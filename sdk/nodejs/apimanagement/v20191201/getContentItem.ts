@@ -50,10 +50,6 @@ export interface GetContentItemResult {
      */
     readonly name: string;
     /**
-     * Properties of the content item.
-     */
-    readonly properties: {[key: string]: any};
-    /**
      * Resource type for API Management resource.
      */
     readonly type: string;

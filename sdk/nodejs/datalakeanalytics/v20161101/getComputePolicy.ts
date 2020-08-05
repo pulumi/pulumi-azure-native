@@ -41,13 +41,25 @@ export interface GetComputePolicyArgs {
  */
 export interface GetComputePolicyResult {
     /**
+     * The maximum degree of parallelism per job this user can use to submit jobs.
+     */
+    readonly maxDegreeOfParallelismPerJob: number;
+    /**
+     * The minimum priority per job this user can use to submit jobs.
+     */
+    readonly minPriorityPerJob: number;
+    /**
      * The resource name.
      */
     readonly name: string;
     /**
-     * The compute policy properties.
+     * The AAD object identifier for the entity to create a policy for.
      */
-    readonly properties: outputs.datalakeanalytics.v20161101.ComputePolicyPropertiesResponse;
+    readonly objectId: string;
+    /**
+     * The type of AAD object the object identifier refers to.
+     */
+    readonly objectType: string;
     /**
      * The resource type.
      */

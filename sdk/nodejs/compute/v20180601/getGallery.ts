@@ -36,6 +36,14 @@ export interface GetGalleryArgs {
  */
 export interface GetGalleryResult {
     /**
+     * The description of this Shared Image Gallery resource. This property is updatable.
+     */
+    readonly description?: string;
+    /**
+     * Describes the gallery unique name.
+     */
+    readonly identifier?: outputs.compute.v20180601.GalleryIdentifierResponse;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -44,9 +52,9 @@ export interface GetGalleryResult {
      */
     readonly name: string;
     /**
-     * Describes the properties of a Shared Image Gallery.
+     * The provisioning state, which only appears in the response.
      */
-    readonly properties: outputs.compute.v20180601.GalleryPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * Resource tags
      */

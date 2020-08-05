@@ -41,13 +41,21 @@ export interface GetExperimentArgs {
  */
 export interface GetExperimentResult {
     /**
+     * Time when the Experiment was created.
+     */
+    readonly creationTime: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The properties associated with the experiment.
+     * The provisioned state of the experiment
      */
-    readonly properties: outputs.batchai.v20180501.ExperimentPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * The time at which the experiment entered its current provisioning state.
+     */
+    readonly provisioningStateTransitionTime: string;
     /**
      * The type of the resource.
      */

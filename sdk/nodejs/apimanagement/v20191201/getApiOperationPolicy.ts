@@ -56,15 +56,19 @@ export interface GetApiOperationPolicyArgs {
  */
 export interface GetApiOperationPolicyResult {
     /**
+     * Format of the policyContent.
+     */
+    readonly format?: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the Policy.
-     */
-    readonly properties: outputs.apimanagement.v20191201.PolicyContractPropertiesResponse;
-    /**
      * Resource type for API Management resource.
      */
     readonly type: string;
+    /**
+     * Contents of the Policy as defined by the format.
+     */
+    readonly value: string;
 }

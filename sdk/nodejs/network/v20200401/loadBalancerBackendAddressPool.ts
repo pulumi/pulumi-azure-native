@@ -37,17 +37,37 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     }
 
     /**
+     * An array of references to IP addresses defined in network interfaces.
+     */
+    public /*out*/ readonly backendIPConfigurations!: pulumi.Output<outputs.network.v20200401.NetworkInterfaceIPConfigurationResponse[]>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * An array of backend addresses.
+     */
+    public readonly loadBalancerBackendAddresses!: pulumi.Output<outputs.network.v20200401.LoadBalancerBackendAddressResponse[] | undefined>;
+    /**
+     * An array of references to load balancing rules that use this backend address pool.
+     */
+    public /*out*/ readonly loadBalancingRules!: pulumi.Output<outputs.network.v20200401.SubResourceResponse[]>;
     /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of load balancer backend address pool.
+     * A reference to an outbound rule that uses this backend address pool.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.BackendAddressPoolPropertiesFormatResponse>;
+    public /*out*/ readonly outboundRule!: pulumi.Output<outputs.network.v20200401.SubResourceResponse>;
+    /**
+     * An array of references to outbound rules that use this backend address pool.
+     */
+    public /*out*/ readonly outboundRules!: pulumi.Output<outputs.network.v20200401.SubResourceResponse[]>;
+    /**
+     * The provisioning state of the backend address pool resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Type of the resource.
      */
@@ -80,8 +100,12 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["backendIPConfigurations"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["loadBalancingRules"] = undefined /*out*/;
+            inputs["outboundRule"] = undefined /*out*/;
+            inputs["outboundRules"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -41,6 +41,10 @@ export interface GetFirewallRuleArgs {
  */
 export interface GetFirewallRuleResult {
     /**
+     * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+     */
+    readonly endIpAddress: string;
+    /**
      * Kind of server that contains this firewall rule.
      */
     readonly kind: string;
@@ -53,9 +57,9 @@ export interface GetFirewallRuleResult {
      */
     readonly name: string;
     /**
-     * The properties representing the resource.
+     * The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
      */
-    readonly properties: outputs.sql.v20140401.FirewallRulePropertiesResponse;
+    readonly startIpAddress: string;
     /**
      * Resource type.
      */

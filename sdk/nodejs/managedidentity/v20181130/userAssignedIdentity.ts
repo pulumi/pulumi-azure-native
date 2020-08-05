@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
     }
 
     /**
+     * The id of the app associated with the identity. This is a random generated UUID by MSI.
+     */
+    public /*out*/ readonly clientId!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,13 +47,17 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties associated with the identity.
+     * The id of the service principal object associated with the created identity.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.managedidentity.v20181130.UserAssignedIdentityPropertiesResponse>;
+    public /*out*/ readonly principalId!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The id of the tenant which the identity belongs to.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -83,7 +89,9 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["clientId"] = undefined /*out*/;
+            inputs["principalId"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

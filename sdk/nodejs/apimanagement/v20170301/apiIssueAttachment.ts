@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,21 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
     }
 
     /**
+     * An HTTP link or Base64-encoded binary data.
+     */
+    public readonly content!: pulumi.Output<string>;
+    /**
+     * Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+     */
+    public readonly contentFormat!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Issue Attachment.
+     * Filename by which the binary data will be saved.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.IssueAttachmentContractPropertiesResponse>;
+    public readonly title!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
@@ -94,7 +100,6 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["title"] = args ? args.title : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

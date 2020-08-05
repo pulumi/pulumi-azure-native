@@ -41,17 +41,41 @@ export interface GetLabArgs {
  */
 export interface GetLabResult {
     /**
+     * Object id of the user that created the lab.
+     */
+    readonly createdByObjectId: string;
+    /**
+     * Lab creator name
+     */
+    readonly createdByUserPrincipalName: string;
+    /**
+     * Creation date for the lab
+     */
+    readonly createdDate: string;
+    /**
+     * Invitation code that users can use to join a lab.
+     */
+    readonly invitationCode: string;
+    /**
+     * The details of the latest operation. ex: status, error
+     */
+    readonly latestOperationResult: outputs.labservices.v20181015.LatestOperationResultResponse;
+    /**
      * The location of the resource.
      */
     readonly location?: string;
+    /**
+     * Maximum number of users allowed in the lab.
+     */
+    readonly maxUsersInLab?: number;
     /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties: outputs.labservices.v20181015.LabPropertiesResponse;
+    readonly provisioningState?: string;
     /**
      * The tags of the resource.
      */
@@ -60,4 +84,20 @@ export interface GetLabResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: string;
+    /**
+     * Maximum duration a user can use an environment for in the lab.
+     */
+    readonly usageQuota?: string;
+    /**
+     * Lab user access mode (open to all vs. restricted to those listed on the lab).
+     */
+    readonly userAccessMode?: string;
+    /**
+     * Maximum value MaxUsersInLab can be set to, as specified by the service
+     */
+    readonly userQuota: number;
 }

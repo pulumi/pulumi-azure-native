@@ -41,6 +41,10 @@ export interface GetStorageInsightArgs {
  */
 export interface GetStorageInsightResult {
     /**
+     * The names of the blob containers that the workspace should read
+     */
+    readonly containers?: string[];
+    /**
      * The ETag of the storage insight.
      */
     readonly eTag?: string;
@@ -49,9 +53,17 @@ export interface GetStorageInsightResult {
      */
     readonly name: string;
     /**
-     * Storage insight properties.
+     * The status of the storage insight
      */
-    readonly properties: outputs.operationalinsights.v20150320.StorageInsightPropertiesResponse;
+    readonly status: outputs.operationalinsights.v20150320.StorageInsightStatusResponse;
+    /**
+     * The storage account connection details
+     */
+    readonly storageAccount: outputs.operationalinsights.v20150320.StorageAccountResponse;
+    /**
+     * The names of the Azure tables that the workspace should read
+     */
+    readonly tables?: string[];
     /**
      * Resource tags
      */

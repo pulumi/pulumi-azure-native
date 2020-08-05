@@ -37,6 +37,30 @@ export class ActionGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The list of AutomationRunbook receivers that are part of this action group.
+     */
+    public readonly automationRunbookReceivers!: pulumi.Output<outputs.insights.v20170401.AutomationRunbookReceiverResponse[] | undefined>;
+    /**
+     * The list of AzureAppPush receivers that are part of this action group.
+     */
+    public readonly azureAppPushReceivers!: pulumi.Output<outputs.insights.v20170401.AzureAppPushReceiverResponse[] | undefined>;
+    /**
+     * The list of email receivers that are part of this action group.
+     */
+    public readonly emailReceivers!: pulumi.Output<outputs.insights.v20170401.EmailReceiverResponse[] | undefined>;
+    /**
+     * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+     */
+    public readonly enabled!: pulumi.Output<boolean>;
+    /**
+     * The short name of the action group. This will be used in SMS messages.
+     */
+    public readonly groupShortName!: pulumi.Output<string>;
+    /**
+     * The list of ITSM receivers that are part of this action group.
+     */
+    public readonly itsmReceivers!: pulumi.Output<outputs.insights.v20170401.ItsmReceiverResponse[] | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +69,9 @@ export class ActionGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The action groups properties of the resource.
+     * The list of SMS receivers that are part of this action group.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20170401.ActionGroupResponse>;
+    public readonly smsReceivers!: pulumi.Output<outputs.insights.v20170401.SmsReceiverResponse[] | undefined>;
     /**
      * Resource tags
      */
@@ -56,6 +80,10 @@ export class ActionGroup extends pulumi.CustomResource {
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The list of webhook receivers that are part of this action group.
+     */
+    public readonly webhookReceivers!: pulumi.Output<outputs.insights.v20170401.WebhookReceiverResponse[] | undefined>;
 
     /**
      * Create a ActionGroup resource with the given unique name, arguments, and options.
@@ -97,7 +125,6 @@ export class ActionGroup extends pulumi.CustomResource {
             inputs["smsReceivers"] = args ? args.smsReceivers : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

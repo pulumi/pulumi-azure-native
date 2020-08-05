@@ -41,11 +41,23 @@ export interface GetExpressRouteConnectionArgs {
  */
 export interface GetExpressRouteConnectionResult {
     /**
+     * Authorization key to establish the connection.
+     */
+    readonly authorizationKey?: string;
+    /**
+     * The ExpressRoute circuit peering.
+     */
+    readonly expressRouteCircuitPeering: outputs.network.v20190201.ExpressRouteCircuitPeeringIdResponse;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * Properties of the express route connection.
+     * The provisioning state of the resource.
      */
-    readonly properties: outputs.network.v20190201.ExpressRouteConnectionPropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * The routing weight associated to the connection.
+     */
+    readonly routingWeight?: number;
 }

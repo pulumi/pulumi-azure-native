@@ -37,13 +37,21 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
     }
 
     /**
+     * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+     */
+    public readonly level!: pulumi.Output<string>;
+    /**
      * The name of the lock.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the lock.
+     * Notes about the lock. Maximum of 512 characters.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20160901.ManagementLockPropertiesResponse>;
+    public readonly notes!: pulumi.Output<string | undefined>;
+    /**
+     * The owners of the lock.
+     */
+    public readonly owners!: pulumi.Output<outputs.authorization.v20160901.ManagementLockOwnerResponse[] | undefined>;
     /**
      * The resource type of the lock - Microsoft.Authorization/locks.
      */
@@ -92,7 +100,6 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

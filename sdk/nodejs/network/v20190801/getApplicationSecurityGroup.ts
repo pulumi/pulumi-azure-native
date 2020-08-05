@@ -48,9 +48,13 @@ export interface GetApplicationSecurityGroupResult {
      */
     readonly name: string;
     /**
-     * Properties of the application security group.
+     * The provisioning state of the application security group resource.
      */
-    readonly properties: outputs.network.v20190801.ApplicationSecurityGroupPropertiesFormatResponse;
+    readonly provisioningState: string;
+    /**
+     * The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+     */
+    readonly resourceGuid: string;
     /**
      * Resource tags.
      */

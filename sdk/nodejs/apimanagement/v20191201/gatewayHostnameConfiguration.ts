@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,21 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * Identifier of Certificate entity that will be used for TLS connection establishment
+     */
+    public readonly certificateId!: pulumi.Output<string | undefined>;
+    /**
+     * Hostname value. Supports valid domain name, partial or full wildcard
+     */
+    public readonly hostname!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gateway hostname configuration details.
+     * Determines whether gateway requests client certificate
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.GatewayHostnameConfigurationContractPropertiesResponse>;
+    public readonly negotiateClientCertificate!: pulumi.Output<boolean | undefined>;
     /**
      * Resource type for API Management resource.
      */
@@ -81,7 +87,6 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
             inputs["negotiateClientCertificate"] = args ? args.negotiateClientCertificate : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

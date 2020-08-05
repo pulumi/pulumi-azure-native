@@ -36,6 +36,46 @@ export interface GetManagedClusterArgs {
  */
 export interface GetManagedClusterResult {
     /**
+     * Profile of Azure Active Directory configuration.
+     */
+    readonly aadProfile?: outputs.containerservice.v20190201.ManagedClusterAADProfileResponse;
+    /**
+     * Profile of managed cluster add-on.
+     */
+    readonly addonProfiles?: {[key: string]: outputs.containerservice.v20190201.ManagedClusterAddonProfileResponse};
+    /**
+     * Properties of the agent pool.
+     */
+    readonly agentPoolProfiles?: outputs.containerservice.v20190201.ManagedClusterAgentPoolProfileResponse[];
+    /**
+     * (PREVIEW) Authorized IP Ranges to kubernetes API server.
+     */
+    readonly apiServerAuthorizedIPRanges?: string[];
+    /**
+     * DNS prefix specified when creating the managed cluster.
+     */
+    readonly dnsPrefix?: string;
+    /**
+     * (PREVIEW) Whether to enable Kubernetes Pod security policy.
+     */
+    readonly enablePodSecurityPolicy?: boolean;
+    /**
+     * Whether to enable Kubernetes Role-Based Access Control.
+     */
+    readonly enableRBAC?: boolean;
+    /**
+     * FQDN for the master pool.
+     */
+    readonly fqdn: string;
+    /**
+     * Version of Kubernetes specified when creating the managed cluster.
+     */
+    readonly kubernetesVersion?: string;
+    /**
+     * Profile for Linux VMs in the container service cluster.
+     */
+    readonly linuxProfile?: outputs.containerservice.v20190201.ContainerServiceLinuxProfileResponse;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -44,9 +84,21 @@ export interface GetManagedClusterResult {
      */
     readonly name: string;
     /**
-     * Properties of a managed cluster.
+     * Profile of network configuration.
      */
-    readonly properties: outputs.containerservice.v20190201.ManagedClusterPropertiesResponse;
+    readonly networkProfile?: outputs.containerservice.v20190201.ContainerServiceNetworkProfileResponse;
+    /**
+     * Name of the resource group containing agent pool nodes.
+     */
+    readonly nodeResourceGroup: string;
+    /**
+     * The current deployment or provisioning state, which only appears in the response.
+     */
+    readonly provisioningState: string;
+    /**
+     * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+     */
+    readonly servicePrincipalProfile?: outputs.containerservice.v20190201.ManagedClusterServicePrincipalProfileResponse;
     /**
      * Resource tags
      */

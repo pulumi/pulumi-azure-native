@@ -36,21 +36,37 @@ export interface GetRegistryArgs {
  */
 export interface GetRegistryResult {
     /**
+     * The value that indicates whether the admin user is enabled.
+     */
+    readonly adminUserEnabled?: boolean;
+    /**
+     * The creation date of the container registry in ISO8601 format.
+     */
+    readonly creationDate: string;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: string;
+    /**
+     * The URL that can be used to log into the container registry.
+     */
+    readonly loginServer: string;
     /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The properties of the container registry.
+     * The provisioning state of the container registry at the time the operation was called.
      */
-    readonly properties: outputs.containerregistry.v20170301.RegistryPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * The SKU of the container registry.
      */
     readonly sku: outputs.containerregistry.v20170301.SkuResponse;
+    /**
+     * The properties of the storage account for the container registry.
+     */
+    readonly storageAccount?: outputs.containerregistry.v20170301.StorageAccountPropertiesResponse;
     /**
      * The tags of the resource.
      */

@@ -37,17 +37,61 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /**
+     * Unique Baremetal Tenant Identifier.
+     */
+    public /*out*/ readonly baremetalTenantId!: pulumi.Output<string>;
+    /**
+     * A unique file path for the volume. Used when creating mount targets
+     */
+    public readonly creationToken!: pulumi.Output<string>;
+    /**
+     * DataProtection type volumes include an object containing details of the replication
+     */
+    public readonly dataProtection!: pulumi.Output<outputs.netapp.v20191001.VolumePropertiesResponseDataProtection | undefined>;
+    /**
+     * Set of export policy rules
+     */
+    public readonly exportPolicy!: pulumi.Output<outputs.netapp.v20191001.VolumePropertiesResponseExportPolicy | undefined>;
+    /**
+     * Unique FileSystem Identifier.
+     */
+    public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
+    /**
+     * Restoring
+     */
+    public readonly isRestoring!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * List of mount targets
+     */
+    public readonly mountTargets!: pulumi.Output<outputs.netapp.v20191001.MountTargetPropertiesResponse[] | undefined>;
     /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Volume properties
+     * Set of protocol types
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.netapp.v20191001.VolumePropertiesResponse>;
+    public readonly protocolTypes!: pulumi.Output<string[] | undefined>;
+    /**
+     * Azure lifecycle management
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The service level of the file system
+     */
+    public readonly serviceLevel!: pulumi.Output<string | undefined>;
+    /**
+     * UUID v4 or resource identifier used to identify the Snapshot.
+     */
+    public readonly snapshotId!: pulumi.Output<string | undefined>;
+    /**
+     * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+     */
+    public readonly subnetId!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -56,6 +100,14 @@ export class Volume extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+     */
+    public readonly usageThreshold!: pulumi.Output<number>;
+    /**
+     * What type of volume is this
+     */
+    public readonly volumeType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -111,7 +163,9 @@ export class Volume extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["usageThreshold"] = args ? args.usageThreshold : undefined;
             inputs["volumeType"] = args ? args.volumeType : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["baremetalTenantId"] = undefined /*out*/;
+            inputs["fileSystemId"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

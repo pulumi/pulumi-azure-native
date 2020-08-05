@@ -37,21 +37,57 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
     }
 
     /**
+     * The changed time.
+     */
+    public /*out*/ readonly changedTime!: pulumi.Output<string>;
+    /**
+     * The content.
+     */
+    public readonly content!: pulumi.Output<string | undefined>;
+    /**
+     * The content link.
+     */
+    public /*out*/ readonly contentLink!: pulumi.Output<outputs.logic.v20190501.ContentLinkResponse>;
+    /**
+     * The content type.
+     */
+    public readonly contentType!: pulumi.Output<string | undefined>;
+    /**
+     * The created time.
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * The document name.
+     */
+    public readonly documentName!: pulumi.Output<string | undefined>;
+    /**
+     * The file name.
+     */
+    public readonly fileName!: pulumi.Output<string | undefined>;
+    /**
      * The resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Gets the resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The integration account schema properties.
+     * The schema type.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20190501.IntegrationAccountSchemaPropertiesResponse>;
+    public readonly schemaType!: pulumi.Output<string>;
     /**
      * The resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The target namespace of the schema.
+     */
+    public readonly targetNamespace!: pulumi.Output<string | undefined>;
     /**
      * Gets the resource type.
      */
@@ -94,7 +130,9 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
             inputs["schemaType"] = args ? args.schemaType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetNamespace"] = args ? args.targetNamespace : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["changedTime"] = undefined /*out*/;
+            inputs["contentLink"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

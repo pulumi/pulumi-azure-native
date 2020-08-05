@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,51 @@ export class Invitation extends pulumi.CustomResource {
     }
 
     /**
+     * unique invitation id
+     */
+    public /*out*/ readonly invitationId!: pulumi.Output<string>;
+    /**
+     * The status of the invitation.
+     */
+    public /*out*/ readonly invitationStatus!: pulumi.Output<string>;
+    /**
      * Name of the azure resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties on the Invitation
+     * The time the recipient responded to the invitation.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datashare.v20191101.InvitationPropertiesResponse>;
+    public /*out*/ readonly respondedAt!: pulumi.Output<string>;
+    /**
+     * Gets the time at which the invitation was sent.
+     */
+    public /*out*/ readonly sentAt!: pulumi.Output<string>;
+    /**
+     * The target Azure AD Id. Can't be combined with email.
+     */
+    public readonly targetActiveDirectoryId!: pulumi.Output<string | undefined>;
+    /**
+     * The email the invitation is directed to.
+     */
+    public readonly targetEmail!: pulumi.Output<string | undefined>;
+    /**
+     * The target user or application Id that invitation is being sent to.
+     * Must be specified along TargetActiveDirectoryId. This enables sending
+     * invitations to specific users or applications in an AD tenant.
+     */
+    public readonly targetObjectId!: pulumi.Output<string | undefined>;
     /**
      * Type of the azure resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Email of the user who created the resource
+     */
+    public /*out*/ readonly userEmail!: pulumi.Output<string>;
+    /**
+     * Name of the user who created the resource
+     */
+    public /*out*/ readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a Invitation resource with the given unique name, arguments, and options.
@@ -81,8 +113,13 @@ export class Invitation extends pulumi.CustomResource {
             inputs["targetActiveDirectoryId"] = args ? args.targetActiveDirectoryId : undefined;
             inputs["targetEmail"] = args ? args.targetEmail : undefined;
             inputs["targetObjectId"] = args ? args.targetObjectId : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["invitationId"] = undefined /*out*/;
+            inputs["invitationStatus"] = undefined /*out*/;
+            inputs["respondedAt"] = undefined /*out*/;
+            inputs["sentAt"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["userEmail"] = undefined /*out*/;
+            inputs["userName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

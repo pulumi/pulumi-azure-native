@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,22 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The list of databases from the clusterResourceId which are currently attached to the cluster.
+     */
+    public /*out*/ readonly attachedDatabaseNames!: pulumi.Output<string[]>;
+    /**
+     * The resource id of the cluster where the databases you would like to attach reside.
+     */
+    public readonly clusterResourceId!: pulumi.Output<string>;
+    /**
+     * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+     */
+    public readonly databaseName!: pulumi.Output<string>;
+    /**
+     * The default principals modification kind
+     */
+    public readonly defaultPrincipalsModificationKind!: pulumi.Output<string>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +59,9 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the attached database configuration.
+     * The provisioned state of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.kusto.v20200614.AttachedDatabaseConfigurationPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -91,7 +105,8 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["attachedDatabaseNames"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

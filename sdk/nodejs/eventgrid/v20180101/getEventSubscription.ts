@@ -36,13 +36,29 @@ export interface GetEventSubscriptionArgs {
  */
 export interface GetEventSubscriptionResult {
     /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     */
+    readonly destination?: outputs.eventgrid.v20180101.EventSubscriptionDestinationResponse;
+    /**
+     * Information about the filter for the event subscription.
+     */
+    readonly filter?: outputs.eventgrid.v20180101.EventSubscriptionFilterResponse;
+    /**
+     * List of user defined labels.
+     */
+    readonly labels?: string[];
+    /**
      * Name of the resource
      */
     readonly name: string;
     /**
-     * Properties of the event subscription
+     * Provisioning state of the event subscription.
      */
-    readonly properties: outputs.eventgrid.v20180101.EventSubscriptionPropertiesResponse;
+    readonly provisioningState: string;
+    /**
+     * Name of the topic of the event subscription.
+     */
+    readonly topic: string;
     /**
      * Type of the resource
      */

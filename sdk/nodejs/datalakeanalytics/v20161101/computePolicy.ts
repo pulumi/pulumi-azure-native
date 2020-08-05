@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,25 @@ export class ComputePolicy extends pulumi.CustomResource {
     }
 
     /**
+     * The maximum degree of parallelism per job this user can use to submit jobs.
+     */
+    public readonly maxDegreeOfParallelismPerJob!: pulumi.Output<number>;
+    /**
+     * The minimum priority per job this user can use to submit jobs.
+     */
+    public readonly minPriorityPerJob!: pulumi.Output<number>;
+    /**
      * The resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The compute policy properties.
+     * The AAD object identifier for the entity to create a policy for.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datalakeanalytics.v20161101.ComputePolicyPropertiesResponse>;
+    public readonly objectId!: pulumi.Output<string>;
+    /**
+     * The type of AAD object the object identifier refers to.
+     */
+    public readonly objectType!: pulumi.Output<string>;
     /**
      * The resource type.
      */
@@ -84,7 +94,6 @@ export class ComputePolicy extends pulumi.CustomResource {
             inputs["objectId"] = args ? args.objectId : undefined;
             inputs["objectType"] = args ? args.objectType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

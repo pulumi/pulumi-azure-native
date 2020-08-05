@@ -36,6 +36,14 @@ export interface GetSpatialAnchorsAccountArgs {
  */
 export interface GetSpatialAnchorsAccountResult {
     /**
+     * Correspond domain name of certain Spatial Anchors Account
+     */
+    readonly accountDomain: string;
+    /**
+     * unique id of certain account.
+     */
+    readonly accountId: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -43,10 +51,6 @@ export interface GetSpatialAnchorsAccountResult {
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * Property bag.
-     */
-    readonly properties: outputs.mixedreality.v20200501.MixedRealityAccountPropertiesResponse;
     /**
      * Resource tags.
      */

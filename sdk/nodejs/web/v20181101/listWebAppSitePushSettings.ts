@@ -36,6 +36,14 @@ export interface ListWebAppSitePushSettingsArgs {
  */
 export interface ListWebAppSitePushSettingsResult {
     /**
+     * Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+     */
+    readonly dynamicTagsJson?: string;
+    /**
+     * Gets or sets a flag indicating whether the Push endpoint is enabled.
+     */
+    readonly isPushEnabled: boolean;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -44,9 +52,16 @@ export interface ListWebAppSitePushSettingsResult {
      */
     readonly name: string;
     /**
-     * PushSettings resource specific properties
+     * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
      */
-    readonly properties: outputs.web.v20181101.PushSettingsResponseProperties;
+    readonly tagWhitelistJson?: string;
+    /**
+     * Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+     * Tags can consist of alphanumeric characters and the following:
+     * '_', '@', '#', '.', ':', '-'. 
+     * Validation should be performed at the PushRequestHandler.
+     */
+    readonly tagsRequiringAuth?: string;
     /**
      * Resource type.
      */

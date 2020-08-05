@@ -37,9 +37,33 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     }
 
     /**
+     * ActiveActive flag
+     */
+    public readonly activeActive!: pulumi.Output<boolean | undefined>;
+    /**
+     * Virtual network gateway's BGP speaker settings
+     */
+    public readonly bgpSettings!: pulumi.Output<outputs.network.v20160601.BgpSettingsResponse | undefined>;
+    /**
+     * EnableBgp Flag
+     */
+    public readonly enableBgp!: pulumi.Output<boolean | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
+     */
+    public readonly gatewayDefaultSite!: pulumi.Output<outputs.network.v20160601.SubResourceResponse | undefined>;
+    /**
+     * The type of this virtual network gateway.
+     */
+    public readonly gatewayType!: pulumi.Output<string | undefined>;
+    /**
+     * IpConfigurations for Virtual network gateway.
+     */
+    public readonly ipConfigurations!: pulumi.Output<outputs.network.v20160601.VirtualNetworkGatewayIPConfigurationResponse[] | undefined>;
     /**
      * Resource location
      */
@@ -49,9 +73,17 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * VirtualNetworkGateway properties
+     * Gets provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160601.VirtualNetworkGatewayPropertiesFormatResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets resource guid property of the VirtualNetworkGateway resource
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
+     */
+    public readonly sku!: pulumi.Output<outputs.network.v20160601.VirtualNetworkGatewaySkuResponse | undefined>;
     /**
      * Resource tags
      */
@@ -60,6 +92,14 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+     */
+    public readonly vpnClientConfiguration!: pulumi.Output<outputs.network.v20160601.VpnClientConfigurationResponse | undefined>;
+    /**
+     * The type of this virtual network gateway.
+     */
+    public readonly vpnType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualNetworkGateway resource with the given unique name, arguments, and options.
@@ -97,7 +137,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
             inputs["vpnType"] = args ? args.vpnType : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

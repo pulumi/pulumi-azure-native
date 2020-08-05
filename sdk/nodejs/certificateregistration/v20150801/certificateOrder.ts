@@ -37,9 +37,45 @@ export class CertificateOrder extends pulumi.CustomResource {
     }
 
     /**
+     * Auto renew
+     */
+    public readonly autoRenew!: pulumi.Output<boolean | undefined>;
+    /**
+     * State of the Key Vault secret
+     */
+    public readonly certificates!: pulumi.Output<{[key: string]: outputs.certificateregistration.v20150801.CertificateOrderCertificateResponse} | undefined>;
+    /**
+     * Last CSR that was created for this order
+     */
+    public readonly csr!: pulumi.Output<string | undefined>;
+    /**
+     * Certificate distinguished name
+     */
+    public readonly distinguishedName!: pulumi.Output<string | undefined>;
+    /**
+     * Domain Verification Token
+     */
+    public readonly domainVerificationToken!: pulumi.Output<string | undefined>;
+    /**
+     * Certificate expiration time
+     */
+    public readonly expirationTime!: pulumi.Output<string | undefined>;
+    /**
+     * Intermediate certificate
+     */
+    public readonly intermediate!: pulumi.Output<outputs.certificateregistration.v20150801.CertificateDetailsResponse | undefined>;
+    /**
+     * Certificate Key Size
+     */
+    public readonly keySize!: pulumi.Output<number | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * Certificate last issuance time
+     */
+    public readonly lastCertificateIssuanceTime!: pulumi.Output<string | undefined>;
     /**
      * Resource Location
      */
@@ -48,7 +84,30 @@ export class CertificateOrder extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.certificateregistration.v20150801.CertificateOrderResponseProperties>;
+    /**
+     * Certificate product type
+     */
+    public readonly productType!: pulumi.Output<string | undefined>;
+    /**
+     * Status of certificate order
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Root certificate
+     */
+    public readonly root!: pulumi.Output<outputs.certificateregistration.v20150801.CertificateDetailsResponse | undefined>;
+    /**
+     * Current serial number of the certificate
+     */
+    public readonly serialNumber!: pulumi.Output<string | undefined>;
+    /**
+     * Signed certificate
+     */
+    public readonly signedCertificate!: pulumi.Output<outputs.certificateregistration.v20150801.CertificateDetailsResponse | undefined>;
+    /**
+     * Current order status
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -57,6 +116,10 @@ export class CertificateOrder extends pulumi.CustomResource {
      * Resource type
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * Duration in years (must be between 1 and 3)
+     */
+    public readonly validityInYears!: pulumi.Output<number | undefined>;
 
     /**
      * Create a CertificateOrder resource with the given unique name, arguments, and options.
@@ -103,7 +166,6 @@ export class CertificateOrder extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["validityInYears"] = args ? args.validityInYears : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

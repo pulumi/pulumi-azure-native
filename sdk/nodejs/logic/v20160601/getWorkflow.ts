@@ -36,6 +36,26 @@ export interface GetWorkflowArgs {
  */
 export interface GetWorkflowResult {
     /**
+     * Gets the access endpoint.
+     */
+    readonly accessEndpoint: string;
+    /**
+     * Gets the changed time.
+     */
+    readonly changedTime: string;
+    /**
+     * Gets the created time.
+     */
+    readonly createdTime: string;
+    /**
+     * The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+     */
+    readonly definition?: {[key: string]: any};
+    /**
+     * The integration account.
+     */
+    readonly integrationAccount?: outputs.logic.v20160601.ResourceReferenceResponse;
+    /**
      * The resource location.
      */
     readonly location?: string;
@@ -44,9 +64,21 @@ export interface GetWorkflowResult {
      */
     readonly name: string;
     /**
-     * The workflow properties.
+     * The parameters.
      */
-    readonly properties: outputs.logic.v20160601.WorkflowPropertiesResponse;
+    readonly parameters?: {[key: string]: outputs.logic.v20160601.WorkflowParameterResponse};
+    /**
+     * Gets the provisioning state.
+     */
+    readonly provisioningState: string;
+    /**
+     * The sku.
+     */
+    readonly sku?: outputs.logic.v20160601.SkuResponse;
+    /**
+     * The state.
+     */
+    readonly state?: string;
     /**
      * The resource tags.
      */
@@ -55,4 +87,8 @@ export interface GetWorkflowResult {
      * Gets the resource type.
      */
     readonly type: string;
+    /**
+     * Gets the version.
+     */
+    readonly version: string;
 }

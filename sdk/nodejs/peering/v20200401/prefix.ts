@@ -37,13 +37,37 @@ export class Prefix extends pulumi.CustomResource {
     }
 
     /**
+     * The error message for validation state
+     */
+    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    /**
+     * The list of events for peering service prefix
+     */
+    public /*out*/ readonly events!: pulumi.Output<outputs.peering.v20200401.PeeringServicePrefixEventResponse[]>;
+    /**
+     * The prefix learned type
+     */
+    public /*out*/ readonly learnedType!: pulumi.Output<string>;
+    /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the peering prefix properties.
+     * The peering service prefix key
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringServicePrefixPropertiesResponse>;
+    public readonly peeringServicePrefixKey!: pulumi.Output<string | undefined>;
+    /**
+     * The prefix from which your traffic originates.
+     */
+    public readonly prefix!: pulumi.Output<string | undefined>;
+    /**
+     * The prefix validation state
+     */
+    public /*out*/ readonly prefixValidationState!: pulumi.Output<string>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -76,7 +100,11 @@ export class Prefix extends pulumi.CustomResource {
             inputs["peeringServicePrefixKey"] = args ? args.peeringServicePrefixKey : undefined;
             inputs["prefix"] = args ? args.prefix : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["errorMessage"] = undefined /*out*/;
+            inputs["events"] = undefined /*out*/;
+            inputs["learnedType"] = undefined /*out*/;
+            inputs["prefixValidationState"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

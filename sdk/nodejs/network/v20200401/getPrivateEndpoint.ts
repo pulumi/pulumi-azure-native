@@ -36,6 +36,10 @@ export interface GetPrivateEndpointArgs {
  */
 export interface GetPrivateEndpointResult {
     /**
+     * An array of custom dns configurations.
+     */
+    readonly customDnsConfigs?: outputs.network.v20200401.CustomDnsConfigPropertiesFormatResponse[];
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -44,13 +48,29 @@ export interface GetPrivateEndpointResult {
      */
     readonly location?: string;
     /**
+     * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+     */
+    readonly manualPrivateLinkServiceConnections?: outputs.network.v20200401.PrivateLinkServiceConnectionResponse[];
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the private endpoint.
+     * An array of references to the network interfaces created for this private endpoint.
      */
-    readonly properties: outputs.network.v20200401.PrivateEndpointPropertiesResponse;
+    readonly networkInterfaces: outputs.network.v20200401.NetworkInterfaceResponse[];
+    /**
+     * A grouping of information about the connection to the remote resource.
+     */
+    readonly privateLinkServiceConnections?: outputs.network.v20200401.PrivateLinkServiceConnectionResponse[];
+    /**
+     * The provisioning state of the private endpoint resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * The ID of the subnet from which the private IP will be allocated.
+     */
+    readonly subnet?: outputs.network.v20200401.SubnetResponse;
     /**
      * Resource tags.
      */

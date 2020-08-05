@@ -37,17 +37,49 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     }
 
     /**
+     * A string that describes the claim type
+     */
+    public /*out*/ readonly claimType!: pulumi.Output<string>;
+    /**
+     * A string that describes the claim value
+     */
+    public /*out*/ readonly claimValue!: pulumi.Output<string>;
+    /**
+     * The created time for this rule
+     */
+    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * A string that describes the authorization rule.
+     */
+    public /*out*/ readonly keyName!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public /*out*/ readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The last modified time for this rule
+     */
+    public /*out*/ readonly modifiedTime!: pulumi.Output<string>;
     /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Namespace AuthorizationRule.
+     * A base64-encoded 256-bit primary key for signing and validating the SAS token.
      */
-    public readonly properties!: pulumi.Output<outputs.notificationhubs.v20170401.SharedAccessAuthorizationRulePropertiesResponse>;
+    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
+    /**
+     * The revision number for the rule
+     */
+    public /*out*/ readonly revision!: pulumi.Output<number>;
+    /**
+     * The rights associated with the rule.
+     */
+    public /*out*/ readonly rights!: pulumi.Output<string[] | undefined>;
+    /**
+     * A base64-encoded 256-bit primary key for signing and validating the SAS token.
+     */
+    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
      * The sku of the created namespace
      */
@@ -90,7 +122,16 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["claimType"] = undefined /*out*/;
+            inputs["claimValue"] = undefined /*out*/;
+            inputs["createdTime"] = undefined /*out*/;
+            inputs["keyName"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["modifiedTime"] = undefined /*out*/;
+            inputs["primaryKey"] = undefined /*out*/;
+            inputs["revision"] = undefined /*out*/;
+            inputs["rights"] = undefined /*out*/;
+            inputs["secondaryKey"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

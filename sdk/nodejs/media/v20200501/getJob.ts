@@ -46,13 +46,45 @@ export interface GetJobArgs {
  */
 export interface GetJobResult {
     /**
+     * Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+     */
+    readonly correlationData?: {[key: string]: string};
+    /**
+     * The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+     */
+    readonly created: string;
+    /**
+     * Optional customer supplied description of the Job.
+     */
+    readonly description?: string;
+    /**
+     * The UTC date and time at which this Job finished processing.
+     */
+    readonly endTime: string;
+    /**
+     * The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+     */
+    readonly lastModified: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The resource properties.
+     * The outputs for the Job.
      */
-    readonly properties: outputs.media.v20200501.JobPropertiesResponse;
+    readonly outputs: outputs.media.v20200501.JobOutputResponse[];
+    /**
+     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+     */
+    readonly priority?: string;
+    /**
+     * The UTC date and time at which this Job began processing.
+     */
+    readonly startTime: string;
+    /**
+     * The current state of the job.
+     */
+    readonly state: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

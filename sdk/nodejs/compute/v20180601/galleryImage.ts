@@ -37,6 +37,26 @@ export class GalleryImage extends pulumi.CustomResource {
     }
 
     /**
+     * The description of this gallery Image Definition resource. This property is updatable.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Describes the disallowed disk types.
+     */
+    public readonly disallowed!: pulumi.Output<outputs.compute.v20180601.DisallowedResponse | undefined>;
+    /**
+     * The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+     */
+    public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
+    /**
+     * The Eula agreement for the gallery Image Definition.
+     */
+    public readonly eula!: pulumi.Output<string | undefined>;
+    /**
+     * This is the gallery Image Definition identifier.
+     */
+    public readonly identifier!: pulumi.Output<outputs.compute.v20180601.GalleryImageIdentifierResponse>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +65,33 @@ export class GalleryImage extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Describes the properties of a gallery Image Definition.
+     * The allowed values for OS State are 'Generalized'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20180601.GalleryImagePropertiesResponse>;
+    public readonly osState!: pulumi.Output<string>;
+    /**
+     * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     */
+    public readonly osType!: pulumi.Output<string>;
+    /**
+     * The privacy statement uri.
+     */
+    public readonly privacyStatementUri!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+     */
+    public readonly purchasePlan!: pulumi.Output<outputs.compute.v20180601.ImagePurchasePlanResponse | undefined>;
+    /**
+     * The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+     */
+    public readonly recommended!: pulumi.Output<outputs.compute.v20180601.RecommendedMachineConfigurationResponse | undefined>;
+    /**
+     * The release note uri.
+     */
+    public readonly releaseNoteUri!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -107,7 +151,7 @@ export class GalleryImage extends pulumi.CustomResource {
             inputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

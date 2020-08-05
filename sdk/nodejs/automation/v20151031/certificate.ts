@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,33 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
+     * Gets the creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Gets or sets the description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the expiry time of the certificate.
+     */
+    public /*out*/ readonly expiryTime!: pulumi.Output<string>;
+    /**
+     * Gets the is exportable flag of the certificate.
+     */
+    public readonly isExportable!: pulumi.Output<boolean>;
+    /**
+     * Gets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the properties of the certificate.
+     * Gets the thumbprint of the certificate.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.CertificatePropertiesResponse>;
+    public readonly thumbprint!: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
@@ -81,7 +99,9 @@ export class Certificate extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["thumbprint"] = args ? args.thumbprint : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["expiryTime"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

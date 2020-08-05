@@ -37,17 +37,85 @@ export class VpnConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Expected bandwidth in MBPS.
+     */
+    public readonly connectionBandwidth!: pulumi.Output<number | undefined>;
+    /**
+     * The connection status.
+     */
+    public readonly connectionStatus!: pulumi.Output<string | undefined>;
+    /**
+     * The dead peer detection timeout for a vpn connection in seconds.
+     */
+    public readonly dpdTimeoutSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * Egress bytes transferred.
+     */
+    public /*out*/ readonly egressBytesTransferred!: pulumi.Output<number>;
+    /**
+     * EnableBgp flag.
+     */
+    public readonly enableBgp!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable internet security.
+     */
+    public readonly enableInternetSecurity!: pulumi.Output<boolean | undefined>;
+    /**
+     * EnableBgp flag.
+     */
+    public readonly enableRateLimiting!: pulumi.Output<boolean | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Ingress bytes transferred.
+     */
+    public /*out*/ readonly ingressBytesTransferred!: pulumi.Output<number>;
+    /**
+     * The IPSec Policies to be considered by this connection.
+     */
+    public readonly ipsecPolicies!: pulumi.Output<outputs.network.v20200501.IpsecPolicyResponse[] | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the VPN connection.
+     * The provisioning state of the VPN connection resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.VpnConnectionPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Id of the connected vpn site.
+     */
+    public readonly remoteVpnSite!: pulumi.Output<outputs.network.v20200501.SubResourceResponse | undefined>;
+    /**
+     * The Routing Configuration indicating the associated and propagated route tables on this connection.
+     */
+    public readonly routingConfiguration!: pulumi.Output<outputs.network.v20200501.RoutingConfigurationResponse | undefined>;
+    /**
+     * Routing weight for vpn connection.
+     */
+    public readonly routingWeight!: pulumi.Output<number | undefined>;
+    /**
+     * SharedKey for the vpn connection.
+     */
+    public readonly sharedKey!: pulumi.Output<string | undefined>;
+    /**
+     * Use local azure ip to initiate connection.
+     */
+    public readonly useLocalAzureIpAddress!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable policy-based traffic selectors.
+     */
+    public readonly usePolicyBasedTrafficSelectors!: pulumi.Output<boolean | undefined>;
+    /**
+     * Connection protocol used for this connection.
+     */
+    public readonly vpnConnectionProtocolType!: pulumi.Output<string | undefined>;
+    /**
+     * List of all vpn site link connections to the gateway.
+     */
+    public readonly vpnLinkConnections!: pulumi.Output<outputs.network.v20200501.VpnSiteLinkConnectionResponse[] | undefined>;
 
     /**
      * Create a VpnConnection resource with the given unique name, arguments, and options.
@@ -90,8 +158,10 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
             inputs["vpnConnectionProtocolType"] = args ? args.vpnConnectionProtocolType : undefined;
             inputs["vpnLinkConnections"] = args ? args.vpnLinkConnections : undefined;
+            inputs["egressBytesTransferred"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ingressBytesTransferred"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

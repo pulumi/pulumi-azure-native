@@ -41,15 +41,31 @@ export interface GetVariableArgs {
  */
 export interface GetVariableResult {
     /**
+     * Gets or sets the creation time.
+     */
+    readonly creationTime?: string;
+    /**
+     * Gets or sets the description.
+     */
+    readonly description?: string;
+    /**
+     * Gets or sets the encrypted flag of the variable.
+     */
+    readonly isEncrypted?: boolean;
+    /**
+     * Gets or sets the last modified time.
+     */
+    readonly lastModifiedTime?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Gets or sets the properties of the variable.
-     */
-    readonly properties: outputs.automation.v20151031.VariablePropertiesResponse;
-    /**
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * Gets or sets the value of the variable.
+     */
+    readonly value?: string;
 }

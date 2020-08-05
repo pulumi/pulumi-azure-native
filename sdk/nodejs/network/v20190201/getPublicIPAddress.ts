@@ -36,9 +36,33 @@ export interface GetPublicIPAddressArgs {
  */
 export interface GetPublicIPAddressResult {
     /**
+     * The DDoS protection custom policy associated with the public IP address.
+     */
+    readonly ddosSettings?: outputs.network.v20190201.DdosSettingsResponse;
+    /**
+     * The FQDN of the DNS record associated with the public IP address.
+     */
+    readonly dnsSettings?: outputs.network.v20190201.PublicIPAddressDnsSettingsResponse;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: string;
+    /**
+     * The idle timeout of the public IP address.
+     */
+    readonly idleTimeoutInMinutes?: number;
+    /**
+     * The IP address associated with the public IP address resource.
+     */
+    readonly ipAddress?: string;
+    /**
+     * The IP configuration associated with the public IP address.
+     */
+    readonly ipConfiguration: outputs.network.v20190201.IPConfigurationResponse;
+    /**
+     * The list of tags associated with the public IP address.
+     */
+    readonly ipTags?: outputs.network.v20190201.IpTagResponse[];
     /**
      * Resource location.
      */
@@ -48,9 +72,25 @@ export interface GetPublicIPAddressResult {
      */
     readonly name: string;
     /**
-     * Public IP address properties.
+     * The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly properties: outputs.network.v20190201.PublicIPAddressPropertiesFormatResponse;
+    readonly provisioningState?: string;
+    /**
+     * The public IP address version.
+     */
+    readonly publicIPAddressVersion?: string;
+    /**
+     * The public IP address allocation method.
+     */
+    readonly publicIPAllocationMethod?: string;
+    /**
+     * The Public IP Prefix this Public IP Address should be allocated from.
+     */
+    readonly publicIPPrefix?: outputs.network.v20190201.SubResourceResponse;
+    /**
+     * The resource GUID property of the public IP resource.
+     */
+    readonly resourceGuid?: string;
     /**
      * The public IP address SKU.
      */

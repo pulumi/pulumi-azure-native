@@ -31,15 +31,53 @@ export interface GetAssessmentMetadataInSubscriptionArgs {
  */
 export interface GetAssessmentMetadataInSubscriptionResult {
     /**
+     * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+     */
+    readonly assessmentType: string;
+    readonly category?: string[];
+    /**
+     * Human readable description of the assessment
+     */
+    readonly description?: string;
+    /**
+     * User friendly display name of the assessment
+     */
+    readonly displayName: string;
+    /**
+     * The implementation effort required to remediate this assessment
+     */
+    readonly implementationEffort?: string;
+    /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Describes properties of an assessment metadata.
+     * Describes the partner that created the assessment
      */
-    readonly properties: outputs.security.v20200101.SecurityAssessmentMetadataPropertiesResponse;
+    readonly partnerData?: outputs.security.v20200101.SecurityAssessmentMetadataPartnerDataResponse;
+    /**
+     * Azure resource ID of the policy definition that turns this assessment calculation on
+     */
+    readonly policyDefinitionId: string;
+    /**
+     * True if this assessment is in preview release status
+     */
+    readonly preview?: boolean;
+    /**
+     * Human readable description of what you should do to mitigate this security issue
+     */
+    readonly remediationDescription?: string;
+    /**
+     * The severity level of the assessment
+     */
+    readonly severity: string;
+    readonly threats?: string[];
     /**
      * Resource type
      */
     readonly type: string;
+    /**
+     * The user impact of the assessment
+     */
+    readonly userImpact?: string;
 }

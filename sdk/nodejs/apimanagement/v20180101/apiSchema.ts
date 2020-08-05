@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,21 @@ export class ApiSchema extends pulumi.CustomResource {
     }
 
     /**
+     * Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+     */
+    public readonly contentType!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Schema.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.SchemaContractPropertiesResponse>;
-    /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Json escaped string defining the document representing the Schema.
+     */
+    public readonly value!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiSchema resource with the given unique name, arguments, and options.
@@ -83,7 +85,6 @@ export class ApiSchema extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
             inputs["value"] = args ? args.value : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

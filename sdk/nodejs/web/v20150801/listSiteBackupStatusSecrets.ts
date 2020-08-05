@@ -81,18 +81,61 @@ export interface ListSiteBackupStatusSecretsArgs {
  */
 export interface ListSiteBackupStatusSecretsResult {
     /**
+     * Name of the blob which contains data for this backup
+     */
+    readonly blobName?: string;
+    /**
+     * Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
+     */
+    readonly correlationId?: string;
+    /**
+     * Timestamp of the backup creation
+     */
+    readonly created?: string;
+    /**
+     * List of databases included in the backup
+     */
+    readonly databases?: outputs.web.v20150801.DatabaseBackupSettingResponse[];
+    /**
+     * Timestamp when this backup finished.
+     */
+    readonly finishedTimeStamp?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;
+    /**
+     * Timestamp of a last restore operation which used this backup.
+     */
+    readonly lastRestoreTimeStamp?: string;
     /**
      * Resource Location
      */
     readonly location: string;
     /**
+     * Details regarding this backup. Might contain an error message.
+     */
+    readonly log?: string;
+    /**
      * Resource Name
      */
     readonly name?: string;
-    readonly properties: outputs.web.v20150801.BackupItemResponseProperties;
+    /**
+     * True if this backup has been created due to a schedule being triggered.
+     */
+    readonly scheduled?: boolean;
+    /**
+     * Size of the backup in bytes
+     */
+    readonly sizeInBytes?: number;
+    /**
+     * Backup status
+     */
+    readonly status: string;
+    /**
+     * SAS URL for the storage account container which contains this backup
+     */
+    readonly storageAccountUrl?: string;
     /**
      * Resource tags
      */
@@ -101,4 +144,8 @@ export interface ListSiteBackupStatusSecretsResult {
      * Resource type
      */
     readonly type?: string;
+    /**
+     * Size of the original web app which has been backed up
+     */
+    readonly websiteSizeInBytes?: number;
 }

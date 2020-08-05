@@ -31,13 +31,33 @@ export interface GetManagementGroupArgs {
  */
 export interface GetManagementGroupResult {
     /**
+     * The list of children.
+     */
+    readonly children?: outputs.management.v20200201.ManagementGroupChildInfoResponse[];
+    /**
+     * The details of a management group.
+     */
+    readonly details?: outputs.management.v20200201.ManagementGroupDetailsResponse;
+    /**
+     * The friendly name of the management group.
+     */
+    readonly displayName?: string;
+    /**
      * The name of the management group. For example, 00000000-0000-0000-0000-000000000000
      */
     readonly name: string;
     /**
-     * The generic properties of a management group.
+     * The path from the root to the current group.
      */
-    readonly properties: outputs.management.v20200201.ManagementGroupPropertiesResponse;
+    readonly path?: outputs.management.v20200201.ManagementGroupPathElementResponse[];
+    /**
+     * The role definitions associated with the management group.
+     */
+    readonly roles?: string[];
+    /**
+     * The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
+     */
+    readonly tenantId?: string;
     /**
      * The type of the resource.  For example, Microsoft.Management/managementGroups
      */

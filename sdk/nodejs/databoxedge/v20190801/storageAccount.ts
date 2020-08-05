@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,33 @@ export class StorageAccount extends pulumi.CustomResource {
     }
 
     /**
+     * BlobEndpoint of Storage Account
+     */
+    public /*out*/ readonly blobEndpoint!: pulumi.Output<string>;
+    /**
+     * The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+     */
+    public /*out*/ readonly containerCount!: pulumi.Output<number>;
+    /**
+     * Data policy of the storage Account.
+     */
+    public readonly dataPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * Description for the storage Account.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * The object name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The Storage Account properties.
+     * Storage Account Credential Id
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.StorageAccountPropertiesResponse>;
+    public readonly storageAccountCredentialId!: pulumi.Output<string | undefined>;
+    /**
+     * Current status of the storage account
+     */
+    public readonly storageAccountStatus!: pulumi.Output<string | undefined>;
     /**
      * The hierarchical type of the object.
      */
@@ -78,7 +96,8 @@ export class StorageAccount extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
             inputs["storageAccountStatus"] = args ? args.storageAccountStatus : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["blobEndpoint"] = undefined /*out*/;
+            inputs["containerCount"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

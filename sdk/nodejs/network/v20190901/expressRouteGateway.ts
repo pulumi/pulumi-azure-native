@@ -37,9 +37,17 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
     }
 
     /**
+     * Configuration for auto scaling.
+     */
+    public readonly autoScaleConfiguration!: pulumi.Output<outputs.network.v20190901.ExpressRouteGatewayPropertiesResponseAutoScaleConfiguration | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * List of ExpressRoute connections to the ExpressRoute gateway.
+     */
+    public /*out*/ readonly expressRouteConnections!: pulumi.Output<outputs.network.v20190901.ExpressRouteConnectionResponse[]>;
     /**
      * Resource location.
      */
@@ -49,9 +57,9 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the express route gateway.
+     * The provisioning state of the express route gateway resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.ExpressRouteGatewayPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -60,6 +68,10 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+     */
+    public readonly virtualHub!: pulumi.Output<outputs.network.v20190901.VirtualHubIdResponse>;
 
     /**
      * Create a ExpressRouteGateway resource with the given unique name, arguments, and options.
@@ -91,7 +103,8 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["expressRouteConnections"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

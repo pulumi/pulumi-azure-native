@@ -37,6 +37,10 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
     }
 
     /**
+     * The set of aad vpn authentication parameters.
+     */
+    public readonly aadAuthenticationParameters!: pulumi.Output<outputs.network.v20191201.AadAuthenticationParametersResponse | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +53,29 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the P2SVpnServer configuration.
+     * List of references to P2SVpnGateways.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191201.VpnServerConfigurationPropertiesResponse>;
+    public /*out*/ readonly p2SVpnGateways!: pulumi.Output<outputs.network.v20191201.P2SVpnGatewayResponse[]>;
+    /**
+     * The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Radius client root certificate of VpnServerConfiguration.
+     */
+    public readonly radiusClientRootCertificates!: pulumi.Output<outputs.network.v20191201.VpnServerConfigRadiusClientRootCertificateResponse[] | undefined>;
+    /**
+     * The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+     */
+    public readonly radiusServerAddress!: pulumi.Output<string | undefined>;
+    /**
+     * Radius Server root certificate of VpnServerConfiguration.
+     */
+    public readonly radiusServerRootCertificates!: pulumi.Output<outputs.network.v20191201.VpnServerConfigRadiusServerRootCertificateResponse[] | undefined>;
+    /**
+     * The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+     */
+    public readonly radiusServerSecret!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -60,6 +84,26 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * VPN authentication types for the VpnServerConfiguration.
+     */
+    public readonly vpnAuthenticationTypes!: pulumi.Output<string[] | undefined>;
+    /**
+     * VpnClientIpsecPolicies for VpnServerConfiguration.
+     */
+    public readonly vpnClientIpsecPolicies!: pulumi.Output<outputs.network.v20191201.IpsecPolicyResponse[] | undefined>;
+    /**
+     * VPN client revoked certificate of VpnServerConfiguration.
+     */
+    public readonly vpnClientRevokedCertificates!: pulumi.Output<outputs.network.v20191201.VpnServerConfigVpnClientRevokedCertificateResponse[] | undefined>;
+    /**
+     * VPN client root certificate of VpnServerConfiguration.
+     */
+    public readonly vpnClientRootCertificates!: pulumi.Output<outputs.network.v20191201.VpnServerConfigVpnClientRootCertificateResponse[] | undefined>;
+    /**
+     * VPN protocols for the VpnServerConfiguration.
+     */
+    public readonly vpnProtocols!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a VpnServerConfiguration resource with the given unique name, arguments, and options.
@@ -96,7 +140,8 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             inputs["vpnClientRootCertificates"] = args ? args.vpnClientRootCertificates : undefined;
             inputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["p2SVpnGateways"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

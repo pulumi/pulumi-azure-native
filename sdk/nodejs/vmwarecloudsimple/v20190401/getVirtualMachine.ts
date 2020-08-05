@@ -36,6 +36,42 @@ export interface GetVirtualMachineArgs {
  */
 export interface GetVirtualMachineResult {
     /**
+     * The amount of memory
+     */
+    readonly amountOfRam: number;
+    /**
+     * The list of Virtual Disks' Controllers
+     */
+    readonly controllers: outputs.vmwarecloudsimple.v20190401.VirtualDiskControllerResponse[];
+    /**
+     * Virtual machine properties
+     */
+    readonly customization?: outputs.vmwarecloudsimple.v20190401.GuestOSCustomizationResponse;
+    /**
+     * The list of Virtual Disks
+     */
+    readonly disks?: outputs.vmwarecloudsimple.v20190401.VirtualDiskResponse[];
+    /**
+     * The DNS name of Virtual Machine in VCenter
+     */
+    readonly dnsname: string;
+    /**
+     * Expose Guest OS or not
+     */
+    readonly exposeToGuestVM?: boolean;
+    /**
+     * The path to virtual machine folder in VCenter
+     */
+    readonly folder: string;
+    /**
+     * The name of Guest OS
+     */
+    readonly guestOS: string;
+    /**
+     * The Guest OS type
+     */
+    readonly guestOSType: string;
+    /**
      * Azure region
      */
     readonly location: string;
@@ -44,15 +80,63 @@ export interface GetVirtualMachineResult {
      */
     readonly name: string;
     /**
-     * Virtual machine properties
+     * The list of Virtual NICs
      */
-    readonly properties: outputs.vmwarecloudsimple.v20190401.VirtualMachinePropertiesResponse;
+    readonly nics?: outputs.vmwarecloudsimple.v20190401.VirtualNicResponse[];
+    /**
+     * The number of CPU cores
+     */
+    readonly numberOfCores: number;
+    /**
+     * Password for login. Deprecated - use customization property
+     */
+    readonly password?: string;
+    /**
+     * Private Cloud Id
+     */
+    readonly privateCloudId: string;
+    /**
+     * The provisioning status of the resource
+     */
+    readonly provisioningState: string;
+    /**
+     * The public ip of Virtual Machine
+     */
+    readonly publicIP: string;
+    /**
+     * Virtual Machines Resource Pool
+     */
+    readonly resourcePool?: outputs.vmwarecloudsimple.v20190401.ResourcePoolResponse;
+    /**
+     * The status of Virtual machine
+     */
+    readonly status: string;
     /**
      * The list of tags
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Virtual Machine Template Id
+     */
+    readonly templateId?: string;
+    /**
      * {resourceProviderNamespace}/{resourceType}
      */
     readonly type: string;
+    /**
+     * Username for login. Deprecated - use customization property
+     */
+    readonly username?: string;
+    /**
+     * The list of Virtual VSphere Networks
+     */
+    readonly vSphereNetworks?: string[];
+    /**
+     * The internal id of Virtual Machine in VCenter
+     */
+    readonly vmId: string;
+    /**
+     * VMware tools version
+     */
+    readonly vmwaretools: string;
 }

@@ -37,6 +37,10 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * Time at which the account was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
      * Identity Info on the Account
      */
     public readonly identity!: pulumi.Output<outputs.datashare.v20191101.IdentityResponse>;
@@ -49,9 +53,9 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties on the account
+     * Provisioning state of the Account
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.datashare.v20191101.AccountPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Tags on the azure resource.
      */
@@ -60,6 +64,14 @@ export class Account extends pulumi.CustomResource {
      * Type of the azure resource
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Email of the user who created the resource
+     */
+    public /*out*/ readonly userEmail!: pulumi.Output<string>;
+    /**
+     * Name of the user who created the resource
+     */
+    public /*out*/ readonly userName!: pulumi.Output<string>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -88,8 +100,11 @@ export class Account extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["userEmail"] = undefined /*out*/;
+            inputs["userName"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

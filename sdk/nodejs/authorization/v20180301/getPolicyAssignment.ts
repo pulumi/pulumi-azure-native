@@ -36,13 +36,37 @@ export interface GetPolicyAssignmentArgs {
  */
 export interface GetPolicyAssignmentResult {
     /**
+     * This message will be part of response in case of policy violation.
+     */
+    readonly description?: string;
+    /**
+     * The display name of the policy assignment.
+     */
+    readonly displayName?: string;
+    /**
+     * The policy assignment metadata.
+     */
+    readonly metadata?: {[key: string]: any};
+    /**
      * The name of the policy assignment.
      */
     readonly name: string;
     /**
-     * Properties for the policy assignment.
+     * The policy's excluded scopes.
      */
-    readonly properties: outputs.authorization.v20180301.PolicyAssignmentPropertiesResponse;
+    readonly notScopes?: string[];
+    /**
+     * Required if a parameter is used in policy rule.
+     */
+    readonly parameters?: {[key: string]: any};
+    /**
+     * The ID of the policy definition or policy set definition being assigned.
+     */
+    readonly policyDefinitionId?: string;
+    /**
+     * The scope for the policy assignment.
+     */
+    readonly scope?: string;
     /**
      * The policy sku. This property is optional, obsolete, and will be ignored.
      */

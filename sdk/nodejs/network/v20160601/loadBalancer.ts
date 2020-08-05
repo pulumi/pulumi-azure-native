@@ -37,9 +37,29 @@ export class LoadBalancer extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or sets Pools of backend IP addresses
+     */
+    public readonly backendAddressPools!: pulumi.Output<outputs.network.v20160601.BackendAddressPoolResponse[] | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     public readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets frontend IP addresses of the load balancer
+     */
+    public readonly frontendIPConfigurations!: pulumi.Output<outputs.network.v20160601.FrontendIPConfigurationResponse[] | undefined>;
+    /**
+     * Gets or sets inbound NAT pools
+     */
+    public readonly inboundNatPools!: pulumi.Output<outputs.network.v20160601.InboundNatPoolResponse[] | undefined>;
+    /**
+     * Gets or sets list of inbound rules
+     */
+    public readonly inboundNatRules!: pulumi.Output<outputs.network.v20160601.InboundNatRuleResponse[] | undefined>;
+    /**
+     * Gets or sets load balancing rules
+     */
+    public readonly loadBalancingRules!: pulumi.Output<outputs.network.v20160601.LoadBalancingRuleResponse[] | undefined>;
     /**
      * Resource location
      */
@@ -49,9 +69,21 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of Load Balancer
+     * Gets or sets outbound NAT rules
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160601.LoadBalancerPropertiesFormatResponse>;
+    public readonly outboundNatRules!: pulumi.Output<outputs.network.v20160601.OutboundNatRuleResponse[] | undefined>;
+    /**
+     * Gets or sets list of Load balancer probes
+     */
+    public readonly probes!: pulumi.Output<outputs.network.v20160601.ProbeResponse[] | undefined>;
+    /**
+     * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets resource guid property of the Load balancer resource
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -95,7 +127,6 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

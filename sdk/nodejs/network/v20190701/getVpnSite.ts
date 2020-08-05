@@ -36,9 +36,29 @@ export interface GetVpnSiteArgs {
  */
 export interface GetVpnSiteResult {
     /**
+     * The AddressSpace that contains an array of IP address ranges.
+     */
+    readonly addressSpace?: outputs.network.v20190701.AddressSpaceResponse;
+    /**
+     * The set of bgp properties.
+     */
+    readonly bgpProperties?: outputs.network.v20190701.BgpSettingsResponse;
+    /**
+     * The device properties.
+     */
+    readonly deviceProperties?: outputs.network.v20190701.DevicePropertiesResponse;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * The ip-address for the vpn-site.
+     */
+    readonly ipAddress?: string;
+    /**
+     * IsSecuritySite flag.
+     */
+    readonly isSecuritySite?: boolean;
     /**
      * Resource location.
      */
@@ -48,9 +68,13 @@ export interface GetVpnSiteResult {
      */
     readonly name: string;
     /**
-     * Properties of the VPN site.
+     * The provisioning state of the VPN site resource.
      */
-    readonly properties: outputs.network.v20190701.VpnSitePropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * The key for vpn-site that can be used for connections.
+     */
+    readonly siteKey?: string;
     /**
      * Resource tags.
      */
@@ -59,4 +83,12 @@ export interface GetVpnSiteResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The VirtualWAN to which the vpnSite belongs.
+     */
+    readonly virtualWan?: outputs.network.v20190701.SubResourceResponse;
+    /**
+     * List of all vpn site links.
+     */
+    readonly vpnSiteLinks?: outputs.network.v20190701.VpnSiteLinkResponse[];
 }

@@ -44,13 +44,25 @@ export interface GetAvailabilitySetResult {
      */
     readonly name: string;
     /**
-     * The instance view of a resource.
+     * Fault Domain count.
      */
-    readonly properties: outputs.compute.v20190301.AvailabilitySetPropertiesResponse;
+    readonly platformFaultDomainCount?: number;
+    /**
+     * Update Domain count.
+     */
+    readonly platformUpdateDomainCount?: number;
+    /**
+     * Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+     */
+    readonly proximityPlacementGroup?: outputs.compute.v20190301.SubResourceResponse;
     /**
      * Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
      */
     readonly sku?: outputs.compute.v20190301.SkuResponse;
+    /**
+     * The resource status information.
+     */
+    readonly statuses: outputs.compute.v20190301.InstanceViewStatusResponse[];
     /**
      * Resource tags
      */
@@ -59,4 +71,8 @@ export interface GetAvailabilitySetResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * A list of references to all virtual machines in the availability set.
+     */
+    readonly virtualMachines?: outputs.compute.v20190301.SubResourceResponse[];
 }

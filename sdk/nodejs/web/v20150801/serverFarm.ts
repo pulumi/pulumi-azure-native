@@ -37,6 +37,18 @@ export class ServerFarm extends pulumi.CustomResource {
     }
 
     /**
+     * App Service Plan administration site
+     */
+    public readonly adminSiteName!: pulumi.Output<string | undefined>;
+    /**
+     * Geographical location for the App Service Plan
+     */
+    public /*out*/ readonly geoRegion!: pulumi.Output<string>;
+    /**
+     * Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+     */
+    public readonly hostingEnvironmentProfile!: pulumi.Output<outputs.web.v20150801.HostingEnvironmentProfileResponse | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,14 +57,42 @@ export class ServerFarm extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Maximum number of instances that can be assigned to this App Service Plan
+     */
+    public readonly maximumNumberOfWorkers!: pulumi.Output<number | undefined>;
+    /**
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.ServerFarmWithRichSkuResponseProperties>;
+    /**
+     * Number of web apps assigned to this App Service Plan
+     */
+    public /*out*/ readonly numberOfSites!: pulumi.Output<number>;
+    /**
+     * If True apps assigned to this App Service Plan can be scaled independently
+     *             If False apps assigned to this App Service Plan will scale to all instances of the plan
+     */
+    public readonly perSiteScaling!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables creation of a Linux App Service Plan
+     */
+    public readonly reserved!: pulumi.Output<boolean | undefined>;
+    /**
+     * Resource group of the server farm
+     */
+    public /*out*/ readonly resourceGroup!: pulumi.Output<string>;
     /**
      * Describes a sku for a scalable resource
      */
     public readonly sku!: pulumi.Output<outputs.web.v20150801.SkuDescriptionResponse | undefined>;
+    /**
+     * App Service Plan Status
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * App Service Plan Subscription
+     */
+    public /*out*/ readonly subscription!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -61,6 +101,10 @@ export class ServerFarm extends pulumi.CustomResource {
      * Resource type
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * Target worker tier assigned to the App Service Plan
+     */
+    public readonly workerTierName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServerFarm resource with the given unique name, arguments, and options.
@@ -99,7 +143,11 @@ export class ServerFarm extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["workerTierName"] = args ? args.workerTierName : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["geoRegion"] = undefined /*out*/;
+            inputs["numberOfSites"] = undefined /*out*/;
+            inputs["resourceGroup"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
+            inputs["subscription"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

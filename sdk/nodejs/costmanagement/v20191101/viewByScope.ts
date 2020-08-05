@@ -37,17 +37,61 @@ export class ViewByScope extends pulumi.CustomResource {
     }
 
     /**
+     * Show costs accumulated over time.
+     */
+    public readonly accumulated!: pulumi.Output<string | undefined>;
+    /**
+     * Chart type of the main view in Cost Analysis. Required.
+     */
+    public readonly chart!: pulumi.Output<string | undefined>;
+    /**
+     * Date the user created this view.
+     */
+    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    /**
+     * Has definition for data in this report config.
+     */
+    public readonly dataset!: pulumi.Output<outputs.costmanagement.v20191101.ReportConfigDatasetResponse | undefined>;
+    /**
+     * User input name of the view. Required.
+     */
+    public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
+    /**
+     * List of KPIs to show in Cost Analysis UI.
+     */
+    public readonly kpis!: pulumi.Output<outputs.costmanagement.v20191101.KpiPropertiesResponse[] | undefined>;
+    /**
+     * Metric to use when displaying costs.
+     */
+    public readonly metric!: pulumi.Output<string | undefined>;
+    /**
+     * Date when the user last modified this view.
+     */
+    public /*out*/ readonly modifiedOn!: pulumi.Output<string>;
     /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the view.
+     * Configuration of 3 sub-views in the Cost Analysis UI.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.costmanagement.v20191101.ViewPropertiesResponse>;
+    public readonly pivots!: pulumi.Output<outputs.costmanagement.v20191101.PivotPropertiesResponse[] | undefined>;
+    /**
+     * Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+     */
+    public readonly scope!: pulumi.Output<string | undefined>;
+    /**
+     * Has time period for pulling data for the report.
+     */
+    public readonly timePeriod!: pulumi.Output<outputs.costmanagement.v20191101.ReportConfigTimePeriodResponse | undefined>;
+    /**
+     * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+     */
+    public readonly timeframe!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -91,7 +135,8 @@ export class ViewByScope extends pulumi.CustomResource {
             inputs["timePeriod"] = args ? args.timePeriod : undefined;
             inputs["timeframe"] = args ? args.timeframe : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdOn"] = undefined /*out*/;
+            inputs["modifiedOn"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

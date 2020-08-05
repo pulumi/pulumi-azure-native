@@ -41,13 +41,53 @@ export interface GetRelationshipLinkArgs {
  */
 export interface GetRelationshipLinkResult {
     /**
+     * Localized descriptions for the Relationship Link.
+     */
+    readonly description?: {[key: string]: string};
+    /**
+     * Localized display name for the Relationship Link.
+     */
+    readonly displayName?: {[key: string]: string};
+    /**
+     * The InteractionType associated with the Relationship Link.
+     */
+    readonly interactionType: string;
+    /**
+     * The name of the Relationship Link.
+     */
+    readonly linkName: string;
+    /**
+     * The mappings between Interaction and Relationship fields.
+     */
+    readonly mappings?: outputs.customerinsights.v20170426.RelationshipLinkFieldMappingResponse[];
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The definition of relationship link.
+     * The property references for the Profile of the Relationship.
      */
-    readonly properties: outputs.customerinsights.v20170426.RelationshipLinkDefinitionResponse;
+    readonly profilePropertyReferences: outputs.customerinsights.v20170426.ParticipantProfilePropertyReferenceResponse[];
+    /**
+     * Provisioning state.
+     */
+    readonly provisioningState: string;
+    /**
+     * The property references for the Related Profile of the Relationship.
+     */
+    readonly relatedProfilePropertyReferences: outputs.customerinsights.v20170426.ParticipantProfilePropertyReferenceResponse[];
+    /**
+     * The relationship guid id.
+     */
+    readonly relationshipGuidId: string;
+    /**
+     * The Relationship associated with the Link.
+     */
+    readonly relationshipName: string;
+    /**
+     * The hub name.
+     */
+    readonly tenantId: string;
     /**
      * Resource type.
      */

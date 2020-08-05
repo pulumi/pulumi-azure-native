@@ -40,13 +40,17 @@ export interface GetMediaServiceResult {
      */
     readonly location?: string;
     /**
+     * The Media Services account ID.
+     */
+    readonly mediaServiceId: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The resource properties.
+     * The storage accounts for this resource.
      */
-    readonly properties: outputs.media.v20180701.MediaServicePropertiesResponse;
+    readonly storageAccounts?: outputs.media.v20180701.StorageAccountResponse[];
     /**
      * Resource tags.
      */

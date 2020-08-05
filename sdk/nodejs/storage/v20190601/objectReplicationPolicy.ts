@@ -37,13 +37,29 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Required. Destination account name.
+     */
+    public readonly destinationAccount!: pulumi.Output<string>;
+    /**
+     * Indicates when the policy is enabled on the source account.
+     */
+    public /*out*/ readonly enabledTime!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Returns the Storage Account Object Replication Policy.
+     * A unique id for object replication policy.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190601.ObjectReplicationPolicyPropertiesResponse>;
+    public /*out*/ readonly policyId!: pulumi.Output<string>;
+    /**
+     * The storage account object replication rules.
+     */
+    public readonly rules!: pulumi.Output<outputs.storage.v20190601.ObjectReplicationPolicyRuleResponse[] | undefined>;
+    /**
+     * Required. Source account name.
+     */
+    public readonly sourceAccount!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -83,7 +99,8 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rules"] = args ? args.rules : undefined;
             inputs["sourceAccount"] = args ? args.sourceAccount : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["enabledTime"] = undefined /*out*/;
+            inputs["policyId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

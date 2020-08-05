@@ -41,6 +41,14 @@ export class VirtualRouter extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The Gateway on which VirtualRouter is hosted.
+     */
+    public readonly hostedGateway!: pulumi.Output<outputs.network.v20200401.SubResourceResponse | undefined>;
+    /**
+     * The Subnet on which VirtualRouter is hosted.
+     */
+    public readonly hostedSubnet!: pulumi.Output<outputs.network.v20200401.SubResourceResponse | undefined>;
+    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -49,9 +57,13 @@ export class VirtualRouter extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Virtual Router.
+     * List of references to VirtualRouterPeerings.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.VirtualRouterPropertiesFormatResponse>;
+    public /*out*/ readonly peerings!: pulumi.Output<outputs.network.v20200401.SubResourceResponse[]>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -60,6 +72,14 @@ export class VirtualRouter extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * VirtualRouter ASN.
+     */
+    public readonly virtualRouterAsn!: pulumi.Output<number | undefined>;
+    /**
+     * VirtualRouter IPs.
+     */
+    public readonly virtualRouterIps!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a VirtualRouter resource with the given unique name, arguments, and options.
@@ -90,7 +110,8 @@ export class VirtualRouter extends pulumi.CustomResource {
             inputs["virtualRouterAsn"] = args ? args.virtualRouterAsn : undefined;
             inputs["virtualRouterIps"] = args ? args.virtualRouterIps : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["peerings"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

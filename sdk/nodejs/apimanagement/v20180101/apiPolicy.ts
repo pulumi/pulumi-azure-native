@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,17 @@ export class ApiPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Format of the policyContent.
+     */
+    public readonly contentFormat!: pulumi.Output<string | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the Policy.
+     * Json escaped Xml Encoded contents of the Policy.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.PolicyContractPropertiesResponse>;
+    public readonly policyContent!: pulumi.Output<string>;
     /**
      * Resource type for API Management resource.
      */
@@ -83,7 +85,6 @@ export class ApiPolicy extends pulumi.CustomResource {
             inputs["policyContent"] = args ? args.policyContent : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

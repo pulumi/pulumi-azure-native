@@ -36,6 +36,14 @@ export interface GetPeeringArgs {
  */
 export interface GetPeeringResult {
     /**
+     * The properties that define a direct peering.
+     */
+    readonly direct?: outputs.peering.v20200401.PeeringPropertiesDirectResponse;
+    /**
+     * The properties that define an exchange peering.
+     */
+    readonly exchange?: outputs.peering.v20200401.PeeringPropertiesExchangeResponse;
+    /**
      * The kind of the peering.
      */
     readonly kind: string;
@@ -48,9 +56,13 @@ export interface GetPeeringResult {
      */
     readonly name: string;
     /**
-     * The properties that define a peering.
+     * The location of the peering.
      */
-    readonly properties: outputs.peering.v20200401.PeeringPropertiesResponse;
+    readonly peeringLocation?: string;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * The SKU that defines the tier and kind of the peering.
      */

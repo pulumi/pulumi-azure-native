@@ -37,17 +37,41 @@ export class Budget extends pulumi.CustomResource {
     }
 
     /**
+     * The total amount of cost to track with the budget
+     */
+    public readonly amount!: pulumi.Output<number>;
+    /**
+     * The category of the budget, whether the budget tracks cost or usage.
+     */
+    public readonly category!: pulumi.Output<string>;
+    /**
+     * The current amount of cost which is being tracked for a budget.
+     */
+    public /*out*/ readonly currentSpend!: pulumi.Output<outputs.consumption.v20180131.CurrentSpendResponse>;
+    /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
+    /**
+     * May be used to filter budgets by resource group, resource, or meter.
+     */
+    public readonly filters!: pulumi.Output<outputs.consumption.v20180131.FiltersResponse | undefined>;
     /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the budget.
+     * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.consumption.v20180131.BudgetPropertiesResponse>;
+    public readonly notifications!: pulumi.Output<{[key: string]: outputs.consumption.v20180131.NotificationResponse} | undefined>;
+    /**
+     * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+     */
+    public readonly timeGrain!: pulumi.Output<string>;
+    /**
+     * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+     */
+    public readonly timePeriod!: pulumi.Output<outputs.consumption.v20180131.BudgetTimePeriodResponse>;
     /**
      * Resource type.
      */
@@ -89,7 +113,7 @@ export class Budget extends pulumi.CustomResource {
             inputs["notifications"] = args ? args.notifications : undefined;
             inputs["timeGrain"] = args ? args.timeGrain : undefined;
             inputs["timePeriod"] = args ? args.timePeriod : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["currentSpend"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

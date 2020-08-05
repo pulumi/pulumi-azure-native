@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
     }
 
     /**
+     * The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+     */
+    public readonly endAddress!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -48,7 +50,20 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.VnetRouteResponseProperties>;
+    /**
+     * The type of route this is:
+     *             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+     *             INHERITED - Routes inherited from the real Virtual Network routes
+     *             STATIC - Static route set on the web app only
+     *             
+     *             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+     *             with new INHERITED routes.
+     */
+    public readonly routeType!: pulumi.Output<string | undefined>;
+    /**
+     * The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+     */
+    public readonly startAddress!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -94,7 +109,6 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["vnetName"] = args ? args.vnetName : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

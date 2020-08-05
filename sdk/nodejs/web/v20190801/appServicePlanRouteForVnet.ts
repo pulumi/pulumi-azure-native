@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,10 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
     }
 
     /**
+     * The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+     */
+    public readonly endAddress!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,9 +47,18 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * VnetRoute resource specific properties
+     * The type of route this is:
+     * DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+     * INHERITED - Routes inherited from the real Virtual Network routes
+     * STATIC - Static route set on the app only
+     *
+     * These values will be used for syncing an app's routes with those from a Virtual Network.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.VnetRouteResponseProperties>;
+    public readonly routeType!: pulumi.Output<string | undefined>;
+    /**
+     * The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+     */
+    public readonly startAddress!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -82,7 +93,6 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
             inputs["routeType"] = args ? args.routeType : undefined;
             inputs["startAddress"] = args ? args.startAddress : undefined;
             inputs["vnetName"] = args ? args.vnetName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

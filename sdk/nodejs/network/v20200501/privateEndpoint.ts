@@ -37,6 +37,10 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * An array of custom dns configurations.
+     */
+    public readonly customDnsConfigs!: pulumi.Output<outputs.network.v20200501.CustomDnsConfigPropertiesFormatResponse[] | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -45,13 +49,29 @@ export class PrivateEndpoint extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+     */
+    public readonly manualPrivateLinkServiceConnections!: pulumi.Output<outputs.network.v20200501.PrivateLinkServiceConnectionResponse[] | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the private endpoint.
+     * An array of references to the network interfaces created for this private endpoint.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.PrivateEndpointPropertiesResponse>;
+    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.network.v20200501.NetworkInterfaceResponse[]>;
+    /**
+     * A grouping of information about the connection to the remote resource.
+     */
+    public readonly privateLinkServiceConnections!: pulumi.Output<outputs.network.v20200501.PrivateLinkServiceConnectionResponse[] | undefined>;
+    /**
+     * The provisioning state of the private endpoint resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The ID of the subnet from which the private IP will be allocated.
+     */
+    public readonly subnet!: pulumi.Output<outputs.network.v20200501.SubnetResponse | undefined>;
     /**
      * Resource tags.
      */
@@ -90,7 +110,8 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["networkInterfaces"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

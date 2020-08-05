@@ -37,6 +37,26 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
+     * List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+     */
+    public readonly contentTypesToCompress!: pulumi.Output<string[] | undefined>;
+    /**
+     * The host name of the endpoint {endpointName}.{DNSZone}
+     */
+    public /*out*/ readonly hostName!: pulumi.Output<string>;
+    /**
+     * Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+     */
+    public readonly isCompressionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+     */
+    public readonly isHttpAllowed!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+     */
+    public readonly isHttpsAllowed!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -44,7 +64,30 @@ export class Endpoint extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20160402.EndpointPropertiesResponse>;
+    /**
+     * The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+     */
+    public readonly originHostHeader!: pulumi.Output<string | undefined>;
+    /**
+     * The path used for origin requests.
+     */
+    public readonly originPath!: pulumi.Output<string | undefined>;
+    /**
+     * The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+     */
+    public readonly origins!: pulumi.Output<outputs.cdn.v20160402.DeepCreatedOriginResponse[] | undefined>;
+    /**
+     * Provisioning status of the endpoint.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Defines the query string caching behavior.
+     */
+    public readonly queryStringCachingBehavior!: pulumi.Output<string | undefined>;
+    /**
+     * Resource status of the endpoint.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * Resource tags
      */
@@ -95,7 +138,9 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["queryStringCachingBehavior"] = args ? args.queryStringCachingBehavior : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["hostName"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -37,17 +37,77 @@ export class StreamingEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * The access control definition of the StreamingEndpoint.
+     */
+    public readonly accessControl!: pulumi.Output<outputs.media.v20180701.StreamingEndpointAccessControlResponse | undefined>;
+    /**
+     * The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+     */
+    public readonly availabilitySetName!: pulumi.Output<string | undefined>;
+    /**
+     * The CDN enabled flag.
+     */
+    public readonly cdnEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The CDN profile name.
+     */
+    public readonly cdnProfile!: pulumi.Output<string | undefined>;
+    /**
+     * The CDN provider name.
+     */
+    public readonly cdnProvider!: pulumi.Output<string | undefined>;
+    /**
+     * The exact time the StreamingEndpoint was created.
+     */
+    public /*out*/ readonly created!: pulumi.Output<string>;
+    /**
+     * The StreamingEndpoint access policies.
+     */
+    public readonly crossSiteAccessPolicies!: pulumi.Output<outputs.media.v20180701.CrossSiteAccessPoliciesResponse | undefined>;
+    /**
+     * The custom host names of the StreamingEndpoint
+     */
+    public readonly customHostNames!: pulumi.Output<string[] | undefined>;
+    /**
+     * The StreamingEndpoint description.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The free trial expiration time.
+     */
+    public /*out*/ readonly freeTrialEndTime!: pulumi.Output<string>;
+    /**
+     * The StreamingEndpoint host name.
+     */
+    public /*out*/ readonly hostName!: pulumi.Output<string>;
+    /**
+     * The exact time the StreamingEndpoint was last modified.
+     */
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    /**
      * The Azure Region of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Max cache age
+     */
+    public readonly maxCacheAge!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The StreamingEndpoint properties.
+     * The provisioning state of the StreamingEndpoint.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.StreamingEndpointPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The resource state of the StreamingEndpoint.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    /**
+     * The number of scale units.  Use the Scale operation to adjust this value.
+     */
+    public readonly scaleUnits!: pulumi.Output<number>;
     /**
      * Resource tags.
      */
@@ -98,7 +158,12 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["scaleUnits"] = args ? args.scaleUnits : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["created"] = undefined /*out*/;
+            inputs["freeTrialEndTime"] = undefined /*out*/;
+            inputs["hostName"] = undefined /*out*/;
+            inputs["lastModified"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

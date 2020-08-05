@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,26 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
     }
 
     /**
+     * Azure resource name.
+     */
+    public readonly azureResourceName!: pulumi.Output<string | undefined>;
+    /**
+     * Azure resource type.
+     */
+    public readonly azureResourceType!: pulumi.Output<string | undefined>;
+    /**
+     * Custom DNS record type.
+     */
+    public readonly customHostNameDnsRecordType!: pulumi.Output<string | undefined>;
+    /**
+     * Fully qualified ARM domain resource URI.
+     */
+    public readonly domainId!: pulumi.Output<string | undefined>;
+    /**
+     * Hostname type.
+     */
+    public readonly hostNameType!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,13 +63,25 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * HostNameBinding resource specific properties
+     * App Service app name.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.HostNameBindingResponseProperties>;
+    public readonly siteName!: pulumi.Output<string | undefined>;
+    /**
+     * SSL type
+     */
+    public readonly sslState!: pulumi.Output<string | undefined>;
+    /**
+     * SSL certificate thumbprint
+     */
+    public readonly thumbprint!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Virtual IP address assigned to the hostname if IP based SSL is enabled.
+     */
+    public /*out*/ readonly virtualIP!: pulumi.Output<string>;
 
     /**
      * Create a WebAppHostNameBindingSlot resource with the given unique name, arguments, and options.
@@ -87,8 +117,8 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
             inputs["slot"] = args ? args.slot : undefined;
             inputs["sslState"] = args ? args.sslState : undefined;
             inputs["thumbprint"] = args ? args.thumbprint : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["virtualIP"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

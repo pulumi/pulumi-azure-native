@@ -46,13 +46,45 @@ export interface GetCloudEndpointArgs {
  */
 export interface GetCloudEndpointResult {
     /**
+     * Backup Enabled
+     */
+    readonly backupEnabled: string;
+    /**
+     * Friendly Name
+     */
+    readonly friendlyName?: string;
+    /**
+     * Resource Last Operation Name
+     */
+    readonly lastOperationName?: string;
+    /**
+     * CloudEndpoint lastWorkflowId
+     */
+    readonly lastWorkflowId?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Cloud Endpoint properties.
+     * Partnership Id
      */
-    readonly properties: outputs.storagesync.v20181001.CloudEndpointPropertiesResponse;
+    readonly partnershipId?: string;
+    /**
+     * CloudEndpoint Provisioning State
+     */
+    readonly provisioningState?: string;
+    /**
+     * Storage Account Resource Id
+     */
+    readonly storageAccountResourceId?: string;
+    /**
+     * Storage Account Share name
+     */
+    readonly storageAccountShareName?: string;
+    /**
+     * Storage Account Tenant Id
+     */
+    readonly storageAccountTenantId?: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

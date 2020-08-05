@@ -36,9 +36,61 @@ export interface GetApplicationGatewayArgs {
  */
 export interface GetApplicationGatewayResult {
     /**
+     * Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly authenticationCertificates?: outputs.network.v20200401.ApplicationGatewayAuthenticationCertificateResponse[];
+    /**
+     * Autoscale Configuration.
+     */
+    readonly autoscaleConfiguration?: outputs.network.v20200401.ApplicationGatewayAutoscaleConfigurationResponse;
+    /**
+     * Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly backendAddressPools?: outputs.network.v20200401.ApplicationGatewayBackendAddressPoolResponse[];
+    /**
+     * Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly backendHttpSettingsCollection?: outputs.network.v20200401.ApplicationGatewayBackendHttpSettingsResponse[];
+    /**
+     * Custom error configurations of the application gateway resource.
+     */
+    readonly customErrorConfigurations?: outputs.network.v20200401.ApplicationGatewayCustomErrorResponse[];
+    /**
+     * Whether FIPS is enabled on the application gateway resource.
+     */
+    readonly enableFips?: boolean;
+    /**
+     * Whether HTTP2 is enabled on the application gateway resource.
+     */
+    readonly enableHttp2?: boolean;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * Reference to the FirewallPolicy resource.
+     */
+    readonly firewallPolicy?: outputs.network.v20200401.SubResourceResponse;
+    /**
+     * If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
+     */
+    readonly forceFirewallPolicyAssociation?: boolean;
+    /**
+     * Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly frontendIPConfigurations?: outputs.network.v20200401.ApplicationGatewayFrontendIPConfigurationResponse[];
+    /**
+     * Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly frontendPorts?: outputs.network.v20200401.ApplicationGatewayFrontendPortResponse[];
+    /**
+     * Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly gatewayIPConfigurations?: outputs.network.v20200401.ApplicationGatewayIPConfigurationResponse[];
+    /**
+     * Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly httpListeners?: outputs.network.v20200401.ApplicationGatewayHttpListenerResponse[];
     /**
      * The identity of the application gateway, if configured.
      */
@@ -52,17 +104,65 @@ export interface GetApplicationGatewayResult {
      */
     readonly name: string;
     /**
-     * Properties of the application gateway.
+     * Operational state of the application gateway resource.
      */
-    readonly properties: outputs.network.v20200401.ApplicationGatewayPropertiesFormatResponse;
+    readonly operationalState: string;
+    /**
+     * Probes of the application gateway resource.
+     */
+    readonly probes?: outputs.network.v20200401.ApplicationGatewayProbeResponse[];
+    /**
+     * The provisioning state of the application gateway resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly redirectConfigurations?: outputs.network.v20200401.ApplicationGatewayRedirectConfigurationResponse[];
+    /**
+     * Request routing rules of the application gateway resource.
+     */
+    readonly requestRoutingRules?: outputs.network.v20200401.ApplicationGatewayRequestRoutingRuleResponse[];
+    /**
+     * The resource GUID property of the application gateway resource.
+     */
+    readonly resourceGuid: string;
+    /**
+     * Rewrite rules for the application gateway resource.
+     */
+    readonly rewriteRuleSets?: outputs.network.v20200401.ApplicationGatewayRewriteRuleSetResponse[];
+    /**
+     * SKU of the application gateway resource.
+     */
+    readonly sku?: outputs.network.v20200401.ApplicationGatewaySkuResponse;
+    /**
+     * SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly sslCertificates?: outputs.network.v20200401.ApplicationGatewaySslCertificateResponse[];
+    /**
+     * SSL policy of the application gateway resource.
+     */
+    readonly sslPolicy?: outputs.network.v20200401.ApplicationGatewaySslPolicyResponse;
     /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly trustedRootCertificates?: outputs.network.v20200401.ApplicationGatewayTrustedRootCertificateResponse[];
+    /**
      * Resource type.
      */
     readonly type: string;
+    /**
+     * URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly urlPathMaps?: outputs.network.v20200401.ApplicationGatewayUrlPathMapResponse[];
+    /**
+     * Web application firewall configuration.
+     */
+    readonly webApplicationFirewallConfiguration?: outputs.network.v20200401.ApplicationGatewayWebApplicationFirewallConfigurationResponse;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */

@@ -37,6 +37,10 @@ export class Manager extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies if the Manager is Garda or Helsinki
+     */
+    public readonly cisIntrinsicSettings!: pulumi.Output<outputs.storsimple.v20161001.ManagerIntrinsicSettingsResponse | undefined>;
+    /**
      * ETag of the Manager
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -49,9 +53,13 @@ export class Manager extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * List of properties of the Manager
+     * Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ManagerPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Specifies the Sku
+     */
+    public readonly sku!: pulumi.Output<outputs.storsimple.v20161001.ManagerSkuResponse | undefined>;
     /**
      * Tags attached to the Manager
      */
@@ -90,7 +98,7 @@ export class Manager extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

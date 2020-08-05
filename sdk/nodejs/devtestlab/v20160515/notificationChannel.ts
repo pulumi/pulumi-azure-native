@@ -37,6 +37,18 @@ export class NotificationChannel extends pulumi.CustomResource {
     }
 
     /**
+     * The creation date of the notification channel.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * Description of notification.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The list of event for which this notification is enabled.
+     */
+    public readonly events!: pulumi.Output<outputs.devtestlab.v20160515.EventResponse[] | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,9 +57,9 @@ export class NotificationChannel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.NotificationChannelPropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
@@ -56,6 +68,14 @@ export class NotificationChannel extends pulumi.CustomResource {
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The webhook URL to send notifications to.
+     */
+    public readonly webHookUrl!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -89,7 +109,7 @@ export class NotificationChannel extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
             inputs["webHookUrl"] = args ? args.webHookUrl : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

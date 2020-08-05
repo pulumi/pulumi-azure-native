@@ -37,9 +37,25 @@ export class AutomationAccount extends pulumi.CustomResource {
     }
 
     /**
+     * Gets the creation time.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Gets or sets the description.
+     */
+    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Gets or sets the etag of the resource.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets the last modified by.
+     */
+    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string | undefined>;
+    /**
+     * Gets the last modified time.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
      * The Azure Region where the resource lives
      */
@@ -49,9 +65,13 @@ export class AutomationAccount extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Gets or sets the automation account properties.
+     * Gets or sets the SKU of account.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.AutomationAccountPropertiesResponse>;
+    public readonly sku!: pulumi.Output<outputs.automation.v20151031.SkuResponse | undefined>;
+    /**
+     * Gets status of account.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -85,8 +105,12 @@ export class AutomationAccount extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["creationTime"] = undefined /*out*/;
+            inputs["description"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastModifiedBy"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

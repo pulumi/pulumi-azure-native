@@ -36,6 +36,30 @@ export interface GetActionGroupArgs {
  */
 export interface GetActionGroupResult {
     /**
+     * The list of AutomationRunbook receivers that are part of this action group.
+     */
+    readonly automationRunbookReceivers?: outputs.insights.v20170401.AutomationRunbookReceiverResponse[];
+    /**
+     * The list of AzureAppPush receivers that are part of this action group.
+     */
+    readonly azureAppPushReceivers?: outputs.insights.v20170401.AzureAppPushReceiverResponse[];
+    /**
+     * The list of email receivers that are part of this action group.
+     */
+    readonly emailReceivers?: outputs.insights.v20170401.EmailReceiverResponse[];
+    /**
+     * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+     */
+    readonly enabled: boolean;
+    /**
+     * The short name of the action group. This will be used in SMS messages.
+     */
+    readonly groupShortName: string;
+    /**
+     * The list of ITSM receivers that are part of this action group.
+     */
+    readonly itsmReceivers?: outputs.insights.v20170401.ItsmReceiverResponse[];
+    /**
      * Resource location
      */
     readonly location: string;
@@ -44,9 +68,9 @@ export interface GetActionGroupResult {
      */
     readonly name: string;
     /**
-     * The action groups properties of the resource.
+     * The list of SMS receivers that are part of this action group.
      */
-    readonly properties: outputs.insights.v20170401.ActionGroupResponse;
+    readonly smsReceivers?: outputs.insights.v20170401.SmsReceiverResponse[];
     /**
      * Resource tags
      */
@@ -55,4 +79,8 @@ export interface GetActionGroupResult {
      * Azure resource type
      */
     readonly type: string;
+    /**
+     * The list of webhook receivers that are part of this action group.
+     */
+    readonly webhookReceivers?: outputs.insights.v20170401.WebhookReceiverResponse[];
 }

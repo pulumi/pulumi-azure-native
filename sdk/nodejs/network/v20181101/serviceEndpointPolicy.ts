@@ -49,9 +49,21 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the service end point policy
+     * The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181101.ServiceEndpointPolicyPropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The resource GUID property of the service endpoint policy resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
+     * A collection of service endpoint policy definitions of the service endpoint policy.
+     */
+    public readonly serviceEndpointPolicyDefinitions!: pulumi.Output<outputs.network.v20181101.ServiceEndpointPolicyDefinitionResponse[] | undefined>;
+    /**
+     * A collection of references to subnets.
+     */
+    public /*out*/ readonly subnets!: pulumi.Output<outputs.network.v20181101.SubnetResponse[]>;
     /**
      * Resource tags.
      */
@@ -87,7 +99,9 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceEndpointPolicyDefinitions"] = args ? args.serviceEndpointPolicyDefinitions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
+            inputs["subnets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

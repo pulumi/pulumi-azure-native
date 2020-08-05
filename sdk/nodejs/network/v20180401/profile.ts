@@ -37,21 +37,45 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
+     * The DNS settings of the Traffic Manager profile.
+     */
+    public readonly dnsConfig!: pulumi.Output<outputs.network.v20180401.DnsConfigResponse | undefined>;
+    /**
+     * The list of endpoints in the Traffic Manager profile.
+     */
+    public readonly endpoints!: pulumi.Output<outputs.network.v20180401.EndpointResponse[] | undefined>;
+    /**
      * The Azure Region where the resource lives
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * Maximum number of endpoints to be returned for MultiValue routing type.
+     */
+    public readonly maxReturn!: pulumi.Output<number | undefined>;
+    /**
+     * The endpoint monitoring settings of the Traffic Manager profile.
+     */
+    public readonly monitorConfig!: pulumi.Output<outputs.network.v20180401.MonitorConfigResponse | undefined>;
     /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The properties of the Traffic Manager profile.
+     * The status of the Traffic Manager profile.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180401.ProfilePropertiesResponse>;
+    public readonly profileStatus!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The traffic routing method of the Traffic Manager profile.
+     */
+    public readonly trafficRoutingMethod!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+     */
+    public readonly trafficViewEnrollmentStatus!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
@@ -89,7 +113,6 @@ export class Profile extends pulumi.CustomResource {
             inputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
             inputs["trafficViewEnrollmentStatus"] = args ? args.trafficViewEnrollmentStatus : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

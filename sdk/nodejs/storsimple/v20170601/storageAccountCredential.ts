@@ -37,6 +37,14 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     }
 
     /**
+     * The details of the storage account password.
+     */
+    public readonly accessKey!: pulumi.Output<outputs.storsimple.v20170601.AsymmetricEncryptedSecretResponse | undefined>;
+    /**
+     * The storage endpoint
+     */
+    public readonly endPoint!: pulumi.Output<string>;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,13 +53,17 @@ export class StorageAccountCredential extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The storage account credential properties.
+     * Signifies whether SSL needs to be enabled or not.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.StorageAccountCredentialPropertiesResponse>;
+    public readonly sslStatus!: pulumi.Output<string>;
     /**
      * The hierarchical type of the object.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The count of volumes using this storage account credential.
+     */
+    public /*out*/ readonly volumesCount!: pulumi.Output<number>;
 
     /**
      * Create a StorageAccountCredential resource with the given unique name, arguments, and options.
@@ -88,8 +100,8 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sslStatus"] = args ? args.sslStatus : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["volumesCount"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

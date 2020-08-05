@@ -37,26 +37,137 @@ export class Site extends pulumi.CustomResource {
     }
 
     /**
+     * Management information availability state for the web app. Possible values are Normal or Limited. 
+     *             Normal means that the site is running correctly and that management information for the site is available. 
+     *             Limited means that only partial management information for the site is available and that detailed site information is unavailable.
+     */
+    public /*out*/ readonly availabilityState!: pulumi.Output<string>;
+    /**
+     * Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+     */
+    public readonly clientAffinityEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies if the client certificate is enabled for the web app
+     */
+    public readonly clientCertEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * This is only valid for web app creation. If specified, web app is cloned from 
+     *             a source web app
+     */
+    public readonly cloningInfo!: pulumi.Output<outputs.web.v20150801.CloningInfoResponse | undefined>;
+    /**
+     * Size of a function container
+     */
+    public readonly containerSize!: pulumi.Output<number | undefined>;
+    /**
+     * Default hostname of the web app
+     */
+    public /*out*/ readonly defaultHostName!: pulumi.Output<string>;
+    /**
+     * True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Hostnames for the web app that are enabled. Hostnames need to be assigned and enabled. If some hostnames are assigned but not enabled
+     *             the app is not served on those hostnames
+     */
+    public /*out*/ readonly enabledHostNames!: pulumi.Output<string[]>;
+    /**
+     * Name of gateway app associated with web app
+     */
+    public readonly gatewaySiteName!: pulumi.Output<string | undefined>;
+    /**
+     * Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+     */
+    public readonly hostNameSslStates!: pulumi.Output<outputs.web.v20150801.HostNameSslStateResponse[] | undefined>;
+    /**
+     * Hostnames associated with web app
+     */
+    public /*out*/ readonly hostNames!: pulumi.Output<string[]>;
+    /**
+     * Specifies if the public hostnames are disabled the web app.
+     *             If set to true the app is only accessible via API Management process
+     */
+    public readonly hostNamesDisabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specification for the hosting environment (App Service Environment) to use for the web app
+     */
+    public readonly hostingEnvironmentProfile!: pulumi.Output<outputs.web.v20150801.HostingEnvironmentProfileResponse | undefined>;
+    /**
+     * Site is a default container
+     */
+    public /*out*/ readonly isDefaultContainer!: pulumi.Output<boolean>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * Last time web app was modified in UTC
+     */
+    public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
     /**
      * Resource Location
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * Maximum number of workers
+     *             This only applies to function container
+     */
+    public readonly maxNumberOfWorkers!: pulumi.Output<number | undefined>;
+    public readonly microService!: pulumi.Output<string | undefined>;
+    /**
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.SiteResponseProperties>;
+    /**
+     * List of comma separated IP addresses that this web app uses for outbound connections. Those can be used when configuring firewall rules for databases accessed by this web app.
+     */
+    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
+    /**
+     * If set indicates whether web app is deployed as a premium app
+     */
+    public /*out*/ readonly premiumAppDeployed!: pulumi.Output<boolean>;
+    /**
+     * Name of repository site
+     */
+    public /*out*/ readonly repositorySiteName!: pulumi.Output<string>;
+    /**
+     * Resource group web app belongs to
+     */
+    public /*out*/ readonly resourceGroup!: pulumi.Output<string>;
+    /**
+     * If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+     */
+    public readonly scmSiteAlsoStopped!: pulumi.Output<boolean | undefined>;
+    public readonly serverFarmId!: pulumi.Output<string | undefined>;
+    /**
+     * Configuration of web app
+     */
+    public readonly siteConfig!: pulumi.Output<outputs.web.v20150801.SiteConfigResponse | undefined>;
+    /**
+     * State of the web app
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Read-only property that specifies which slot this app will swap into
+     */
+    public /*out*/ readonly targetSwapSlot!: pulumi.Output<string>;
+    /**
+     * Read-only list of Azure Traffic manager hostnames associated with web app
+     */
+    public /*out*/ readonly trafficManagerHostNames!: pulumi.Output<string[]>;
+    /**
      * Resource type
      */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * State indicating whether web app has exceeded its quota usage
+     */
+    public /*out*/ readonly usageState!: pulumi.Output<string>;
 
     /**
      * Create a Site resource with the given unique name, arguments, and options.
@@ -105,7 +216,20 @@ export class Site extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttlInSeconds"] = args ? args.ttlInSeconds : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["availabilityState"] = undefined /*out*/;
+            inputs["defaultHostName"] = undefined /*out*/;
+            inputs["enabledHostNames"] = undefined /*out*/;
+            inputs["hostNames"] = undefined /*out*/;
+            inputs["isDefaultContainer"] = undefined /*out*/;
+            inputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            inputs["outboundIpAddresses"] = undefined /*out*/;
+            inputs["premiumAppDeployed"] = undefined /*out*/;
+            inputs["repositorySiteName"] = undefined /*out*/;
+            inputs["resourceGroup"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
+            inputs["targetSwapSlot"] = undefined /*out*/;
+            inputs["trafficManagerHostNames"] = undefined /*out*/;
+            inputs["usageState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

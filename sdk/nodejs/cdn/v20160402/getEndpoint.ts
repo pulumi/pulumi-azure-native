@@ -41,6 +41,26 @@ export interface GetEndpointArgs {
  */
 export interface GetEndpointResult {
     /**
+     * List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+     */
+    readonly contentTypesToCompress?: string[];
+    /**
+     * The host name of the endpoint {endpointName}.{DNSZone}
+     */
+    readonly hostName: string;
+    /**
+     * Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+     */
+    readonly isCompressionEnabled?: boolean;
+    /**
+     * Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+     */
+    readonly isHttpAllowed?: boolean;
+    /**
+     * Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+     */
+    readonly isHttpsAllowed?: boolean;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -48,7 +68,30 @@ export interface GetEndpointResult {
      * Resource name
      */
     readonly name: string;
-    readonly properties: outputs.cdn.v20160402.EndpointPropertiesResponse;
+    /**
+     * The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+     */
+    readonly originHostHeader?: string;
+    /**
+     * The path used for origin requests.
+     */
+    readonly originPath?: string;
+    /**
+     * The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+     */
+    readonly origins?: outputs.cdn.v20160402.DeepCreatedOriginResponse[];
+    /**
+     * Provisioning status of the endpoint.
+     */
+    readonly provisioningState?: string;
+    /**
+     * Defines the query string caching behavior.
+     */
+    readonly queryStringCachingBehavior?: string;
+    /**
+     * Resource status of the endpoint.
+     */
+    readonly resourceState: string;
     /**
      * Resource tags
      */

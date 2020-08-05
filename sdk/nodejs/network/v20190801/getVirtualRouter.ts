@@ -40,6 +40,14 @@ export interface GetVirtualRouterResult {
      */
     readonly etag: string;
     /**
+     * The Gateway on which VirtualRouter is hosted.
+     */
+    readonly hostedGateway?: outputs.network.v20190801.SubResourceResponse;
+    /**
+     * The Subnet on which VirtualRouter is hosted.
+     */
+    readonly hostedSubnet?: outputs.network.v20190801.SubResourceResponse;
+    /**
      * Resource location.
      */
     readonly location?: string;
@@ -48,9 +56,13 @@ export interface GetVirtualRouterResult {
      */
     readonly name: string;
     /**
-     * Properties of the Virtual Router.
+     * List of references to VirtualRouterPeerings
      */
-    readonly properties: outputs.network.v20190801.VirtualRouterPropertiesFormatResponse;
+    readonly peerings: outputs.network.v20190801.SubResourceResponse[];
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */
@@ -59,4 +71,12 @@ export interface GetVirtualRouterResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * VirtualRouter ASN.
+     */
+    readonly virtualRouterAsn?: number;
+    /**
+     * VirtualRouter IPs
+     */
+    readonly virtualRouterIps?: string[];
 }

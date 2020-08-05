@@ -36,6 +36,10 @@ export interface GetDomainArgs {
  */
 export interface GetDomainResult {
     /**
+     * Endpoint for the domain.
+     */
+    readonly endpoint: string;
+    /**
      * Location of the resource.
      */
     readonly location: string;
@@ -44,9 +48,9 @@ export interface GetDomainResult {
      */
     readonly name: string;
     /**
-     * Properties of the domain.
+     * Provisioning state of the domain.
      */
-    readonly properties: outputs.eventgrid.v20190601.DomainPropertiesResponse;
+    readonly provisioningState: string;
     /**
      * Tags of the resource.
      */

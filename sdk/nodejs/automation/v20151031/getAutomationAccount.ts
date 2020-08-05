@@ -36,9 +36,25 @@ export interface GetAutomationAccountArgs {
  */
 export interface GetAutomationAccountResult {
     /**
+     * Gets the creation time.
+     */
+    readonly creationTime: string;
+    /**
+     * Gets or sets the description.
+     */
+    readonly description?: string;
+    /**
      * Gets or sets the etag of the resource.
      */
     readonly etag?: string;
+    /**
+     * Gets or sets the last modified by.
+     */
+    readonly lastModifiedBy?: string;
+    /**
+     * Gets the last modified time.
+     */
+    readonly lastModifiedTime: string;
     /**
      * The Azure Region where the resource lives
      */
@@ -48,9 +64,13 @@ export interface GetAutomationAccountResult {
      */
     readonly name: string;
     /**
-     * Gets or sets the automation account properties.
+     * Gets or sets the SKU of account.
      */
-    readonly properties: outputs.automation.v20151031.AutomationAccountPropertiesResponse;
+    readonly sku?: outputs.automation.v20151031.SkuResponse;
+    /**
+     * Gets status of account.
+     */
+    readonly state: string;
     /**
      * Resource tags.
      */

@@ -45,9 +45,25 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The properties of the Virtual Hub IPConfigurations.
+     * The private IP address of the IP configuration.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.HubIPConfigurationPropertiesFormatResponse>;
+    public readonly privateIPAddress!: pulumi.Output<string | undefined>;
+    /**
+     * The private IP address allocation method.
+     */
+    public readonly privateIPAllocationMethod!: pulumi.Output<string | undefined>;
+    /**
+     * The provisioning state of the IP configuration resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The reference to the public IP resource.
+     */
+    public readonly publicIPAddress!: pulumi.Output<outputs.network.v20200501.PublicIPAddressResponse | undefined>;
+    /**
+     * The reference to the subnet resource.
+     */
+    public readonly subnet!: pulumi.Output<outputs.network.v20200501.SubnetResponse | undefined>;
     /**
      * Ipconfiguration type.
      */
@@ -84,7 +100,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

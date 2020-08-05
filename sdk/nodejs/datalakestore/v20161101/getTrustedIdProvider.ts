@@ -41,13 +41,13 @@ export interface GetTrustedIdProviderArgs {
  */
 export interface GetTrustedIdProviderResult {
     /**
+     * The URL of this trusted identity provider.
+     */
+    readonly idProvider: string;
+    /**
      * The resource name.
      */
     readonly name: string;
-    /**
-     * The trusted identity provider properties.
-     */
-    readonly properties: outputs.datalakestore.v20161101.TrustedIdProviderPropertiesResponse;
     /**
      * The resource type.
      */

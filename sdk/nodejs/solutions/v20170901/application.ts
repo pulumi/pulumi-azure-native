@@ -37,6 +37,10 @@ export class Application extends pulumi.CustomResource {
     }
 
     /**
+     * The fully qualified path of managed application definition Id.
+     */
+    public readonly applicationDefinitionId!: pulumi.Output<string | undefined>;
+    /**
      * The identity of the resource.
      */
     public readonly identity!: pulumi.Output<outputs.solutions.v20170901.IdentityResponse | undefined>;
@@ -53,17 +57,29 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly managedBy!: pulumi.Output<string | undefined>;
     /**
+     * The managed resource group Id.
+     */
+    public readonly managedResourceGroupId!: pulumi.Output<string>;
+    /**
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Name and value pairs that define the managed application outputs.
+     */
+    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: any}>;
+    /**
+     * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+     */
+    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The plan information.
      */
     public readonly plan!: pulumi.Output<outputs.solutions.v20170901.PlanResponse | undefined>;
     /**
-     * The managed application properties.
+     * The managed application provisioning state.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.solutions.v20170901.ApplicationPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The SKU of the resource.
      */
@@ -76,6 +92,10 @@ export class Application extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The blob URI where the UI definition file is located.
+     */
+    public readonly uiDefinitionUri!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -115,7 +135,8 @@ export class Application extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["outputs"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -41,6 +41,26 @@ export interface GetWebAppInstanceFunctionSlotArgs {
  */
 export interface GetWebAppInstanceFunctionSlotResult {
     /**
+     * Config information.
+     */
+    readonly config?: {[key: string]: any};
+    /**
+     * Config URI.
+     */
+    readonly config_href?: string;
+    /**
+     * File list.
+     */
+    readonly files?: {[key: string]: string};
+    /**
+     * Function App ID.
+     */
+    readonly function_app_id?: string;
+    /**
+     * Function URI.
+     */
+    readonly href?: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -49,9 +69,21 @@ export interface GetWebAppInstanceFunctionSlotResult {
      */
     readonly name: string;
     /**
-     * FunctionEnvelope resource specific properties
+     * Script URI.
      */
-    readonly properties: outputs.web.v20181101.FunctionEnvelopeResponseProperties;
+    readonly script_href?: string;
+    /**
+     * Script root path URI.
+     */
+    readonly script_root_path_href?: string;
+    /**
+     * Secrets file URI.
+     */
+    readonly secrets_file_href?: string;
+    /**
+     * Test data used when testing via the Azure Portal.
+     */
+    readonly test_data?: string;
     /**
      * Resource type.
      */

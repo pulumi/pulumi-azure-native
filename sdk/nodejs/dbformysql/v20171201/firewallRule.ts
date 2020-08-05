@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,17 @@ export class FirewallRule extends pulumi.CustomResource {
     }
 
     /**
+     * The end IP address of the server firewall rule. Must be IPv4 format.
+     */
+    public readonly endIpAddress!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of a firewall rule.
+     * The start IP address of the server firewall rule. Must be IPv4 format.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.dbformysql.v20171201.FirewallRulePropertiesResponse>;
+    public readonly startIpAddress!: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -82,7 +84,6 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

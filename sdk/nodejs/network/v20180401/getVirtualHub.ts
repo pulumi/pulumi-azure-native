@@ -36,9 +36,17 @@ export interface GetVirtualHubArgs {
  */
 export interface GetVirtualHubResult {
     /**
+     * Address-prefix for this VirtualHub.
+     */
+    readonly addressPrefix?: string;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
+    /**
+     * list of all vnet connections with this VirtualHub.
+     */
+    readonly hubVirtualNetworkConnections?: outputs.network.v20180401.HubVirtualNetworkConnectionResponse[];
     /**
      * Resource location.
      */
@@ -48,9 +56,9 @@ export interface GetVirtualHubResult {
      */
     readonly name: string;
     /**
-     * Parameters for VirtualHub
+     * The provisioning state of the resource.
      */
-    readonly properties: outputs.network.v20180401.VirtualHubPropertiesResponse;
+    readonly provisioningState?: string;
     /**
      * Resource tags.
      */
@@ -59,4 +67,8 @@ export interface GetVirtualHubResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * The VirtualWAN to which the VirtualHub belongs
+     */
+    readonly virtualWan?: outputs.network.v20180401.SubResourceResponse;
 }

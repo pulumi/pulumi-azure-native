@@ -37,18 +37,81 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
+     * If true then domain will renewed automatically
+     */
+    public readonly autoRenew!: pulumi.Output<boolean | undefined>;
+    /**
+     * Legal agreement consent
+     */
+    public readonly consent!: pulumi.Output<outputs.domainregistration.v20150801.DomainPurchaseConsentResponse | undefined>;
+    /**
+     * Admin contact information
+     */
+    public readonly contactAdmin!: pulumi.Output<outputs.domainregistration.v20150801.ContactResponse | undefined>;
+    /**
+     * Billing contact information
+     */
+    public readonly contactBilling!: pulumi.Output<outputs.domainregistration.v20150801.ContactResponse | undefined>;
+    /**
+     * Registrant contact information
+     */
+    public readonly contactRegistrant!: pulumi.Output<outputs.domainregistration.v20150801.ContactResponse | undefined>;
+    /**
+     * Technical contact information
+     */
+    public readonly contactTech!: pulumi.Output<outputs.domainregistration.v20150801.ContactResponse | undefined>;
+    /**
+     * Domain creation timestamp
+     */
+    public readonly createdTime!: pulumi.Output<string | undefined>;
+    /**
+     * Reasons why domain is not renewable
+     */
+    public readonly domainNotRenewableReasons!: pulumi.Output<string[] | undefined>;
+    /**
+     * Domain expiration timestamp
+     */
+    public readonly expirationTime!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource
      */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * Timestamp when the domain was renewed last time
+     */
+    public readonly lastRenewedTime!: pulumi.Output<string | undefined>;
     /**
      * Resource Location
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * All hostnames derived from the domain and assigned to Azure resources
+     */
+    public readonly managedHostNames!: pulumi.Output<outputs.domainregistration.v20150801.HostNameResponse[] | undefined>;
+    /**
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.domainregistration.v20150801.DomainResponseProperties>;
+    /**
+     * Name servers
+     */
+    public readonly nameServers!: pulumi.Output<string[] | undefined>;
+    /**
+     * If true then domain privacy is enabled for this domain
+     */
+    public readonly privacy!: pulumi.Output<boolean | undefined>;
+    /**
+     * Domain provisioning state
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
+     */
+    public readonly readyForDnsRecordManagement!: pulumi.Output<boolean | undefined>;
+    /**
+     * Domain registration status
+     */
+    public readonly registrationStatus!: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
@@ -103,7 +166,6 @@ export class Domain extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
-            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

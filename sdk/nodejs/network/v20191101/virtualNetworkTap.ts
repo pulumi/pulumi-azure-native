@@ -37,6 +37,18 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
     }
 
     /**
+     * The reference to the private IP address on the internal Load Balancer that will receive the tap.
+     */
+    public readonly destinationLoadBalancerFrontEndIPConfiguration!: pulumi.Output<outputs.network.v20191101.FrontendIPConfigurationResponse | undefined>;
+    /**
+     * The reference to the private IP Address of the collector nic that will receive the tap.
+     */
+    public readonly destinationNetworkInterfaceIPConfiguration!: pulumi.Output<outputs.network.v20191101.NetworkInterfaceIPConfigurationResponse | undefined>;
+    /**
+     * The VXLAN destination port that will receive the tapped traffic.
+     */
+    public readonly destinationPort!: pulumi.Output<number | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -49,9 +61,17 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Virtual Network Tap Properties.
+     * Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.VirtualNetworkTapPropertiesFormatResponse>;
+    public /*out*/ readonly networkInterfaceTapConfigurations!: pulumi.Output<outputs.network.v20191101.NetworkInterfaceTapConfigurationResponse[]>;
+    /**
+     * The provisioning state of the virtual network tap resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The resource GUID property of the virtual network tap resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
     /**
      * Resource tags.
      */
@@ -89,7 +109,9 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["networkInterfaceTapConfigurations"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceGuid"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -54,9 +54,9 @@ export interface GetSecretResult {
      */
     readonly name: string;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties: outputs.devtestlab.v20160515.SecretPropertiesResponse;
+    readonly provisioningState?: string;
     /**
      * The tags of the resource.
      */
@@ -65,4 +65,12 @@ export interface GetSecretResult {
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: string;
+    /**
+     * The value of the secret for secret creation.
+     */
+    readonly value?: string;
 }

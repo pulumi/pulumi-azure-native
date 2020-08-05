@@ -41,13 +41,49 @@ export class BlobContainer extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+     */
+    public /*out*/ readonly hasImmutabilityPolicy!: pulumi.Output<boolean>;
+    /**
+     * The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+     */
+    public /*out*/ readonly hasLegalHold!: pulumi.Output<boolean>;
+    /**
+     * The ImmutabilityPolicy property of the container.
+     */
+    public /*out*/ readonly immutabilityPolicy!: pulumi.Output<outputs.storage.v20180201.ImmutabilityPolicyPropertiesResponse>;
+    /**
+     * Returns the date and time the container was last modified.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
+     * Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+     */
+    public /*out*/ readonly leaseDuration!: pulumi.Output<string>;
+    /**
+     * Lease state of the container.
+     */
+    public /*out*/ readonly leaseState!: pulumi.Output<string>;
+    /**
+     * The lease status of the container.
+     */
+    public /*out*/ readonly leaseStatus!: pulumi.Output<string>;
+    /**
+     * The LegalHold property of the container.
+     */
+    public /*out*/ readonly legalHold!: pulumi.Output<outputs.storage.v20180201.LegalHoldPropertiesResponse>;
+    /**
+     * A name-value pair to associate with the container as metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the blob container.
+     * Specifies whether data in the container may be accessed publicly and the level of access.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20180201.ContainerPropertiesResponse>;
+    public readonly publicAccess!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -81,7 +117,14 @@ export class BlobContainer extends pulumi.CustomResource {
             inputs["publicAccess"] = args ? args.publicAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["hasImmutabilityPolicy"] = undefined /*out*/;
+            inputs["hasLegalHold"] = undefined /*out*/;
+            inputs["immutabilityPolicy"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["leaseDuration"] = undefined /*out*/;
+            inputs["leaseState"] = undefined /*out*/;
+            inputs["leaseStatus"] = undefined /*out*/;
+            inputs["legalHold"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -41,13 +41,21 @@ export interface GetRegisteredAsnArgs {
  */
 export interface GetRegisteredAsnResult {
     /**
+     * The customer's ASN from which traffic originates.
+     */
+    readonly asn?: number;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The properties that define a registered ASN.
+     * The peering service prefix key that is to be shared with the customer.
      */
-    readonly properties: outputs.peering.v20200401.PeeringRegisteredAsnPropertiesResponse;
+    readonly peeringServicePrefixKey: string;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState: string;
     /**
      * The type of the resource.
      */

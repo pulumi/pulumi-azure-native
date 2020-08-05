@@ -48,9 +48,9 @@ export interface GetNetworkWatcherResult {
      */
     readonly name: string;
     /**
-     * The network watcher properties.
+     * The provisioning state of the resource.
      */
-    readonly properties: outputs.network.v20171001.NetworkWatcherPropertiesFormatResponse;
+    readonly provisioningState: string;
     /**
      * Resource tags.
      */

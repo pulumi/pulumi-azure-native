@@ -36,6 +36,18 @@ export interface GetStorageSyncServiceArgs {
  */
 export interface GetStorageSyncServiceResult {
     /**
+     * Incoming Traffic Policy
+     */
+    readonly incomingTrafficPolicy?: string;
+    /**
+     * Resource Last Operation Name
+     */
+    readonly lastOperationName: string;
+    /**
+     * StorageSyncService lastWorkflowId
+     */
+    readonly lastWorkflowId: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -44,9 +56,21 @@ export interface GetStorageSyncServiceResult {
      */
     readonly name: string;
     /**
-     * Storage Sync Service properties.
+     * List of private endpoint connection associated with the specified storage sync service
      */
-    readonly properties: outputs.storagesync.v20200301.StorageSyncServicePropertiesResponse;
+    readonly privateEndpointConnections: outputs.storagesync.v20200301.PrivateEndpointConnectionResponse[];
+    /**
+     * StorageSyncService Provisioning State
+     */
+    readonly provisioningState: string;
+    /**
+     * Storage Sync service status.
+     */
+    readonly storageSyncServiceStatus: number;
+    /**
+     * Storage Sync service Uid
+     */
+    readonly storageSyncServiceUid: string;
     /**
      * Resource tags.
      */

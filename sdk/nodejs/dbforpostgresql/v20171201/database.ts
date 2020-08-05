@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,13 +35,17 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
+     * The charset of the database.
+     */
+    public readonly charset!: pulumi.Output<string | undefined>;
+    /**
+     * The collation of the database.
+     */
+    public readonly collation!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * The properties of a database.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.dbforpostgresql.v20171201.DatabasePropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -76,7 +78,6 @@ export class Database extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

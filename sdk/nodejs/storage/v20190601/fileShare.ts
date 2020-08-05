@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,21 +35,69 @@ export class FileShare extends pulumi.CustomResource {
     }
 
     /**
+     * Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+     */
+    public readonly accessTier!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates the last modification time for share access tier.
+     */
+    public /*out*/ readonly accessTierChangeTime!: pulumi.Output<string>;
+    /**
+     * Indicates if there is a pending transition for access tier.
+     */
+    public /*out*/ readonly accessTierStatus!: pulumi.Output<string>;
+    /**
+     * Indicates whether the share was deleted.
+     */
+    public /*out*/ readonly deleted!: pulumi.Output<boolean>;
+    /**
+     * The deleted time if the share was deleted.
+     */
+    public /*out*/ readonly deletedTime!: pulumi.Output<string>;
+    /**
+     * The authentication protocol that is used for the file share. Can only be specified when creating a share.
+     */
+    public readonly enabledProtocols!: pulumi.Output<string | undefined>;
+    /**
      * Resource Etag.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Returns the date and time the share was last modified.
+     */
+    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    /**
+     * A name-value pair to associate with the share as metadata.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the file share.
+     * Remaining retention days for share that was soft deleted.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190601.FileSharePropertiesResponse>;
+    public /*out*/ readonly remainingRetentionDays!: pulumi.Output<number>;
+    /**
+     * The property is for NFS share only. The default is NoRootSquash.
+     */
+    public readonly rootSquash!: pulumi.Output<string | undefined>;
+    /**
+     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+     */
+    public readonly shareQuota!: pulumi.Output<number | undefined>;
+    /**
+     * The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
+     */
+    public /*out*/ readonly shareUsageBytes!: pulumi.Output<number>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The version of the share.
+     */
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a FileShare resource with the given unique name, arguments, and options.
@@ -83,9 +129,16 @@ export class FileShare extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rootSquash"] = args ? args.rootSquash : undefined;
             inputs["shareQuota"] = args ? args.shareQuota : undefined;
+            inputs["accessTierChangeTime"] = undefined /*out*/;
+            inputs["accessTierStatus"] = undefined /*out*/;
+            inputs["deleted"] = undefined /*out*/;
+            inputs["deletedTime"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastModifiedTime"] = undefined /*out*/;
+            inputs["remainingRetentionDays"] = undefined /*out*/;
+            inputs["shareUsageBytes"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

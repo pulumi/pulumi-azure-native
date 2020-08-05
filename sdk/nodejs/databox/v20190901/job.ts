@@ -37,6 +37,42 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
+     * Reason for cancellation.
+     */
+    public /*out*/ readonly cancellationReason!: pulumi.Output<string>;
+    /**
+     * Delivery Info of Job.
+     */
+    public readonly deliveryInfo!: pulumi.Output<outputs.databox.v20190901.JobDeliveryInfoResponse | undefined>;
+    /**
+     * Delivery type of Job.
+     */
+    public readonly deliveryType!: pulumi.Output<string | undefined>;
+    /**
+     * Details of a job run. This field will only be sent for expand details filter.
+     */
+    public readonly details!: pulumi.Output<outputs.databox.v20190901.JobDetailsResponse | undefined>;
+    /**
+     * Top level error for the job.
+     */
+    public /*out*/ readonly error!: pulumi.Output<outputs.databox.v20190901.ErrorResponse>;
+    /**
+     * Describes whether the job is cancellable or not.
+     */
+    public /*out*/ readonly isCancellable!: pulumi.Output<boolean>;
+    /**
+     * Flag to indicate cancellation of scheduled job.
+     */
+    public /*out*/ readonly isCancellableWithoutFee!: pulumi.Output<boolean>;
+    /**
+     * Describes whether the job is deletable or not.
+     */
+    public /*out*/ readonly isDeletable!: pulumi.Output<boolean>;
+    /**
+     * Describes whether the shipping address is editable or not.
+     */
+    public /*out*/ readonly isShippingAddressEditable!: pulumi.Output<boolean>;
+    /**
      * The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,13 +81,17 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of a job.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.databox.v20190901.JobPropertiesResponse>;
-    /**
      * The sku type.
      */
     public readonly sku!: pulumi.Output<outputs.databox.v20190901.SkuResponse>;
+    /**
+     * Time at which the job was started in UTC ISO 8601 format.
+     */
+    public /*out*/ readonly startTime!: pulumi.Output<string>;
+    /**
+     * Name of the stage which is in progress.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
      */
@@ -94,7 +134,14 @@ export class Job extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["cancellationReason"] = undefined /*out*/;
+            inputs["error"] = undefined /*out*/;
+            inputs["isCancellable"] = undefined /*out*/;
+            inputs["isCancellableWithoutFee"] = undefined /*out*/;
+            inputs["isDeletable"] = undefined /*out*/;
+            inputs["isShippingAddressEditable"] = undefined /*out*/;
+            inputs["startTime"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

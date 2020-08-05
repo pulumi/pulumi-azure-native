@@ -41,15 +41,27 @@ export interface GetPropertyArgs {
  */
 export interface GetPropertyResult {
     /**
+     * Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+     */
+    readonly displayName: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Property entity contract properties.
+     * Determines whether the value is a secret and should be encrypted or not. Default value is false.
      */
-    readonly properties: outputs.apimanagement.v20190101.PropertyContractPropertiesResponse;
+    readonly secret?: boolean;
+    /**
+     * Optional tags that when provided can be used to filter the property list.
+     */
+    readonly tags?: string[];
     /**
      * Resource type for API Management resource.
      */
     readonly type: string;
+    /**
+     * Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+     */
+    readonly value: string;
 }

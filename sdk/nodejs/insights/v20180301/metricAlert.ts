@@ -37,6 +37,30 @@ export class MetricAlert extends pulumi.CustomResource {
     }
 
     /**
+     * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+     */
+    public readonly actions!: pulumi.Output<outputs.insights.v20180301.MetricAlertActionResponse[] | undefined>;
+    /**
+     * the flag that indicates whether the alert should be auto resolved or not. The default is true.
+     */
+    public readonly autoMitigate!: pulumi.Output<boolean | undefined>;
+    /**
+     * the description of the metric alert that will be included in the alert email.
+     */
+    public readonly description!: pulumi.Output<string>;
+    /**
+     * the flag that indicates whether the metric alert is enabled.
+     */
+    public readonly enabled!: pulumi.Output<boolean>;
+    /**
+     * how often the metric alert is evaluated represented in ISO 8601 duration format.
+     */
+    public readonly evaluationFrequency!: pulumi.Output<string>;
+    /**
+     * Last time the rule was updated in ISO8601 format.
+     */
+    public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    /**
      * Resource location
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,17 +69,33 @@ export class MetricAlert extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The alert rule properties of the resource.
+     * the list of resource id's that this metric alert is scoped to.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20180301.MetricAlertPropertiesResponse>;
+    public readonly scopes!: pulumi.Output<string[] | undefined>;
+    /**
+     * Alert severity {0, 1, 2, 3, 4}
+     */
+    public readonly severity!: pulumi.Output<number>;
     /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+     */
+    public readonly targetResourceRegion!: pulumi.Output<string | undefined>;
+    /**
+     * the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+     */
+    public readonly targetResourceType!: pulumi.Output<string | undefined>;
+    /**
      * Azure resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+     */
+    public readonly windowSize!: pulumi.Output<string>;
 
     /**
      * Create a MetricAlert resource with the given unique name, arguments, and options.
@@ -108,7 +148,7 @@ export class MetricAlert extends pulumi.CustomResource {
             inputs["targetResourceRegion"] = args ? args.targetResourceRegion : undefined;
             inputs["targetResourceType"] = args ? args.targetResourceType : undefined;
             inputs["windowSize"] = args ? args.windowSize : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["lastUpdatedTime"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

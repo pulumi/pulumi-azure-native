@@ -41,19 +41,39 @@ export interface GetEventHubArgs {
  */
 export interface GetEventHubResult {
     /**
+     * Exact time the Event Hub was created.
+     */
+    readonly createdAt: string;
+    /**
      * Resource location
      */
     readonly location?: string;
+    /**
+     * Number of days to retain the events for this Event Hub.
+     */
+    readonly messageRetentionInDays?: number;
     /**
      * Resource name
      */
     readonly name: string;
     /**
-     * Properties supplied to the Create Or Update Event Hub operation.
+     * Number of partitions created for the Event Hub.
      */
-    readonly properties: outputs.eventhub.v20140901.EventHubPropertiesResponse;
+    readonly partitionCount?: number;
+    /**
+     * Current number of shards on the Event Hub.
+     */
+    readonly partitionIds: string[];
+    /**
+     * Enumerates the possible values for the status of the Event Hub.
+     */
+    readonly status?: string;
     /**
      * Resource type
      */
     readonly type: string;
+    /**
+     * The exact time the message was updated.
+     */
+    readonly updatedAt: string;
 }

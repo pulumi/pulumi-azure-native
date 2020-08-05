@@ -41,13 +41,17 @@ export interface GetHcxEnterpriseSiteArgs {
  */
 export interface GetHcxEnterpriseSiteResult {
     /**
+     * The activation key
+     */
+    readonly activationKey: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The properties of an HCX Enterprise Site resource
+     * The status of the HCX Enterprise Site
      */
-    readonly properties: outputs.avs.v20200320.HcxEnterpriseSitePropertiesResponse;
+    readonly status: string;
     /**
      * Resource type.
      */

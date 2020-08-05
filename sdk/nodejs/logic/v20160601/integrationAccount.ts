@@ -45,10 +45,6 @@ export class IntegrationAccount extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The integration account properties.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: any}>;
-    /**
      * The sku.
      */
     public readonly sku!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountSkuResponse | undefined>;
@@ -85,7 +81,6 @@ export class IntegrationAccount extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

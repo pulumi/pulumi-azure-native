@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,26 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     }
 
     /**
+     * Config information.
+     */
+    public readonly config!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * Config URI.
+     */
+    public readonly config_href!: pulumi.Output<string | undefined>;
+    /**
+     * File list.
+     */
+    public readonly files!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Function App ID.
+     */
+    public readonly function_app_id!: pulumi.Output<string | undefined>;
+    /**
+     * Function URI.
+     */
+    public readonly href!: pulumi.Output<string | undefined>;
+    /**
      * Kind of resource.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -45,9 +63,21 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * FunctionEnvelope resource specific properties
+     * Script URI.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20181101.FunctionEnvelopeResponseProperties>;
+    public readonly script_href!: pulumi.Output<string | undefined>;
+    /**
+     * Script root path URI.
+     */
+    public readonly script_root_path_href!: pulumi.Output<string | undefined>;
+    /**
+     * Secrets file URI.
+     */
+    public readonly secrets_file_href!: pulumi.Output<string | undefined>;
+    /**
+     * Test data used when testing via the Azure Portal.
+     */
+    public readonly test_data!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -88,7 +118,6 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
             inputs["secrets_file_href"] = args ? args.secrets_file_href : undefined;
             inputs["slot"] = args ? args.slot : undefined;
             inputs["test_data"] = args ? args.test_data : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

@@ -41,15 +41,59 @@ export interface GetAgentPoolArgs {
  */
 export interface GetAgentPoolResult {
     /**
+     * (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+     */
+    readonly availabilityZones?: string[];
+    /**
+     * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+     */
+    readonly count: number;
+    /**
+     * Whether to enable auto-scaler
+     */
+    readonly enableAutoScaling?: boolean;
+    /**
+     * Maximum number of nodes for auto-scaling
+     */
+    readonly maxCount?: number;
+    /**
+     * Maximum number of pods that can run on a node.
+     */
+    readonly maxPods?: number;
+    /**
+     * Minimum number of nodes for auto-scaling
+     */
+    readonly minCount?: number;
+    /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name: string;
     /**
-     * Properties of an agent pool.
+     * Version of orchestrator specified when creating the managed cluster.
      */
-    readonly properties: outputs.containerservice.v20190401.ManagedClusterAgentPoolProfilePropertiesResponse;
+    readonly orchestratorVersion?: string;
     /**
-     * Resource type
+     * OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+     */
+    readonly osDiskSizeGB?: number;
+    /**
+     * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+     */
+    readonly osType?: string;
+    /**
+     * The current deployment or provisioning state, which only appears in the response.
+     */
+    readonly provisioningState: string;
+    /**
+     * AgentPoolType represents types of an agent pool
      */
     readonly type: string;
+    /**
+     * Size of agent VMs.
+     */
+    readonly vmSize: string;
+    /**
+     * VNet SubnetID specifies the VNet's subnet identifier.
+     */
+    readonly vnetSubnetID?: string;
 }

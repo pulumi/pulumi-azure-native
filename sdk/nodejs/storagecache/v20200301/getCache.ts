@@ -36,6 +36,18 @@ export interface GetCacheArgs {
  */
 export interface GetCacheResult {
     /**
+     * The size of this Cache, in GB.
+     */
+    readonly cacheSizeGB?: number;
+    /**
+     * Specifies encryption settings of the cache.
+     */
+    readonly encryptionSettings?: outputs.storagecache.v20200301.CacheEncryptionSettingsResponse;
+    /**
+     * Health of the Cache.
+     */
+    readonly health: outputs.storagecache.v20200301.CacheHealthResponse;
+    /**
      * The identity of the cache, if configured.
      */
     readonly identity?: outputs.storagecache.v20200301.CacheIdentityResponse;
@@ -44,17 +56,33 @@ export interface GetCacheResult {
      */
     readonly location?: string;
     /**
+     * Array of IP addresses that can be used by clients mounting this Cache.
+     */
+    readonly mountAddresses: string[];
+    /**
      * Name of Cache.
      */
     readonly name: string;
     /**
-     * Properties of the Cache.
+     * Specifies network settings of the cache.
      */
-    readonly properties: outputs.storagecache.v20200301.CacheResponseProperties;
+    readonly networkSettings?: outputs.storagecache.v20200301.CacheNetworkSettingsResponse;
+    /**
+     * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+     */
+    readonly provisioningState?: string;
+    /**
+     * Specifies security settings of the cache.
+     */
+    readonly securitySettings?: outputs.storagecache.v20200301.CacheSecuritySettingsResponse;
     /**
      * SKU for the Cache.
      */
     readonly sku?: outputs.storagecache.v20200301.CacheResponseSku;
+    /**
+     * Subnet used for the Cache.
+     */
+    readonly subnet?: string;
     /**
      * ARM tags as name/value pairs.
      */
@@ -63,4 +91,8 @@ export interface GetCacheResult {
      * Type of the Cache; Microsoft.StorageCache/Cache
      */
     readonly type: string;
+    /**
+     * Upgrade status of the Cache.
+     */
+    readonly upgradeStatus?: outputs.storagecache.v20200301.CacheUpgradeStatusResponse;
 }

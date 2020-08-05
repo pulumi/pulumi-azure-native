@@ -45,9 +45,13 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the private dns zone group.
+     * A collection of private dns zone configurations of the private dns zone group.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.PrivateDnsZoneGroupPropertiesFormatResponse>;
+    public readonly privateDnsZoneConfigs!: pulumi.Output<outputs.network.v20200401.PrivateDnsZoneConfigResponse[] | undefined>;
+    /**
+     * The provisioning state of the private dns zone group resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
 
     /**
      * Create a PrivateDnsZoneGroup resource with the given unique name, arguments, and options.
@@ -77,7 +81,7 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
             inputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

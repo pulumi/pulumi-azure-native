@@ -45,13 +45,17 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Properties of the Virtual Network Tap configuration.
+     * The provisioning state of the network interface tap configuration resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190801.NetworkInterfaceTapConfigurationPropertiesFormatResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Sub Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The reference of the Virtual Network Tap resource.
+     */
+    public readonly virtualNetworkTap!: pulumi.Output<outputs.network.v20190801.VirtualNetworkTapResponse | undefined>;
 
     /**
      * Create a NetworkInterfaceTapConfiguration resource with the given unique name, arguments, and options.
@@ -81,7 +85,7 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
             inputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["virtualNetworkTap"] = args ? args.virtualNetworkTap : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

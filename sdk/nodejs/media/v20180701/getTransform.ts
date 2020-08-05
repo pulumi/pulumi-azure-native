@@ -41,13 +41,25 @@ export interface GetTransformArgs {
  */
 export interface GetTransformResult {
     /**
+     * The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+     */
+    readonly created: string;
+    /**
+     * An optional verbose description of the Transform.
+     */
+    readonly description?: string;
+    /**
+     * The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+     */
+    readonly lastModified: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;
     /**
-     * The resource properties.
+     * An array of one or more TransformOutputs that the Transform should generate.
      */
-    readonly properties: outputs.media.v20180701.TransformPropertiesResponse;
+    readonly outputs: outputs.media.v20180701.TransformOutputResponse[];
     /**
      * The type of the resource.
      */

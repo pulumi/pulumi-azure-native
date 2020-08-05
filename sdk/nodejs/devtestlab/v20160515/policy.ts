@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,26 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
+     * The creation date of the policy.
+     */
+    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * The description of the policy.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+     */
+    public readonly evaluatorType!: pulumi.Output<string | undefined>;
+    /**
+     * The fact data of the policy.
+     */
+    public readonly factData!: pulumi.Output<string | undefined>;
+    /**
+     * The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+     */
+    public readonly factName!: pulumi.Output<string | undefined>;
+    /**
      * The location of the resource.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -45,17 +63,29 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.PolicyPropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * The status of the policy.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+     */
+    public readonly threshold!: pulumi.Output<string | undefined>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -96,7 +126,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threshold"] = args ? args.threshold : undefined;
             inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdDate"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

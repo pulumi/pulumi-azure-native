@@ -37,6 +37,10 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Gets or default security rules of network security group
+     */
+    public readonly defaultSecurityRules!: pulumi.Output<outputs.network.v20160601.SecurityRuleResponse[] | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     public readonly etag!: pulumi.Output<string | undefined>;
@@ -49,9 +53,25 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Network Security Group resource
+     * Gets collection of references to Network Interfaces
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160601.NetworkSecurityGroupPropertiesFormatResponse>;
+    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.network.v20160601.NetworkInterfaceResponse[]>;
+    /**
+     * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets resource guid property of the network security group resource
+     */
+    public readonly resourceGuid!: pulumi.Output<string | undefined>;
+    /**
+     * Gets or sets security rules of network security group
+     */
+    public readonly securityRules!: pulumi.Output<outputs.network.v20160601.SecurityRuleResponse[] | undefined>;
+    /**
+     * Gets collection of references to subnets
+     */
+    public /*out*/ readonly subnets!: pulumi.Output<outputs.network.v20160601.SubnetResponse[]>;
     /**
      * Resource tags
      */
@@ -90,7 +110,8 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["securityRules"] = args ? args.securityRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["networkInterfaces"] = undefined /*out*/;
+            inputs["subnets"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

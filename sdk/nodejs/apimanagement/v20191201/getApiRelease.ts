@@ -46,15 +46,27 @@ export interface GetApiReleaseArgs {
  */
 export interface GetApiReleaseResult {
     /**
+     * Identifier of the API the release belongs to.
+     */
+    readonly apiId?: string;
+    /**
+     * The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
+     */
+    readonly createdDateTime: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * ApiRelease entity contract properties.
+     * Release Notes
      */
-    readonly properties: outputs.apimanagement.v20191201.ApiReleaseContractPropertiesResponse;
+    readonly notes?: string;
     /**
      * Resource type for API Management resource.
      */
     readonly type: string;
+    /**
+     * The time the API release was updated.
+     */
+    readonly updatedDateTime: string;
 }

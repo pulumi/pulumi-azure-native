@@ -36,9 +36,53 @@ export interface GetAppServiceCertificateOrderArgs {
  */
 export interface GetAppServiceCertificateOrderResult {
     /**
+     * Reasons why App Service Certificate is not renewable at the current moment.
+     */
+    readonly appServiceCertificateNotRenewableReasons: string[];
+    /**
+     * <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+     */
+    readonly autoRenew?: boolean;
+    /**
+     * State of the Key Vault secret.
+     */
+    readonly certificates?: {[key: string]: outputs.certificateregistration.v20180201.AppServiceCertificateResponse};
+    /**
+     * Last CSR that was created for this order.
+     */
+    readonly csr?: string;
+    /**
+     * Certificate distinguished name.
+     */
+    readonly distinguishedName?: string;
+    /**
+     * Domain verification token.
+     */
+    readonly domainVerificationToken: string;
+    /**
+     * Certificate expiration time.
+     */
+    readonly expirationTime: string;
+    /**
+     * Intermediate certificate.
+     */
+    readonly intermediate: outputs.certificateregistration.v20180201.CertificateDetailsResponse;
+    /**
+     * <code>true</code> if private key is external; otherwise, <code>false</code>.
+     */
+    readonly isPrivateKeyExternal: boolean;
+    /**
+     * Certificate key size.
+     */
+    readonly keySize?: number;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
+    /**
+     * Certificate last issuance time.
+     */
+    readonly lastCertificateIssuanceTime: string;
     /**
      * Resource Location.
      */
@@ -48,9 +92,33 @@ export interface GetAppServiceCertificateOrderResult {
      */
     readonly name: string;
     /**
-     * AppServiceCertificateOrder resource specific properties
+     * Time stamp when the certificate would be auto renewed next
      */
-    readonly properties: outputs.certificateregistration.v20180201.AppServiceCertificateOrderResponseProperties;
+    readonly nextAutoRenewalTimeStamp: string;
+    /**
+     * Certificate product type.
+     */
+    readonly productType: string;
+    /**
+     * Status of certificate order.
+     */
+    readonly provisioningState: string;
+    /**
+     * Root certificate.
+     */
+    readonly root: outputs.certificateregistration.v20180201.CertificateDetailsResponse;
+    /**
+     * Current serial number of the certificate.
+     */
+    readonly serialNumber: string;
+    /**
+     * Signed certificate.
+     */
+    readonly signedCertificate: outputs.certificateregistration.v20180201.CertificateDetailsResponse;
+    /**
+     * Current order status.
+     */
+    readonly status: string;
     /**
      * Resource tags.
      */
@@ -59,4 +127,8 @@ export interface GetAppServiceCertificateOrderResult {
      * Resource type.
      */
     readonly type: string;
+    /**
+     * Duration in years (must be between 1 and 3).
+     */
+    readonly validityInYears?: number;
 }

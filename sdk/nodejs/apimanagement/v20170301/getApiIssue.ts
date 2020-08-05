@@ -46,15 +46,35 @@ export interface GetApiIssueArgs {
  */
 export interface GetApiIssueResult {
     /**
+     * A resource identifier for the API the issue was created for.
+     */
+    readonly apiId?: string;
+    /**
+     * Date and time when the issue was created.
+     */
+    readonly createdDate?: string;
+    /**
+     * Text describing the issue.
+     */
+    readonly description: string;
+    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * Properties of the Issue.
+     * Status of the issue.
      */
-    readonly properties: outputs.apimanagement.v20170301.IssueContractPropertiesResponse;
+    readonly state?: string;
+    /**
+     * The issue title.
+     */
+    readonly title: string;
     /**
      * Resource type for API Management resource.
      */
     readonly type: string;
+    /**
+     * A resource identifier for the user created the issue.
+     */
+    readonly userId: string;
 }

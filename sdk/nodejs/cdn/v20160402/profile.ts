@@ -44,7 +44,14 @@ export class Profile extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20160402.ProfilePropertiesResponse>;
+    /**
+     * Provisioning status of the profile.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Resource status of the profile.
+     */
+    public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
      * The SKU (pricing tier) of the CDN profile.
      */
@@ -88,7 +95,8 @@ export class Profile extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
+            inputs["resourceState"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

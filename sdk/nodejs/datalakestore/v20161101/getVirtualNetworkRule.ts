@@ -45,9 +45,9 @@ export interface GetVirtualNetworkRuleResult {
      */
     readonly name: string;
     /**
-     * The virtual network rule properties.
+     * The resource identifier for the subnet.
      */
-    readonly properties: outputs.datalakestore.v20161101.VirtualNetworkRulePropertiesResponse;
+    readonly subnetId: string;
     /**
      * The resource type.
      */

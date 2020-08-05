@@ -46,6 +46,10 @@ export interface GetWebAppHybridConnectionSlotArgs {
  */
 export interface GetWebAppHybridConnectionSlotResult {
     /**
+     * The hostname of the endpoint.
+     */
+    readonly hostname?: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;
@@ -54,9 +58,34 @@ export interface GetWebAppHybridConnectionSlotResult {
      */
     readonly name: string;
     /**
-     * HybridConnection resource specific properties
+     * The port of the endpoint.
      */
-    readonly properties: outputs.web.v20180201.HybridConnectionResponseProperties;
+    readonly port?: number;
+    /**
+     * The ARM URI to the Service Bus relay.
+     */
+    readonly relayArmUri?: string;
+    /**
+     * The name of the Service Bus relay.
+     */
+    readonly relayName?: string;
+    /**
+     * The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+     */
+    readonly sendKeyName?: string;
+    /**
+     * The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+     * normally, use the POST /listKeys API instead.
+     */
+    readonly sendKeyValue?: string;
+    /**
+     * The name of the Service Bus namespace.
+     */
+    readonly serviceBusNamespace?: string;
+    /**
+     * The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+     */
+    readonly serviceBusSuffix?: string;
     /**
      * Resource type.
      */

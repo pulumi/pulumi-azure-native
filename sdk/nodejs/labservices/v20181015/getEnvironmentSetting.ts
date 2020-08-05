@@ -46,6 +46,26 @@ export interface GetEnvironmentSettingArgs {
  */
 export interface GetEnvironmentSettingResult {
     /**
+     * Describes the user's progress in configuring their environment setting
+     */
+    readonly configurationState?: string;
+    /**
+     * Describes the environment and its resource settings
+     */
+    readonly description?: string;
+    /**
+     * Time when the template VM was last changed.
+     */
+    readonly lastChanged: string;
+    /**
+     * Time when the template VM was last sent for publishing.
+     */
+    readonly lastPublished: string;
+    /**
+     * The details of the latest operation. ex: status, error
+     */
+    readonly latestOperationResult: outputs.labservices.v20181015.LatestOperationResultResponse;
+    /**
      * The location of the resource.
      */
     readonly location?: string;
@@ -54,15 +74,31 @@ export interface GetEnvironmentSettingResult {
      */
     readonly name: string;
     /**
-     * The properties of the Environment Setting resource
+     * The provisioning status of the resource.
      */
-    readonly properties: outputs.labservices.v20181015.EnvironmentSettingPropertiesResponse;
+    readonly provisioningState?: string;
+    /**
+     * Describes the readiness of this environment setting
+     */
+    readonly publishingState: string;
+    /**
+     * The resource specific settings
+     */
+    readonly resourceSettings: outputs.labservices.v20181015.ResourceSettingsResponse;
     /**
      * The tags of the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * Brief title describing the environment and its resource settings
+     */
+    readonly title?: string;
+    /**
      * The type of the resource.
      */
     readonly type: string;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: string;
 }

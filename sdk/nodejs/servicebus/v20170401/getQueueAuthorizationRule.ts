@@ -50,9 +50,9 @@ export interface GetQueueAuthorizationRuleResult {
      */
     readonly name: string;
     /**
-     * AuthorizationRule properties.
+     * The rights associated with the rule.
      */
-    readonly properties: outputs.servicebus.v20170401.SBAuthorizationRuleResponseProperties;
+    readonly rights: string[];
     /**
      * Resource type
      */

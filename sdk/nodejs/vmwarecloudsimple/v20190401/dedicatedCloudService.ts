@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,6 +35,14 @@ export class DedicatedCloudService extends pulumi.CustomResource {
     }
 
     /**
+     * gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+     */
+    public readonly gatewaySubnet!: pulumi.Output<string>;
+    /**
+     * indicates whether account onboarded or not in a given region
+     */
+    public /*out*/ readonly isAccountOnboarded!: pulumi.Output<string>;
+    /**
      * Azure region
      */
     public readonly location!: pulumi.Output<string>;
@@ -45,9 +51,13 @@ export class DedicatedCloudService extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The properties of Dedicated Node Service
+     * total nodes purchased
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.DedicatedCloudServicePropertiesResponse>;
+    public /*out*/ readonly nodes!: pulumi.Output<number>;
+    /**
+     * link to a service management web portal
+     */
+    public /*out*/ readonly serviceURL!: pulumi.Output<string>;
     /**
      * The list of tags
      */
@@ -87,7 +97,9 @@ export class DedicatedCloudService extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["isAccountOnboarded"] = undefined /*out*/;
+            inputs["nodes"] = undefined /*out*/;
+            inputs["serviceURL"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

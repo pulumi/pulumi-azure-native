@@ -37,17 +37,53 @@ export class VpnConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Expected bandwidth in MBPS.
+     */
+    public /*out*/ readonly connectionBandwidthInMbps!: pulumi.Output<number>;
+    /**
+     * The connection status.
+     */
+    public readonly connectionStatus!: pulumi.Output<string | undefined>;
+    /**
+     * Egress bytes transferred.
+     */
+    public /*out*/ readonly egressBytesTransferred!: pulumi.Output<number>;
+    /**
+     * EnableBgp flag
+     */
+    public readonly enableBgp!: pulumi.Output<boolean | undefined>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * Ingress bytes transferred.
+     */
+    public /*out*/ readonly ingressBytesTransferred!: pulumi.Output<number>;
+    /**
+     * The IPSec Policies to be considered by this connection.
+     */
+    public readonly ipsecPolicies!: pulumi.Output<outputs.network.v20180601.IpsecPolicyResponse[] | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Parameters for VpnConnection
+     * The provisioning state of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180601.VpnConnectionPropertiesResponse>;
+    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    /**
+     * Id of the connected vpn site.
+     */
+    public readonly remoteVpnSite!: pulumi.Output<outputs.network.v20180601.SubResourceResponse | undefined>;
+    /**
+     * routing weight for vpn connection.
+     */
+    public readonly routingWeight!: pulumi.Output<number | undefined>;
+    /**
+     * SharedKey for the vpn connection.
+     */
+    public readonly sharedKey!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VpnConnection resource with the given unique name, arguments, and options.
@@ -82,8 +118,10 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routingWeight"] = args ? args.routingWeight : undefined;
             inputs["sharedKey"] = args ? args.sharedKey : undefined;
+            inputs["connectionBandwidthInMbps"] = undefined /*out*/;
+            inputs["egressBytesTransferred"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["ingressBytesTransferred"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

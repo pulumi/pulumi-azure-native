@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -37,17 +35,33 @@ export class ApiVersionSet extends pulumi.CustomResource {
     }
 
     /**
+     * Description of API Version Set.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * Name of API Version Set
+     */
+    public readonly displayName!: pulumi.Output<string>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Api VersionSet contract properties.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.ApiVersionSetContractPropertiesResponse>;
-    /**
      * Resource type for API Management resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+     */
+    public readonly versionHeaderName!: pulumi.Output<string | undefined>;
+    /**
+     * Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+     */
+    public readonly versionQueryName!: pulumi.Output<string | undefined>;
+    /**
+     * An value that determines where the API Version identifer will be located in a HTTP request.
+     */
+    public readonly versioningScheme!: pulumi.Output<string>;
 
     /**
      * Create a ApiVersionSet resource with the given unique name, arguments, and options.
@@ -85,7 +99,6 @@ export class ApiVersionSet extends pulumi.CustomResource {
             inputs["versionHeaderName"] = args ? args.versionHeaderName : undefined;
             inputs["versionQueryName"] = args ? args.versionQueryName : undefined;
             inputs["versioningScheme"] = args ? args.versioningScheme : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

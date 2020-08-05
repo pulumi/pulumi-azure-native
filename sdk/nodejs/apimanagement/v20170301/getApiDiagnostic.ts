@@ -46,13 +46,13 @@ export interface GetApiDiagnosticArgs {
  */
 export interface GetApiDiagnosticResult {
     /**
+     * Indicates whether a diagnostic should receive data or not.
+     */
+    readonly enabled: boolean;
+    /**
      * Resource name.
      */
     readonly name: string;
-    /**
-     * Diagnostic entity contract properties.
-     */
-    readonly properties: outputs.apimanagement.v20170301.DiagnosticContractPropertiesResponse;
     /**
      * Resource type for API Management resource.
      */

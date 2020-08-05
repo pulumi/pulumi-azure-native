@@ -41,6 +41,18 @@ export interface GetIntegrationAccountSessionArgs {
  */
 export interface GetIntegrationAccountSessionResult {
     /**
+     * The changed time.
+     */
+    readonly changedTime: string;
+    /**
+     * The session content.
+     */
+    readonly content?: {[key: string]: any};
+    /**
+     * The created time.
+     */
+    readonly createdTime: string;
+    /**
      * The resource location.
      */
     readonly location?: string;
@@ -48,10 +60,6 @@ export interface GetIntegrationAccountSessionResult {
      * Gets the resource name.
      */
     readonly name: string;
-    /**
-     * The integration account session properties.
-     */
-    readonly properties: outputs.logic.v20190501.IntegrationAccountSessionPropertiesResponse;
     /**
      * The resource tags.
      */

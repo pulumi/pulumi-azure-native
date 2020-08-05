@@ -37,17 +37,41 @@ export class PacketCapture extends pulumi.CustomResource {
     }
 
     /**
+     * Number of bytes captured per packet, the remaining bytes are truncated.
+     */
+    public readonly bytesToCapturePerPacket!: pulumi.Output<number | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * A list of packet capture filters.
+     */
+    public readonly filters!: pulumi.Output<outputs.network.v20190901.PacketCaptureFilterResponse[] | undefined>;
     /**
      * Name of the packet capture session.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties of the packet capture result.
+     * The provisioning state of the packet capture session.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.PacketCaptureResultPropertiesResponse>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Describes the storage location for a packet capture session.
+     */
+    public readonly storageLocation!: pulumi.Output<outputs.network.v20190901.PacketCaptureStorageLocationResponse>;
+    /**
+     * The ID of the targeted resource, only VM is currently supported.
+     */
+    public readonly target!: pulumi.Output<string>;
+    /**
+     * Maximum duration of the capture session in seconds.
+     */
+    public readonly timeLimitInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * Maximum size of the capture output.
+     */
+    public readonly totalBytesPerSession!: pulumi.Output<number | undefined>;
 
     /**
      * Create a PacketCapture resource with the given unique name, arguments, and options.
@@ -87,7 +111,7 @@ export class PacketCapture extends pulumi.CustomResource {
             inputs["timeLimitInSeconds"] = args ? args.timeLimitInSeconds : undefined;
             inputs["totalBytesPerSession"] = args ? args.totalBytesPerSession : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
+            inputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

@@ -37,13 +37,29 @@ export class DataStore extends pulumi.CustomResource {
     }
 
     /**
+     * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+     */
+    public readonly customerSecrets!: pulumi.Output<outputs.hybriddata.v20160601.CustomerSecretResponse[] | undefined>;
+    /**
+     * The arm id of the data store type.
+     */
+    public readonly dataStoreTypeId!: pulumi.Output<string>;
+    /**
+     * A generic json used differently by each data source type.
+     */
+    public readonly extendedProperties!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * Name of the object.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * DataStore properties.
+     * Arm Id for the manager resource to which the data source is associated. This is optional.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.hybriddata.v20160601.DataStorePropertiesResponse>;
+    public readonly repositoryId!: pulumi.Output<string | undefined>;
+    /**
+     * State of the data source.
+     */
+    public readonly state!: pulumi.Output<string>;
     /**
      * Type of the object.
      */
@@ -85,7 +101,6 @@ export class DataStore extends pulumi.CustomResource {
             inputs["repositoryId"] = args ? args.repositoryId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["state"] = args ? args.state : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

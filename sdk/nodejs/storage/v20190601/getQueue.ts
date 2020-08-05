@@ -38,13 +38,17 @@ export interface GetQueueArgs {
 
 export interface GetQueueResult {
     /**
+     * Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+     */
+    readonly approximateMessageCount: number;
+    /**
+     * A name-value pair that represents queue metadata.
+     */
+    readonly metadata?: {[key: string]: string};
+    /**
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * Queue resource properties.
-     */
-    readonly properties: outputs.storage.v20190601.QueuePropertiesResponse;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */

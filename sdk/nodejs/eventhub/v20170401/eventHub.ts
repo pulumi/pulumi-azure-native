@@ -37,17 +37,41 @@ export class EventHub extends pulumi.CustomResource {
     }
 
     /**
+     * Properties of capture description
+     */
+    public readonly captureDescription!: pulumi.Output<outputs.eventhub.v20170401.CaptureDescriptionResponse | undefined>;
+    /**
+     * Exact time the Event Hub was created.
+     */
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+     */
+    public readonly messageRetentionInDays!: pulumi.Output<number | undefined>;
+    /**
      * Resource name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Properties supplied to the Create Or Update Event Hub operation.
+     * Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20170401.EventhubResponseProperties>;
+    public readonly partitionCount!: pulumi.Output<number | undefined>;
+    /**
+     * Current number of shards on the Event Hub.
+     */
+    public /*out*/ readonly partitionIds!: pulumi.Output<string[]>;
+    /**
+     * Enumerates the possible values for the status of the Event Hub.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The exact time the message was updated.
+     */
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a EventHub resource with the given unique name, arguments, and options.
@@ -78,8 +102,10 @@ export class EventHub extends pulumi.CustomResource {
             inputs["partitionCount"] = args ? args.partitionCount : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["status"] = args ? args.status : undefined;
-            inputs["properties"] = undefined /*out*/;
+            inputs["createdAt"] = undefined /*out*/;
+            inputs["partitionIds"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}

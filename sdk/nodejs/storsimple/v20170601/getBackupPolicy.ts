@@ -46,19 +46,43 @@ export interface GetBackupPolicyArgs {
  */
 export interface GetBackupPolicyResult {
     /**
+     * The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
+     */
+    readonly backupPolicyCreationType: string;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     readonly kind?: string;
+    /**
+     * The time of the last backup for the backup policy.
+     */
+    readonly lastBackupTime: string;
     /**
      * The name of the object.
      */
     readonly name: string;
     /**
-     * The properties of the backup policy.
+     * The time of the next backup for the backup policy.
      */
-    readonly properties: outputs.storsimple.v20170601.BackupPolicyPropertiesResponse;
+    readonly nextBackupTime: string;
+    /**
+     * Indicates whether at least one of the schedules in the backup policy is active or not.
+     */
+    readonly scheduledBackupStatus: string;
+    /**
+     * The count of schedules the backup policy contains.
+     */
+    readonly schedulesCount: number;
+    /**
+     * If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
+     */
+    readonly ssmHostName: string;
     /**
      * The hierarchical type of the object.
      */
     readonly type: string;
+    /**
+     * The path IDs of the volumes which are part of the backup policy.
+     */
+    readonly volumeIds: string[];
 }
