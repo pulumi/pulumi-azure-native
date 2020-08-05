@@ -119,8 +119,6 @@ type vaultArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the recovery services vault.
 	Name string `pulumi:"name"`
-	// Properties of the vault.
-	Properties *VaultProperties `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Identifies the unique system identifier for each Azure resource.
@@ -139,8 +137,6 @@ type VaultArgs struct {
 	Location pulumi.StringInput
 	// The name of the recovery services vault.
 	Name pulumi.StringInput
-	// Properties of the vault.
-	Properties VaultPropertiesPtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// Identifies the unique system identifier for each Azure resource.

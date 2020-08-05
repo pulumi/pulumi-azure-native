@@ -23,7 +23,7 @@ type DatabaseAccount struct {
 	// Properties for the database account.
 	Properties DatabaseAccountGetPropertiesResponseOutput `pulumi:"properties"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of Azure resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -77,7 +77,7 @@ type databaseAccountState struct {
 	// Properties for the database account.
 	Properties *DatabaseAccountGetPropertiesResponse `pulumi:"properties"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of Azure resource.
 	Type *string `pulumi:"type"`
 }
@@ -92,7 +92,7 @@ type DatabaseAccountState struct {
 	// Properties for the database account.
 	Properties DatabaseAccountGetPropertiesResponsePtrInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput
+	Tags pulumi.StringMapInput
 	// The type of Azure resource.
 	Type pulumi.StringPtrInput
 }
@@ -137,7 +137,7 @@ type databaseAccountArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *Tags `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// List of Virtual Network ACL rules configured for the Cosmos DB account.
 	VirtualNetworkRules []VirtualNetworkRule `pulumi:"virtualNetworkRules"`
 }
@@ -179,7 +179,7 @@ type DatabaseAccountArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsPtrInput
+	Tags pulumi.StringMapInput
 	// List of Virtual Network ACL rules configured for the Cosmos DB account.
 	VirtualNetworkRules VirtualNetworkRuleArrayInput
 }

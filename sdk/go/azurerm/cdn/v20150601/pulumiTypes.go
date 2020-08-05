@@ -10,76 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
-type CustomDomainType struct {
-	// Resource name
-	Name       string                         `pulumi:"name"`
-	Properties CustomDomainPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// CustomDomainTypeInput is an input type that accepts CustomDomainTypeArgs and CustomDomainTypeOutput values.
-// You can construct a concrete instance of `CustomDomainTypeInput` via:
-//
-//          CustomDomainTypeArgs{...}
-type CustomDomainTypeInput interface {
-	pulumi.Input
-
-	ToCustomDomainTypeOutput() CustomDomainTypeOutput
-	ToCustomDomainTypeOutputWithContext(context.Context) CustomDomainTypeOutput
-}
-
-// CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
-type CustomDomainTypeArgs struct {
-	// Resource name
-	Name       pulumi.StringInput                  `pulumi:"name"`
-	Properties CustomDomainPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CustomDomainTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainType)(nil)).Elem()
-}
-
-func (i CustomDomainTypeArgs) ToCustomDomainTypeOutput() CustomDomainTypeOutput {
-	return i.ToCustomDomainTypeOutputWithContext(context.Background())
-}
-
-func (i CustomDomainTypeArgs) ToCustomDomainTypeOutputWithContext(ctx context.Context) CustomDomainTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainTypeOutput)
-}
-
-// CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
-type CustomDomainTypeOutput struct{ *pulumi.OutputState }
-
-func (CustomDomainTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainType)(nil)).Elem()
-}
-
-func (o CustomDomainTypeOutput) ToCustomDomainTypeOutput() CustomDomainTypeOutput {
-	return o
-}
-
-func (o CustomDomainTypeOutput) ToCustomDomainTypeOutputWithContext(ctx context.Context) CustomDomainTypeOutput {
-	return o
-}
-
-// Resource name
-func (o CustomDomainTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDomainType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o CustomDomainTypeOutput) Properties() CustomDomainPropertiesResponseOutput {
-	return o.ApplyT(func(v CustomDomainType) CustomDomainPropertiesResponse { return v.Properties }).(CustomDomainPropertiesResponseOutput)
-}
-
-// Resource type
-func (o CustomDomainTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDomainType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 type CustomDomainPropertiesResponse struct {
 	// The host name of the custom domain. Must be a domain name.
 	HostName string `pulumi:"hostName"`
@@ -657,94 +587,6 @@ func (o DeepCreatedOriginResponseArrayOutput) Index(i pulumi.IntInput) DeepCreat
 	}).(DeepCreatedOriginResponseOutput)
 }
 
-// CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
-type EndpointType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name       string                     `pulumi:"name"`
-	Properties EndpointPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// EndpointTypeInput is an input type that accepts EndpointTypeArgs and EndpointTypeOutput values.
-// You can construct a concrete instance of `EndpointTypeInput` via:
-//
-//          EndpointTypeArgs{...}
-type EndpointTypeInput interface {
-	pulumi.Input
-
-	ToEndpointTypeOutput() EndpointTypeOutput
-	ToEndpointTypeOutputWithContext(context.Context) EndpointTypeOutput
-}
-
-// CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
-type EndpointTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name       pulumi.StringInput              `pulumi:"name"`
-	Properties EndpointPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (EndpointTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointType)(nil)).Elem()
-}
-
-func (i EndpointTypeArgs) ToEndpointTypeOutput() EndpointTypeOutput {
-	return i.ToEndpointTypeOutputWithContext(context.Background())
-}
-
-func (i EndpointTypeArgs) ToEndpointTypeOutputWithContext(ctx context.Context) EndpointTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointTypeOutput)
-}
-
-// CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
-type EndpointTypeOutput struct{ *pulumi.OutputState }
-
-func (EndpointTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointType)(nil)).Elem()
-}
-
-func (o EndpointTypeOutput) ToEndpointTypeOutput() EndpointTypeOutput {
-	return o
-}
-
-func (o EndpointTypeOutput) ToEndpointTypeOutputWithContext(ctx context.Context) EndpointTypeOutput {
-	return o
-}
-
-// Resource location
-func (o EndpointTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o EndpointTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o EndpointTypeOutput) Properties() EndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v EndpointType) EndpointPropertiesResponse { return v.Properties }).(EndpointPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o EndpointTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EndpointType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o EndpointTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 type EndpointPropertiesResponse struct {
 	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
 	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
@@ -1066,76 +908,6 @@ func (o EndpointPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-type OriginType struct {
-	// Resource name
-	Name       string                   `pulumi:"name"`
-	Properties OriginPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// OriginTypeInput is an input type that accepts OriginTypeArgs and OriginTypeOutput values.
-// You can construct a concrete instance of `OriginTypeInput` via:
-//
-//          OriginTypeArgs{...}
-type OriginTypeInput interface {
-	pulumi.Input
-
-	ToOriginTypeOutput() OriginTypeOutput
-	ToOriginTypeOutputWithContext(context.Context) OriginTypeOutput
-}
-
-// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-type OriginTypeArgs struct {
-	// Resource name
-	Name       pulumi.StringInput            `pulumi:"name"`
-	Properties OriginPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (OriginTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginType)(nil)).Elem()
-}
-
-func (i OriginTypeArgs) ToOriginTypeOutput() OriginTypeOutput {
-	return i.ToOriginTypeOutputWithContext(context.Background())
-}
-
-func (i OriginTypeArgs) ToOriginTypeOutputWithContext(ctx context.Context) OriginTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginTypeOutput)
-}
-
-// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-type OriginTypeOutput struct{ *pulumi.OutputState }
-
-func (OriginTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginType)(nil)).Elem()
-}
-
-func (o OriginTypeOutput) ToOriginTypeOutput() OriginTypeOutput {
-	return o
-}
-
-func (o OriginTypeOutput) ToOriginTypeOutputWithContext(ctx context.Context) OriginTypeOutput {
-	return o
-}
-
-// Resource name
-func (o OriginTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v OriginType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o OriginTypeOutput) Properties() OriginPropertiesResponseOutput {
-	return o.ApplyT(func(v OriginType) OriginPropertiesResponse { return v.Properties }).(OriginPropertiesResponseOutput)
-}
-
-// Resource type
-func (o OriginTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OriginType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 type OriginPropertiesResponse struct {
 	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
 	HostName string `pulumi:"hostName"`
@@ -1341,94 +1113,6 @@ func (o OriginPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOutpu
 		}
 		return &v.ResourceState
 	}).(pulumi.StringPtrOutput)
-}
-
-// CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
-type ProfileType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name       string                    `pulumi:"name"`
-	Properties ProfilePropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ProfileTypeInput is an input type that accepts ProfileTypeArgs and ProfileTypeOutput values.
-// You can construct a concrete instance of `ProfileTypeInput` via:
-//
-//          ProfileTypeArgs{...}
-type ProfileTypeInput interface {
-	pulumi.Input
-
-	ToProfileTypeOutput() ProfileTypeOutput
-	ToProfileTypeOutputWithContext(context.Context) ProfileTypeOutput
-}
-
-// CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
-type ProfileTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name       pulumi.StringInput             `pulumi:"name"`
-	Properties ProfilePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ProfileTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileType)(nil)).Elem()
-}
-
-func (i ProfileTypeArgs) ToProfileTypeOutput() ProfileTypeOutput {
-	return i.ToProfileTypeOutputWithContext(context.Background())
-}
-
-func (i ProfileTypeArgs) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileTypeOutput)
-}
-
-// CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
-type ProfileTypeOutput struct{ *pulumi.OutputState }
-
-func (ProfileTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileType)(nil)).Elem()
-}
-
-func (o ProfileTypeOutput) ToProfileTypeOutput() ProfileTypeOutput {
-	return o
-}
-
-func (o ProfileTypeOutput) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
-	return o
-}
-
-// Resource location
-func (o ProfileTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o ProfileTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o ProfileTypeOutput) Properties() ProfilePropertiesResponseOutput {
-	return o.ApplyT(func(v ProfileType) ProfilePropertiesResponse { return v.Properties }).(ProfilePropertiesResponseOutput)
-}
-
-// Resource tags
-func (o ProfileTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProfileType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ProfileTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ProfilePropertiesResponse struct {
@@ -1869,7 +1553,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(CustomDomainTypeOutput{})
 	pulumi.RegisterOutputType(CustomDomainPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginOutput{})
@@ -1878,13 +1561,10 @@ func init() {
 	pulumi.RegisterOutputType(DeepCreatedOriginPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseArrayOutput{})
-	pulumi.RegisterOutputType(EndpointTypeOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(OriginTypeOutput{})
 	pulumi.RegisterOutputType(OriginPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(OriginPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ProfileTypeOutput{})
 	pulumi.RegisterOutputType(ProfilePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProfilePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

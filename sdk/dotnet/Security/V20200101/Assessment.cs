@@ -90,12 +90,6 @@ namespace Pulumi.AzureRM.Security.V20200101
         }
 
         /// <summary>
-        /// Links relevant to the assessment
-        /// </summary>
-        [Input("links")]
-        public Input<Inputs.AssessmentLinksArgs>? Links { get; set; }
-
-        /// <summary>
         /// Describes properties of an assessment metadata.
         /// </summary>
         [Input("metadata")]

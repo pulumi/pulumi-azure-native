@@ -699,97 +699,6 @@ func (o AuthInfoResponsePtrOutput) TokenType() pulumi.StringPtrOutput {
 }
 
 // Properties that describe a base image dependency.
-type BaseImageDependency struct {
-	// The sha256-based digest of the image manifest.
-	Digest *string `pulumi:"digest"`
-	// The registry login server.
-	Registry *string `pulumi:"registry"`
-	// The repository name.
-	Repository *string `pulumi:"repository"`
-	// The tag name.
-	Tag *string `pulumi:"tag"`
-	// The type of the base image dependency.
-	Type *string `pulumi:"type"`
-}
-
-// BaseImageDependencyInput is an input type that accepts BaseImageDependencyArgs and BaseImageDependencyOutput values.
-// You can construct a concrete instance of `BaseImageDependencyInput` via:
-//
-//          BaseImageDependencyArgs{...}
-type BaseImageDependencyInput interface {
-	pulumi.Input
-
-	ToBaseImageDependencyOutput() BaseImageDependencyOutput
-	ToBaseImageDependencyOutputWithContext(context.Context) BaseImageDependencyOutput
-}
-
-// Properties that describe a base image dependency.
-type BaseImageDependencyArgs struct {
-	// The sha256-based digest of the image manifest.
-	Digest pulumi.StringPtrInput `pulumi:"digest"`
-	// The registry login server.
-	Registry pulumi.StringPtrInput `pulumi:"registry"`
-	// The repository name.
-	Repository pulumi.StringPtrInput `pulumi:"repository"`
-	// The tag name.
-	Tag pulumi.StringPtrInput `pulumi:"tag"`
-	// The type of the base image dependency.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (BaseImageDependencyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BaseImageDependency)(nil)).Elem()
-}
-
-func (i BaseImageDependencyArgs) ToBaseImageDependencyOutput() BaseImageDependencyOutput {
-	return i.ToBaseImageDependencyOutputWithContext(context.Background())
-}
-
-func (i BaseImageDependencyArgs) ToBaseImageDependencyOutputWithContext(ctx context.Context) BaseImageDependencyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BaseImageDependencyOutput)
-}
-
-// Properties that describe a base image dependency.
-type BaseImageDependencyOutput struct{ *pulumi.OutputState }
-
-func (BaseImageDependencyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BaseImageDependency)(nil)).Elem()
-}
-
-func (o BaseImageDependencyOutput) ToBaseImageDependencyOutput() BaseImageDependencyOutput {
-	return o
-}
-
-func (o BaseImageDependencyOutput) ToBaseImageDependencyOutputWithContext(ctx context.Context) BaseImageDependencyOutput {
-	return o
-}
-
-// The sha256-based digest of the image manifest.
-func (o BaseImageDependencyOutput) Digest() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BaseImageDependency) *string { return v.Digest }).(pulumi.StringPtrOutput)
-}
-
-// The registry login server.
-func (o BaseImageDependencyOutput) Registry() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BaseImageDependency) *string { return v.Registry }).(pulumi.StringPtrOutput)
-}
-
-// The repository name.
-func (o BaseImageDependencyOutput) Repository() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BaseImageDependency) *string { return v.Repository }).(pulumi.StringPtrOutput)
-}
-
-// The tag name.
-func (o BaseImageDependencyOutput) Tag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BaseImageDependency) *string { return v.Tag }).(pulumi.StringPtrOutput)
-}
-
-// The type of the base image dependency.
-func (o BaseImageDependencyOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BaseImageDependency) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Properties that describe a base image dependency.
 type BaseImageDependencyResponse struct {
 	// The sha256-based digest of the image manifest.
 	Digest *string `pulumi:"digest"`
@@ -3197,100 +3106,6 @@ func (o SourceTriggerResponseArrayOutput) Index(i pulumi.IntInput) SourceTrigger
 	}).(SourceTriggerResponseOutput)
 }
 
-// The task that has the ARM resource and task properties.
-// The task will have all information to schedule a run against it.
-type TaskType struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of a task.
-	Properties TaskPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// TaskTypeInput is an input type that accepts TaskTypeArgs and TaskTypeOutput values.
-// You can construct a concrete instance of `TaskTypeInput` via:
-//
-//          TaskTypeArgs{...}
-type TaskTypeInput interface {
-	pulumi.Input
-
-	ToTaskTypeOutput() TaskTypeOutput
-	ToTaskTypeOutputWithContext(context.Context) TaskTypeOutput
-}
-
-// The task that has the ARM resource and task properties.
-// The task will have all information to schedule a run against it.
-type TaskTypeArgs struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a task.
-	Properties TaskPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TaskTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskType)(nil)).Elem()
-}
-
-func (i TaskTypeArgs) ToTaskTypeOutput() TaskTypeOutput {
-	return i.ToTaskTypeOutputWithContext(context.Background())
-}
-
-func (i TaskTypeArgs) ToTaskTypeOutputWithContext(ctx context.Context) TaskTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskTypeOutput)
-}
-
-// The task that has the ARM resource and task properties.
-// The task will have all information to schedule a run against it.
-type TaskTypeOutput struct{ *pulumi.OutputState }
-
-func (TaskTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskType)(nil)).Elem()
-}
-
-func (o TaskTypeOutput) ToTaskTypeOutput() TaskTypeOutput {
-	return o
-}
-
-func (o TaskTypeOutput) ToTaskTypeOutputWithContext(ctx context.Context) TaskTypeOutput {
-	return o
-}
-
-// The location of the resource. This cannot be changed after the resource is created.
-func (o TaskTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource.
-func (o TaskTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of a task.
-func (o TaskTypeOutput) Properties() TaskPropertiesResponseOutput {
-	return o.ApplyT(func(v TaskType) TaskPropertiesResponse { return v.Properties }).(TaskPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o TaskTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TaskType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o TaskTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of a task.
 type TaskPropertiesResponse struct {
 	// The machine configuration of the run agent.
@@ -4236,7 +4051,6 @@ func init() {
 	pulumi.RegisterOutputType(AuthInfoPtrOutput{})
 	pulumi.RegisterOutputType(AuthInfoResponseOutput{})
 	pulumi.RegisterOutputType(AuthInfoResponsePtrOutput{})
-	pulumi.RegisterOutputType(BaseImageDependencyOutput{})
 	pulumi.RegisterOutputType(BaseImageDependencyResponseOutput{})
 	pulumi.RegisterOutputType(BaseImageDependencyResponseArrayOutput{})
 	pulumi.RegisterOutputType(BaseImageTriggerOutput{})
@@ -4269,7 +4083,6 @@ func init() {
 	pulumi.RegisterOutputType(SourceTriggerArrayOutput{})
 	pulumi.RegisterOutputType(SourceTriggerResponseOutput{})
 	pulumi.RegisterOutputType(SourceTriggerResponseArrayOutput{})
-	pulumi.RegisterOutputType(TaskTypeOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TaskStepPropertiesOutput{})

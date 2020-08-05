@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.Cdn.V20171012
         /// A policy that specifies the delivery rules to be used for an endpoint.
         /// </summary>
         [Input("deliveryPolicy")]
-        public Input<Inputs.EndpointPropertiesUpdateParametersPropertiesArgs>? DeliveryPolicy { get; set; }
+        public Input<Inputs.EndpointPropertiesUpdateParametersDeliveryPolicyArgs>? DeliveryPolicy { get; set; }
 
         [Input("geoFilters")]
         private InputList<Inputs.GeoFilterArgs>? _geoFilters;

@@ -36,7 +36,7 @@ export class Machine extends pulumi.CustomResource {
         return obj['__pulumiType'] === Machine.__pulumiType;
     }
 
-    public readonly identity!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly identity!: pulumi.Output<outputs.hybridcompute.v20191212.MachineResponseIdentity | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -48,7 +48,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Hybrid Compute Machine properties
      */
-    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.hybridcompute.v20191212.MachineResponseProperties>;
     /**
      * Resource tags.
      */
@@ -86,7 +86,6 @@ export class Machine extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["locationData"] = args ? args.locationData : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["osProfile"] = args ? args.osProfile : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vmId"] = args ? args.vmId : undefined;
@@ -116,7 +115,7 @@ export interface MachineArgs {
      * Machine Extensions information
      */
     readonly extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.v20191212.MachineExtensionInstanceView>[]>;
-    readonly identity?: pulumi.Input<{[key: string]: any}>;
+    readonly identity?: pulumi.Input<inputs.hybridcompute.v20191212.MachineIdentity>;
     /**
      * The geo-location where the resource lives
      */
@@ -129,10 +128,6 @@ export interface MachineArgs {
      * The name of the hybrid machine.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Specifies the operating system settings for the hybrid machine.
-     */
-    readonly osProfile?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the resource group.
      */

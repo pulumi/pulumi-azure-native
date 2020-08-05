@@ -121,7 +121,7 @@ export interface AzureFirewallArgs {
     /**
      * The additional properties used to further config this azure firewall.
      */
-    readonly additionalProperties?: pulumi.Input<inputs.network.v20190901.AzureFirewallAdditionalProperties>;
+    readonly additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Collection of application rule collections used by Azure Firewall.
      */

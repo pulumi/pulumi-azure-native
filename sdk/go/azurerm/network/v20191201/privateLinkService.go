@@ -97,7 +97,7 @@ func (PrivateLinkServiceState) ElementType() reflect.Type {
 
 type privateLinkServiceArgs struct {
 	// The auto-approval list of the private link service.
-	AutoApproval map[string]interface{} `pulumi:"autoApproval"`
+	AutoApproval *PrivateLinkServicePropertiesAutoApproval `pulumi:"autoApproval"`
 	// Whether the private link service is enabled for proxy protocol or not.
 	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
 	// The list of Fqdn.
@@ -117,13 +117,13 @@ type privateLinkServiceArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The visibility list of the private link service.
-	Visibility map[string]interface{} `pulumi:"visibility"`
+	Visibility *PrivateLinkServicePropertiesVisibility `pulumi:"visibility"`
 }
 
 // The set of arguments for constructing a PrivateLinkService resource.
 type PrivateLinkServiceArgs struct {
 	// The auto-approval list of the private link service.
-	AutoApproval pulumi.MapInput
+	AutoApproval PrivateLinkServicePropertiesAutoApprovalPtrInput
 	// Whether the private link service is enabled for proxy protocol or not.
 	EnableProxyProtocol pulumi.BoolPtrInput
 	// The list of Fqdn.
@@ -143,7 +143,7 @@ type PrivateLinkServiceArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The visibility list of the private link service.
-	Visibility pulumi.MapInput
+	Visibility PrivateLinkServicePropertiesVisibilityPtrInput
 }
 
 func (PrivateLinkServiceArgs) ElementType() reflect.Type {

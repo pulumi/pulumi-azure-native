@@ -113,7 +113,7 @@ export interface ExpressRouteGatewayArgs {
     /**
      * Configuration for auto scaling.
      */
-    readonly autoScaleConfiguration?: pulumi.Input<inputs.network.v20190701.ExpressRouteGatewayPropertiesProperties>;
+    readonly autoScaleConfiguration?: pulumi.Input<inputs.network.v20190701.ExpressRouteGatewayPropertiesAutoScaleConfiguration>;
     /**
      * Resource ID.
      */

@@ -103,7 +103,7 @@ func (AzureFirewallState) ElementType() reflect.Type {
 
 type azureFirewallArgs struct {
 	// The additional properties used to further config this azure firewall.
-	AdditionalProperties *AzureFirewallAdditionalProperties `pulumi:"additionalProperties"`
+	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections []AzureFirewallApplicationRuleCollection `pulumi:"applicationRuleCollections"`
 	// The firewallPolicy associated with this azure firewall.
@@ -139,7 +139,7 @@ type azureFirewallArgs struct {
 // The set of arguments for constructing a AzureFirewall resource.
 type AzureFirewallArgs struct {
 	// The additional properties used to further config this azure firewall.
-	AdditionalProperties AzureFirewallAdditionalPropertiesPtrInput
+	AdditionalProperties pulumi.StringMapInput
 	// Collection of application rule collections used by Azure Firewall.
 	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionArrayInput
 	// The firewallPolicy associated with this azure firewall.

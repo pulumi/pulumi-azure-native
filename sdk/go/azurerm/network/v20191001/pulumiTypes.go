@@ -605,61 +605,6 @@ func (o CustomRuleResponseArrayOutput) Index(i pulumi.IntInput) CustomRuleRespon
 }
 
 // Defines the Resource ID for a Frontend Endpoint.
-type FrontendEndpointLink struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-}
-
-// FrontendEndpointLinkInput is an input type that accepts FrontendEndpointLinkArgs and FrontendEndpointLinkOutput values.
-// You can construct a concrete instance of `FrontendEndpointLinkInput` via:
-//
-//          FrontendEndpointLinkArgs{...}
-type FrontendEndpointLinkInput interface {
-	pulumi.Input
-
-	ToFrontendEndpointLinkOutput() FrontendEndpointLinkOutput
-	ToFrontendEndpointLinkOutputWithContext(context.Context) FrontendEndpointLinkOutput
-}
-
-// Defines the Resource ID for a Frontend Endpoint.
-type FrontendEndpointLinkArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (FrontendEndpointLinkArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontendEndpointLink)(nil)).Elem()
-}
-
-func (i FrontendEndpointLinkArgs) ToFrontendEndpointLinkOutput() FrontendEndpointLinkOutput {
-	return i.ToFrontendEndpointLinkOutputWithContext(context.Background())
-}
-
-func (i FrontendEndpointLinkArgs) ToFrontendEndpointLinkOutputWithContext(ctx context.Context) FrontendEndpointLinkOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointLinkOutput)
-}
-
-// Defines the Resource ID for a Frontend Endpoint.
-type FrontendEndpointLinkOutput struct{ *pulumi.OutputState }
-
-func (FrontendEndpointLinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontendEndpointLink)(nil)).Elem()
-}
-
-func (o FrontendEndpointLinkOutput) ToFrontendEndpointLinkOutput() FrontendEndpointLinkOutput {
-	return o
-}
-
-func (o FrontendEndpointLinkOutput) ToFrontendEndpointLinkOutputWithContext(ctx context.Context) FrontendEndpointLinkOutput {
-	return o
-}
-
-// Resource ID.
-func (o FrontendEndpointLinkOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointLink) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Defines the Resource ID for a Frontend Endpoint.
 type FrontendEndpointLinkResponse struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
@@ -2297,106 +2242,6 @@ func (o MatchConditionResponseArrayOutput) Index(i pulumi.IntInput) MatchConditi
 	}).(MatchConditionResponseOutput)
 }
 
-// Defines web application firewall policy.
-type PolicyType struct {
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties WebApplicationFirewallPolicyPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// PolicyTypeInput is an input type that accepts PolicyTypeArgs and PolicyTypeOutput values.
-// You can construct a concrete instance of `PolicyTypeInput` via:
-//
-//          PolicyTypeArgs{...}
-type PolicyTypeInput interface {
-	pulumi.Input
-
-	ToPolicyTypeOutput() PolicyTypeOutput
-	ToPolicyTypeOutputWithContext(context.Context) PolicyTypeOutput
-}
-
-// Defines web application firewall policy.
-type PolicyTypeArgs struct {
-	// Gets a unique read-only string that changes whenever the resource is updated.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties WebApplicationFirewallPolicyPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyType)(nil)).Elem()
-}
-
-func (i PolicyTypeArgs) ToPolicyTypeOutput() PolicyTypeOutput {
-	return i.ToPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i PolicyTypeArgs) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyTypeOutput)
-}
-
-// Defines web application firewall policy.
-type PolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (PolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyType)(nil)).Elem()
-}
-
-func (o PolicyTypeOutput) ToPolicyTypeOutput() PolicyTypeOutput {
-	return o
-}
-
-func (o PolicyTypeOutput) ToPolicyTypeOutputWithContext(ctx context.Context) PolicyTypeOutput {
-	return o
-}
-
-// Gets a unique read-only string that changes whenever the resource is updated.
-func (o PolicyTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Resource location.
-func (o PolicyTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name.
-func (o PolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the web application firewall policy.
-func (o PolicyTypeOutput) Properties() WebApplicationFirewallPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicyType) WebApplicationFirewallPolicyPropertiesResponse { return v.Properties }).(WebApplicationFirewallPolicyPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o PolicyTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PolicyType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o PolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Defines top-level WebApplicationFirewallPolicy configuration settings.
 type PolicySettings struct {
 	// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
@@ -3059,7 +2904,6 @@ func init() {
 	pulumi.RegisterOutputType(CustomRuleListResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomRuleResponseOutput{})
 	pulumi.RegisterOutputType(CustomRuleResponseArrayOutput{})
-	pulumi.RegisterOutputType(FrontendEndpointLinkOutput{})
 	pulumi.RegisterOutputType(FrontendEndpointLinkResponseOutput{})
 	pulumi.RegisterOutputType(FrontendEndpointLinkResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleExclusionOutput{})
@@ -3086,7 +2930,6 @@ func init() {
 	pulumi.RegisterOutputType(MatchConditionArrayOutput{})
 	pulumi.RegisterOutputType(MatchConditionResponseOutput{})
 	pulumi.RegisterOutputType(MatchConditionResponseArrayOutput{})
-	pulumi.RegisterOutputType(PolicyTypeOutput{})
 	pulumi.RegisterOutputType(PolicySettingsOutput{})
 	pulumi.RegisterOutputType(PolicySettingsPtrOutput{})
 	pulumi.RegisterOutputType(PolicySettingsResponseOutput{})

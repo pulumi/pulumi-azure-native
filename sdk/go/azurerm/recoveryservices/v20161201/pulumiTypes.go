@@ -12,18 +12,19 @@ import (
 
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
 type ProtectionContainerType struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name string `pulumi:"name"`
-	// ProtectionContainerResource properties
-	Properties ProtectionContainerResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type string `pulumi:"type"`
+	// Type of backup management for the container.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	ContainerType *string `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus *string `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus *string `pulumi:"registrationStatus"`
 }
 
 // ProtectionContainerTypeInput is an input type that accepts ProtectionContainerTypeArgs and ProtectionContainerTypeOutput values.
@@ -39,18 +40,19 @@ type ProtectionContainerTypeInput interface {
 
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
 type ProtectionContainerTypeArgs struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// ProtectionContainerResource properties
-	Properties ProtectionContainerResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringInput `pulumi:"type"`
+	// Type of backup management for the container.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+	// Backup is VMAppContainer
+	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
+	// Friendly name of the container.
+	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
+	// Status of health of the container.
+	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
+	// Status of registration of the container with the Recovery Services Vault.
+	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
 }
 
 func (ProtectionContainerTypeArgs) ElementType() reflect.Type {
@@ -63,6 +65,47 @@ func (i ProtectionContainerTypeArgs) ToProtectionContainerTypeOutput() Protectio
 
 func (i ProtectionContainerTypeArgs) ToProtectionContainerTypeOutputWithContext(ctx context.Context) ProtectionContainerTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerTypeOutput)
+}
+
+func (i ProtectionContainerTypeArgs) ToProtectionContainerTypePtrOutput() ProtectionContainerTypePtrOutput {
+	return i.ToProtectionContainerTypePtrOutputWithContext(context.Background())
+}
+
+func (i ProtectionContainerTypeArgs) ToProtectionContainerTypePtrOutputWithContext(ctx context.Context) ProtectionContainerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerTypeOutput).ToProtectionContainerTypePtrOutputWithContext(ctx)
+}
+
+// ProtectionContainerTypePtrInput is an input type that accepts ProtectionContainerTypeArgs, ProtectionContainerTypePtr and ProtectionContainerTypePtrOutput values.
+// You can construct a concrete instance of `ProtectionContainerTypePtrInput` via:
+//
+//          ProtectionContainerTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type ProtectionContainerTypePtrInput interface {
+	pulumi.Input
+
+	ToProtectionContainerTypePtrOutput() ProtectionContainerTypePtrOutput
+	ToProtectionContainerTypePtrOutputWithContext(context.Context) ProtectionContainerTypePtrOutput
+}
+
+type protectionContainerTypePtrType ProtectionContainerTypeArgs
+
+func ProtectionContainerTypePtr(v *ProtectionContainerTypeArgs) ProtectionContainerTypePtrInput {
+	return (*protectionContainerTypePtrType)(v)
+}
+
+func (*protectionContainerTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionContainerType)(nil)).Elem()
+}
+
+func (i *protectionContainerTypePtrType) ToProtectionContainerTypePtrOutput() ProtectionContainerTypePtrOutput {
+	return i.ToProtectionContainerTypePtrOutputWithContext(context.Background())
+}
+
+func (i *protectionContainerTypePtrType) ToProtectionContainerTypePtrOutputWithContext(ctx context.Context) ProtectionContainerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerTypePtrOutput)
 }
 
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
@@ -80,208 +123,65 @@ func (o ProtectionContainerTypeOutput) ToProtectionContainerTypeOutputWithContex
 	return o
 }
 
-// Optional ETag.
-func (o ProtectionContainerTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionContainerType) *string { return v.ETag }).(pulumi.StringPtrOutput)
+func (o ProtectionContainerTypeOutput) ToProtectionContainerTypePtrOutput() ProtectionContainerTypePtrOutput {
+	return o.ToProtectionContainerTypePtrOutputWithContext(context.Background())
 }
 
-// Resource location.
-func (o ProtectionContainerTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionContainerType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name associated with the resource.
-func (o ProtectionContainerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProtectionContainerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// ProtectionContainerResource properties
-func (o ProtectionContainerTypeOutput) Properties() ProtectionContainerResponseOutput {
-	return o.ApplyT(func(v ProtectionContainerType) ProtectionContainerResponse { return v.Properties }).(ProtectionContainerResponseOutput)
-}
-
-// Resource tags.
-func (o ProtectionContainerTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProtectionContainerType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-func (o ProtectionContainerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProtectionContainerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Base class for container with backup items. Containers with specific workloads are derived from this class.
-type ProtectionContainerDefinition struct {
-	// Type of backup management for the container.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
-	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
-	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
-	// Backup is VMAppContainer
-	ContainerType *string `pulumi:"containerType"`
-	// Friendly name of the container.
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Status of health of the container.
-	HealthStatus *string `pulumi:"healthStatus"`
-	// Status of registration of the container with the Recovery Services Vault.
-	RegistrationStatus *string `pulumi:"registrationStatus"`
-}
-
-// ProtectionContainerDefinitionInput is an input type that accepts ProtectionContainerDefinitionArgs and ProtectionContainerDefinitionOutput values.
-// You can construct a concrete instance of `ProtectionContainerDefinitionInput` via:
-//
-//          ProtectionContainerDefinitionArgs{...}
-type ProtectionContainerDefinitionInput interface {
-	pulumi.Input
-
-	ToProtectionContainerDefinitionOutput() ProtectionContainerDefinitionOutput
-	ToProtectionContainerDefinitionOutputWithContext(context.Context) ProtectionContainerDefinitionOutput
-}
-
-// Base class for container with backup items. Containers with specific workloads are derived from this class.
-type ProtectionContainerDefinitionArgs struct {
-	// Type of backup management for the container.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
-	// Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
-	// Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
-	// Backup is VMAppContainer
-	ContainerType pulumi.StringPtrInput `pulumi:"containerType"`
-	// Friendly name of the container.
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Status of health of the container.
-	HealthStatus pulumi.StringPtrInput `pulumi:"healthStatus"`
-	// Status of registration of the container with the Recovery Services Vault.
-	RegistrationStatus pulumi.StringPtrInput `pulumi:"registrationStatus"`
-}
-
-func (ProtectionContainerDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionContainerDefinition)(nil)).Elem()
-}
-
-func (i ProtectionContainerDefinitionArgs) ToProtectionContainerDefinitionOutput() ProtectionContainerDefinitionOutput {
-	return i.ToProtectionContainerDefinitionOutputWithContext(context.Background())
-}
-
-func (i ProtectionContainerDefinitionArgs) ToProtectionContainerDefinitionOutputWithContext(ctx context.Context) ProtectionContainerDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerDefinitionOutput)
-}
-
-func (i ProtectionContainerDefinitionArgs) ToProtectionContainerDefinitionPtrOutput() ProtectionContainerDefinitionPtrOutput {
-	return i.ToProtectionContainerDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i ProtectionContainerDefinitionArgs) ToProtectionContainerDefinitionPtrOutputWithContext(ctx context.Context) ProtectionContainerDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerDefinitionOutput).ToProtectionContainerDefinitionPtrOutputWithContext(ctx)
-}
-
-// ProtectionContainerDefinitionPtrInput is an input type that accepts ProtectionContainerDefinitionArgs, ProtectionContainerDefinitionPtr and ProtectionContainerDefinitionPtrOutput values.
-// You can construct a concrete instance of `ProtectionContainerDefinitionPtrInput` via:
-//
-//          ProtectionContainerDefinitionArgs{...}
-//
-//  or:
-//
-//          nil
-type ProtectionContainerDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToProtectionContainerDefinitionPtrOutput() ProtectionContainerDefinitionPtrOutput
-	ToProtectionContainerDefinitionPtrOutputWithContext(context.Context) ProtectionContainerDefinitionPtrOutput
-}
-
-type protectionContainerDefinitionPtrType ProtectionContainerDefinitionArgs
-
-func ProtectionContainerDefinitionPtr(v *ProtectionContainerDefinitionArgs) ProtectionContainerDefinitionPtrInput {
-	return (*protectionContainerDefinitionPtrType)(v)
-}
-
-func (*protectionContainerDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionContainerDefinition)(nil)).Elem()
-}
-
-func (i *protectionContainerDefinitionPtrType) ToProtectionContainerDefinitionPtrOutput() ProtectionContainerDefinitionPtrOutput {
-	return i.ToProtectionContainerDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *protectionContainerDefinitionPtrType) ToProtectionContainerDefinitionPtrOutputWithContext(ctx context.Context) ProtectionContainerDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerDefinitionPtrOutput)
-}
-
-// Base class for container with backup items. Containers with specific workloads are derived from this class.
-type ProtectionContainerDefinitionOutput struct{ *pulumi.OutputState }
-
-func (ProtectionContainerDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionContainerDefinition)(nil)).Elem()
-}
-
-func (o ProtectionContainerDefinitionOutput) ToProtectionContainerDefinitionOutput() ProtectionContainerDefinitionOutput {
-	return o
-}
-
-func (o ProtectionContainerDefinitionOutput) ToProtectionContainerDefinitionOutputWithContext(ctx context.Context) ProtectionContainerDefinitionOutput {
-	return o
-}
-
-func (o ProtectionContainerDefinitionOutput) ToProtectionContainerDefinitionPtrOutput() ProtectionContainerDefinitionPtrOutput {
-	return o.ToProtectionContainerDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectionContainerDefinitionOutput) ToProtectionContainerDefinitionPtrOutputWithContext(ctx context.Context) ProtectionContainerDefinitionPtrOutput {
-	return o.ApplyT(func(v ProtectionContainerDefinition) *ProtectionContainerDefinition {
+func (o ProtectionContainerTypeOutput) ToProtectionContainerTypePtrOutputWithContext(ctx context.Context) ProtectionContainerTypePtrOutput {
+	return o.ApplyT(func(v ProtectionContainerType) *ProtectionContainerType {
 		return &v
-	}).(ProtectionContainerDefinitionPtrOutput)
+	}).(ProtectionContainerTypePtrOutput)
 }
 
 // Type of backup management for the container.
-func (o ProtectionContainerDefinitionOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionContainerDefinition) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+func (o ProtectionContainerTypeOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionContainerType) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
 // Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-func (o ProtectionContainerDefinitionOutput) ContainerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionContainerDefinition) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
+func (o ProtectionContainerTypeOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionContainerType) *string { return v.ContainerType }).(pulumi.StringPtrOutput)
 }
 
 // Friendly name of the container.
-func (o ProtectionContainerDefinitionOutput) FriendlyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionContainerDefinition) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+func (o ProtectionContainerTypeOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionContainerType) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
 // Status of health of the container.
-func (o ProtectionContainerDefinitionOutput) HealthStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionContainerDefinition) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+func (o ProtectionContainerTypeOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionContainerType) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
 // Status of registration of the container with the Recovery Services Vault.
-func (o ProtectionContainerDefinitionOutput) RegistrationStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionContainerDefinition) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
+func (o ProtectionContainerTypeOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionContainerType) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
 
-type ProtectionContainerDefinitionPtrOutput struct{ *pulumi.OutputState }
+type ProtectionContainerTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ProtectionContainerDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionContainerDefinition)(nil)).Elem()
+func (ProtectionContainerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionContainerType)(nil)).Elem()
 }
 
-func (o ProtectionContainerDefinitionPtrOutput) ToProtectionContainerDefinitionPtrOutput() ProtectionContainerDefinitionPtrOutput {
+func (o ProtectionContainerTypePtrOutput) ToProtectionContainerTypePtrOutput() ProtectionContainerTypePtrOutput {
 	return o
 }
 
-func (o ProtectionContainerDefinitionPtrOutput) ToProtectionContainerDefinitionPtrOutputWithContext(ctx context.Context) ProtectionContainerDefinitionPtrOutput {
+func (o ProtectionContainerTypePtrOutput) ToProtectionContainerTypePtrOutputWithContext(ctx context.Context) ProtectionContainerTypePtrOutput {
 	return o
 }
 
-func (o ProtectionContainerDefinitionPtrOutput) Elem() ProtectionContainerDefinitionOutput {
-	return o.ApplyT(func(v *ProtectionContainerDefinition) ProtectionContainerDefinition { return *v }).(ProtectionContainerDefinitionOutput)
+func (o ProtectionContainerTypePtrOutput) Elem() ProtectionContainerTypeOutput {
+	return o.ApplyT(func(v *ProtectionContainerType) ProtectionContainerType { return *v }).(ProtectionContainerTypeOutput)
 }
 
 // Type of backup management for the container.
-func (o ProtectionContainerDefinitionPtrOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionContainerDefinition) *string {
+func (o ProtectionContainerTypePtrOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionContainerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -293,8 +193,8 @@ func (o ProtectionContainerDefinitionPtrOutput) BackupManagementType() pulumi.St
 // Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
 // Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
 // Backup is VMAppContainer
-func (o ProtectionContainerDefinitionPtrOutput) ContainerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionContainerDefinition) *string {
+func (o ProtectionContainerTypePtrOutput) ContainerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionContainerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -303,8 +203,8 @@ func (o ProtectionContainerDefinitionPtrOutput) ContainerType() pulumi.StringPtr
 }
 
 // Friendly name of the container.
-func (o ProtectionContainerDefinitionPtrOutput) FriendlyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionContainerDefinition) *string {
+func (o ProtectionContainerTypePtrOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionContainerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -313,8 +213,8 @@ func (o ProtectionContainerDefinitionPtrOutput) FriendlyName() pulumi.StringPtrO
 }
 
 // Status of health of the container.
-func (o ProtectionContainerDefinitionPtrOutput) HealthStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionContainerDefinition) *string {
+func (o ProtectionContainerTypePtrOutput) HealthStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionContainerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -323,8 +223,8 @@ func (o ProtectionContainerDefinitionPtrOutput) HealthStatus() pulumi.StringPtrO
 }
 
 // Status of registration of the container with the Recovery Services Vault.
-func (o ProtectionContainerDefinitionPtrOutput) RegistrationStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionContainerDefinition) *string {
+func (o ProtectionContainerTypePtrOutput) RegistrationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionContainerType) *string {
 		if v == nil {
 			return nil
 		}
@@ -556,8 +456,7 @@ func (o ProtectionContainerResponsePtrOutput) RegistrationStatus() pulumi.String
 
 func init() {
 	pulumi.RegisterOutputType(ProtectionContainerTypeOutput{})
-	pulumi.RegisterOutputType(ProtectionContainerDefinitionOutput{})
-	pulumi.RegisterOutputType(ProtectionContainerDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ProtectionContainerTypePtrOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionContainerResponsePtrOutput{})
 }

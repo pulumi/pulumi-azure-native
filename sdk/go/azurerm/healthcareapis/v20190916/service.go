@@ -17,7 +17,7 @@ type Service struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ResourceResponsePropertiesPtrOutput `pulumi:"identity"`
+	Identity ResourceResponseIdentityPtrOutput `pulumi:"identity"`
 	// The kind of the service.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The resource location.
@@ -75,7 +75,7 @@ type serviceState struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag *string `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ResourceResponseProperties `pulumi:"identity"`
+	Identity *ResourceResponseIdentity `pulumi:"identity"`
 	// The kind of the service.
 	Kind *string `pulumi:"kind"`
 	// The resource location.
@@ -94,7 +94,7 @@ type ServiceState struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrInput
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ResourceResponsePropertiesPtrInput
+	Identity ResourceResponseIdentityPtrInput
 	// The kind of the service.
 	Kind pulumi.StringPtrInput
 	// The resource location.
@@ -117,7 +117,7 @@ type serviceArgs struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag *string `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ResourceProperties `pulumi:"identity"`
+	Identity *ResourceIdentity `pulumi:"identity"`
 	// The kind of the service.
 	Kind string `pulumi:"kind"`
 	// The resource location.
@@ -137,7 +137,7 @@ type ServiceArgs struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrInput
 	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ResourcePropertiesPtrInput
+	Identity ResourceIdentityPtrInput
 	// The kind of the service.
 	Kind pulumi.StringInput
 	// The resource location.

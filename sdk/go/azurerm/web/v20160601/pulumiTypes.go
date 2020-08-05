@@ -2624,103 +2624,6 @@ func (o ApiResourceDefinitionsResponsePtrOutput) OriginalSwaggerUrl() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// API connection
-type ConnectionType struct {
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name       string                                    `pulumi:"name"`
-	Properties ApiConnectionDefinitionResponseProperties `pulumi:"properties"`
-	// Resource tags
-	Tags *TagsDictionaryResponse `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ConnectionTypeInput is an input type that accepts ConnectionTypeArgs and ConnectionTypeOutput values.
-// You can construct a concrete instance of `ConnectionTypeInput` via:
-//
-//          ConnectionTypeArgs{...}
-type ConnectionTypeInput interface {
-	pulumi.Input
-
-	ToConnectionTypeOutput() ConnectionTypeOutput
-	ToConnectionTypeOutputWithContext(context.Context) ConnectionTypeOutput
-}
-
-// API connection
-type ConnectionTypeArgs struct {
-	// Resource ETag
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name       pulumi.StringInput                             `pulumi:"name"`
-	Properties ApiConnectionDefinitionResponsePropertiesInput `pulumi:"properties"`
-	// Resource tags
-	Tags TagsDictionaryResponsePtrInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionType)(nil)).Elem()
-}
-
-func (i ConnectionTypeArgs) ToConnectionTypeOutput() ConnectionTypeOutput {
-	return i.ToConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i ConnectionTypeArgs) ToConnectionTypeOutputWithContext(ctx context.Context) ConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeOutput)
-}
-
-// API connection
-type ConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (ConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionType)(nil)).Elem()
-}
-
-func (o ConnectionTypeOutput) ToConnectionTypeOutput() ConnectionTypeOutput {
-	return o
-}
-
-func (o ConnectionTypeOutput) ToConnectionTypeOutputWithContext(ctx context.Context) ConnectionTypeOutput {
-	return o
-}
-
-// Resource ETag
-func (o ConnectionTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Resource location
-func (o ConnectionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o ConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o ConnectionTypeOutput) Properties() ApiConnectionDefinitionResponsePropertiesOutput {
-	return o.ApplyT(func(v ConnectionType) ApiConnectionDefinitionResponseProperties { return v.Properties }).(ApiConnectionDefinitionResponsePropertiesOutput)
-}
-
-// Resource tags
-func (o ConnectionTypeOutput) Tags() TagsDictionaryResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionType) *TagsDictionaryResponse { return v.Tags }).(TagsDictionaryResponsePtrOutput)
-}
-
-// Resource type
-func (o ConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Connection error
 type ConnectionError struct {
 	// Code of the status
@@ -2732,7 +2635,7 @@ type ConnectionError struct {
 	// Description of the status
 	Message *string `pulumi:"message"`
 	// Resource tags
-	Tags *TagsDictionary `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // ConnectionErrorInput is an input type that accepts ConnectionErrorArgs and ConnectionErrorOutput values.
@@ -2757,7 +2660,7 @@ type ConnectionErrorArgs struct {
 	// Description of the status
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// Resource tags
-	Tags TagsDictionaryPtrInput `pulumi:"tags"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (ConnectionErrorArgs) ElementType() reflect.Type {
@@ -2859,8 +2762,8 @@ func (o ConnectionErrorOutput) Message() pulumi.StringPtrOutput {
 }
 
 // Resource tags
-func (o ConnectionErrorOutput) Tags() TagsDictionaryPtrOutput {
-	return o.ApplyT(func(v ConnectionError) *TagsDictionary { return v.Tags }).(TagsDictionaryPtrOutput)
+func (o ConnectionErrorOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectionError) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type ConnectionErrorPtrOutput struct{ *pulumi.OutputState }
@@ -2922,13 +2825,13 @@ func (o ConnectionErrorPtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 // Resource tags
-func (o ConnectionErrorPtrOutput) Tags() TagsDictionaryPtrOutput {
-	return o.ApplyT(func(v *ConnectionError) *TagsDictionary {
+func (o ConnectionErrorPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionError) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Tags
-	}).(TagsDictionaryPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Connection error
@@ -2943,7 +2846,7 @@ type ConnectionErrorResponse struct {
 	Name       string                             `pulumi:"name"`
 	Properties *ConnectionErrorResponseProperties `pulumi:"properties"`
 	// Resource tags
-	Tags *TagsDictionaryResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 }
@@ -2971,7 +2874,7 @@ type ConnectionErrorResponseArgs struct {
 	Name       pulumi.StringInput                        `pulumi:"name"`
 	Properties ConnectionErrorResponsePropertiesPtrInput `pulumi:"properties"`
 	// Resource tags
-	Tags TagsDictionaryResponsePtrInput `pulumi:"tags"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -3079,8 +2982,8 @@ func (o ConnectionErrorResponseOutput) Properties() ConnectionErrorResponsePrope
 }
 
 // Resource tags
-func (o ConnectionErrorResponseOutput) Tags() TagsDictionaryResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionErrorResponse) *TagsDictionaryResponse { return v.Tags }).(TagsDictionaryResponsePtrOutput)
+func (o ConnectionErrorResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ConnectionErrorResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Resource type
@@ -3156,13 +3059,13 @@ func (o ConnectionErrorResponsePtrOutput) Properties() ConnectionErrorResponsePr
 }
 
 // Resource tags
-func (o ConnectionErrorResponsePtrOutput) Tags() TagsDictionaryResponsePtrOutput {
-	return o.ApplyT(func(v *ConnectionErrorResponse) *TagsDictionaryResponse {
+func (o ConnectionErrorResponsePtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ConnectionErrorResponse) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Tags
-	}).(TagsDictionaryResponsePtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Resource type
@@ -3323,103 +3226,6 @@ func (o ConnectionErrorResponsePropertiesPtrOutput) Message() pulumi.StringPtrOu
 		}
 		return v.Message
 	}).(pulumi.StringPtrOutput)
-}
-
-// The gateway definition
-type ConnectionGatewayType struct {
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name       string                                        `pulumi:"name"`
-	Properties ConnectionGatewayDefinitionResponseProperties `pulumi:"properties"`
-	// Resource tags
-	Tags *TagsDictionaryResponse `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ConnectionGatewayTypeInput is an input type that accepts ConnectionGatewayTypeArgs and ConnectionGatewayTypeOutput values.
-// You can construct a concrete instance of `ConnectionGatewayTypeInput` via:
-//
-//          ConnectionGatewayTypeArgs{...}
-type ConnectionGatewayTypeInput interface {
-	pulumi.Input
-
-	ToConnectionGatewayTypeOutput() ConnectionGatewayTypeOutput
-	ToConnectionGatewayTypeOutputWithContext(context.Context) ConnectionGatewayTypeOutput
-}
-
-// The gateway definition
-type ConnectionGatewayTypeArgs struct {
-	// Resource ETag
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name       pulumi.StringInput                                 `pulumi:"name"`
-	Properties ConnectionGatewayDefinitionResponsePropertiesInput `pulumi:"properties"`
-	// Resource tags
-	Tags TagsDictionaryResponsePtrInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConnectionGatewayTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionGatewayType)(nil)).Elem()
-}
-
-func (i ConnectionGatewayTypeArgs) ToConnectionGatewayTypeOutput() ConnectionGatewayTypeOutput {
-	return i.ToConnectionGatewayTypeOutputWithContext(context.Background())
-}
-
-func (i ConnectionGatewayTypeArgs) ToConnectionGatewayTypeOutputWithContext(ctx context.Context) ConnectionGatewayTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionGatewayTypeOutput)
-}
-
-// The gateway definition
-type ConnectionGatewayTypeOutput struct{ *pulumi.OutputState }
-
-func (ConnectionGatewayTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionGatewayType)(nil)).Elem()
-}
-
-func (o ConnectionGatewayTypeOutput) ToConnectionGatewayTypeOutput() ConnectionGatewayTypeOutput {
-	return o
-}
-
-func (o ConnectionGatewayTypeOutput) ToConnectionGatewayTypeOutputWithContext(ctx context.Context) ConnectionGatewayTypeOutput {
-	return o
-}
-
-// Resource ETag
-func (o ConnectionGatewayTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionGatewayType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Resource location
-func (o ConnectionGatewayTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConnectionGatewayType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o ConnectionGatewayTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionGatewayType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o ConnectionGatewayTypeOutput) Properties() ConnectionGatewayDefinitionResponsePropertiesOutput {
-	return o.ApplyT(func(v ConnectionGatewayType) ConnectionGatewayDefinitionResponseProperties { return v.Properties }).(ConnectionGatewayDefinitionResponsePropertiesOutput)
-}
-
-// Resource tags
-func (o ConnectionGatewayTypeOutput) Tags() TagsDictionaryResponsePtrOutput {
-	return o.ApplyT(func(v ConnectionGatewayType) *TagsDictionaryResponse { return v.Tags }).(TagsDictionaryResponsePtrOutput)
-}
-
-// Resource type
-func (o ConnectionGatewayTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionGatewayType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type ConnectionGatewayDefinitionProperties struct {
@@ -5008,106 +4814,6 @@ func (o ConsentLinkParameterDefinitionArrayOutput) Index(i pulumi.IntInput) Cons
 	}).(ConsentLinkParameterDefinitionOutput)
 }
 
-// A custom API
-type CustomApiType struct {
-	// Resource ETag
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Custom API properties
-	Properties CustomApiPropertiesDefinitionResponse `pulumi:"properties"`
-	// Resource tags
-	Tags *TagsDictionaryResponse `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// CustomApiTypeInput is an input type that accepts CustomApiTypeArgs and CustomApiTypeOutput values.
-// You can construct a concrete instance of `CustomApiTypeInput` via:
-//
-//          CustomApiTypeArgs{...}
-type CustomApiTypeInput interface {
-	pulumi.Input
-
-	ToCustomApiTypeOutput() CustomApiTypeOutput
-	ToCustomApiTypeOutputWithContext(context.Context) CustomApiTypeOutput
-}
-
-// A custom API
-type CustomApiTypeArgs struct {
-	// Resource ETag
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Custom API properties
-	Properties CustomApiPropertiesDefinitionResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags TagsDictionaryResponsePtrInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CustomApiTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomApiType)(nil)).Elem()
-}
-
-func (i CustomApiTypeArgs) ToCustomApiTypeOutput() CustomApiTypeOutput {
-	return i.ToCustomApiTypeOutputWithContext(context.Background())
-}
-
-func (i CustomApiTypeArgs) ToCustomApiTypeOutputWithContext(ctx context.Context) CustomApiTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomApiTypeOutput)
-}
-
-// A custom API
-type CustomApiTypeOutput struct{ *pulumi.OutputState }
-
-func (CustomApiTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomApiType)(nil)).Elem()
-}
-
-func (o CustomApiTypeOutput) ToCustomApiTypeOutput() CustomApiTypeOutput {
-	return o
-}
-
-func (o CustomApiTypeOutput) ToCustomApiTypeOutputWithContext(ctx context.Context) CustomApiTypeOutput {
-	return o
-}
-
-// Resource ETag
-func (o CustomApiTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomApiType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Resource location
-func (o CustomApiTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomApiType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o CustomApiTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomApiType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Custom API properties
-func (o CustomApiTypeOutput) Properties() CustomApiPropertiesDefinitionResponseOutput {
-	return o.ApplyT(func(v CustomApiType) CustomApiPropertiesDefinitionResponse { return v.Properties }).(CustomApiPropertiesDefinitionResponseOutput)
-}
-
-// Resource tags
-func (o CustomApiTypeOutput) Tags() TagsDictionaryResponsePtrOutput {
-	return o.ApplyT(func(v CustomApiType) *TagsDictionaryResponse { return v.Tags }).(TagsDictionaryResponsePtrOutput)
-}
-
-// Resource type
-func (o CustomApiTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomApiType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Custom API properties
 type CustomApiPropertiesDefinition struct {
 	// API Definitions
@@ -5796,236 +5502,6 @@ func (o CustomApiPropertiesDefinitionResponsePtrOutput) WsdlDefinition() WsdlDef
 		}
 		return v.WsdlDefinition
 	}).(WsdlDefinitionResponsePtrOutput)
-}
-
-// Resource tags
-type TagsDictionary struct {
-}
-
-// TagsDictionaryInput is an input type that accepts TagsDictionaryArgs and TagsDictionaryOutput values.
-// You can construct a concrete instance of `TagsDictionaryInput` via:
-//
-//          TagsDictionaryArgs{...}
-type TagsDictionaryInput interface {
-	pulumi.Input
-
-	ToTagsDictionaryOutput() TagsDictionaryOutput
-	ToTagsDictionaryOutputWithContext(context.Context) TagsDictionaryOutput
-}
-
-// Resource tags
-type TagsDictionaryArgs struct {
-}
-
-func (TagsDictionaryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsDictionary)(nil)).Elem()
-}
-
-func (i TagsDictionaryArgs) ToTagsDictionaryOutput() TagsDictionaryOutput {
-	return i.ToTagsDictionaryOutputWithContext(context.Background())
-}
-
-func (i TagsDictionaryArgs) ToTagsDictionaryOutputWithContext(ctx context.Context) TagsDictionaryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsDictionaryOutput)
-}
-
-func (i TagsDictionaryArgs) ToTagsDictionaryPtrOutput() TagsDictionaryPtrOutput {
-	return i.ToTagsDictionaryPtrOutputWithContext(context.Background())
-}
-
-func (i TagsDictionaryArgs) ToTagsDictionaryPtrOutputWithContext(ctx context.Context) TagsDictionaryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsDictionaryOutput).ToTagsDictionaryPtrOutputWithContext(ctx)
-}
-
-// TagsDictionaryPtrInput is an input type that accepts TagsDictionaryArgs, TagsDictionaryPtr and TagsDictionaryPtrOutput values.
-// You can construct a concrete instance of `TagsDictionaryPtrInput` via:
-//
-//          TagsDictionaryArgs{...}
-//
-//  or:
-//
-//          nil
-type TagsDictionaryPtrInput interface {
-	pulumi.Input
-
-	ToTagsDictionaryPtrOutput() TagsDictionaryPtrOutput
-	ToTagsDictionaryPtrOutputWithContext(context.Context) TagsDictionaryPtrOutput
-}
-
-type tagsDictionaryPtrType TagsDictionaryArgs
-
-func TagsDictionaryPtr(v *TagsDictionaryArgs) TagsDictionaryPtrInput {
-	return (*tagsDictionaryPtrType)(v)
-}
-
-func (*tagsDictionaryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagsDictionary)(nil)).Elem()
-}
-
-func (i *tagsDictionaryPtrType) ToTagsDictionaryPtrOutput() TagsDictionaryPtrOutput {
-	return i.ToTagsDictionaryPtrOutputWithContext(context.Background())
-}
-
-func (i *tagsDictionaryPtrType) ToTagsDictionaryPtrOutputWithContext(ctx context.Context) TagsDictionaryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsDictionaryPtrOutput)
-}
-
-// Resource tags
-type TagsDictionaryOutput struct{ *pulumi.OutputState }
-
-func (TagsDictionaryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsDictionary)(nil)).Elem()
-}
-
-func (o TagsDictionaryOutput) ToTagsDictionaryOutput() TagsDictionaryOutput {
-	return o
-}
-
-func (o TagsDictionaryOutput) ToTagsDictionaryOutputWithContext(ctx context.Context) TagsDictionaryOutput {
-	return o
-}
-
-func (o TagsDictionaryOutput) ToTagsDictionaryPtrOutput() TagsDictionaryPtrOutput {
-	return o.ToTagsDictionaryPtrOutputWithContext(context.Background())
-}
-
-func (o TagsDictionaryOutput) ToTagsDictionaryPtrOutputWithContext(ctx context.Context) TagsDictionaryPtrOutput {
-	return o.ApplyT(func(v TagsDictionary) *TagsDictionary {
-		return &v
-	}).(TagsDictionaryPtrOutput)
-}
-
-type TagsDictionaryPtrOutput struct{ *pulumi.OutputState }
-
-func (TagsDictionaryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagsDictionary)(nil)).Elem()
-}
-
-func (o TagsDictionaryPtrOutput) ToTagsDictionaryPtrOutput() TagsDictionaryPtrOutput {
-	return o
-}
-
-func (o TagsDictionaryPtrOutput) ToTagsDictionaryPtrOutputWithContext(ctx context.Context) TagsDictionaryPtrOutput {
-	return o
-}
-
-func (o TagsDictionaryPtrOutput) Elem() TagsDictionaryOutput {
-	return o.ApplyT(func(v *TagsDictionary) TagsDictionary { return *v }).(TagsDictionaryOutput)
-}
-
-// Resource tags
-type TagsDictionaryResponse struct {
-}
-
-// TagsDictionaryResponseInput is an input type that accepts TagsDictionaryResponseArgs and TagsDictionaryResponseOutput values.
-// You can construct a concrete instance of `TagsDictionaryResponseInput` via:
-//
-//          TagsDictionaryResponseArgs{...}
-type TagsDictionaryResponseInput interface {
-	pulumi.Input
-
-	ToTagsDictionaryResponseOutput() TagsDictionaryResponseOutput
-	ToTagsDictionaryResponseOutputWithContext(context.Context) TagsDictionaryResponseOutput
-}
-
-// Resource tags
-type TagsDictionaryResponseArgs struct {
-}
-
-func (TagsDictionaryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsDictionaryResponse)(nil)).Elem()
-}
-
-func (i TagsDictionaryResponseArgs) ToTagsDictionaryResponseOutput() TagsDictionaryResponseOutput {
-	return i.ToTagsDictionaryResponseOutputWithContext(context.Background())
-}
-
-func (i TagsDictionaryResponseArgs) ToTagsDictionaryResponseOutputWithContext(ctx context.Context) TagsDictionaryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsDictionaryResponseOutput)
-}
-
-func (i TagsDictionaryResponseArgs) ToTagsDictionaryResponsePtrOutput() TagsDictionaryResponsePtrOutput {
-	return i.ToTagsDictionaryResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TagsDictionaryResponseArgs) ToTagsDictionaryResponsePtrOutputWithContext(ctx context.Context) TagsDictionaryResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsDictionaryResponseOutput).ToTagsDictionaryResponsePtrOutputWithContext(ctx)
-}
-
-// TagsDictionaryResponsePtrInput is an input type that accepts TagsDictionaryResponseArgs, TagsDictionaryResponsePtr and TagsDictionaryResponsePtrOutput values.
-// You can construct a concrete instance of `TagsDictionaryResponsePtrInput` via:
-//
-//          TagsDictionaryResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type TagsDictionaryResponsePtrInput interface {
-	pulumi.Input
-
-	ToTagsDictionaryResponsePtrOutput() TagsDictionaryResponsePtrOutput
-	ToTagsDictionaryResponsePtrOutputWithContext(context.Context) TagsDictionaryResponsePtrOutput
-}
-
-type tagsDictionaryResponsePtrType TagsDictionaryResponseArgs
-
-func TagsDictionaryResponsePtr(v *TagsDictionaryResponseArgs) TagsDictionaryResponsePtrInput {
-	return (*tagsDictionaryResponsePtrType)(v)
-}
-
-func (*tagsDictionaryResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagsDictionaryResponse)(nil)).Elem()
-}
-
-func (i *tagsDictionaryResponsePtrType) ToTagsDictionaryResponsePtrOutput() TagsDictionaryResponsePtrOutput {
-	return i.ToTagsDictionaryResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *tagsDictionaryResponsePtrType) ToTagsDictionaryResponsePtrOutputWithContext(ctx context.Context) TagsDictionaryResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsDictionaryResponsePtrOutput)
-}
-
-// Resource tags
-type TagsDictionaryResponseOutput struct{ *pulumi.OutputState }
-
-func (TagsDictionaryResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsDictionaryResponse)(nil)).Elem()
-}
-
-func (o TagsDictionaryResponseOutput) ToTagsDictionaryResponseOutput() TagsDictionaryResponseOutput {
-	return o
-}
-
-func (o TagsDictionaryResponseOutput) ToTagsDictionaryResponseOutputWithContext(ctx context.Context) TagsDictionaryResponseOutput {
-	return o
-}
-
-func (o TagsDictionaryResponseOutput) ToTagsDictionaryResponsePtrOutput() TagsDictionaryResponsePtrOutput {
-	return o.ToTagsDictionaryResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TagsDictionaryResponseOutput) ToTagsDictionaryResponsePtrOutputWithContext(ctx context.Context) TagsDictionaryResponsePtrOutput {
-	return o.ApplyT(func(v TagsDictionaryResponse) *TagsDictionaryResponse {
-		return &v
-	}).(TagsDictionaryResponsePtrOutput)
-}
-
-type TagsDictionaryResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (TagsDictionaryResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagsDictionaryResponse)(nil)).Elem()
-}
-
-func (o TagsDictionaryResponsePtrOutput) ToTagsDictionaryResponsePtrOutput() TagsDictionaryResponsePtrOutput {
-	return o
-}
-
-func (o TagsDictionaryResponsePtrOutput) ToTagsDictionaryResponsePtrOutputWithContext(ctx context.Context) TagsDictionaryResponsePtrOutput {
-	return o
-}
-
-func (o TagsDictionaryResponsePtrOutput) Elem() TagsDictionaryResponseOutput {
-	return o.ApplyT(func(v *TagsDictionaryResponse) TagsDictionaryResponse { return *v }).(TagsDictionaryResponseOutput)
 }
 
 // The WSDL definition
@@ -6790,14 +6266,12 @@ func init() {
 	pulumi.RegisterOutputType(ApiResourceDefinitionsPtrOutput{})
 	pulumi.RegisterOutputType(ApiResourceDefinitionsResponseOutput{})
 	pulumi.RegisterOutputType(ApiResourceDefinitionsResponsePtrOutput{})
-	pulumi.RegisterOutputType(ConnectionTypeOutput{})
 	pulumi.RegisterOutputType(ConnectionErrorOutput{})
 	pulumi.RegisterOutputType(ConnectionErrorPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionErrorResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionErrorResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionErrorResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ConnectionGatewayTypeOutput{})
 	pulumi.RegisterOutputType(ConnectionGatewayDefinitionPropertiesOutput{})
 	pulumi.RegisterOutputType(ConnectionGatewayDefinitionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionGatewayDefinitionResponsePropertiesOutput{})
@@ -6818,15 +6292,10 @@ func init() {
 	pulumi.RegisterOutputType(ConsentLinkDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConsentLinkParameterDefinitionOutput{})
 	pulumi.RegisterOutputType(ConsentLinkParameterDefinitionArrayOutput{})
-	pulumi.RegisterOutputType(CustomApiTypeOutput{})
 	pulumi.RegisterOutputType(CustomApiPropertiesDefinitionOutput{})
 	pulumi.RegisterOutputType(CustomApiPropertiesDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(CustomApiPropertiesDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(CustomApiPropertiesDefinitionResponsePtrOutput{})
-	pulumi.RegisterOutputType(TagsDictionaryOutput{})
-	pulumi.RegisterOutputType(TagsDictionaryPtrOutput{})
-	pulumi.RegisterOutputType(TagsDictionaryResponseOutput{})
-	pulumi.RegisterOutputType(TagsDictionaryResponsePtrOutput{})
 	pulumi.RegisterOutputType(WsdlDefinitionOutput{})
 	pulumi.RegisterOutputType(WsdlDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(WsdlDefinitionResponseOutput{})

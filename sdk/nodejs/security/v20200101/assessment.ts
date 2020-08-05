@@ -75,7 +75,6 @@ export class Assessment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'status'");
             }
             inputs["additionalData"] = args ? args.additionalData : undefined;
-            inputs["links"] = args ? args.links : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["partnersData"] = args ? args.partnersData : undefined;
@@ -104,10 +103,6 @@ export interface AssessmentArgs {
      * Additional data regarding the assessment
      */
     readonly additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Links relevant to the assessment
-     */
-    readonly links?: pulumi.Input<inputs.security.v20200101.AssessmentLinks>;
     /**
      * Describes properties of an assessment metadata.
      */

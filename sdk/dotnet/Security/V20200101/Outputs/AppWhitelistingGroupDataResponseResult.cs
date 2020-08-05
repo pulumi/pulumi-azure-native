@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
         /// The application control policy enforcement/protection mode of the VM/server group
         /// </summary>
         public readonly string? EnforcementMode;
-        public readonly Outputs.AppWhitelistingIssuesSummariesResponseResult Issues;
-        public readonly Outputs.PathRecommendationsResponseResult? PathRecommendations;
+        public readonly ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponseResult> Issues;
+        public readonly ImmutableArray<Outputs.PathRecommendationResponseResult> PathRecommendations;
         /// <summary>
         /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
         /// The source type of the VM/server group
         /// </summary>
         public readonly string SourceSystem;
-        public readonly Outputs.VmRecommendationsResponseResult? VmRecommendations;
+        public readonly ImmutableArray<Outputs.VmRecommendationResponseResult> VmRecommendations;
 
         [OutputConstructor]
         private AppWhitelistingGroupDataResponseResult(
@@ -43,9 +43,9 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
 
             string? enforcementMode,
 
-            Outputs.AppWhitelistingIssuesSummariesResponseResult issues,
+            ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponseResult> issues,
 
-            Outputs.PathRecommendationsResponseResult? pathRecommendations,
+            ImmutableArray<Outputs.PathRecommendationResponseResult> pathRecommendations,
 
             Outputs.ProtectionModeResponseResult? protectionMode,
 
@@ -53,7 +53,7 @@ namespace Pulumi.AzureRM.Security.V20200101.Outputs
 
             string sourceSystem,
 
-            Outputs.VmRecommendationsResponseResult? vmRecommendations)
+            ImmutableArray<Outputs.VmRecommendationResponseResult> vmRecommendations)
         {
             ConfigurationStatus = configurationStatus;
             EnforcementMode = enforcementMode;

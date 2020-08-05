@@ -122,16 +122,14 @@ class VirtualHub(pulumi.CustomResource):
 
         The **virtual_hub_route_table_v2s** object supports the following:
 
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `attached_connections` (`pulumi.Input[list]`) - List of all connections attached to this route table v2.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
           * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `properties` (`pulumi.Input[dict]`) - Properties of the virtual hub route table v2.
-            * `attached_connections` (`pulumi.Input[list]`) - List of all connections attached to this route table v2.
-            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the virtual hub route table v2 resource.
-            * `routes` (`pulumi.Input[list]`) - List of all routes.
-              * `destination_type` (`pulumi.Input[str]`) - The type of destinations.
-              * `destinations` (`pulumi.Input[list]`) - List of all destinations.
-              * `next_hop_type` (`pulumi.Input[str]`) - The type of next hops.
-              * `next_hops` (`pulumi.Input[list]`) - NextHops ip address.
+          * `routes` (`pulumi.Input[list]`) - List of all routes.
+            * `destination_type` (`pulumi.Input[str]`) - The type of destinations.
+            * `destinations` (`pulumi.Input[list]`) - List of all destinations.
+            * `next_hop_type` (`pulumi.Input[str]`) - The type of next hops.
+            * `next_hops` (`pulumi.Input[list]`) - NextHops ip address.
 
         The **virtual_network_connections** object supports the following:
 

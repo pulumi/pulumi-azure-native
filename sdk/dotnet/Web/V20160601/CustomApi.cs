@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Web.V20160601
         /// Resource tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.TagsDictionaryResponseResult?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -125,11 +125,17 @@ namespace Pulumi.AzureRM.Web.V20160601
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// Resource tags
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.TagsDictionaryArgs>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public CustomApiArgs()
         {

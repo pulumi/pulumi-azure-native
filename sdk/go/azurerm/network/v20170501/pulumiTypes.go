@@ -337,12 +337,24 @@ func (o DnsConfigResponsePtrOutput) Ttl() pulumi.IntPtrOutput {
 
 // Class representing a Traffic Manager endpoint.
 type EndpointType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the Traffic Manager endpoint.
-	Properties EndpointPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type string `pulumi:"type"`
+	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+	EndpointLocation *string `pulumi:"endpointLocation"`
+	// The monitoring status of the endpoint.
+	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
+	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+	EndpointStatus *string `pulumi:"endpointStatus"`
+	// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+	GeoMapping []string `pulumi:"geoMapping"`
+	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpoints *int `pulumi:"minChildEndpoints"`
+	// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+	Priority *int `pulumi:"priority"`
+	// The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+	Target *string `pulumi:"target"`
+	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+	TargetResourceId *string `pulumi:"targetResourceId"`
+	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+	Weight *int `pulumi:"weight"`
 }
 
 // EndpointTypeInput is an input type that accepts EndpointTypeArgs and EndpointTypeOutput values.
@@ -358,12 +370,24 @@ type EndpointTypeInput interface {
 
 // Class representing a Traffic Manager endpoint.
 type EndpointTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the Traffic Manager endpoint.
-	Properties EndpointPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+	EndpointLocation pulumi.StringPtrInput `pulumi:"endpointLocation"`
+	// The monitoring status of the endpoint.
+	EndpointMonitorStatus pulumi.StringPtrInput `pulumi:"endpointMonitorStatus"`
+	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+	EndpointStatus pulumi.StringPtrInput `pulumi:"endpointStatus"`
+	// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+	GeoMapping pulumi.StringArrayInput `pulumi:"geoMapping"`
+	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpoints pulumi.IntPtrInput `pulumi:"minChildEndpoints"`
+	// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+	Target pulumi.StringPtrInput `pulumi:"target"`
+	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+	TargetResourceId pulumi.StringPtrInput `pulumi:"targetResourceId"`
+	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
 }
 
 func (EndpointTypeArgs) ElementType() reflect.Type {
@@ -418,19 +442,49 @@ func (o EndpointTypeOutput) ToEndpointTypeOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The name of the resource
-func (o EndpointTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointType) string { return v.Name }).(pulumi.StringOutput)
+// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+func (o EndpointTypeOutput) EndpointLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointType) *string { return v.EndpointLocation }).(pulumi.StringPtrOutput)
 }
 
-// The properties of the Traffic Manager endpoint.
-func (o EndpointTypeOutput) Properties() EndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v EndpointType) EndpointPropertiesResponse { return v.Properties }).(EndpointPropertiesResponseOutput)
+// The monitoring status of the endpoint.
+func (o EndpointTypeOutput) EndpointMonitorStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointType) *string { return v.EndpointMonitorStatus }).(pulumi.StringPtrOutput)
 }
 
-// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-func (o EndpointTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointType) string { return v.Type }).(pulumi.StringOutput)
+// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+func (o EndpointTypeOutput) EndpointStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointType) *string { return v.EndpointStatus }).(pulumi.StringPtrOutput)
+}
+
+// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+func (o EndpointTypeOutput) GeoMapping() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointType) []string { return v.GeoMapping }).(pulumi.StringArrayOutput)
+}
+
+// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+func (o EndpointTypeOutput) MinChildEndpoints() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointType) *int { return v.MinChildEndpoints }).(pulumi.IntPtrOutput)
+}
+
+// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+func (o EndpointTypeOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointType) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+func (o EndpointTypeOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointType) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+func (o EndpointTypeOutput) TargetResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointType) *string { return v.TargetResourceId }).(pulumi.StringPtrOutput)
+}
+
+// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+func (o EndpointTypeOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointType) *int { return v.Weight }).(pulumi.IntPtrOutput)
 }
 
 type EndpointTypeArrayOutput struct{ *pulumi.OutputState }
@@ -1362,97 +1416,6 @@ func (o MonitorConfigResponsePtrOutput) ToleratedNumberOfFailures() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Class representing a Traffic Manager profile.
-type ProfileType struct {
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the Traffic Manager profile.
-	Properties ProfilePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type string `pulumi:"type"`
-}
-
-// ProfileTypeInput is an input type that accepts ProfileTypeArgs and ProfileTypeOutput values.
-// You can construct a concrete instance of `ProfileTypeInput` via:
-//
-//          ProfileTypeArgs{...}
-type ProfileTypeInput interface {
-	pulumi.Input
-
-	ToProfileTypeOutput() ProfileTypeOutput
-	ToProfileTypeOutputWithContext(context.Context) ProfileTypeOutput
-}
-
-// Class representing a Traffic Manager profile.
-type ProfileTypeArgs struct {
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the Traffic Manager profile.
-	Properties ProfilePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ProfileTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileType)(nil)).Elem()
-}
-
-func (i ProfileTypeArgs) ToProfileTypeOutput() ProfileTypeOutput {
-	return i.ToProfileTypeOutputWithContext(context.Background())
-}
-
-func (i ProfileTypeArgs) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileTypeOutput)
-}
-
-// Class representing a Traffic Manager profile.
-type ProfileTypeOutput struct{ *pulumi.OutputState }
-
-func (ProfileTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileType)(nil)).Elem()
-}
-
-func (o ProfileTypeOutput) ToProfileTypeOutput() ProfileTypeOutput {
-	return o
-}
-
-func (o ProfileTypeOutput) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
-	return o
-}
-
-// The Azure Region where the resource lives
-func (o ProfileTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProfileType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o ProfileTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the Traffic Manager profile.
-func (o ProfileTypeOutput) Properties() ProfilePropertiesResponseOutput {
-	return o.ApplyT(func(v ProfileType) ProfilePropertiesResponse { return v.Properties }).(ProfilePropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ProfileTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProfileType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
-func (o ProfileTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Class representing the Traffic Manager profile properties.
 type ProfilePropertiesResponse struct {
 	// The DNS settings of the Traffic Manager profile.
@@ -1678,7 +1641,6 @@ func init() {
 	pulumi.RegisterOutputType(MonitorConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitorConfigResponseOutput{})
 	pulumi.RegisterOutputType(MonitorConfigResponsePtrOutput{})
-	pulumi.RegisterOutputType(ProfileTypeOutput{})
 	pulumi.RegisterOutputType(ProfilePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProfilePropertiesResponsePtrOutput{})
 }

@@ -933,70 +933,6 @@ func (o EncryptionPropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
 }
 
 // Error detail information.
-type ErrorDetail struct {
-	// Error code.
-	Code string `pulumi:"code"`
-	// Error message.
-	Message string `pulumi:"message"`
-}
-
-// ErrorDetailInput is an input type that accepts ErrorDetailArgs and ErrorDetailOutput values.
-// You can construct a concrete instance of `ErrorDetailInput` via:
-//
-//          ErrorDetailArgs{...}
-type ErrorDetailInput interface {
-	pulumi.Input
-
-	ToErrorDetailOutput() ErrorDetailOutput
-	ToErrorDetailOutputWithContext(context.Context) ErrorDetailOutput
-}
-
-// Error detail information.
-type ErrorDetailArgs struct {
-	// Error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Error message.
-	Message pulumi.StringInput `pulumi:"message"`
-}
-
-func (ErrorDetailArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDetail)(nil)).Elem()
-}
-
-func (i ErrorDetailArgs) ToErrorDetailOutput() ErrorDetailOutput {
-	return i.ToErrorDetailOutputWithContext(context.Background())
-}
-
-func (i ErrorDetailArgs) ToErrorDetailOutputWithContext(ctx context.Context) ErrorDetailOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailOutput)
-}
-
-// Error detail information.
-type ErrorDetailOutput struct{ *pulumi.OutputState }
-
-func (ErrorDetailOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDetail)(nil)).Elem()
-}
-
-func (o ErrorDetailOutput) ToErrorDetailOutput() ErrorDetailOutput {
-	return o
-}
-
-func (o ErrorDetailOutput) ToErrorDetailOutputWithContext(ctx context.Context) ErrorDetailOutput {
-	return o
-}
-
-// Error code.
-func (o ErrorDetailOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDetail) string { return v.Code }).(pulumi.StringOutput)
-}
-
-// Error message.
-func (o ErrorDetailOutput) Message() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDetail) string { return v.Message }).(pulumi.StringOutput)
-}
-
-// Error detail information.
 type ErrorDetailResponse struct {
 	// Error code.
 	Code string `pulumi:"code"`
@@ -1106,52 +1042,6 @@ func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResp
 }
 
 // Error response information.
-type ErrorResponse struct {
-}
-
-// ErrorResponseInput is an input type that accepts ErrorResponseArgs and ErrorResponseOutput values.
-// You can construct a concrete instance of `ErrorResponseInput` via:
-//
-//          ErrorResponseArgs{...}
-type ErrorResponseInput interface {
-	pulumi.Input
-
-	ToErrorResponseOutput() ErrorResponseOutput
-	ToErrorResponseOutputWithContext(context.Context) ErrorResponseOutput
-}
-
-// Error response information.
-type ErrorResponseArgs struct {
-}
-
-func (ErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorResponse)(nil)).Elem()
-}
-
-func (i ErrorResponseArgs) ToErrorResponseOutput() ErrorResponseOutput {
-	return i.ToErrorResponseOutputWithContext(context.Background())
-}
-
-func (i ErrorResponseArgs) ToErrorResponseOutputWithContext(ctx context.Context) ErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponseOutput)
-}
-
-// Error response information.
-type ErrorResponseOutput struct{ *pulumi.OutputState }
-
-func (ErrorResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorResponse)(nil)).Elem()
-}
-
-func (o ErrorResponseOutput) ToErrorResponseOutput() ErrorResponseOutput {
-	return o
-}
-
-func (o ErrorResponseOutput) ToErrorResponseOutputWithContext(ctx context.Context) ErrorResponseOutput {
-	return o
-}
-
-// Error response information.
 type ErrorResponseResponse struct {
 	// Error code.
 	Code string `pulumi:"code"`
@@ -1228,8 +1118,6 @@ func (o ErrorResponseResponseOutput) Message() pulumi.StringOutput {
 type Identity struct {
 	// The identity type.
 	Type string `pulumi:"type"`
-	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]IdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -1247,8 +1135,6 @@ type IdentityInput interface {
 type IdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities IdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -1334,11 +1220,6 @@ func (o IdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityOutput) UserAssignedIdentities() IdentityPropertiesMapOutput {
-	return o.ApplyT(func(v Identity) map[string]IdentityProperties { return v.UserAssignedIdentities }).(IdentityPropertiesMapOutput)
-}
-
 type IdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityPtrOutput) ElementType() reflect.Type {
@@ -1367,104 +1248,6 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityPtrOutput) UserAssignedIdentities() IdentityPropertiesMapOutput {
-	return o.ApplyT(func(v *Identity) map[string]IdentityProperties {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(IdentityPropertiesMapOutput)
-}
-
-type IdentityProperties struct {
-}
-
-// IdentityPropertiesInput is an input type that accepts IdentityPropertiesArgs and IdentityPropertiesOutput values.
-// You can construct a concrete instance of `IdentityPropertiesInput` via:
-//
-//          IdentityPropertiesArgs{...}
-type IdentityPropertiesInput interface {
-	pulumi.Input
-
-	ToIdentityPropertiesOutput() IdentityPropertiesOutput
-	ToIdentityPropertiesOutputWithContext(context.Context) IdentityPropertiesOutput
-}
-
-type IdentityPropertiesArgs struct {
-}
-
-func (IdentityPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
-}
-
-func (i IdentityPropertiesArgs) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
-	return i.ToIdentityPropertiesOutputWithContext(context.Background())
-}
-
-func (i IdentityPropertiesArgs) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesOutput)
-}
-
-// IdentityPropertiesMapInput is an input type that accepts IdentityPropertiesMap and IdentityPropertiesMapOutput values.
-// You can construct a concrete instance of `IdentityPropertiesMapInput` via:
-//
-//          IdentityPropertiesMap{ "key": IdentityPropertiesArgs{...} }
-type IdentityPropertiesMapInput interface {
-	pulumi.Input
-
-	ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput
-	ToIdentityPropertiesMapOutputWithContext(context.Context) IdentityPropertiesMapOutput
-}
-
-type IdentityPropertiesMap map[string]IdentityPropertiesInput
-
-func (IdentityPropertiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityProperties)(nil)).Elem()
-}
-
-func (i IdentityPropertiesMap) ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput {
-	return i.ToIdentityPropertiesMapOutputWithContext(context.Background())
-}
-
-func (i IdentityPropertiesMap) ToIdentityPropertiesMapOutputWithContext(ctx context.Context) IdentityPropertiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesMapOutput)
-}
-
-type IdentityPropertiesOutput struct{ *pulumi.OutputState }
-
-func (IdentityPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
-}
-
-func (o IdentityPropertiesOutput) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
-	return o
-}
-
-func (o IdentityPropertiesOutput) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
-	return o
-}
-
-type IdentityPropertiesMapOutput struct{ *pulumi.OutputState }
-
-func (IdentityPropertiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityProperties)(nil)).Elem()
-}
-
-func (o IdentityPropertiesMapOutput) ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput {
-	return o
-}
-
-func (o IdentityPropertiesMapOutput) ToIdentityPropertiesMapOutputWithContext(ctx context.Context) IdentityPropertiesMapOutput {
-	return o
-}
-
-func (o IdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) IdentityPropertiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityProperties {
-		return vs[0].(map[string]IdentityProperties)[vs[1].(string)]
-	}).(IdentityPropertiesOutput)
-}
-
 // Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
@@ -1474,7 +1257,7 @@ type IdentityResponse struct {
 	// The identity type.
 	Type string `pulumi:"type"`
 	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]IdentityResponseProperties `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]IdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -1497,7 +1280,7 @@ type IdentityResponseArgs struct {
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities IdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities IdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -1594,8 +1377,10 @@ func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 }
 
 // The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponsePropertiesMapOutput {
-	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseProperties { return v.UserAssignedIdentities }).(IdentityResponsePropertiesMapOutput)
+func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
+		return v.UserAssignedIdentities
+	}).(IdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
 type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1647,119 +1432,119 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponsePropertiesMapOutput {
-	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseProperties {
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(IdentityResponsePropertiesMapOutput)
+	}).(IdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
-type IdentityResponseProperties struct {
+type IdentityResponseUserAssignedIdentities struct {
 	// The client id of user assigned identity.
 	ClientId string `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId string `pulumi:"principalId"`
 }
 
-// IdentityResponsePropertiesInput is an input type that accepts IdentityResponsePropertiesArgs and IdentityResponsePropertiesOutput values.
-// You can construct a concrete instance of `IdentityResponsePropertiesInput` via:
+// IdentityResponseUserAssignedIdentitiesInput is an input type that accepts IdentityResponseUserAssignedIdentitiesArgs and IdentityResponseUserAssignedIdentitiesOutput values.
+// You can construct a concrete instance of `IdentityResponseUserAssignedIdentitiesInput` via:
 //
-//          IdentityResponsePropertiesArgs{...}
-type IdentityResponsePropertiesInput interface {
+//          IdentityResponseUserAssignedIdentitiesArgs{...}
+type IdentityResponseUserAssignedIdentitiesInput interface {
 	pulumi.Input
 
-	ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput
-	ToIdentityResponsePropertiesOutputWithContext(context.Context) IdentityResponsePropertiesOutput
+	ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput
+	ToIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Context) IdentityResponseUserAssignedIdentitiesOutput
 }
 
-type IdentityResponsePropertiesArgs struct {
+type IdentityResponseUserAssignedIdentitiesArgs struct {
 	// The client id of user assigned identity.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
-func (IdentityResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (i IdentityResponsePropertiesArgs) ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput {
-	return i.ToIdentityResponsePropertiesOutputWithContext(context.Background())
+func (i IdentityResponseUserAssignedIdentitiesArgs) ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput {
+	return i.ToIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Background())
 }
 
-func (i IdentityResponsePropertiesArgs) ToIdentityResponsePropertiesOutputWithContext(ctx context.Context) IdentityResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePropertiesOutput)
+func (i IdentityResponseUserAssignedIdentitiesArgs) ToIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// IdentityResponsePropertiesMapInput is an input type that accepts IdentityResponsePropertiesMap and IdentityResponsePropertiesMapOutput values.
-// You can construct a concrete instance of `IdentityResponsePropertiesMapInput` via:
+// IdentityResponseUserAssignedIdentitiesMapInput is an input type that accepts IdentityResponseUserAssignedIdentitiesMap and IdentityResponseUserAssignedIdentitiesMapOutput values.
+// You can construct a concrete instance of `IdentityResponseUserAssignedIdentitiesMapInput` via:
 //
-//          IdentityResponsePropertiesMap{ "key": IdentityResponsePropertiesArgs{...} }
-type IdentityResponsePropertiesMapInput interface {
+//          IdentityResponseUserAssignedIdentitiesMap{ "key": IdentityResponseUserAssignedIdentitiesArgs{...} }
+type IdentityResponseUserAssignedIdentitiesMapInput interface {
 	pulumi.Input
 
-	ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput
-	ToIdentityResponsePropertiesMapOutputWithContext(context.Context) IdentityResponsePropertiesMapOutput
+	ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput
+	ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Context) IdentityResponseUserAssignedIdentitiesMapOutput
 }
 
-type IdentityResponsePropertiesMap map[string]IdentityResponsePropertiesInput
+type IdentityResponseUserAssignedIdentitiesMap map[string]IdentityResponseUserAssignedIdentitiesInput
 
-func (IdentityResponsePropertiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (i IdentityResponsePropertiesMap) ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput {
-	return i.ToIdentityResponsePropertiesMapOutputWithContext(context.Background())
+func (i IdentityResponseUserAssignedIdentitiesMap) ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return i.ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Background())
 }
 
-func (i IdentityResponsePropertiesMap) ToIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) IdentityResponsePropertiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePropertiesMapOutput)
+func (i IdentityResponseUserAssignedIdentitiesMap) ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
-type IdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+type IdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
 
-func (IdentityResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (o IdentityResponsePropertiesOutput) ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput {
+func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput {
 	return o
 }
 
-func (o IdentityResponsePropertiesOutput) ToIdentityResponsePropertiesOutputWithContext(ctx context.Context) IdentityResponsePropertiesOutput {
+func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesOutput {
 	return o
 }
 
 // The client id of user assigned identity.
-func (o IdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+func (o IdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
 // The principal id of user assigned identity.
-func (o IdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o IdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-type IdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+type IdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
 
-func (IdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (o IdentityResponsePropertiesMapOutput) ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput {
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput {
 	return o
 }
 
-func (o IdentityResponsePropertiesMapOutput) ToIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) IdentityResponsePropertiesMapOutput {
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesMapOutput {
 	return o
 }
 
-func (o IdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) IdentityResponsePropertiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityResponseProperties {
-		return vs[0].(map[string]IdentityResponseProperties)[vs[1].(string)]
-	}).(IdentityResponsePropertiesOutput)
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) IdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityResponseUserAssignedIdentities {
+		return vs[0].(map[string]IdentityResponseUserAssignedIdentities)[vs[1].(string)]
+	}).(IdentityResponseUserAssignedIdentitiesOutput)
 }
 
 type KeyVaultProperties struct {
@@ -2100,161 +1885,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVaultArmId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Machine Learning compute object wrapped into ARM resource envelope.
-type MachineLearningComputeType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Compute properties
-	Properties ComputeResponse `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// MachineLearningComputeTypeInput is an input type that accepts MachineLearningComputeTypeArgs and MachineLearningComputeTypeOutput values.
-// You can construct a concrete instance of `MachineLearningComputeTypeInput` via:
-//
-//          MachineLearningComputeTypeArgs{...}
-type MachineLearningComputeTypeInput interface {
-	pulumi.Input
-
-	ToMachineLearningComputeTypeOutput() MachineLearningComputeTypeOutput
-	ToMachineLearningComputeTypeOutputWithContext(context.Context) MachineLearningComputeTypeOutput
-}
-
-// Machine Learning compute object wrapped into ARM resource envelope.
-type MachineLearningComputeTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Compute properties
-	Properties ComputeResponseInput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MachineLearningComputeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningComputeType)(nil)).Elem()
-}
-
-func (i MachineLearningComputeTypeArgs) ToMachineLearningComputeTypeOutput() MachineLearningComputeTypeOutput {
-	return i.ToMachineLearningComputeTypeOutputWithContext(context.Background())
-}
-
-func (i MachineLearningComputeTypeArgs) ToMachineLearningComputeTypeOutputWithContext(ctx context.Context) MachineLearningComputeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningComputeTypeOutput)
-}
-
-// Machine Learning compute object wrapped into ARM resource envelope.
-type MachineLearningComputeTypeOutput struct{ *pulumi.OutputState }
-
-func (MachineLearningComputeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningComputeType)(nil)).Elem()
-}
-
-func (o MachineLearningComputeTypeOutput) ToMachineLearningComputeTypeOutput() MachineLearningComputeTypeOutput {
-	return o
-}
-
-func (o MachineLearningComputeTypeOutput) ToMachineLearningComputeTypeOutputWithContext(ctx context.Context) MachineLearningComputeTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o MachineLearningComputeTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// Specifies the location of the resource.
-func (o MachineLearningComputeTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the resource.
-func (o MachineLearningComputeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Compute properties
-func (o MachineLearningComputeTypeOutput) Properties() ComputeResponseOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) ComputeResponse { return v.Properties }).(ComputeResponseOutput)
-}
-
-// The sku of the workspace.
-func (o MachineLearningComputeTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Contains resource tags defined as key/value pairs.
-func (o MachineLearningComputeTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies the type of the resource.
-func (o MachineLearningComputeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Wrapper for error response to follow ARM guidelines.
-type MachineLearningServiceError struct {
-}
-
-// MachineLearningServiceErrorInput is an input type that accepts MachineLearningServiceErrorArgs and MachineLearningServiceErrorOutput values.
-// You can construct a concrete instance of `MachineLearningServiceErrorInput` via:
-//
-//          MachineLearningServiceErrorArgs{...}
-type MachineLearningServiceErrorInput interface {
-	pulumi.Input
-
-	ToMachineLearningServiceErrorOutput() MachineLearningServiceErrorOutput
-	ToMachineLearningServiceErrorOutputWithContext(context.Context) MachineLearningServiceErrorOutput
-}
-
-// Wrapper for error response to follow ARM guidelines.
-type MachineLearningServiceErrorArgs struct {
-}
-
-func (MachineLearningServiceErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningServiceError)(nil)).Elem()
-}
-
-func (i MachineLearningServiceErrorArgs) ToMachineLearningServiceErrorOutput() MachineLearningServiceErrorOutput {
-	return i.ToMachineLearningServiceErrorOutputWithContext(context.Background())
-}
-
-func (i MachineLearningServiceErrorArgs) ToMachineLearningServiceErrorOutputWithContext(ctx context.Context) MachineLearningServiceErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningServiceErrorOutput)
-}
-
-// Wrapper for error response to follow ARM guidelines.
-type MachineLearningServiceErrorOutput struct{ *pulumi.OutputState }
-
-func (MachineLearningServiceErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningServiceError)(nil)).Elem()
-}
-
-func (o MachineLearningServiceErrorOutput) ToMachineLearningServiceErrorOutput() MachineLearningServiceErrorOutput {
-	return o
-}
-
-func (o MachineLearningServiceErrorOutput) ToMachineLearningServiceErrorOutputWithContext(ctx context.Context) MachineLearningServiceErrorOutput {
-	return o
-}
-
 // Wrapper for error response to follow ARM guidelines.
 type MachineLearningServiceErrorResponse struct {
 	// The error response.
@@ -2410,147 +2040,6 @@ func (o NotebookListCredentialsResultResponseOutput) SecondaryAccessKey() pulumi
 	return o.ApplyT(func(v NotebookListCredentialsResultResponse) *string { return v.SecondaryAccessKey }).(pulumi.StringPtrOutput)
 }
 
-type NotebookPreparationError struct {
-	ErrorMessage *string `pulumi:"errorMessage"`
-	StatusCode   *int    `pulumi:"statusCode"`
-}
-
-// NotebookPreparationErrorInput is an input type that accepts NotebookPreparationErrorArgs and NotebookPreparationErrorOutput values.
-// You can construct a concrete instance of `NotebookPreparationErrorInput` via:
-//
-//          NotebookPreparationErrorArgs{...}
-type NotebookPreparationErrorInput interface {
-	pulumi.Input
-
-	ToNotebookPreparationErrorOutput() NotebookPreparationErrorOutput
-	ToNotebookPreparationErrorOutputWithContext(context.Context) NotebookPreparationErrorOutput
-}
-
-type NotebookPreparationErrorArgs struct {
-	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
-	StatusCode   pulumi.IntPtrInput    `pulumi:"statusCode"`
-}
-
-func (NotebookPreparationErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookPreparationError)(nil)).Elem()
-}
-
-func (i NotebookPreparationErrorArgs) ToNotebookPreparationErrorOutput() NotebookPreparationErrorOutput {
-	return i.ToNotebookPreparationErrorOutputWithContext(context.Background())
-}
-
-func (i NotebookPreparationErrorArgs) ToNotebookPreparationErrorOutputWithContext(ctx context.Context) NotebookPreparationErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotebookPreparationErrorOutput)
-}
-
-func (i NotebookPreparationErrorArgs) ToNotebookPreparationErrorPtrOutput() NotebookPreparationErrorPtrOutput {
-	return i.ToNotebookPreparationErrorPtrOutputWithContext(context.Background())
-}
-
-func (i NotebookPreparationErrorArgs) ToNotebookPreparationErrorPtrOutputWithContext(ctx context.Context) NotebookPreparationErrorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotebookPreparationErrorOutput).ToNotebookPreparationErrorPtrOutputWithContext(ctx)
-}
-
-// NotebookPreparationErrorPtrInput is an input type that accepts NotebookPreparationErrorArgs, NotebookPreparationErrorPtr and NotebookPreparationErrorPtrOutput values.
-// You can construct a concrete instance of `NotebookPreparationErrorPtrInput` via:
-//
-//          NotebookPreparationErrorArgs{...}
-//
-//  or:
-//
-//          nil
-type NotebookPreparationErrorPtrInput interface {
-	pulumi.Input
-
-	ToNotebookPreparationErrorPtrOutput() NotebookPreparationErrorPtrOutput
-	ToNotebookPreparationErrorPtrOutputWithContext(context.Context) NotebookPreparationErrorPtrOutput
-}
-
-type notebookPreparationErrorPtrType NotebookPreparationErrorArgs
-
-func NotebookPreparationErrorPtr(v *NotebookPreparationErrorArgs) NotebookPreparationErrorPtrInput {
-	return (*notebookPreparationErrorPtrType)(v)
-}
-
-func (*notebookPreparationErrorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotebookPreparationError)(nil)).Elem()
-}
-
-func (i *notebookPreparationErrorPtrType) ToNotebookPreparationErrorPtrOutput() NotebookPreparationErrorPtrOutput {
-	return i.ToNotebookPreparationErrorPtrOutputWithContext(context.Background())
-}
-
-func (i *notebookPreparationErrorPtrType) ToNotebookPreparationErrorPtrOutputWithContext(ctx context.Context) NotebookPreparationErrorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotebookPreparationErrorPtrOutput)
-}
-
-type NotebookPreparationErrorOutput struct{ *pulumi.OutputState }
-
-func (NotebookPreparationErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookPreparationError)(nil)).Elem()
-}
-
-func (o NotebookPreparationErrorOutput) ToNotebookPreparationErrorOutput() NotebookPreparationErrorOutput {
-	return o
-}
-
-func (o NotebookPreparationErrorOutput) ToNotebookPreparationErrorOutputWithContext(ctx context.Context) NotebookPreparationErrorOutput {
-	return o
-}
-
-func (o NotebookPreparationErrorOutput) ToNotebookPreparationErrorPtrOutput() NotebookPreparationErrorPtrOutput {
-	return o.ToNotebookPreparationErrorPtrOutputWithContext(context.Background())
-}
-
-func (o NotebookPreparationErrorOutput) ToNotebookPreparationErrorPtrOutputWithContext(ctx context.Context) NotebookPreparationErrorPtrOutput {
-	return o.ApplyT(func(v NotebookPreparationError) *NotebookPreparationError {
-		return &v
-	}).(NotebookPreparationErrorPtrOutput)
-}
-func (o NotebookPreparationErrorOutput) ErrorMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotebookPreparationError) *string { return v.ErrorMessage }).(pulumi.StringPtrOutput)
-}
-
-func (o NotebookPreparationErrorOutput) StatusCode() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NotebookPreparationError) *int { return v.StatusCode }).(pulumi.IntPtrOutput)
-}
-
-type NotebookPreparationErrorPtrOutput struct{ *pulumi.OutputState }
-
-func (NotebookPreparationErrorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotebookPreparationError)(nil)).Elem()
-}
-
-func (o NotebookPreparationErrorPtrOutput) ToNotebookPreparationErrorPtrOutput() NotebookPreparationErrorPtrOutput {
-	return o
-}
-
-func (o NotebookPreparationErrorPtrOutput) ToNotebookPreparationErrorPtrOutputWithContext(ctx context.Context) NotebookPreparationErrorPtrOutput {
-	return o
-}
-
-func (o NotebookPreparationErrorPtrOutput) Elem() NotebookPreparationErrorOutput {
-	return o.ApplyT(func(v *NotebookPreparationError) NotebookPreparationError { return *v }).(NotebookPreparationErrorOutput)
-}
-
-func (o NotebookPreparationErrorPtrOutput) ErrorMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *NotebookPreparationError) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ErrorMessage
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o NotebookPreparationErrorPtrOutput) StatusCode() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *NotebookPreparationError) *int {
-		if v == nil {
-			return nil
-		}
-		return v.StatusCode
-	}).(pulumi.IntPtrOutput)
-}
-
 type NotebookPreparationErrorResponse struct {
 	ErrorMessage *string `pulumi:"errorMessage"`
 	StatusCode   *int    `pulumi:"statusCode"`
@@ -2690,73 +2179,6 @@ func (o NotebookPreparationErrorResponsePtrOutput) StatusCode() pulumi.IntPtrOut
 		}
 		return v.StatusCode
 	}).(pulumi.IntPtrOutput)
-}
-
-type NotebookResourceInfo struct {
-	Fqdn *string `pulumi:"fqdn"`
-	// The error that occurs when preparing notebook.
-	NotebookPreparationError *NotebookPreparationError `pulumi:"notebookPreparationError"`
-	// the data plane resourceId that used to initialize notebook component
-	ResourceId *string `pulumi:"resourceId"`
-}
-
-// NotebookResourceInfoInput is an input type that accepts NotebookResourceInfoArgs and NotebookResourceInfoOutput values.
-// You can construct a concrete instance of `NotebookResourceInfoInput` via:
-//
-//          NotebookResourceInfoArgs{...}
-type NotebookResourceInfoInput interface {
-	pulumi.Input
-
-	ToNotebookResourceInfoOutput() NotebookResourceInfoOutput
-	ToNotebookResourceInfoOutputWithContext(context.Context) NotebookResourceInfoOutput
-}
-
-type NotebookResourceInfoArgs struct {
-	Fqdn pulumi.StringPtrInput `pulumi:"fqdn"`
-	// The error that occurs when preparing notebook.
-	NotebookPreparationError NotebookPreparationErrorPtrInput `pulumi:"notebookPreparationError"`
-	// the data plane resourceId that used to initialize notebook component
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (NotebookResourceInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookResourceInfo)(nil)).Elem()
-}
-
-func (i NotebookResourceInfoArgs) ToNotebookResourceInfoOutput() NotebookResourceInfoOutput {
-	return i.ToNotebookResourceInfoOutputWithContext(context.Background())
-}
-
-func (i NotebookResourceInfoArgs) ToNotebookResourceInfoOutputWithContext(ctx context.Context) NotebookResourceInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotebookResourceInfoOutput)
-}
-
-type NotebookResourceInfoOutput struct{ *pulumi.OutputState }
-
-func (NotebookResourceInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookResourceInfo)(nil)).Elem()
-}
-
-func (o NotebookResourceInfoOutput) ToNotebookResourceInfoOutput() NotebookResourceInfoOutput {
-	return o
-}
-
-func (o NotebookResourceInfoOutput) ToNotebookResourceInfoOutputWithContext(ctx context.Context) NotebookResourceInfoOutput {
-	return o
-}
-
-func (o NotebookResourceInfoOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotebookResourceInfo) *string { return v.Fqdn }).(pulumi.StringPtrOutput)
-}
-
-// The error that occurs when preparing notebook.
-func (o NotebookResourceInfoOutput) NotebookPreparationError() NotebookPreparationErrorPtrOutput {
-	return o.ApplyT(func(v NotebookResourceInfo) *NotebookPreparationError { return v.NotebookPreparationError }).(NotebookPreparationErrorPtrOutput)
-}
-
-// the data plane resourceId that used to initialize notebook component
-func (o NotebookResourceInfoOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotebookResourceInfo) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
 type NotebookResourceInfoResponse struct {
@@ -3023,230 +2445,6 @@ func (o PasswordResponseArrayOutput) Index(i pulumi.IntInput) PasswordResponseOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PasswordResponse {
 		return vs[0].([]PasswordResponse)[vs[1].(int)]
 	}).(PasswordResponseOutput)
-}
-
-// The Private Endpoint resource.
-type PrivateEndpoint struct {
-}
-
-// PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
-// You can construct a concrete instance of `PrivateEndpointInput` via:
-//
-//          PrivateEndpointArgs{...}
-type PrivateEndpointInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointOutput() PrivateEndpointOutput
-	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
-}
-
-// The Private Endpoint resource.
-type PrivateEndpointArgs struct {
-}
-
-func (PrivateEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointOutput() PrivateEndpointOutput {
-	return i.ToPrivateEndpointOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput)
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput).ToPrivateEndpointPtrOutputWithContext(ctx)
-}
-
-// PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
-// You can construct a concrete instance of `PrivateEndpointPtrInput` via:
-//
-//          PrivateEndpointArgs{...}
-//
-//  or:
-//
-//          nil
-type PrivateEndpointPtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput
-	ToPrivateEndpointPtrOutputWithContext(context.Context) PrivateEndpointPtrOutput
-}
-
-type privateEndpointPtrType PrivateEndpointArgs
-
-func PrivateEndpointPtr(v *PrivateEndpointArgs) PrivateEndpointPtrInput {
-	return (*privateEndpointPtrType)(v)
-}
-
-func (*privateEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
-}
-
-func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
-}
-
-// The Private Endpoint resource.
-type PrivateEndpointOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointOutput() PrivateEndpointOutput {
-	return o
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
-	return o
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return o.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
-		return &v
-	}).(PrivateEndpointPtrOutput)
-}
-
-type PrivateEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
-}
-
-func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
-}
-
-// The Private Endpoint Connection resource.
-type PrivateEndpointConnectionType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
-//
-//          PrivateEndpointConnectionTypeArgs{...}
-type PrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
-	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
-}
-
-// The Private Endpoint Connection resource.
-type PrivateEndpointConnectionTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
-	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
-}
-
-// The Private Endpoint Connection resource.
-type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o PrivateEndpointConnectionTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// Specifies the location of the resource.
-func (o PrivateEndpointConnectionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the resource.
-func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource properties.
-func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The sku of the workspace.
-func (o PrivateEndpointConnectionTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Contains resource tags defined as key/value pairs.
-func (o PrivateEndpointConnectionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies the type of the resource.
-func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of the PrivateEndpointConnectProperties.
@@ -4871,188 +4069,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents a machine learning workspace.
-type WorkspaceType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the machine learning workspace.
-	Properties WorkspacePropertiesResponse `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceTypeInput is an input type that accepts WorkspaceTypeArgs and WorkspaceTypeOutput values.
-// You can construct a concrete instance of `WorkspaceTypeInput` via:
-//
-//          WorkspaceTypeArgs{...}
-type WorkspaceTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceTypeOutput() WorkspaceTypeOutput
-	ToWorkspaceTypeOutputWithContext(context.Context) WorkspaceTypeOutput
-}
-
-// An object that represents a machine learning workspace.
-type WorkspaceTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the machine learning workspace.
-	Properties WorkspacePropertiesResponseInput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceType)(nil)).Elem()
-}
-
-func (i WorkspaceTypeArgs) ToWorkspaceTypeOutput() WorkspaceTypeOutput {
-	return i.ToWorkspaceTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceTypeArgs) ToWorkspaceTypeOutputWithContext(ctx context.Context) WorkspaceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTypeOutput)
-}
-
-// An object that represents a machine learning workspace.
-type WorkspaceTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceType)(nil)).Elem()
-}
-
-func (o WorkspaceTypeOutput) ToWorkspaceTypeOutput() WorkspaceTypeOutput {
-	return o
-}
-
-func (o WorkspaceTypeOutput) ToWorkspaceTypeOutputWithContext(ctx context.Context) WorkspaceTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o WorkspaceTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// Specifies the location of the resource.
-func (o WorkspaceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the resource.
-func (o WorkspaceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the machine learning workspace.
-func (o WorkspaceTypeOutput) Properties() WorkspacePropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceType) WorkspacePropertiesResponse { return v.Properties }).(WorkspacePropertiesResponseOutput)
-}
-
-// The sku of the workspace.
-func (o WorkspaceTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Contains resource tags defined as key/value pairs.
-func (o WorkspaceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkspaceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies the type of the resource.
-func (o WorkspaceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Workspace connection.
-type WorkspaceConnectionType struct {
-	// Friendly name of the workspace connection.
-	Name string `pulumi:"name"`
-	// Properties of workspace connection.
-	Properties WorkspaceConnectionPropsResponse `pulumi:"properties"`
-	// Resource type of workspace connection.
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceConnectionTypeInput is an input type that accepts WorkspaceConnectionTypeArgs and WorkspaceConnectionTypeOutput values.
-// You can construct a concrete instance of `WorkspaceConnectionTypeInput` via:
-//
-//          WorkspaceConnectionTypeArgs{...}
-type WorkspaceConnectionTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceConnectionTypeOutput() WorkspaceConnectionTypeOutput
-	ToWorkspaceConnectionTypeOutputWithContext(context.Context) WorkspaceConnectionTypeOutput
-}
-
-// Workspace connection.
-type WorkspaceConnectionTypeArgs struct {
-	// Friendly name of the workspace connection.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of workspace connection.
-	Properties WorkspaceConnectionPropsResponseInput `pulumi:"properties"`
-	// Resource type of workspace connection.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceConnectionType)(nil)).Elem()
-}
-
-func (i WorkspaceConnectionTypeArgs) ToWorkspaceConnectionTypeOutput() WorkspaceConnectionTypeOutput {
-	return i.ToWorkspaceConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceConnectionTypeArgs) ToWorkspaceConnectionTypeOutputWithContext(ctx context.Context) WorkspaceConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionTypeOutput)
-}
-
-// Workspace connection.
-type WorkspaceConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceConnectionType)(nil)).Elem()
-}
-
-func (o WorkspaceConnectionTypeOutput) ToWorkspaceConnectionTypeOutput() WorkspaceConnectionTypeOutput {
-	return o
-}
-
-func (o WorkspaceConnectionTypeOutput) ToWorkspaceConnectionTypeOutputWithContext(ctx context.Context) WorkspaceConnectionTypeOutput {
-	return o
-}
-
-// Friendly name of the workspace connection.
-func (o WorkspaceConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of workspace connection.
-func (o WorkspaceConnectionTypeOutput) Properties() WorkspaceConnectionPropsResponseOutput {
-	return o.ApplyT(func(v WorkspaceConnectionType) WorkspaceConnectionPropsResponse { return v.Properties }).(WorkspaceConnectionPropsResponseOutput)
-}
-
-// Resource type of workspace connection.
-func (o WorkspaceConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Workspace Connection specific properties.
 type WorkspaceConnectionPropsResponse struct {
 	// Authorization type of the workspace connection.
@@ -5735,40 +4751,28 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionPropertyPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertyResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ErrorDetailOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
-	pulumi.RegisterOutputType(ErrorResponseOutput{})
 	pulumi.RegisterOutputType(ErrorResponseResponseOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
-	pulumi.RegisterOutputType(IdentityPropertiesOutput{})
-	pulumi.RegisterOutputType(IdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(IdentityResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(IdentityResponsePropertiesMapOutput{})
+	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(MachineLearningComputeTypeOutput{})
-	pulumi.RegisterOutputType(MachineLearningServiceErrorOutput{})
 	pulumi.RegisterOutputType(MachineLearningServiceErrorResponseOutput{})
 	pulumi.RegisterOutputType(MachineLearningServiceErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(NotebookListCredentialsResultResponseOutput{})
-	pulumi.RegisterOutputType(NotebookPreparationErrorOutput{})
-	pulumi.RegisterOutputType(NotebookPreparationErrorPtrOutput{})
 	pulumi.RegisterOutputType(NotebookPreparationErrorResponseOutput{})
 	pulumi.RegisterOutputType(NotebookPreparationErrorResponsePtrOutput{})
-	pulumi.RegisterOutputType(NotebookResourceInfoOutput{})
 	pulumi.RegisterOutputType(NotebookResourceInfoResponseOutput{})
 	pulumi.RegisterOutputType(NotebookResourceInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(PasswordResponseOutput{})
 	pulumi.RegisterOutputType(PasswordResponseArrayOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
@@ -5790,8 +4794,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(WorkspaceTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceConnectionTypeOutput{})
 	pulumi.RegisterOutputType(WorkspaceConnectionPropsResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceConnectionPropsResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponseOutput{})

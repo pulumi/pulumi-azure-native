@@ -119,43 +119,43 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
         The **authorizations** object supports the following:
 
+          * `authorization_key` (`pulumi.Input[str]`) - Gets or sets the authorization key
+          * `authorization_use_status` (`pulumi.Input[str]`) - Gets or sets AuthorizationUseStatus
           * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `id` (`pulumi.Input[str]`) - Resource Id
           * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-          * `properties` (`pulumi.Input[dict]`)
-            * `authorization_key` (`pulumi.Input[str]`) - Gets or sets the authorization key
-            * `authorization_use_status` (`pulumi.Input[str]`) - Gets or sets AuthorizationUseStatus
-            * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+          * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
 
         The **peerings** object supports the following:
 
+          * `azure_asn` (`pulumi.Input[float]`) - Gets or sets the azure ASN
           * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `gateway_manager_etag` (`pulumi.Input[str]`) - Gets or sets the GatewayManager Etag
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `last_modified_by` (`pulumi.Input[str]`) - Gets whether the provider or the customer last modified the peering
+          * `microsoft_peering_config` (`pulumi.Input[dict]`) - Gets or sets the Microsoft peering config
+            * `advertised_public_prefixes` (`pulumi.Input[list]`) - Gets or sets the reference of AdvertisedPublicPrefixes
+            * `advertised_public_prefixes_state` (`pulumi.Input[str]`) - Gets or sets AdvertisedPublicPrefixState of the Peering resource 
+            * `customer_asn` (`pulumi.Input[float]`) - Gets or Sets CustomerAsn of the peering.
+            * `routing_registry_name` (`pulumi.Input[str]`) - Gets or Sets RoutingRegistryName of the config.
+
           * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-          * `properties` (`pulumi.Input[dict]`)
-            * `azure_asn` (`pulumi.Input[float]`) - Gets or sets the azure ASN
-            * `gateway_manager_etag` (`pulumi.Input[str]`) - Gets or sets the GatewayManager Etag
-            * `last_modified_by` (`pulumi.Input[str]`) - Gets whether the provider or the customer last modified the peering
-            * `microsoft_peering_config` (`pulumi.Input[dict]`) - Gets or sets the Microsoft peering config
-              * `advertised_public_prefixes` (`pulumi.Input[list]`) - Gets or sets the reference of AdvertisedPublicPrefixes
-              * `advertised_public_prefixes_state` (`pulumi.Input[str]`) - Gets or sets AdvertisedPublicPrefixState of the Peering resource 
-              * `customer_asn` (`pulumi.Input[float]`) - Gets or Sets CustomerAsn of the peering.
-              * `routing_registry_name` (`pulumi.Input[str]`) - Gets or Sets RoutingRegistryName of the config.
+          * `peer_asn` (`pulumi.Input[float]`) - Gets or sets the peer ASN
+          * `peering_type` (`pulumi.Input[str]`) - Gets or sets PeeringType
+          * `primary_azure_port` (`pulumi.Input[str]`) - Gets or sets the primary port
+          * `primary_peer_address_prefix` (`pulumi.Input[str]`) - Gets or sets the primary address prefix
+          * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+          * `secondary_azure_port` (`pulumi.Input[str]`) - Gets or sets the secondary port
+          * `secondary_peer_address_prefix` (`pulumi.Input[str]`) - Gets or sets the secondary address prefix
+          * `shared_key` (`pulumi.Input[str]`) - Gets or sets the shared key
+          * `state` (`pulumi.Input[str]`) - Gets or sets state of Peering
+          * `stats` (`pulumi.Input[dict]`) - Gets or peering stats
+            * `primarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
+            * `primarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
+            * `secondarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
+            * `secondarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
 
-            * `peer_asn` (`pulumi.Input[float]`) - Gets or sets the peer ASN
-            * `peering_type` (`pulumi.Input[str]`) - Gets or sets PeeringType
-            * `primary_azure_port` (`pulumi.Input[str]`) - Gets or sets the primary port
-            * `primary_peer_address_prefix` (`pulumi.Input[str]`) - Gets or sets the primary address prefix
-            * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-            * `secondary_azure_port` (`pulumi.Input[str]`) - Gets or sets the secondary port
-            * `secondary_peer_address_prefix` (`pulumi.Input[str]`) - Gets or sets the secondary address prefix
-            * `shared_key` (`pulumi.Input[str]`) - Gets or sets the shared key
-            * `state` (`pulumi.Input[str]`) - Gets or sets state of Peering
-            * `stats` (`pulumi.Input[dict]`) - Gets or peering stats
-              * `primarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
-              * `primarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
-              * `secondarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
-              * `secondarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
-
-            * `vlan_id` (`pulumi.Input[float]`) - Gets or sets the vlan id
+          * `vlan_id` (`pulumi.Input[float]`) - Gets or sets the vlan id
 
         The **service_provider_properties** object supports the following:
 

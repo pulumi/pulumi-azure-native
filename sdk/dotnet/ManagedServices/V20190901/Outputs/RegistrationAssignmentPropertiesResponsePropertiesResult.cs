@@ -14,43 +14,64 @@ namespace Pulumi.AzureRM.ManagedServices.V20190901.Outputs
     public sealed class RegistrationAssignmentPropertiesResponsePropertiesResult
     {
         /// <summary>
-        /// Fully qualified path of the registration definition.
+        /// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
         /// </summary>
-        public readonly string Id;
+        public readonly ImmutableArray<Outputs.AuthorizationResponseResult> Authorizations;
+        /// <summary>
+        /// Description of the registration definition.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Id of the managedBy tenant.
+        /// </summary>
+        public readonly string? ManagedByTenantId;
+        /// <summary>
+        /// Name of the managedBy tenant.
+        /// </summary>
+        public readonly string? ManagedByTenantName;
+        /// <summary>
+        /// Id of the home tenant.
+        /// </summary>
+        public readonly string? ManageeTenantId;
+        /// <summary>
+        /// Name of the home tenant.
+        /// </summary>
+        public readonly string? ManageeTenantName;
+        /// <summary>
+        /// Current state of the registration definition.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Name of the registration definition.
         /// </summary>
-        public readonly string Name;
-        /// <summary>
-        /// Plan details for the managed services.
-        /// </summary>
-        public readonly Outputs.PlanResponseResult? Plan;
-        /// <summary>
-        /// Properties of registration definition inside registration assignment.
-        /// </summary>
-        public readonly Outputs.RegistrationAssignmentPropertiesResponsePropertiesResult? Properties;
-        /// <summary>
-        /// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
-        /// </summary>
-        public readonly string Type;
+        public readonly string? RegistrationDefinitionName;
 
         [OutputConstructor]
         private RegistrationAssignmentPropertiesResponsePropertiesResult(
-            string id,
+            ImmutableArray<Outputs.AuthorizationResponseResult> authorizations,
 
-            string name,
+            string? description,
 
-            Outputs.PlanResponseResult? plan,
+            string? managedByTenantId,
 
-            Outputs.RegistrationAssignmentPropertiesResponsePropertiesResult? properties,
+            string? managedByTenantName,
 
-            string type)
+            string? manageeTenantId,
+
+            string? manageeTenantName,
+
+            string? provisioningState,
+
+            string? registrationDefinitionName)
         {
-            Id = id;
-            Name = name;
-            Plan = plan;
-            Properties = properties;
-            Type = type;
+            Authorizations = authorizations;
+            Description = description;
+            ManagedByTenantId = managedByTenantId;
+            ManagedByTenantName = managedByTenantName;
+            ManageeTenantId = manageeTenantId;
+            ManageeTenantName = manageeTenantName;
+            ProvisioningState = provisioningState;
+            RegistrationDefinitionName = registrationDefinitionName;
         }
     }
 }

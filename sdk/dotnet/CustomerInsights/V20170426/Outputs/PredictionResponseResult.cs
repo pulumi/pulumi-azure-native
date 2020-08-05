@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
         /// <summary>
         /// The prediction grades.
         /// </summary>
-        public readonly ImmutableArray<Outputs.PredictionResponsePropertiesResult> Grades;
+        public readonly ImmutableArray<Outputs.PredictionResponseGradesResult> Grades;
         /// <summary>
         /// Interaction types involved in the prediction.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
         /// <summary>
         /// Definition of the link mapping of prediction.
         /// </summary>
-        public readonly Outputs.PredictionResponsePropertiesResult Mappings;
+        public readonly Outputs.PredictionResponseMappingsResult Mappings;
         /// <summary>
         /// Negative outcome expression.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
         /// <summary>
         /// System generated entities.
         /// </summary>
-        public readonly Outputs.PredictionResponsePropertiesResult SystemGeneratedEntities;
+        public readonly Outputs.PredictionResponseSystemGeneratedEntitiesResult SystemGeneratedEntities;
         /// <summary>
         /// The hub name.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
 
             ImmutableDictionary<string, string>? displayName,
 
-            ImmutableArray<Outputs.PredictionResponsePropertiesResult> grades,
+            ImmutableArray<Outputs.PredictionResponseGradesResult> grades,
 
             ImmutableArray<string> involvedInteractionTypes,
 
@@ -98,7 +98,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
 
             ImmutableArray<string> involvedRelationships,
 
-            Outputs.PredictionResponsePropertiesResult mappings,
+            Outputs.PredictionResponseMappingsResult mappings,
 
             string negativeOutcomeExpression,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426.Outputs
 
             string scoreLabel,
 
-            Outputs.PredictionResponsePropertiesResult systemGeneratedEntities,
+            Outputs.PredictionResponseSystemGeneratedEntitiesResult systemGeneratedEntities,
 
             string tenantId)
         {

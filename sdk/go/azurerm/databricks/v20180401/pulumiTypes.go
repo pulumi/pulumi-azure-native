@@ -279,121 +279,6 @@ func (o AddressSpaceResponsePtrOutput) AddressPrefixes() pulumi.StringArrayOutpu
 }
 
 // Provides details of the entity that created/updated the workspace.
-type CreatedBy struct {
-}
-
-// CreatedByInput is an input type that accepts CreatedByArgs and CreatedByOutput values.
-// You can construct a concrete instance of `CreatedByInput` via:
-//
-//          CreatedByArgs{...}
-type CreatedByInput interface {
-	pulumi.Input
-
-	ToCreatedByOutput() CreatedByOutput
-	ToCreatedByOutputWithContext(context.Context) CreatedByOutput
-}
-
-// Provides details of the entity that created/updated the workspace.
-type CreatedByArgs struct {
-}
-
-func (CreatedByArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreatedBy)(nil)).Elem()
-}
-
-func (i CreatedByArgs) ToCreatedByOutput() CreatedByOutput {
-	return i.ToCreatedByOutputWithContext(context.Background())
-}
-
-func (i CreatedByArgs) ToCreatedByOutputWithContext(ctx context.Context) CreatedByOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreatedByOutput)
-}
-
-func (i CreatedByArgs) ToCreatedByPtrOutput() CreatedByPtrOutput {
-	return i.ToCreatedByPtrOutputWithContext(context.Background())
-}
-
-func (i CreatedByArgs) ToCreatedByPtrOutputWithContext(ctx context.Context) CreatedByPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreatedByOutput).ToCreatedByPtrOutputWithContext(ctx)
-}
-
-// CreatedByPtrInput is an input type that accepts CreatedByArgs, CreatedByPtr and CreatedByPtrOutput values.
-// You can construct a concrete instance of `CreatedByPtrInput` via:
-//
-//          CreatedByArgs{...}
-//
-//  or:
-//
-//          nil
-type CreatedByPtrInput interface {
-	pulumi.Input
-
-	ToCreatedByPtrOutput() CreatedByPtrOutput
-	ToCreatedByPtrOutputWithContext(context.Context) CreatedByPtrOutput
-}
-
-type createdByPtrType CreatedByArgs
-
-func CreatedByPtr(v *CreatedByArgs) CreatedByPtrInput {
-	return (*createdByPtrType)(v)
-}
-
-func (*createdByPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreatedBy)(nil)).Elem()
-}
-
-func (i *createdByPtrType) ToCreatedByPtrOutput() CreatedByPtrOutput {
-	return i.ToCreatedByPtrOutputWithContext(context.Background())
-}
-
-func (i *createdByPtrType) ToCreatedByPtrOutputWithContext(ctx context.Context) CreatedByPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreatedByPtrOutput)
-}
-
-// Provides details of the entity that created/updated the workspace.
-type CreatedByOutput struct{ *pulumi.OutputState }
-
-func (CreatedByOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreatedBy)(nil)).Elem()
-}
-
-func (o CreatedByOutput) ToCreatedByOutput() CreatedByOutput {
-	return o
-}
-
-func (o CreatedByOutput) ToCreatedByOutputWithContext(ctx context.Context) CreatedByOutput {
-	return o
-}
-
-func (o CreatedByOutput) ToCreatedByPtrOutput() CreatedByPtrOutput {
-	return o.ToCreatedByPtrOutputWithContext(context.Background())
-}
-
-func (o CreatedByOutput) ToCreatedByPtrOutputWithContext(ctx context.Context) CreatedByPtrOutput {
-	return o.ApplyT(func(v CreatedBy) *CreatedBy {
-		return &v
-	}).(CreatedByPtrOutput)
-}
-
-type CreatedByPtrOutput struct{ *pulumi.OutputState }
-
-func (CreatedByPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreatedBy)(nil)).Elem()
-}
-
-func (o CreatedByPtrOutput) ToCreatedByPtrOutput() CreatedByPtrOutput {
-	return o
-}
-
-func (o CreatedByPtrOutput) ToCreatedByPtrOutputWithContext(ctx context.Context) CreatedByPtrOutput {
-	return o
-}
-
-func (o CreatedByPtrOutput) Elem() CreatedByOutput {
-	return o.ApplyT(func(v *CreatedBy) CreatedBy { return *v }).(CreatedByOutput)
-}
-
-// Provides details of the entity that created/updated the workspace.
 type CreatedByResponse struct {
 	// The application ID of the application that initiated the creation of the workspace. For example, Azure Portal.
 	ApplicationId string `pulumi:"applicationId"`
@@ -948,121 +833,6 @@ func (o EncryptionResponsePtrOutput) Keyversion() pulumi.StringPtrOutput {
 }
 
 // The Managed Identity details for storage account.
-type ManagedIdentityConfiguration struct {
-}
-
-// ManagedIdentityConfigurationInput is an input type that accepts ManagedIdentityConfigurationArgs and ManagedIdentityConfigurationOutput values.
-// You can construct a concrete instance of `ManagedIdentityConfigurationInput` via:
-//
-//          ManagedIdentityConfigurationArgs{...}
-type ManagedIdentityConfigurationInput interface {
-	pulumi.Input
-
-	ToManagedIdentityConfigurationOutput() ManagedIdentityConfigurationOutput
-	ToManagedIdentityConfigurationOutputWithContext(context.Context) ManagedIdentityConfigurationOutput
-}
-
-// The Managed Identity details for storage account.
-type ManagedIdentityConfigurationArgs struct {
-}
-
-func (ManagedIdentityConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedIdentityConfiguration)(nil)).Elem()
-}
-
-func (i ManagedIdentityConfigurationArgs) ToManagedIdentityConfigurationOutput() ManagedIdentityConfigurationOutput {
-	return i.ToManagedIdentityConfigurationOutputWithContext(context.Background())
-}
-
-func (i ManagedIdentityConfigurationArgs) ToManagedIdentityConfigurationOutputWithContext(ctx context.Context) ManagedIdentityConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityConfigurationOutput)
-}
-
-func (i ManagedIdentityConfigurationArgs) ToManagedIdentityConfigurationPtrOutput() ManagedIdentityConfigurationPtrOutput {
-	return i.ToManagedIdentityConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ManagedIdentityConfigurationArgs) ToManagedIdentityConfigurationPtrOutputWithContext(ctx context.Context) ManagedIdentityConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityConfigurationOutput).ToManagedIdentityConfigurationPtrOutputWithContext(ctx)
-}
-
-// ManagedIdentityConfigurationPtrInput is an input type that accepts ManagedIdentityConfigurationArgs, ManagedIdentityConfigurationPtr and ManagedIdentityConfigurationPtrOutput values.
-// You can construct a concrete instance of `ManagedIdentityConfigurationPtrInput` via:
-//
-//          ManagedIdentityConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ManagedIdentityConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToManagedIdentityConfigurationPtrOutput() ManagedIdentityConfigurationPtrOutput
-	ToManagedIdentityConfigurationPtrOutputWithContext(context.Context) ManagedIdentityConfigurationPtrOutput
-}
-
-type managedIdentityConfigurationPtrType ManagedIdentityConfigurationArgs
-
-func ManagedIdentityConfigurationPtr(v *ManagedIdentityConfigurationArgs) ManagedIdentityConfigurationPtrInput {
-	return (*managedIdentityConfigurationPtrType)(v)
-}
-
-func (*managedIdentityConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedIdentityConfiguration)(nil)).Elem()
-}
-
-func (i *managedIdentityConfigurationPtrType) ToManagedIdentityConfigurationPtrOutput() ManagedIdentityConfigurationPtrOutput {
-	return i.ToManagedIdentityConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *managedIdentityConfigurationPtrType) ToManagedIdentityConfigurationPtrOutputWithContext(ctx context.Context) ManagedIdentityConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedIdentityConfigurationPtrOutput)
-}
-
-// The Managed Identity details for storage account.
-type ManagedIdentityConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ManagedIdentityConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedIdentityConfiguration)(nil)).Elem()
-}
-
-func (o ManagedIdentityConfigurationOutput) ToManagedIdentityConfigurationOutput() ManagedIdentityConfigurationOutput {
-	return o
-}
-
-func (o ManagedIdentityConfigurationOutput) ToManagedIdentityConfigurationOutputWithContext(ctx context.Context) ManagedIdentityConfigurationOutput {
-	return o
-}
-
-func (o ManagedIdentityConfigurationOutput) ToManagedIdentityConfigurationPtrOutput() ManagedIdentityConfigurationPtrOutput {
-	return o.ToManagedIdentityConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedIdentityConfigurationOutput) ToManagedIdentityConfigurationPtrOutputWithContext(ctx context.Context) ManagedIdentityConfigurationPtrOutput {
-	return o.ApplyT(func(v ManagedIdentityConfiguration) *ManagedIdentityConfiguration {
-		return &v
-	}).(ManagedIdentityConfigurationPtrOutput)
-}
-
-type ManagedIdentityConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ManagedIdentityConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedIdentityConfiguration)(nil)).Elem()
-}
-
-func (o ManagedIdentityConfigurationPtrOutput) ToManagedIdentityConfigurationPtrOutput() ManagedIdentityConfigurationPtrOutput {
-	return o
-}
-
-func (o ManagedIdentityConfigurationPtrOutput) ToManagedIdentityConfigurationPtrOutputWithContext(ctx context.Context) ManagedIdentityConfigurationPtrOutput {
-	return o
-}
-
-func (o ManagedIdentityConfigurationPtrOutput) Elem() ManagedIdentityConfigurationOutput {
-	return o.ApplyT(func(v *ManagedIdentityConfiguration) ManagedIdentityConfiguration { return *v }).(ManagedIdentityConfigurationOutput)
-}
-
-// The Managed Identity details for storage account.
 type ManagedIdentityConfigurationResponse struct {
 	// The objectId of the Managed Identity that is linked to the Managed Storage account.
 	PrincipalId string `pulumi:"principalId"`
@@ -1541,134 +1311,270 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-type VirtualNetworkPeeringPropertiesFormatProperties struct {
+type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork struct {
 	// The Id of the databricks virtual network.
 	Id *string `pulumi:"id"`
 }
 
-// VirtualNetworkPeeringPropertiesFormatPropertiesInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatPropertiesArgs and VirtualNetworkPeeringPropertiesFormatPropertiesOutput values.
-// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatPropertiesInput` via:
+// VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs and VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput values.
+// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkInput` via:
 //
-//          VirtualNetworkPeeringPropertiesFormatPropertiesArgs{...}
-type VirtualNetworkPeeringPropertiesFormatPropertiesInput interface {
+//          VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs{...}
+type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkInput interface {
 	pulumi.Input
 
-	ToVirtualNetworkPeeringPropertiesFormatPropertiesOutput() VirtualNetworkPeeringPropertiesFormatPropertiesOutput
-	ToVirtualNetworkPeeringPropertiesFormatPropertiesOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatPropertiesOutput
+	ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput
+	ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-type VirtualNetworkPeeringPropertiesFormatPropertiesArgs struct {
+type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs struct {
 	// The Id of the databricks virtual network.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
-func (VirtualNetworkPeeringPropertiesFormatPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatProperties)(nil)).Elem()
+func (VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork)(nil)).Elem()
 }
 
-func (i VirtualNetworkPeeringPropertiesFormatPropertiesArgs) ToVirtualNetworkPeeringPropertiesFormatPropertiesOutput() VirtualNetworkPeeringPropertiesFormatPropertiesOutput {
-	return i.ToVirtualNetworkPeeringPropertiesFormatPropertiesOutputWithContext(context.Background())
+func (i VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutputWithContext(context.Background())
 }
 
-func (i VirtualNetworkPeeringPropertiesFormatPropertiesArgs) ToVirtualNetworkPeeringPropertiesFormatPropertiesOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatPropertiesOutput)
+func (i VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput)
 }
 
-func (i VirtualNetworkPeeringPropertiesFormatPropertiesArgs) ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput() VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput {
-	return i.ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutputWithContext(context.Background())
+func (i VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutputWithContext(context.Background())
 }
 
-func (i VirtualNetworkPeeringPropertiesFormatPropertiesArgs) ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatPropertiesOutput).ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutputWithContext(ctx)
+func (i VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput).ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutputWithContext(ctx)
 }
 
-// VirtualNetworkPeeringPropertiesFormatPropertiesPtrInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatPropertiesArgs, VirtualNetworkPeeringPropertiesFormatPropertiesPtr and VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput values.
-// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatPropertiesPtrInput` via:
+// VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs, VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtr and VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrInput` via:
 //
-//          VirtualNetworkPeeringPropertiesFormatPropertiesArgs{...}
+//          VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs{...}
 //
 //  or:
 //
 //          nil
-type VirtualNetworkPeeringPropertiesFormatPropertiesPtrInput interface {
+type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrInput interface {
 	pulumi.Input
 
-	ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput() VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput
-	ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput
+	ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput
+	ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput
 }
 
-type virtualNetworkPeeringPropertiesFormatPropertiesPtrType VirtualNetworkPeeringPropertiesFormatPropertiesArgs
+type virtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrType VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs
 
-func VirtualNetworkPeeringPropertiesFormatPropertiesPtr(v *VirtualNetworkPeeringPropertiesFormatPropertiesArgs) VirtualNetworkPeeringPropertiesFormatPropertiesPtrInput {
-	return (*virtualNetworkPeeringPropertiesFormatPropertiesPtrType)(v)
+func VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtr(v *VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrInput {
+	return (*virtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrType)(v)
 }
 
-func (*virtualNetworkPeeringPropertiesFormatPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatProperties)(nil)).Elem()
+func (*virtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork)(nil)).Elem()
 }
 
-func (i *virtualNetworkPeeringPropertiesFormatPropertiesPtrType) ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput() VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput {
-	return i.ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutputWithContext(context.Background())
+func (i *virtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrType) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutputWithContext(context.Background())
 }
 
-func (i *virtualNetworkPeeringPropertiesFormatPropertiesPtrType) ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput)
+func (i *virtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrType) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput)
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-type VirtualNetworkPeeringPropertiesFormatPropertiesOutput struct{ *pulumi.OutputState }
+type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput struct{ *pulumi.OutputState }
 
-func (VirtualNetworkPeeringPropertiesFormatPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatProperties)(nil)).Elem()
+func (VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork)(nil)).Elem()
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatPropertiesOutput) ToVirtualNetworkPeeringPropertiesFormatPropertiesOutput() VirtualNetworkPeeringPropertiesFormatPropertiesOutput {
+func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput {
 	return o
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatPropertiesOutput) ToVirtualNetworkPeeringPropertiesFormatPropertiesOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatPropertiesOutput {
+func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput {
 	return o
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatPropertiesOutput) ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput() VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput {
-	return o.ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutputWithContext(context.Background())
+func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput {
+	return o.ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutputWithContext(context.Background())
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatPropertiesOutput) ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatProperties) *VirtualNetworkPeeringPropertiesFormatProperties {
+func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork {
 		return &v
-	}).(VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput)
+	}).(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput)
 }
 
 // The Id of the databricks virtual network.
-func (o VirtualNetworkPeeringPropertiesFormatPropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-type VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput struct{ *pulumi.OutputState }
+type VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput struct{ *pulumi.OutputState }
 
-func (VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatProperties)(nil)).Elem()
+func (VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork)(nil)).Elem()
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput) ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput() VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput {
+func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput {
 	return o
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput) ToVirtualNetworkPeeringPropertiesFormatPropertiesPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput {
+func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput) ToVirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput {
 	return o
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput) Elem() VirtualNetworkPeeringPropertiesFormatPropertiesOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatProperties) VirtualNetworkPeeringPropertiesFormatProperties {
+func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput) Elem() VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork) VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork {
 		return *v
-	}).(VirtualNetworkPeeringPropertiesFormatPropertiesOutput)
+	}).(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput)
 }
 
 // The Id of the databricks virtual network.
-func (o VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatProperties) *string {
+func (o VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork struct {
+	// The Id of the remote virtual network.
+	Id *string `pulumi:"id"`
+}
+
+// VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs and VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput values.
+// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkInput` via:
+//
+//          VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs{...}
+type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput
+	ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs struct {
+	// The Id of the remote virtual network.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork)(nil)).Elem()
+}
+
+func (i VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput)
+}
+
+func (i VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput).ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs, VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtr and VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrInput` via:
+//
+//          VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput
+	ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput
+}
+
+type virtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrType VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs
+
+func VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtr(v *VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrInput {
+	return (*virtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrType)(v)
+}
+
+func (*virtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork)(nil)).Elem()
+}
+
+func (i *virtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrType) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrType) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput)
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork)(nil)).Elem()
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput {
+	return o
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput {
+	return o
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput {
+	return o.ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork {
+		return &v
+	}).(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput)
+}
+
+// The Id of the remote virtual network.
+func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork)(nil)).Elem()
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput) ToVirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput) Elem() VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork) VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork {
+		return *v
+	}).(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput)
+}
+
+// The Id of the remote virtual network.
+func (o VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork) *string {
 		if v == nil {
 			return nil
 		}
@@ -1687,7 +1593,7 @@ type VirtualNetworkPeeringPropertiesFormatResponse struct {
 	// The reference to the databricks virtual network address space.
 	DatabricksAddressSpace *AddressSpaceResponse `pulumi:"databricksAddressSpace"`
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	DatabricksVirtualNetwork *VirtualNetworkPeeringPropertiesFormatResponseProperties `pulumi:"databricksVirtualNetwork"`
+	DatabricksVirtualNetwork *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork `pulumi:"databricksVirtualNetwork"`
 	// The status of the virtual network peering.
 	PeeringState string `pulumi:"peeringState"`
 	// The provisioning state of the virtual network peering resource.
@@ -1695,7 +1601,7 @@ type VirtualNetworkPeeringPropertiesFormatResponse struct {
 	// The reference to the remote virtual network address space.
 	RemoteAddressSpace *AddressSpaceResponse `pulumi:"remoteAddressSpace"`
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponseProperties `pulumi:"remoteVirtualNetwork"`
+	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork `pulumi:"remoteVirtualNetwork"`
 	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
 	UseRemoteGateways *bool `pulumi:"useRemoteGateways"`
 }
@@ -1722,7 +1628,7 @@ type VirtualNetworkPeeringPropertiesFormatResponseArgs struct {
 	// The reference to the databricks virtual network address space.
 	DatabricksAddressSpace AddressSpaceResponsePtrInput `pulumi:"databricksAddressSpace"`
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	DatabricksVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrInput `pulumi:"databricksVirtualNetwork"`
+	DatabricksVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrInput `pulumi:"databricksVirtualNetwork"`
 	// The status of the virtual network peering.
 	PeeringState pulumi.StringInput `pulumi:"peeringState"`
 	// The provisioning state of the virtual network peering resource.
@@ -1730,7 +1636,7 @@ type VirtualNetworkPeeringPropertiesFormatResponseArgs struct {
 	// The reference to the remote virtual network address space.
 	RemoteAddressSpace AddressSpaceResponsePtrInput `pulumi:"remoteAddressSpace"`
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponsePropertiesInput `pulumi:"remoteVirtualNetwork"`
+	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkInput `pulumi:"remoteVirtualNetwork"`
 	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
 	UseRemoteGateways pulumi.BoolPtrInput `pulumi:"useRemoteGateways"`
 }
@@ -1836,10 +1742,10 @@ func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) DatabricksAddressSp
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) DatabricksVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) *VirtualNetworkPeeringPropertiesFormatResponseProperties {
+func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) DatabricksVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork {
 		return v.DatabricksVirtualNetwork
-	}).(VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput)
+	}).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput)
 }
 
 // The status of the virtual network peering.
@@ -1860,10 +1766,10 @@ func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) RemoteAddressSpace(
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) RemoteVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) VirtualNetworkPeeringPropertiesFormatResponseProperties {
+func (o VirtualNetworkPeeringPropertiesFormatResponseOutput) RemoteVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponse) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork {
 		return v.RemoteVirtualNetwork
-	}).(VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput)
+	}).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput)
 }
 
 // If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
@@ -1932,13 +1838,13 @@ func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) DatabricksAddres
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) DatabricksVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *VirtualNetworkPeeringPropertiesFormatResponseProperties {
+func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) DatabricksVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork {
 		if v == nil {
 			return nil
 		}
 		return v.DatabricksVirtualNetwork
-	}).(VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput)
+	}).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput)
 }
 
 // The status of the virtual network peering.
@@ -1972,13 +1878,13 @@ func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) RemoteAddressSpa
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) RemoteVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *VirtualNetworkPeeringPropertiesFormatResponseProperties {
+func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) RemoteVirtualNetwork() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponse) *VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork {
 		if v == nil {
 			return nil
 		}
 		return &v.RemoteVirtualNetwork
-	}).(VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput)
+	}).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput)
 }
 
 // If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
@@ -1992,134 +1898,134 @@ func (o VirtualNetworkPeeringPropertiesFormatResponsePtrOutput) UseRemoteGateway
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-type VirtualNetworkPeeringPropertiesFormatResponseProperties struct {
+type VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork struct {
 	// The Id of the databricks virtual network.
 	Id *string `pulumi:"id"`
 }
 
-// VirtualNetworkPeeringPropertiesFormatResponsePropertiesInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs and VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput values.
-// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatResponsePropertiesInput` via:
+// VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs and VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput values.
+// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkInput` via:
 //
-//          VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs{...}
-type VirtualNetworkPeeringPropertiesFormatResponsePropertiesInput interface {
+//          VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs{...}
+type VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkInput interface {
 	pulumi.Input
 
-	ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput() VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput
-	ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput
+	ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput
+	ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-type VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs struct {
+type VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs struct {
 	// The Id of the databricks virtual network.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
-func (VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatResponseProperties)(nil)).Elem()
+func (VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork)(nil)).Elem()
 }
 
-func (i VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput() VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput {
-	return i.ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesOutputWithContext(context.Background())
+func (i VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutputWithContext(context.Background())
 }
 
-func (i VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput)
+func (i VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput)
 }
 
-func (i VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput() VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput {
-	return i.ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutputWithContext(context.Background())
+func (i VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutputWithContext(context.Background())
 }
 
-func (i VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput).ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutputWithContext(ctx)
+func (i VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput).ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutputWithContext(ctx)
 }
 
-// VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs, VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtr and VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrInput` via:
+// VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs, VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtr and VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrInput` via:
 //
-//          VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs{...}
+//          VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs{...}
 //
 //  or:
 //
 //          nil
-type VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrInput interface {
+type VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrInput interface {
 	pulumi.Input
 
-	ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput() VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput
-	ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput
+	ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput
+	ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput
 }
 
-type virtualNetworkPeeringPropertiesFormatResponsePropertiesPtrType VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs
+type virtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrType VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs
 
-func VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtr(v *VirtualNetworkPeeringPropertiesFormatResponsePropertiesArgs) VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrInput {
-	return (*virtualNetworkPeeringPropertiesFormatResponsePropertiesPtrType)(v)
+func VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtr(v *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkArgs) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrInput {
+	return (*virtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrType)(v)
 }
 
-func (*virtualNetworkPeeringPropertiesFormatResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatResponseProperties)(nil)).Elem()
+func (*virtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork)(nil)).Elem()
 }
 
-func (i *virtualNetworkPeeringPropertiesFormatResponsePropertiesPtrType) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput() VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput {
-	return i.ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *virtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrType) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutputWithContext(context.Background())
 }
 
-func (i *virtualNetworkPeeringPropertiesFormatResponsePropertiesPtrType) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput)
+func (i *virtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrType) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput)
 }
 
 //  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-type VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput struct{ *pulumi.OutputState }
+type VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput struct{ *pulumi.OutputState }
 
-func (VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatResponseProperties)(nil)).Elem()
+func (VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork)(nil)).Elem()
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput() VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput {
+func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput {
 	return o
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput {
+func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput {
 	return o
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput() VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput {
-	return o.ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutputWithContext(context.Background())
+func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
+	return o.ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutputWithContext(context.Background())
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponseProperties) *VirtualNetworkPeeringPropertiesFormatResponseProperties {
+func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork {
 		return &v
-	}).(VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput)
+	}).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput)
 }
 
 // The Id of the databricks virtual network.
-func (o VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponseProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-type VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput struct{ *pulumi.OutputState }
 
-func (VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatResponseProperties)(nil)).Elem()
+func (VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork)(nil)).Elem()
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput() VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput {
+func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
 	return o
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput) ToVirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput {
+func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput) ToVirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput {
 	return o
 }
 
-func (o VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput) Elem() VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponseProperties) VirtualNetworkPeeringPropertiesFormatResponseProperties {
+func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput) Elem() VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork) VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork {
 		return *v
-	}).(VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput)
+	}).(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput)
 }
 
 // The Id of the databricks virtual network.
-func (o VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponseProperties) *string {
+func (o VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork) *string {
 		if v == nil {
 			return nil
 		}
@@ -2127,104 +2033,140 @@ func (o VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput) Id() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about workspace.
-type WorkspaceType struct {
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The workspace properties.
-	Properties WorkspacePropertiesResponse `pulumi:"properties"`
-	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork struct {
+	// The Id of the remote virtual network.
+	Id *string `pulumi:"id"`
 }
 
-// WorkspaceTypeInput is an input type that accepts WorkspaceTypeArgs and WorkspaceTypeOutput values.
-// You can construct a concrete instance of `WorkspaceTypeInput` via:
+// VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs and VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput values.
+// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkInput` via:
 //
-//          WorkspaceTypeArgs{...}
-type WorkspaceTypeInput interface {
+//          VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs{...}
+type VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkInput interface {
 	pulumi.Input
 
-	ToWorkspaceTypeOutput() WorkspaceTypeOutput
-	ToWorkspaceTypeOutputWithContext(context.Context) WorkspaceTypeOutput
+	ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput
+	ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput
 }
 
-// Information about workspace.
-type WorkspaceTypeArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The workspace properties.
-	Properties WorkspacePropertiesResponseInput `pulumi:"properties"`
-	// The SKU of the resource.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs struct {
+	// The Id of the remote virtual network.
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
-func (WorkspaceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceType)(nil)).Elem()
+func (VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork)(nil)).Elem()
 }
 
-func (i WorkspaceTypeArgs) ToWorkspaceTypeOutput() WorkspaceTypeOutput {
-	return i.ToWorkspaceTypeOutputWithContext(context.Background())
+func (i VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutputWithContext(context.Background())
 }
 
-func (i WorkspaceTypeArgs) ToWorkspaceTypeOutputWithContext(ctx context.Context) WorkspaceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTypeOutput)
+func (i VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput)
 }
 
-// Information about workspace.
-type WorkspaceTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceType)(nil)).Elem()
+func (i VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutputWithContext(context.Background())
 }
 
-func (o WorkspaceTypeOutput) ToWorkspaceTypeOutput() WorkspaceTypeOutput {
+func (i VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput).ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrInput is an input type that accepts VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs, VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtr and VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrInput` via:
+//
+//          VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs{...}
+//
+//  or:
+//
+//          nil
+type VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput
+	ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutputWithContext(context.Context) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput
+}
+
+type virtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrType VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs
+
+func VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtr(v *VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkArgs) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrInput {
+	return (*virtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrType)(v)
+}
+
+func (*virtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork)(nil)).Elem()
+}
+
+func (i *virtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrType) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput {
+	return i.ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrType) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput)
+}
+
+//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+type VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork)(nil)).Elem()
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput {
 	return o
 }
 
-func (o WorkspaceTypeOutput) ToWorkspaceTypeOutputWithContext(ctx context.Context) WorkspaceTypeOutput {
+func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput {
 	return o
 }
 
-// The geo-location where the resource lives
-func (o WorkspaceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Location }).(pulumi.StringOutput)
+func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput {
+	return o.ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutputWithContext(context.Background())
 }
 
-// The name of the resource
-func (o WorkspaceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Name }).(pulumi.StringOutput)
+func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork) *VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork {
+		return &v
+	}).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput)
 }
 
-// The workspace properties.
-func (o WorkspaceTypeOutput) Properties() WorkspacePropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceType) WorkspacePropertiesResponse { return v.Properties }).(WorkspacePropertiesResponseOutput)
+// The Id of the remote virtual network.
+func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The SKU of the resource.
-func (o WorkspaceTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
+type VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork)(nil)).Elem()
 }
 
-// Resource tags.
-func (o WorkspaceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkspaceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput {
+	return o
 }
 
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o WorkspaceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Type }).(pulumi.StringOutput)
+func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput) ToVirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutputWithContext(ctx context.Context) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput) Elem() VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork) VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork {
+		return *v
+	}).(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput)
+}
+
+// The Id of the remote virtual network.
+func (o VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetwork) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // The value which should be used for this field.
@@ -4157,107 +4099,33 @@ func (o WorkspaceProviderAuthorizationResponseArrayOutput) Index(i pulumi.IntInp
 	}).(WorkspaceProviderAuthorizationResponseOutput)
 }
 
-// Peerings in a VirtualNetwork resource
-type VNetPeeringType struct {
-	// Name of the virtual network peering resource
-	Name string `pulumi:"name"`
-	// List of properties for vNet Peering
-	Properties VirtualNetworkPeeringPropertiesFormatResponse `pulumi:"properties"`
-	// type of the virtual network peering resource
-	Type string `pulumi:"type"`
-}
-
-// VNetPeeringTypeInput is an input type that accepts VNetPeeringTypeArgs and VNetPeeringTypeOutput values.
-// You can construct a concrete instance of `VNetPeeringTypeInput` via:
-//
-//          VNetPeeringTypeArgs{...}
-type VNetPeeringTypeInput interface {
-	pulumi.Input
-
-	ToVNetPeeringTypeOutput() VNetPeeringTypeOutput
-	ToVNetPeeringTypeOutputWithContext(context.Context) VNetPeeringTypeOutput
-}
-
-// Peerings in a VirtualNetwork resource
-type VNetPeeringTypeArgs struct {
-	// Name of the virtual network peering resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// List of properties for vNet Peering
-	Properties VirtualNetworkPeeringPropertiesFormatResponseInput `pulumi:"properties"`
-	// type of the virtual network peering resource
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VNetPeeringTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VNetPeeringType)(nil)).Elem()
-}
-
-func (i VNetPeeringTypeArgs) ToVNetPeeringTypeOutput() VNetPeeringTypeOutput {
-	return i.ToVNetPeeringTypeOutputWithContext(context.Background())
-}
-
-func (i VNetPeeringTypeArgs) ToVNetPeeringTypeOutputWithContext(ctx context.Context) VNetPeeringTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VNetPeeringTypeOutput)
-}
-
-// Peerings in a VirtualNetwork resource
-type VNetPeeringTypeOutput struct{ *pulumi.OutputState }
-
-func (VNetPeeringTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VNetPeeringType)(nil)).Elem()
-}
-
-func (o VNetPeeringTypeOutput) ToVNetPeeringTypeOutput() VNetPeeringTypeOutput {
-	return o
-}
-
-func (o VNetPeeringTypeOutput) ToVNetPeeringTypeOutputWithContext(ctx context.Context) VNetPeeringTypeOutput {
-	return o
-}
-
-// Name of the virtual network peering resource
-func (o VNetPeeringTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VNetPeeringType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// List of properties for vNet Peering
-func (o VNetPeeringTypeOutput) Properties() VirtualNetworkPeeringPropertiesFormatResponseOutput {
-	return o.ApplyT(func(v VNetPeeringType) VirtualNetworkPeeringPropertiesFormatResponse { return v.Properties }).(VirtualNetworkPeeringPropertiesFormatResponseOutput)
-}
-
-// type of the virtual network peering resource
-func (o VNetPeeringTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VNetPeeringType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AddressSpaceOutput{})
 	pulumi.RegisterOutputType(AddressSpacePtrOutput{})
 	pulumi.RegisterOutputType(AddressSpaceResponseOutput{})
 	pulumi.RegisterOutputType(AddressSpaceResponsePtrOutput{})
-	pulumi.RegisterOutputType(CreatedByOutput{})
-	pulumi.RegisterOutputType(CreatedByPtrOutput{})
 	pulumi.RegisterOutputType(CreatedByResponseOutput{})
 	pulumi.RegisterOutputType(CreatedByResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionOutput{})
 	pulumi.RegisterOutputType(EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionResponsePtrOutput{})
-	pulumi.RegisterOutputType(ManagedIdentityConfigurationOutput{})
-	pulumi.RegisterOutputType(ManagedIdentityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatPropertiesOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(WorkspaceTypeOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceCustomBooleanParameterResponseOutput{})
@@ -4280,5 +4148,4 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceProviderAuthorizationResponseArrayOutput{})
-	pulumi.RegisterOutputType(VNetPeeringTypeOutput{})
 }

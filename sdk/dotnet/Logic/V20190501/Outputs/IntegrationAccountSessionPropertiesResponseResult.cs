@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
         /// <summary>
         /// The session content.
         /// </summary>
-        public readonly Outputs.ObjectResponseResult? Content;
+        public readonly ImmutableDictionary<string, object>? Content;
         /// <summary>
         /// The created time.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
         private IntegrationAccountSessionPropertiesResponseResult(
             string changedTime,
 
-            Outputs.ObjectResponseResult? content,
+            ImmutableDictionary<string, object>? content,
 
             string createdTime)
         {

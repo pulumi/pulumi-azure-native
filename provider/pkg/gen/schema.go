@@ -142,16 +142,13 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		return
 	}
 
-	objectSpec := pschema.ObjectTypeSpec{
-		Description: resourceResponse.description,
-		Type:        "object",
-		Properties:  resourceResponse.specs,
-		Required:    resourceResponse.requiredSpecs.SortedValues(),
-	}
-	g.pkg.Types[resourceTok] = objectSpec
-
 	resourceSpec := pschema.ResourceSpec{
-		ObjectTypeSpec:  objectSpec,
+		ObjectTypeSpec:  pschema.ObjectTypeSpec{
+			Description: resourceResponse.description,
+			Type:        "object",
+			Properties:  resourceResponse.specs,
+			Required:    resourceResponse.requiredSpecs.SortedValues(),
+		},
 		InputProperties: resourceRequest.specs,
 		RequiredInputs:  resourceRequest.requiredSpecs.SortedValues(),
 	}
@@ -515,9 +512,19 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
-		propertySpec, err := m.genProperty(&property, resolvedSchema.ReferenceContext, isOutput)
+		// Skip read-only properties for input types.
+		if property.ReadOnly && !isOutput {
+			continue
+		}
+
+		propertySpec, err := m.genProperty(name, &property, resolvedSchema.ReferenceContext, isOutput)
 		if err != nil {
 			return nil, err
+		}
+
+		// Skip properties that yield degenerate types (e.g., when an input type has only read-only properties).
+		if propertySpec == nil {
+			continue
 		}
 
 		if isOutput {
@@ -526,7 +533,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				result.requiredSpecs.Add(sdkName)
 			}
 			result.properties[name] = provider.AzureApiProperty{}
-		} else if !property.ReadOnly {
+		} else {
 			result.specs[sdkName] = *propertySpec
 			var items *provider.AzureApiProperty
 			if propertySpec.Items != nil {
@@ -608,7 +615,7 @@ func (m *moduleGenerator) getEnumValues(property *spec.Schema) (enum []string) {
 	return
 }
 
-func (m *moduleGenerator) genProperty(schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.PropertySpec, error) {
+func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.PropertySpec, error) {
 	description := schema.Description
 	if description == "" {
 		resolvedSchema, err := context.ResolveSchema(schema)
@@ -619,9 +626,14 @@ func (m *moduleGenerator) genProperty(schema *spec.Schema, context *openapi.Refe
 		description = resolvedSchema.Description
 	}
 
-	typeSpec, err := m.genTypeSpec(schema, context, isOutput)
+	typeSpec, err := m.genTypeSpec(name, schema, context, isOutput)
 	if err != nil {
 		return nil, err
+	}
+
+	// Nil type means empty: e.g., when an input type has only read-only properties. Bubble the nil up.
+	if typeSpec == nil {
+		return nil, nil
 	}
 
 	propertySpec := pschema.PropertySpec{
@@ -632,30 +644,25 @@ func (m *moduleGenerator) genProperty(schema *spec.Schema, context *openapi.Refe
 	return &propertySpec, nil
 }
 
-func (m *moduleGenerator) genTypeSpec(schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.TypeSpec, error) {
+func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.TypeSpec, error) {
 	resolvedSchema, err := context.ResolveSchema(schema)
 	if err != nil {
 		return nil, err
 	}
 
-	// Type is either a primitive (e.g. 'string'), or an 'object' defined by a reference to its type.
+	// Type specification specifies either a primitive type (e.g. 'string') or a reference to a separately defined
+	// strongly-typed object. Either `primitiveTypeName` or `referencedTypeName` should be filled, but not both.
 	var tok, primitiveTypeName, referencedTypeName string
-	ptr := schema.Ref.GetPointer()
-	if ptr != nil && !ptr.IsEmpty() {
-		if len(resolvedSchema.Type) > 0 && isPrimitiveType(resolvedSchema.Type[0]) {
-			primitiveTypeName = resolvedSchema.Type[0]
-		} else {
+	if len(resolvedSchema.Properties) > 0 || len(resolvedSchema.AllOf) > 0 {
+		ptr := schema.Ref.GetPointer()
+		if ptr != nil && !ptr.IsEmpty() {
 			tok = m.typeName(resolvedSchema.ReferenceContext, isOutput)
-			// Avoid collision of resource name vs. property type name (example: azurerm:web:StaticSite).
-			if tok == m.resourceToken {
-				tok = tok + "Definition"
-			}
+		} else {
+			// Inline properties have no type in the Open API schema, so we use parent type's name + property name.
+			tok = m.typeName(context, isOutput) + strings.Title(propertyName)
 		}
-	} else if len(schema.Properties) > 0 {
-		// Inline properties have no type in the Open API schema but we need a type in the Pulumi schema.
-		tok = m.typeName(context, isOutput) + "Properties"
-	} else if len(schema.Type) > 0 {
-		primitiveTypeName = schema.Type[0]
+	} else if len(resolvedSchema.Type) > 0 {
+		primitiveTypeName = resolvedSchema.Type[0]
 	} else {
 		primitiveTypeName = "object"
 	}
@@ -670,6 +677,12 @@ func (m *moduleGenerator) genTypeSpec(schema *spec.Schema, context *openapi.Refe
 			props, err := m.genProperties(resolvedSchema, isOutput)
 			if err != nil {
 				return nil, err
+			}
+
+			// Don't generate a type definition for a typed object with zero properties.
+			if len(props.specs) == 0 {
+				delete(m.visitedTypes, tok)
+				return nil, nil
 			}
 
 			m.pkg.Types[tok] = pschema.ObjectTypeSpec{
@@ -691,10 +704,15 @@ func (m *moduleGenerator) genTypeSpec(schema *spec.Schema, context *openapi.Refe
 	// Define the type of maps (untyped objects).
 	var additionalProperties *pschema.TypeSpec
 	if primitiveTypeName == "object" {
-		if schema.AdditionalProperties != nil && schema.AdditionalProperties.Schema != nil {
-			additionalProperties, err = m.genTypeSpec(schema.AdditionalProperties.Schema, context, isOutput)
+		if resolvedSchema.AdditionalProperties != nil && resolvedSchema.AdditionalProperties.Schema != nil {
+			additionalProperties, err = m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isOutput)
 			if err != nil {
 				return nil, err
+			}
+
+			// Don't generate a type definition for a typed dictionary with empty value type.
+			if additionalProperties == nil {
+				return nil, nil
 			}
 		} else {
 			additionalProperties = &pschema.TypeSpec{
@@ -710,10 +728,15 @@ func (m *moduleGenerator) genTypeSpec(schema *spec.Schema, context *openapi.Refe
 	}
 
 	// Resolve the element type for array types.
-	if schema.Items != nil && schema.Items.Schema != nil {
-		itemsSpec, err := m.genProperty(schema.Items.Schema, context, isOutput)
+	if resolvedSchema.Items != nil && resolvedSchema.Items.Schema != nil {
+		itemsSpec, err := m.genProperty(propertyName, resolvedSchema.Items.Schema, context, isOutput)
 		if err != nil {
 			return nil, err
+		}
+
+		// Don't generate a type definition for a typed array with empty item type.
+		if itemsSpec == nil {
+			return nil, nil
 		}
 
 		result.Items = &itemsSpec.TypeSpec

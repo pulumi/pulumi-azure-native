@@ -47,7 +47,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
     /**
      * The integration account properties.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: any}>;
     /**
      * The sku.
      */

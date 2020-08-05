@@ -29,7 +29,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301.Outputs
         /// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
         /// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public readonly Outputs.UserAssignedIdentityMapResponseResult? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponseResult>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ManagedIdentityResponseResult(
@@ -39,7 +39,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301.Outputs
 
             string? type,
 
-            Outputs.UserAssignedIdentityMapResponseResult? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponseResult>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

@@ -113,7 +113,7 @@ type policyAssignmentArgs struct {
 	// The policy's excluded scopes.
 	NotScopes []string `pulumi:"notScopes"`
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
-	Parameters *ParameterValues `pulumi:"parameters"`
+	Parameters map[string]ParameterValuesValue `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
 	// The scope for the policy assignment.
@@ -141,7 +141,7 @@ type PolicyAssignmentArgs struct {
 	// The policy's excluded scopes.
 	NotScopes pulumi.StringArrayInput
 	// The parameter values for the assigned policy rule. The keys are the parameter names.
-	Parameters ParameterValuesPtrInput
+	Parameters ParameterValuesValueMapInput
 	// The ID of the policy definition or policy set definition being assigned.
 	PolicyDefinitionId pulumi.StringPtrInput
 	// The scope for the policy assignment.

@@ -86,8 +86,6 @@ func (AssessmentState) ElementType() reflect.Type {
 type assessmentArgs struct {
 	// Additional data regarding the assessment
 	AdditionalData map[string]string `pulumi:"additionalData"`
-	// Links relevant to the assessment
-	Links *AssessmentLinks `pulumi:"links"`
 	// Describes properties of an assessment metadata.
 	Metadata *SecurityAssessmentMetadataProperties `pulumi:"metadata"`
 	// The Assessment Key - Unique key for the assessment type
@@ -106,8 +104,6 @@ type assessmentArgs struct {
 type AssessmentArgs struct {
 	// Additional data regarding the assessment
 	AdditionalData pulumi.StringMapInput
-	// Links relevant to the assessment
-	Links AssessmentLinksPtrInput
 	// Describes properties of an assessment metadata.
 	Metadata SecurityAssessmentMetadataPropertiesPtrInput
 	// The Assessment Key - Unique key for the assessment type

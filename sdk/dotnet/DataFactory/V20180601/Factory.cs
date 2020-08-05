@@ -101,11 +101,17 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
 
     public sealed class FactoryArgs : Pulumi.ResourceArgs
     {
+        [Input("globalParameters")]
+        private InputMap<Inputs.GlobalParameterSpecificationArgs>? _globalParameters;
+
         /// <summary>
         /// List of parameters for factory.
         /// </summary>
-        [Input("globalParameters")]
-        public Input<Inputs.GlobalParameterDefinitionSpecificationArgs>? GlobalParameters { get; set; }
+        public InputMap<Inputs.GlobalParameterSpecificationArgs> GlobalParameters
+        {
+            get => _globalParameters ?? (_globalParameters = new InputMap<Inputs.GlobalParameterSpecificationArgs>());
+            set => _globalParameters = value;
+        }
 
         /// <summary>
         /// Managed service identity of the factory.

@@ -10,97 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Container service.
-type ContainerServiceType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of the container service.
-	Properties ContainerServicePropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ContainerServiceTypeInput is an input type that accepts ContainerServiceTypeArgs and ContainerServiceTypeOutput values.
-// You can construct a concrete instance of `ContainerServiceTypeInput` via:
-//
-//          ContainerServiceTypeArgs{...}
-type ContainerServiceTypeInput interface {
-	pulumi.Input
-
-	ToContainerServiceTypeOutput() ContainerServiceTypeOutput
-	ToContainerServiceTypeOutputWithContext(context.Context) ContainerServiceTypeOutput
-}
-
-// Container service.
-type ContainerServiceTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the container service.
-	Properties ContainerServicePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ContainerServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceType)(nil)).Elem()
-}
-
-func (i ContainerServiceTypeArgs) ToContainerServiceTypeOutput() ContainerServiceTypeOutput {
-	return i.ToContainerServiceTypeOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceTypeArgs) ToContainerServiceTypeOutputWithContext(ctx context.Context) ContainerServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceTypeOutput)
-}
-
-// Container service.
-type ContainerServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceType)(nil)).Elem()
-}
-
-func (o ContainerServiceTypeOutput) ToContainerServiceTypeOutput() ContainerServiceTypeOutput {
-	return o
-}
-
-func (o ContainerServiceTypeOutput) ToContainerServiceTypeOutputWithContext(ctx context.Context) ContainerServiceTypeOutput {
-	return o
-}
-
-// Resource location
-func (o ContainerServiceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o ContainerServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the container service.
-func (o ContainerServiceTypeOutput) Properties() ContainerServicePropertiesResponseOutput {
-	return o.ApplyT(func(v ContainerServiceType) ContainerServicePropertiesResponse { return v.Properties }).(ContainerServicePropertiesResponseOutput)
-}
-
-// Resource tags
-func (o ContainerServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ContainerServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ContainerServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Profile for the container service agent pool.
 type ContainerServiceAgentPoolProfile struct {
 	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
@@ -2853,7 +2762,6 @@ func (o ContainerServiceWindowsProfileResponsePtrOutput) AdminUsername() pulumi.
 }
 
 func init() {
-	pulumi.RegisterOutputType(ContainerServiceTypeOutput{})
 	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceAgentPoolProfileResponseOutput{})

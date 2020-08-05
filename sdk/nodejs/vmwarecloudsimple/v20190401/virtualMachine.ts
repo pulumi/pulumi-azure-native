@@ -51,7 +51,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The list of tags
      */
-    public readonly tags!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.TagsResponse | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * {resourceProviderNamespace}/{resourceType}
      */
@@ -181,7 +181,7 @@ export interface VirtualMachineArgs {
     /**
      * The list of tags
      */
-    readonly tags?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Virtual Machine Template Id
      */

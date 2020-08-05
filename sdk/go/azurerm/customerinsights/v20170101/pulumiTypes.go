@@ -246,152 +246,6 @@ func (o AssignmentPrincipalResponseArrayOutput) Index(i pulumi.IntInput) Assignm
 	}).(AssignmentPrincipalResponseOutput)
 }
 
-// The connector resource format.
-type ConnectorType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of connector.
-	Properties ConnectorResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ConnectorTypeInput is an input type that accepts ConnectorTypeArgs and ConnectorTypeOutput values.
-// You can construct a concrete instance of `ConnectorTypeInput` via:
-//
-//          ConnectorTypeArgs{...}
-type ConnectorTypeInput interface {
-	pulumi.Input
-
-	ToConnectorTypeOutput() ConnectorTypeOutput
-	ToConnectorTypeOutputWithContext(context.Context) ConnectorTypeOutput
-}
-
-// The connector resource format.
-type ConnectorTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of connector.
-	Properties ConnectorResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConnectorTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorType)(nil)).Elem()
-}
-
-func (i ConnectorTypeArgs) ToConnectorTypeOutput() ConnectorTypeOutput {
-	return i.ToConnectorTypeOutputWithContext(context.Background())
-}
-
-func (i ConnectorTypeArgs) ToConnectorTypeOutputWithContext(ctx context.Context) ConnectorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTypeOutput)
-}
-
-// The connector resource format.
-type ConnectorTypeOutput struct{ *pulumi.OutputState }
-
-func (ConnectorTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorType)(nil)).Elem()
-}
-
-func (o ConnectorTypeOutput) ToConnectorTypeOutput() ConnectorTypeOutput {
-	return o
-}
-
-func (o ConnectorTypeOutput) ToConnectorTypeOutputWithContext(ctx context.Context) ConnectorTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ConnectorTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of connector.
-func (o ConnectorTypeOutput) Properties() ConnectorResponseOutput {
-	return o.ApplyT(func(v ConnectorType) ConnectorResponse { return v.Properties }).(ConnectorResponseOutput)
-}
-
-// Resource type.
-func (o ConnectorTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The connector mapping resource format.
-type ConnectorMappingType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The connector mapping definition.
-	Properties ConnectorMappingResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ConnectorMappingTypeInput is an input type that accepts ConnectorMappingTypeArgs and ConnectorMappingTypeOutput values.
-// You can construct a concrete instance of `ConnectorMappingTypeInput` via:
-//
-//          ConnectorMappingTypeArgs{...}
-type ConnectorMappingTypeInput interface {
-	pulumi.Input
-
-	ToConnectorMappingTypeOutput() ConnectorMappingTypeOutput
-	ToConnectorMappingTypeOutputWithContext(context.Context) ConnectorMappingTypeOutput
-}
-
-// The connector mapping resource format.
-type ConnectorMappingTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The connector mapping definition.
-	Properties ConnectorMappingResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConnectorMappingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMappingType)(nil)).Elem()
-}
-
-func (i ConnectorMappingTypeArgs) ToConnectorMappingTypeOutput() ConnectorMappingTypeOutput {
-	return i.ToConnectorMappingTypeOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingTypeArgs) ToConnectorMappingTypeOutputWithContext(ctx context.Context) ConnectorMappingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingTypeOutput)
-}
-
-// The connector mapping resource format.
-type ConnectorMappingTypeOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMappingType)(nil)).Elem()
-}
-
-func (o ConnectorMappingTypeOutput) ToConnectorMappingTypeOutput() ConnectorMappingTypeOutput {
-	return o
-}
-
-func (o ConnectorMappingTypeOutput) ToConnectorMappingTypeOutputWithContext(ctx context.Context) ConnectorMappingTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ConnectorMappingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorMappingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The connector mapping definition.
-func (o ConnectorMappingTypeOutput) Properties() ConnectorMappingResponseOutput {
-	return o.ApplyT(func(v ConnectorMappingType) ConnectorMappingResponse { return v.Properties }).(ConnectorMappingResponseOutput)
-}
-
-// Resource type.
-func (o ConnectorMappingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorMappingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Connector mapping property availability.
 type ConnectorMappingAvailability struct {
 	// The frequency to update.
@@ -3287,61 +3141,6 @@ func (o ConnectorResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The data source precedence is a way to know the precedence of each data source.
-type DataSourcePrecedence struct {
-	// the precedence value.
-	Precedence *int `pulumi:"precedence"`
-}
-
-// DataSourcePrecedenceInput is an input type that accepts DataSourcePrecedenceArgs and DataSourcePrecedenceOutput values.
-// You can construct a concrete instance of `DataSourcePrecedenceInput` via:
-//
-//          DataSourcePrecedenceArgs{...}
-type DataSourcePrecedenceInput interface {
-	pulumi.Input
-
-	ToDataSourcePrecedenceOutput() DataSourcePrecedenceOutput
-	ToDataSourcePrecedenceOutputWithContext(context.Context) DataSourcePrecedenceOutput
-}
-
-// The data source precedence is a way to know the precedence of each data source.
-type DataSourcePrecedenceArgs struct {
-	// the precedence value.
-	Precedence pulumi.IntPtrInput `pulumi:"precedence"`
-}
-
-func (DataSourcePrecedenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourcePrecedence)(nil)).Elem()
-}
-
-func (i DataSourcePrecedenceArgs) ToDataSourcePrecedenceOutput() DataSourcePrecedenceOutput {
-	return i.ToDataSourcePrecedenceOutputWithContext(context.Background())
-}
-
-func (i DataSourcePrecedenceArgs) ToDataSourcePrecedenceOutputWithContext(ctx context.Context) DataSourcePrecedenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePrecedenceOutput)
-}
-
-// The data source precedence is a way to know the precedence of each data source.
-type DataSourcePrecedenceOutput struct{ *pulumi.OutputState }
-
-func (DataSourcePrecedenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourcePrecedence)(nil)).Elem()
-}
-
-func (o DataSourcePrecedenceOutput) ToDataSourcePrecedenceOutput() DataSourcePrecedenceOutput {
-	return o
-}
-
-func (o DataSourcePrecedenceOutput) ToDataSourcePrecedenceOutputWithContext(ctx context.Context) DataSourcePrecedenceOutput {
-	return o
-}
-
-// the precedence value.
-func (o DataSourcePrecedenceOutput) Precedence() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataSourcePrecedence) *int { return v.Precedence }).(pulumi.IntPtrOutput)
-}
-
-// The data source precedence is a way to know the precedence of each data source.
 type DataSourcePrecedenceResponse struct {
 	// Data Source is a way for us to know the source of instances. A single type can have data coming in from multiple places. In activities we use this to determine precedence rules.
 	DataSource *DataSourceResponse `pulumi:"dataSource"`
@@ -3658,97 +3457,6 @@ func (o DataSourceResponsePtrOutput) Status() pulumi.StringPtrOutput {
 		}
 		return &v.Status
 	}).(pulumi.StringPtrOutput)
-}
-
-// Hub resource.
-type HubType struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of hub.
-	Properties HubPropertiesFormatResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HubTypeInput is an input type that accepts HubTypeArgs and HubTypeOutput values.
-// You can construct a concrete instance of `HubTypeInput` via:
-//
-//          HubTypeArgs{...}
-type HubTypeInput interface {
-	pulumi.Input
-
-	ToHubTypeOutput() HubTypeOutput
-	ToHubTypeOutputWithContext(context.Context) HubTypeOutput
-}
-
-// Hub resource.
-type HubTypeArgs struct {
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of hub.
-	Properties HubPropertiesFormatResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubType)(nil)).Elem()
-}
-
-func (i HubTypeArgs) ToHubTypeOutput() HubTypeOutput {
-	return i.ToHubTypeOutputWithContext(context.Background())
-}
-
-func (i HubTypeArgs) ToHubTypeOutputWithContext(ctx context.Context) HubTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubTypeOutput)
-}
-
-// Hub resource.
-type HubTypeOutput struct{ *pulumi.OutputState }
-
-func (HubTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubType)(nil)).Elem()
-}
-
-func (o HubTypeOutput) ToHubTypeOutput() HubTypeOutput {
-	return o
-}
-
-func (o HubTypeOutput) ToHubTypeOutputWithContext(ctx context.Context) HubTypeOutput {
-	return o
-}
-
-// Resource location.
-func (o HubTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HubType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name.
-func (o HubTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of hub.
-func (o HubTypeOutput) Properties() HubPropertiesFormatResponseOutput {
-	return o.ApplyT(func(v HubType) HubPropertiesFormatResponse { return v.Properties }).(HubPropertiesFormatResponseOutput)
-}
-
-// Resource tags.
-func (o HubTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v HubType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o HubTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Hub billing info.
@@ -4303,79 +4011,6 @@ func (o HubPropertiesFormatResponsePtrOutput) WebEndpoint() pulumi.StringPtrOutp
 		}
 		return &v.WebEndpoint
 	}).(pulumi.StringPtrOutput)
-}
-
-// The KPI resource format.
-type KpiType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Defines the KPI Threshold limits.
-	Properties KpiDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// KpiTypeInput is an input type that accepts KpiTypeArgs and KpiTypeOutput values.
-// You can construct a concrete instance of `KpiTypeInput` via:
-//
-//          KpiTypeArgs{...}
-type KpiTypeInput interface {
-	pulumi.Input
-
-	ToKpiTypeOutput() KpiTypeOutput
-	ToKpiTypeOutputWithContext(context.Context) KpiTypeOutput
-}
-
-// The KPI resource format.
-type KpiTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Defines the KPI Threshold limits.
-	Properties KpiDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (KpiTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiType)(nil)).Elem()
-}
-
-func (i KpiTypeArgs) ToKpiTypeOutput() KpiTypeOutput {
-	return i.ToKpiTypeOutputWithContext(context.Background())
-}
-
-func (i KpiTypeArgs) ToKpiTypeOutputWithContext(ctx context.Context) KpiTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiTypeOutput)
-}
-
-// The KPI resource format.
-type KpiTypeOutput struct{ *pulumi.OutputState }
-
-func (KpiTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiType)(nil)).Elem()
-}
-
-func (o KpiTypeOutput) ToKpiTypeOutput() KpiTypeOutput {
-	return o
-}
-
-func (o KpiTypeOutput) ToKpiTypeOutputWithContext(ctx context.Context) KpiTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o KpiTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v KpiType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Defines the KPI Threshold limits.
-func (o KpiTypeOutput) Properties() KpiDefinitionResponseOutput {
-	return o.ApplyT(func(v KpiType) KpiDefinitionResponse { return v.Properties }).(KpiDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o KpiTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v KpiType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The KPI alias.
@@ -5293,79 +4928,6 @@ func (o KpiExtractResponseArrayOutput) Index(i pulumi.IntInput) KpiExtractRespon
 }
 
 // The KPI GroupBy field metadata.
-type KpiGroupByMetadata struct {
-	// The display name.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The name of the field.
-	FieldName *string `pulumi:"fieldName"`
-	// The type of the field.
-	FieldType *string `pulumi:"fieldType"`
-}
-
-// KpiGroupByMetadataInput is an input type that accepts KpiGroupByMetadataArgs and KpiGroupByMetadataOutput values.
-// You can construct a concrete instance of `KpiGroupByMetadataInput` via:
-//
-//          KpiGroupByMetadataArgs{...}
-type KpiGroupByMetadataInput interface {
-	pulumi.Input
-
-	ToKpiGroupByMetadataOutput() KpiGroupByMetadataOutput
-	ToKpiGroupByMetadataOutputWithContext(context.Context) KpiGroupByMetadataOutput
-}
-
-// The KPI GroupBy field metadata.
-type KpiGroupByMetadataArgs struct {
-	// The display name.
-	DisplayName pulumi.StringMapInput `pulumi:"displayName"`
-	// The name of the field.
-	FieldName pulumi.StringPtrInput `pulumi:"fieldName"`
-	// The type of the field.
-	FieldType pulumi.StringPtrInput `pulumi:"fieldType"`
-}
-
-func (KpiGroupByMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiGroupByMetadata)(nil)).Elem()
-}
-
-func (i KpiGroupByMetadataArgs) ToKpiGroupByMetadataOutput() KpiGroupByMetadataOutput {
-	return i.ToKpiGroupByMetadataOutputWithContext(context.Background())
-}
-
-func (i KpiGroupByMetadataArgs) ToKpiGroupByMetadataOutputWithContext(ctx context.Context) KpiGroupByMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiGroupByMetadataOutput)
-}
-
-// The KPI GroupBy field metadata.
-type KpiGroupByMetadataOutput struct{ *pulumi.OutputState }
-
-func (KpiGroupByMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiGroupByMetadata)(nil)).Elem()
-}
-
-func (o KpiGroupByMetadataOutput) ToKpiGroupByMetadataOutput() KpiGroupByMetadataOutput {
-	return o
-}
-
-func (o KpiGroupByMetadataOutput) ToKpiGroupByMetadataOutputWithContext(ctx context.Context) KpiGroupByMetadataOutput {
-	return o
-}
-
-// The display name.
-func (o KpiGroupByMetadataOutput) DisplayName() pulumi.StringMapOutput {
-	return o.ApplyT(func(v KpiGroupByMetadata) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
-}
-
-// The name of the field.
-func (o KpiGroupByMetadataOutput) FieldName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KpiGroupByMetadata) *string { return v.FieldName }).(pulumi.StringPtrOutput)
-}
-
-// The type of the field.
-func (o KpiGroupByMetadataOutput) FieldType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KpiGroupByMetadata) *string { return v.FieldType }).(pulumi.StringPtrOutput)
-}
-
-// The KPI GroupBy field metadata.
 type KpiGroupByMetadataResponse struct {
 	// The display name.
 	DisplayName map[string]string `pulumi:"displayName"`
@@ -5481,61 +5043,6 @@ func (o KpiGroupByMetadataResponseArrayOutput) Index(i pulumi.IntInput) KpiGroup
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KpiGroupByMetadataResponse {
 		return vs[0].([]KpiGroupByMetadataResponse)[vs[1].(int)]
 	}).(KpiGroupByMetadataResponseOutput)
-}
-
-// The KPI participant profile metadata.
-type KpiParticipantProfilesMetadata struct {
-	// Name of the type.
-	TypeName string `pulumi:"typeName"`
-}
-
-// KpiParticipantProfilesMetadataInput is an input type that accepts KpiParticipantProfilesMetadataArgs and KpiParticipantProfilesMetadataOutput values.
-// You can construct a concrete instance of `KpiParticipantProfilesMetadataInput` via:
-//
-//          KpiParticipantProfilesMetadataArgs{...}
-type KpiParticipantProfilesMetadataInput interface {
-	pulumi.Input
-
-	ToKpiParticipantProfilesMetadataOutput() KpiParticipantProfilesMetadataOutput
-	ToKpiParticipantProfilesMetadataOutputWithContext(context.Context) KpiParticipantProfilesMetadataOutput
-}
-
-// The KPI participant profile metadata.
-type KpiParticipantProfilesMetadataArgs struct {
-	// Name of the type.
-	TypeName pulumi.StringInput `pulumi:"typeName"`
-}
-
-func (KpiParticipantProfilesMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiParticipantProfilesMetadata)(nil)).Elem()
-}
-
-func (i KpiParticipantProfilesMetadataArgs) ToKpiParticipantProfilesMetadataOutput() KpiParticipantProfilesMetadataOutput {
-	return i.ToKpiParticipantProfilesMetadataOutputWithContext(context.Background())
-}
-
-func (i KpiParticipantProfilesMetadataArgs) ToKpiParticipantProfilesMetadataOutputWithContext(ctx context.Context) KpiParticipantProfilesMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiParticipantProfilesMetadataOutput)
-}
-
-// The KPI participant profile metadata.
-type KpiParticipantProfilesMetadataOutput struct{ *pulumi.OutputState }
-
-func (KpiParticipantProfilesMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiParticipantProfilesMetadata)(nil)).Elem()
-}
-
-func (o KpiParticipantProfilesMetadataOutput) ToKpiParticipantProfilesMetadataOutput() KpiParticipantProfilesMetadataOutput {
-	return o
-}
-
-func (o KpiParticipantProfilesMetadataOutput) ToKpiParticipantProfilesMetadataOutputWithContext(ctx context.Context) KpiParticipantProfilesMetadataOutput {
-	return o
-}
-
-// Name of the type.
-func (o KpiParticipantProfilesMetadataOutput) TypeName() pulumi.StringOutput {
-	return o.ApplyT(func(v KpiParticipantProfilesMetadata) string { return v.TypeName }).(pulumi.StringOutput)
 }
 
 // The KPI participant profile metadata.
@@ -5980,79 +5487,6 @@ func (o KpiThresholdsResponsePtrOutput) UpperLimit() pulumi.Float64PtrOutput {
 		}
 		return &v.UpperLimit
 	}).(pulumi.Float64PtrOutput)
-}
-
-// The link resource format.
-type LinkType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The definition of Link.
-	Properties LinkDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// LinkTypeInput is an input type that accepts LinkTypeArgs and LinkTypeOutput values.
-// You can construct a concrete instance of `LinkTypeInput` via:
-//
-//          LinkTypeArgs{...}
-type LinkTypeInput interface {
-	pulumi.Input
-
-	ToLinkTypeOutput() LinkTypeOutput
-	ToLinkTypeOutputWithContext(context.Context) LinkTypeOutput
-}
-
-// The link resource format.
-type LinkTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The definition of Link.
-	Properties LinkDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LinkTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkType)(nil)).Elem()
-}
-
-func (i LinkTypeArgs) ToLinkTypeOutput() LinkTypeOutput {
-	return i.ToLinkTypeOutputWithContext(context.Background())
-}
-
-func (i LinkTypeArgs) ToLinkTypeOutputWithContext(ctx context.Context) LinkTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkTypeOutput)
-}
-
-// The link resource format.
-type LinkTypeOutput struct{ *pulumi.OutputState }
-
-func (LinkTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkType)(nil)).Elem()
-}
-
-func (o LinkTypeOutput) ToLinkTypeOutput() LinkTypeOutput {
-	return o
-}
-
-func (o LinkTypeOutput) ToLinkTypeOutputWithContext(ctx context.Context) LinkTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o LinkTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The definition of Link.
-func (o LinkTypeOutput) Properties() LinkDefinitionResponseOutput {
-	return o.ApplyT(func(v LinkType) LinkDefinitionResponse { return v.Properties }).(LinkDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o LinkTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The definition of Link.
@@ -6597,79 +6031,6 @@ func (o ParticipantPropertyReferenceResponseArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ParticipantPropertyReferenceResponse {
 		return vs[0].([]ParticipantPropertyReferenceResponse)[vs[1].(int)]
 	}).(ParticipantPropertyReferenceResponseOutput)
-}
-
-// The profile resource format.
-type ProfileType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The profile type definition.
-	Properties ProfileTypeDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ProfileTypeInput is an input type that accepts ProfileTypeArgs and ProfileTypeOutput values.
-// You can construct a concrete instance of `ProfileTypeInput` via:
-//
-//          ProfileTypeArgs{...}
-type ProfileTypeInput interface {
-	pulumi.Input
-
-	ToProfileTypeOutput() ProfileTypeOutput
-	ToProfileTypeOutputWithContext(context.Context) ProfileTypeOutput
-}
-
-// The profile resource format.
-type ProfileTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The profile type definition.
-	Properties ProfileTypeDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ProfileTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileType)(nil)).Elem()
-}
-
-func (i ProfileTypeArgs) ToProfileTypeOutput() ProfileTypeOutput {
-	return i.ToProfileTypeOutputWithContext(context.Background())
-}
-
-func (i ProfileTypeArgs) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileTypeOutput)
-}
-
-// The profile resource format.
-type ProfileTypeOutput struct{ *pulumi.OutputState }
-
-func (ProfileTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileType)(nil)).Elem()
-}
-
-func (o ProfileTypeOutput) ToProfileTypeOutput() ProfileTypeOutput {
-	return o
-}
-
-func (o ProfileTypeOutput) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ProfileTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The profile type definition.
-func (o ProfileTypeOutput) Properties() ProfileTypeDefinitionResponseOutput {
-	return o.ApplyT(func(v ProfileType) ProfileTypeDefinitionResponse { return v.Properties }).(ProfileTypeDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o ProfileTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Valid enum values in case of an enum property.
@@ -7808,79 +7169,6 @@ func (o PropertyDefinitionResponseArrayOutput) Index(i pulumi.IntInput) Property
 	}).(PropertyDefinitionResponseOutput)
 }
 
-// The relationship resource format.
-type RelationshipType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The definition of Relationship.
-	Properties RelationshipDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// RelationshipTypeInput is an input type that accepts RelationshipTypeArgs and RelationshipTypeOutput values.
-// You can construct a concrete instance of `RelationshipTypeInput` via:
-//
-//          RelationshipTypeArgs{...}
-type RelationshipTypeInput interface {
-	pulumi.Input
-
-	ToRelationshipTypeOutput() RelationshipTypeOutput
-	ToRelationshipTypeOutputWithContext(context.Context) RelationshipTypeOutput
-}
-
-// The relationship resource format.
-type RelationshipTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The definition of Relationship.
-	Properties RelationshipDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RelationshipTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipType)(nil)).Elem()
-}
-
-func (i RelationshipTypeArgs) ToRelationshipTypeOutput() RelationshipTypeOutput {
-	return i.ToRelationshipTypeOutputWithContext(context.Background())
-}
-
-func (i RelationshipTypeArgs) ToRelationshipTypeOutputWithContext(ctx context.Context) RelationshipTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeOutput)
-}
-
-// The relationship resource format.
-type RelationshipTypeOutput struct{ *pulumi.OutputState }
-
-func (RelationshipTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipType)(nil)).Elem()
-}
-
-func (o RelationshipTypeOutput) ToRelationshipTypeOutput() RelationshipTypeOutput {
-	return o
-}
-
-func (o RelationshipTypeOutput) ToRelationshipTypeOutputWithContext(ctx context.Context) RelationshipTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o RelationshipTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RelationshipType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The definition of Relationship.
-func (o RelationshipTypeOutput) Properties() RelationshipDefinitionResponseOutput {
-	return o.ApplyT(func(v RelationshipType) RelationshipDefinitionResponse { return v.Properties }).(RelationshipDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o RelationshipTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RelationshipType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The definition of Relationship.
 type RelationshipDefinitionResponse struct {
 	// The Relationship Cardinality.
@@ -8222,79 +7510,6 @@ func (o RelationshipDefinitionResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 		}
 		return &v.TenantId
 	}).(pulumi.StringPtrOutput)
-}
-
-// The relationship link resource format.
-type RelationshipLinkType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The definition of relationship link.
-	Properties RelationshipLinkDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// RelationshipLinkTypeInput is an input type that accepts RelationshipLinkTypeArgs and RelationshipLinkTypeOutput values.
-// You can construct a concrete instance of `RelationshipLinkTypeInput` via:
-//
-//          RelationshipLinkTypeArgs{...}
-type RelationshipLinkTypeInput interface {
-	pulumi.Input
-
-	ToRelationshipLinkTypeOutput() RelationshipLinkTypeOutput
-	ToRelationshipLinkTypeOutputWithContext(context.Context) RelationshipLinkTypeOutput
-}
-
-// The relationship link resource format.
-type RelationshipLinkTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The definition of relationship link.
-	Properties RelationshipLinkDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RelationshipLinkTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipLinkType)(nil)).Elem()
-}
-
-func (i RelationshipLinkTypeArgs) ToRelationshipLinkTypeOutput() RelationshipLinkTypeOutput {
-	return i.ToRelationshipLinkTypeOutputWithContext(context.Background())
-}
-
-func (i RelationshipLinkTypeArgs) ToRelationshipLinkTypeOutputWithContext(ctx context.Context) RelationshipLinkTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelationshipLinkTypeOutput)
-}
-
-// The relationship link resource format.
-type RelationshipLinkTypeOutput struct{ *pulumi.OutputState }
-
-func (RelationshipLinkTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipLinkType)(nil)).Elem()
-}
-
-func (o RelationshipLinkTypeOutput) ToRelationshipLinkTypeOutput() RelationshipLinkTypeOutput {
-	return o
-}
-
-func (o RelationshipLinkTypeOutput) ToRelationshipLinkTypeOutputWithContext(ctx context.Context) RelationshipLinkTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o RelationshipLinkTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RelationshipLinkType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The definition of relationship link.
-func (o RelationshipLinkTypeOutput) Properties() RelationshipLinkDefinitionResponseOutput {
-	return o.ApplyT(func(v RelationshipLinkType) RelationshipLinkDefinitionResponse { return v.Properties }).(RelationshipLinkDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o RelationshipLinkTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RelationshipLinkType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The definition of relationship link.
@@ -9585,79 +8800,6 @@ func (o ResourceSetDescriptionResponsePtrOutput) Exceptions() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Role Assignment resource format.
-type RoleAssignmentType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The Role Assignment definition.
-	Properties RoleAssignmentResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// RoleAssignmentTypeInput is an input type that accepts RoleAssignmentTypeArgs and RoleAssignmentTypeOutput values.
-// You can construct a concrete instance of `RoleAssignmentTypeInput` via:
-//
-//          RoleAssignmentTypeArgs{...}
-type RoleAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput
-	ToRoleAssignmentTypeOutputWithContext(context.Context) RoleAssignmentTypeOutput
-}
-
-// The Role Assignment resource format.
-type RoleAssignmentTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Role Assignment definition.
-	Properties RoleAssignmentResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RoleAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentType)(nil)).Elem()
-}
-
-func (i RoleAssignmentTypeArgs) ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput {
-	return i.ToRoleAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i RoleAssignmentTypeArgs) ToRoleAssignmentTypeOutputWithContext(ctx context.Context) RoleAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentTypeOutput)
-}
-
-// The Role Assignment resource format.
-type RoleAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (RoleAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentType)(nil)).Elem()
-}
-
-func (o RoleAssignmentTypeOutput) ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput {
-	return o
-}
-
-func (o RoleAssignmentTypeOutput) ToRoleAssignmentTypeOutputWithContext(ctx context.Context) RoleAssignmentTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o RoleAssignmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RoleAssignmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Role Assignment definition.
-func (o RoleAssignmentTypeOutput) Properties() RoleAssignmentResponseOutput {
-	return o.ApplyT(func(v RoleAssignmentType) RoleAssignmentResponse { return v.Properties }).(RoleAssignmentResponseOutput)
-}
-
-// Resource type.
-func (o RoleAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RoleAssignmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The Role Assignment definition.
 type RoleAssignmentResponse struct {
 	// The name of the metadata object.
@@ -10661,79 +9803,6 @@ func (o TypePropertiesMappingResponseArrayOutput) Index(i pulumi.IntInput) TypeP
 	}).(TypePropertiesMappingResponseOutput)
 }
 
-// The view resource format.
-type ViewType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The view in Customer 360 web application.
-	Properties ViewResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ViewTypeInput is an input type that accepts ViewTypeArgs and ViewTypeOutput values.
-// You can construct a concrete instance of `ViewTypeInput` via:
-//
-//          ViewTypeArgs{...}
-type ViewTypeInput interface {
-	pulumi.Input
-
-	ToViewTypeOutput() ViewTypeOutput
-	ToViewTypeOutputWithContext(context.Context) ViewTypeOutput
-}
-
-// The view resource format.
-type ViewTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The view in Customer 360 web application.
-	Properties ViewResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ViewTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewType)(nil)).Elem()
-}
-
-func (i ViewTypeArgs) ToViewTypeOutput() ViewTypeOutput {
-	return i.ToViewTypeOutputWithContext(context.Background())
-}
-
-func (i ViewTypeArgs) ToViewTypeOutputWithContext(ctx context.Context) ViewTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewTypeOutput)
-}
-
-// The view resource format.
-type ViewTypeOutput struct{ *pulumi.OutputState }
-
-func (ViewTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewType)(nil)).Elem()
-}
-
-func (o ViewTypeOutput) ToViewTypeOutput() ViewTypeOutput {
-	return o
-}
-
-func (o ViewTypeOutput) ToViewTypeOutputWithContext(ctx context.Context) ViewTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ViewTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ViewType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The view in Customer 360 web application.
-func (o ViewTypeOutput) Properties() ViewResponseOutput {
-	return o.ApplyT(func(v ViewType) ViewResponse { return v.Properties }).(ViewResponseOutput)
-}
-
-// Resource type.
-func (o ViewTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ViewType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The view in Customer 360 web application.
 type ViewResponse struct {
 	// Date time when view was last modified.
@@ -10987,8 +10056,6 @@ func init() {
 	pulumi.RegisterOutputType(AssignmentPrincipalArrayOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseArrayOutput{})
-	pulumi.RegisterOutputType(ConnectorTypeOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingTypeOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityResponseOutput{})
@@ -11017,19 +10084,16 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorMappingStructureResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectorResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorResponsePtrOutput{})
-	pulumi.RegisterOutputType(DataSourcePrecedenceOutput{})
 	pulumi.RegisterOutputType(DataSourcePrecedenceResponseOutput{})
 	pulumi.RegisterOutputType(DataSourcePrecedenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceResponseOutput{})
 	pulumi.RegisterOutputType(DataSourceResponsePtrOutput{})
-	pulumi.RegisterOutputType(HubTypeOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatPtrOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatResponseOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatResponsePtrOutput{})
 	pulumi.RegisterOutputType(HubPropertiesFormatResponseOutput{})
 	pulumi.RegisterOutputType(HubPropertiesFormatResponsePtrOutput{})
-	pulumi.RegisterOutputType(KpiTypeOutput{})
 	pulumi.RegisterOutputType(KpiAliasOutput{})
 	pulumi.RegisterOutputType(KpiAliasArrayOutput{})
 	pulumi.RegisterOutputType(KpiAliasResponseOutput{})
@@ -11040,24 +10104,20 @@ func init() {
 	pulumi.RegisterOutputType(KpiExtractArrayOutput{})
 	pulumi.RegisterOutputType(KpiExtractResponseOutput{})
 	pulumi.RegisterOutputType(KpiExtractResponseArrayOutput{})
-	pulumi.RegisterOutputType(KpiGroupByMetadataOutput{})
 	pulumi.RegisterOutputType(KpiGroupByMetadataResponseOutput{})
 	pulumi.RegisterOutputType(KpiGroupByMetadataResponseArrayOutput{})
-	pulumi.RegisterOutputType(KpiParticipantProfilesMetadataOutput{})
 	pulumi.RegisterOutputType(KpiParticipantProfilesMetadataResponseOutput{})
 	pulumi.RegisterOutputType(KpiParticipantProfilesMetadataResponseArrayOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsPtrOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsResponseOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsResponsePtrOutput{})
-	pulumi.RegisterOutputType(LinkTypeOutput{})
 	pulumi.RegisterOutputType(LinkDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(LinkDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceArrayOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(ProfileTypeOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatArrayOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatResponseOutput{})
@@ -11068,10 +10128,8 @@ func init() {
 	pulumi.RegisterOutputType(PropertyDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(PropertyDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(PropertyDefinitionResponseArrayOutput{})
-	pulumi.RegisterOutputType(RelationshipTypeOutput{})
 	pulumi.RegisterOutputType(RelationshipDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(RelationshipDefinitionResponsePtrOutput{})
-	pulumi.RegisterOutputType(RelationshipLinkTypeOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkFieldMappingOutput{})
@@ -11090,7 +10148,6 @@ func init() {
 	pulumi.RegisterOutputType(ResourceSetDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSetDescriptionResponsePtrOutput{})
-	pulumi.RegisterOutputType(RoleAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentResponseOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentResponsePtrOutput{})
 	pulumi.RegisterOutputType(StrongIdOutput{})
@@ -11101,7 +10158,6 @@ func init() {
 	pulumi.RegisterOutputType(TypePropertiesMappingArrayOutput{})
 	pulumi.RegisterOutputType(TypePropertiesMappingResponseOutput{})
 	pulumi.RegisterOutputType(TypePropertiesMappingResponseArrayOutput{})
-	pulumi.RegisterOutputType(ViewTypeOutput{})
 	pulumi.RegisterOutputType(ViewResponseOutput{})
 	pulumi.RegisterOutputType(ViewResponsePtrOutput{})
 }

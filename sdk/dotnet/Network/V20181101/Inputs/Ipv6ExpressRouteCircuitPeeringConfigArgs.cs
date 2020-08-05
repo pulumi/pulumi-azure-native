@@ -31,7 +31,7 @@ namespace Pulumi.AzureRM.Network.V20181101.Inputs
         /// The reference of the RouteFilter resource.
         /// </summary>
         [Input("routeFilter")]
-        public Input<Inputs.RouteFilterDefinitionArgs>? RouteFilter { get; set; }
+        public Input<Inputs.RouteFilterArgs>? RouteFilter { get; set; }
 
         /// <summary>
         /// The secondary address prefix.

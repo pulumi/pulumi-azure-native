@@ -16,10 +16,34 @@ namespace Pulumi.AzureRM.Network.V20190401.Inputs
     public sealed class LocalNetworkGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Local network gateway's BGP speaker settings.
+        /// </summary>
+        [Input("bgpSettings")]
+        public Input<Inputs.BgpSettingsArgs>? BgpSettings { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// IP address of local network gateway.
+        /// </summary>
+        [Input("gatewayIpAddress")]
+        public Input<string>? GatewayIpAddress { get; set; }
+
+        /// <summary>
+        /// Resource ID.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Local network site address space.
+        /// </summary>
+        [Input("localNetworkAddressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? LocalNetworkAddressSpace { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -28,16 +52,10 @@ namespace Pulumi.AzureRM.Network.V20190401.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Resource name.
+        /// The resource GUID property of the LocalNetworkGateway resource.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the local network gateway.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.LocalNetworkGatewayPropertiesFormatResponseArgs> Properties { get; set; } = null!;
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -50,12 +68,6 @@ namespace Pulumi.AzureRM.Network.V20190401.Inputs
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
 
         public LocalNetworkGatewayArgs()
         {

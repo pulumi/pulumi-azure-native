@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         /// Describes Machine Extension Properties.
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, object>> Properties { get; private set; } = null!;
+        public Output<Outputs.MachineExtensionResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -101,17 +101,11 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         [Input("forceUpdateTag")]
         public Input<string>? ForceUpdateTag { get; set; }
 
-        [Input("instanceView")]
-        private InputMap<object>? _instanceView;
-
         /// <summary>
         /// The machine extension instance view.
         /// </summary>
-        public InputMap<object> InstanceView
-        {
-            get => _instanceView ?? (_instanceView = new InputMap<object>());
-            set => _instanceView = value;
-        }
+        [Input("instanceView")]
+        public Input<Inputs.MachineExtensionPropertiesInstanceViewArgs>? InstanceView { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

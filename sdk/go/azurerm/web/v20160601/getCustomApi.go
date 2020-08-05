@@ -34,7 +34,7 @@ type LookupCustomApiResult struct {
 	// Custom API properties
 	Properties CustomApiPropertiesDefinitionResponse `pulumi:"properties"`
 	// Resource tags
-	Tags *TagsDictionaryResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

@@ -102,7 +102,7 @@ type endpointArgs struct {
 	// List of content types on which compression applies. The value should be a valid MIME type.
 	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
 	// A policy that specifies the delivery rules to be used for an endpoint.
-	DeliveryPolicy *EndpointPropertiesUpdateParametersProperties `pulumi:"deliveryPolicy"`
+	DeliveryPolicy *EndpointPropertiesUpdateParametersDeliveryPolicy `pulumi:"deliveryPolicy"`
 	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
 	GeoFilters []GeoFilter `pulumi:"geoFilters"`
 	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
@@ -134,7 +134,7 @@ type endpointArgs struct {
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Defines the Web Application Firewall policy for the endpoint (if applicable)
-	WebApplicationFirewallPolicyLink *EndpointPropertiesUpdateParametersProperties `pulumi:"webApplicationFirewallPolicyLink"`
+	WebApplicationFirewallPolicyLink *EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink `pulumi:"webApplicationFirewallPolicyLink"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
@@ -142,7 +142,7 @@ type EndpointArgs struct {
 	// List of content types on which compression applies. The value should be a valid MIME type.
 	ContentTypesToCompress pulumi.StringArrayInput
 	// A policy that specifies the delivery rules to be used for an endpoint.
-	DeliveryPolicy EndpointPropertiesUpdateParametersPropertiesPtrInput
+	DeliveryPolicy EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput
 	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
 	GeoFilters GeoFilterArrayInput
 	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
@@ -174,7 +174,7 @@ type EndpointArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Defines the Web Application Firewall policy for the endpoint (if applicable)
-	WebApplicationFirewallPolicyLink EndpointPropertiesUpdateParametersPropertiesPtrInput
+	WebApplicationFirewallPolicyLink EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkPtrInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {

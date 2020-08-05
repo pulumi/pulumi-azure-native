@@ -10,106 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents an instance of a Dedicated Capacity resource.
-type CapacityDetailsType struct {
-	// Location of the PowerBI Dedicated resource.
-	Location string `pulumi:"location"`
-	// The name of the PowerBI Dedicated resource.
-	Name string `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties DedicatedCapacityPropertiesResponse `pulumi:"properties"`
-	// The SKU of the PowerBI Dedicated resource.
-	Sku ResourceSkuResponse `pulumi:"sku"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the PowerBI Dedicated resource.
-	Type string `pulumi:"type"`
-}
-
-// CapacityDetailsTypeInput is an input type that accepts CapacityDetailsTypeArgs and CapacityDetailsTypeOutput values.
-// You can construct a concrete instance of `CapacityDetailsTypeInput` via:
-//
-//          CapacityDetailsTypeArgs{...}
-type CapacityDetailsTypeInput interface {
-	pulumi.Input
-
-	ToCapacityDetailsTypeOutput() CapacityDetailsTypeOutput
-	ToCapacityDetailsTypeOutputWithContext(context.Context) CapacityDetailsTypeOutput
-}
-
-// Represents an instance of a Dedicated Capacity resource.
-type CapacityDetailsTypeArgs struct {
-	// Location of the PowerBI Dedicated resource.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the PowerBI Dedicated resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties DedicatedCapacityPropertiesResponseInput `pulumi:"properties"`
-	// The SKU of the PowerBI Dedicated resource.
-	Sku ResourceSkuResponseInput `pulumi:"sku"`
-	// Key-value pairs of additional resource provisioning properties.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the PowerBI Dedicated resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CapacityDetailsTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityDetailsType)(nil)).Elem()
-}
-
-func (i CapacityDetailsTypeArgs) ToCapacityDetailsTypeOutput() CapacityDetailsTypeOutput {
-	return i.ToCapacityDetailsTypeOutputWithContext(context.Background())
-}
-
-func (i CapacityDetailsTypeArgs) ToCapacityDetailsTypeOutputWithContext(ctx context.Context) CapacityDetailsTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityDetailsTypeOutput)
-}
-
-// Represents an instance of a Dedicated Capacity resource.
-type CapacityDetailsTypeOutput struct{ *pulumi.OutputState }
-
-func (CapacityDetailsTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityDetailsType)(nil)).Elem()
-}
-
-func (o CapacityDetailsTypeOutput) ToCapacityDetailsTypeOutput() CapacityDetailsTypeOutput {
-	return o
-}
-
-func (o CapacityDetailsTypeOutput) ToCapacityDetailsTypeOutputWithContext(ctx context.Context) CapacityDetailsTypeOutput {
-	return o
-}
-
-// Location of the PowerBI Dedicated resource.
-func (o CapacityDetailsTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v CapacityDetailsType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the PowerBI Dedicated resource.
-func (o CapacityDetailsTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CapacityDetailsType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the provision operation request.
-func (o CapacityDetailsTypeOutput) Properties() DedicatedCapacityPropertiesResponseOutput {
-	return o.ApplyT(func(v CapacityDetailsType) DedicatedCapacityPropertiesResponse { return v.Properties }).(DedicatedCapacityPropertiesResponseOutput)
-}
-
-// The SKU of the PowerBI Dedicated resource.
-func (o CapacityDetailsTypeOutput) Sku() ResourceSkuResponseOutput {
-	return o.ApplyT(func(v CapacityDetailsType) ResourceSkuResponse { return v.Sku }).(ResourceSkuResponseOutput)
-}
-
-// Key-value pairs of additional resource provisioning properties.
-func (o CapacityDetailsTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CapacityDetailsType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the PowerBI Dedicated resource.
-func (o CapacityDetailsTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CapacityDetailsType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // An array of administrator user identities
 type DedicatedCapacityAdministrators struct {
 	// An array of administrator user identities.
@@ -859,7 +759,6 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(CapacityDetailsTypeOutput{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsOutput{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsPtrOutput{})
 	pulumi.RegisterOutputType(DedicatedCapacityAdministratorsResponseOutput{})

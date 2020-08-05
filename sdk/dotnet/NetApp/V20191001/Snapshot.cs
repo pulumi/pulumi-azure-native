@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.NetApp.V20191001
         /// Resource tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.ResourceTagsResponseResult?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

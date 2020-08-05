@@ -86,7 +86,7 @@ type policyDefinitionArgs struct {
 	// The name of the policy definition to create.
 	Name string `pulumi:"name"`
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-	Parameters *ParameterDefinitions `pulumi:"parameters"`
+	Parameters map[string]ParameterDefinitionsValue `pulumi:"parameters"`
 	// The policy rule.
 	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
@@ -106,7 +106,7 @@ type PolicyDefinitionArgs struct {
 	// The name of the policy definition to create.
 	Name pulumi.StringInput
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-	Parameters ParameterDefinitionsPtrInput
+	Parameters ParameterDefinitionsValueMapInput
 	// The policy rule.
 	PolicyRule pulumi.MapInput
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.

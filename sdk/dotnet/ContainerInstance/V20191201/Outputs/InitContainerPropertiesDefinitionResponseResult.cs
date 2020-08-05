@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201.Outputs
         /// <summary>
         /// The instance view of the init container. Only valid in response.
         /// </summary>
-        public readonly Outputs.InitContainerPropertiesDefinitionResponsePropertiesResult InstanceView;
+        public readonly Outputs.InitContainerPropertiesDefinitionResponseInstanceViewResult InstanceView;
         /// <summary>
         /// The volume mounts available to the init container.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201.Outputs
 
             string? image,
 
-            Outputs.InitContainerPropertiesDefinitionResponsePropertiesResult instanceView,
+            Outputs.InitContainerPropertiesDefinitionResponseInstanceViewResult instanceView,
 
             ImmutableArray<Outputs.VolumeMountResponseResult> volumeMounts)
         {

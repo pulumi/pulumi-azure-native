@@ -610,79 +610,6 @@ func (o PlanResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Registration assignment.
-type RegistrationAssignmentType struct {
-	// Name of the registration assignment.
-	Name string `pulumi:"name"`
-	// Properties of a registration assignment.
-	Properties RegistrationAssignmentPropertiesResponse `pulumi:"properties"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// RegistrationAssignmentTypeInput is an input type that accepts RegistrationAssignmentTypeArgs and RegistrationAssignmentTypeOutput values.
-// You can construct a concrete instance of `RegistrationAssignmentTypeInput` via:
-//
-//          RegistrationAssignmentTypeArgs{...}
-type RegistrationAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToRegistrationAssignmentTypeOutput() RegistrationAssignmentTypeOutput
-	ToRegistrationAssignmentTypeOutputWithContext(context.Context) RegistrationAssignmentTypeOutput
-}
-
-// Registration assignment.
-type RegistrationAssignmentTypeArgs struct {
-	// Name of the registration assignment.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of a registration assignment.
-	Properties RegistrationAssignmentPropertiesResponseInput `pulumi:"properties"`
-	// Type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RegistrationAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationAssignmentType)(nil)).Elem()
-}
-
-func (i RegistrationAssignmentTypeArgs) ToRegistrationAssignmentTypeOutput() RegistrationAssignmentTypeOutput {
-	return i.ToRegistrationAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i RegistrationAssignmentTypeArgs) ToRegistrationAssignmentTypeOutputWithContext(ctx context.Context) RegistrationAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentTypeOutput)
-}
-
-// Registration assignment.
-type RegistrationAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (RegistrationAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationAssignmentType)(nil)).Elem()
-}
-
-func (o RegistrationAssignmentTypeOutput) ToRegistrationAssignmentTypeOutput() RegistrationAssignmentTypeOutput {
-	return o
-}
-
-func (o RegistrationAssignmentTypeOutput) ToRegistrationAssignmentTypeOutputWithContext(ctx context.Context) RegistrationAssignmentTypeOutput {
-	return o
-}
-
-// Name of the registration assignment.
-func (o RegistrationAssignmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistrationAssignmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of a registration assignment.
-func (o RegistrationAssignmentTypeOutput) Properties() RegistrationAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v RegistrationAssignmentType) RegistrationAssignmentPropertiesResponse { return v.Properties }).(RegistrationAssignmentPropertiesResponseOutput)
-}
-
-// Type of the resource.
-func (o RegistrationAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistrationAssignmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of a registration assignment.
 type RegistrationAssignmentProperties struct {
 	// Fully qualified path of the registration definition.
@@ -817,169 +744,12 @@ func (o RegistrationAssignmentPropertiesPtrOutput) RegistrationDefinitionId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Registration definition inside registration assignment.
-type RegistrationAssignmentPropertiesProperties struct {
-	// Plan details for the managed services.
-	Plan *Plan `pulumi:"plan"`
-	// Properties of registration definition inside registration assignment.
-	Properties *RegistrationAssignmentPropertiesProperties `pulumi:"properties"`
-}
-
-// RegistrationAssignmentPropertiesPropertiesInput is an input type that accepts RegistrationAssignmentPropertiesPropertiesArgs and RegistrationAssignmentPropertiesPropertiesOutput values.
-// You can construct a concrete instance of `RegistrationAssignmentPropertiesPropertiesInput` via:
-//
-//          RegistrationAssignmentPropertiesPropertiesArgs{...}
-type RegistrationAssignmentPropertiesPropertiesInput interface {
-	pulumi.Input
-
-	ToRegistrationAssignmentPropertiesPropertiesOutput() RegistrationAssignmentPropertiesPropertiesOutput
-	ToRegistrationAssignmentPropertiesPropertiesOutputWithContext(context.Context) RegistrationAssignmentPropertiesPropertiesOutput
-}
-
-// Registration definition inside registration assignment.
-type RegistrationAssignmentPropertiesPropertiesArgs struct {
-	// Plan details for the managed services.
-	Plan PlanPtrInput `pulumi:"plan"`
-	// Properties of registration definition inside registration assignment.
-	Properties RegistrationAssignmentPropertiesPropertiesPtrInput `pulumi:"properties"`
-}
-
-func (RegistrationAssignmentPropertiesPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationAssignmentPropertiesProperties)(nil)).Elem()
-}
-
-func (i RegistrationAssignmentPropertiesPropertiesArgs) ToRegistrationAssignmentPropertiesPropertiesOutput() RegistrationAssignmentPropertiesPropertiesOutput {
-	return i.ToRegistrationAssignmentPropertiesPropertiesOutputWithContext(context.Background())
-}
-
-func (i RegistrationAssignmentPropertiesPropertiesArgs) ToRegistrationAssignmentPropertiesPropertiesOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesPropertiesOutput)
-}
-
-func (i RegistrationAssignmentPropertiesPropertiesArgs) ToRegistrationAssignmentPropertiesPropertiesPtrOutput() RegistrationAssignmentPropertiesPropertiesPtrOutput {
-	return i.ToRegistrationAssignmentPropertiesPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i RegistrationAssignmentPropertiesPropertiesArgs) ToRegistrationAssignmentPropertiesPropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesPropertiesOutput).ToRegistrationAssignmentPropertiesPropertiesPtrOutputWithContext(ctx)
-}
-
-// RegistrationAssignmentPropertiesPropertiesPtrInput is an input type that accepts RegistrationAssignmentPropertiesPropertiesArgs, RegistrationAssignmentPropertiesPropertiesPtr and RegistrationAssignmentPropertiesPropertiesPtrOutput values.
-// You can construct a concrete instance of `RegistrationAssignmentPropertiesPropertiesPtrInput` via:
-//
-//          RegistrationAssignmentPropertiesPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type RegistrationAssignmentPropertiesPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToRegistrationAssignmentPropertiesPropertiesPtrOutput() RegistrationAssignmentPropertiesPropertiesPtrOutput
-	ToRegistrationAssignmentPropertiesPropertiesPtrOutputWithContext(context.Context) RegistrationAssignmentPropertiesPropertiesPtrOutput
-}
-
-type registrationAssignmentPropertiesPropertiesPtrType RegistrationAssignmentPropertiesPropertiesArgs
-
-func RegistrationAssignmentPropertiesPropertiesPtr(v *RegistrationAssignmentPropertiesPropertiesArgs) RegistrationAssignmentPropertiesPropertiesPtrInput {
-	return (*registrationAssignmentPropertiesPropertiesPtrType)(v)
-}
-
-func (*registrationAssignmentPropertiesPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistrationAssignmentPropertiesProperties)(nil)).Elem()
-}
-
-func (i *registrationAssignmentPropertiesPropertiesPtrType) ToRegistrationAssignmentPropertiesPropertiesPtrOutput() RegistrationAssignmentPropertiesPropertiesPtrOutput {
-	return i.ToRegistrationAssignmentPropertiesPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *registrationAssignmentPropertiesPropertiesPtrType) ToRegistrationAssignmentPropertiesPropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesPropertiesPtrOutput)
-}
-
-// Registration definition inside registration assignment.
-type RegistrationAssignmentPropertiesPropertiesOutput struct{ *pulumi.OutputState }
-
-func (RegistrationAssignmentPropertiesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationAssignmentPropertiesProperties)(nil)).Elem()
-}
-
-func (o RegistrationAssignmentPropertiesPropertiesOutput) ToRegistrationAssignmentPropertiesPropertiesOutput() RegistrationAssignmentPropertiesPropertiesOutput {
-	return o
-}
-
-func (o RegistrationAssignmentPropertiesPropertiesOutput) ToRegistrationAssignmentPropertiesPropertiesOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesPropertiesOutput {
-	return o
-}
-
-func (o RegistrationAssignmentPropertiesPropertiesOutput) ToRegistrationAssignmentPropertiesPropertiesPtrOutput() RegistrationAssignmentPropertiesPropertiesPtrOutput {
-	return o.ToRegistrationAssignmentPropertiesPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o RegistrationAssignmentPropertiesPropertiesOutput) ToRegistrationAssignmentPropertiesPropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesPropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesProperties) *RegistrationAssignmentPropertiesProperties {
-		return &v
-	}).(RegistrationAssignmentPropertiesPropertiesPtrOutput)
-}
-
-// Plan details for the managed services.
-func (o RegistrationAssignmentPropertiesPropertiesOutput) Plan() PlanPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesProperties) *Plan { return v.Plan }).(PlanPtrOutput)
-}
-
-// Properties of registration definition inside registration assignment.
-func (o RegistrationAssignmentPropertiesPropertiesOutput) Properties() RegistrationAssignmentPropertiesPropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesProperties) *RegistrationAssignmentPropertiesProperties {
-		return v.Properties
-	}).(RegistrationAssignmentPropertiesPropertiesPtrOutput)
-}
-
-type RegistrationAssignmentPropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (RegistrationAssignmentPropertiesPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistrationAssignmentPropertiesProperties)(nil)).Elem()
-}
-
-func (o RegistrationAssignmentPropertiesPropertiesPtrOutput) ToRegistrationAssignmentPropertiesPropertiesPtrOutput() RegistrationAssignmentPropertiesPropertiesPtrOutput {
-	return o
-}
-
-func (o RegistrationAssignmentPropertiesPropertiesPtrOutput) ToRegistrationAssignmentPropertiesPropertiesPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesPropertiesPtrOutput {
-	return o
-}
-
-func (o RegistrationAssignmentPropertiesPropertiesPtrOutput) Elem() RegistrationAssignmentPropertiesPropertiesOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesProperties) RegistrationAssignmentPropertiesProperties {
-		return *v
-	}).(RegistrationAssignmentPropertiesPropertiesOutput)
-}
-
-// Plan details for the managed services.
-func (o RegistrationAssignmentPropertiesPropertiesPtrOutput) Plan() PlanPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesProperties) *Plan {
-		if v == nil {
-			return nil
-		}
-		return v.Plan
-	}).(PlanPtrOutput)
-}
-
-// Properties of registration definition inside registration assignment.
-func (o RegistrationAssignmentPropertiesPropertiesPtrOutput) Properties() RegistrationAssignmentPropertiesPropertiesPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesProperties) *RegistrationAssignmentPropertiesProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(RegistrationAssignmentPropertiesPropertiesPtrOutput)
-}
-
 // Properties of a registration assignment.
 type RegistrationAssignmentPropertiesResponse struct {
 	// Current state of the registration assignment.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Registration definition inside registration assignment.
-	RegistrationDefinition RegistrationAssignmentPropertiesResponseProperties `pulumi:"registrationDefinition"`
+	RegistrationDefinition RegistrationAssignmentPropertiesResponseRegistrationDefinition `pulumi:"registrationDefinition"`
 	// Fully qualified path of the registration definition.
 	RegistrationDefinitionId string `pulumi:"registrationDefinitionId"`
 }
@@ -1000,7 +770,7 @@ type RegistrationAssignmentPropertiesResponseArgs struct {
 	// Current state of the registration assignment.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Registration definition inside registration assignment.
-	RegistrationDefinition RegistrationAssignmentPropertiesResponsePropertiesInput `pulumi:"registrationDefinition"`
+	RegistrationDefinition RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput `pulumi:"registrationDefinition"`
 	// Fully qualified path of the registration definition.
 	RegistrationDefinitionId pulumi.StringInput `pulumi:"registrationDefinitionId"`
 }
@@ -1089,10 +859,10 @@ func (o RegistrationAssignmentPropertiesResponseOutput) ProvisioningState() pulu
 }
 
 // Registration definition inside registration assignment.
-func (o RegistrationAssignmentPropertiesResponseOutput) RegistrationDefinition() RegistrationAssignmentPropertiesResponsePropertiesOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) RegistrationAssignmentPropertiesResponseProperties {
+func (o RegistrationAssignmentPropertiesResponseOutput) RegistrationDefinition() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponse) RegistrationAssignmentPropertiesResponseRegistrationDefinition {
 		return v.RegistrationDefinition
-	}).(RegistrationAssignmentPropertiesResponsePropertiesOutput)
+	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput)
 }
 
 // Fully qualified path of the registration definition.
@@ -1129,13 +899,13 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) ProvisioningState() p
 }
 
 // Registration definition inside registration assignment.
-func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinition() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponseProperties {
+func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinition() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponse) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
 		if v == nil {
 			return nil
 		}
 		return &v.RegistrationDefinition
-	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
+	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
 }
 
 // Fully qualified path of the registration definition.
@@ -1148,18 +918,24 @@ func (o RegistrationAssignmentPropertiesResponsePtrOutput) RegistrationDefinitio
 	}).(pulumi.StringPtrOutput)
 }
 
-// Registration definition inside registration assignment.
+// Properties of registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponseProperties struct {
-	// Fully qualified path of the registration definition.
-	Id string `pulumi:"id"`
+	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+	Authorizations []AuthorizationResponse `pulumi:"authorizations"`
+	// Description of the registration definition.
+	Description *string `pulumi:"description"`
+	// Id of the managedBy tenant.
+	ManagedByTenantId *string `pulumi:"managedByTenantId"`
+	// Name of the managedBy tenant.
+	ManagedByTenantName *string `pulumi:"managedByTenantName"`
+	// Id of the home tenant.
+	ManageeTenantId *string `pulumi:"manageeTenantId"`
+	// Name of the home tenant.
+	ManageeTenantName *string `pulumi:"manageeTenantName"`
+	// Current state of the registration definition.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Name of the registration definition.
-	Name string `pulumi:"name"`
-	// Plan details for the managed services.
-	Plan *PlanResponse `pulumi:"plan"`
-	// Properties of registration definition inside registration assignment.
-	Properties *RegistrationAssignmentPropertiesResponseProperties `pulumi:"properties"`
-	// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
-	Type string `pulumi:"type"`
+	RegistrationDefinitionName *string `pulumi:"registrationDefinitionName"`
 }
 
 // RegistrationAssignmentPropertiesResponsePropertiesInput is an input type that accepts RegistrationAssignmentPropertiesResponsePropertiesArgs and RegistrationAssignmentPropertiesResponsePropertiesOutput values.
@@ -1173,18 +949,24 @@ type RegistrationAssignmentPropertiesResponsePropertiesInput interface {
 	ToRegistrationAssignmentPropertiesResponsePropertiesOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponsePropertiesOutput
 }
 
-// Registration definition inside registration assignment.
+// Properties of registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponsePropertiesArgs struct {
-	// Fully qualified path of the registration definition.
-	Id pulumi.StringInput `pulumi:"id"`
+	// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+	Authorizations AuthorizationResponseArrayInput `pulumi:"authorizations"`
+	// Description of the registration definition.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Id of the managedBy tenant.
+	ManagedByTenantId pulumi.StringPtrInput `pulumi:"managedByTenantId"`
+	// Name of the managedBy tenant.
+	ManagedByTenantName pulumi.StringPtrInput `pulumi:"managedByTenantName"`
+	// Id of the home tenant.
+	ManageeTenantId pulumi.StringPtrInput `pulumi:"manageeTenantId"`
+	// Name of the home tenant.
+	ManageeTenantName pulumi.StringPtrInput `pulumi:"manageeTenantName"`
+	// Current state of the registration definition.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Name of the registration definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Plan details for the managed services.
-	Plan PlanResponsePtrInput `pulumi:"plan"`
-	// Properties of registration definition inside registration assignment.
-	Properties RegistrationAssignmentPropertiesResponsePropertiesPtrInput `pulumi:"properties"`
-	// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
-	Type pulumi.StringInput `pulumi:"type"`
+	RegistrationDefinitionName pulumi.StringPtrInput `pulumi:"registrationDefinitionName"`
 }
 
 func (RegistrationAssignmentPropertiesResponsePropertiesArgs) ElementType() reflect.Type {
@@ -1240,7 +1022,7 @@ func (i *registrationAssignmentPropertiesResponsePropertiesPtrType) ToRegistrati
 	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
-// Registration definition inside registration assignment.
+// Properties of registration definition inside registration assignment.
 type RegistrationAssignmentPropertiesResponsePropertiesOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentPropertiesResponsePropertiesOutput) ElementType() reflect.Type {
@@ -1265,31 +1047,48 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ToRegistration
 	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
 }
 
-// Fully qualified path of the registration definition.
-func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) string { return v.Id }).(pulumi.StringOutput)
+// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Authorizations() AuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) []AuthorizationResponse {
+		return v.Authorizations
+	}).(AuthorizationResponseArrayOutput)
+}
+
+// Description of the registration definition.
+func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Id of the managedBy tenant.
+func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManagedByTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManagedByTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the managedBy tenant.
+func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManagedByTenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManagedByTenantName }).(pulumi.StringPtrOutput)
+}
+
+// Id of the home tenant.
+func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManageeTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManageeTenantId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the home tenant.
+func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ManageeTenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ManageeTenantName }).(pulumi.StringPtrOutput)
+}
+
+// Current state of the registration definition.
+func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // Name of the registration definition.
-func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Plan details for the managed services.
-func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Plan() PlanResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
-}
-
-// Properties of registration definition inside registration assignment.
-func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Properties() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *RegistrationAssignmentPropertiesResponseProperties {
-		return v.Properties
-	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
-}
-
-// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
-func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) string { return v.Type }).(pulumi.StringOutput)
+func (o RegistrationAssignmentPropertiesResponsePropertiesOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseProperties) *string {
+		return v.RegistrationDefinitionName
+	}).(pulumi.StringPtrOutput)
 }
 
 type RegistrationAssignmentPropertiesResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1312,9 +1111,253 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Elem() Regi
 	}).(RegistrationAssignmentPropertiesResponsePropertiesOutput)
 }
 
-// Fully qualified path of the registration definition.
-func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Id() pulumi.StringPtrOutput {
+// Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Authorizations() AuthorizationResponseArrayOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) []AuthorizationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Authorizations
+	}).(AuthorizationResponseArrayOutput)
+}
+
+// Description of the registration definition.
+func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Id of the managedBy tenant.
+func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManagedByTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedByTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the managedBy tenant.
+func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManagedByTenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedByTenantName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Id of the home tenant.
+func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManageeTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManageeTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the home tenant.
+func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ManageeTenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManageeTenantName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Current state of the registration definition.
+func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the registration definition.
+func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) RegistrationDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegistrationDefinitionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Registration definition inside registration assignment.
+type RegistrationAssignmentPropertiesResponseRegistrationDefinition struct {
+	// Fully qualified path of the registration definition.
+	Id string `pulumi:"id"`
+	// Name of the registration definition.
+	Name string `pulumi:"name"`
+	// Plan details for the managed services.
+	Plan *PlanResponse `pulumi:"plan"`
+	// Properties of registration definition inside registration assignment.
+	Properties *RegistrationAssignmentPropertiesResponseProperties `pulumi:"properties"`
+	// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
+	Type string `pulumi:"type"`
+}
+
+// RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput is an input type that accepts RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs and RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput values.
+// You can construct a concrete instance of `RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput` via:
+//
+//          RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs{...}
+type RegistrationAssignmentPropertiesResponseRegistrationDefinitionInput interface {
+	pulumi.Input
+
+	ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput
+	ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput
+}
+
+// Registration definition inside registration assignment.
+type RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs struct {
+	// Fully qualified path of the registration definition.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Name of the registration definition.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Plan details for the managed services.
+	Plan PlanResponsePtrInput `pulumi:"plan"`
+	// Properties of registration definition inside registration assignment.
+	Properties RegistrationAssignmentPropertiesResponsePropertiesPtrInput `pulumi:"properties"`
+	// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAssignmentPropertiesResponseRegistrationDefinition)(nil)).Elem()
+}
+
+func (i RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
+	return i.ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutputWithContext(context.Background())
+}
+
+func (i RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput)
+}
+
+func (i RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
+	return i.ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput).ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx)
+}
+
+// RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrInput is an input type that accepts RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs, RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtr and RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput values.
+// You can construct a concrete instance of `RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrInput` via:
+//
+//          RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput
+	ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput
+}
+
+type registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs
+
+func RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtr(v *RegistrationAssignmentPropertiesResponseRegistrationDefinitionArgs) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrInput {
+	return (*registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType)(v)
+}
+
+func (*registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistrationAssignmentPropertiesResponseRegistrationDefinition)(nil)).Elem()
+}
+
+func (i *registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
+	return i.ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *registrationAssignmentPropertiesResponseRegistrationDefinitionPtrType) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
+}
+
+// Registration definition inside registration assignment.
+type RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput struct{ *pulumi.OutputState }
+
+func (RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistrationAssignmentPropertiesResponseRegistrationDefinition)(nil)).Elem()
+}
+
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
+	return o
+}
+
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
+	return o
+}
+
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
+	return o.ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseRegistrationDefinition {
+		return &v
+	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput)
+}
+
+// Fully qualified path of the registration definition.
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the registration definition.
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Plan details for the managed services.
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
+}
+
+// Properties of registration definition inside registration assignment.
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Properties() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseProperties {
+		return v.Properties
+	}).(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput)
+}
+
+// Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationAssignmentPropertiesResponseRegistrationDefinition) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistrationAssignmentPropertiesResponseRegistrationDefinition)(nil)).Elem()
+}
+
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput() RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
+	return o
+}
+
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) ToRegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutputWithContext(ctx context.Context) RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput {
+	return o
+}
+
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Elem() RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) RegistrationAssignmentPropertiesResponseRegistrationDefinition {
+		return *v
+	}).(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput)
+}
+
+// Fully qualified path of the registration definition.
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1323,8 +1366,8 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Id() pulumi
 }
 
 // Name of the registration definition.
-func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -1333,8 +1376,8 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Name() pulu
 }
 
 // Plan details for the managed services.
-func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Plan() PlanResponsePtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *PlanResponse {
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Plan() PlanResponsePtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *PlanResponse {
 		if v == nil {
 			return nil
 		}
@@ -1343,8 +1386,8 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Plan() Plan
 }
 
 // Properties of registration definition inside registration assignment.
-func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Properties() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *RegistrationAssignmentPropertiesResponseProperties {
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Properties() RegistrationAssignmentPropertiesResponsePropertiesPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *RegistrationAssignmentPropertiesResponseProperties {
 		if v == nil {
 			return nil
 		}
@@ -1353,95 +1396,13 @@ func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Properties(
 }
 
 // Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
-func (o RegistrationAssignmentPropertiesResponsePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseProperties) *string {
+func (o RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationAssignmentPropertiesResponseRegistrationDefinition) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-// Registration definition.
-type RegistrationDefinitionType struct {
-	// Name of the registration definition.
-	Name string `pulumi:"name"`
-	// Plan details for the managed services.
-	Plan *PlanResponse `pulumi:"plan"`
-	// Properties of a registration definition.
-	Properties RegistrationDefinitionPropertiesResponse `pulumi:"properties"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// RegistrationDefinitionTypeInput is an input type that accepts RegistrationDefinitionTypeArgs and RegistrationDefinitionTypeOutput values.
-// You can construct a concrete instance of `RegistrationDefinitionTypeInput` via:
-//
-//          RegistrationDefinitionTypeArgs{...}
-type RegistrationDefinitionTypeInput interface {
-	pulumi.Input
-
-	ToRegistrationDefinitionTypeOutput() RegistrationDefinitionTypeOutput
-	ToRegistrationDefinitionTypeOutputWithContext(context.Context) RegistrationDefinitionTypeOutput
-}
-
-// Registration definition.
-type RegistrationDefinitionTypeArgs struct {
-	// Name of the registration definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Plan details for the managed services.
-	Plan PlanResponsePtrInput `pulumi:"plan"`
-	// Properties of a registration definition.
-	Properties RegistrationDefinitionPropertiesResponseInput `pulumi:"properties"`
-	// Type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RegistrationDefinitionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationDefinitionType)(nil)).Elem()
-}
-
-func (i RegistrationDefinitionTypeArgs) ToRegistrationDefinitionTypeOutput() RegistrationDefinitionTypeOutput {
-	return i.ToRegistrationDefinitionTypeOutputWithContext(context.Background())
-}
-
-func (i RegistrationDefinitionTypeArgs) ToRegistrationDefinitionTypeOutputWithContext(ctx context.Context) RegistrationDefinitionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationDefinitionTypeOutput)
-}
-
-// Registration definition.
-type RegistrationDefinitionTypeOutput struct{ *pulumi.OutputState }
-
-func (RegistrationDefinitionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationDefinitionType)(nil)).Elem()
-}
-
-func (o RegistrationDefinitionTypeOutput) ToRegistrationDefinitionTypeOutput() RegistrationDefinitionTypeOutput {
-	return o
-}
-
-func (o RegistrationDefinitionTypeOutput) ToRegistrationDefinitionTypeOutputWithContext(ctx context.Context) RegistrationDefinitionTypeOutput {
-	return o
-}
-
-// Name of the registration definition.
-func (o RegistrationDefinitionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistrationDefinitionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Plan details for the managed services.
-func (o RegistrationDefinitionTypeOutput) Plan() PlanResponsePtrOutput {
-	return o.ApplyT(func(v RegistrationDefinitionType) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
-}
-
-// Properties of a registration definition.
-func (o RegistrationDefinitionTypeOutput) Properties() RegistrationDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v RegistrationDefinitionType) RegistrationDefinitionPropertiesResponse { return v.Properties }).(RegistrationDefinitionPropertiesResponseOutput)
-}
-
-// Type of the resource.
-func (o RegistrationDefinitionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistrationDefinitionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a registration definition.
@@ -1873,16 +1834,14 @@ func init() {
 	pulumi.RegisterOutputType(PlanPtrOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponsePtrOutput{})
-	pulumi.RegisterOutputType(RegistrationAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesPropertiesOutput{})
-	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(RegistrationDefinitionTypeOutput{})
+	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponseRegistrationDefinitionOutput{})
+	pulumi.RegisterOutputType(RegistrationAssignmentPropertiesResponseRegistrationDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesOutput{})
 	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RegistrationDefinitionPropertiesResponseOutput{})

@@ -310,79 +310,6 @@ func (o AccountEncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An Account Filter.
-type AccountFilterType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// AccountFilterTypeInput is an input type that accepts AccountFilterTypeArgs and AccountFilterTypeOutput values.
-// You can construct a concrete instance of `AccountFilterTypeInput` via:
-//
-//          AccountFilterTypeArgs{...}
-type AccountFilterTypeInput interface {
-	pulumi.Input
-
-	ToAccountFilterTypeOutput() AccountFilterTypeOutput
-	ToAccountFilterTypeOutputWithContext(context.Context) AccountFilterTypeOutput
-}
-
-// An Account Filter.
-type AccountFilterTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccountFilterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountFilterType)(nil)).Elem()
-}
-
-func (i AccountFilterTypeArgs) ToAccountFilterTypeOutput() AccountFilterTypeOutput {
-	return i.ToAccountFilterTypeOutputWithContext(context.Background())
-}
-
-func (i AccountFilterTypeArgs) ToAccountFilterTypeOutputWithContext(ctx context.Context) AccountFilterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterTypeOutput)
-}
-
-// An Account Filter.
-type AccountFilterTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountFilterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountFilterType)(nil)).Elem()
-}
-
-func (o AccountFilterTypeOutput) ToAccountFilterTypeOutput() AccountFilterTypeOutput {
-	return o
-}
-
-func (o AccountFilterTypeOutput) ToAccountFilterTypeOutputWithContext(ctx context.Context) AccountFilterTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o AccountFilterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountFilterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Media Filter properties.
-func (o AccountFilterTypeOutput) Properties() MediaFilterPropertiesResponseOutput {
-	return o.ApplyT(func(v AccountFilterType) MediaFilterPropertiesResponse { return v.Properties }).(MediaFilterPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o AccountFilterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountFilterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Akamai access control
 type AkamaiAccessControl struct {
 	// authentication key list
@@ -889,152 +816,6 @@ func (o AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput) Index(i pulum
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AkamaiSignatureHeaderAuthenticationKeyResponse {
 		return vs[0].([]AkamaiSignatureHeaderAuthenticationKeyResponse)[vs[1].(int)]
 	}).(AkamaiSignatureHeaderAuthenticationKeyResponseOutput)
-}
-
-// An Asset.
-type AssetType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties AssetPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// AssetTypeInput is an input type that accepts AssetTypeArgs and AssetTypeOutput values.
-// You can construct a concrete instance of `AssetTypeInput` via:
-//
-//          AssetTypeArgs{...}
-type AssetTypeInput interface {
-	pulumi.Input
-
-	ToAssetTypeOutput() AssetTypeOutput
-	ToAssetTypeOutputWithContext(context.Context) AssetTypeOutput
-}
-
-// An Asset.
-type AssetTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource properties.
-	Properties AssetPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AssetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetType)(nil)).Elem()
-}
-
-func (i AssetTypeArgs) ToAssetTypeOutput() AssetTypeOutput {
-	return i.ToAssetTypeOutputWithContext(context.Background())
-}
-
-func (i AssetTypeArgs) ToAssetTypeOutputWithContext(ctx context.Context) AssetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetTypeOutput)
-}
-
-// An Asset.
-type AssetTypeOutput struct{ *pulumi.OutputState }
-
-func (AssetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetType)(nil)).Elem()
-}
-
-func (o AssetTypeOutput) ToAssetTypeOutput() AssetTypeOutput {
-	return o
-}
-
-func (o AssetTypeOutput) ToAssetTypeOutputWithContext(ctx context.Context) AssetTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o AssetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The resource properties.
-func (o AssetTypeOutput) Properties() AssetPropertiesResponseOutput {
-	return o.ApplyT(func(v AssetType) AssetPropertiesResponse { return v.Properties }).(AssetPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o AssetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Asset Filter.
-type AssetFilterType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// AssetFilterTypeInput is an input type that accepts AssetFilterTypeArgs and AssetFilterTypeOutput values.
-// You can construct a concrete instance of `AssetFilterTypeInput` via:
-//
-//          AssetFilterTypeArgs{...}
-type AssetFilterTypeInput interface {
-	pulumi.Input
-
-	ToAssetFilterTypeOutput() AssetFilterTypeOutput
-	ToAssetFilterTypeOutputWithContext(context.Context) AssetFilterTypeOutput
-}
-
-// An Asset Filter.
-type AssetFilterTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AssetFilterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetFilterType)(nil)).Elem()
-}
-
-func (i AssetFilterTypeArgs) ToAssetFilterTypeOutput() AssetFilterTypeOutput {
-	return i.ToAssetFilterTypeOutputWithContext(context.Background())
-}
-
-func (i AssetFilterTypeArgs) ToAssetFilterTypeOutputWithContext(ctx context.Context) AssetFilterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterTypeOutput)
-}
-
-// An Asset Filter.
-type AssetFilterTypeOutput struct{ *pulumi.OutputState }
-
-func (AssetFilterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetFilterType)(nil)).Elem()
-}
-
-func (o AssetFilterTypeOutput) ToAssetFilterTypeOutput() AssetFilterTypeOutput {
-	return o
-}
-
-func (o AssetFilterTypeOutput) ToAssetFilterTypeOutputWithContext(ctx context.Context) AssetFilterTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o AssetFilterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetFilterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Media Filter properties.
-func (o AssetFilterTypeOutput) Properties() MediaFilterPropertiesResponseOutput {
-	return o.ApplyT(func(v AssetFilterType) MediaFilterPropertiesResponse { return v.Properties }).(MediaFilterPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o AssetFilterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AssetFilterType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The Asset properties.
@@ -2885,179 +2666,10 @@ func (o CommonEncryptionCencResponsePtrOutput) EnabledProtocols() EnabledProtoco
 	}).(EnabledProtocolsResponsePtrOutput)
 }
 
-// A Content Key Policy resource.
-type ContentKeyPolicyType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the Content Key Policy.
-	Properties ContentKeyPolicyPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// ContentKeyPolicyTypeInput is an input type that accepts ContentKeyPolicyTypeArgs and ContentKeyPolicyTypeOutput values.
-// You can construct a concrete instance of `ContentKeyPolicyTypeInput` via:
-//
-//          ContentKeyPolicyTypeArgs{...}
-type ContentKeyPolicyTypeInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyTypeOutput() ContentKeyPolicyTypeOutput
-	ToContentKeyPolicyTypeOutputWithContext(context.Context) ContentKeyPolicyTypeOutput
-}
-
-// A Content Key Policy resource.
-type ContentKeyPolicyTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the Content Key Policy.
-	Properties ContentKeyPolicyPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ContentKeyPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyType)(nil)).Elem()
-}
-
-func (i ContentKeyPolicyTypeArgs) ToContentKeyPolicyTypeOutput() ContentKeyPolicyTypeOutput {
-	return i.ToContentKeyPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i ContentKeyPolicyTypeArgs) ToContentKeyPolicyTypeOutputWithContext(ctx context.Context) ContentKeyPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyTypeOutput)
-}
-
-// A Content Key Policy resource.
-type ContentKeyPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyType)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyTypeOutput) ToContentKeyPolicyTypeOutput() ContentKeyPolicyTypeOutput {
-	return o
-}
-
-func (o ContentKeyPolicyTypeOutput) ToContentKeyPolicyTypeOutputWithContext(ctx context.Context) ContentKeyPolicyTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o ContentKeyPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ContentKeyPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the Content Key Policy.
-func (o ContentKeyPolicyTypeOutput) Properties() ContentKeyPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v ContentKeyPolicyType) ContentKeyPolicyPropertiesResponse { return v.Properties }).(ContentKeyPolicyPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o ContentKeyPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ContentKeyPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
-type ContentKeyPolicyConfiguration struct {
-}
-
-// ContentKeyPolicyConfigurationInput is an input type that accepts ContentKeyPolicyConfigurationArgs and ContentKeyPolicyConfigurationOutput values.
-// You can construct a concrete instance of `ContentKeyPolicyConfigurationInput` via:
-//
-//          ContentKeyPolicyConfigurationArgs{...}
-type ContentKeyPolicyConfigurationInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyConfigurationOutput() ContentKeyPolicyConfigurationOutput
-	ToContentKeyPolicyConfigurationOutputWithContext(context.Context) ContentKeyPolicyConfigurationOutput
-}
-
-// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
-type ContentKeyPolicyConfigurationArgs struct {
-}
-
-func (ContentKeyPolicyConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyConfiguration)(nil)).Elem()
-}
-
-func (i ContentKeyPolicyConfigurationArgs) ToContentKeyPolicyConfigurationOutput() ContentKeyPolicyConfigurationOutput {
-	return i.ToContentKeyPolicyConfigurationOutputWithContext(context.Background())
-}
-
-func (i ContentKeyPolicyConfigurationArgs) ToContentKeyPolicyConfigurationOutputWithContext(ctx context.Context) ContentKeyPolicyConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyConfigurationOutput)
-}
-
-// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
-type ContentKeyPolicyConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyConfiguration)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyConfigurationOutput) ToContentKeyPolicyConfigurationOutput() ContentKeyPolicyConfigurationOutput {
-	return o
-}
-
-func (o ContentKeyPolicyConfigurationOutput) ToContentKeyPolicyConfigurationOutputWithContext(ctx context.Context) ContentKeyPolicyConfigurationOutput {
-	return o
-}
-
-// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
-type ContentKeyPolicyConfigurationResponse struct {
-}
-
-// ContentKeyPolicyConfigurationResponseInput is an input type that accepts ContentKeyPolicyConfigurationResponseArgs and ContentKeyPolicyConfigurationResponseOutput values.
-// You can construct a concrete instance of `ContentKeyPolicyConfigurationResponseInput` via:
-//
-//          ContentKeyPolicyConfigurationResponseArgs{...}
-type ContentKeyPolicyConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyConfigurationResponseOutput() ContentKeyPolicyConfigurationResponseOutput
-	ToContentKeyPolicyConfigurationResponseOutputWithContext(context.Context) ContentKeyPolicyConfigurationResponseOutput
-}
-
-// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
-type ContentKeyPolicyConfigurationResponseArgs struct {
-}
-
-func (ContentKeyPolicyConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyConfigurationResponse)(nil)).Elem()
-}
-
-func (i ContentKeyPolicyConfigurationResponseArgs) ToContentKeyPolicyConfigurationResponseOutput() ContentKeyPolicyConfigurationResponseOutput {
-	return i.ToContentKeyPolicyConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i ContentKeyPolicyConfigurationResponseArgs) ToContentKeyPolicyConfigurationResponseOutputWithContext(ctx context.Context) ContentKeyPolicyConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyConfigurationResponseOutput)
-}
-
-// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
-type ContentKeyPolicyConfigurationResponseOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyConfigurationResponse)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyConfigurationResponseOutput) ToContentKeyPolicyConfigurationResponseOutput() ContentKeyPolicyConfigurationResponseOutput {
-	return o
-}
-
-func (o ContentKeyPolicyConfigurationResponseOutput) ToContentKeyPolicyConfigurationResponseOutputWithContext(ctx context.Context) ContentKeyPolicyConfigurationResponseOutput {
-	return o
-}
-
 // Represents a policy option.
 type ContentKeyPolicyOption struct {
-	// The key delivery configuration.
-	Configuration ContentKeyPolicyConfiguration `pulumi:"configuration"`
 	// The Policy Option description.
 	Name *string `pulumi:"name"`
-	// The requirements that must be met to deliver keys with this configuration
-	Restriction ContentKeyPolicyRestriction `pulumi:"restriction"`
 }
 
 // ContentKeyPolicyOptionInput is an input type that accepts ContentKeyPolicyOptionArgs and ContentKeyPolicyOptionOutput values.
@@ -3073,12 +2685,8 @@ type ContentKeyPolicyOptionInput interface {
 
 // Represents a policy option.
 type ContentKeyPolicyOptionArgs struct {
-	// The key delivery configuration.
-	Configuration ContentKeyPolicyConfigurationInput `pulumi:"configuration"`
 	// The Policy Option description.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The requirements that must be met to deliver keys with this configuration
-	Restriction ContentKeyPolicyRestrictionInput `pulumi:"restriction"`
 }
 
 func (ContentKeyPolicyOptionArgs) ElementType() reflect.Type {
@@ -3133,19 +2741,9 @@ func (o ContentKeyPolicyOptionOutput) ToContentKeyPolicyOptionOutputWithContext(
 	return o
 }
 
-// The key delivery configuration.
-func (o ContentKeyPolicyOptionOutput) Configuration() ContentKeyPolicyConfigurationOutput {
-	return o.ApplyT(func(v ContentKeyPolicyOption) ContentKeyPolicyConfiguration { return v.Configuration }).(ContentKeyPolicyConfigurationOutput)
-}
-
 // The Policy Option description.
 func (o ContentKeyPolicyOptionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOption) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The requirements that must be met to deliver keys with this configuration
-func (o ContentKeyPolicyOptionOutput) Restriction() ContentKeyPolicyRestrictionOutput {
-	return o.ApplyT(func(v ContentKeyPolicyOption) ContentKeyPolicyRestriction { return v.Restriction }).(ContentKeyPolicyRestrictionOutput)
 }
 
 type ContentKeyPolicyOptionArrayOutput struct{ *pulumi.OutputState }
@@ -3170,14 +2768,10 @@ func (o ContentKeyPolicyOptionArrayOutput) Index(i pulumi.IntInput) ContentKeyPo
 
 // Represents a policy option.
 type ContentKeyPolicyOptionResponse struct {
-	// The key delivery configuration.
-	Configuration ContentKeyPolicyConfigurationResponse `pulumi:"configuration"`
 	// The Policy Option description.
 	Name *string `pulumi:"name"`
 	// The legacy Policy Option ID.
 	PolicyOptionId string `pulumi:"policyOptionId"`
-	// The requirements that must be met to deliver keys with this configuration
-	Restriction ContentKeyPolicyRestrictionResponse `pulumi:"restriction"`
 }
 
 // ContentKeyPolicyOptionResponseInput is an input type that accepts ContentKeyPolicyOptionResponseArgs and ContentKeyPolicyOptionResponseOutput values.
@@ -3193,14 +2787,10 @@ type ContentKeyPolicyOptionResponseInput interface {
 
 // Represents a policy option.
 type ContentKeyPolicyOptionResponseArgs struct {
-	// The key delivery configuration.
-	Configuration ContentKeyPolicyConfigurationResponseInput `pulumi:"configuration"`
 	// The Policy Option description.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The legacy Policy Option ID.
 	PolicyOptionId pulumi.StringInput `pulumi:"policyOptionId"`
-	// The requirements that must be met to deliver keys with this configuration
-	Restriction ContentKeyPolicyRestrictionResponseInput `pulumi:"restriction"`
 }
 
 func (ContentKeyPolicyOptionResponseArgs) ElementType() reflect.Type {
@@ -3255,11 +2845,6 @@ func (o ContentKeyPolicyOptionResponseOutput) ToContentKeyPolicyOptionResponseOu
 	return o
 }
 
-// The key delivery configuration.
-func (o ContentKeyPolicyOptionResponseOutput) Configuration() ContentKeyPolicyConfigurationResponseOutput {
-	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) ContentKeyPolicyConfigurationResponse { return v.Configuration }).(ContentKeyPolicyConfigurationResponseOutput)
-}
-
 // The Policy Option description.
 func (o ContentKeyPolicyOptionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -3268,11 +2853,6 @@ func (o ContentKeyPolicyOptionResponseOutput) Name() pulumi.StringPtrOutput {
 // The legacy Policy Option ID.
 func (o ContentKeyPolicyOptionResponseOutput) PolicyOptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) string { return v.PolicyOptionId }).(pulumi.StringOutput)
-}
-
-// The requirements that must be met to deliver keys with this configuration
-func (o ContentKeyPolicyOptionResponseOutput) Restriction() ContentKeyPolicyRestrictionResponseOutput {
-	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) ContentKeyPolicyRestrictionResponse { return v.Restriction }).(ContentKeyPolicyRestrictionResponseOutput)
 }
 
 type ContentKeyPolicyOptionResponseArrayOutput struct{ *pulumi.OutputState }
@@ -3503,98 +3083,6 @@ func (o ContentKeyPolicyPropertiesResponsePtrOutput) PolicyId() pulumi.StringPtr
 		}
 		return &v.PolicyId
 	}).(pulumi.StringPtrOutput)
-}
-
-// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
-type ContentKeyPolicyRestriction struct {
-}
-
-// ContentKeyPolicyRestrictionInput is an input type that accepts ContentKeyPolicyRestrictionArgs and ContentKeyPolicyRestrictionOutput values.
-// You can construct a concrete instance of `ContentKeyPolicyRestrictionInput` via:
-//
-//          ContentKeyPolicyRestrictionArgs{...}
-type ContentKeyPolicyRestrictionInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyRestrictionOutput() ContentKeyPolicyRestrictionOutput
-	ToContentKeyPolicyRestrictionOutputWithContext(context.Context) ContentKeyPolicyRestrictionOutput
-}
-
-// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
-type ContentKeyPolicyRestrictionArgs struct {
-}
-
-func (ContentKeyPolicyRestrictionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyRestriction)(nil)).Elem()
-}
-
-func (i ContentKeyPolicyRestrictionArgs) ToContentKeyPolicyRestrictionOutput() ContentKeyPolicyRestrictionOutput {
-	return i.ToContentKeyPolicyRestrictionOutputWithContext(context.Background())
-}
-
-func (i ContentKeyPolicyRestrictionArgs) ToContentKeyPolicyRestrictionOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyRestrictionOutput)
-}
-
-// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
-type ContentKeyPolicyRestrictionOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyRestrictionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyRestriction)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyRestrictionOutput) ToContentKeyPolicyRestrictionOutput() ContentKeyPolicyRestrictionOutput {
-	return o
-}
-
-func (o ContentKeyPolicyRestrictionOutput) ToContentKeyPolicyRestrictionOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionOutput {
-	return o
-}
-
-// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
-type ContentKeyPolicyRestrictionResponse struct {
-}
-
-// ContentKeyPolicyRestrictionResponseInput is an input type that accepts ContentKeyPolicyRestrictionResponseArgs and ContentKeyPolicyRestrictionResponseOutput values.
-// You can construct a concrete instance of `ContentKeyPolicyRestrictionResponseInput` via:
-//
-//          ContentKeyPolicyRestrictionResponseArgs{...}
-type ContentKeyPolicyRestrictionResponseInput interface {
-	pulumi.Input
-
-	ToContentKeyPolicyRestrictionResponseOutput() ContentKeyPolicyRestrictionResponseOutput
-	ToContentKeyPolicyRestrictionResponseOutputWithContext(context.Context) ContentKeyPolicyRestrictionResponseOutput
-}
-
-// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
-type ContentKeyPolicyRestrictionResponseArgs struct {
-}
-
-func (ContentKeyPolicyRestrictionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyRestrictionResponse)(nil)).Elem()
-}
-
-func (i ContentKeyPolicyRestrictionResponseArgs) ToContentKeyPolicyRestrictionResponseOutput() ContentKeyPolicyRestrictionResponseOutput {
-	return i.ToContentKeyPolicyRestrictionResponseOutputWithContext(context.Background())
-}
-
-func (i ContentKeyPolicyRestrictionResponseArgs) ToContentKeyPolicyRestrictionResponseOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyRestrictionResponseOutput)
-}
-
-// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
-type ContentKeyPolicyRestrictionResponseOutput struct{ *pulumi.OutputState }
-
-func (ContentKeyPolicyRestrictionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicyRestrictionResponse)(nil)).Elem()
-}
-
-func (o ContentKeyPolicyRestrictionResponseOutput) ToContentKeyPolicyRestrictionResponseOutput() ContentKeyPolicyRestrictionResponseOutput {
-	return o
-}
-
-func (o ContentKeyPolicyRestrictionResponseOutput) ToContentKeyPolicyRestrictionResponseOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionResponseOutput {
-	return o
 }
 
 // The client access policy.
@@ -6697,171 +6185,6 @@ func (o IPRangeResponseArrayOutput) Index(i pulumi.IntInput) IPRangeResponseOutp
 	}).(IPRangeResponseOutput)
 }
 
-// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-type JobType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties JobPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// JobTypeInput is an input type that accepts JobTypeArgs and JobTypeOutput values.
-// You can construct a concrete instance of `JobTypeInput` via:
-//
-//          JobTypeArgs{...}
-type JobTypeInput interface {
-	pulumi.Input
-
-	ToJobTypeOutput() JobTypeOutput
-	ToJobTypeOutputWithContext(context.Context) JobTypeOutput
-}
-
-// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-type JobTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource properties.
-	Properties JobPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (JobTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobType)(nil)).Elem()
-}
-
-func (i JobTypeArgs) ToJobTypeOutput() JobTypeOutput {
-	return i.ToJobTypeOutputWithContext(context.Background())
-}
-
-func (i JobTypeArgs) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTypeOutput)
-}
-
-// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
-type JobTypeOutput struct{ *pulumi.OutputState }
-
-func (JobTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobType)(nil)).Elem()
-}
-
-func (o JobTypeOutput) ToJobTypeOutput() JobTypeOutput {
-	return o
-}
-
-func (o JobTypeOutput) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o JobTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v JobType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The resource properties.
-func (o JobTypeOutput) Properties() JobPropertiesResponseOutput {
-	return o.ApplyT(func(v JobType) JobPropertiesResponse { return v.Properties }).(JobPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o JobTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JobType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Details of JobOutput errors.
-type JobError struct {
-}
-
-// JobErrorInput is an input type that accepts JobErrorArgs and JobErrorOutput values.
-// You can construct a concrete instance of `JobErrorInput` via:
-//
-//          JobErrorArgs{...}
-type JobErrorInput interface {
-	pulumi.Input
-
-	ToJobErrorOutput() JobErrorOutput
-	ToJobErrorOutputWithContext(context.Context) JobErrorOutput
-}
-
-// Details of JobOutput errors.
-type JobErrorArgs struct {
-}
-
-func (JobErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobError)(nil)).Elem()
-}
-
-func (i JobErrorArgs) ToJobErrorOutput() JobErrorOutput {
-	return i.ToJobErrorOutputWithContext(context.Background())
-}
-
-func (i JobErrorArgs) ToJobErrorOutputWithContext(ctx context.Context) JobErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobErrorOutput)
-}
-
-// Details of JobOutput errors.
-type JobErrorOutput struct{ *pulumi.OutputState }
-
-func (JobErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobError)(nil)).Elem()
-}
-
-func (o JobErrorOutput) ToJobErrorOutput() JobErrorOutput {
-	return o
-}
-
-func (o JobErrorOutput) ToJobErrorOutputWithContext(ctx context.Context) JobErrorOutput {
-	return o
-}
-
-// Details of JobOutput errors.
-type JobErrorDetail struct {
-}
-
-// JobErrorDetailInput is an input type that accepts JobErrorDetailArgs and JobErrorDetailOutput values.
-// You can construct a concrete instance of `JobErrorDetailInput` via:
-//
-//          JobErrorDetailArgs{...}
-type JobErrorDetailInput interface {
-	pulumi.Input
-
-	ToJobErrorDetailOutput() JobErrorDetailOutput
-	ToJobErrorDetailOutputWithContext(context.Context) JobErrorDetailOutput
-}
-
-// Details of JobOutput errors.
-type JobErrorDetailArgs struct {
-}
-
-func (JobErrorDetailArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobErrorDetail)(nil)).Elem()
-}
-
-func (i JobErrorDetailArgs) ToJobErrorDetailOutput() JobErrorDetailOutput {
-	return i.ToJobErrorDetailOutputWithContext(context.Background())
-}
-
-func (i JobErrorDetailArgs) ToJobErrorDetailOutputWithContext(ctx context.Context) JobErrorDetailOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobErrorDetailOutput)
-}
-
-// Details of JobOutput errors.
-type JobErrorDetailOutput struct{ *pulumi.OutputState }
-
-func (JobErrorDetailOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobErrorDetail)(nil)).Elem()
-}
-
-func (o JobErrorDetailOutput) ToJobErrorDetailOutput() JobErrorDetailOutput {
-	return o
-}
-
-func (o JobErrorDetailOutput) ToJobErrorDetailOutputWithContext(ctx context.Context) JobErrorDetailOutput {
-	return o
-}
-
 // Details of JobOutput errors.
 type JobErrorDetailResponse struct {
 	// Code describing the error detail.
@@ -7060,236 +6383,6 @@ func (o JobErrorResponseOutput) Message() pulumi.StringOutput {
 // Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
 func (o JobErrorResponseOutput) Retry() pulumi.StringOutput {
 	return o.ApplyT(func(v JobErrorResponse) string { return v.Retry }).(pulumi.StringOutput)
-}
-
-// Base class for inputs to a Job.
-type JobInput struct {
-}
-
-// JobInputInput is an input type that accepts JobInputArgs and JobInputOutput values.
-// You can construct a concrete instance of `JobInputInput` via:
-//
-//          JobInputArgs{...}
-type JobInputInput interface {
-	pulumi.Input
-
-	ToJobInputOutput() JobInputOutput
-	ToJobInputOutputWithContext(context.Context) JobInputOutput
-}
-
-// Base class for inputs to a Job.
-type JobInputArgs struct {
-}
-
-func (JobInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobInput)(nil)).Elem()
-}
-
-func (i JobInputArgs) ToJobInputOutput() JobInputOutput {
-	return i.ToJobInputOutputWithContext(context.Background())
-}
-
-func (i JobInputArgs) ToJobInputOutputWithContext(ctx context.Context) JobInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobInputOutput)
-}
-
-func (i JobInputArgs) ToJobInputPtrOutput() JobInputPtrOutput {
-	return i.ToJobInputPtrOutputWithContext(context.Background())
-}
-
-func (i JobInputArgs) ToJobInputPtrOutputWithContext(ctx context.Context) JobInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobInputOutput).ToJobInputPtrOutputWithContext(ctx)
-}
-
-// JobInputPtrInput is an input type that accepts JobInputArgs, JobInputPtr and JobInputPtrOutput values.
-// You can construct a concrete instance of `JobInputPtrInput` via:
-//
-//          JobInputArgs{...}
-//
-//  or:
-//
-//          nil
-type JobInputPtrInput interface {
-	pulumi.Input
-
-	ToJobInputPtrOutput() JobInputPtrOutput
-	ToJobInputPtrOutputWithContext(context.Context) JobInputPtrOutput
-}
-
-type jobInputPtrType JobInputArgs
-
-func JobInputPtr(v *JobInputArgs) JobInputPtrInput {
-	return (*jobInputPtrType)(v)
-}
-
-func (*jobInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobInput)(nil)).Elem()
-}
-
-func (i *jobInputPtrType) ToJobInputPtrOutput() JobInputPtrOutput {
-	return i.ToJobInputPtrOutputWithContext(context.Background())
-}
-
-func (i *jobInputPtrType) ToJobInputPtrOutputWithContext(ctx context.Context) JobInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobInputPtrOutput)
-}
-
-// Base class for inputs to a Job.
-type JobInputOutput struct{ *pulumi.OutputState }
-
-func (JobInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobInput)(nil)).Elem()
-}
-
-func (o JobInputOutput) ToJobInputOutput() JobInputOutput {
-	return o
-}
-
-func (o JobInputOutput) ToJobInputOutputWithContext(ctx context.Context) JobInputOutput {
-	return o
-}
-
-func (o JobInputOutput) ToJobInputPtrOutput() JobInputPtrOutput {
-	return o.ToJobInputPtrOutputWithContext(context.Background())
-}
-
-func (o JobInputOutput) ToJobInputPtrOutputWithContext(ctx context.Context) JobInputPtrOutput {
-	return o.ApplyT(func(v JobInput) *JobInput {
-		return &v
-	}).(JobInputPtrOutput)
-}
-
-type JobInputPtrOutput struct{ *pulumi.OutputState }
-
-func (JobInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobInput)(nil)).Elem()
-}
-
-func (o JobInputPtrOutput) ToJobInputPtrOutput() JobInputPtrOutput {
-	return o
-}
-
-func (o JobInputPtrOutput) ToJobInputPtrOutputWithContext(ctx context.Context) JobInputPtrOutput {
-	return o
-}
-
-func (o JobInputPtrOutput) Elem() JobInputOutput {
-	return o.ApplyT(func(v *JobInput) JobInput { return *v }).(JobInputOutput)
-}
-
-// Base class for inputs to a Job.
-type JobInputResponse struct {
-}
-
-// JobInputResponseInput is an input type that accepts JobInputResponseArgs and JobInputResponseOutput values.
-// You can construct a concrete instance of `JobInputResponseInput` via:
-//
-//          JobInputResponseArgs{...}
-type JobInputResponseInput interface {
-	pulumi.Input
-
-	ToJobInputResponseOutput() JobInputResponseOutput
-	ToJobInputResponseOutputWithContext(context.Context) JobInputResponseOutput
-}
-
-// Base class for inputs to a Job.
-type JobInputResponseArgs struct {
-}
-
-func (JobInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobInputResponse)(nil)).Elem()
-}
-
-func (i JobInputResponseArgs) ToJobInputResponseOutput() JobInputResponseOutput {
-	return i.ToJobInputResponseOutputWithContext(context.Background())
-}
-
-func (i JobInputResponseArgs) ToJobInputResponseOutputWithContext(ctx context.Context) JobInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobInputResponseOutput)
-}
-
-func (i JobInputResponseArgs) ToJobInputResponsePtrOutput() JobInputResponsePtrOutput {
-	return i.ToJobInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i JobInputResponseArgs) ToJobInputResponsePtrOutputWithContext(ctx context.Context) JobInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobInputResponseOutput).ToJobInputResponsePtrOutputWithContext(ctx)
-}
-
-// JobInputResponsePtrInput is an input type that accepts JobInputResponseArgs, JobInputResponsePtr and JobInputResponsePtrOutput values.
-// You can construct a concrete instance of `JobInputResponsePtrInput` via:
-//
-//          JobInputResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type JobInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToJobInputResponsePtrOutput() JobInputResponsePtrOutput
-	ToJobInputResponsePtrOutputWithContext(context.Context) JobInputResponsePtrOutput
-}
-
-type jobInputResponsePtrType JobInputResponseArgs
-
-func JobInputResponsePtr(v *JobInputResponseArgs) JobInputResponsePtrInput {
-	return (*jobInputResponsePtrType)(v)
-}
-
-func (*jobInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobInputResponse)(nil)).Elem()
-}
-
-func (i *jobInputResponsePtrType) ToJobInputResponsePtrOutput() JobInputResponsePtrOutput {
-	return i.ToJobInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *jobInputResponsePtrType) ToJobInputResponsePtrOutputWithContext(ctx context.Context) JobInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobInputResponsePtrOutput)
-}
-
-// Base class for inputs to a Job.
-type JobInputResponseOutput struct{ *pulumi.OutputState }
-
-func (JobInputResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobInputResponse)(nil)).Elem()
-}
-
-func (o JobInputResponseOutput) ToJobInputResponseOutput() JobInputResponseOutput {
-	return o
-}
-
-func (o JobInputResponseOutput) ToJobInputResponseOutputWithContext(ctx context.Context) JobInputResponseOutput {
-	return o
-}
-
-func (o JobInputResponseOutput) ToJobInputResponsePtrOutput() JobInputResponsePtrOutput {
-	return o.ToJobInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (o JobInputResponseOutput) ToJobInputResponsePtrOutputWithContext(ctx context.Context) JobInputResponsePtrOutput {
-	return o.ApplyT(func(v JobInputResponse) *JobInputResponse {
-		return &v
-	}).(JobInputResponsePtrOutput)
-}
-
-type JobInputResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (JobInputResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobInputResponse)(nil)).Elem()
-}
-
-func (o JobInputResponsePtrOutput) ToJobInputResponsePtrOutput() JobInputResponsePtrOutput {
-	return o
-}
-
-func (o JobInputResponsePtrOutput) ToJobInputResponsePtrOutputWithContext(ctx context.Context) JobInputResponsePtrOutput {
-	return o
-}
-
-func (o JobInputResponsePtrOutput) Elem() JobInputResponseOutput {
-	return o.ApplyT(func(v *JobInputResponse) JobInputResponse { return *v }).(JobInputResponseOutput)
 }
 
 // Describes all the properties of a JobOutput.
@@ -7547,8 +6640,6 @@ type JobPropertiesResponse struct {
 	Description *string `pulumi:"description"`
 	// The UTC date and time at which this Job finished processing.
 	EndTime string `pulumi:"endTime"`
-	// The inputs for the Job.
-	Input JobInputResponse `pulumi:"input"`
 	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified string `pulumi:"lastModified"`
 	// The outputs for the Job.
@@ -7582,8 +6673,6 @@ type JobPropertiesResponseArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The UTC date and time at which this Job finished processing.
 	EndTime pulumi.StringInput `pulumi:"endTime"`
-	// The inputs for the Job.
-	Input JobInputResponseInput `pulumi:"input"`
 	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified pulumi.StringInput `pulumi:"lastModified"`
 	// The outputs for the Job.
@@ -7694,11 +6783,6 @@ func (o JobPropertiesResponseOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v JobPropertiesResponse) string { return v.EndTime }).(pulumi.StringOutput)
 }
 
-// The inputs for the Job.
-func (o JobPropertiesResponseOutput) Input() JobInputResponseOutput {
-	return o.ApplyT(func(v JobPropertiesResponse) JobInputResponse { return v.Input }).(JobInputResponseOutput)
-}
-
 // The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
 func (o JobPropertiesResponseOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v JobPropertiesResponse) string { return v.LastModified }).(pulumi.StringOutput)
@@ -7780,16 +6864,6 @@ func (o JobPropertiesResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
 		}
 		return &v.EndTime
 	}).(pulumi.StringPtrOutput)
-}
-
-// The inputs for the Job.
-func (o JobPropertiesResponsePtrOutput) Input() JobInputResponsePtrOutput {
-	return o.ApplyT(func(v *JobPropertiesResponse) *JobInputResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Input
-	}).(JobInputResponsePtrOutput)
 }
 
 // The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
@@ -8121,97 +7195,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOut
 		}
 		return v.KeyIdentifier
 	}).(pulumi.StringPtrOutput)
-}
-
-// The Live Event.
-type LiveEventType struct {
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The Live Event properties.
-	Properties LiveEventPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// LiveEventTypeInput is an input type that accepts LiveEventTypeArgs and LiveEventTypeOutput values.
-// You can construct a concrete instance of `LiveEventTypeInput` via:
-//
-//          LiveEventTypeArgs{...}
-type LiveEventTypeInput interface {
-	pulumi.Input
-
-	ToLiveEventTypeOutput() LiveEventTypeOutput
-	ToLiveEventTypeOutputWithContext(context.Context) LiveEventTypeOutput
-}
-
-// The Live Event.
-type LiveEventTypeArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Live Event properties.
-	Properties LiveEventPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LiveEventTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventType)(nil)).Elem()
-}
-
-func (i LiveEventTypeArgs) ToLiveEventTypeOutput() LiveEventTypeOutput {
-	return i.ToLiveEventTypeOutputWithContext(context.Background())
-}
-
-func (i LiveEventTypeArgs) ToLiveEventTypeOutputWithContext(ctx context.Context) LiveEventTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTypeOutput)
-}
-
-// The Live Event.
-type LiveEventTypeOutput struct{ *pulumi.OutputState }
-
-func (LiveEventTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventType)(nil)).Elem()
-}
-
-func (o LiveEventTypeOutput) ToLiveEventTypeOutput() LiveEventTypeOutput {
-	return o
-}
-
-func (o LiveEventTypeOutput) ToLiveEventTypeOutputWithContext(ctx context.Context) LiveEventTypeOutput {
-	return o
-}
-
-// The geo-location where the resource lives
-func (o LiveEventTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v LiveEventType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o LiveEventTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LiveEventType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Live Event properties.
-func (o LiveEventTypeOutput) Properties() LiveEventPropertiesResponseOutput {
-	return o.ApplyT(func(v LiveEventType) LiveEventPropertiesResponse { return v.Properties }).(LiveEventPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o LiveEventTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LiveEventType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o LiveEventTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LiveEventType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The Live Event encoding.
@@ -10438,79 +9421,6 @@ func (o LiveEventPropertiesResponsePtrOutput) UseStaticHostname() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Live Output.
-type LiveOutputType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The Live Output properties.
-	Properties LiveOutputPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// LiveOutputTypeInput is an input type that accepts LiveOutputTypeArgs and LiveOutputTypeOutput values.
-// You can construct a concrete instance of `LiveOutputTypeInput` via:
-//
-//          LiveOutputTypeArgs{...}
-type LiveOutputTypeInput interface {
-	pulumi.Input
-
-	ToLiveOutputTypeOutput() LiveOutputTypeOutput
-	ToLiveOutputTypeOutputWithContext(context.Context) LiveOutputTypeOutput
-}
-
-// The Live Output.
-type LiveOutputTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Live Output properties.
-	Properties LiveOutputPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LiveOutputTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveOutputType)(nil)).Elem()
-}
-
-func (i LiveOutputTypeArgs) ToLiveOutputTypeOutput() LiveOutputTypeOutput {
-	return i.ToLiveOutputTypeOutputWithContext(context.Background())
-}
-
-func (i LiveOutputTypeArgs) ToLiveOutputTypeOutputWithContext(ctx context.Context) LiveOutputTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveOutputTypeOutput)
-}
-
-// The Live Output.
-type LiveOutputTypeOutput struct{ *pulumi.OutputState }
-
-func (LiveOutputTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveOutputType)(nil)).Elem()
-}
-
-func (o LiveOutputTypeOutput) ToLiveOutputTypeOutput() LiveOutputTypeOutput {
-	return o
-}
-
-func (o LiveOutputTypeOutput) ToLiveOutputTypeOutputWithContext(ctx context.Context) LiveOutputTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o LiveOutputTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LiveOutputType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Live Output properties.
-func (o LiveOutputTypeOutput) Properties() LiveOutputPropertiesResponseOutput {
-	return o.ApplyT(func(v LiveOutputType) LiveOutputPropertiesResponse { return v.Properties }).(LiveOutputPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o LiveOutputTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LiveOutputType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The JSON object that contains the properties required to create a Live Output.
 type LiveOutputPropertiesResponse struct {
 	// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
@@ -10986,106 +9896,6 @@ func (o MediaFilterPropertiesResponsePtrOutput) Tracks() FilterTrackSelectionRes
 		}
 		return v.Tracks
 	}).(FilterTrackSelectionResponseArrayOutput)
-}
-
-// A Media Services account.
-type MediaServiceType struct {
-	// The Managed Identity for the Media Services account.
-	Identity *MediaServiceIdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties MediaServicePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// MediaServiceTypeInput is an input type that accepts MediaServiceTypeArgs and MediaServiceTypeOutput values.
-// You can construct a concrete instance of `MediaServiceTypeInput` via:
-//
-//          MediaServiceTypeArgs{...}
-type MediaServiceTypeInput interface {
-	pulumi.Input
-
-	ToMediaServiceTypeOutput() MediaServiceTypeOutput
-	ToMediaServiceTypeOutputWithContext(context.Context) MediaServiceTypeOutput
-}
-
-// A Media Services account.
-type MediaServiceTypeArgs struct {
-	// The Managed Identity for the Media Services account.
-	Identity MediaServiceIdentityResponsePtrInput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource properties.
-	Properties MediaServicePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceType)(nil)).Elem()
-}
-
-func (i MediaServiceTypeArgs) ToMediaServiceTypeOutput() MediaServiceTypeOutput {
-	return i.ToMediaServiceTypeOutputWithContext(context.Background())
-}
-
-func (i MediaServiceTypeArgs) ToMediaServiceTypeOutputWithContext(ctx context.Context) MediaServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceTypeOutput)
-}
-
-// A Media Services account.
-type MediaServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceType)(nil)).Elem()
-}
-
-func (o MediaServiceTypeOutput) ToMediaServiceTypeOutput() MediaServiceTypeOutput {
-	return o
-}
-
-func (o MediaServiceTypeOutput) ToMediaServiceTypeOutputWithContext(ctx context.Context) MediaServiceTypeOutput {
-	return o
-}
-
-// The Managed Identity for the Media Services account.
-func (o MediaServiceTypeOutput) Identity() MediaServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v MediaServiceType) *MediaServiceIdentityResponse { return v.Identity }).(MediaServiceIdentityResponsePtrOutput)
-}
-
-// The geo-location where the resource lives
-func (o MediaServiceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o MediaServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The resource properties.
-func (o MediaServiceTypeOutput) Properties() MediaServicePropertiesResponseOutput {
-	return o.ApplyT(func(v MediaServiceType) MediaServicePropertiesResponse { return v.Properties }).(MediaServicePropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o MediaServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MediaServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o MediaServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type MediaServiceIdentity struct {
@@ -12301,286 +11111,6 @@ func (o PresentationTimeRangeResponsePtrOutput) Timescale() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
-type Preset struct {
-}
-
-// PresetInput is an input type that accepts PresetArgs and PresetOutput values.
-// You can construct a concrete instance of `PresetInput` via:
-//
-//          PresetArgs{...}
-type PresetInput interface {
-	pulumi.Input
-
-	ToPresetOutput() PresetOutput
-	ToPresetOutputWithContext(context.Context) PresetOutput
-}
-
-// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
-type PresetArgs struct {
-}
-
-func (PresetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Preset)(nil)).Elem()
-}
-
-func (i PresetArgs) ToPresetOutput() PresetOutput {
-	return i.ToPresetOutputWithContext(context.Background())
-}
-
-func (i PresetArgs) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PresetOutput)
-}
-
-// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
-type PresetOutput struct{ *pulumi.OutputState }
-
-func (PresetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Preset)(nil)).Elem()
-}
-
-func (o PresetOutput) ToPresetOutput() PresetOutput {
-	return o
-}
-
-func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
-	return o
-}
-
-// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
-type PresetResponse struct {
-}
-
-// PresetResponseInput is an input type that accepts PresetResponseArgs and PresetResponseOutput values.
-// You can construct a concrete instance of `PresetResponseInput` via:
-//
-//          PresetResponseArgs{...}
-type PresetResponseInput interface {
-	pulumi.Input
-
-	ToPresetResponseOutput() PresetResponseOutput
-	ToPresetResponseOutputWithContext(context.Context) PresetResponseOutput
-}
-
-// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
-type PresetResponseArgs struct {
-}
-
-func (PresetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PresetResponse)(nil)).Elem()
-}
-
-func (i PresetResponseArgs) ToPresetResponseOutput() PresetResponseOutput {
-	return i.ToPresetResponseOutputWithContext(context.Background())
-}
-
-func (i PresetResponseArgs) ToPresetResponseOutputWithContext(ctx context.Context) PresetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PresetResponseOutput)
-}
-
-// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
-type PresetResponseOutput struct{ *pulumi.OutputState }
-
-func (PresetResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PresetResponse)(nil)).Elem()
-}
-
-func (o PresetResponseOutput) ToPresetResponseOutput() PresetResponseOutput {
-	return o
-}
-
-func (o PresetResponseOutput) ToPresetResponseOutputWithContext(ctx context.Context) PresetResponseOutput {
-	return o
-}
-
-// The Private Endpoint resource.
-type PrivateEndpoint struct {
-}
-
-// PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
-// You can construct a concrete instance of `PrivateEndpointInput` via:
-//
-//          PrivateEndpointArgs{...}
-type PrivateEndpointInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointOutput() PrivateEndpointOutput
-	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
-}
-
-// The Private Endpoint resource.
-type PrivateEndpointArgs struct {
-}
-
-func (PrivateEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointOutput() PrivateEndpointOutput {
-	return i.ToPrivateEndpointOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput)
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput).ToPrivateEndpointPtrOutputWithContext(ctx)
-}
-
-// PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
-// You can construct a concrete instance of `PrivateEndpointPtrInput` via:
-//
-//          PrivateEndpointArgs{...}
-//
-//  or:
-//
-//          nil
-type PrivateEndpointPtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput
-	ToPrivateEndpointPtrOutputWithContext(context.Context) PrivateEndpointPtrOutput
-}
-
-type privateEndpointPtrType PrivateEndpointArgs
-
-func PrivateEndpointPtr(v *PrivateEndpointArgs) PrivateEndpointPtrInput {
-	return (*privateEndpointPtrType)(v)
-}
-
-func (*privateEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
-}
-
-func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
-}
-
-// The Private Endpoint resource.
-type PrivateEndpointOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointOutput() PrivateEndpointOutput {
-	return o
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
-	return o
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return o.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
-		return &v
-	}).(PrivateEndpointPtrOutput)
-}
-
-type PrivateEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
-}
-
-func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
-}
-
-// The Private Endpoint Connection resource.
-type PrivateEndpointConnectionType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
-//
-//          PrivateEndpointConnectionTypeArgs{...}
-type PrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
-	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
-}
-
-// The Private Endpoint Connection resource.
-type PrivateEndpointConnectionTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
-	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
-}
-
-// The Private Endpoint Connection resource.
-type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource properties.
-func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the PrivateEndpointConnectProperties.
 type PrivateEndpointConnectionPropertiesResponse struct {
 	// The resource of private end point.
@@ -13455,97 +11985,6 @@ func (o StorageAccountResponseArrayOutput) Index(i pulumi.IntInput) StorageAccou
 	}).(StorageAccountResponseOutput)
 }
 
-// The StreamingEndpoint.
-type StreamingEndpointType struct {
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The StreamingEndpoint properties.
-	Properties StreamingEndpointPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// StreamingEndpointTypeInput is an input type that accepts StreamingEndpointTypeArgs and StreamingEndpointTypeOutput values.
-// You can construct a concrete instance of `StreamingEndpointTypeInput` via:
-//
-//          StreamingEndpointTypeArgs{...}
-type StreamingEndpointTypeInput interface {
-	pulumi.Input
-
-	ToStreamingEndpointTypeOutput() StreamingEndpointTypeOutput
-	ToStreamingEndpointTypeOutputWithContext(context.Context) StreamingEndpointTypeOutput
-}
-
-// The StreamingEndpoint.
-type StreamingEndpointTypeArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The StreamingEndpoint properties.
-	Properties StreamingEndpointPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StreamingEndpointTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingEndpointType)(nil)).Elem()
-}
-
-func (i StreamingEndpointTypeArgs) ToStreamingEndpointTypeOutput() StreamingEndpointTypeOutput {
-	return i.ToStreamingEndpointTypeOutputWithContext(context.Background())
-}
-
-func (i StreamingEndpointTypeArgs) ToStreamingEndpointTypeOutputWithContext(ctx context.Context) StreamingEndpointTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointTypeOutput)
-}
-
-// The StreamingEndpoint.
-type StreamingEndpointTypeOutput struct{ *pulumi.OutputState }
-
-func (StreamingEndpointTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingEndpointType)(nil)).Elem()
-}
-
-func (o StreamingEndpointTypeOutput) ToStreamingEndpointTypeOutput() StreamingEndpointTypeOutput {
-	return o
-}
-
-func (o StreamingEndpointTypeOutput) ToStreamingEndpointTypeOutputWithContext(ctx context.Context) StreamingEndpointTypeOutput {
-	return o
-}
-
-// The geo-location where the resource lives
-func (o StreamingEndpointTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingEndpointType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o StreamingEndpointTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingEndpointType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The StreamingEndpoint properties.
-func (o StreamingEndpointTypeOutput) Properties() StreamingEndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v StreamingEndpointType) StreamingEndpointPropertiesResponse { return v.Properties }).(StreamingEndpointPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o StreamingEndpointTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v StreamingEndpointType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StreamingEndpointTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingEndpointType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // StreamingEndpoint access control definition.
 type StreamingEndpointAccessControl struct {
 	// The access control of Akamai
@@ -14275,79 +12714,6 @@ func (o StreamingEndpointPropertiesResponsePtrOutput) ScaleUnits() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// A Streaming Locator resource
-type StreamingLocatorType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Properties of the Streaming Locator.
-	Properties StreamingLocatorPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// StreamingLocatorTypeInput is an input type that accepts StreamingLocatorTypeArgs and StreamingLocatorTypeOutput values.
-// You can construct a concrete instance of `StreamingLocatorTypeInput` via:
-//
-//          StreamingLocatorTypeArgs{...}
-type StreamingLocatorTypeInput interface {
-	pulumi.Input
-
-	ToStreamingLocatorTypeOutput() StreamingLocatorTypeOutput
-	ToStreamingLocatorTypeOutputWithContext(context.Context) StreamingLocatorTypeOutput
-}
-
-// A Streaming Locator resource
-type StreamingLocatorTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Streaming Locator.
-	Properties StreamingLocatorPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StreamingLocatorTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingLocatorType)(nil)).Elem()
-}
-
-func (i StreamingLocatorTypeArgs) ToStreamingLocatorTypeOutput() StreamingLocatorTypeOutput {
-	return i.ToStreamingLocatorTypeOutputWithContext(context.Background())
-}
-
-func (i StreamingLocatorTypeArgs) ToStreamingLocatorTypeOutputWithContext(ctx context.Context) StreamingLocatorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingLocatorTypeOutput)
-}
-
-// A Streaming Locator resource
-type StreamingLocatorTypeOutput struct{ *pulumi.OutputState }
-
-func (StreamingLocatorTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingLocatorType)(nil)).Elem()
-}
-
-func (o StreamingLocatorTypeOutput) ToStreamingLocatorTypeOutput() StreamingLocatorTypeOutput {
-	return o
-}
-
-func (o StreamingLocatorTypeOutput) ToStreamingLocatorTypeOutputWithContext(ctx context.Context) StreamingLocatorTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o StreamingLocatorTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingLocatorType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Streaming Locator.
-func (o StreamingLocatorTypeOutput) Properties() StreamingLocatorPropertiesResponseOutput {
-	return o.ApplyT(func(v StreamingLocatorType) StreamingLocatorPropertiesResponse { return v.Properties }).(StreamingLocatorPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StreamingLocatorTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingLocatorType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Class for content key in Streaming Locator
 type StreamingLocatorContentKey struct {
 	// ID of Content Key
@@ -15032,79 +13398,6 @@ func (o StreamingPathResponseArrayOutput) Index(i pulumi.IntInput) StreamingPath
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamingPathResponse {
 		return vs[0].([]StreamingPathResponse)[vs[1].(int)]
 	}).(StreamingPathResponseOutput)
-}
-
-// A Streaming Policy resource
-type StreamingPolicyType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Class to specify properties of Streaming Policy
-	Properties StreamingPolicyPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// StreamingPolicyTypeInput is an input type that accepts StreamingPolicyTypeArgs and StreamingPolicyTypeOutput values.
-// You can construct a concrete instance of `StreamingPolicyTypeInput` via:
-//
-//          StreamingPolicyTypeArgs{...}
-type StreamingPolicyTypeInput interface {
-	pulumi.Input
-
-	ToStreamingPolicyTypeOutput() StreamingPolicyTypeOutput
-	ToStreamingPolicyTypeOutputWithContext(context.Context) StreamingPolicyTypeOutput
-}
-
-// A Streaming Policy resource
-type StreamingPolicyTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Class to specify properties of Streaming Policy
-	Properties StreamingPolicyPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StreamingPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingPolicyType)(nil)).Elem()
-}
-
-func (i StreamingPolicyTypeArgs) ToStreamingPolicyTypeOutput() StreamingPolicyTypeOutput {
-	return i.ToStreamingPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i StreamingPolicyTypeArgs) ToStreamingPolicyTypeOutputWithContext(ctx context.Context) StreamingPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyTypeOutput)
-}
-
-// A Streaming Policy resource
-type StreamingPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (StreamingPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingPolicyType)(nil)).Elem()
-}
-
-func (o StreamingPolicyTypeOutput) ToStreamingPolicyTypeOutput() StreamingPolicyTypeOutput {
-	return o
-}
-
-func (o StreamingPolicyTypeOutput) ToStreamingPolicyTypeOutputWithContext(ctx context.Context) StreamingPolicyTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o StreamingPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Class to specify properties of Streaming Policy
-func (o StreamingPolicyTypeOutput) Properties() StreamingPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v StreamingPolicyType) StreamingPolicyPropertiesResponse { return v.Properties }).(StreamingPolicyPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StreamingPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingPolicyType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Class to specify properties of content key
@@ -17208,85 +15501,10 @@ func (o TrackSelectionResponseArrayOutput) Index(i pulumi.IntInput) TrackSelecti
 	}).(TrackSelectionResponseOutput)
 }
 
-// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
-type TransformType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties TransformPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// TransformTypeInput is an input type that accepts TransformTypeArgs and TransformTypeOutput values.
-// You can construct a concrete instance of `TransformTypeInput` via:
-//
-//          TransformTypeArgs{...}
-type TransformTypeInput interface {
-	pulumi.Input
-
-	ToTransformTypeOutput() TransformTypeOutput
-	ToTransformTypeOutputWithContext(context.Context) TransformTypeOutput
-}
-
-// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
-type TransformTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource properties.
-	Properties TransformPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TransformTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransformType)(nil)).Elem()
-}
-
-func (i TransformTypeArgs) ToTransformTypeOutput() TransformTypeOutput {
-	return i.ToTransformTypeOutputWithContext(context.Background())
-}
-
-func (i TransformTypeArgs) ToTransformTypeOutputWithContext(ctx context.Context) TransformTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransformTypeOutput)
-}
-
-// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
-type TransformTypeOutput struct{ *pulumi.OutputState }
-
-func (TransformTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransformType)(nil)).Elem()
-}
-
-func (o TransformTypeOutput) ToTransformTypeOutput() TransformTypeOutput {
-	return o
-}
-
-func (o TransformTypeOutput) ToTransformTypeOutputWithContext(ctx context.Context) TransformTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o TransformTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TransformType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The resource properties.
-func (o TransformTypeOutput) Properties() TransformPropertiesResponseOutput {
-	return o.ApplyT(func(v TransformType) TransformPropertiesResponse { return v.Properties }).(TransformPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o TransformTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TransformType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
 type TransformOutput struct {
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 	OnError *string `pulumi:"onError"`
-	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-	Preset Preset `pulumi:"preset"`
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 	RelativePriority *string `pulumi:"relativePriority"`
 }
@@ -17306,8 +15524,6 @@ type TransformOutputInput interface {
 type TransformOutputArgs struct {
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 	OnError pulumi.StringPtrInput `pulumi:"onError"`
-	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-	Preset PresetInput `pulumi:"preset"`
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 	RelativePriority pulumi.StringPtrInput `pulumi:"relativePriority"`
 }
@@ -17369,11 +15585,6 @@ func (o TransformOutputOutput) OnError() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutput) *string { return v.OnError }).(pulumi.StringPtrOutput)
 }
 
-// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-func (o TransformOutputOutput) Preset() PresetOutput {
-	return o.ApplyT(func(v TransformOutput) Preset { return v.Preset }).(PresetOutput)
-}
-
 // Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 func (o TransformOutputOutput) RelativePriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutput) *string { return v.RelativePriority }).(pulumi.StringPtrOutput)
@@ -17403,8 +15614,6 @@ func (o TransformOutputArrayOutput) Index(i pulumi.IntInput) TransformOutputOutp
 type TransformOutputResponse struct {
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 	OnError *string `pulumi:"onError"`
-	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-	Preset PresetResponse `pulumi:"preset"`
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 	RelativePriority *string `pulumi:"relativePriority"`
 }
@@ -17424,8 +15633,6 @@ type TransformOutputResponseInput interface {
 type TransformOutputResponseArgs struct {
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 	OnError pulumi.StringPtrInput `pulumi:"onError"`
-	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-	Preset PresetResponseInput `pulumi:"preset"`
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 	RelativePriority pulumi.StringPtrInput `pulumi:"relativePriority"`
 }
@@ -17485,11 +15692,6 @@ func (o TransformOutputResponseOutput) ToTransformOutputResponseOutputWithContex
 // A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 func (o TransformOutputResponseOutput) OnError() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputResponse) *string { return v.OnError }).(pulumi.StringPtrOutput)
-}
-
-// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-func (o TransformOutputResponseOutput) Preset() PresetResponseOutput {
-	return o.ApplyT(func(v TransformOutputResponse) PresetResponse { return v.Preset }).(PresetResponseOutput)
 }
 
 // Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
@@ -17713,7 +15915,6 @@ func init() {
 	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionResponseOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionResponsePtrOutput{})
-	pulumi.RegisterOutputType(AccountFilterTypeOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlResponseOutput{})
@@ -17722,8 +15923,6 @@ func init() {
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyArrayOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyResponseOutput{})
 	pulumi.RegisterOutputType(AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(AssetTypeOutput{})
-	pulumi.RegisterOutputType(AssetFilterTypeOutput{})
 	pulumi.RegisterOutputType(AssetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AssetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AssetStreamingLocatorResponseOutput{})
@@ -17744,17 +15943,12 @@ func init() {
 	pulumi.RegisterOutputType(CommonEncryptionCencPtrOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCencResponseOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCencResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyTypeOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyConfigurationOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyRestrictionOutput{})
-	pulumi.RegisterOutputType(ContentKeyPolicyRestrictionResponseOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesPtrOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesResponseOutput{})
@@ -17798,16 +15992,9 @@ func init() {
 	pulumi.RegisterOutputType(IPRangeArrayOutput{})
 	pulumi.RegisterOutputType(IPRangeResponseOutput{})
 	pulumi.RegisterOutputType(IPRangeResponseArrayOutput{})
-	pulumi.RegisterOutputType(JobTypeOutput{})
-	pulumi.RegisterOutputType(JobErrorOutput{})
-	pulumi.RegisterOutputType(JobErrorDetailOutput{})
 	pulumi.RegisterOutputType(JobErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(JobErrorDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobErrorResponseOutput{})
-	pulumi.RegisterOutputType(JobInputOutput{})
-	pulumi.RegisterOutputType(JobInputPtrOutput{})
-	pulumi.RegisterOutputType(JobInputResponseOutput{})
-	pulumi.RegisterOutputType(JobInputResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobOutputOutput{})
 	pulumi.RegisterOutputType(JobOutputArrayOutput{})
 	pulumi.RegisterOutputType(JobOutputResponseOutput{})
@@ -17818,7 +16005,6 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LiveEventTypeOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingResponseOutput{})
@@ -17845,12 +16031,10 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventPreviewResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LiveOutputTypeOutput{})
 	pulumi.RegisterOutputType(LiveOutputPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LiveOutputPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MediaFilterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MediaFilterPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(MediaServiceTypeOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(MediaServiceIdentityResponseOutput{})
@@ -17865,11 +16049,6 @@ func init() {
 	pulumi.RegisterOutputType(PresentationTimeRangePtrOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangeResponseOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangeResponsePtrOutput{})
-	pulumi.RegisterOutputType(PresetOutput{})
-	pulumi.RegisterOutputType(PresetResponseOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
@@ -17882,14 +16061,12 @@ func init() {
 	pulumi.RegisterOutputType(StorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseArrayOutput{})
-	pulumi.RegisterOutputType(StreamingEndpointTypeOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(StreamingLocatorTypeOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyArrayOutput{})
 	pulumi.RegisterOutputType(StreamingLocatorContentKeyResponseOutput{})
@@ -17898,7 +16075,6 @@ func init() {
 	pulumi.RegisterOutputType(StreamingLocatorPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(StreamingPathResponseOutput{})
 	pulumi.RegisterOutputType(StreamingPathResponseArrayOutput{})
-	pulumi.RegisterOutputType(StreamingPolicyTypeOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyArrayOutput{})
 	pulumi.RegisterOutputType(StreamingPolicyContentKeyResponseOutput{})
@@ -17929,7 +16105,6 @@ func init() {
 	pulumi.RegisterOutputType(TrackSelectionArrayOutput{})
 	pulumi.RegisterOutputType(TrackSelectionResponseOutput{})
 	pulumi.RegisterOutputType(TrackSelectionResponseArrayOutput{})
-	pulumi.RegisterOutputType(TransformTypeOutput{})
 	pulumi.RegisterOutputType(TransformOutputOutput{})
 	pulumi.RegisterOutputType(TransformOutputArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseOutput{})

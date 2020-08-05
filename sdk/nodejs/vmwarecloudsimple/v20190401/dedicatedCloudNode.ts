@@ -55,7 +55,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
     /**
      * Dedicated Cloud Nodes tags
      */
-    public readonly tags!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.TagsResponse | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * {resourceProviderNamespace}/{resourceType}
      */
@@ -173,5 +173,5 @@ export interface DedicatedCloudNodeArgs {
     /**
      * Dedicated Cloud Nodes tags
      */
-    readonly tags?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.Tags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

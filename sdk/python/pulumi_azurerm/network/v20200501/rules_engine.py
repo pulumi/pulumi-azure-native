@@ -26,7 +26,6 @@ class RulesEngine(pulumi.CustomResource):
             * `value` (`str`) - The value to update the given header name with. This value is not used if the actionType is Delete.
 
           * `response_header_actions` (`list`) - A list of header actions to apply from the response from AFD to the client.
-          * `route_configuration_override` (`dict`) - Override the route configuration.
 
         * `match_conditions` (`list`) - A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
           * `negate_condition` (`bool`) - Describes if this is negate condition or not
@@ -65,7 +64,6 @@ class RulesEngine(pulumi.CustomResource):
               * `value` (`pulumi.Input[str]`) - The value to update the given header name with. This value is not used if the actionType is Delete.
 
             * `response_header_actions` (`pulumi.Input[list]`) - A list of header actions to apply from the response from AFD to the client.
-            * `route_configuration_override` (`pulumi.Input[dict]`) - Override the route configuration.
 
           * `match_conditions` (`pulumi.Input[list]`) - A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
             * `negate_condition` (`pulumi.Input[bool]`) - Describes if this is negate condition or not

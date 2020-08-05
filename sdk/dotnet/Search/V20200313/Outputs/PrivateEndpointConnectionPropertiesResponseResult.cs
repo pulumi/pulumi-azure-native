@@ -16,17 +16,17 @@ namespace Pulumi.AzureRM.Search.V20200313.Outputs
         /// <summary>
         /// The private endpoint resource from Microsoft.Network provider.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponsePropertiesResult? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointConnectionPropertiesResponsePrivateEndpointResult? PrivateEndpoint;
         /// <summary>
         /// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponsePropertiesResult? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateResult? PrivateLinkServiceConnectionState;
 
         [OutputConstructor]
         private PrivateEndpointConnectionPropertiesResponseResult(
-            Outputs.PrivateEndpointConnectionPropertiesResponsePropertiesResult? privateEndpoint,
+            Outputs.PrivateEndpointConnectionPropertiesResponsePrivateEndpointResult? privateEndpoint,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponsePropertiesResult? privateLinkServiceConnectionState)
+            Outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStateResult? privateLinkServiceConnectionState)
         {
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;

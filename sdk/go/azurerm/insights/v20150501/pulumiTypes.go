@@ -10,135 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Properties that define an Analytics item that is associated to an Application Insights component.
-type AnalyticsItemType struct {
-	// The content of this item
-	Content *string `pulumi:"Content"`
-	// Internally assigned unique id of the item definition.
-	Id *string `pulumi:"Id"`
-	// The user-defined name of the item.
-	Name *string `pulumi:"Name"`
-	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-	Properties *ApplicationInsightsComponentAnalyticsItemPropertiesResponse `pulumi:"Properties"`
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Scope *string `pulumi:"Scope"`
-	// Date and time in UTC when this item was created.
-	TimeCreated string `pulumi:"TimeCreated"`
-	// Date and time in UTC of the last modification that was made to this item.
-	TimeModified string `pulumi:"TimeModified"`
-	// Enum indicating the type of the Analytics item.
-	Type *string `pulumi:"Type"`
-	// This instance's version of the data model. This can change as new features are added.
-	Version string `pulumi:"Version"`
-}
-
-// AnalyticsItemTypeInput is an input type that accepts AnalyticsItemTypeArgs and AnalyticsItemTypeOutput values.
-// You can construct a concrete instance of `AnalyticsItemTypeInput` via:
-//
-//          AnalyticsItemTypeArgs{...}
-type AnalyticsItemTypeInput interface {
-	pulumi.Input
-
-	ToAnalyticsItemTypeOutput() AnalyticsItemTypeOutput
-	ToAnalyticsItemTypeOutputWithContext(context.Context) AnalyticsItemTypeOutput
-}
-
-// Properties that define an Analytics item that is associated to an Application Insights component.
-type AnalyticsItemTypeArgs struct {
-	// The content of this item
-	Content pulumi.StringPtrInput `pulumi:"Content"`
-	// Internally assigned unique id of the item definition.
-	Id pulumi.StringPtrInput `pulumi:"Id"`
-	// The user-defined name of the item.
-	Name pulumi.StringPtrInput `pulumi:"Name"`
-	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-	Properties ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrInput `pulumi:"Properties"`
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Scope pulumi.StringPtrInput `pulumi:"Scope"`
-	// Date and time in UTC when this item was created.
-	TimeCreated pulumi.StringInput `pulumi:"TimeCreated"`
-	// Date and time in UTC of the last modification that was made to this item.
-	TimeModified pulumi.StringInput `pulumi:"TimeModified"`
-	// Enum indicating the type of the Analytics item.
-	Type pulumi.StringPtrInput `pulumi:"Type"`
-	// This instance's version of the data model. This can change as new features are added.
-	Version pulumi.StringInput `pulumi:"Version"`
-}
-
-func (AnalyticsItemTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsItemType)(nil)).Elem()
-}
-
-func (i AnalyticsItemTypeArgs) ToAnalyticsItemTypeOutput() AnalyticsItemTypeOutput {
-	return i.ToAnalyticsItemTypeOutputWithContext(context.Background())
-}
-
-func (i AnalyticsItemTypeArgs) ToAnalyticsItemTypeOutputWithContext(ctx context.Context) AnalyticsItemTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemTypeOutput)
-}
-
-// Properties that define an Analytics item that is associated to an Application Insights component.
-type AnalyticsItemTypeOutput struct{ *pulumi.OutputState }
-
-func (AnalyticsItemTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AnalyticsItemType)(nil)).Elem()
-}
-
-func (o AnalyticsItemTypeOutput) ToAnalyticsItemTypeOutput() AnalyticsItemTypeOutput {
-	return o
-}
-
-func (o AnalyticsItemTypeOutput) ToAnalyticsItemTypeOutputWithContext(ctx context.Context) AnalyticsItemTypeOutput {
-	return o
-}
-
-// The content of this item
-func (o AnalyticsItemTypeOutput) Content() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalyticsItemType) *string { return v.Content }).(pulumi.StringPtrOutput)
-}
-
-// Internally assigned unique id of the item definition.
-func (o AnalyticsItemTypeOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalyticsItemType) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// The user-defined name of the item.
-func (o AnalyticsItemTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalyticsItemType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-func (o AnalyticsItemTypeOutput) Properties() ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v AnalyticsItemType) *ApplicationInsightsComponentAnalyticsItemPropertiesResponse {
-		return v.Properties
-	}).(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput)
-}
-
-// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-func (o AnalyticsItemTypeOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalyticsItemType) *string { return v.Scope }).(pulumi.StringPtrOutput)
-}
-
-// Date and time in UTC when this item was created.
-func (o AnalyticsItemTypeOutput) TimeCreated() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalyticsItemType) string { return v.TimeCreated }).(pulumi.StringOutput)
-}
-
-// Date and time in UTC of the last modification that was made to this item.
-func (o AnalyticsItemTypeOutput) TimeModified() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalyticsItemType) string { return v.TimeModified }).(pulumi.StringOutput)
-}
-
-// Enum indicating the type of the Analytics item.
-func (o AnalyticsItemTypeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AnalyticsItemType) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// This instance's version of the data model. This can change as new features are added.
-func (o AnalyticsItemTypeOutput) Version() pulumi.StringOutput {
-	return o.ApplyT(func(v AnalyticsItemType) string { return v.Version }).(pulumi.StringOutput)
-}
-
 // A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
 type ApplicationInsightsComponentAnalyticsItemProperties struct {
 	// A function alias, used when the type of the item is Function
@@ -872,532 +743,6 @@ func (o ApplicationInsightsComponentPropertiesResponsePtrOutput) ProvisioningSta
 	}).(pulumi.StringPtrOutput)
 }
 
-// An Application Insights component definition.
-type ComponentType struct {
-	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
-	Kind string `pulumi:"kind"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Properties that define an Application Insights component resource.
-	Properties ApplicationInsightsComponentPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// ComponentTypeInput is an input type that accepts ComponentTypeArgs and ComponentTypeOutput values.
-// You can construct a concrete instance of `ComponentTypeInput` via:
-//
-//          ComponentTypeArgs{...}
-type ComponentTypeInput interface {
-	pulumi.Input
-
-	ToComponentTypeOutput() ComponentTypeOutput
-	ToComponentTypeOutputWithContext(context.Context) ComponentTypeOutput
-}
-
-// An Application Insights component definition.
-type ComponentTypeArgs struct {
-	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties that define an Application Insights component resource.
-	Properties ApplicationInsightsComponentPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ComponentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentType)(nil)).Elem()
-}
-
-func (i ComponentTypeArgs) ToComponentTypeOutput() ComponentTypeOutput {
-	return i.ToComponentTypeOutputWithContext(context.Background())
-}
-
-func (i ComponentTypeArgs) ToComponentTypeOutputWithContext(ctx context.Context) ComponentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComponentTypeOutput)
-}
-
-// An Application Insights component definition.
-type ComponentTypeOutput struct{ *pulumi.OutputState }
-
-func (ComponentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentType)(nil)).Elem()
-}
-
-func (o ComponentTypeOutput) ToComponentTypeOutput() ComponentTypeOutput {
-	return o
-}
-
-func (o ComponentTypeOutput) ToComponentTypeOutputWithContext(ctx context.Context) ComponentTypeOutput {
-	return o
-}
-
-// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
-func (o ComponentTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v ComponentType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Resource location
-func (o ComponentTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ComponentType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o ComponentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ComponentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties that define an Application Insights component resource.
-func (o ComponentTypeOutput) Properties() ApplicationInsightsComponentPropertiesResponseOutput {
-	return o.ApplyT(func(v ComponentType) ApplicationInsightsComponentPropertiesResponse { return v.Properties }).(ApplicationInsightsComponentPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o ComponentTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ComponentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type
-func (o ComponentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ComponentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Properties that define a Continuous Export configuration.
-type ExportConfigurationType struct {
-	// The name of the Application Insights component.
-	ApplicationName string `pulumi:"ApplicationName"`
-	// The name of the destination storage container.
-	ContainerName string `pulumi:"ContainerName"`
-	// The name of destination account.
-	DestinationAccountId string `pulumi:"DestinationAccountId"`
-	// The destination account location ID.
-	DestinationStorageLocationId string `pulumi:"DestinationStorageLocationId"`
-	// The destination storage account subscription ID.
-	DestinationStorageSubscriptionId string `pulumi:"DestinationStorageSubscriptionId"`
-	// The destination type.
-	DestinationType string `pulumi:"DestinationType"`
-	// The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
-	ExportId string `pulumi:"ExportId"`
-	// This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
-	ExportStatus string `pulumi:"ExportStatus"`
-	// The instrumentation key of the Application Insights component.
-	InstrumentationKey string `pulumi:"InstrumentationKey"`
-	// This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
-	IsUserEnabled string `pulumi:"IsUserEnabled"`
-	// The last time the Continuous Export configuration started failing.
-	LastGapTime string `pulumi:"LastGapTime"`
-	// The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
-	LastSuccessTime string `pulumi:"LastSuccessTime"`
-	// Last time the Continuous Export configuration was updated.
-	LastUserUpdate string `pulumi:"LastUserUpdate"`
-	// Deprecated
-	NotificationQueueEnabled *string `pulumi:"NotificationQueueEnabled"`
-	// This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
-	PermanentErrorReason string `pulumi:"PermanentErrorReason"`
-	// This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
-	RecordTypes *string `pulumi:"RecordTypes"`
-	// The resource group of the Application Insights component.
-	ResourceGroup string `pulumi:"ResourceGroup"`
-	// The name of the destination storage account.
-	StorageName string `pulumi:"StorageName"`
-	// The subscription of the Application Insights component.
-	SubscriptionId string `pulumi:"SubscriptionId"`
-}
-
-// ExportConfigurationTypeInput is an input type that accepts ExportConfigurationTypeArgs and ExportConfigurationTypeOutput values.
-// You can construct a concrete instance of `ExportConfigurationTypeInput` via:
-//
-//          ExportConfigurationTypeArgs{...}
-type ExportConfigurationTypeInput interface {
-	pulumi.Input
-
-	ToExportConfigurationTypeOutput() ExportConfigurationTypeOutput
-	ToExportConfigurationTypeOutputWithContext(context.Context) ExportConfigurationTypeOutput
-}
-
-// Properties that define a Continuous Export configuration.
-type ExportConfigurationTypeArgs struct {
-	// The name of the Application Insights component.
-	ApplicationName pulumi.StringInput `pulumi:"ApplicationName"`
-	// The name of the destination storage container.
-	ContainerName pulumi.StringInput `pulumi:"ContainerName"`
-	// The name of destination account.
-	DestinationAccountId pulumi.StringInput `pulumi:"DestinationAccountId"`
-	// The destination account location ID.
-	DestinationStorageLocationId pulumi.StringInput `pulumi:"DestinationStorageLocationId"`
-	// The destination storage account subscription ID.
-	DestinationStorageSubscriptionId pulumi.StringInput `pulumi:"DestinationStorageSubscriptionId"`
-	// The destination type.
-	DestinationType pulumi.StringInput `pulumi:"DestinationType"`
-	// The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
-	ExportId pulumi.StringInput `pulumi:"ExportId"`
-	// This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
-	ExportStatus pulumi.StringInput `pulumi:"ExportStatus"`
-	// The instrumentation key of the Application Insights component.
-	InstrumentationKey pulumi.StringInput `pulumi:"InstrumentationKey"`
-	// This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
-	IsUserEnabled pulumi.StringInput `pulumi:"IsUserEnabled"`
-	// The last time the Continuous Export configuration started failing.
-	LastGapTime pulumi.StringInput `pulumi:"LastGapTime"`
-	// The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
-	LastSuccessTime pulumi.StringInput `pulumi:"LastSuccessTime"`
-	// Last time the Continuous Export configuration was updated.
-	LastUserUpdate pulumi.StringInput `pulumi:"LastUserUpdate"`
-	// Deprecated
-	NotificationQueueEnabled pulumi.StringPtrInput `pulumi:"NotificationQueueEnabled"`
-	// This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
-	PermanentErrorReason pulumi.StringInput `pulumi:"PermanentErrorReason"`
-	// This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
-	RecordTypes pulumi.StringPtrInput `pulumi:"RecordTypes"`
-	// The resource group of the Application Insights component.
-	ResourceGroup pulumi.StringInput `pulumi:"ResourceGroup"`
-	// The name of the destination storage account.
-	StorageName pulumi.StringInput `pulumi:"StorageName"`
-	// The subscription of the Application Insights component.
-	SubscriptionId pulumi.StringInput `pulumi:"SubscriptionId"`
-}
-
-func (ExportConfigurationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportConfigurationType)(nil)).Elem()
-}
-
-func (i ExportConfigurationTypeArgs) ToExportConfigurationTypeOutput() ExportConfigurationTypeOutput {
-	return i.ToExportConfigurationTypeOutputWithContext(context.Background())
-}
-
-func (i ExportConfigurationTypeArgs) ToExportConfigurationTypeOutputWithContext(ctx context.Context) ExportConfigurationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportConfigurationTypeOutput)
-}
-
-// Properties that define a Continuous Export configuration.
-type ExportConfigurationTypeOutput struct{ *pulumi.OutputState }
-
-func (ExportConfigurationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportConfigurationType)(nil)).Elem()
-}
-
-func (o ExportConfigurationTypeOutput) ToExportConfigurationTypeOutput() ExportConfigurationTypeOutput {
-	return o
-}
-
-func (o ExportConfigurationTypeOutput) ToExportConfigurationTypeOutputWithContext(ctx context.Context) ExportConfigurationTypeOutput {
-	return o
-}
-
-// The name of the Application Insights component.
-func (o ExportConfigurationTypeOutput) ApplicationName() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.ApplicationName }).(pulumi.StringOutput)
-}
-
-// The name of the destination storage container.
-func (o ExportConfigurationTypeOutput) ContainerName() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.ContainerName }).(pulumi.StringOutput)
-}
-
-// The name of destination account.
-func (o ExportConfigurationTypeOutput) DestinationAccountId() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.DestinationAccountId }).(pulumi.StringOutput)
-}
-
-// The destination account location ID.
-func (o ExportConfigurationTypeOutput) DestinationStorageLocationId() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.DestinationStorageLocationId }).(pulumi.StringOutput)
-}
-
-// The destination storage account subscription ID.
-func (o ExportConfigurationTypeOutput) DestinationStorageSubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.DestinationStorageSubscriptionId }).(pulumi.StringOutput)
-}
-
-// The destination type.
-func (o ExportConfigurationTypeOutput) DestinationType() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.DestinationType }).(pulumi.StringOutput)
-}
-
-// The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
-func (o ExportConfigurationTypeOutput) ExportId() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.ExportId }).(pulumi.StringOutput)
-}
-
-// This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
-func (o ExportConfigurationTypeOutput) ExportStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.ExportStatus }).(pulumi.StringOutput)
-}
-
-// The instrumentation key of the Application Insights component.
-func (o ExportConfigurationTypeOutput) InstrumentationKey() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.InstrumentationKey }).(pulumi.StringOutput)
-}
-
-// This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
-func (o ExportConfigurationTypeOutput) IsUserEnabled() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.IsUserEnabled }).(pulumi.StringOutput)
-}
-
-// The last time the Continuous Export configuration started failing.
-func (o ExportConfigurationTypeOutput) LastGapTime() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.LastGapTime }).(pulumi.StringOutput)
-}
-
-// The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
-func (o ExportConfigurationTypeOutput) LastSuccessTime() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.LastSuccessTime }).(pulumi.StringOutput)
-}
-
-// Last time the Continuous Export configuration was updated.
-func (o ExportConfigurationTypeOutput) LastUserUpdate() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.LastUserUpdate }).(pulumi.StringOutput)
-}
-
-// Deprecated
-func (o ExportConfigurationTypeOutput) NotificationQueueEnabled() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportConfigurationType) *string { return v.NotificationQueueEnabled }).(pulumi.StringPtrOutput)
-}
-
-// This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
-func (o ExportConfigurationTypeOutput) PermanentErrorReason() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.PermanentErrorReason }).(pulumi.StringOutput)
-}
-
-// This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
-func (o ExportConfigurationTypeOutput) RecordTypes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportConfigurationType) *string { return v.RecordTypes }).(pulumi.StringPtrOutput)
-}
-
-// The resource group of the Application Insights component.
-func (o ExportConfigurationTypeOutput) ResourceGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.ResourceGroup }).(pulumi.StringOutput)
-}
-
-// The name of the destination storage account.
-func (o ExportConfigurationTypeOutput) StorageName() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.StorageName }).(pulumi.StringOutput)
-}
-
-// The subscription of the Application Insights component.
-func (o ExportConfigurationTypeOutput) SubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportConfigurationType) string { return v.SubscriptionId }).(pulumi.StringOutput)
-}
-
-// Properties that define a favorite that is associated to an Application Insights component.
-type FavoriteType struct {
-	// Favorite category, as defined by the user at creation time.
-	Category *string `pulumi:"Category"`
-	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-	Config *string `pulumi:"Config"`
-	// Internally assigned unique id of the favorite definition.
-	FavoriteId string `pulumi:"FavoriteId"`
-	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType *string `pulumi:"FavoriteType"`
-	// Flag denoting wether or not this favorite was generated from a template.
-	IsGeneratedFromTemplate *bool `pulumi:"IsGeneratedFromTemplate"`
-	// The user-defined name of the favorite.
-	Name *string `pulumi:"Name"`
-	// The source of the favorite definition.
-	SourceType *string `pulumi:"SourceType"`
-	// A list of 0 or more tags that are associated with this favorite definition
-	Tags []string `pulumi:"Tags"`
-	// Date and time in UTC of the last modification that was made to this favorite definition.
-	TimeModified string `pulumi:"TimeModified"`
-	// Unique user id of the specific user that owns this favorite.
-	UserId string `pulumi:"UserId"`
-	// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-	Version *string `pulumi:"Version"`
-}
-
-// FavoriteTypeInput is an input type that accepts FavoriteTypeArgs and FavoriteTypeOutput values.
-// You can construct a concrete instance of `FavoriteTypeInput` via:
-//
-//          FavoriteTypeArgs{...}
-type FavoriteTypeInput interface {
-	pulumi.Input
-
-	ToFavoriteTypeOutput() FavoriteTypeOutput
-	ToFavoriteTypeOutputWithContext(context.Context) FavoriteTypeOutput
-}
-
-// Properties that define a favorite that is associated to an Application Insights component.
-type FavoriteTypeArgs struct {
-	// Favorite category, as defined by the user at creation time.
-	Category pulumi.StringPtrInput `pulumi:"Category"`
-	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-	Config pulumi.StringPtrInput `pulumi:"Config"`
-	// Internally assigned unique id of the favorite definition.
-	FavoriteId pulumi.StringInput `pulumi:"FavoriteId"`
-	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType pulumi.StringPtrInput `pulumi:"FavoriteType"`
-	// Flag denoting wether or not this favorite was generated from a template.
-	IsGeneratedFromTemplate pulumi.BoolPtrInput `pulumi:"IsGeneratedFromTemplate"`
-	// The user-defined name of the favorite.
-	Name pulumi.StringPtrInput `pulumi:"Name"`
-	// The source of the favorite definition.
-	SourceType pulumi.StringPtrInput `pulumi:"SourceType"`
-	// A list of 0 or more tags that are associated with this favorite definition
-	Tags pulumi.StringArrayInput `pulumi:"Tags"`
-	// Date and time in UTC of the last modification that was made to this favorite definition.
-	TimeModified pulumi.StringInput `pulumi:"TimeModified"`
-	// Unique user id of the specific user that owns this favorite.
-	UserId pulumi.StringInput `pulumi:"UserId"`
-	// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-	Version pulumi.StringPtrInput `pulumi:"Version"`
-}
-
-func (FavoriteTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FavoriteType)(nil)).Elem()
-}
-
-func (i FavoriteTypeArgs) ToFavoriteTypeOutput() FavoriteTypeOutput {
-	return i.ToFavoriteTypeOutputWithContext(context.Background())
-}
-
-func (i FavoriteTypeArgs) ToFavoriteTypeOutputWithContext(ctx context.Context) FavoriteTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FavoriteTypeOutput)
-}
-
-// Properties that define a favorite that is associated to an Application Insights component.
-type FavoriteTypeOutput struct{ *pulumi.OutputState }
-
-func (FavoriteTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FavoriteType)(nil)).Elem()
-}
-
-func (o FavoriteTypeOutput) ToFavoriteTypeOutput() FavoriteTypeOutput {
-	return o
-}
-
-func (o FavoriteTypeOutput) ToFavoriteTypeOutputWithContext(ctx context.Context) FavoriteTypeOutput {
-	return o
-}
-
-// Favorite category, as defined by the user at creation time.
-func (o FavoriteTypeOutput) Category() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FavoriteType) *string { return v.Category }).(pulumi.StringPtrOutput)
-}
-
-// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-func (o FavoriteTypeOutput) Config() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FavoriteType) *string { return v.Config }).(pulumi.StringPtrOutput)
-}
-
-// Internally assigned unique id of the favorite definition.
-func (o FavoriteTypeOutput) FavoriteId() pulumi.StringOutput {
-	return o.ApplyT(func(v FavoriteType) string { return v.FavoriteId }).(pulumi.StringOutput)
-}
-
-// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-func (o FavoriteTypeOutput) FavoriteType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FavoriteType) *string { return v.FavoriteType }).(pulumi.StringPtrOutput)
-}
-
-// Flag denoting wether or not this favorite was generated from a template.
-func (o FavoriteTypeOutput) IsGeneratedFromTemplate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FavoriteType) *bool { return v.IsGeneratedFromTemplate }).(pulumi.BoolPtrOutput)
-}
-
-// The user-defined name of the favorite.
-func (o FavoriteTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FavoriteType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The source of the favorite definition.
-func (o FavoriteTypeOutput) SourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FavoriteType) *string { return v.SourceType }).(pulumi.StringPtrOutput)
-}
-
-// A list of 0 or more tags that are associated with this favorite definition
-func (o FavoriteTypeOutput) Tags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FavoriteType) []string { return v.Tags }).(pulumi.StringArrayOutput)
-}
-
-// Date and time in UTC of the last modification that was made to this favorite definition.
-func (o FavoriteTypeOutput) TimeModified() pulumi.StringOutput {
-	return o.ApplyT(func(v FavoriteType) string { return v.TimeModified }).(pulumi.StringOutput)
-}
-
-// Unique user id of the specific user that owns this favorite.
-func (o FavoriteTypeOutput) UserId() pulumi.StringOutput {
-	return o.ApplyT(func(v FavoriteType) string { return v.UserId }).(pulumi.StringOutput)
-}
-
-// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-func (o FavoriteTypeOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FavoriteType) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-// The private link scope resource reference.
-type PrivateLinkScopedResource struct {
-	// The full resource Id of the private link scope resource.
-	ResourceId *string `pulumi:"ResourceId"`
-	// The private link scope unique Identifier.
-	ScopeId *string `pulumi:"ScopeId"`
-}
-
-// PrivateLinkScopedResourceInput is an input type that accepts PrivateLinkScopedResourceArgs and PrivateLinkScopedResourceOutput values.
-// You can construct a concrete instance of `PrivateLinkScopedResourceInput` via:
-//
-//          PrivateLinkScopedResourceArgs{...}
-type PrivateLinkScopedResourceInput interface {
-	pulumi.Input
-
-	ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput
-	ToPrivateLinkScopedResourceOutputWithContext(context.Context) PrivateLinkScopedResourceOutput
-}
-
-// The private link scope resource reference.
-type PrivateLinkScopedResourceArgs struct {
-	// The full resource Id of the private link scope resource.
-	ResourceId pulumi.StringPtrInput `pulumi:"ResourceId"`
-	// The private link scope unique Identifier.
-	ScopeId pulumi.StringPtrInput `pulumi:"ScopeId"`
-}
-
-func (PrivateLinkScopedResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScopedResource)(nil)).Elem()
-}
-
-func (i PrivateLinkScopedResourceArgs) ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput {
-	return i.ToPrivateLinkScopedResourceOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkScopedResourceArgs) ToPrivateLinkScopedResourceOutputWithContext(ctx context.Context) PrivateLinkScopedResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedResourceOutput)
-}
-
-// The private link scope resource reference.
-type PrivateLinkScopedResourceOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkScopedResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkScopedResource)(nil)).Elem()
-}
-
-func (o PrivateLinkScopedResourceOutput) ToPrivateLinkScopedResourceOutput() PrivateLinkScopedResourceOutput {
-	return o
-}
-
-func (o PrivateLinkScopedResourceOutput) ToPrivateLinkScopedResourceOutputWithContext(ctx context.Context) PrivateLinkScopedResourceOutput {
-	return o
-}
-
-// The full resource Id of the private link scope resource.
-func (o PrivateLinkScopedResourceOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkScopedResource) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
-}
-
-// The private link scope unique Identifier.
-func (o PrivateLinkScopedResourceOutput) ScopeId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateLinkScopedResource) *string { return v.ScopeId }).(pulumi.StringPtrOutput)
-}
-
 // The private link scope resource reference.
 type PrivateLinkScopedResourceResponse struct {
 	// The full resource Id of the private link scope resource.
@@ -1505,106 +850,6 @@ func (o PrivateLinkScopedResourceResponseArrayOutput) Index(i pulumi.IntInput) P
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateLinkScopedResourceResponse {
 		return vs[0].([]PrivateLinkScopedResourceResponse)[vs[1].(int)]
 	}).(PrivateLinkScopedResourceResponseOutput)
-}
-
-// An Application Insights web test definition.
-type WebTestType struct {
-	// The kind of web test that this web test watches. Choices are ping and multistep.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Metadata describing a web test for an Azure resource.
-	Properties WebTestPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// WebTestTypeInput is an input type that accepts WebTestTypeArgs and WebTestTypeOutput values.
-// You can construct a concrete instance of `WebTestTypeInput` via:
-//
-//          WebTestTypeArgs{...}
-type WebTestTypeInput interface {
-	pulumi.Input
-
-	ToWebTestTypeOutput() WebTestTypeOutput
-	ToWebTestTypeOutputWithContext(context.Context) WebTestTypeOutput
-}
-
-// An Application Insights web test definition.
-type WebTestTypeArgs struct {
-	// The kind of web test that this web test watches. Choices are ping and multistep.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Metadata describing a web test for an Azure resource.
-	Properties WebTestPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WebTestTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestType)(nil)).Elem()
-}
-
-func (i WebTestTypeArgs) ToWebTestTypeOutput() WebTestTypeOutput {
-	return i.ToWebTestTypeOutputWithContext(context.Background())
-}
-
-func (i WebTestTypeArgs) ToWebTestTypeOutputWithContext(ctx context.Context) WebTestTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestTypeOutput)
-}
-
-// An Application Insights web test definition.
-type WebTestTypeOutput struct{ *pulumi.OutputState }
-
-func (WebTestTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestType)(nil)).Elem()
-}
-
-func (o WebTestTypeOutput) ToWebTestTypeOutput() WebTestTypeOutput {
-	return o
-}
-
-func (o WebTestTypeOutput) ToWebTestTypeOutputWithContext(ctx context.Context) WebTestTypeOutput {
-	return o
-}
-
-// The kind of web test that this web test watches. Choices are ping and multistep.
-func (o WebTestTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebTestType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource location
-func (o WebTestTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v WebTestType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o WebTestTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WebTestType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Metadata describing a web test for an Azure resource.
-func (o WebTestTypeOutput) Properties() WebTestPropertiesResponseOutput {
-	return o.ApplyT(func(v WebTestType) WebTestPropertiesResponse { return v.Properties }).(WebTestPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o WebTestTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WebTestType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type
-func (o WebTestTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebTestType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
@@ -1808,132 +1053,132 @@ func (o WebTestGeolocationResponseArrayOutput) Index(i pulumi.IntInput) WebTestG
 }
 
 // An XML configuration specification for a WebTest.
-type WebTestPropertiesProperties struct {
+type WebTestPropertiesConfiguration struct {
 	// The XML specification of a WebTest to run against an application.
 	WebTest *string `pulumi:"WebTest"`
 }
 
-// WebTestPropertiesPropertiesInput is an input type that accepts WebTestPropertiesPropertiesArgs and WebTestPropertiesPropertiesOutput values.
-// You can construct a concrete instance of `WebTestPropertiesPropertiesInput` via:
+// WebTestPropertiesConfigurationInput is an input type that accepts WebTestPropertiesConfigurationArgs and WebTestPropertiesConfigurationOutput values.
+// You can construct a concrete instance of `WebTestPropertiesConfigurationInput` via:
 //
-//          WebTestPropertiesPropertiesArgs{...}
-type WebTestPropertiesPropertiesInput interface {
+//          WebTestPropertiesConfigurationArgs{...}
+type WebTestPropertiesConfigurationInput interface {
 	pulumi.Input
 
-	ToWebTestPropertiesPropertiesOutput() WebTestPropertiesPropertiesOutput
-	ToWebTestPropertiesPropertiesOutputWithContext(context.Context) WebTestPropertiesPropertiesOutput
+	ToWebTestPropertiesConfigurationOutput() WebTestPropertiesConfigurationOutput
+	ToWebTestPropertiesConfigurationOutputWithContext(context.Context) WebTestPropertiesConfigurationOutput
 }
 
 // An XML configuration specification for a WebTest.
-type WebTestPropertiesPropertiesArgs struct {
+type WebTestPropertiesConfigurationArgs struct {
 	// The XML specification of a WebTest to run against an application.
 	WebTest pulumi.StringPtrInput `pulumi:"WebTest"`
 }
 
-func (WebTestPropertiesPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestPropertiesProperties)(nil)).Elem()
+func (WebTestPropertiesConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesConfiguration)(nil)).Elem()
 }
 
-func (i WebTestPropertiesPropertiesArgs) ToWebTestPropertiesPropertiesOutput() WebTestPropertiesPropertiesOutput {
-	return i.ToWebTestPropertiesPropertiesOutputWithContext(context.Background())
+func (i WebTestPropertiesConfigurationArgs) ToWebTestPropertiesConfigurationOutput() WebTestPropertiesConfigurationOutput {
+	return i.ToWebTestPropertiesConfigurationOutputWithContext(context.Background())
 }
 
-func (i WebTestPropertiesPropertiesArgs) ToWebTestPropertiesPropertiesOutputWithContext(ctx context.Context) WebTestPropertiesPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesPropertiesOutput)
+func (i WebTestPropertiesConfigurationArgs) ToWebTestPropertiesConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesConfigurationOutput)
 }
 
-func (i WebTestPropertiesPropertiesArgs) ToWebTestPropertiesPropertiesPtrOutput() WebTestPropertiesPropertiesPtrOutput {
-	return i.ToWebTestPropertiesPropertiesPtrOutputWithContext(context.Background())
+func (i WebTestPropertiesConfigurationArgs) ToWebTestPropertiesConfigurationPtrOutput() WebTestPropertiesConfigurationPtrOutput {
+	return i.ToWebTestPropertiesConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i WebTestPropertiesPropertiesArgs) ToWebTestPropertiesPropertiesPtrOutputWithContext(ctx context.Context) WebTestPropertiesPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesPropertiesOutput).ToWebTestPropertiesPropertiesPtrOutputWithContext(ctx)
+func (i WebTestPropertiesConfigurationArgs) ToWebTestPropertiesConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesConfigurationOutput).ToWebTestPropertiesConfigurationPtrOutputWithContext(ctx)
 }
 
-// WebTestPropertiesPropertiesPtrInput is an input type that accepts WebTestPropertiesPropertiesArgs, WebTestPropertiesPropertiesPtr and WebTestPropertiesPropertiesPtrOutput values.
-// You can construct a concrete instance of `WebTestPropertiesPropertiesPtrInput` via:
+// WebTestPropertiesConfigurationPtrInput is an input type that accepts WebTestPropertiesConfigurationArgs, WebTestPropertiesConfigurationPtr and WebTestPropertiesConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebTestPropertiesConfigurationPtrInput` via:
 //
-//          WebTestPropertiesPropertiesArgs{...}
+//          WebTestPropertiesConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type WebTestPropertiesPropertiesPtrInput interface {
+type WebTestPropertiesConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToWebTestPropertiesPropertiesPtrOutput() WebTestPropertiesPropertiesPtrOutput
-	ToWebTestPropertiesPropertiesPtrOutputWithContext(context.Context) WebTestPropertiesPropertiesPtrOutput
+	ToWebTestPropertiesConfigurationPtrOutput() WebTestPropertiesConfigurationPtrOutput
+	ToWebTestPropertiesConfigurationPtrOutputWithContext(context.Context) WebTestPropertiesConfigurationPtrOutput
 }
 
-type webTestPropertiesPropertiesPtrType WebTestPropertiesPropertiesArgs
+type webTestPropertiesConfigurationPtrType WebTestPropertiesConfigurationArgs
 
-func WebTestPropertiesPropertiesPtr(v *WebTestPropertiesPropertiesArgs) WebTestPropertiesPropertiesPtrInput {
-	return (*webTestPropertiesPropertiesPtrType)(v)
+func WebTestPropertiesConfigurationPtr(v *WebTestPropertiesConfigurationArgs) WebTestPropertiesConfigurationPtrInput {
+	return (*webTestPropertiesConfigurationPtrType)(v)
 }
 
-func (*webTestPropertiesPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTestPropertiesProperties)(nil)).Elem()
+func (*webTestPropertiesConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebTestPropertiesConfiguration)(nil)).Elem()
 }
 
-func (i *webTestPropertiesPropertiesPtrType) ToWebTestPropertiesPropertiesPtrOutput() WebTestPropertiesPropertiesPtrOutput {
-	return i.ToWebTestPropertiesPropertiesPtrOutputWithContext(context.Background())
+func (i *webTestPropertiesConfigurationPtrType) ToWebTestPropertiesConfigurationPtrOutput() WebTestPropertiesConfigurationPtrOutput {
+	return i.ToWebTestPropertiesConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *webTestPropertiesPropertiesPtrType) ToWebTestPropertiesPropertiesPtrOutputWithContext(ctx context.Context) WebTestPropertiesPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesPropertiesPtrOutput)
+func (i *webTestPropertiesConfigurationPtrType) ToWebTestPropertiesConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesConfigurationPtrOutput)
 }
 
 // An XML configuration specification for a WebTest.
-type WebTestPropertiesPropertiesOutput struct{ *pulumi.OutputState }
+type WebTestPropertiesConfigurationOutput struct{ *pulumi.OutputState }
 
-func (WebTestPropertiesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestPropertiesProperties)(nil)).Elem()
+func (WebTestPropertiesConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesConfiguration)(nil)).Elem()
 }
 
-func (o WebTestPropertiesPropertiesOutput) ToWebTestPropertiesPropertiesOutput() WebTestPropertiesPropertiesOutput {
+func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationOutput() WebTestPropertiesConfigurationOutput {
 	return o
 }
 
-func (o WebTestPropertiesPropertiesOutput) ToWebTestPropertiesPropertiesOutputWithContext(ctx context.Context) WebTestPropertiesPropertiesOutput {
+func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationOutput {
 	return o
 }
 
-func (o WebTestPropertiesPropertiesOutput) ToWebTestPropertiesPropertiesPtrOutput() WebTestPropertiesPropertiesPtrOutput {
-	return o.ToWebTestPropertiesPropertiesPtrOutputWithContext(context.Background())
+func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPtrOutput() WebTestPropertiesConfigurationPtrOutput {
+	return o.ToWebTestPropertiesConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o WebTestPropertiesPropertiesOutput) ToWebTestPropertiesPropertiesPtrOutputWithContext(ctx context.Context) WebTestPropertiesPropertiesPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesProperties) *WebTestPropertiesProperties {
+func (o WebTestPropertiesConfigurationOutput) ToWebTestPropertiesConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesConfiguration) *WebTestPropertiesConfiguration {
 		return &v
-	}).(WebTestPropertiesPropertiesPtrOutput)
+	}).(WebTestPropertiesConfigurationPtrOutput)
 }
 
 // The XML specification of a WebTest to run against an application.
-func (o WebTestPropertiesPropertiesOutput) WebTest() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesProperties) *string { return v.WebTest }).(pulumi.StringPtrOutput)
+func (o WebTestPropertiesConfigurationOutput) WebTest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesConfiguration) *string { return v.WebTest }).(pulumi.StringPtrOutput)
 }
 
-type WebTestPropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+type WebTestPropertiesConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (WebTestPropertiesPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTestPropertiesProperties)(nil)).Elem()
+func (WebTestPropertiesConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebTestPropertiesConfiguration)(nil)).Elem()
 }
 
-func (o WebTestPropertiesPropertiesPtrOutput) ToWebTestPropertiesPropertiesPtrOutput() WebTestPropertiesPropertiesPtrOutput {
+func (o WebTestPropertiesConfigurationPtrOutput) ToWebTestPropertiesConfigurationPtrOutput() WebTestPropertiesConfigurationPtrOutput {
 	return o
 }
 
-func (o WebTestPropertiesPropertiesPtrOutput) ToWebTestPropertiesPropertiesPtrOutputWithContext(ctx context.Context) WebTestPropertiesPropertiesPtrOutput {
+func (o WebTestPropertiesConfigurationPtrOutput) ToWebTestPropertiesConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesConfigurationPtrOutput {
 	return o
 }
 
-func (o WebTestPropertiesPropertiesPtrOutput) Elem() WebTestPropertiesPropertiesOutput {
-	return o.ApplyT(func(v *WebTestPropertiesProperties) WebTestPropertiesProperties { return *v }).(WebTestPropertiesPropertiesOutput)
+func (o WebTestPropertiesConfigurationPtrOutput) Elem() WebTestPropertiesConfigurationOutput {
+	return o.ApplyT(func(v *WebTestPropertiesConfiguration) WebTestPropertiesConfiguration { return *v }).(WebTestPropertiesConfigurationOutput)
 }
 
 // The XML specification of a WebTest to run against an application.
-func (o WebTestPropertiesPropertiesPtrOutput) WebTest() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebTestPropertiesProperties) *string {
+func (o WebTestPropertiesConfigurationPtrOutput) WebTest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -1944,7 +1189,7 @@ func (o WebTestPropertiesPropertiesPtrOutput) WebTest() pulumi.StringPtrOutput {
 // Metadata describing a web test for an Azure resource.
 type WebTestPropertiesResponse struct {
 	// An XML configuration specification for a WebTest.
-	Configuration *WebTestPropertiesResponseProperties `pulumi:"Configuration"`
+	Configuration *WebTestPropertiesResponseConfiguration `pulumi:"Configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
 	Description *string `pulumi:"Description"`
 	// Is the test actively being monitored.
@@ -1981,7 +1226,7 @@ type WebTestPropertiesResponseInput interface {
 // Metadata describing a web test for an Azure resource.
 type WebTestPropertiesResponseArgs struct {
 	// An XML configuration specification for a WebTest.
-	Configuration WebTestPropertiesResponsePropertiesPtrInput `pulumi:"Configuration"`
+	Configuration WebTestPropertiesResponseConfigurationPtrInput `pulumi:"Configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
 	Description pulumi.StringPtrInput `pulumi:"Description"`
 	// Is the test actively being monitored.
@@ -2083,8 +1328,8 @@ func (o WebTestPropertiesResponseOutput) ToWebTestPropertiesResponsePtrOutputWit
 }
 
 // An XML configuration specification for a WebTest.
-func (o WebTestPropertiesResponseOutput) Configuration() WebTestPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesResponse) *WebTestPropertiesResponseProperties { return v.Configuration }).(WebTestPropertiesResponsePropertiesPtrOutput)
+func (o WebTestPropertiesResponseOutput) Configuration() WebTestPropertiesResponseConfigurationPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesResponse) *WebTestPropertiesResponseConfiguration { return v.Configuration }).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
 // Purpose/user defined descriptive test for this WebTest.
@@ -2156,13 +1401,13 @@ func (o WebTestPropertiesResponsePtrOutput) Elem() WebTestPropertiesResponseOutp
 }
 
 // An XML configuration specification for a WebTest.
-func (o WebTestPropertiesResponsePtrOutput) Configuration() WebTestPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *WebTestPropertiesResponse) *WebTestPropertiesResponseProperties {
+func (o WebTestPropertiesResponsePtrOutput) Configuration() WebTestPropertiesResponseConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesResponse) *WebTestPropertiesResponseConfiguration {
 		if v == nil {
 			return nil
 		}
 		return v.Configuration
-	}).(WebTestPropertiesResponsePropertiesPtrOutput)
+	}).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
 // Purpose/user defined descriptive test for this WebTest.
@@ -2266,237 +1511,137 @@ func (o WebTestPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 }
 
 // An XML configuration specification for a WebTest.
-type WebTestPropertiesResponseProperties struct {
+type WebTestPropertiesResponseConfiguration struct {
 	// The XML specification of a WebTest to run against an application.
 	WebTest *string `pulumi:"WebTest"`
 }
 
-// WebTestPropertiesResponsePropertiesInput is an input type that accepts WebTestPropertiesResponsePropertiesArgs and WebTestPropertiesResponsePropertiesOutput values.
-// You can construct a concrete instance of `WebTestPropertiesResponsePropertiesInput` via:
+// WebTestPropertiesResponseConfigurationInput is an input type that accepts WebTestPropertiesResponseConfigurationArgs and WebTestPropertiesResponseConfigurationOutput values.
+// You can construct a concrete instance of `WebTestPropertiesResponseConfigurationInput` via:
 //
-//          WebTestPropertiesResponsePropertiesArgs{...}
-type WebTestPropertiesResponsePropertiesInput interface {
+//          WebTestPropertiesResponseConfigurationArgs{...}
+type WebTestPropertiesResponseConfigurationInput interface {
 	pulumi.Input
 
-	ToWebTestPropertiesResponsePropertiesOutput() WebTestPropertiesResponsePropertiesOutput
-	ToWebTestPropertiesResponsePropertiesOutputWithContext(context.Context) WebTestPropertiesResponsePropertiesOutput
+	ToWebTestPropertiesResponseConfigurationOutput() WebTestPropertiesResponseConfigurationOutput
+	ToWebTestPropertiesResponseConfigurationOutputWithContext(context.Context) WebTestPropertiesResponseConfigurationOutput
 }
 
 // An XML configuration specification for a WebTest.
-type WebTestPropertiesResponsePropertiesArgs struct {
+type WebTestPropertiesResponseConfigurationArgs struct {
 	// The XML specification of a WebTest to run against an application.
 	WebTest pulumi.StringPtrInput `pulumi:"WebTest"`
 }
 
-func (WebTestPropertiesResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestPropertiesResponseProperties)(nil)).Elem()
+func (WebTestPropertiesResponseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesResponseConfiguration)(nil)).Elem()
 }
 
-func (i WebTestPropertiesResponsePropertiesArgs) ToWebTestPropertiesResponsePropertiesOutput() WebTestPropertiesResponsePropertiesOutput {
-	return i.ToWebTestPropertiesResponsePropertiesOutputWithContext(context.Background())
+func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationOutput() WebTestPropertiesResponseConfigurationOutput {
+	return i.ToWebTestPropertiesResponseConfigurationOutputWithContext(context.Background())
 }
 
-func (i WebTestPropertiesResponsePropertiesArgs) ToWebTestPropertiesResponsePropertiesOutputWithContext(ctx context.Context) WebTestPropertiesResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponsePropertiesOutput)
+func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationOutput)
 }
 
-func (i WebTestPropertiesResponsePropertiesArgs) ToWebTestPropertiesResponsePropertiesPtrOutput() WebTestPropertiesResponsePropertiesPtrOutput {
-	return i.ToWebTestPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
+	return i.ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i WebTestPropertiesResponsePropertiesArgs) ToWebTestPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponsePropertiesOutput).ToWebTestPropertiesResponsePropertiesPtrOutputWithContext(ctx)
+func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationOutput).ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx)
 }
 
-// WebTestPropertiesResponsePropertiesPtrInput is an input type that accepts WebTestPropertiesResponsePropertiesArgs, WebTestPropertiesResponsePropertiesPtr and WebTestPropertiesResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `WebTestPropertiesResponsePropertiesPtrInput` via:
+// WebTestPropertiesResponseConfigurationPtrInput is an input type that accepts WebTestPropertiesResponseConfigurationArgs, WebTestPropertiesResponseConfigurationPtr and WebTestPropertiesResponseConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebTestPropertiesResponseConfigurationPtrInput` via:
 //
-//          WebTestPropertiesResponsePropertiesArgs{...}
+//          WebTestPropertiesResponseConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type WebTestPropertiesResponsePropertiesPtrInput interface {
+type WebTestPropertiesResponseConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToWebTestPropertiesResponsePropertiesPtrOutput() WebTestPropertiesResponsePropertiesPtrOutput
-	ToWebTestPropertiesResponsePropertiesPtrOutputWithContext(context.Context) WebTestPropertiesResponsePropertiesPtrOutput
+	ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput
+	ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Context) WebTestPropertiesResponseConfigurationPtrOutput
 }
 
-type webTestPropertiesResponsePropertiesPtrType WebTestPropertiesResponsePropertiesArgs
+type webTestPropertiesResponseConfigurationPtrType WebTestPropertiesResponseConfigurationArgs
 
-func WebTestPropertiesResponsePropertiesPtr(v *WebTestPropertiesResponsePropertiesArgs) WebTestPropertiesResponsePropertiesPtrInput {
-	return (*webTestPropertiesResponsePropertiesPtrType)(v)
+func WebTestPropertiesResponseConfigurationPtr(v *WebTestPropertiesResponseConfigurationArgs) WebTestPropertiesResponseConfigurationPtrInput {
+	return (*webTestPropertiesResponseConfigurationPtrType)(v)
 }
 
-func (*webTestPropertiesResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTestPropertiesResponseProperties)(nil)).Elem()
+func (*webTestPropertiesResponseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebTestPropertiesResponseConfiguration)(nil)).Elem()
 }
 
-func (i *webTestPropertiesResponsePropertiesPtrType) ToWebTestPropertiesResponsePropertiesPtrOutput() WebTestPropertiesResponsePropertiesPtrOutput {
-	return i.ToWebTestPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *webTestPropertiesResponseConfigurationPtrType) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
+	return i.ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *webTestPropertiesResponsePropertiesPtrType) ToWebTestPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponsePropertiesPtrOutput)
+func (i *webTestPropertiesResponseConfigurationPtrType) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
 // An XML configuration specification for a WebTest.
-type WebTestPropertiesResponsePropertiesOutput struct{ *pulumi.OutputState }
+type WebTestPropertiesResponseConfigurationOutput struct{ *pulumi.OutputState }
 
-func (WebTestPropertiesResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestPropertiesResponseProperties)(nil)).Elem()
+func (WebTestPropertiesResponseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebTestPropertiesResponseConfiguration)(nil)).Elem()
 }
 
-func (o WebTestPropertiesResponsePropertiesOutput) ToWebTestPropertiesResponsePropertiesOutput() WebTestPropertiesResponsePropertiesOutput {
+func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationOutput() WebTestPropertiesResponseConfigurationOutput {
 	return o
 }
 
-func (o WebTestPropertiesResponsePropertiesOutput) ToWebTestPropertiesResponsePropertiesOutputWithContext(ctx context.Context) WebTestPropertiesResponsePropertiesOutput {
+func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationOutput {
 	return o
 }
 
-func (o WebTestPropertiesResponsePropertiesOutput) ToWebTestPropertiesResponsePropertiesPtrOutput() WebTestPropertiesResponsePropertiesPtrOutput {
-	return o.ToWebTestPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
+	return o.ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o WebTestPropertiesResponsePropertiesOutput) ToWebTestPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesResponseProperties) *WebTestPropertiesResponseProperties {
+func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesResponseConfiguration) *WebTestPropertiesResponseConfiguration {
 		return &v
-	}).(WebTestPropertiesResponsePropertiesPtrOutput)
+	}).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
 // The XML specification of a WebTest to run against an application.
-func (o WebTestPropertiesResponsePropertiesOutput) WebTest() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebTestPropertiesResponseProperties) *string { return v.WebTest }).(pulumi.StringPtrOutput)
+func (o WebTestPropertiesResponseConfigurationOutput) WebTest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebTestPropertiesResponseConfiguration) *string { return v.WebTest }).(pulumi.StringPtrOutput)
 }
 
-type WebTestPropertiesResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type WebTestPropertiesResponseConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (WebTestPropertiesResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTestPropertiesResponseProperties)(nil)).Elem()
+func (WebTestPropertiesResponseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebTestPropertiesResponseConfiguration)(nil)).Elem()
 }
 
-func (o WebTestPropertiesResponsePropertiesPtrOutput) ToWebTestPropertiesResponsePropertiesPtrOutput() WebTestPropertiesResponsePropertiesPtrOutput {
+func (o WebTestPropertiesResponseConfigurationPtrOutput) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
 	return o
 }
 
-func (o WebTestPropertiesResponsePropertiesPtrOutput) ToWebTestPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponsePropertiesPtrOutput {
+func (o WebTestPropertiesResponseConfigurationPtrOutput) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
 	return o
 }
 
-func (o WebTestPropertiesResponsePropertiesPtrOutput) Elem() WebTestPropertiesResponsePropertiesOutput {
-	return o.ApplyT(func(v *WebTestPropertiesResponseProperties) WebTestPropertiesResponseProperties { return *v }).(WebTestPropertiesResponsePropertiesOutput)
+func (o WebTestPropertiesResponseConfigurationPtrOutput) Elem() WebTestPropertiesResponseConfigurationOutput {
+	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) WebTestPropertiesResponseConfiguration { return *v }).(WebTestPropertiesResponseConfigurationOutput)
 }
 
 // The XML specification of a WebTest to run against an application.
-func (o WebTestPropertiesResponsePropertiesPtrOutput) WebTest() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebTestPropertiesResponseProperties) *string {
+func (o WebTestPropertiesResponseConfigurationPtrOutput) WebTest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebTestPropertiesResponseConfiguration) *string {
 		if v == nil {
 			return nil
 		}
 		return v.WebTest
 	}).(pulumi.StringPtrOutput)
-}
-
-// An Application Insights workbook definition.
-type WorkbookType struct {
-	// The kind of workbook. Choices are user and shared.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Metadata describing a web test for an Azure resource.
-	Properties WorkbookPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// WorkbookTypeInput is an input type that accepts WorkbookTypeArgs and WorkbookTypeOutput values.
-// You can construct a concrete instance of `WorkbookTypeInput` via:
-//
-//          WorkbookTypeArgs{...}
-type WorkbookTypeInput interface {
-	pulumi.Input
-
-	ToWorkbookTypeOutput() WorkbookTypeOutput
-	ToWorkbookTypeOutputWithContext(context.Context) WorkbookTypeOutput
-}
-
-// An Application Insights workbook definition.
-type WorkbookTypeArgs struct {
-	// The kind of workbook. Choices are user and shared.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Metadata describing a web test for an Azure resource.
-	Properties WorkbookPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkbookTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookType)(nil)).Elem()
-}
-
-func (i WorkbookTypeArgs) ToWorkbookTypeOutput() WorkbookTypeOutput {
-	return i.ToWorkbookTypeOutputWithContext(context.Background())
-}
-
-func (i WorkbookTypeArgs) ToWorkbookTypeOutputWithContext(ctx context.Context) WorkbookTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTypeOutput)
-}
-
-// An Application Insights workbook definition.
-type WorkbookTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkbookTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookType)(nil)).Elem()
-}
-
-func (o WorkbookTypeOutput) ToWorkbookTypeOutput() WorkbookTypeOutput {
-	return o
-}
-
-func (o WorkbookTypeOutput) ToWorkbookTypeOutputWithContext(ctx context.Context) WorkbookTypeOutput {
-	return o
-}
-
-// The kind of workbook. Choices are user and shared.
-func (o WorkbookTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkbookType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource location
-func (o WorkbookTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkbookType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name
-func (o WorkbookTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkbookType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Metadata describing a web test for an Azure resource.
-func (o WorkbookTypeOutput) Properties() WorkbookPropertiesResponseOutput {
-	return o.ApplyT(func(v WorkbookType) WorkbookPropertiesResponse { return v.Properties }).(WorkbookPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o WorkbookTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkbookType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type
-func (o WorkbookTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkbookType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties that contain a workbook.
@@ -2805,31 +1950,24 @@ func (o WorkbookPropertiesResponsePtrOutput) WorkbookId() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterOutputType(AnalyticsItemTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ComponentTypeOutput{})
-	pulumi.RegisterOutputType(ExportConfigurationTypeOutput{})
-	pulumi.RegisterOutputType(FavoriteTypeOutput{})
-	pulumi.RegisterOutputType(PrivateLinkScopedResourceOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseArrayOutput{})
-	pulumi.RegisterOutputType(WebTestTypeOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationArrayOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationResponseOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationResponseArrayOutput{})
-	pulumi.RegisterOutputType(WebTestPropertiesPropertiesOutput{})
-	pulumi.RegisterOutputType(WebTestPropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesConfigurationOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WebTestPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(WebTestPropertiesResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(WebTestPropertiesResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(WorkbookTypeOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesResponseConfigurationOutput{})
+	pulumi.RegisterOutputType(WebTestPropertiesResponseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkbookPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WorkbookPropertiesResponsePtrOutput{})
 }

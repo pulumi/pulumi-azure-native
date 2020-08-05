@@ -65,79 +65,6 @@ func (o AccessProfileResponseOutput) KubeConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessProfileResponse) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
 }
 
-// Agent Pool.
-type AgentPoolType struct {
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name string `pulumi:"name"`
-	// Properties of an agent pool.
-	Properties ManagedClusterAgentPoolProfilePropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// AgentPoolTypeInput is an input type that accepts AgentPoolTypeArgs and AgentPoolTypeOutput values.
-// You can construct a concrete instance of `AgentPoolTypeInput` via:
-//
-//          AgentPoolTypeArgs{...}
-type AgentPoolTypeInput interface {
-	pulumi.Input
-
-	ToAgentPoolTypeOutput() AgentPoolTypeOutput
-	ToAgentPoolTypeOutputWithContext(context.Context) AgentPoolTypeOutput
-}
-
-// Agent Pool.
-type AgentPoolTypeArgs struct {
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of an agent pool.
-	Properties ManagedClusterAgentPoolProfilePropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AgentPoolTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPoolType)(nil)).Elem()
-}
-
-func (i AgentPoolTypeArgs) ToAgentPoolTypeOutput() AgentPoolTypeOutput {
-	return i.ToAgentPoolTypeOutputWithContext(context.Background())
-}
-
-func (i AgentPoolTypeArgs) ToAgentPoolTypeOutputWithContext(ctx context.Context) AgentPoolTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolTypeOutput)
-}
-
-// Agent Pool.
-type AgentPoolTypeOutput struct{ *pulumi.OutputState }
-
-func (AgentPoolTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPoolType)(nil)).Elem()
-}
-
-func (o AgentPoolTypeOutput) ToAgentPoolTypeOutput() AgentPoolTypeOutput {
-	return o
-}
-
-func (o AgentPoolTypeOutput) ToAgentPoolTypeOutputWithContext(ctx context.Context) AgentPoolTypeOutput {
-	return o
-}
-
-// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-func (o AgentPoolTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentPoolType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of an agent pool.
-func (o AgentPoolTypeOutput) Properties() ManagedClusterAgentPoolProfilePropertiesResponseOutput {
-	return o.ApplyT(func(v AgentPoolType) ManagedClusterAgentPoolProfilePropertiesResponse { return v.Properties }).(ManagedClusterAgentPoolProfilePropertiesResponseOutput)
-}
-
-// Resource type
-func (o AgentPoolTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentPoolType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfile struct {
 	// The administrator username to use for Linux VMs.
@@ -1517,106 +1444,6 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CredentialResultResponse {
 		return vs[0].([]CredentialResultResponse)[vs[1].(int)]
 	}).(CredentialResultResponseOutput)
-}
-
-// Managed cluster.
-type ManagedClusterType struct {
-	// The identity of the managed cluster, if configured.
-	Identity *ManagedClusterIdentityResponse `pulumi:"identity"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of a managed cluster.
-	Properties ManagedClusterPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ManagedClusterTypeInput is an input type that accepts ManagedClusterTypeArgs and ManagedClusterTypeOutput values.
-// You can construct a concrete instance of `ManagedClusterTypeInput` via:
-//
-//          ManagedClusterTypeArgs{...}
-type ManagedClusterTypeInput interface {
-	pulumi.Input
-
-	ToManagedClusterTypeOutput() ManagedClusterTypeOutput
-	ToManagedClusterTypeOutputWithContext(context.Context) ManagedClusterTypeOutput
-}
-
-// Managed cluster.
-type ManagedClusterTypeArgs struct {
-	// The identity of the managed cluster, if configured.
-	Identity ManagedClusterIdentityResponsePtrInput `pulumi:"identity"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of a managed cluster.
-	Properties ManagedClusterPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagedClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterType)(nil)).Elem()
-}
-
-func (i ManagedClusterTypeArgs) ToManagedClusterTypeOutput() ManagedClusterTypeOutput {
-	return i.ToManagedClusterTypeOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterTypeArgs) ToManagedClusterTypeOutputWithContext(ctx context.Context) ManagedClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterTypeOutput)
-}
-
-// Managed cluster.
-type ManagedClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagedClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterType)(nil)).Elem()
-}
-
-func (o ManagedClusterTypeOutput) ToManagedClusterTypeOutput() ManagedClusterTypeOutput {
-	return o
-}
-
-func (o ManagedClusterTypeOutput) ToManagedClusterTypeOutputWithContext(ctx context.Context) ManagedClusterTypeOutput {
-	return o
-}
-
-// The identity of the managed cluster, if configured.
-func (o ManagedClusterTypeOutput) Identity() ManagedClusterIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterType) *ManagedClusterIdentityResponse { return v.Identity }).(ManagedClusterIdentityResponsePtrOutput)
-}
-
-// Resource location
-func (o ManagedClusterTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o ManagedClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of a managed cluster.
-func (o ManagedClusterTypeOutput) Properties() ManagedClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagedClusterType) ManagedClusterPropertiesResponse { return v.Properties }).(ManagedClusterPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o ManagedClusterTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ManagedClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // AADProfile specifies attributes for Azure Active Directory integration.
@@ -4359,7 +4186,6 @@ func (o ManagedClusterWindowsProfileResponsePtrOutput) AdminUsername() pulumi.St
 
 func init() {
 	pulumi.RegisterOutputType(AccessProfileResponseOutput{})
-	pulumi.RegisterOutputType(AgentPoolTypeOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfilePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileResponseOutput{})
@@ -4378,7 +4204,6 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
-	pulumi.RegisterOutputType(ManagedClusterTypeOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileResponseOutput{})

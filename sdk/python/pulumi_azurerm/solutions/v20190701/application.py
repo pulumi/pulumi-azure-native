@@ -132,7 +132,6 @@ class Application(pulumi.CustomResource):
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The identity type.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
         The **jit_access_policy** object supports the following:
 

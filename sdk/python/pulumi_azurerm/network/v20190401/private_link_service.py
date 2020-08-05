@@ -27,6 +27,8 @@ class PrivateLinkService(pulumi.CustomResource):
     Properties of the private link service.
       * `alias` (`str`) - The alias of the private link service.
       * `auto_approval` (`dict`) - The auto-approval list of the private link service.
+        * `subscriptions` (`list`) - The list of subscriptions.
+
       * `fqdns` (`list`) - The list of Fqdn.
       * `ip_configurations` (`list`) - An array of references to the private link service IP configuration.
         * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
@@ -410,6 +412,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
       * `provisioning_state` (`str`) - The provisioning state of the private link service.
       * `visibility` (`dict`) - The visibility list of the private link service.
+        * `subscriptions` (`list`) - The list of subscriptions.
     """
     tags: pulumi.Output[dict]
     """
@@ -437,6 +440,10 @@ class PrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[dict] visibility: The visibility list of the private link service.
+
+        The **auto_approval** object supports the following:
+
+          * `subscriptions` (`pulumi.Input[list]`) - The list of subscriptions.
 
         The **ip_configurations** object supports the following:
 
@@ -618,6 +625,10 @@ class PrivateLinkService(pulumi.CustomResource):
             * `tags` (`pulumi.Input[dict]`) - Resource tags.
 
           * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
+
+        The **visibility** object supports the following:
+
+          * `subscriptions` (`pulumi.Input[list]`) - The list of subscriptions.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

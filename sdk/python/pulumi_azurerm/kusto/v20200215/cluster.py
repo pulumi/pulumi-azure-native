@@ -75,7 +75,7 @@ class Cluster(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    zones: pulumi.Output[dict]
+    zones: pulumi.Output[list]
     """
     The availability zones of the cluster.
     """
@@ -99,12 +99,11 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[list] trusted_external_tenants: The cluster's external tenants.
         :param pulumi.Input[dict] virtual_network_configuration: Virtual network definition.
-        :param pulumi.Input[dict] zones: The availability zones of the cluster.
+        :param pulumi.Input[list] zones: The availability zones of the cluster.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The identity type.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
         The **key_vault_properties** object supports the following:
 

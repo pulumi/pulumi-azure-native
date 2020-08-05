@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.NetApp.V20190601
         /// Resource tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.ResourceTagsResponseResult?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.NetApp.V20190601
         /// Set of export policy rules
         /// </summary>
         [Input("exportPolicy")]
-        public Input<Inputs.VolumePropertiesPropertiesArgs>? ExportPolicy { get; set; }
+        public Input<Inputs.VolumePropertiesExportPolicyArgs>? ExportPolicy { get; set; }
 
         /// <summary>
         /// Resource location
@@ -173,11 +173,17 @@ namespace Pulumi.AzureRM.NetApp.V20190601
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<object>? _tags;
+
         /// <summary>
         /// Resource tags
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.ResourceTagsArgs>? Tags { get; set; }
+        public InputMap<object> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<object>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.

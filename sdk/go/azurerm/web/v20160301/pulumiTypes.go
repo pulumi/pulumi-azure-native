@@ -10,106 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// SSL certificate for an app.
-type CertificateType struct {
-	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Resource Location.
-	Location string `pulumi:"location"`
-	// Resource Name.
-	Name string `pulumi:"name"`
-	// Certificate resource specific properties
-	Properties CertificateResponseProperties `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// CertificateTypeInput is an input type that accepts CertificateTypeArgs and CertificateTypeOutput values.
-// You can construct a concrete instance of `CertificateTypeInput` via:
-//
-//          CertificateTypeArgs{...}
-type CertificateTypeInput interface {
-	pulumi.Input
-
-	ToCertificateTypeOutput() CertificateTypeOutput
-	ToCertificateTypeOutputWithContext(context.Context) CertificateTypeOutput
-}
-
-// SSL certificate for an app.
-type CertificateTypeArgs struct {
-	// Kind of resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Certificate resource specific properties
-	Properties CertificateResponsePropertiesInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CertificateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateType)(nil)).Elem()
-}
-
-func (i CertificateTypeArgs) ToCertificateTypeOutput() CertificateTypeOutput {
-	return i.ToCertificateTypeOutputWithContext(context.Background())
-}
-
-func (i CertificateTypeArgs) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateTypeOutput)
-}
-
-// SSL certificate for an app.
-type CertificateTypeOutput struct{ *pulumi.OutputState }
-
-func (CertificateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateType)(nil)).Elem()
-}
-
-func (o CertificateTypeOutput) ToCertificateTypeOutput() CertificateTypeOutput {
-	return o
-}
-
-func (o CertificateTypeOutput) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
-	return o
-}
-
-// Kind of resource.
-func (o CertificateTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Location.
-func (o CertificateTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource Name.
-func (o CertificateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Certificate resource specific properties
-func (o CertificateTypeOutput) Properties() CertificateResponsePropertiesOutput {
-	return o.ApplyT(func(v CertificateType) CertificateResponseProperties { return v.Properties }).(CertificateResponsePropertiesOutput)
-}
-
-// Resource tags.
-func (o CertificateTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CertificateType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o CertificateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Certificate resource specific properties
 type CertificateResponseProperties struct {
 	// Raw bytes of .cer file
@@ -608,61 +508,6 @@ func (o CertificateResponsePropertiesPtrOutput) Valid() pulumi.BoolPtrOutput {
 }
 
 // Specification for an App Service Environment to use for this resource.
-type HostingEnvironmentProfile struct {
-	// Resource ID of the App Service Environment.
-	Id *string `pulumi:"id"`
-}
-
-// HostingEnvironmentProfileInput is an input type that accepts HostingEnvironmentProfileArgs and HostingEnvironmentProfileOutput values.
-// You can construct a concrete instance of `HostingEnvironmentProfileInput` via:
-//
-//          HostingEnvironmentProfileArgs{...}
-type HostingEnvironmentProfileInput interface {
-	pulumi.Input
-
-	ToHostingEnvironmentProfileOutput() HostingEnvironmentProfileOutput
-	ToHostingEnvironmentProfileOutputWithContext(context.Context) HostingEnvironmentProfileOutput
-}
-
-// Specification for an App Service Environment to use for this resource.
-type HostingEnvironmentProfileArgs struct {
-	// Resource ID of the App Service Environment.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (HostingEnvironmentProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostingEnvironmentProfile)(nil)).Elem()
-}
-
-func (i HostingEnvironmentProfileArgs) ToHostingEnvironmentProfileOutput() HostingEnvironmentProfileOutput {
-	return i.ToHostingEnvironmentProfileOutputWithContext(context.Background())
-}
-
-func (i HostingEnvironmentProfileArgs) ToHostingEnvironmentProfileOutputWithContext(ctx context.Context) HostingEnvironmentProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentProfileOutput)
-}
-
-// Specification for an App Service Environment to use for this resource.
-type HostingEnvironmentProfileOutput struct{ *pulumi.OutputState }
-
-func (HostingEnvironmentProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostingEnvironmentProfile)(nil)).Elem()
-}
-
-func (o HostingEnvironmentProfileOutput) ToHostingEnvironmentProfileOutput() HostingEnvironmentProfileOutput {
-	return o
-}
-
-func (o HostingEnvironmentProfileOutput) ToHostingEnvironmentProfileOutputWithContext(ctx context.Context) HostingEnvironmentProfileOutput {
-	return o
-}
-
-// Resource ID of the App Service Environment.
-func (o HostingEnvironmentProfileOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Specification for an App Service Environment to use for this resource.
 type HostingEnvironmentProfileResponse struct {
 	// Resource ID of the App Service Environment.
 	Id *string `pulumi:"id"`
@@ -1105,10 +950,8 @@ func (o IdentifierResponsePropertiesPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(CertificateTypeOutput{})
 	pulumi.RegisterOutputType(CertificateResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificateResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(HostingEnvironmentProfileOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponseOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentifierResponseOutput{})

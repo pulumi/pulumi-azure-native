@@ -39,12 +39,6 @@ namespace Pulumi.AzureRM.Network.V20200101.Inputs
             set => _responseHeaderActions = value;
         }
 
-        /// <summary>
-        /// Override the route configuration.
-        /// </summary>
-        [Input("routeConfigurationOverride")]
-        public Input<Inputs.RouteConfigurationArgs>? RouteConfigurationOverride { get; set; }
-
         public RulesEngineActionArgs()
         {
         }

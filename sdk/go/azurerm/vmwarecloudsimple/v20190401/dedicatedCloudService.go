@@ -21,7 +21,7 @@ type DedicatedCloudService struct {
 	// The properties of Dedicated Node Service
 	Properties DedicatedCloudServicePropertiesResponseOutput `pulumi:"properties"`
 	// The list of tags
-	Tags TagsResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -73,7 +73,7 @@ type dedicatedCloudServiceState struct {
 	// The properties of Dedicated Node Service
 	Properties *DedicatedCloudServicePropertiesResponse `pulumi:"properties"`
 	// The list of tags
-	Tags *TagsResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}
 	Type *string `pulumi:"type"`
 }
@@ -86,7 +86,7 @@ type DedicatedCloudServiceState struct {
 	// The properties of Dedicated Node Service
 	Properties DedicatedCloudServicePropertiesResponsePtrInput
 	// The list of tags
-	Tags TagsResponsePtrInput
+	Tags pulumi.StringMapInput
 	// {resourceProviderNamespace}/{resourceType}
 	Type pulumi.StringPtrInput
 }
@@ -105,7 +105,7 @@ type dedicatedCloudServiceArgs struct {
 	// The name of the resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of tags
-	Tags *Tags `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DedicatedCloudService resource.
@@ -119,7 +119,7 @@ type DedicatedCloudServiceArgs struct {
 	// The name of the resource group
 	ResourceGroupName pulumi.StringInput
 	// The list of tags
-	Tags TagsPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (DedicatedCloudServiceArgs) ElementType() reflect.Type {

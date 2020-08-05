@@ -316,106 +316,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An object that represents a machine learning workspace.
-type WorkspaceType struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the machine learning workspace.
-	Properties WorkspacePropertiesResponse `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku *SkuResponse `pulumi:"sku"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceTypeInput is an input type that accepts WorkspaceTypeArgs and WorkspaceTypeOutput values.
-// You can construct a concrete instance of `WorkspaceTypeInput` via:
-//
-//          WorkspaceTypeArgs{...}
-type WorkspaceTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceTypeOutput() WorkspaceTypeOutput
-	ToWorkspaceTypeOutputWithContext(context.Context) WorkspaceTypeOutput
-}
-
-// An object that represents a machine learning workspace.
-type WorkspaceTypeArgs struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the machine learning workspace.
-	Properties WorkspacePropertiesResponseInput `pulumi:"properties"`
-	// The sku of the workspace.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceType)(nil)).Elem()
-}
-
-func (i WorkspaceTypeArgs) ToWorkspaceTypeOutput() WorkspaceTypeOutput {
-	return i.ToWorkspaceTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceTypeArgs) ToWorkspaceTypeOutputWithContext(ctx context.Context) WorkspaceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTypeOutput)
-}
-
-// An object that represents a machine learning workspace.
-type WorkspaceTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceType)(nil)).Elem()
-}
-
-func (o WorkspaceTypeOutput) ToWorkspaceTypeOutput() WorkspaceTypeOutput {
-	return o
-}
-
-func (o WorkspaceTypeOutput) ToWorkspaceTypeOutputWithContext(ctx context.Context) WorkspaceTypeOutput {
-	return o
-}
-
-// The location of the resource. This cannot be changed after the resource is created.
-func (o WorkspaceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource.
-func (o WorkspaceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the machine learning workspace.
-func (o WorkspaceTypeOutput) Properties() WorkspacePropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceType) WorkspacePropertiesResponse { return v.Properties }).(WorkspacePropertiesResponseOutput)
-}
-
-// The sku of the workspace.
-func (o WorkspaceTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// The tags of the resource.
-func (o WorkspaceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkspaceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o WorkspaceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of a machine learning workspace.
 type WorkspacePropertiesResponse struct {
 	// The creation time for this workspace resource.
@@ -688,7 +588,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(WorkspaceTypeOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponsePtrOutput{})
 }

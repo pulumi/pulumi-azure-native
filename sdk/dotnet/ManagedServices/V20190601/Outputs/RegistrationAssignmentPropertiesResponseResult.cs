@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.ManagedServices.V20190601.Outputs
         /// <summary>
         /// Registration definition inside registration assignment.
         /// </summary>
-        public readonly Outputs.RegistrationAssignmentPropertiesResponsePropertiesResult RegistrationDefinition;
+        public readonly Outputs.RegistrationAssignmentPropertiesResponseRegistrationDefinitionResult RegistrationDefinition;
         /// <summary>
         /// Fully qualified path of the registration definition.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ManagedServices.V20190601.Outputs
         private RegistrationAssignmentPropertiesResponseResult(
             string provisioningState,
 
-            Outputs.RegistrationAssignmentPropertiesResponsePropertiesResult registrationDefinition,
+            Outputs.RegistrationAssignmentPropertiesResponseRegistrationDefinitionResult registrationDefinition,
 
             string registrationDefinitionId)
         {

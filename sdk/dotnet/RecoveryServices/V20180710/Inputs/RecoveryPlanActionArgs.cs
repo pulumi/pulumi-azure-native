@@ -21,12 +21,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20180710.Inputs
         [Input("actionName", required: true)]
         public Input<string> ActionName { get; set; } = null!;
 
-        /// <summary>
-        /// The custom details.
-        /// </summary>
-        [Input("customDetails", required: true)]
-        public Input<Inputs.RecoveryPlanActionDetailsArgs> CustomDetails { get; set; } = null!;
-
         [Input("failoverDirections", required: true)]
         private InputList<string>? _failoverDirections;
 

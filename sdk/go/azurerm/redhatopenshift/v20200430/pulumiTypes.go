@@ -1852,97 +1852,6 @@ func (o NetworkProfileResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-type OpenShiftClusterType struct {
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The cluster properties.
-	Properties OpenShiftClusterPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// OpenShiftClusterTypeInput is an input type that accepts OpenShiftClusterTypeArgs and OpenShiftClusterTypeOutput values.
-// You can construct a concrete instance of `OpenShiftClusterTypeInput` via:
-//
-//          OpenShiftClusterTypeArgs{...}
-type OpenShiftClusterTypeInput interface {
-	pulumi.Input
-
-	ToOpenShiftClusterTypeOutput() OpenShiftClusterTypeOutput
-	ToOpenShiftClusterTypeOutputWithContext(context.Context) OpenShiftClusterTypeOutput
-}
-
-// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-type OpenShiftClusterTypeArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The cluster properties.
-	Properties OpenShiftClusterPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (OpenShiftClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftClusterType)(nil)).Elem()
-}
-
-func (i OpenShiftClusterTypeArgs) ToOpenShiftClusterTypeOutput() OpenShiftClusterTypeOutput {
-	return i.ToOpenShiftClusterTypeOutputWithContext(context.Background())
-}
-
-func (i OpenShiftClusterTypeArgs) ToOpenShiftClusterTypeOutputWithContext(ctx context.Context) OpenShiftClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftClusterTypeOutput)
-}
-
-// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-type OpenShiftClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (OpenShiftClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftClusterType)(nil)).Elem()
-}
-
-func (o OpenShiftClusterTypeOutput) ToOpenShiftClusterTypeOutput() OpenShiftClusterTypeOutput {
-	return o
-}
-
-func (o OpenShiftClusterTypeOutput) ToOpenShiftClusterTypeOutputWithContext(ctx context.Context) OpenShiftClusterTypeOutput {
-	return o
-}
-
-// The geo-location where the resource lives
-func (o OpenShiftClusterTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v OpenShiftClusterType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o OpenShiftClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v OpenShiftClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The cluster properties.
-func (o OpenShiftClusterTypeOutput) Properties() OpenShiftClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v OpenShiftClusterType) OpenShiftClusterPropertiesResponse { return v.Properties }).(OpenShiftClusterPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o OpenShiftClusterTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v OpenShiftClusterType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o OpenShiftClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OpenShiftClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // OpenShiftClusterProperties represents an OpenShift cluster's properties.
 type OpenShiftClusterPropertiesResponse struct {
 	// The cluster API server profile.
@@ -2834,7 +2743,6 @@ func init() {
 	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(OpenShiftClusterTypeOutput{})
 	pulumi.RegisterOutputType(OpenShiftClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(OpenShiftClusterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalProfileOutput{})

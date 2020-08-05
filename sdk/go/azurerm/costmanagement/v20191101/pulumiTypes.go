@@ -10,88 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// A export resource.
-type ExportType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of the export.
-	Properties ExportPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ExportTypeInput is an input type that accepts ExportTypeArgs and ExportTypeOutput values.
-// You can construct a concrete instance of `ExportTypeInput` via:
-//
-//          ExportTypeArgs{...}
-type ExportTypeInput interface {
-	pulumi.Input
-
-	ToExportTypeOutput() ExportTypeOutput
-	ToExportTypeOutputWithContext(context.Context) ExportTypeOutput
-}
-
-// A export resource.
-type ExportTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the export.
-	Properties ExportPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ExportTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportType)(nil)).Elem()
-}
-
-func (i ExportTypeArgs) ToExportTypeOutput() ExportTypeOutput {
-	return i.ToExportTypeOutputWithContext(context.Background())
-}
-
-func (i ExportTypeArgs) ToExportTypeOutputWithContext(ctx context.Context) ExportTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportTypeOutput)
-}
-
-// A export resource.
-type ExportTypeOutput struct{ *pulumi.OutputState }
-
-func (ExportTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportType)(nil)).Elem()
-}
-
-func (o ExportTypeOutput) ToExportTypeOutput() ExportTypeOutput {
-	return o
-}
-
-func (o ExportTypeOutput) ToExportTypeOutputWithContext(ctx context.Context) ExportTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ExportTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the export.
-func (o ExportTypeOutput) Properties() ExportPropertiesResponseOutput {
-	return o.ApplyT(func(v ExportType) ExportPropertiesResponse { return v.Properties }).(ExportPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ExportTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExportType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o ExportTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
 type ExportDeliveryDestination struct {
 	// The name of the container where exports will be uploaded.
@@ -7396,170 +7314,6 @@ func (o ReportConfigTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// States and configurations of Cost Analysis.
-type ViewType struct {
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag *string `pulumi:"eTag"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of the view.
-	Properties ViewPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ViewTypeInput is an input type that accepts ViewTypeArgs and ViewTypeOutput values.
-// You can construct a concrete instance of `ViewTypeInput` via:
-//
-//          ViewTypeArgs{...}
-type ViewTypeInput interface {
-	pulumi.Input
-
-	ToViewTypeOutput() ViewTypeOutput
-	ToViewTypeOutputWithContext(context.Context) ViewTypeOutput
-}
-
-// States and configurations of Cost Analysis.
-type ViewTypeArgs struct {
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the view.
-	Properties ViewPropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ViewTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewType)(nil)).Elem()
-}
-
-func (i ViewTypeArgs) ToViewTypeOutput() ViewTypeOutput {
-	return i.ToViewTypeOutputWithContext(context.Background())
-}
-
-func (i ViewTypeArgs) ToViewTypeOutputWithContext(ctx context.Context) ViewTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewTypeOutput)
-}
-
-// States and configurations of Cost Analysis.
-type ViewTypeOutput struct{ *pulumi.OutputState }
-
-func (ViewTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewType)(nil)).Elem()
-}
-
-func (o ViewTypeOutput) ToViewTypeOutput() ViewTypeOutput {
-	return o
-}
-
-func (o ViewTypeOutput) ToViewTypeOutputWithContext(ctx context.Context) ViewTypeOutput {
-	return o
-}
-
-// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-func (o ViewTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ViewType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Resource name.
-func (o ViewTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ViewType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the view.
-func (o ViewTypeOutput) Properties() ViewPropertiesResponseOutput {
-	return o.ApplyT(func(v ViewType) ViewPropertiesResponse { return v.Properties }).(ViewPropertiesResponseOutput)
-}
-
-// Resource type.
-func (o ViewTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ViewType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// States and configurations of Cost Analysis.
-type ViewByScopeType struct {
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag *string `pulumi:"eTag"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of the view.
-	Properties ViewPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ViewByScopeTypeInput is an input type that accepts ViewByScopeTypeArgs and ViewByScopeTypeOutput values.
-// You can construct a concrete instance of `ViewByScopeTypeInput` via:
-//
-//          ViewByScopeTypeArgs{...}
-type ViewByScopeTypeInput interface {
-	pulumi.Input
-
-	ToViewByScopeTypeOutput() ViewByScopeTypeOutput
-	ToViewByScopeTypeOutputWithContext(context.Context) ViewByScopeTypeOutput
-}
-
-// States and configurations of Cost Analysis.
-type ViewByScopeTypeArgs struct {
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the view.
-	Properties ViewPropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ViewByScopeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewByScopeType)(nil)).Elem()
-}
-
-func (i ViewByScopeTypeArgs) ToViewByScopeTypeOutput() ViewByScopeTypeOutput {
-	return i.ToViewByScopeTypeOutputWithContext(context.Background())
-}
-
-func (i ViewByScopeTypeArgs) ToViewByScopeTypeOutputWithContext(ctx context.Context) ViewByScopeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewByScopeTypeOutput)
-}
-
-// States and configurations of Cost Analysis.
-type ViewByScopeTypeOutput struct{ *pulumi.OutputState }
-
-func (ViewByScopeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewByScopeType)(nil)).Elem()
-}
-
-func (o ViewByScopeTypeOutput) ToViewByScopeTypeOutput() ViewByScopeTypeOutput {
-	return o
-}
-
-func (o ViewByScopeTypeOutput) ToViewByScopeTypeOutputWithContext(ctx context.Context) ViewByScopeTypeOutput {
-	return o
-}
-
-// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-func (o ViewByScopeTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ViewByScopeType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Resource name.
-func (o ViewByScopeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ViewByScopeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the view.
-func (o ViewByScopeTypeOutput) Properties() ViewPropertiesResponseOutput {
-	return o.ApplyT(func(v ViewByScopeType) ViewPropertiesResponse { return v.Properties }).(ViewPropertiesResponseOutput)
-}
-
-// Resource type.
-func (o ViewByScopeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ViewByScopeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of the view.
 type ViewPropertiesResponse struct {
 	// Show costs accumulated over time.
@@ -7866,7 +7620,6 @@ func (o ViewPropertiesResponsePtrOutput) Scope() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ExportTypeOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationResponseOutput{})
@@ -7963,8 +7716,6 @@ func init() {
 	pulumi.RegisterOutputType(ReportConfigTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(ReportConfigTimePeriodResponseOutput{})
 	pulumi.RegisterOutputType(ReportConfigTimePeriodResponsePtrOutput{})
-	pulumi.RegisterOutputType(ViewTypeOutput{})
-	pulumi.RegisterOutputType(ViewByScopeTypeOutput{})
 	pulumi.RegisterOutputType(ViewPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ViewPropertiesResponsePtrOutput{})
 }

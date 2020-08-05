@@ -10,88 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// A report config resource.
-type ReportConfigType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of the report config.
-	Properties ReportConfigPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ReportConfigTypeInput is an input type that accepts ReportConfigTypeArgs and ReportConfigTypeOutput values.
-// You can construct a concrete instance of `ReportConfigTypeInput` via:
-//
-//          ReportConfigTypeArgs{...}
-type ReportConfigTypeInput interface {
-	pulumi.Input
-
-	ToReportConfigTypeOutput() ReportConfigTypeOutput
-	ToReportConfigTypeOutputWithContext(context.Context) ReportConfigTypeOutput
-}
-
-// A report config resource.
-type ReportConfigTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the report config.
-	Properties ReportConfigPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ReportConfigTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfigType)(nil)).Elem()
-}
-
-func (i ReportConfigTypeArgs) ToReportConfigTypeOutput() ReportConfigTypeOutput {
-	return i.ToReportConfigTypeOutputWithContext(context.Background())
-}
-
-func (i ReportConfigTypeArgs) ToReportConfigTypeOutputWithContext(ctx context.Context) ReportConfigTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigTypeOutput)
-}
-
-// A report config resource.
-type ReportConfigTypeOutput struct{ *pulumi.OutputState }
-
-func (ReportConfigTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfigType)(nil)).Elem()
-}
-
-func (o ReportConfigTypeOutput) ToReportConfigTypeOutput() ReportConfigTypeOutput {
-	return o
-}
-
-func (o ReportConfigTypeOutput) ToReportConfigTypeOutputWithContext(ctx context.Context) ReportConfigTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ReportConfigTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ReportConfigType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the report config.
-func (o ReportConfigTypeOutput) Properties() ReportConfigPropertiesResponseOutput {
-	return o.ApplyT(func(v ReportConfigType) ReportConfigPropertiesResponse { return v.Properties }).(ReportConfigPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ReportConfigTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ReportConfigType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o ReportConfigTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ReportConfigType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The aggregation expression to be used in the report.
 type ReportConfigAggregation struct {
 	// The name of the aggregation function to use.
@@ -308,88 +226,6 @@ func (o ReportConfigAggregationResponseMapOutput) MapIndex(k pulumi.StringInput)
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReportConfigAggregationResponse {
 		return vs[0].(map[string]ReportConfigAggregationResponse)[vs[1].(string)]
 	}).(ReportConfigAggregationResponseOutput)
-}
-
-// A report config resource.
-type ReportConfigByResourceGroupNameType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of the report config.
-	Properties ReportConfigPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ReportConfigByResourceGroupNameTypeInput is an input type that accepts ReportConfigByResourceGroupNameTypeArgs and ReportConfigByResourceGroupNameTypeOutput values.
-// You can construct a concrete instance of `ReportConfigByResourceGroupNameTypeInput` via:
-//
-//          ReportConfigByResourceGroupNameTypeArgs{...}
-type ReportConfigByResourceGroupNameTypeInput interface {
-	pulumi.Input
-
-	ToReportConfigByResourceGroupNameTypeOutput() ReportConfigByResourceGroupNameTypeOutput
-	ToReportConfigByResourceGroupNameTypeOutputWithContext(context.Context) ReportConfigByResourceGroupNameTypeOutput
-}
-
-// A report config resource.
-type ReportConfigByResourceGroupNameTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the report config.
-	Properties ReportConfigPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ReportConfigByResourceGroupNameTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfigByResourceGroupNameType)(nil)).Elem()
-}
-
-func (i ReportConfigByResourceGroupNameTypeArgs) ToReportConfigByResourceGroupNameTypeOutput() ReportConfigByResourceGroupNameTypeOutput {
-	return i.ToReportConfigByResourceGroupNameTypeOutputWithContext(context.Background())
-}
-
-func (i ReportConfigByResourceGroupNameTypeArgs) ToReportConfigByResourceGroupNameTypeOutputWithContext(ctx context.Context) ReportConfigByResourceGroupNameTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigByResourceGroupNameTypeOutput)
-}
-
-// A report config resource.
-type ReportConfigByResourceGroupNameTypeOutput struct{ *pulumi.OutputState }
-
-func (ReportConfigByResourceGroupNameTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfigByResourceGroupNameType)(nil)).Elem()
-}
-
-func (o ReportConfigByResourceGroupNameTypeOutput) ToReportConfigByResourceGroupNameTypeOutput() ReportConfigByResourceGroupNameTypeOutput {
-	return o
-}
-
-func (o ReportConfigByResourceGroupNameTypeOutput) ToReportConfigByResourceGroupNameTypeOutputWithContext(ctx context.Context) ReportConfigByResourceGroupNameTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ReportConfigByResourceGroupNameTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ReportConfigByResourceGroupNameType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the report config.
-func (o ReportConfigByResourceGroupNameTypeOutput) Properties() ReportConfigPropertiesResponseOutput {
-	return o.ApplyT(func(v ReportConfigByResourceGroupNameType) ReportConfigPropertiesResponse { return v.Properties }).(ReportConfigPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ReportConfigByResourceGroupNameTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ReportConfigByResourceGroupNameType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o ReportConfigByResourceGroupNameTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ReportConfigByResourceGroupNameType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The comparison expression to be used in the report.
@@ -4294,12 +4130,10 @@ func (o ReportConfigTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ReportConfigTypeOutput{})
 	pulumi.RegisterOutputType(ReportConfigAggregationOutput{})
 	pulumi.RegisterOutputType(ReportConfigAggregationMapOutput{})
 	pulumi.RegisterOutputType(ReportConfigAggregationResponseOutput{})
 	pulumi.RegisterOutputType(ReportConfigAggregationResponseMapOutput{})
-	pulumi.RegisterOutputType(ReportConfigByResourceGroupNameTypeOutput{})
 	pulumi.RegisterOutputType(ReportConfigComparisonExpressionOutput{})
 	pulumi.RegisterOutputType(ReportConfigComparisonExpressionPtrOutput{})
 	pulumi.RegisterOutputType(ReportConfigComparisonExpressionResponseOutput{})

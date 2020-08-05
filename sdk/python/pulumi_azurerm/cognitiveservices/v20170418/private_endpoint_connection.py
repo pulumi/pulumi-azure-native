@@ -44,7 +44,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The **properties** object supports the following:
 
           * `group_ids` (`pulumi.Input[list]`) - The private link resource group ids.
-          * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private end point.
           * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
             * `action_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
             * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.

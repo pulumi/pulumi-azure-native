@@ -143,11 +143,17 @@ namespace Pulumi.AzureRM.Security.V20190801
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("recommendationsConfiguration")]
+        private InputList<Inputs.RecommendationConfigurationPropertiesArgs>? _recommendationsConfiguration;
+
         /// <summary>
         /// List of the configuration status for each recommendation type.
         /// </summary>
-        [Input("recommendationsConfiguration")]
-        public Input<Inputs.RecommendationConfigurationListArgs>? RecommendationsConfiguration { get; set; }
+        public InputList<Inputs.RecommendationConfigurationPropertiesArgs> RecommendationsConfiguration
+        {
+            get => _recommendationsConfiguration ?? (_recommendationsConfiguration = new InputList<Inputs.RecommendationConfigurationPropertiesArgs>());
+            set => _recommendationsConfiguration = value;
+        }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

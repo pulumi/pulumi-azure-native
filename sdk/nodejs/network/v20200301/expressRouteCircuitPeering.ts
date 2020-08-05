@@ -78,7 +78,6 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["azureASN"] = args ? args.azureASN : undefined;
             inputs["circuitName"] = args ? args.circuitName : undefined;
             inputs["connections"] = args ? args.connections : undefined;
-            inputs["expressRouteConnection"] = args ? args.expressRouteConnection : undefined;
             inputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["ipv6PeeringConfig"] = args ? args.ipv6PeeringConfig : undefined;
@@ -127,10 +126,6 @@ export interface ExpressRouteCircuitPeeringArgs {
      * The list of circuit connections associated with Azure Private Peering for this circuit.
      */
     readonly connections?: pulumi.Input<pulumi.Input<inputs.network.v20200301.ExpressRouteCircuitConnection>[]>;
-    /**
-     * The ExpressRoute connection.
-     */
-    readonly expressRouteConnection?: pulumi.Input<inputs.network.v20200301.ExpressRouteConnectionId>;
     /**
      * The GatewayManager Etag.
      */

@@ -10,133 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
-type AccountType struct {
-	// Entity Tag
-	Etag string `pulumi:"etag"`
-	// The identity of Cognitive Services account.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The Kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// The location of the resource
-	Location *string `pulumi:"location"`
-	// The name of the created account
-	Name string `pulumi:"name"`
-	// Properties of Cognitive Services account.
-	Properties CognitiveServicesAccountPropertiesResponse `pulumi:"properties"`
-	// The SKU of Cognitive Services account.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// AccountTypeInput is an input type that accepts AccountTypeArgs and AccountTypeOutput values.
-// You can construct a concrete instance of `AccountTypeInput` via:
-//
-//          AccountTypeArgs{...}
-type AccountTypeInput interface {
-	pulumi.Input
-
-	ToAccountTypeOutput() AccountTypeOutput
-	ToAccountTypeOutputWithContext(context.Context) AccountTypeOutput
-}
-
-// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
-type AccountTypeArgs struct {
-	// Entity Tag
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The identity of Cognitive Services account.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// The Kind of the resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The location of the resource
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the created account
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of Cognitive Services account.
-	Properties CognitiveServicesAccountPropertiesResponseInput `pulumi:"properties"`
-	// The SKU of Cognitive Services account.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountType)(nil)).Elem()
-}
-
-func (i AccountTypeArgs) ToAccountTypeOutput() AccountTypeOutput {
-	return i.ToAccountTypeOutputWithContext(context.Background())
-}
-
-func (i AccountTypeArgs) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountTypeOutput)
-}
-
-// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
-type AccountTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountType)(nil)).Elem()
-}
-
-func (o AccountTypeOutput) ToAccountTypeOutput() AccountTypeOutput {
-	return o
-}
-
-func (o AccountTypeOutput) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
-	return o
-}
-
-// Entity Tag
-func (o AccountTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The identity of Cognitive Services account.
-func (o AccountTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v AccountType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// The Kind of the resource.
-func (o AccountTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// The location of the resource
-func (o AccountTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the created account
-func (o AccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of Cognitive Services account.
-func (o AccountTypeOutput) Properties() CognitiveServicesAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v AccountType) CognitiveServicesAccountPropertiesResponse { return v.Properties }).(CognitiveServicesAccountPropertiesResponseOutput)
-}
-
-// The SKU of Cognitive Services account.
-func (o AccountTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v AccountType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
-func (o AccountTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AccountType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o AccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The api properties for special APIs.
 type CognitiveServicesAccountApiProperties struct {
 	// (Personalization Only) The flag to enable statistics of Bing Search.
@@ -2643,129 +2516,10 @@ func (o NetworkRuleSetResponsePtrOutput) VirtualNetworkRules() VirtualNetworkRul
 	}).(VirtualNetworkRuleResponseArrayOutput)
 }
 
-// The Private Endpoint resource.
-type PrivateEndpoint struct {
-}
-
-// PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
-// You can construct a concrete instance of `PrivateEndpointInput` via:
-//
-//          PrivateEndpointArgs{...}
-type PrivateEndpointInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointOutput() PrivateEndpointOutput
-	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
-}
-
-// The Private Endpoint resource.
-type PrivateEndpointArgs struct {
-}
-
-func (PrivateEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointOutput() PrivateEndpointOutput {
-	return i.ToPrivateEndpointOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput)
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput).ToPrivateEndpointPtrOutputWithContext(ctx)
-}
-
-// PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
-// You can construct a concrete instance of `PrivateEndpointPtrInput` via:
-//
-//          PrivateEndpointArgs{...}
-//
-//  or:
-//
-//          nil
-type PrivateEndpointPtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput
-	ToPrivateEndpointPtrOutputWithContext(context.Context) PrivateEndpointPtrOutput
-}
-
-type privateEndpointPtrType PrivateEndpointArgs
-
-func PrivateEndpointPtr(v *PrivateEndpointArgs) PrivateEndpointPtrInput {
-	return (*privateEndpointPtrType)(v)
-}
-
-func (*privateEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
-}
-
-func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
-}
-
-// The Private Endpoint resource.
-type PrivateEndpointOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointOutput() PrivateEndpointOutput {
-	return o
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
-	return o
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return o.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
-		return &v
-	}).(PrivateEndpointPtrOutput)
-}
-
-type PrivateEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
-}
-
-func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
-}
-
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
 	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
+	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
 }
 
 // PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
@@ -2781,12 +2535,8 @@ type PrivateEndpointConnectionTypeInput interface {
 
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
 	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
+	Properties PrivateEndpointConnectionPropertiesPtrInput `pulumi:"properties"`
 }
 
 func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
@@ -2841,19 +2591,9 @@ func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutp
 	return o
 }
 
-// The name of the resource
-func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // Resource properties.
-func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
 type PrivateEndpointConnectionTypeArrayOutput struct{ *pulumi.OutputState }
@@ -2880,8 +2620,6 @@ func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) Priva
 type PrivateEndpointConnectionProperties struct {
 	// The private link resource group ids.
 	GroupIds []string `pulumi:"groupIds"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
@@ -2901,8 +2639,6 @@ type PrivateEndpointConnectionPropertiesInput interface {
 type PrivateEndpointConnectionPropertiesArgs struct {
 	// The private link resource group ids.
 	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput `pulumi:"privateLinkServiceConnectionState"`
 }
@@ -2990,11 +2726,6 @@ func (o PrivateEndpointConnectionPropertiesOutput) GroupIds() pulumi.StringArray
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The resource of private end point.
-func (o PrivateEndpointConnectionPropertiesOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
-}
-
 // A collection of information about the state of the connection between service consumer and provider.
 func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) PrivateLinkServiceConnectionState {
@@ -3028,16 +2759,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) GroupIds() pulumi.StringAr
 		}
 		return v.GroupIds
 	}).(pulumi.StringArrayOutput)
-}
-
-// The resource of private end point.
-func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateEndpoint {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateEndpoint
-	}).(PrivateEndpointPtrOutput)
 }
 
 // A collection of information about the state of the connection between service consumer and provider.
@@ -3970,70 +3691,6 @@ func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 // SkuCapability indicates the capability of a certain feature.
-type SkuCapability struct {
-	// The name of the SkuCapability.
-	Name *string `pulumi:"name"`
-	// The value of the SkuCapability.
-	Value *string `pulumi:"value"`
-}
-
-// SkuCapabilityInput is an input type that accepts SkuCapabilityArgs and SkuCapabilityOutput values.
-// You can construct a concrete instance of `SkuCapabilityInput` via:
-//
-//          SkuCapabilityArgs{...}
-type SkuCapabilityInput interface {
-	pulumi.Input
-
-	ToSkuCapabilityOutput() SkuCapabilityOutput
-	ToSkuCapabilityOutputWithContext(context.Context) SkuCapabilityOutput
-}
-
-// SkuCapability indicates the capability of a certain feature.
-type SkuCapabilityArgs struct {
-	// The name of the SkuCapability.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The value of the SkuCapability.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (SkuCapabilityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuCapability)(nil)).Elem()
-}
-
-func (i SkuCapabilityArgs) ToSkuCapabilityOutput() SkuCapabilityOutput {
-	return i.ToSkuCapabilityOutputWithContext(context.Background())
-}
-
-func (i SkuCapabilityArgs) ToSkuCapabilityOutputWithContext(ctx context.Context) SkuCapabilityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuCapabilityOutput)
-}
-
-// SkuCapability indicates the capability of a certain feature.
-type SkuCapabilityOutput struct{ *pulumi.OutputState }
-
-func (SkuCapabilityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuCapability)(nil)).Elem()
-}
-
-func (o SkuCapabilityOutput) ToSkuCapabilityOutput() SkuCapabilityOutput {
-	return o
-}
-
-func (o SkuCapabilityOutput) ToSkuCapabilityOutputWithContext(ctx context.Context) SkuCapabilityOutput {
-	return o
-}
-
-// The name of the SkuCapability.
-func (o SkuCapabilityOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuCapability) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The value of the SkuCapability.
-func (o SkuCapabilityOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SkuCapability) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-// SkuCapability indicates the capability of a certain feature.
 type SkuCapabilityResponse struct {
 	// The name of the SkuCapability.
 	Name *string `pulumi:"name"`
@@ -4950,7 +4607,6 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccountTypeOutput{})
 	pulumi.RegisterOutputType(CognitiveServicesAccountApiPropertiesOutput{})
 	pulumi.RegisterOutputType(CognitiveServicesAccountApiPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CognitiveServicesAccountApiPropertiesResponseOutput{})
@@ -4979,8 +4635,6 @@ func init() {
 	pulumi.RegisterOutputType(NetworkRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponseOutput{})
 	pulumi.RegisterOutputType(NetworkRuleSetResponsePtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
@@ -4997,7 +4651,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
-	pulumi.RegisterOutputType(SkuCapabilityOutput{})
 	pulumi.RegisterOutputType(SkuCapabilityResponseOutput{})
 	pulumi.RegisterOutputType(SkuCapabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

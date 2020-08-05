@@ -28,9 +28,6 @@ func NewJob(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Input == nil {
-		return nil, errors.New("missing required argument 'Input'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -96,8 +93,6 @@ type jobArgs struct {
 	CorrelationData map[string]string `pulumi:"correlationData"`
 	// Optional customer supplied description of the Job.
 	Description *string `pulumi:"description"`
-	// The inputs for the Job.
-	Input JobInput `pulumi:"input"`
 	// The Job name.
 	Name string `pulumi:"name"`
 	// The outputs for the Job.
@@ -118,8 +113,6 @@ type JobArgs struct {
 	CorrelationData pulumi.StringMapInput
 	// Optional customer supplied description of the Job.
 	Description pulumi.StringPtrInput
-	// The inputs for the Job.
-	Input JobInputInput
 	// The Job name.
 	Name pulumi.StringInput
 	// The outputs for the Job.

@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// <summary>
         /// The integration account properties.
         /// </summary>
-        public readonly Outputs.IntegrationAccountPropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, object> Properties;
         /// <summary>
         /// The sku.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
 
             string name,
 
-            Outputs.IntegrationAccountPropertiesResponseResult properties,
+            ImmutableDictionary<string, object> properties,
 
             Outputs.IntegrationAccountSkuResponseResult? sku,
 

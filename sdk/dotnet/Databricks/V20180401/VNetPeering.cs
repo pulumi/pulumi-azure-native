@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
         [Input("databricksVirtualNetwork")]
-        public Input<Inputs.VirtualNetworkPeeringPropertiesFormatPropertiesArgs>? DatabricksVirtualNetwork { get; set; }
+        public Input<Inputs.VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs>? DatabricksVirtualNetwork { get; set; }
 
         /// <summary>
         /// The name of the workspace vNet peering.
@@ -123,7 +123,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
         [Input("remoteVirtualNetwork", required: true)]
-        public Input<Inputs.VirtualNetworkPeeringPropertiesFormatPropertiesArgs> RemoteVirtualNetwork { get; set; } = null!;
+        public Input<Inputs.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs> RemoteVirtualNetwork { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

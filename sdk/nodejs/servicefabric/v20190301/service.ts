@@ -134,7 +134,7 @@ export interface ServiceArgs {
     /**
      * A list that describes the correlation of the service with other services.
      */
-    readonly correlationScheme?: pulumi.Input<inputs.servicefabric.v20190301.CorrelationSchemeList>;
+    readonly correlationScheme?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20190301.ServiceCorrelationDescription>[]>;
     /**
      * Specifies the move cost for the service.
      */
@@ -166,7 +166,7 @@ export interface ServiceArgs {
     /**
      * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
      */
-    readonly serviceLoadMetrics?: pulumi.Input<inputs.servicefabric.v20190301.ServiceLoadMetricsList>;
+    readonly serviceLoadMetrics?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20190301.ServiceLoadMetricDescription>[]>;
     /**
      * The activation Mode of the service package
      */
@@ -174,7 +174,7 @@ export interface ServiceArgs {
     /**
      * A list that describes the correlation of the service with other services.
      */
-    readonly servicePlacementPolicies?: pulumi.Input<inputs.servicefabric.v20190301.ServicePlacementPoliciesList>;
+    readonly servicePlacementPolicies?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20190301.ServicePlacementPolicyDescription>[]>;
     /**
      * The name of the service type
      */

@@ -14,10 +14,6 @@ namespace Pulumi.AzureRM.Insights.V20160301.Outputs
     public sealed class AlertRuleResponseResult
     {
         /// <summary>
-        /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.RuleActionResponseResult> Actions;
-        /// <summary>
         /// the condition that results in the alert rule being activated.
         /// </summary>
         public readonly Outputs.RuleConditionResponseResult Condition;
@@ -40,8 +36,6 @@ namespace Pulumi.AzureRM.Insights.V20160301.Outputs
 
         [OutputConstructor]
         private AlertRuleResponseResult(
-            ImmutableArray<Outputs.RuleActionResponseResult> actions,
-
             Outputs.RuleConditionResponseResult condition,
 
             string? description,
@@ -52,7 +46,6 @@ namespace Pulumi.AzureRM.Insights.V20160301.Outputs
 
             string name)
         {
-            Actions = actions;
             Condition = condition;
             Description = description;
             IsEnabled = isEnabled;

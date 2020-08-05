@@ -10,97 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// An action group resource.
-type ActionGroupType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The action groups properties of the resource.
-	Properties ActionGroupResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// ActionGroupTypeInput is an input type that accepts ActionGroupTypeArgs and ActionGroupTypeOutput values.
-// You can construct a concrete instance of `ActionGroupTypeInput` via:
-//
-//          ActionGroupTypeArgs{...}
-type ActionGroupTypeInput interface {
-	pulumi.Input
-
-	ToActionGroupTypeOutput() ActionGroupTypeOutput
-	ToActionGroupTypeOutputWithContext(context.Context) ActionGroupTypeOutput
-}
-
-// An action group resource.
-type ActionGroupTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The action groups properties of the resource.
-	Properties ActionGroupResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ActionGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroupType)(nil)).Elem()
-}
-
-func (i ActionGroupTypeArgs) ToActionGroupTypeOutput() ActionGroupTypeOutput {
-	return i.ToActionGroupTypeOutputWithContext(context.Background())
-}
-
-func (i ActionGroupTypeArgs) ToActionGroupTypeOutputWithContext(ctx context.Context) ActionGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupTypeOutput)
-}
-
-// An action group resource.
-type ActionGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (ActionGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroupType)(nil)).Elem()
-}
-
-func (o ActionGroupTypeOutput) ToActionGroupTypeOutput() ActionGroupTypeOutput {
-	return o
-}
-
-func (o ActionGroupTypeOutput) ToActionGroupTypeOutputWithContext(ctx context.Context) ActionGroupTypeOutput {
-	return o
-}
-
-// Resource location
-func (o ActionGroupTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ActionGroupType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o ActionGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ActionGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The action groups properties of the resource.
-func (o ActionGroupTypeOutput) Properties() ActionGroupResponseOutput {
-	return o.ApplyT(func(v ActionGroupType) ActionGroupResponse { return v.Properties }).(ActionGroupResponseOutput)
-}
-
-// Resource tags
-func (o ActionGroupTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ActionGroupType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type
-func (o ActionGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ActionGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // An Azure action group.
 type ActionGroupResponse struct {
 	// The list of AutomationRunbook receivers that are part of this action group.
@@ -1922,97 +1831,6 @@ func (o LogicAppReceiverResponseArrayOutput) Index(i pulumi.IntInput) LogicAppRe
 	}).(LogicAppReceiverResponseOutput)
 }
 
-// The metric alert resource.
-type MetricAlertType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The alert rule properties of the resource.
-	Properties MetricAlertPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// MetricAlertTypeInput is an input type that accepts MetricAlertTypeArgs and MetricAlertTypeOutput values.
-// You can construct a concrete instance of `MetricAlertTypeInput` via:
-//
-//          MetricAlertTypeArgs{...}
-type MetricAlertTypeInput interface {
-	pulumi.Input
-
-	ToMetricAlertTypeOutput() MetricAlertTypeOutput
-	ToMetricAlertTypeOutputWithContext(context.Context) MetricAlertTypeOutput
-}
-
-// The metric alert resource.
-type MetricAlertTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The alert rule properties of the resource.
-	Properties MetricAlertPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MetricAlertTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertType)(nil)).Elem()
-}
-
-func (i MetricAlertTypeArgs) ToMetricAlertTypeOutput() MetricAlertTypeOutput {
-	return i.ToMetricAlertTypeOutputWithContext(context.Background())
-}
-
-func (i MetricAlertTypeArgs) ToMetricAlertTypeOutputWithContext(ctx context.Context) MetricAlertTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertTypeOutput)
-}
-
-// The metric alert resource.
-type MetricAlertTypeOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertType)(nil)).Elem()
-}
-
-func (o MetricAlertTypeOutput) ToMetricAlertTypeOutput() MetricAlertTypeOutput {
-	return o
-}
-
-func (o MetricAlertTypeOutput) ToMetricAlertTypeOutputWithContext(ctx context.Context) MetricAlertTypeOutput {
-	return o
-}
-
-// Resource location
-func (o MetricAlertTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricAlertType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o MetricAlertTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricAlertType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The alert rule properties of the resource.
-func (o MetricAlertTypeOutput) Properties() MetricAlertPropertiesResponseOutput {
-	return o.ApplyT(func(v MetricAlertType) MetricAlertPropertiesResponse { return v.Properties }).(MetricAlertPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o MetricAlertTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MetricAlertType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type
-func (o MetricAlertTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MetricAlertType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // An alert action.
 type MetricAlertAction struct {
 	// the id of the action group to use.
@@ -2231,244 +2049,12 @@ func (o MetricAlertActionResponseArrayOutput) Index(i pulumi.IntInput) MetricAle
 	}).(MetricAlertActionResponseOutput)
 }
 
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteria struct {
-}
-
-// MetricAlertCriteriaInput is an input type that accepts MetricAlertCriteriaArgs and MetricAlertCriteriaOutput values.
-// You can construct a concrete instance of `MetricAlertCriteriaInput` via:
-//
-//          MetricAlertCriteriaArgs{...}
-type MetricAlertCriteriaInput interface {
-	pulumi.Input
-
-	ToMetricAlertCriteriaOutput() MetricAlertCriteriaOutput
-	ToMetricAlertCriteriaOutputWithContext(context.Context) MetricAlertCriteriaOutput
-}
-
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteriaArgs struct {
-}
-
-func (MetricAlertCriteriaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertCriteria)(nil)).Elem()
-}
-
-func (i MetricAlertCriteriaArgs) ToMetricAlertCriteriaOutput() MetricAlertCriteriaOutput {
-	return i.ToMetricAlertCriteriaOutputWithContext(context.Background())
-}
-
-func (i MetricAlertCriteriaArgs) ToMetricAlertCriteriaOutputWithContext(ctx context.Context) MetricAlertCriteriaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaOutput)
-}
-
-func (i MetricAlertCriteriaArgs) ToMetricAlertCriteriaPtrOutput() MetricAlertCriteriaPtrOutput {
-	return i.ToMetricAlertCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i MetricAlertCriteriaArgs) ToMetricAlertCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaOutput).ToMetricAlertCriteriaPtrOutputWithContext(ctx)
-}
-
-// MetricAlertCriteriaPtrInput is an input type that accepts MetricAlertCriteriaArgs, MetricAlertCriteriaPtr and MetricAlertCriteriaPtrOutput values.
-// You can construct a concrete instance of `MetricAlertCriteriaPtrInput` via:
-//
-//          MetricAlertCriteriaArgs{...}
-//
-//  or:
-//
-//          nil
-type MetricAlertCriteriaPtrInput interface {
-	pulumi.Input
-
-	ToMetricAlertCriteriaPtrOutput() MetricAlertCriteriaPtrOutput
-	ToMetricAlertCriteriaPtrOutputWithContext(context.Context) MetricAlertCriteriaPtrOutput
-}
-
-type metricAlertCriteriaPtrType MetricAlertCriteriaArgs
-
-func MetricAlertCriteriaPtr(v *MetricAlertCriteriaArgs) MetricAlertCriteriaPtrInput {
-	return (*metricAlertCriteriaPtrType)(v)
-}
-
-func (*metricAlertCriteriaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertCriteria)(nil)).Elem()
-}
-
-func (i *metricAlertCriteriaPtrType) ToMetricAlertCriteriaPtrOutput() MetricAlertCriteriaPtrOutput {
-	return i.ToMetricAlertCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i *metricAlertCriteriaPtrType) ToMetricAlertCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaPtrOutput)
-}
-
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteriaOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertCriteriaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertCriteria)(nil)).Elem()
-}
-
-func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaOutput() MetricAlertCriteriaOutput {
-	return o
-}
-
-func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaOutputWithContext(ctx context.Context) MetricAlertCriteriaOutput {
-	return o
-}
-
-func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaPtrOutput() MetricAlertCriteriaPtrOutput {
-	return o.ToMetricAlertCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (o MetricAlertCriteriaOutput) ToMetricAlertCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertCriteriaPtrOutput {
-	return o.ApplyT(func(v MetricAlertCriteria) *MetricAlertCriteria {
-		return &v
-	}).(MetricAlertCriteriaPtrOutput)
-}
-
-type MetricAlertCriteriaPtrOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertCriteriaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertCriteria)(nil)).Elem()
-}
-
-func (o MetricAlertCriteriaPtrOutput) ToMetricAlertCriteriaPtrOutput() MetricAlertCriteriaPtrOutput {
-	return o
-}
-
-func (o MetricAlertCriteriaPtrOutput) ToMetricAlertCriteriaPtrOutputWithContext(ctx context.Context) MetricAlertCriteriaPtrOutput {
-	return o
-}
-
-func (o MetricAlertCriteriaPtrOutput) Elem() MetricAlertCriteriaOutput {
-	return o.ApplyT(func(v *MetricAlertCriteria) MetricAlertCriteria { return *v }).(MetricAlertCriteriaOutput)
-}
-
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteriaResponse struct {
-}
-
-// MetricAlertCriteriaResponseInput is an input type that accepts MetricAlertCriteriaResponseArgs and MetricAlertCriteriaResponseOutput values.
-// You can construct a concrete instance of `MetricAlertCriteriaResponseInput` via:
-//
-//          MetricAlertCriteriaResponseArgs{...}
-type MetricAlertCriteriaResponseInput interface {
-	pulumi.Input
-
-	ToMetricAlertCriteriaResponseOutput() MetricAlertCriteriaResponseOutput
-	ToMetricAlertCriteriaResponseOutputWithContext(context.Context) MetricAlertCriteriaResponseOutput
-}
-
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteriaResponseArgs struct {
-}
-
-func (MetricAlertCriteriaResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertCriteriaResponse)(nil)).Elem()
-}
-
-func (i MetricAlertCriteriaResponseArgs) ToMetricAlertCriteriaResponseOutput() MetricAlertCriteriaResponseOutput {
-	return i.ToMetricAlertCriteriaResponseOutputWithContext(context.Background())
-}
-
-func (i MetricAlertCriteriaResponseArgs) ToMetricAlertCriteriaResponseOutputWithContext(ctx context.Context) MetricAlertCriteriaResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaResponseOutput)
-}
-
-func (i MetricAlertCriteriaResponseArgs) ToMetricAlertCriteriaResponsePtrOutput() MetricAlertCriteriaResponsePtrOutput {
-	return i.ToMetricAlertCriteriaResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MetricAlertCriteriaResponseArgs) ToMetricAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) MetricAlertCriteriaResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaResponseOutput).ToMetricAlertCriteriaResponsePtrOutputWithContext(ctx)
-}
-
-// MetricAlertCriteriaResponsePtrInput is an input type that accepts MetricAlertCriteriaResponseArgs, MetricAlertCriteriaResponsePtr and MetricAlertCriteriaResponsePtrOutput values.
-// You can construct a concrete instance of `MetricAlertCriteriaResponsePtrInput` via:
-//
-//          MetricAlertCriteriaResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type MetricAlertCriteriaResponsePtrInput interface {
-	pulumi.Input
-
-	ToMetricAlertCriteriaResponsePtrOutput() MetricAlertCriteriaResponsePtrOutput
-	ToMetricAlertCriteriaResponsePtrOutputWithContext(context.Context) MetricAlertCriteriaResponsePtrOutput
-}
-
-type metricAlertCriteriaResponsePtrType MetricAlertCriteriaResponseArgs
-
-func MetricAlertCriteriaResponsePtr(v *MetricAlertCriteriaResponseArgs) MetricAlertCriteriaResponsePtrInput {
-	return (*metricAlertCriteriaResponsePtrType)(v)
-}
-
-func (*metricAlertCriteriaResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertCriteriaResponse)(nil)).Elem()
-}
-
-func (i *metricAlertCriteriaResponsePtrType) ToMetricAlertCriteriaResponsePtrOutput() MetricAlertCriteriaResponsePtrOutput {
-	return i.ToMetricAlertCriteriaResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *metricAlertCriteriaResponsePtrType) ToMetricAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) MetricAlertCriteriaResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricAlertCriteriaResponsePtrOutput)
-}
-
-// The rule criteria that defines the conditions of the alert rule.
-type MetricAlertCriteriaResponseOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertCriteriaResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlertCriteriaResponse)(nil)).Elem()
-}
-
-func (o MetricAlertCriteriaResponseOutput) ToMetricAlertCriteriaResponseOutput() MetricAlertCriteriaResponseOutput {
-	return o
-}
-
-func (o MetricAlertCriteriaResponseOutput) ToMetricAlertCriteriaResponseOutputWithContext(ctx context.Context) MetricAlertCriteriaResponseOutput {
-	return o
-}
-
-func (o MetricAlertCriteriaResponseOutput) ToMetricAlertCriteriaResponsePtrOutput() MetricAlertCriteriaResponsePtrOutput {
-	return o.ToMetricAlertCriteriaResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MetricAlertCriteriaResponseOutput) ToMetricAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) MetricAlertCriteriaResponsePtrOutput {
-	return o.ApplyT(func(v MetricAlertCriteriaResponse) *MetricAlertCriteriaResponse {
-		return &v
-	}).(MetricAlertCriteriaResponsePtrOutput)
-}
-
-type MetricAlertCriteriaResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (MetricAlertCriteriaResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricAlertCriteriaResponse)(nil)).Elem()
-}
-
-func (o MetricAlertCriteriaResponsePtrOutput) ToMetricAlertCriteriaResponsePtrOutput() MetricAlertCriteriaResponsePtrOutput {
-	return o
-}
-
-func (o MetricAlertCriteriaResponsePtrOutput) ToMetricAlertCriteriaResponsePtrOutputWithContext(ctx context.Context) MetricAlertCriteriaResponsePtrOutput {
-	return o
-}
-
-func (o MetricAlertCriteriaResponsePtrOutput) Elem() MetricAlertCriteriaResponseOutput {
-	return o.ApplyT(func(v *MetricAlertCriteriaResponse) MetricAlertCriteriaResponse { return *v }).(MetricAlertCriteriaResponseOutput)
-}
-
 // An alert rule.
 type MetricAlertPropertiesResponse struct {
 	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
 	Actions []MetricAlertActionResponse `pulumi:"actions"`
 	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
-	// defines the specific alert criteria information.
-	Criteria MetricAlertCriteriaResponse `pulumi:"criteria"`
 	// the description of the metric alert that will be included in the alert email.
 	Description string `pulumi:"description"`
 	// the flag that indicates whether the metric alert is enabled.
@@ -2506,8 +2092,6 @@ type MetricAlertPropertiesResponseArgs struct {
 	Actions MetricAlertActionResponseArrayInput `pulumi:"actions"`
 	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
 	AutoMitigate pulumi.BoolPtrInput `pulumi:"autoMitigate"`
-	// defines the specific alert criteria information.
-	Criteria MetricAlertCriteriaResponseInput `pulumi:"criteria"`
 	// the description of the metric alert that will be included in the alert email.
 	Description pulumi.StringInput `pulumi:"description"`
 	// the flag that indicates whether the metric alert is enabled.
@@ -2616,11 +2200,6 @@ func (o MetricAlertPropertiesResponseOutput) AutoMitigate() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v MetricAlertPropertiesResponse) *bool { return v.AutoMitigate }).(pulumi.BoolPtrOutput)
 }
 
-// defines the specific alert criteria information.
-func (o MetricAlertPropertiesResponseOutput) Criteria() MetricAlertCriteriaResponseOutput {
-	return o.ApplyT(func(v MetricAlertPropertiesResponse) MetricAlertCriteriaResponse { return v.Criteria }).(MetricAlertCriteriaResponseOutput)
-}
-
 // the description of the metric alert that will be included in the alert email.
 func (o MetricAlertPropertiesResponseOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlertPropertiesResponse) string { return v.Description }).(pulumi.StringOutput)
@@ -2702,16 +2281,6 @@ func (o MetricAlertPropertiesResponsePtrOutput) AutoMitigate() pulumi.BoolPtrOut
 		}
 		return v.AutoMitigate
 	}).(pulumi.BoolPtrOutput)
-}
-
-// defines the specific alert criteria information.
-func (o MetricAlertPropertiesResponsePtrOutput) Criteria() MetricAlertCriteriaResponsePtrOutput {
-	return o.ApplyT(func(v *MetricAlertPropertiesResponse) *MetricAlertCriteriaResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Criteria
-	}).(MetricAlertCriteriaResponsePtrOutput)
 }
 
 // the description of the metric alert that will be included in the alert email.
@@ -3504,7 +3073,6 @@ func (o WebhookReceiverResponseArrayOutput) Index(i pulumi.IntInput) WebhookRece
 }
 
 func init() {
-	pulumi.RegisterOutputType(ActionGroupTypeOutput{})
 	pulumi.RegisterOutputType(ActionGroupResponseOutput{})
 	pulumi.RegisterOutputType(ActionGroupResponsePtrOutput{})
 	pulumi.RegisterOutputType(AutomationRunbookReceiverOutput{})
@@ -3531,15 +3099,10 @@ func init() {
 	pulumi.RegisterOutputType(LogicAppReceiverArrayOutput{})
 	pulumi.RegisterOutputType(LogicAppReceiverResponseOutput{})
 	pulumi.RegisterOutputType(LogicAppReceiverResponseArrayOutput{})
-	pulumi.RegisterOutputType(MetricAlertTypeOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionResponseOutput{})
 	pulumi.RegisterOutputType(MetricAlertActionResponseArrayOutput{})
-	pulumi.RegisterOutputType(MetricAlertCriteriaOutput{})
-	pulumi.RegisterOutputType(MetricAlertCriteriaPtrOutput{})
-	pulumi.RegisterOutputType(MetricAlertCriteriaResponseOutput{})
-	pulumi.RegisterOutputType(MetricAlertCriteriaResponsePtrOutput{})
 	pulumi.RegisterOutputType(MetricAlertPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MetricAlertPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SmsReceiverOutput{})

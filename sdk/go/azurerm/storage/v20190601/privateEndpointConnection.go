@@ -88,8 +88,6 @@ type privateEndpointConnectionArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the private endpoint connection associated with the Azure resource
 	Name string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
@@ -104,8 +102,6 @@ type PrivateEndpointConnectionArgs struct {
 	AccountName pulumi.StringInput
 	// The name of the private endpoint connection associated with the Azure resource
 	Name pulumi.StringInput
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointPtrInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	// The provisioning state of the private endpoint connection resource.

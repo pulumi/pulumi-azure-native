@@ -198,17 +198,11 @@ class IotHubResource(pulumi.CustomResource):
           * `messaging_endpoints` (`pulumi.Input[dict]`) - The messaging endpoint properties for the file upload notification queue.
           * `min_tls_version` (`pulumi.Input[str]`) - Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
           * `private_endpoint_connections` (`pulumi.Input[list]`) - Private endpoint connections created on this IotHub
-            * `name` (`pulumi.Input[str]`) - The resource name.
             * `properties` (`pulumi.Input[dict]`) - The properties of a private endpoint connection
-              * `private_endpoint` (`pulumi.Input[dict]`) - The private endpoint property of a private endpoint connection
-                * `id` (`pulumi.Input[str]`) - The resource identifier.
-
               * `private_link_service_connection_state` (`pulumi.Input[dict]`) - The current state of a private endpoint connection
                 * `actions_required` (`pulumi.Input[str]`) - Actions required for a private endpoint connection
                 * `description` (`pulumi.Input[str]`) - The description for the current state of a private endpoint connection
                 * `status` (`pulumi.Input[str]`) - The status of a private endpoint connection
-
-            * `type` (`pulumi.Input[str]`) - The resource type.
 
           * `public_network_access` (`pulumi.Input[str]`) - Whether requests from Public Network are allowed
           * `routing` (`pulumi.Input[dict]`) - The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging

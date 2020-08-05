@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901.Outputs
         /// <summary>
         /// The policy set definition parameters that can be used in policy definition references.
         /// </summary>
-        public readonly Outputs.ParameterDefinitionsResponseResult? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? Parameters;
         /// <summary>
         /// The metadata describing groups of policy definition references within the policy set definition.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901.Outputs
 
             ImmutableDictionary<string, object>? metadata,
 
-            Outputs.ParameterDefinitionsResponseResult? parameters,
+            ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? parameters,
 
             ImmutableArray<Outputs.PolicyDefinitionGroupResponseResult> policyDefinitionGroups,
 

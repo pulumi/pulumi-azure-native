@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview.Outputs
         /// <summary>
         /// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ClusterIdentityResponsePropertiesResult>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.ClusterIdentityResponseUserAssignedIdentitiesResult>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ClusterIdentityResponseResult(
@@ -38,7 +38,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview.Outputs
 
             string? type,
 
-            ImmutableDictionary<string, Outputs.ClusterIdentityResponsePropertiesResult>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.ClusterIdentityResponseUserAssignedIdentitiesResult>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

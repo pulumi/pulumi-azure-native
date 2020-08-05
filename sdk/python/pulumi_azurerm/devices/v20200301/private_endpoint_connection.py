@@ -42,7 +42,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         The **properties** object supports the following:
 
-          * `private_endpoint` (`pulumi.Input[dict]`) - The private endpoint property of a private endpoint connection
           * `private_link_service_connection_state` (`pulumi.Input[dict]`) - The current state of a private endpoint connection
             * `actions_required` (`pulumi.Input[str]`) - Actions required for a private endpoint connection
             * `description` (`pulumi.Input[str]`) - The description for the current state of a private endpoint connection

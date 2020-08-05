@@ -51,7 +51,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
-    public /*out*/ readonly tags!: pulumi.Output<outputs.documentdb.v20150408.TagsResponse | undefined>;
+    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of Azure resource.
      */
@@ -129,7 +129,7 @@ export interface DatabaseAccountGremlinGraphArgs {
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly options: pulumi.Input<inputs.documentdb.v20150408.CreateUpdateOptions>;
+    readonly options: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The standard JSON format of a Gremlin graph
      */

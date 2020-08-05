@@ -242,16 +242,14 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
 
           * `extension_profile` (`pulumi.Input[dict]`) - Specifies a collection of settings for extensions installed on virtual machines in the scale set.
             * `extensions` (`pulumi.Input[list]`) - The virtual machine scale set child extension resources.
+              * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+              * `force_update_tag` (`pulumi.Input[str]`) - If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
               * `name` (`pulumi.Input[str]`) - The name of the extension.
-              * `properties` (`pulumi.Input[dict]`) - Describes the properties of a Virtual Machine Scale Set Extension.
-                * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-                * `force_update_tag` (`pulumi.Input[str]`) - If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-                * `protected_settings` (`pulumi.Input[dict]`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-                * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
-                * `publisher` (`pulumi.Input[str]`) - The name of the extension handler publisher.
-                * `settings` (`pulumi.Input[dict]`) - Json formatted public settings for the extension.
-                * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-                * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
+              * `protected_settings` (`pulumi.Input[dict]`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+              * `publisher` (`pulumi.Input[str]`) - The name of the extension handler publisher.
+              * `settings` (`pulumi.Input[dict]`) - Json formatted public settings for the extension.
+              * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
+              * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
 
           * `license_type` (`pulumi.Input[str]`) - Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
           * `network_profile` (`pulumi.Input[dict]`) - Specifies properties of the network interfaces of the virtual machines in the scale set.

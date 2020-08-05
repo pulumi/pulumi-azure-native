@@ -21,18 +21,6 @@ namespace Pulumi.AzureRM.Compute.V20190701.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        [Input("userAssignedIdentities")]
-        private InputMap<Inputs.VirtualMachineIdentityPropertiesArgs>? _userAssignedIdentities;
-
-        /// <summary>
-        /// The list of user identities associated with the Virtual Machine. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        /// </summary>
-        public InputMap<Inputs.VirtualMachineIdentityPropertiesArgs> UserAssignedIdentities
-        {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.VirtualMachineIdentityPropertiesArgs>());
-            set => _userAssignedIdentities = value;
-        }
-
         public VirtualMachineIdentityArgs()
         {
         }

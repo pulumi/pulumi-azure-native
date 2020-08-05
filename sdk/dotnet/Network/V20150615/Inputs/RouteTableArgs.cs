@@ -52,14 +52,14 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         }
 
         [Input("subnets")]
-        private InputList<Inputs.SubnetDefinitionArgs>? _subnets;
+        private InputList<Inputs.SubnetArgs>? _subnets;
 
         /// <summary>
         /// A collection of references to subnets.
         /// </summary>
-        public InputList<Inputs.SubnetDefinitionArgs> Subnets
+        public InputList<Inputs.SubnetArgs> Subnets
         {
-            get => _subnets ?? (_subnets = new InputList<Inputs.SubnetDefinitionArgs>());
+            get => _subnets ?? (_subnets = new InputList<Inputs.SubnetArgs>());
             set => _subnets = value;
         }
 

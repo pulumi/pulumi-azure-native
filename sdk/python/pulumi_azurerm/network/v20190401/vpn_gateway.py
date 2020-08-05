@@ -99,39 +99,32 @@ class VpnGateway(pulumi.CustomResource):
 
         The **connections** object supports the following:
 
-          * `etag` (`pulumi.Input[str]`) - Gets a unique read-only string that changes whenever the resource is updated.
-          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `properties` (`pulumi.Input[dict]`) - Properties of the VPN connection.
-            * `connection_bandwidth` (`pulumi.Input[float]`) - Expected bandwidth in MBPS.
-            * `connection_status` (`pulumi.Input[str]`) - The connection status.
-            * `egress_bytes_transferred` (`pulumi.Input[float]`) - Egress bytes transferred.
-            * `enable_bgp` (`pulumi.Input[bool]`) - EnableBgp flag.
-            * `enable_internet_security` (`pulumi.Input[bool]`) - Enable internet security.
-            * `enable_rate_limiting` (`pulumi.Input[bool]`) - EnableBgp flag.
-            * `ingress_bytes_transferred` (`pulumi.Input[float]`) - Ingress bytes transferred.
-            * `ipsec_policies` (`pulumi.Input[list]`) - The IPSec Policies to be considered by this connection.
-              * `dh_group` (`pulumi.Input[str]`) - The DH Group used in IKE Phase 1 for initial SA.
-              * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
-              * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
-              * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
-              * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
-              * `pfs_group` (`pulumi.Input[str]`) - The Pfs Group used in IKE Phase 2 for new child SA.
-              * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-              * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
-
-            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-            * `remote_vpn_site` (`pulumi.Input[dict]`) - Id of the connected vpn site.
-              * `id` (`pulumi.Input[str]`) - Resource ID.
-
-            * `routing_weight` (`pulumi.Input[float]`) - Routing weight for vpn connection.
-            * `shared_key` (`pulumi.Input[str]`) - SharedKey for the vpn connection.
-            * `use_local_azure_ip_address` (`pulumi.Input[bool]`) - Use local azure ip to initiate connection.
-            * `use_policy_based_traffic_selectors` (`pulumi.Input[bool]`) - Enable policy-based traffic selectors.
-            * `vpn_connection_protocol_type` (`pulumi.Input[str]`) - Connection protocol used for this connection.
-
-        The **virtual_hub** object supports the following:
-
+          * `connection_bandwidth` (`pulumi.Input[float]`) - Expected bandwidth in MBPS.
+          * `connection_status` (`pulumi.Input[str]`) - The connection status.
+          * `enable_bgp` (`pulumi.Input[bool]`) - EnableBgp flag.
+          * `enable_internet_security` (`pulumi.Input[bool]`) - Enable internet security.
+          * `enable_rate_limiting` (`pulumi.Input[bool]`) - EnableBgp flag.
           * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `ipsec_policies` (`pulumi.Input[list]`) - The IPSec Policies to be considered by this connection.
+            * `dh_group` (`pulumi.Input[str]`) - The DH Group used in IKE Phase 1 for initial SA.
+            * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
+            * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
+            * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
+            * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
+            * `pfs_group` (`pulumi.Input[str]`) - The Pfs Group used in IKE Phase 2 for new child SA.
+            * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+            * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+
+          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
+          * `remote_vpn_site` (`pulumi.Input[dict]`) - Id of the connected vpn site.
+            * `id` (`pulumi.Input[str]`) - Resource ID.
+
+          * `routing_weight` (`pulumi.Input[float]`) - Routing weight for vpn connection.
+          * `shared_key` (`pulumi.Input[str]`) - SharedKey for the vpn connection.
+          * `use_local_azure_ip_address` (`pulumi.Input[bool]`) - Use local azure ip to initiate connection.
+          * `use_policy_based_traffic_selectors` (`pulumi.Input[bool]`) - Enable policy-based traffic selectors.
+          * `vpn_connection_protocol_type` (`pulumi.Input[str]`) - Connection protocol used for this connection.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

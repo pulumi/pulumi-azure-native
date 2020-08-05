@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// Integration runtime properties.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.IntegrationRuntimeDefinitionArgs> Properties { get; set; } = null!;
+        public Input<Inputs.IntegrationRuntimeArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

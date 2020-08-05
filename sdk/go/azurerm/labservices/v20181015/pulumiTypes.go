@@ -10,97 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents an environment instance
-type EnvironmentType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the Environment resource
-	Properties EnvironmentPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// EnvironmentTypeInput is an input type that accepts EnvironmentTypeArgs and EnvironmentTypeOutput values.
-// You can construct a concrete instance of `EnvironmentTypeInput` via:
-//
-//          EnvironmentTypeArgs{...}
-type EnvironmentTypeInput interface {
-	pulumi.Input
-
-	ToEnvironmentTypeOutput() EnvironmentTypeOutput
-	ToEnvironmentTypeOutputWithContext(context.Context) EnvironmentTypeOutput
-}
-
-// Represents an environment instance
-type EnvironmentTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the Environment resource
-	Properties EnvironmentPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (EnvironmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentType)(nil)).Elem()
-}
-
-func (i EnvironmentTypeArgs) ToEnvironmentTypeOutput() EnvironmentTypeOutput {
-	return i.ToEnvironmentTypeOutputWithContext(context.Background())
-}
-
-func (i EnvironmentTypeArgs) ToEnvironmentTypeOutputWithContext(ctx context.Context) EnvironmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTypeOutput)
-}
-
-// Represents an environment instance
-type EnvironmentTypeOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentType)(nil)).Elem()
-}
-
-func (o EnvironmentTypeOutput) ToEnvironmentTypeOutput() EnvironmentTypeOutput {
-	return o
-}
-
-func (o EnvironmentTypeOutput) ToEnvironmentTypeOutputWithContext(ctx context.Context) EnvironmentTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o EnvironmentTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o EnvironmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the Environment resource
-func (o EnvironmentTypeOutput) Properties() EnvironmentPropertiesResponseOutput {
-	return o.ApplyT(func(v EnvironmentType) EnvironmentPropertiesResponse { return v.Properties }).(EnvironmentPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o EnvironmentTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EnvironmentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o EnvironmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // This represents the details about a User's environment and its state.
 type EnvironmentDetailsResponse struct {
 	// Description of the Environment
@@ -616,97 +525,6 @@ func (o EnvironmentPropertiesResponsePtrOutput) UniqueIdentifier() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents settings of an environment, from which environment instances would be created
-type EnvironmentSettingType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the Environment Setting resource
-	Properties EnvironmentSettingPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// EnvironmentSettingTypeInput is an input type that accepts EnvironmentSettingTypeArgs and EnvironmentSettingTypeOutput values.
-// You can construct a concrete instance of `EnvironmentSettingTypeInput` via:
-//
-//          EnvironmentSettingTypeArgs{...}
-type EnvironmentSettingTypeInput interface {
-	pulumi.Input
-
-	ToEnvironmentSettingTypeOutput() EnvironmentSettingTypeOutput
-	ToEnvironmentSettingTypeOutputWithContext(context.Context) EnvironmentSettingTypeOutput
-}
-
-// Represents settings of an environment, from which environment instances would be created
-type EnvironmentSettingTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the Environment Setting resource
-	Properties EnvironmentSettingPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (EnvironmentSettingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentSettingType)(nil)).Elem()
-}
-
-func (i EnvironmentSettingTypeArgs) ToEnvironmentSettingTypeOutput() EnvironmentSettingTypeOutput {
-	return i.ToEnvironmentSettingTypeOutputWithContext(context.Background())
-}
-
-func (i EnvironmentSettingTypeArgs) ToEnvironmentSettingTypeOutputWithContext(ctx context.Context) EnvironmentSettingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSettingTypeOutput)
-}
-
-// Represents settings of an environment, from which environment instances would be created
-type EnvironmentSettingTypeOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentSettingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentSettingType)(nil)).Elem()
-}
-
-func (o EnvironmentSettingTypeOutput) ToEnvironmentSettingTypeOutput() EnvironmentSettingTypeOutput {
-	return o
-}
-
-func (o EnvironmentSettingTypeOutput) ToEnvironmentSettingTypeOutputWithContext(ctx context.Context) EnvironmentSettingTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o EnvironmentSettingTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentSettingType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o EnvironmentSettingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentSettingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the Environment Setting resource
-func (o EnvironmentSettingTypeOutput) Properties() EnvironmentSettingPropertiesResponseOutput {
-	return o.ApplyT(func(v EnvironmentSettingType) EnvironmentSettingPropertiesResponse { return v.Properties }).(EnvironmentSettingPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o EnvironmentSettingTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EnvironmentSettingType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o EnvironmentSettingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentSettingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of an environment setting
 type EnvironmentSettingPropertiesResponse struct {
 	// Describes the user's progress in configuring their environment setting
@@ -1015,115 +833,6 @@ func (o EnvironmentSettingPropertiesResponsePtrOutput) UniqueIdentifier() pulumi
 }
 
 // Represents a size category supported by this Lab Account (small, medium or large)
-type EnvironmentSize struct {
-	// The size category
-	Name *string `pulumi:"name"`
-	// Represents a set of compute sizes that can serve this given size type
-	VmSizes []SizeInfo `pulumi:"vmSizes"`
-}
-
-// EnvironmentSizeInput is an input type that accepts EnvironmentSizeArgs and EnvironmentSizeOutput values.
-// You can construct a concrete instance of `EnvironmentSizeInput` via:
-//
-//          EnvironmentSizeArgs{...}
-type EnvironmentSizeInput interface {
-	pulumi.Input
-
-	ToEnvironmentSizeOutput() EnvironmentSizeOutput
-	ToEnvironmentSizeOutputWithContext(context.Context) EnvironmentSizeOutput
-}
-
-// Represents a size category supported by this Lab Account (small, medium or large)
-type EnvironmentSizeArgs struct {
-	// The size category
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Represents a set of compute sizes that can serve this given size type
-	VmSizes SizeInfoArrayInput `pulumi:"vmSizes"`
-}
-
-func (EnvironmentSizeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentSize)(nil)).Elem()
-}
-
-func (i EnvironmentSizeArgs) ToEnvironmentSizeOutput() EnvironmentSizeOutput {
-	return i.ToEnvironmentSizeOutputWithContext(context.Background())
-}
-
-func (i EnvironmentSizeArgs) ToEnvironmentSizeOutputWithContext(ctx context.Context) EnvironmentSizeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSizeOutput)
-}
-
-// EnvironmentSizeArrayInput is an input type that accepts EnvironmentSizeArray and EnvironmentSizeArrayOutput values.
-// You can construct a concrete instance of `EnvironmentSizeArrayInput` via:
-//
-//          EnvironmentSizeArray{ EnvironmentSizeArgs{...} }
-type EnvironmentSizeArrayInput interface {
-	pulumi.Input
-
-	ToEnvironmentSizeArrayOutput() EnvironmentSizeArrayOutput
-	ToEnvironmentSizeArrayOutputWithContext(context.Context) EnvironmentSizeArrayOutput
-}
-
-type EnvironmentSizeArray []EnvironmentSizeInput
-
-func (EnvironmentSizeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentSize)(nil)).Elem()
-}
-
-func (i EnvironmentSizeArray) ToEnvironmentSizeArrayOutput() EnvironmentSizeArrayOutput {
-	return i.ToEnvironmentSizeArrayOutputWithContext(context.Background())
-}
-
-func (i EnvironmentSizeArray) ToEnvironmentSizeArrayOutputWithContext(ctx context.Context) EnvironmentSizeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentSizeArrayOutput)
-}
-
-// Represents a size category supported by this Lab Account (small, medium or large)
-type EnvironmentSizeOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentSizeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentSize)(nil)).Elem()
-}
-
-func (o EnvironmentSizeOutput) ToEnvironmentSizeOutput() EnvironmentSizeOutput {
-	return o
-}
-
-func (o EnvironmentSizeOutput) ToEnvironmentSizeOutputWithContext(ctx context.Context) EnvironmentSizeOutput {
-	return o
-}
-
-// The size category
-func (o EnvironmentSizeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EnvironmentSize) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Represents a set of compute sizes that can serve this given size type
-func (o EnvironmentSizeOutput) VmSizes() SizeInfoArrayOutput {
-	return o.ApplyT(func(v EnvironmentSize) []SizeInfo { return v.VmSizes }).(SizeInfoArrayOutput)
-}
-
-type EnvironmentSizeArrayOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentSizeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentSize)(nil)).Elem()
-}
-
-func (o EnvironmentSizeArrayOutput) ToEnvironmentSizeArrayOutput() EnvironmentSizeArrayOutput {
-	return o
-}
-
-func (o EnvironmentSizeArrayOutput) ToEnvironmentSizeArrayOutputWithContext(ctx context.Context) EnvironmentSizeArrayOutput {
-	return o
-}
-
-func (o EnvironmentSizeArrayOutput) Index(i pulumi.IntInput) EnvironmentSizeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentSize {
-		return vs[0].([]EnvironmentSize)[vs[1].(int)]
-	}).(EnvironmentSizeOutput)
-}
-
-// Represents a size category supported by this Lab Account (small, medium or large)
 type EnvironmentSizeResponse struct {
 	// The pay-as-you-go dollar price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost. This is the maximum price of all prices within this tier.
 	MaxPrice float64 `pulumi:"maxPrice"`
@@ -1257,97 +966,6 @@ func (o EnvironmentSizeResponseArrayOutput) Index(i pulumi.IntInput) Environment
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentSizeResponse {
 		return vs[0].([]EnvironmentSizeResponse)[vs[1].(int)]
 	}).(EnvironmentSizeResponseOutput)
-}
-
-// Represents an image from the Azure Marketplace
-type GalleryImageType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The gallery image properties
-	Properties GalleryImagePropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// GalleryImageTypeInput is an input type that accepts GalleryImageTypeArgs and GalleryImageTypeOutput values.
-// You can construct a concrete instance of `GalleryImageTypeInput` via:
-//
-//          GalleryImageTypeArgs{...}
-type GalleryImageTypeInput interface {
-	pulumi.Input
-
-	ToGalleryImageTypeOutput() GalleryImageTypeOutput
-	ToGalleryImageTypeOutputWithContext(context.Context) GalleryImageTypeOutput
-}
-
-// Represents an image from the Azure Marketplace
-type GalleryImageTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The gallery image properties
-	Properties GalleryImagePropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GalleryImageTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryImageType)(nil)).Elem()
-}
-
-func (i GalleryImageTypeArgs) ToGalleryImageTypeOutput() GalleryImageTypeOutput {
-	return i.ToGalleryImageTypeOutputWithContext(context.Background())
-}
-
-func (i GalleryImageTypeArgs) ToGalleryImageTypeOutputWithContext(ctx context.Context) GalleryImageTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageTypeOutput)
-}
-
-// Represents an image from the Azure Marketplace
-type GalleryImageTypeOutput struct{ *pulumi.OutputState }
-
-func (GalleryImageTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryImageType)(nil)).Elem()
-}
-
-func (o GalleryImageTypeOutput) ToGalleryImageTypeOutput() GalleryImageTypeOutput {
-	return o
-}
-
-func (o GalleryImageTypeOutput) ToGalleryImageTypeOutputWithContext(ctx context.Context) GalleryImageTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o GalleryImageTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImageType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o GalleryImageTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GalleryImageType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The gallery image properties
-func (o GalleryImageTypeOutput) Properties() GalleryImagePropertiesResponseOutput {
-	return o.ApplyT(func(v GalleryImageType) GalleryImagePropertiesResponse { return v.Properties }).(GalleryImagePropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o GalleryImageTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GalleryImageType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o GalleryImageTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GalleryImageType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The gallery image properties
@@ -1694,97 +1312,6 @@ func (o GalleryImagePropertiesResponsePtrOutput) UniqueIdentifier() pulumi.Strin
 }
 
 // The reference information for an Azure Marketplace image.
-type GalleryImageReference struct {
-	// The offer of the gallery image.
-	Offer *string `pulumi:"offer"`
-	// The OS type of the gallery image.
-	OsType *string `pulumi:"osType"`
-	// The publisher of the gallery image.
-	Publisher *string `pulumi:"publisher"`
-	// The SKU of the gallery image.
-	Sku *string `pulumi:"sku"`
-	// The version of the gallery image.
-	Version *string `pulumi:"version"`
-}
-
-// GalleryImageReferenceInput is an input type that accepts GalleryImageReferenceArgs and GalleryImageReferenceOutput values.
-// You can construct a concrete instance of `GalleryImageReferenceInput` via:
-//
-//          GalleryImageReferenceArgs{...}
-type GalleryImageReferenceInput interface {
-	pulumi.Input
-
-	ToGalleryImageReferenceOutput() GalleryImageReferenceOutput
-	ToGalleryImageReferenceOutputWithContext(context.Context) GalleryImageReferenceOutput
-}
-
-// The reference information for an Azure Marketplace image.
-type GalleryImageReferenceArgs struct {
-	// The offer of the gallery image.
-	Offer pulumi.StringPtrInput `pulumi:"offer"`
-	// The OS type of the gallery image.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-	// The publisher of the gallery image.
-	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
-	// The SKU of the gallery image.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// The version of the gallery image.
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (GalleryImageReferenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryImageReference)(nil)).Elem()
-}
-
-func (i GalleryImageReferenceArgs) ToGalleryImageReferenceOutput() GalleryImageReferenceOutput {
-	return i.ToGalleryImageReferenceOutputWithContext(context.Background())
-}
-
-func (i GalleryImageReferenceArgs) ToGalleryImageReferenceOutputWithContext(ctx context.Context) GalleryImageReferenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GalleryImageReferenceOutput)
-}
-
-// The reference information for an Azure Marketplace image.
-type GalleryImageReferenceOutput struct{ *pulumi.OutputState }
-
-func (GalleryImageReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryImageReference)(nil)).Elem()
-}
-
-func (o GalleryImageReferenceOutput) ToGalleryImageReferenceOutput() GalleryImageReferenceOutput {
-	return o
-}
-
-func (o GalleryImageReferenceOutput) ToGalleryImageReferenceOutputWithContext(ctx context.Context) GalleryImageReferenceOutput {
-	return o
-}
-
-// The offer of the gallery image.
-func (o GalleryImageReferenceOutput) Offer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImageReference) *string { return v.Offer }).(pulumi.StringPtrOutput)
-}
-
-// The OS type of the gallery image.
-func (o GalleryImageReferenceOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImageReference) *string { return v.OsType }).(pulumi.StringPtrOutput)
-}
-
-// The publisher of the gallery image.
-func (o GalleryImageReferenceOutput) Publisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImageReference) *string { return v.Publisher }).(pulumi.StringPtrOutput)
-}
-
-// The SKU of the gallery image.
-func (o GalleryImageReferenceOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImageReference) *string { return v.Sku }).(pulumi.StringPtrOutput)
-}
-
-// The version of the gallery image.
-func (o GalleryImageReferenceOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GalleryImageReference) *string { return v.Version }).(pulumi.StringPtrOutput)
-}
-
-// The reference information for an Azure Marketplace image.
 type GalleryImageReferenceResponse struct {
 	// The offer of the gallery image.
 	Offer *string `pulumi:"offer"`
@@ -1992,188 +1519,6 @@ func (o GalleryImageReferenceResponsePtrOutput) Version() pulumi.StringPtrOutput
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
-}
-
-// Represents a lab.
-type LabType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabTypeInput is an input type that accepts LabTypeArgs and LabTypeOutput values.
-// You can construct a concrete instance of `LabTypeInput` via:
-//
-//          LabTypeArgs{...}
-type LabTypeInput interface {
-	pulumi.Input
-
-	ToLabTypeOutput() LabTypeOutput
-	ToLabTypeOutputWithContext(context.Context) LabTypeOutput
-}
-
-// Represents a lab.
-type LabTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabType)(nil)).Elem()
-}
-
-func (i LabTypeArgs) ToLabTypeOutput() LabTypeOutput {
-	return i.ToLabTypeOutputWithContext(context.Background())
-}
-
-func (i LabTypeArgs) ToLabTypeOutputWithContext(ctx context.Context) LabTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabTypeOutput)
-}
-
-// Represents a lab.
-type LabTypeOutput struct{ *pulumi.OutputState }
-
-func (LabTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabType)(nil)).Elem()
-}
-
-func (o LabTypeOutput) ToLabTypeOutput() LabTypeOutput {
-	return o
-}
-
-func (o LabTypeOutput) ToLabTypeOutputWithContext(ctx context.Context) LabTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabTypeOutput) Properties() LabPropertiesResponseOutput {
-	return o.ApplyT(func(v LabType) LabPropertiesResponse { return v.Properties }).(LabPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Represents a lab account.
-type LabAccountType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabAccountPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// LabAccountTypeInput is an input type that accepts LabAccountTypeArgs and LabAccountTypeOutput values.
-// You can construct a concrete instance of `LabAccountTypeInput` via:
-//
-//          LabAccountTypeArgs{...}
-type LabAccountTypeInput interface {
-	pulumi.Input
-
-	ToLabAccountTypeOutput() LabAccountTypeOutput
-	ToLabAccountTypeOutputWithContext(context.Context) LabAccountTypeOutput
-}
-
-// Represents a lab account.
-type LabAccountTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabAccountPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LabAccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabAccountType)(nil)).Elem()
-}
-
-func (i LabAccountTypeArgs) ToLabAccountTypeOutput() LabAccountTypeOutput {
-	return i.ToLabAccountTypeOutputWithContext(context.Background())
-}
-
-func (i LabAccountTypeArgs) ToLabAccountTypeOutputWithContext(ctx context.Context) LabAccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LabAccountTypeOutput)
-}
-
-// Represents a lab account.
-type LabAccountTypeOutput struct{ *pulumi.OutputState }
-
-func (LabAccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabAccountType)(nil)).Elem()
-}
-
-func (o LabAccountTypeOutput) ToLabAccountTypeOutput() LabAccountTypeOutput {
-	return o
-}
-
-func (o LabAccountTypeOutput) ToLabAccountTypeOutputWithContext(ctx context.Context) LabAccountTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o LabAccountTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LabAccountType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o LabAccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LabAccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the resource.
-func (o LabAccountTypeOutput) Properties() LabAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v LabAccountType) LabAccountPropertiesResponse { return v.Properties }).(LabAccountPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o LabAccountTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LabAccountType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o LabAccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LabAccountType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a Lab Account.
@@ -2838,52 +2183,6 @@ func (o LabPropertiesResponsePtrOutput) UserQuota() pulumi.IntPtrOutput {
 }
 
 // Details of the status of an operation.
-type LatestOperationResult struct {
-}
-
-// LatestOperationResultInput is an input type that accepts LatestOperationResultArgs and LatestOperationResultOutput values.
-// You can construct a concrete instance of `LatestOperationResultInput` via:
-//
-//          LatestOperationResultArgs{...}
-type LatestOperationResultInput interface {
-	pulumi.Input
-
-	ToLatestOperationResultOutput() LatestOperationResultOutput
-	ToLatestOperationResultOutputWithContext(context.Context) LatestOperationResultOutput
-}
-
-// Details of the status of an operation.
-type LatestOperationResultArgs struct {
-}
-
-func (LatestOperationResultArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LatestOperationResult)(nil)).Elem()
-}
-
-func (i LatestOperationResultArgs) ToLatestOperationResultOutput() LatestOperationResultOutput {
-	return i.ToLatestOperationResultOutputWithContext(context.Background())
-}
-
-func (i LatestOperationResultArgs) ToLatestOperationResultOutputWithContext(ctx context.Context) LatestOperationResultOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LatestOperationResultOutput)
-}
-
-// Details of the status of an operation.
-type LatestOperationResultOutput struct{ *pulumi.OutputState }
-
-func (LatestOperationResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LatestOperationResult)(nil)).Elem()
-}
-
-func (o LatestOperationResultOutput) ToLatestOperationResultOutput() LatestOperationResultOutput {
-	return o
-}
-
-func (o LatestOperationResultOutput) ToLatestOperationResultOutputWithContext(ctx context.Context) LatestOperationResultOutput {
-	return o
-}
-
-// Details of the status of an operation.
 type LatestOperationResultResponse struct {
 	// Error code on failure.
 	ErrorCode string `pulumi:"errorCode"`
@@ -3110,52 +2409,6 @@ func (o LatestOperationResultResponsePtrOutput) Status() pulumi.StringPtrOutput 
 		}
 		return &v.Status
 	}).(pulumi.StringPtrOutput)
-}
-
-// Network details of the environment
-type NetworkInterface struct {
-}
-
-// NetworkInterfaceInput is an input type that accepts NetworkInterfaceArgs and NetworkInterfaceOutput values.
-// You can construct a concrete instance of `NetworkInterfaceInput` via:
-//
-//          NetworkInterfaceArgs{...}
-type NetworkInterfaceInput interface {
-	pulumi.Input
-
-	ToNetworkInterfaceOutput() NetworkInterfaceOutput
-	ToNetworkInterfaceOutputWithContext(context.Context) NetworkInterfaceOutput
-}
-
-// Network details of the environment
-type NetworkInterfaceArgs struct {
-}
-
-func (NetworkInterfaceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterface)(nil)).Elem()
-}
-
-func (i NetworkInterfaceArgs) ToNetworkInterfaceOutput() NetworkInterfaceOutput {
-	return i.ToNetworkInterfaceOutputWithContext(context.Background())
-}
-
-func (i NetworkInterfaceArgs) ToNetworkInterfaceOutputWithContext(ctx context.Context) NetworkInterfaceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceOutput)
-}
-
-// Network details of the environment
-type NetworkInterfaceOutput struct{ *pulumi.OutputState }
-
-func (NetworkInterfaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterface)(nil)).Elem()
-}
-
-func (o NetworkInterfaceOutput) ToNetworkInterfaceOutput() NetworkInterfaceOutput {
-	return o
-}
-
-func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.Context) NetworkInterfaceOutput {
-	return o
 }
 
 // Network details of the environment
@@ -4401,61 +3654,6 @@ func (o ResourceSettingsResponsePtrOutput) Size() pulumi.StringPtrOutput {
 }
 
 // Represents the size configuration under the lab account
-type SizeConfigurationProperties struct {
-	// Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
-	EnvironmentSizes []EnvironmentSize `pulumi:"environmentSizes"`
-}
-
-// SizeConfigurationPropertiesInput is an input type that accepts SizeConfigurationPropertiesArgs and SizeConfigurationPropertiesOutput values.
-// You can construct a concrete instance of `SizeConfigurationPropertiesInput` via:
-//
-//          SizeConfigurationPropertiesArgs{...}
-type SizeConfigurationPropertiesInput interface {
-	pulumi.Input
-
-	ToSizeConfigurationPropertiesOutput() SizeConfigurationPropertiesOutput
-	ToSizeConfigurationPropertiesOutputWithContext(context.Context) SizeConfigurationPropertiesOutput
-}
-
-// Represents the size configuration under the lab account
-type SizeConfigurationPropertiesArgs struct {
-	// Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
-	EnvironmentSizes EnvironmentSizeArrayInput `pulumi:"environmentSizes"`
-}
-
-func (SizeConfigurationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SizeConfigurationProperties)(nil)).Elem()
-}
-
-func (i SizeConfigurationPropertiesArgs) ToSizeConfigurationPropertiesOutput() SizeConfigurationPropertiesOutput {
-	return i.ToSizeConfigurationPropertiesOutputWithContext(context.Background())
-}
-
-func (i SizeConfigurationPropertiesArgs) ToSizeConfigurationPropertiesOutputWithContext(ctx context.Context) SizeConfigurationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SizeConfigurationPropertiesOutput)
-}
-
-// Represents the size configuration under the lab account
-type SizeConfigurationPropertiesOutput struct{ *pulumi.OutputState }
-
-func (SizeConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SizeConfigurationProperties)(nil)).Elem()
-}
-
-func (o SizeConfigurationPropertiesOutput) ToSizeConfigurationPropertiesOutput() SizeConfigurationPropertiesOutput {
-	return o
-}
-
-func (o SizeConfigurationPropertiesOutput) ToSizeConfigurationPropertiesOutputWithContext(ctx context.Context) SizeConfigurationPropertiesOutput {
-	return o
-}
-
-// Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
-func (o SizeConfigurationPropertiesOutput) EnvironmentSizes() EnvironmentSizeArrayOutput {
-	return o.ApplyT(func(v SizeConfigurationProperties) []EnvironmentSize { return v.EnvironmentSizes }).(EnvironmentSizeArrayOutput)
-}
-
-// Represents the size configuration under the lab account
 type SizeConfigurationPropertiesResponse struct {
 	// Represents a list of size categories supported by this Lab Account (Small, Medium, Large)
 	EnvironmentSizes []EnvironmentSizeResponse `pulumi:"environmentSizes"`
@@ -4590,133 +3788,6 @@ func (o SizeConfigurationPropertiesResponsePtrOutput) EnvironmentSizes() Environ
 }
 
 // Contains detailed information about a size
-type SizeInfo struct {
-	// Represents the actual compute size, e.g. Standard_A2_v2.
-	ComputeSize *string `pulumi:"computeSize"`
-	// The amount of memory available (in GB).
-	Memory *float64 `pulumi:"memory"`
-	// The number of cores a VM of this size has.
-	NumberOfCores *int `pulumi:"numberOfCores"`
-	// The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
-	Price *float64 `pulumi:"price"`
-}
-
-// SizeInfoInput is an input type that accepts SizeInfoArgs and SizeInfoOutput values.
-// You can construct a concrete instance of `SizeInfoInput` via:
-//
-//          SizeInfoArgs{...}
-type SizeInfoInput interface {
-	pulumi.Input
-
-	ToSizeInfoOutput() SizeInfoOutput
-	ToSizeInfoOutputWithContext(context.Context) SizeInfoOutput
-}
-
-// Contains detailed information about a size
-type SizeInfoArgs struct {
-	// Represents the actual compute size, e.g. Standard_A2_v2.
-	ComputeSize pulumi.StringPtrInput `pulumi:"computeSize"`
-	// The amount of memory available (in GB).
-	Memory pulumi.Float64PtrInput `pulumi:"memory"`
-	// The number of cores a VM of this size has.
-	NumberOfCores pulumi.IntPtrInput `pulumi:"numberOfCores"`
-	// The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
-	Price pulumi.Float64PtrInput `pulumi:"price"`
-}
-
-func (SizeInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SizeInfo)(nil)).Elem()
-}
-
-func (i SizeInfoArgs) ToSizeInfoOutput() SizeInfoOutput {
-	return i.ToSizeInfoOutputWithContext(context.Background())
-}
-
-func (i SizeInfoArgs) ToSizeInfoOutputWithContext(ctx context.Context) SizeInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SizeInfoOutput)
-}
-
-// SizeInfoArrayInput is an input type that accepts SizeInfoArray and SizeInfoArrayOutput values.
-// You can construct a concrete instance of `SizeInfoArrayInput` via:
-//
-//          SizeInfoArray{ SizeInfoArgs{...} }
-type SizeInfoArrayInput interface {
-	pulumi.Input
-
-	ToSizeInfoArrayOutput() SizeInfoArrayOutput
-	ToSizeInfoArrayOutputWithContext(context.Context) SizeInfoArrayOutput
-}
-
-type SizeInfoArray []SizeInfoInput
-
-func (SizeInfoArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SizeInfo)(nil)).Elem()
-}
-
-func (i SizeInfoArray) ToSizeInfoArrayOutput() SizeInfoArrayOutput {
-	return i.ToSizeInfoArrayOutputWithContext(context.Background())
-}
-
-func (i SizeInfoArray) ToSizeInfoArrayOutputWithContext(ctx context.Context) SizeInfoArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SizeInfoArrayOutput)
-}
-
-// Contains detailed information about a size
-type SizeInfoOutput struct{ *pulumi.OutputState }
-
-func (SizeInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SizeInfo)(nil)).Elem()
-}
-
-func (o SizeInfoOutput) ToSizeInfoOutput() SizeInfoOutput {
-	return o
-}
-
-func (o SizeInfoOutput) ToSizeInfoOutputWithContext(ctx context.Context) SizeInfoOutput {
-	return o
-}
-
-// Represents the actual compute size, e.g. Standard_A2_v2.
-func (o SizeInfoOutput) ComputeSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SizeInfo) *string { return v.ComputeSize }).(pulumi.StringPtrOutput)
-}
-
-// The amount of memory available (in GB).
-func (o SizeInfoOutput) Memory() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v SizeInfo) *float64 { return v.Memory }).(pulumi.Float64PtrOutput)
-}
-
-// The number of cores a VM of this size has.
-func (o SizeInfoOutput) NumberOfCores() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SizeInfo) *int { return v.NumberOfCores }).(pulumi.IntPtrOutput)
-}
-
-// The pay-as-you-go price per hour this size will cost. It does not include discounts and may not reflect the actual price the size will cost.
-func (o SizeInfoOutput) Price() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v SizeInfo) *float64 { return v.Price }).(pulumi.Float64PtrOutput)
-}
-
-type SizeInfoArrayOutput struct{ *pulumi.OutputState }
-
-func (SizeInfoArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SizeInfo)(nil)).Elem()
-}
-
-func (o SizeInfoArrayOutput) ToSizeInfoArrayOutput() SizeInfoArrayOutput {
-	return o
-}
-
-func (o SizeInfoArrayOutput) ToSizeInfoArrayOutputWithContext(ctx context.Context) SizeInfoArrayOutput {
-	return o
-}
-
-func (o SizeInfoArrayOutput) Index(i pulumi.IntInput) SizeInfoOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SizeInfo {
-		return vs[0].([]SizeInfo)[vs[1].(int)]
-	}).(SizeInfoOutput)
-}
-
-// Contains detailed information about a size
 type SizeInfoResponse struct {
 	// Represents the actual compute size, e.g. Standard_A2_v2.
 	ComputeSize *string `pulumi:"computeSize"`
@@ -4841,97 +3912,6 @@ func (o SizeInfoResponseArrayOutput) Index(i pulumi.IntInput) SizeInfoResponseOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SizeInfoResponse {
 		return vs[0].([]SizeInfoResponse)[vs[1].(int)]
 	}).(SizeInfoResponseOutput)
-}
-
-// The User registered to a lab
-type UserType struct {
-	// The location of the resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// These are the properties for the user registered under a lab.
-	Properties UserPropertiesResponse `pulumi:"properties"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// UserTypeInput is an input type that accepts UserTypeArgs and UserTypeOutput values.
-// You can construct a concrete instance of `UserTypeInput` via:
-//
-//          UserTypeArgs{...}
-type UserTypeInput interface {
-	pulumi.Input
-
-	ToUserTypeOutput() UserTypeOutput
-	ToUserTypeOutputWithContext(context.Context) UserTypeOutput
-}
-
-// The User registered to a lab
-type UserTypeArgs struct {
-	// The location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// These are the properties for the user registered under a lab.
-	Properties UserPropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (UserTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserType)(nil)).Elem()
-}
-
-func (i UserTypeArgs) ToUserTypeOutput() UserTypeOutput {
-	return i.ToUserTypeOutputWithContext(context.Background())
-}
-
-func (i UserTypeArgs) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserTypeOutput)
-}
-
-// The User registered to a lab
-type UserTypeOutput struct{ *pulumi.OutputState }
-
-func (UserTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserType)(nil)).Elem()
-}
-
-func (o UserTypeOutput) ToUserTypeOutput() UserTypeOutput {
-	return o
-}
-
-func (o UserTypeOutput) ToUserTypeOutputWithContext(ctx context.Context) UserTypeOutput {
-	return o
-}
-
-// The location of the resource.
-func (o UserTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o UserTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v UserType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// These are the properties for the user registered under a lab.
-func (o UserTypeOutput) Properties() UserPropertiesResponseOutput {
-	return o.ApplyT(func(v UserType) UserPropertiesResponse { return v.Properties }).(UserPropertiesResponseOutput)
-}
-
-// The tags of the resource.
-func (o UserTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v UserType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o UserTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v UserType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Lab User properties
@@ -5302,52 +4282,6 @@ func (o VirtualMachineDetailsResponseOutput) UserName() pulumi.StringOutput {
 }
 
 // Details about the state of the reference virtual machine.
-type VmStateDetails struct {
-}
-
-// VmStateDetailsInput is an input type that accepts VmStateDetailsArgs and VmStateDetailsOutput values.
-// You can construct a concrete instance of `VmStateDetailsInput` via:
-//
-//          VmStateDetailsArgs{...}
-type VmStateDetailsInput interface {
-	pulumi.Input
-
-	ToVmStateDetailsOutput() VmStateDetailsOutput
-	ToVmStateDetailsOutputWithContext(context.Context) VmStateDetailsOutput
-}
-
-// Details about the state of the reference virtual machine.
-type VmStateDetailsArgs struct {
-}
-
-func (VmStateDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmStateDetails)(nil)).Elem()
-}
-
-func (i VmStateDetailsArgs) ToVmStateDetailsOutput() VmStateDetailsOutput {
-	return i.ToVmStateDetailsOutputWithContext(context.Background())
-}
-
-func (i VmStateDetailsArgs) ToVmStateDetailsOutputWithContext(ctx context.Context) VmStateDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmStateDetailsOutput)
-}
-
-// Details about the state of the reference virtual machine.
-type VmStateDetailsOutput struct{ *pulumi.OutputState }
-
-func (VmStateDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmStateDetails)(nil)).Elem()
-}
-
-func (o VmStateDetailsOutput) ToVmStateDetailsOutput() VmStateDetailsOutput {
-	return o
-}
-
-func (o VmStateDetailsOutput) ToVmStateDetailsOutputWithContext(ctx context.Context) VmStateDetailsOutput {
-	return o
-}
-
-// Details about the state of the reference virtual machine.
 type VmStateDetailsResponse struct {
 	// Last known compute power state captured in DTL
 	LastKnownPowerState string `pulumi:"lastKnownPowerState"`
@@ -5539,36 +4473,26 @@ func (o VmStateDetailsResponsePtrOutput) SshAuthority() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(EnvironmentTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentDetailsResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(EnvironmentSettingTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentSettingPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentSettingPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(EnvironmentSizeOutput{})
-	pulumi.RegisterOutputType(EnvironmentSizeArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentSizeResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentSizeResponseArrayOutput{})
-	pulumi.RegisterOutputType(GalleryImageTypeOutput{})
 	pulumi.RegisterOutputType(GalleryImagePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImagePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(GalleryImageReferenceOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceResponseOutput{})
 	pulumi.RegisterOutputType(GalleryImageReferenceResponsePtrOutput{})
-	pulumi.RegisterOutputType(LabTypeOutput{})
-	pulumi.RegisterOutputType(LabAccountTypeOutput{})
 	pulumi.RegisterOutputType(LabAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LabAccountPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LabDetailsResponseOutput{})
 	pulumi.RegisterOutputType(LabDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(LabPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LabPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LatestOperationResultOutput{})
 	pulumi.RegisterOutputType(LatestOperationResultResponseOutput{})
 	pulumi.RegisterOutputType(LatestOperationResultResponsePtrOutput{})
-	pulumi.RegisterOutputType(NetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResponseOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReferenceVmOutput{})
@@ -5583,18 +4507,13 @@ func init() {
 	pulumi.RegisterOutputType(ResourceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(SizeConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(SizeConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SizeConfigurationPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(SizeInfoOutput{})
-	pulumi.RegisterOutputType(SizeInfoArrayOutput{})
 	pulumi.RegisterOutputType(SizeInfoResponseOutput{})
 	pulumi.RegisterOutputType(SizeInfoResponseArrayOutput{})
-	pulumi.RegisterOutputType(UserTypeOutput{})
 	pulumi.RegisterOutputType(UserPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineDetailsResponseOutput{})
-	pulumi.RegisterOutputType(VmStateDetailsOutput{})
 	pulumi.RegisterOutputType(VmStateDetailsResponseOutput{})
 	pulumi.RegisterOutputType(VmStateDetailsResponsePtrOutput{})
 }

@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.NetApp.V20190701
         /// <summary>
         /// Resource tags
         /// </summary>
-        public readonly Outputs.ResourceTagsResponseResult? Tags;
+        public readonly ImmutableDictionary<string, object>? Tags;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.NetApp.V20190701
 
             Outputs.AccountPropertiesResponseResult properties,
 
-            Outputs.ResourceTagsResponseResult? tags,
+            ImmutableDictionary<string, object>? tags,
 
             string type)
         {

@@ -45,10 +45,6 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The map account properties.
-     */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.maps.v20180501.MapsAccountPropertiesResponse>;
-    /**
      * The SKU of this account.
      */
     public readonly sku!: pulumi.Output<outputs.maps.v20180501.SkuResponse>;
@@ -91,7 +87,6 @@ export class Account extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {

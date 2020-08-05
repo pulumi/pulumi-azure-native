@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.Network.V20191101
         }
 
         /// <summary>
-        /// The ExpressRoute connection.
-        /// </summary>
-        [Input("expressRouteConnection")]
-        public Input<Inputs.ExpressRouteConnectionIdArgs>? ExpressRouteConnection { get; set; }
-
-        /// <summary>
         /// The GatewayManager Etag.
         /// </summary>
         [Input("gatewayManagerEtag")]

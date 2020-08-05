@@ -108,8 +108,6 @@ func (PrivateCloudState) ElementType() reflect.Type {
 }
 
 type privateCloudArgs struct {
-	// An ExpressRoute Circuit
-	Circuit *Circuit `pulumi:"circuit"`
 	// vCenter Single Sign On Identity Sources
 	IdentitySources []IdentitySource `pulumi:"identitySources"`
 	// Connectivity to internet is enabled or disabled
@@ -136,8 +134,6 @@ type privateCloudArgs struct {
 
 // The set of arguments for constructing a PrivateCloud resource.
 type PrivateCloudArgs struct {
-	// An ExpressRoute Circuit
-	Circuit CircuitPtrInput
 	// vCenter Single Sign On Identity Sources
 	IdentitySources IdentitySourceArrayInput
 	// Connectivity to internet is enabled or disabled

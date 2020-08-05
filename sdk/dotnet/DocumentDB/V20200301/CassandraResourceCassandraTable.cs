@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.TagsResponseResult?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of Azure resource.
@@ -131,11 +131,17 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.TagsArgs>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public CassandraResourceCassandraTableArgs()
         {

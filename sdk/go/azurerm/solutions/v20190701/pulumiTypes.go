@@ -10,215 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Information about managed application.
-type ApplicationType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
-	Kind string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// ID of the resource that manages this resource.
-	ManagedBy *string `pulumi:"managedBy"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The plan information.
-	Plan *PlanResponse `pulumi:"plan"`
-	// The managed application properties.
-	Properties ApplicationPropertiesResponse `pulumi:"properties"`
-	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ApplicationTypeInput is an input type that accepts ApplicationTypeArgs and ApplicationTypeOutput values.
-// You can construct a concrete instance of `ApplicationTypeInput` via:
-//
-//          ApplicationTypeArgs{...}
-type ApplicationTypeInput interface {
-	pulumi.Input
-
-	ToApplicationTypeOutput() ApplicationTypeOutput
-	ToApplicationTypeOutputWithContext(context.Context) ApplicationTypeOutput
-}
-
-// Information about managed application.
-type ApplicationTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// ID of the resource that manages this resource.
-	ManagedBy pulumi.StringPtrInput `pulumi:"managedBy"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The plan information.
-	Plan PlanResponsePtrInput `pulumi:"plan"`
-	// The managed application properties.
-	Properties ApplicationPropertiesResponseInput `pulumi:"properties"`
-	// The SKU of the resource.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ApplicationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
-}
-
-func (i ApplicationTypeArgs) ToApplicationTypeOutput() ApplicationTypeOutput {
-	return i.ToApplicationTypeOutputWithContext(context.Background())
-}
-
-func (i ApplicationTypeArgs) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeOutput)
-}
-
-// Information about managed application.
-type ApplicationTypeOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
-}
-
-func (o ApplicationTypeOutput) ToApplicationTypeOutput() ApplicationTypeOutput {
-	return o
-}
-
-func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o ApplicationTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
-func (o ApplicationTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Resource location
-func (o ApplicationTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// ID of the resource that manages this resource.
-func (o ApplicationTypeOutput) ManagedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationType) *string { return v.ManagedBy }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o ApplicationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The plan information.
-func (o ApplicationTypeOutput) Plan() PlanResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationType) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
-}
-
-// The managed application properties.
-func (o ApplicationTypeOutput) Properties() ApplicationPropertiesResponseOutput {
-	return o.ApplyT(func(v ApplicationType) ApplicationPropertiesResponse { return v.Properties }).(ApplicationPropertiesResponseOutput)
-}
-
-// The SKU of the resource.
-func (o ApplicationTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Resource tags
-func (o ApplicationTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ApplicationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Managed application artifact.
-type ApplicationArtifact struct {
-	// The managed application artifact name.
-	Name string `pulumi:"name"`
-	// The managed application artifact type.
-	Type string `pulumi:"type"`
-	// The managed application artifact blob uri.
-	Uri string `pulumi:"uri"`
-}
-
-// ApplicationArtifactInput is an input type that accepts ApplicationArtifactArgs and ApplicationArtifactOutput values.
-// You can construct a concrete instance of `ApplicationArtifactInput` via:
-//
-//          ApplicationArtifactArgs{...}
-type ApplicationArtifactInput interface {
-	pulumi.Input
-
-	ToApplicationArtifactOutput() ApplicationArtifactOutput
-	ToApplicationArtifactOutputWithContext(context.Context) ApplicationArtifactOutput
-}
-
-// Managed application artifact.
-type ApplicationArtifactArgs struct {
-	// The managed application artifact name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The managed application artifact type.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The managed application artifact blob uri.
-	Uri pulumi.StringInput `pulumi:"uri"`
-}
-
-func (ApplicationArtifactArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationArtifact)(nil)).Elem()
-}
-
-func (i ApplicationArtifactArgs) ToApplicationArtifactOutput() ApplicationArtifactOutput {
-	return i.ToApplicationArtifactOutputWithContext(context.Background())
-}
-
-func (i ApplicationArtifactArgs) ToApplicationArtifactOutputWithContext(ctx context.Context) ApplicationArtifactOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArtifactOutput)
-}
-
-// Managed application artifact.
-type ApplicationArtifactOutput struct{ *pulumi.OutputState }
-
-func (ApplicationArtifactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationArtifact)(nil)).Elem()
-}
-
-func (o ApplicationArtifactOutput) ToApplicationArtifactOutput() ApplicationArtifactOutput {
-	return o
-}
-
-func (o ApplicationArtifactOutput) ToApplicationArtifactOutputWithContext(ctx context.Context) ApplicationArtifactOutput {
-	return o
-}
-
-// The managed application artifact name.
-func (o ApplicationArtifactOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationArtifact) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The managed application artifact type.
-func (o ApplicationArtifactOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationArtifact) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The managed application artifact blob uri.
-func (o ApplicationArtifactOutput) Uri() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationArtifact) string { return v.Uri }).(pulumi.StringOutput)
-}
-
 // Managed application artifact.
 type ApplicationArtifactResponse struct {
 	// The managed application artifact name.
@@ -556,61 +347,6 @@ func (o ApplicationAuthorizationResponseArrayOutput) Index(i pulumi.IntInput) Ap
 }
 
 // Managed application billing details definition.
-type ApplicationBillingDetailsDefinition struct {
-	// The managed application resource usage Id.
-	ResourceUsageId *string `pulumi:"resourceUsageId"`
-}
-
-// ApplicationBillingDetailsDefinitionInput is an input type that accepts ApplicationBillingDetailsDefinitionArgs and ApplicationBillingDetailsDefinitionOutput values.
-// You can construct a concrete instance of `ApplicationBillingDetailsDefinitionInput` via:
-//
-//          ApplicationBillingDetailsDefinitionArgs{...}
-type ApplicationBillingDetailsDefinitionInput interface {
-	pulumi.Input
-
-	ToApplicationBillingDetailsDefinitionOutput() ApplicationBillingDetailsDefinitionOutput
-	ToApplicationBillingDetailsDefinitionOutputWithContext(context.Context) ApplicationBillingDetailsDefinitionOutput
-}
-
-// Managed application billing details definition.
-type ApplicationBillingDetailsDefinitionArgs struct {
-	// The managed application resource usage Id.
-	ResourceUsageId pulumi.StringPtrInput `pulumi:"resourceUsageId"`
-}
-
-func (ApplicationBillingDetailsDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationBillingDetailsDefinition)(nil)).Elem()
-}
-
-func (i ApplicationBillingDetailsDefinitionArgs) ToApplicationBillingDetailsDefinitionOutput() ApplicationBillingDetailsDefinitionOutput {
-	return i.ToApplicationBillingDetailsDefinitionOutputWithContext(context.Background())
-}
-
-func (i ApplicationBillingDetailsDefinitionArgs) ToApplicationBillingDetailsDefinitionOutputWithContext(ctx context.Context) ApplicationBillingDetailsDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationBillingDetailsDefinitionOutput)
-}
-
-// Managed application billing details definition.
-type ApplicationBillingDetailsDefinitionOutput struct{ *pulumi.OutputState }
-
-func (ApplicationBillingDetailsDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationBillingDetailsDefinition)(nil)).Elem()
-}
-
-func (o ApplicationBillingDetailsDefinitionOutput) ToApplicationBillingDetailsDefinitionOutput() ApplicationBillingDetailsDefinitionOutput {
-	return o
-}
-
-func (o ApplicationBillingDetailsDefinitionOutput) ToApplicationBillingDetailsDefinitionOutputWithContext(ctx context.Context) ApplicationBillingDetailsDefinitionOutput {
-	return o
-}
-
-// The managed application resource usage Id.
-func (o ApplicationBillingDetailsDefinitionOutput) ResourceUsageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationBillingDetailsDefinition) *string { return v.ResourceUsageId }).(pulumi.StringPtrOutput)
-}
-
-// Managed application billing details definition.
 type ApplicationBillingDetailsDefinitionResponse struct {
 	// The managed application resource usage Id.
 	ResourceUsageId *string `pulumi:"resourceUsageId"`
@@ -744,79 +480,6 @@ func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) ResourceUsageId() 
 		}
 		return v.ResourceUsageId
 	}).(pulumi.StringPtrOutput)
-}
-
-// The application client details to track the entity creating/updating the managed app resource.
-type ApplicationClientDetails struct {
-	// The client application Id.
-	ApplicationId *string `pulumi:"applicationId"`
-	// The client Oid.
-	Oid *string `pulumi:"oid"`
-	// The client Puid
-	Puid *string `pulumi:"puid"`
-}
-
-// ApplicationClientDetailsInput is an input type that accepts ApplicationClientDetailsArgs and ApplicationClientDetailsOutput values.
-// You can construct a concrete instance of `ApplicationClientDetailsInput` via:
-//
-//          ApplicationClientDetailsArgs{...}
-type ApplicationClientDetailsInput interface {
-	pulumi.Input
-
-	ToApplicationClientDetailsOutput() ApplicationClientDetailsOutput
-	ToApplicationClientDetailsOutputWithContext(context.Context) ApplicationClientDetailsOutput
-}
-
-// The application client details to track the entity creating/updating the managed app resource.
-type ApplicationClientDetailsArgs struct {
-	// The client application Id.
-	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	// The client Oid.
-	Oid pulumi.StringPtrInput `pulumi:"oid"`
-	// The client Puid
-	Puid pulumi.StringPtrInput `pulumi:"puid"`
-}
-
-func (ApplicationClientDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationClientDetails)(nil)).Elem()
-}
-
-func (i ApplicationClientDetailsArgs) ToApplicationClientDetailsOutput() ApplicationClientDetailsOutput {
-	return i.ToApplicationClientDetailsOutputWithContext(context.Background())
-}
-
-func (i ApplicationClientDetailsArgs) ToApplicationClientDetailsOutputWithContext(ctx context.Context) ApplicationClientDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationClientDetailsOutput)
-}
-
-// The application client details to track the entity creating/updating the managed app resource.
-type ApplicationClientDetailsOutput struct{ *pulumi.OutputState }
-
-func (ApplicationClientDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationClientDetails)(nil)).Elem()
-}
-
-func (o ApplicationClientDetailsOutput) ToApplicationClientDetailsOutput() ApplicationClientDetailsOutput {
-	return o
-}
-
-func (o ApplicationClientDetailsOutput) ToApplicationClientDetailsOutputWithContext(ctx context.Context) ApplicationClientDetailsOutput {
-	return o
-}
-
-// The client application Id.
-func (o ApplicationClientDetailsOutput) ApplicationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationClientDetails) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
-}
-
-// The client Oid.
-func (o ApplicationClientDetailsOutput) Oid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationClientDetails) *string { return v.Oid }).(pulumi.StringPtrOutput)
-}
-
-// The client Puid
-func (o ApplicationClientDetailsOutput) Puid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationClientDetails) *string { return v.Puid }).(pulumi.StringPtrOutput)
 }
 
 // The application client details to track the entity creating/updating the managed app resource.
@@ -989,115 +652,6 @@ func (o ApplicationClientDetailsResponsePtrOutput) Puid() pulumi.StringPtrOutput
 		}
 		return v.Puid
 	}).(pulumi.StringPtrOutput)
-}
-
-// Information about managed application definition.
-type ApplicationDefinitionType struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// ID of the resource that manages this resource.
-	ManagedBy *string `pulumi:"managedBy"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The managed application definition properties.
-	Properties ApplicationDefinitionPropertiesResponse `pulumi:"properties"`
-	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ApplicationDefinitionTypeInput is an input type that accepts ApplicationDefinitionTypeArgs and ApplicationDefinitionTypeOutput values.
-// You can construct a concrete instance of `ApplicationDefinitionTypeInput` via:
-//
-//          ApplicationDefinitionTypeArgs{...}
-type ApplicationDefinitionTypeInput interface {
-	pulumi.Input
-
-	ToApplicationDefinitionTypeOutput() ApplicationDefinitionTypeOutput
-	ToApplicationDefinitionTypeOutputWithContext(context.Context) ApplicationDefinitionTypeOutput
-}
-
-// Information about managed application definition.
-type ApplicationDefinitionTypeArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// ID of the resource that manages this resource.
-	ManagedBy pulumi.StringPtrInput `pulumi:"managedBy"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The managed application definition properties.
-	Properties ApplicationDefinitionPropertiesResponseInput `pulumi:"properties"`
-	// The SKU of the resource.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ApplicationDefinitionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDefinitionType)(nil)).Elem()
-}
-
-func (i ApplicationDefinitionTypeArgs) ToApplicationDefinitionTypeOutput() ApplicationDefinitionTypeOutput {
-	return i.ToApplicationDefinitionTypeOutputWithContext(context.Background())
-}
-
-func (i ApplicationDefinitionTypeArgs) ToApplicationDefinitionTypeOutputWithContext(ctx context.Context) ApplicationDefinitionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionTypeOutput)
-}
-
-// Information about managed application definition.
-type ApplicationDefinitionTypeOutput struct{ *pulumi.OutputState }
-
-func (ApplicationDefinitionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDefinitionType)(nil)).Elem()
-}
-
-func (o ApplicationDefinitionTypeOutput) ToApplicationDefinitionTypeOutput() ApplicationDefinitionTypeOutput {
-	return o
-}
-
-func (o ApplicationDefinitionTypeOutput) ToApplicationDefinitionTypeOutputWithContext(ctx context.Context) ApplicationDefinitionTypeOutput {
-	return o
-}
-
-// Resource location
-func (o ApplicationDefinitionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationDefinitionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// ID of the resource that manages this resource.
-func (o ApplicationDefinitionTypeOutput) ManagedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationDefinitionType) *string { return v.ManagedBy }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o ApplicationDefinitionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationDefinitionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The managed application definition properties.
-func (o ApplicationDefinitionTypeOutput) Properties() ApplicationDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v ApplicationDefinitionType) ApplicationDefinitionPropertiesResponse { return v.Properties }).(ApplicationDefinitionPropertiesResponseOutput)
-}
-
-// The SKU of the resource.
-func (o ApplicationDefinitionTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationDefinitionType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Resource tags
-func (o ApplicationDefinitionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationDefinitionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ApplicationDefinitionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationDefinitionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Application definition artifact.
@@ -3120,79 +2674,6 @@ func (o ApplicationNotificationPolicyResponsePtrOutput) NotificationEndpoints() 
 }
 
 // The application package contact information.
-type ApplicationPackageContact struct {
-	// The contact name.
-	ContactName *string `pulumi:"contactName"`
-	// The contact email.
-	Email string `pulumi:"email"`
-	// The contact phone number.
-	Phone string `pulumi:"phone"`
-}
-
-// ApplicationPackageContactInput is an input type that accepts ApplicationPackageContactArgs and ApplicationPackageContactOutput values.
-// You can construct a concrete instance of `ApplicationPackageContactInput` via:
-//
-//          ApplicationPackageContactArgs{...}
-type ApplicationPackageContactInput interface {
-	pulumi.Input
-
-	ToApplicationPackageContactOutput() ApplicationPackageContactOutput
-	ToApplicationPackageContactOutputWithContext(context.Context) ApplicationPackageContactOutput
-}
-
-// The application package contact information.
-type ApplicationPackageContactArgs struct {
-	// The contact name.
-	ContactName pulumi.StringPtrInput `pulumi:"contactName"`
-	// The contact email.
-	Email pulumi.StringInput `pulumi:"email"`
-	// The contact phone number.
-	Phone pulumi.StringInput `pulumi:"phone"`
-}
-
-func (ApplicationPackageContactArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackageContact)(nil)).Elem()
-}
-
-func (i ApplicationPackageContactArgs) ToApplicationPackageContactOutput() ApplicationPackageContactOutput {
-	return i.ToApplicationPackageContactOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageContactArgs) ToApplicationPackageContactOutputWithContext(ctx context.Context) ApplicationPackageContactOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageContactOutput)
-}
-
-// The application package contact information.
-type ApplicationPackageContactOutput struct{ *pulumi.OutputState }
-
-func (ApplicationPackageContactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackageContact)(nil)).Elem()
-}
-
-func (o ApplicationPackageContactOutput) ToApplicationPackageContactOutput() ApplicationPackageContactOutput {
-	return o
-}
-
-func (o ApplicationPackageContactOutput) ToApplicationPackageContactOutputWithContext(ctx context.Context) ApplicationPackageContactOutput {
-	return o
-}
-
-// The contact name.
-func (o ApplicationPackageContactOutput) ContactName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationPackageContact) *string { return v.ContactName }).(pulumi.StringPtrOutput)
-}
-
-// The contact email.
-func (o ApplicationPackageContactOutput) Email() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationPackageContact) string { return v.Email }).(pulumi.StringOutput)
-}
-
-// The contact phone number.
-func (o ApplicationPackageContactOutput) Phone() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationPackageContact) string { return v.Phone }).(pulumi.StringOutput)
-}
-
-// The application package contact information.
 type ApplicationPackageContactResponse struct {
 	// The contact name.
 	ContactName *string `pulumi:"contactName"`
@@ -3634,70 +3115,6 @@ func (o ApplicationPackageLockingPolicyDefinitionResponsePtrOutput) AllowedActio
 		}
 		return v.AllowedActions
 	}).(pulumi.StringArrayOutput)
-}
-
-// The appliance package support URLs.
-type ApplicationPackageSupportUrls struct {
-	// The government cloud support URL.
-	GovernmentCloud *string `pulumi:"governmentCloud"`
-	// The public azure support URL.
-	PublicAzure *string `pulumi:"publicAzure"`
-}
-
-// ApplicationPackageSupportUrlsInput is an input type that accepts ApplicationPackageSupportUrlsArgs and ApplicationPackageSupportUrlsOutput values.
-// You can construct a concrete instance of `ApplicationPackageSupportUrlsInput` via:
-//
-//          ApplicationPackageSupportUrlsArgs{...}
-type ApplicationPackageSupportUrlsInput interface {
-	pulumi.Input
-
-	ToApplicationPackageSupportUrlsOutput() ApplicationPackageSupportUrlsOutput
-	ToApplicationPackageSupportUrlsOutputWithContext(context.Context) ApplicationPackageSupportUrlsOutput
-}
-
-// The appliance package support URLs.
-type ApplicationPackageSupportUrlsArgs struct {
-	// The government cloud support URL.
-	GovernmentCloud pulumi.StringPtrInput `pulumi:"governmentCloud"`
-	// The public azure support URL.
-	PublicAzure pulumi.StringPtrInput `pulumi:"publicAzure"`
-}
-
-func (ApplicationPackageSupportUrlsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackageSupportUrls)(nil)).Elem()
-}
-
-func (i ApplicationPackageSupportUrlsArgs) ToApplicationPackageSupportUrlsOutput() ApplicationPackageSupportUrlsOutput {
-	return i.ToApplicationPackageSupportUrlsOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageSupportUrlsArgs) ToApplicationPackageSupportUrlsOutputWithContext(ctx context.Context) ApplicationPackageSupportUrlsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageSupportUrlsOutput)
-}
-
-// The appliance package support URLs.
-type ApplicationPackageSupportUrlsOutput struct{ *pulumi.OutputState }
-
-func (ApplicationPackageSupportUrlsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackageSupportUrls)(nil)).Elem()
-}
-
-func (o ApplicationPackageSupportUrlsOutput) ToApplicationPackageSupportUrlsOutput() ApplicationPackageSupportUrlsOutput {
-	return o
-}
-
-func (o ApplicationPackageSupportUrlsOutput) ToApplicationPackageSupportUrlsOutputWithContext(ctx context.Context) ApplicationPackageSupportUrlsOutput {
-	return o
-}
-
-// The government cloud support URL.
-func (o ApplicationPackageSupportUrlsOutput) GovernmentCloud() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationPackageSupportUrls) *string { return v.GovernmentCloud }).(pulumi.StringPtrOutput)
-}
-
-// The public azure support URL.
-func (o ApplicationPackageSupportUrlsOutput) PublicAzure() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationPackageSupportUrls) *string { return v.PublicAzure }).(pulumi.StringPtrOutput)
 }
 
 // The appliance package support URLs.
@@ -4495,8 +3912,6 @@ func (o ApplicationPropertiesResponsePtrOutput) UpdatedBy() ApplicationClientDet
 type Identity struct {
 	// The identity type.
 	Type *string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]UserAssignedResourceIdentity `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -4514,8 +3929,6 @@ type IdentityInput interface {
 type IdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities UserAssignedResourceIdentityMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -4601,11 +4014,6 @@ func (o IdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityOutput) UserAssignedIdentities() UserAssignedResourceIdentityMapOutput {
-	return o.ApplyT(func(v Identity) map[string]UserAssignedResourceIdentity { return v.UserAssignedIdentities }).(UserAssignedResourceIdentityMapOutput)
-}
-
 type IdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityPtrOutput) ElementType() reflect.Type {
@@ -4632,16 +4040,6 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityPtrOutput) UserAssignedIdentities() UserAssignedResourceIdentityMapOutput {
-	return o.ApplyT(func(v *Identity) map[string]UserAssignedResourceIdentity {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(UserAssignedResourceIdentityMapOutput)
 }
 
 // Identity for the resource.
@@ -5289,97 +4687,6 @@ func (o JitAuthorizationPoliciesResponseArrayOutput) Index(i pulumi.IntInput) Ji
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JitAuthorizationPoliciesResponse {
 		return vs[0].([]JitAuthorizationPoliciesResponse)[vs[1].(int)]
 	}).(JitAuthorizationPoliciesResponseOutput)
-}
-
-// Information about JIT request definition.
-type JitRequestType struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The JIT request properties.
-	Properties JitRequestPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// JitRequestTypeInput is an input type that accepts JitRequestTypeArgs and JitRequestTypeOutput values.
-// You can construct a concrete instance of `JitRequestTypeInput` via:
-//
-//          JitRequestTypeArgs{...}
-type JitRequestTypeInput interface {
-	pulumi.Input
-
-	ToJitRequestTypeOutput() JitRequestTypeOutput
-	ToJitRequestTypeOutputWithContext(context.Context) JitRequestTypeOutput
-}
-
-// Information about JIT request definition.
-type JitRequestTypeArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The JIT request properties.
-	Properties JitRequestPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (JitRequestTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitRequestType)(nil)).Elem()
-}
-
-func (i JitRequestTypeArgs) ToJitRequestTypeOutput() JitRequestTypeOutput {
-	return i.ToJitRequestTypeOutputWithContext(context.Background())
-}
-
-func (i JitRequestTypeArgs) ToJitRequestTypeOutputWithContext(ctx context.Context) JitRequestTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitRequestTypeOutput)
-}
-
-// Information about JIT request definition.
-type JitRequestTypeOutput struct{ *pulumi.OutputState }
-
-func (JitRequestTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitRequestType)(nil)).Elem()
-}
-
-func (o JitRequestTypeOutput) ToJitRequestTypeOutput() JitRequestTypeOutput {
-	return o
-}
-
-func (o JitRequestTypeOutput) ToJitRequestTypeOutputWithContext(ctx context.Context) JitRequestTypeOutput {
-	return o
-}
-
-// Resource location
-func (o JitRequestTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JitRequestType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o JitRequestTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v JitRequestType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The JIT request properties.
-func (o JitRequestTypeOutput) Properties() JitRequestPropertiesResponseOutput {
-	return o.ApplyT(func(v JitRequestType) JitRequestPropertiesResponse { return v.Properties }).(JitRequestPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o JitRequestTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v JitRequestType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o JitRequestTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JitRequestType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Information about JIT request properties
@@ -6864,97 +6171,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 // Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
-type UserAssignedResourceIdentity struct {
-}
-
-// UserAssignedResourceIdentityInput is an input type that accepts UserAssignedResourceIdentityArgs and UserAssignedResourceIdentityOutput values.
-// You can construct a concrete instance of `UserAssignedResourceIdentityInput` via:
-//
-//          UserAssignedResourceIdentityArgs{...}
-type UserAssignedResourceIdentityInput interface {
-	pulumi.Input
-
-	ToUserAssignedResourceIdentityOutput() UserAssignedResourceIdentityOutput
-	ToUserAssignedResourceIdentityOutputWithContext(context.Context) UserAssignedResourceIdentityOutput
-}
-
-// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
-type UserAssignedResourceIdentityArgs struct {
-}
-
-func (UserAssignedResourceIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedResourceIdentity)(nil)).Elem()
-}
-
-func (i UserAssignedResourceIdentityArgs) ToUserAssignedResourceIdentityOutput() UserAssignedResourceIdentityOutput {
-	return i.ToUserAssignedResourceIdentityOutputWithContext(context.Background())
-}
-
-func (i UserAssignedResourceIdentityArgs) ToUserAssignedResourceIdentityOutputWithContext(ctx context.Context) UserAssignedResourceIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedResourceIdentityOutput)
-}
-
-// UserAssignedResourceIdentityMapInput is an input type that accepts UserAssignedResourceIdentityMap and UserAssignedResourceIdentityMapOutput values.
-// You can construct a concrete instance of `UserAssignedResourceIdentityMapInput` via:
-//
-//          UserAssignedResourceIdentityMap{ "key": UserAssignedResourceIdentityArgs{...} }
-type UserAssignedResourceIdentityMapInput interface {
-	pulumi.Input
-
-	ToUserAssignedResourceIdentityMapOutput() UserAssignedResourceIdentityMapOutput
-	ToUserAssignedResourceIdentityMapOutputWithContext(context.Context) UserAssignedResourceIdentityMapOutput
-}
-
-type UserAssignedResourceIdentityMap map[string]UserAssignedResourceIdentityInput
-
-func (UserAssignedResourceIdentityMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedResourceIdentity)(nil)).Elem()
-}
-
-func (i UserAssignedResourceIdentityMap) ToUserAssignedResourceIdentityMapOutput() UserAssignedResourceIdentityMapOutput {
-	return i.ToUserAssignedResourceIdentityMapOutputWithContext(context.Background())
-}
-
-func (i UserAssignedResourceIdentityMap) ToUserAssignedResourceIdentityMapOutputWithContext(ctx context.Context) UserAssignedResourceIdentityMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedResourceIdentityMapOutput)
-}
-
-// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
-type UserAssignedResourceIdentityOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedResourceIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedResourceIdentity)(nil)).Elem()
-}
-
-func (o UserAssignedResourceIdentityOutput) ToUserAssignedResourceIdentityOutput() UserAssignedResourceIdentityOutput {
-	return o
-}
-
-func (o UserAssignedResourceIdentityOutput) ToUserAssignedResourceIdentityOutputWithContext(ctx context.Context) UserAssignedResourceIdentityOutput {
-	return o
-}
-
-type UserAssignedResourceIdentityMapOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedResourceIdentityMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedResourceIdentity)(nil)).Elem()
-}
-
-func (o UserAssignedResourceIdentityMapOutput) ToUserAssignedResourceIdentityMapOutput() UserAssignedResourceIdentityMapOutput {
-	return o
-}
-
-func (o UserAssignedResourceIdentityMapOutput) ToUserAssignedResourceIdentityMapOutputWithContext(ctx context.Context) UserAssignedResourceIdentityMapOutput {
-	return o
-}
-
-func (o UserAssignedResourceIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssignedResourceIdentityOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedResourceIdentity {
-		return vs[0].(map[string]UserAssignedResourceIdentity)[vs[1].(string)]
-	}).(UserAssignedResourceIdentityOutput)
-}
-
-// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
 type UserAssignedResourceIdentityResponse struct {
 	// The principal id of user assigned identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -7064,21 +6280,16 @@ func (o UserAssignedResourceIdentityResponseMapOutput) MapIndex(k pulumi.StringI
 }
 
 func init() {
-	pulumi.RegisterOutputType(ApplicationTypeOutput{})
-	pulumi.RegisterOutputType(ApplicationArtifactOutput{})
 	pulumi.RegisterOutputType(ApplicationArtifactResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationArtifactResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationAuthorizationOutput{})
 	pulumi.RegisterOutputType(ApplicationAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationAuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationAuthorizationResponseArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationBillingDetailsDefinitionOutput{})
 	pulumi.RegisterOutputType(ApplicationBillingDetailsDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationBillingDetailsDefinitionResponsePtrOutput{})
-	pulumi.RegisterOutputType(ApplicationClientDetailsOutput{})
 	pulumi.RegisterOutputType(ApplicationClientDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationClientDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(ApplicationDefinitionTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinitionArtifactOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinitionArtifactArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinitionArtifactResponseOutput{})
@@ -7105,14 +6316,12 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationNotificationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationNotificationPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationNotificationPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ApplicationPackageContactOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageContactResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageContactResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionResponsePtrOutput{})
-	pulumi.RegisterOutputType(ApplicationPackageSupportUrlsOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageSupportUrlsResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageSupportUrlsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPolicyOutput{})
@@ -7133,7 +6342,6 @@ func init() {
 	pulumi.RegisterOutputType(JitAuthorizationPoliciesArrayOutput{})
 	pulumi.RegisterOutputType(JitAuthorizationPoliciesResponseOutput{})
 	pulumi.RegisterOutputType(JitAuthorizationPoliciesResponseArrayOutput{})
-	pulumi.RegisterOutputType(JitRequestTypeOutput{})
 	pulumi.RegisterOutputType(JitRequestPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(JitRequestPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(JitSchedulingPolicyOutput{})
@@ -7148,8 +6356,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(UserAssignedResourceIdentityOutput{})
-	pulumi.RegisterOutputType(UserAssignedResourceIdentityMapOutput{})
 	pulumi.RegisterOutputType(UserAssignedResourceIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedResourceIdentityResponseMapOutput{})
 }

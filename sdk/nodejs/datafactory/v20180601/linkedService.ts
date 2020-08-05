@@ -111,7 +111,7 @@ export interface LinkedServiceArgs {
     /**
      * Properties of linked service.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.LinkedServiceDefinition>;
+    readonly properties: pulumi.Input<inputs.datafactory.v20180601.LinkedService>;
     /**
      * The resource group name.
      */

@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20150408
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
-        public readonly Outputs.TagsResponseResult? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The type of Azure resource.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20150408
 
             Outputs.MongoDBDatabasePropertiesResponseResult properties,
 
-            Outputs.TagsResponseResult? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {

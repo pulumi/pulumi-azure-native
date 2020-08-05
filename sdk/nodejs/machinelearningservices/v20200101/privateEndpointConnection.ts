@@ -93,7 +93,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -130,10 +129,6 @@ export interface PrivateEndpointConnectionArgs {
      * The name of the private endpoint connection associated with the workspace
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The resource of private end point.
-     */
-    readonly privateEndpoint?: pulumi.Input<inputs.machinelearningservices.v20200101.PrivateEndpoint>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

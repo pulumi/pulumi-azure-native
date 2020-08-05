@@ -87,7 +87,7 @@ type policySetDefinitionArgs struct {
 	// The name of the policy set definition to create.
 	Name string `pulumi:"name"`
 	// The policy set definition parameters that can be used in policy definition references.
-	Parameters *ParameterDefinitions `pulumi:"parameters"`
+	Parameters map[string]ParameterDefinitionsValue `pulumi:"parameters"`
 	// The metadata describing groups of policy definition references within the policy set definition.
 	PolicyDefinitionGroups []PolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
 	// An array of policy definition references.
@@ -107,7 +107,7 @@ type PolicySetDefinitionArgs struct {
 	// The name of the policy set definition to create.
 	Name pulumi.StringInput
 	// The policy set definition parameters that can be used in policy definition references.
-	Parameters ParameterDefinitionsPtrInput
+	Parameters ParameterDefinitionsValueMapInput
 	// The metadata describing groups of policy definition references within the policy set definition.
 	PolicyDefinitionGroups PolicyDefinitionGroupArrayInput
 	// An array of policy definition references.

@@ -13,10 +13,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801.Outputs
     [OutputType]
     public sealed class SqlDatabaseGetPropertiesResponseResult
     {
-        public readonly Outputs.SqlDatabaseGetPropertiesResponsePropertiesResult? Resource;
+        public readonly Outputs.SqlDatabaseGetPropertiesResponseResourceResult? Resource;
 
         [OutputConstructor]
-        private SqlDatabaseGetPropertiesResponseResult(Outputs.SqlDatabaseGetPropertiesResponsePropertiesResult? resource)
+        private SqlDatabaseGetPropertiesResponseResult(Outputs.SqlDatabaseGetPropertiesResponseResourceResult? resource)
         {
             Resource = resource;
         }

@@ -47,7 +47,7 @@ export class ReplicationFabric extends pulumi.CustomResource {
     /**
      * Fabric related data.
      */
-    public readonly properties!: pulumi.Output<outputs.recoveryservices.v20160810.FabricPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.recoveryservices.v20160810.FabricPropertiesResponse>;
     /**
      * Resource Type
      */
@@ -76,10 +76,10 @@ export class ReplicationFabric extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,10 +101,6 @@ export interface ReplicationFabricArgs {
      * Name of the ASR fabric.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Fabric creation input.
-     */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160810.FabricCreationInputProperties>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

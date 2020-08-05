@@ -354,97 +354,6 @@ func (o EndpointsResponsePtrOutput) Table() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The storage account.
-type StorageAccountType struct {
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of the storage account.
-	Properties StorageAccountPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// StorageAccountTypeInput is an input type that accepts StorageAccountTypeArgs and StorageAccountTypeOutput values.
-// You can construct a concrete instance of `StorageAccountTypeInput` via:
-//
-//          StorageAccountTypeArgs{...}
-type StorageAccountTypeInput interface {
-	pulumi.Input
-
-	ToStorageAccountTypeOutput() StorageAccountTypeOutput
-	ToStorageAccountTypeOutputWithContext(context.Context) StorageAccountTypeOutput
-}
-
-// The storage account.
-type StorageAccountTypeArgs struct {
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the storage account.
-	Properties StorageAccountPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageAccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
-}
-
-func (i StorageAccountTypeArgs) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
-	return i.ToStorageAccountTypeOutputWithContext(context.Background())
-}
-
-func (i StorageAccountTypeArgs) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountTypeOutput)
-}
-
-// The storage account.
-type StorageAccountTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
-	return o
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
-	return o
-}
-
-// Resource location
-func (o StorageAccountTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageAccountType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o StorageAccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the storage account.
-func (o StorageAccountTypeOutput) Properties() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v StorageAccountType) StorageAccountPropertiesResponse { return v.Properties }).(StorageAccountPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o StorageAccountTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v StorageAccountType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o StorageAccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the storage account.
 type StorageAccountPropertiesResponse struct {
 	// The type of the storage account.
@@ -774,7 +683,6 @@ func init() {
 	pulumi.RegisterOutputType(CustomDomainResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountTypeOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
 }

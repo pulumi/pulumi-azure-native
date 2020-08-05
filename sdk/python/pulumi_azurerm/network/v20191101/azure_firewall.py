@@ -68,7 +68,10 @@ class AzureFirewall(pulumi.CustomResource):
 
         * `type` (`str`) - Type of the resource.
 
-      * `ip_groups` (`dict`) - IpGroups associated with AzureFirewall.
+      * `ip_groups` (`list`) - IpGroups associated with AzureFirewall.
+        * `change_number` (`str`) - The iteration number.
+        * `id` (`str`) - Resource ID.
+
       * `management_ip_configuration` (`dict`) - IP configuration of the Azure Firewall used for management traffic.
       * `nat_rule_collections` (`list`) - Collection of NAT rule collections used by Azure Firewall.
         * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.

@@ -172,14 +172,10 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
         The **authorizations** object supports the following:
 
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `authorization_key` (`pulumi.Input[str]`) - The authorization key.
+          * `authorization_use_status` (`pulumi.Input[str]`) - The authorization use status.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
           * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `properties` (`pulumi.Input[dict]`) - Properties of the express route circuit authorization.
-            * `authorization_key` (`pulumi.Input[str]`) - The authorization key.
-            * `authorization_use_status` (`pulumi.Input[str]`) - The authorization use status.
-            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the authorization resource.
-
-          * `type` (`pulumi.Input[str]`) - Type of the resource.
 
         The **express_route_port** object supports the following:
 
@@ -197,7 +193,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
             * `peer_express_route_circuit_peering` (`pulumi.Input[dict]`) - Reference to Express Route Circuit Private Peering Resource of the peered circuit.
 
-          * `express_route_connection` (`pulumi.Input[dict]`) - The ExpressRoute connection.
           * `gateway_manager_etag` (`pulumi.Input[str]`) - The GatewayManager Etag.
           * `id` (`pulumi.Input[str]`) - Resource ID.
           * `ipv6_peering_config` (`pulumi.Input[dict]`) - The IPv6 peering configuration.

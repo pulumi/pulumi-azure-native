@@ -734,97 +734,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Resource information with extended details.
-type VaultType struct {
-	// The supported Azure location where the key vault should be created.
-	Location string `pulumi:"location"`
-	// The name of the key vault.
-	Name string `pulumi:"name"`
-	// Properties of the vault
-	Properties VaultPropertiesResponse `pulumi:"properties"`
-	// The tags that will be assigned to the key vault.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type of the key vault.
-	Type string `pulumi:"type"`
-}
-
-// VaultTypeInput is an input type that accepts VaultTypeArgs and VaultTypeOutput values.
-// You can construct a concrete instance of `VaultTypeInput` via:
-//
-//          VaultTypeArgs{...}
-type VaultTypeInput interface {
-	pulumi.Input
-
-	ToVaultTypeOutput() VaultTypeOutput
-	ToVaultTypeOutputWithContext(context.Context) VaultTypeOutput
-}
-
-// Resource information with extended details.
-type VaultTypeArgs struct {
-	// The supported Azure location where the key vault should be created.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the key vault.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the vault
-	Properties VaultPropertiesResponseInput `pulumi:"properties"`
-	// The tags that will be assigned to the key vault.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource type of the key vault.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VaultTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultType)(nil)).Elem()
-}
-
-func (i VaultTypeArgs) ToVaultTypeOutput() VaultTypeOutput {
-	return i.ToVaultTypeOutputWithContext(context.Background())
-}
-
-func (i VaultTypeArgs) ToVaultTypeOutputWithContext(ctx context.Context) VaultTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultTypeOutput)
-}
-
-// Resource information with extended details.
-type VaultTypeOutput struct{ *pulumi.OutputState }
-
-func (VaultTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultType)(nil)).Elem()
-}
-
-func (o VaultTypeOutput) ToVaultTypeOutput() VaultTypeOutput {
-	return o
-}
-
-func (o VaultTypeOutput) ToVaultTypeOutputWithContext(ctx context.Context) VaultTypeOutput {
-	return o
-}
-
-// The supported Azure location where the key vault should be created.
-func (o VaultTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the key vault.
-func (o VaultTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the vault
-func (o VaultTypeOutput) Properties() VaultPropertiesResponseOutput {
-	return o.ApplyT(func(v VaultType) VaultPropertiesResponse { return v.Properties }).(VaultPropertiesResponseOutput)
-}
-
-// The tags that will be assigned to the key vault.
-func (o VaultTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VaultType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The resource type of the key vault.
-func (o VaultTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VaultType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the vault
 type VaultProperties struct {
 	// An array of 0 to 16 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
@@ -1446,7 +1355,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(VaultTypeOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VaultPropertiesResponseOutput{})

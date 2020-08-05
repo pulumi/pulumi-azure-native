@@ -136,7 +136,7 @@ export interface ChannelArgs {
     /**
      * The set of properties specific to bot channel resource
      */
-    readonly properties?: pulumi.Input<inputs.botservice.v20200602.ChannelDefinition>;
+    readonly properties?: pulumi.Input<inputs.botservice.v20200602.Channel>;
     /**
      * The name of the Bot resource group in the user subscription.
      */

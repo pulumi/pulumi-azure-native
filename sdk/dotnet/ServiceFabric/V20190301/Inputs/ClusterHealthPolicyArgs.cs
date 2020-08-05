@@ -15,11 +15,17 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Inputs
     /// </summary>
     public sealed class ClusterHealthPolicyArgs : Pulumi.ResourceArgs
     {
+        [Input("applicationHealthPolicies")]
+        private InputMap<Inputs.ApplicationHealthPolicyArgs>? _applicationHealthPolicies;
+
         /// <summary>
         /// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
         /// </summary>
-        [Input("applicationHealthPolicies")]
-        public Input<Inputs.ApplicationHealthPolicyMapArgs>? ApplicationHealthPolicies { get; set; }
+        public InputMap<Inputs.ApplicationHealthPolicyArgs> ApplicationHealthPolicies
+        {
+            get => _applicationHealthPolicies ?? (_applicationHealthPolicies = new InputMap<Inputs.ApplicationHealthPolicyArgs>());
+            set => _applicationHealthPolicies = value;
+        }
 
         /// <summary>
         /// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.

@@ -111,7 +111,7 @@ type protectionIntentArgs struct {
 	// Intent object name.
 	Name string `pulumi:"name"`
 	// ProtectionIntentResource properties
-	Properties *ProtectionIntentDefinition `pulumi:"properties"`
+	Properties *ProtectionIntentType `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -131,7 +131,7 @@ type ProtectionIntentArgs struct {
 	// Intent object name.
 	Name pulumi.StringInput
 	// ProtectionIntentResource properties
-	Properties ProtectionIntentDefinitionPtrInput
+	Properties ProtectionIntentTypePtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

@@ -21,7 +21,6 @@ class AlertRule(pulumi.CustomResource):
     properties: pulumi.Output[dict]
     """
     The alert rule properties of the resource.
-      * `actions` (`list`) - the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
       * `condition` (`dict`) - the condition that results in the alert rule being activated.
         * `data_source` (`dict`) - the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
           * `resource_uri` (`str`) - the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
@@ -39,13 +38,12 @@ class AlertRule(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, actions=None, condition=None, description=None, is_enabled=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, condition=None, description=None, is_enabled=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The alert rule resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         :param pulumi.Input[dict] condition: the condition that results in the alert rule being activated.
         :param pulumi.Input[str] description: the description of the alert rule that will be included in the alert email.
         :param pulumi.Input[bool] is_enabled: the flag that indicates whether the alert rule is enabled.
@@ -76,7 +74,6 @@ class AlertRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['actions'] = actions
             if condition is None:
                 raise TypeError("Missing required property 'condition'")
             __props__['condition'] = condition

@@ -10,88 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// A budget resource.
-type BudgetType struct {
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag *string `pulumi:"eTag"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of the budget.
-	Properties BudgetPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// BudgetTypeInput is an input type that accepts BudgetTypeArgs and BudgetTypeOutput values.
-// You can construct a concrete instance of `BudgetTypeInput` via:
-//
-//          BudgetTypeArgs{...}
-type BudgetTypeInput interface {
-	pulumi.Input
-
-	ToBudgetTypeOutput() BudgetTypeOutput
-	ToBudgetTypeOutputWithContext(context.Context) BudgetTypeOutput
-}
-
-// A budget resource.
-type BudgetTypeArgs struct {
-	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the budget.
-	Properties BudgetPropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (BudgetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetType)(nil)).Elem()
-}
-
-func (i BudgetTypeArgs) ToBudgetTypeOutput() BudgetTypeOutput {
-	return i.ToBudgetTypeOutputWithContext(context.Background())
-}
-
-func (i BudgetTypeArgs) ToBudgetTypeOutputWithContext(ctx context.Context) BudgetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetTypeOutput)
-}
-
-// A budget resource.
-type BudgetTypeOutput struct{ *pulumi.OutputState }
-
-func (BudgetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetType)(nil)).Elem()
-}
-
-func (o BudgetTypeOutput) ToBudgetTypeOutput() BudgetTypeOutput {
-	return o
-}
-
-func (o BudgetTypeOutput) ToBudgetTypeOutputWithContext(ctx context.Context) BudgetTypeOutput {
-	return o
-}
-
-// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
-func (o BudgetTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BudgetType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Resource name.
-func (o BudgetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v BudgetType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the budget.
-func (o BudgetTypeOutput) Properties() BudgetPropertiesResponseOutput {
-	return o.ApplyT(func(v BudgetType) BudgetPropertiesResponse { return v.Properties }).(BudgetPropertiesResponseOutput)
-}
-
-// Resource type.
-func (o BudgetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BudgetType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of the budget.
 type BudgetPropertiesResponse struct {
 	// The total amount of cost to track with the budget
@@ -644,52 +562,6 @@ func (o BudgetTimePeriodResponsePtrOutput) StartDate() pulumi.StringPtrOutput {
 		}
 		return &v.StartDate
 	}).(pulumi.StringPtrOutput)
-}
-
-// The current amount of cost which is being tracked for a budget.
-type CurrentSpend struct {
-}
-
-// CurrentSpendInput is an input type that accepts CurrentSpendArgs and CurrentSpendOutput values.
-// You can construct a concrete instance of `CurrentSpendInput` via:
-//
-//          CurrentSpendArgs{...}
-type CurrentSpendInput interface {
-	pulumi.Input
-
-	ToCurrentSpendOutput() CurrentSpendOutput
-	ToCurrentSpendOutputWithContext(context.Context) CurrentSpendOutput
-}
-
-// The current amount of cost which is being tracked for a budget.
-type CurrentSpendArgs struct {
-}
-
-func (CurrentSpendArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CurrentSpend)(nil)).Elem()
-}
-
-func (i CurrentSpendArgs) ToCurrentSpendOutput() CurrentSpendOutput {
-	return i.ToCurrentSpendOutputWithContext(context.Background())
-}
-
-func (i CurrentSpendArgs) ToCurrentSpendOutputWithContext(ctx context.Context) CurrentSpendOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CurrentSpendOutput)
-}
-
-// The current amount of cost which is being tracked for a budget.
-type CurrentSpendOutput struct{ *pulumi.OutputState }
-
-func (CurrentSpendOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CurrentSpend)(nil)).Elem()
-}
-
-func (o CurrentSpendOutput) ToCurrentSpendOutput() CurrentSpendOutput {
-	return o
-}
-
-func (o CurrentSpendOutput) ToCurrentSpendOutputWithContext(ctx context.Context) CurrentSpendOutput {
-	return o
 }
 
 // The current amount of cost which is being tracked for a budget.
@@ -1518,14 +1390,12 @@ func (o NotificationResponseMapOutput) MapIndex(k pulumi.StringInput) Notificati
 }
 
 func init() {
-	pulumi.RegisterOutputType(BudgetTypeOutput{})
 	pulumi.RegisterOutputType(BudgetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BudgetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodResponseOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodResponsePtrOutput{})
-	pulumi.RegisterOutputType(CurrentSpendOutput{})
 	pulumi.RegisterOutputType(CurrentSpendResponseOutput{})
 	pulumi.RegisterOutputType(CurrentSpendResponsePtrOutput{})
 	pulumi.RegisterOutputType(FiltersOutput{})

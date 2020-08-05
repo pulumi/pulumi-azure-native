@@ -97,39 +97,31 @@ class VpnGateway(pulumi.CustomResource):
 
         The **connections** object supports the following:
 
-          * `etag` (`pulumi.Input[str]`) - Gets a unique read-only string that changes whenever the resource is updated.
+          * `connection_status` (`pulumi.Input[str]`) - The connection status.
+          * `enable_bgp` (`pulumi.Input[bool]`) - EnableBgp flag
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `ipsec_policies` (`pulumi.Input[list]`) - The IPSec Policies to be considered by this connection.
+            * `dh_group` (`pulumi.Input[str]`) - The DH Groups used in IKE Phase 1 for initial SA.
+            * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
+            * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
+            * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
+            * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
+            * `pfs_group` (`pulumi.Input[str]`) - The Pfs Groups used in IKE Phase 2 for new child SA.
+            * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+            * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+
           * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `properties` (`pulumi.Input[dict]`) - Parameters for VpnConnection
-            * `connection_bandwidth_in_mbps` (`pulumi.Input[float]`) - Expected bandwidth in MBPS.
-            * `connection_status` (`pulumi.Input[str]`) - The connection status.
-            * `egress_bytes_transferred` (`pulumi.Input[float]`) - Egress bytes transferred.
-            * `enable_bgp` (`pulumi.Input[bool]`) - EnableBgp flag
-            * `ingress_bytes_transferred` (`pulumi.Input[float]`) - Ingress bytes transferred.
-            * `ipsec_policies` (`pulumi.Input[list]`) - The IPSec Policies to be considered by this connection.
-              * `dh_group` (`pulumi.Input[str]`) - The DH Groups used in IKE Phase 1 for initial SA.
-              * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
-              * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
-              * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
-              * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
-              * `pfs_group` (`pulumi.Input[str]`) - The Pfs Groups used in IKE Phase 2 for new child SA.
-              * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-              * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
+          * `remote_vpn_site` (`pulumi.Input[dict]`) - Id of the connected vpn site.
+            * `id` (`pulumi.Input[str]`) - Resource ID.
 
-            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-            * `remote_vpn_site` (`pulumi.Input[dict]`) - Id of the connected vpn site.
-              * `id` (`pulumi.Input[str]`) - Resource ID.
-
-            * `routing_weight` (`pulumi.Input[float]`) - routing weight for vpn connection.
-            * `shared_key` (`pulumi.Input[str]`) - SharedKey for the vpn connection.
+          * `routing_weight` (`pulumi.Input[float]`) - routing weight for vpn connection.
+          * `shared_key` (`pulumi.Input[str]`) - SharedKey for the vpn connection.
 
         The **policies** object supports the following:
 
           * `allow_branch_to_branch_traffic` (`pulumi.Input[bool]`) - True if branch to branch traffic is allowed.
           * `allow_vnet_to_vnet_traffic` (`pulumi.Input[bool]`) - True if Vnet to Vnet traffic is allowed.
-
-        The **virtual_hub** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

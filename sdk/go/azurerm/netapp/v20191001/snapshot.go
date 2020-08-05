@@ -21,7 +21,7 @@ type Snapshot struct {
 	// Snapshot Properties
 	Properties SnapshotPropertiesResponseOutput `pulumi:"properties"`
 	// Resource tags
-	Tags ResourceTagsResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -79,7 +79,7 @@ type snapshotState struct {
 	// Snapshot Properties
 	Properties *SnapshotPropertiesResponse `pulumi:"properties"`
 	// Resource tags
-	Tags *ResourceTagsResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -92,7 +92,7 @@ type SnapshotState struct {
 	// Snapshot Properties
 	Properties SnapshotPropertiesResponsePtrInput
 	// Resource tags
-	Tags ResourceTagsResponsePtrInput
+	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }

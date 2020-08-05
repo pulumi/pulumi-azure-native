@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// Arguments for integration runtime.
         /// </summary>
-        public readonly Outputs.ParameterValueSpecificationResponseResult? Parameters;
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? Parameters;
         /// <summary>
         /// Reference integration runtime name.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
 
         [OutputConstructor]
         private IntegrationRuntimeReferenceResponseResult(
-            Outputs.ParameterValueSpecificationResponseResult? parameters,
+            ImmutableDictionary<string, ImmutableDictionary<string, object>>? parameters,
 
             string referenceName,
 

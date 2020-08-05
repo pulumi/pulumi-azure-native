@@ -51,7 +51,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public /*out*/ readonly tags!: pulumi.Output<outputs.netapp.v20191001.ResourceTagsResponse | undefined>;
+    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */

@@ -110,7 +110,7 @@ type serviceArgs struct {
 	// The name of the cluster resource.
 	ClusterName string `pulumi:"clusterName"`
 	// A list that describes the correlation of the service with other services.
-	CorrelationScheme *CorrelationSchemeList `pulumi:"correlationScheme"`
+	CorrelationScheme []ServiceCorrelationDescription `pulumi:"correlationScheme"`
 	// Specifies the move cost for the service.
 	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
 	// It will be deprecated in New API, resource location depends on the parent resource.
@@ -126,11 +126,11 @@ type serviceArgs struct {
 	// The kind of service (Stateless or Stateful).
 	ServiceKind string `pulumi:"serviceKind"`
 	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-	ServiceLoadMetrics *ServiceLoadMetricsList `pulumi:"serviceLoadMetrics"`
+	ServiceLoadMetrics []ServiceLoadMetricDescription `pulumi:"serviceLoadMetrics"`
 	// The activation Mode of the service package
 	ServicePackageActivationMode *string `pulumi:"servicePackageActivationMode"`
 	// A list that describes the correlation of the service with other services.
-	ServicePlacementPolicies *ServicePlacementPoliciesList `pulumi:"servicePlacementPolicies"`
+	ServicePlacementPolicies []ServicePlacementPolicyDescription `pulumi:"servicePlacementPolicies"`
 	// The name of the service type
 	ServiceTypeName *string `pulumi:"serviceTypeName"`
 	// Azure resource tags.
@@ -144,7 +144,7 @@ type ServiceArgs struct {
 	// The name of the cluster resource.
 	ClusterName pulumi.StringInput
 	// A list that describes the correlation of the service with other services.
-	CorrelationScheme CorrelationSchemeListPtrInput
+	CorrelationScheme ServiceCorrelationDescriptionArrayInput
 	// Specifies the move cost for the service.
 	DefaultMoveCost pulumi.StringPtrInput
 	// It will be deprecated in New API, resource location depends on the parent resource.
@@ -160,11 +160,11 @@ type ServiceArgs struct {
 	// The kind of service (Stateless or Stateful).
 	ServiceKind pulumi.StringInput
 	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-	ServiceLoadMetrics ServiceLoadMetricsListPtrInput
+	ServiceLoadMetrics ServiceLoadMetricDescriptionArrayInput
 	// The activation Mode of the service package
 	ServicePackageActivationMode pulumi.StringPtrInput
 	// A list that describes the correlation of the service with other services.
-	ServicePlacementPolicies ServicePlacementPoliciesListPtrInput
+	ServicePlacementPolicies ServicePlacementPolicyDescriptionArrayInput
 	// The name of the service type
 	ServiceTypeName pulumi.StringPtrInput
 	// Azure resource tags.

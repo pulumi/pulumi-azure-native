@@ -39,14 +39,13 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     """
     Resource type of the key vault resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, resource_group_name=None, vault_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, private_link_service_connection_state=None, provisioning_state=None, resource_group_name=None, vault_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Private endpoint connection resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the private endpoint connection associated with the key vault.
-        :param pulumi.Input[dict] private_endpoint: Properties of the private endpoint object.
         :param pulumi.Input[dict] private_link_service_connection_state: Approval state of the private link connection.
         :param pulumi.Input[str] provisioning_state: Provisioning state of the private endpoint connection.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the key vault.
@@ -78,7 +77,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['private_endpoint'] = private_endpoint
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
             __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:

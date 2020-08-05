@@ -10,88 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The policy assignment.
-type PolicyAssignmentType struct {
-	// The name of the policy assignment.
-	Name string `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesResponse `pulumi:"properties"`
-	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku *PolicySkuResponse `pulumi:"sku"`
-	// The type of the policy assignment.
-	Type string `pulumi:"type"`
-}
-
-// PolicyAssignmentTypeInput is an input type that accepts PolicyAssignmentTypeArgs and PolicyAssignmentTypeOutput values.
-// You can construct a concrete instance of `PolicyAssignmentTypeInput` via:
-//
-//          PolicyAssignmentTypeArgs{...}
-type PolicyAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToPolicyAssignmentTypeOutput() PolicyAssignmentTypeOutput
-	ToPolicyAssignmentTypeOutputWithContext(context.Context) PolicyAssignmentTypeOutput
-}
-
-// The policy assignment.
-type PolicyAssignmentTypeArgs struct {
-	// The name of the policy assignment.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesResponseInput `pulumi:"properties"`
-	// The policy sku. This property is optional, obsolete, and will be ignored.
-	Sku PolicySkuResponsePtrInput `pulumi:"sku"`
-	// The type of the policy assignment.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PolicyAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAssignmentType)(nil)).Elem()
-}
-
-func (i PolicyAssignmentTypeArgs) ToPolicyAssignmentTypeOutput() PolicyAssignmentTypeOutput {
-	return i.ToPolicyAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i PolicyAssignmentTypeArgs) ToPolicyAssignmentTypeOutputWithContext(ctx context.Context) PolicyAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentTypeOutput)
-}
-
-// The policy assignment.
-type PolicyAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (PolicyAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAssignmentType)(nil)).Elem()
-}
-
-func (o PolicyAssignmentTypeOutput) ToPolicyAssignmentTypeOutput() PolicyAssignmentTypeOutput {
-	return o
-}
-
-func (o PolicyAssignmentTypeOutput) ToPolicyAssignmentTypeOutputWithContext(ctx context.Context) PolicyAssignmentTypeOutput {
-	return o
-}
-
-// The name of the policy assignment.
-func (o PolicyAssignmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyAssignmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties for the policy assignment.
-func (o PolicyAssignmentTypeOutput) Properties() PolicyAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicyAssignmentType) PolicyAssignmentPropertiesResponse { return v.Properties }).(PolicyAssignmentPropertiesResponseOutput)
-}
-
-// The policy sku. This property is optional, obsolete, and will be ignored.
-func (o PolicyAssignmentTypeOutput) Sku() PolicySkuResponsePtrOutput {
-	return o.ApplyT(func(v PolicyAssignmentType) *PolicySkuResponse { return v.Sku }).(PolicySkuResponsePtrOutput)
-}
-
-// The type of the policy assignment.
-func (o PolicyAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyAssignmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The policy assignment properties.
 type PolicyAssignmentPropertiesResponse struct {
 	// This message will be part of response in case of policy violation.
@@ -338,79 +256,6 @@ func (o PolicyAssignmentPropertiesResponsePtrOutput) Scope() pulumi.StringPtrOut
 		}
 		return v.Scope
 	}).(pulumi.StringPtrOutput)
-}
-
-// The policy definition.
-type PolicyDefinitionType struct {
-	// The name of the policy definition.
-	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type string `pulumi:"type"`
-}
-
-// PolicyDefinitionTypeInput is an input type that accepts PolicyDefinitionTypeArgs and PolicyDefinitionTypeOutput values.
-// You can construct a concrete instance of `PolicyDefinitionTypeInput` via:
-//
-//          PolicyDefinitionTypeArgs{...}
-type PolicyDefinitionTypeInput interface {
-	pulumi.Input
-
-	ToPolicyDefinitionTypeOutput() PolicyDefinitionTypeOutput
-	ToPolicyDefinitionTypeOutputWithContext(context.Context) PolicyDefinitionTypeOutput
-}
-
-// The policy definition.
-type PolicyDefinitionTypeArgs struct {
-	// The name of the policy definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PolicyDefinitionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionType)(nil)).Elem()
-}
-
-func (i PolicyDefinitionTypeArgs) ToPolicyDefinitionTypeOutput() PolicyDefinitionTypeOutput {
-	return i.ToPolicyDefinitionTypeOutputWithContext(context.Background())
-}
-
-func (i PolicyDefinitionTypeArgs) ToPolicyDefinitionTypeOutputWithContext(ctx context.Context) PolicyDefinitionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTypeOutput)
-}
-
-// The policy definition.
-type PolicyDefinitionTypeOutput struct{ *pulumi.OutputState }
-
-func (PolicyDefinitionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionType)(nil)).Elem()
-}
-
-func (o PolicyDefinitionTypeOutput) ToPolicyDefinitionTypeOutput() PolicyDefinitionTypeOutput {
-	return o
-}
-
-func (o PolicyDefinitionTypeOutput) ToPolicyDefinitionTypeOutputWithContext(ctx context.Context) PolicyDefinitionTypeOutput {
-	return o
-}
-
-// The name of the policy definition.
-func (o PolicyDefinitionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyDefinitionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The policy definition properties.
-func (o PolicyDefinitionTypeOutput) Properties() PolicyDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicyDefinitionType) PolicyDefinitionPropertiesResponse { return v.Properties }).(PolicyDefinitionPropertiesResponseOutput)
-}
-
-// The type of the resource (Microsoft.Authorization/policyDefinitions).
-func (o PolicyDefinitionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyDefinitionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The policy definition properties.
@@ -877,79 +722,6 @@ func (o PolicyDefinitionReferenceResponseArrayOutput) Index(i pulumi.IntInput) P
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyDefinitionReferenceResponse {
 		return vs[0].([]PolicyDefinitionReferenceResponse)[vs[1].(int)]
 	}).(PolicyDefinitionReferenceResponseOutput)
-}
-
-// The policy set definition.
-type PolicySetDefinitionType struct {
-	// The name of the policy set definition.
-	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
-	Type string `pulumi:"type"`
-}
-
-// PolicySetDefinitionTypeInput is an input type that accepts PolicySetDefinitionTypeArgs and PolicySetDefinitionTypeOutput values.
-// You can construct a concrete instance of `PolicySetDefinitionTypeInput` via:
-//
-//          PolicySetDefinitionTypeArgs{...}
-type PolicySetDefinitionTypeInput interface {
-	pulumi.Input
-
-	ToPolicySetDefinitionTypeOutput() PolicySetDefinitionTypeOutput
-	ToPolicySetDefinitionTypeOutputWithContext(context.Context) PolicySetDefinitionTypeOutput
-}
-
-// The policy set definition.
-type PolicySetDefinitionTypeArgs struct {
-	// The name of the policy set definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PolicySetDefinitionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinitionType)(nil)).Elem()
-}
-
-func (i PolicySetDefinitionTypeArgs) ToPolicySetDefinitionTypeOutput() PolicySetDefinitionTypeOutput {
-	return i.ToPolicySetDefinitionTypeOutputWithContext(context.Background())
-}
-
-func (i PolicySetDefinitionTypeArgs) ToPolicySetDefinitionTypeOutputWithContext(ctx context.Context) PolicySetDefinitionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionTypeOutput)
-}
-
-// The policy set definition.
-type PolicySetDefinitionTypeOutput struct{ *pulumi.OutputState }
-
-func (PolicySetDefinitionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinitionType)(nil)).Elem()
-}
-
-func (o PolicySetDefinitionTypeOutput) ToPolicySetDefinitionTypeOutput() PolicySetDefinitionTypeOutput {
-	return o
-}
-
-func (o PolicySetDefinitionTypeOutput) ToPolicySetDefinitionTypeOutputWithContext(ctx context.Context) PolicySetDefinitionTypeOutput {
-	return o
-}
-
-// The name of the policy set definition.
-func (o PolicySetDefinitionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicySetDefinitionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The policy definition properties.
-func (o PolicySetDefinitionTypeOutput) Properties() PolicySetDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicySetDefinitionType) PolicySetDefinitionPropertiesResponse { return v.Properties }).(PolicySetDefinitionPropertiesResponseOutput)
-}
-
-// The type of the resource (Microsoft.Authorization/policySetDefinitions).
-func (o PolicySetDefinitionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicySetDefinitionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The policy set definition properties.
@@ -1490,17 +1262,14 @@ func (o PolicySkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(PolicyAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(PolicyDefinitionTypeOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceArrayOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(PolicySetDefinitionTypeOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PolicySkuOutput{})

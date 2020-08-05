@@ -624,79 +624,6 @@ func (o DscConfigurationAssociationPropertyResponsePtrOutput) Name() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the dsc node configuration.
-type DscNodeConfigurationType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the configuration properties.
-	Properties DscNodeConfigurationPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// DscNodeConfigurationTypeInput is an input type that accepts DscNodeConfigurationTypeArgs and DscNodeConfigurationTypeOutput values.
-// You can construct a concrete instance of `DscNodeConfigurationTypeInput` via:
-//
-//          DscNodeConfigurationTypeArgs{...}
-type DscNodeConfigurationTypeInput interface {
-	pulumi.Input
-
-	ToDscNodeConfigurationTypeOutput() DscNodeConfigurationTypeOutput
-	ToDscNodeConfigurationTypeOutputWithContext(context.Context) DscNodeConfigurationTypeOutput
-}
-
-// Definition of the dsc node configuration.
-type DscNodeConfigurationTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the configuration properties.
-	Properties DscNodeConfigurationPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DscNodeConfigurationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscNodeConfigurationType)(nil)).Elem()
-}
-
-func (i DscNodeConfigurationTypeArgs) ToDscNodeConfigurationTypeOutput() DscNodeConfigurationTypeOutput {
-	return i.ToDscNodeConfigurationTypeOutputWithContext(context.Background())
-}
-
-func (i DscNodeConfigurationTypeArgs) ToDscNodeConfigurationTypeOutputWithContext(ctx context.Context) DscNodeConfigurationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DscNodeConfigurationTypeOutput)
-}
-
-// Definition of the dsc node configuration.
-type DscNodeConfigurationTypeOutput struct{ *pulumi.OutputState }
-
-func (DscNodeConfigurationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscNodeConfigurationType)(nil)).Elem()
-}
-
-func (o DscNodeConfigurationTypeOutput) ToDscNodeConfigurationTypeOutput() DscNodeConfigurationTypeOutput {
-	return o
-}
-
-func (o DscNodeConfigurationTypeOutput) ToDscNodeConfigurationTypeOutputWithContext(ctx context.Context) DscNodeConfigurationTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o DscNodeConfigurationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DscNodeConfigurationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the configuration properties.
-func (o DscNodeConfigurationTypeOutput) Properties() DscNodeConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v DscNodeConfigurationType) DscNodeConfigurationPropertiesResponse { return v.Properties }).(DscNodeConfigurationPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o DscNodeConfigurationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DscNodeConfigurationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties for the DscNodeConfiguration
 type DscNodeConfigurationPropertiesResponse struct {
 	// Gets or sets the configuration of the node.
@@ -937,7 +864,6 @@ func init() {
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyPtrOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyResponseOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyResponsePtrOutput{})
-	pulumi.RegisterOutputType(DscNodeConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(DscNodeConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DscNodeConfigurationPropertiesResponsePtrOutput{})
 }

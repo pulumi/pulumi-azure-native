@@ -27,6 +27,8 @@ class PrivateLinkService(pulumi.CustomResource):
     Properties of the private link service.
       * `alias` (`str`) - The alias of the private link service.
       * `auto_approval` (`dict`) - The auto-approval list of the private link service.
+        * `subscriptions` (`list`) - The list of subscriptions.
+
       * `fqdns` (`list`) - The list of Fqdn.
       * `ip_configurations` (`list`) - An array of private link service IP configurations.
         * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
@@ -420,6 +422,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
       * `provisioning_state` (`str`) - The provisioning state of the private link service resource.
       * `visibility` (`dict`) - The visibility list of the private link service.
+        * `subscriptions` (`list`) - The list of subscriptions.
     """
     tags: pulumi.Output[dict]
     """
@@ -448,6 +451,10 @@ class PrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[dict] visibility: The visibility list of the private link service.
+
+        The **auto_approval** object supports the following:
+
+          * `subscriptions` (`pulumi.Input[list]`) - The list of subscriptions.
 
         The **ip_configurations** object supports the following:
 
@@ -633,6 +640,10 @@ class PrivateLinkService(pulumi.CustomResource):
 
           * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
           * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the private endpoint connection resource.
+
+        The **visibility** object supports the following:
+
+          * `subscriptions` (`pulumi.Input[list]`) - The list of subscriptions.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

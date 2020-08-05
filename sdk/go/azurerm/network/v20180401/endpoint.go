@@ -85,7 +85,7 @@ func (EndpointState) ElementType() reflect.Type {
 
 type endpointArgs struct {
 	// List of custom headers.
-	CustomHeaders []EndpointPropertiesProperties `pulumi:"customHeaders"`
+	CustomHeaders []EndpointPropertiesCustomHeaders `pulumi:"customHeaders"`
 	// Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
 	EndpointLocation *string `pulumi:"endpointLocation"`
 	// The monitoring status of the endpoint.
@@ -109,7 +109,7 @@ type endpointArgs struct {
 	// The name of the resource group containing the Traffic Manager endpoint to be created or updated.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
-	Subnets []EndpointPropertiesProperties `pulumi:"subnets"`
+	Subnets []EndpointPropertiesSubnets `pulumi:"subnets"`
 	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
 	Target *string `pulumi:"target"`
 	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
@@ -123,7 +123,7 @@ type endpointArgs struct {
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
 	// List of custom headers.
-	CustomHeaders EndpointPropertiesPropertiesArrayInput
+	CustomHeaders EndpointPropertiesCustomHeadersArrayInput
 	// Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
 	EndpointLocation pulumi.StringPtrInput
 	// The monitoring status of the endpoint.
@@ -147,7 +147,7 @@ type EndpointArgs struct {
 	// The name of the resource group containing the Traffic Manager endpoint to be created or updated.
 	ResourceGroupName pulumi.StringInput
 	// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
-	Subnets EndpointPropertiesPropertiesArrayInput
+	Subnets EndpointPropertiesSubnetsArrayInput
 	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
 	Target pulumi.StringPtrInput
 	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.

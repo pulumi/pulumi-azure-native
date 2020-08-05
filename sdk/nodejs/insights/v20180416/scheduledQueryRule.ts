@@ -70,9 +70,6 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ScheduledQueryRuleArgs | undefined;
-            if (!args || args.action === undefined) {
-                throw new Error("Missing required property 'action'");
-            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -85,7 +82,6 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             if (!args || args.source === undefined) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["action"] = args ? args.action : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -112,10 +108,6 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
  * The set of arguments for constructing a ScheduledQueryRule resource.
  */
 export interface ScheduledQueryRuleArgs {
-    /**
-     * Action needs to be taken on rule execution.
-     */
-    readonly action: pulumi.Input<inputs.insights.v20180416.Action>;
     /**
      * The description of the Log Search rule.
      */

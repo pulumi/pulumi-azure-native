@@ -113,11 +113,17 @@ namespace Pulumi.AzureRM.Authorization.V20190901
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputMap<Inputs.ParameterDefinitionsValueArgs>? _parameters;
+
         /// <summary>
         /// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
         /// </summary>
-        [Input("parameters")]
-        public Input<Inputs.ParameterDefinitionsArgs>? Parameters { get; set; }
+        public InputMap<Inputs.ParameterDefinitionsValueArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterDefinitionsValueArgs>());
+            set => _parameters = value;
+        }
 
         [Input("policyRule")]
         private InputMap<object>? _policyRule;

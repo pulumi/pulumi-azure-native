@@ -10,100 +10,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type AdaptiveApplicationControlType struct {
-	// Location where the resource is stored
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Represents a VM/server group and set of rules to be allowed running on a machine
-	Properties AppWhitelistingGroupDataResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// AdaptiveApplicationControlTypeInput is an input type that accepts AdaptiveApplicationControlTypeArgs and AdaptiveApplicationControlTypeOutput values.
-// You can construct a concrete instance of `AdaptiveApplicationControlTypeInput` via:
-//
-//          AdaptiveApplicationControlTypeArgs{...}
-type AdaptiveApplicationControlTypeInput interface {
-	pulumi.Input
-
-	ToAdaptiveApplicationControlTypeOutput() AdaptiveApplicationControlTypeOutput
-	ToAdaptiveApplicationControlTypeOutputWithContext(context.Context) AdaptiveApplicationControlTypeOutput
-}
-
-type AdaptiveApplicationControlTypeArgs struct {
-	// Location where the resource is stored
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Represents a VM/server group and set of rules to be allowed running on a machine
-	Properties AppWhitelistingGroupDataResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AdaptiveApplicationControlTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdaptiveApplicationControlType)(nil)).Elem()
-}
-
-func (i AdaptiveApplicationControlTypeArgs) ToAdaptiveApplicationControlTypeOutput() AdaptiveApplicationControlTypeOutput {
-	return i.ToAdaptiveApplicationControlTypeOutputWithContext(context.Background())
-}
-
-func (i AdaptiveApplicationControlTypeArgs) ToAdaptiveApplicationControlTypeOutputWithContext(ctx context.Context) AdaptiveApplicationControlTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdaptiveApplicationControlTypeOutput)
-}
-
-type AdaptiveApplicationControlTypeOutput struct{ *pulumi.OutputState }
-
-func (AdaptiveApplicationControlTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdaptiveApplicationControlType)(nil)).Elem()
-}
-
-func (o AdaptiveApplicationControlTypeOutput) ToAdaptiveApplicationControlTypeOutput() AdaptiveApplicationControlTypeOutput {
-	return o
-}
-
-func (o AdaptiveApplicationControlTypeOutput) ToAdaptiveApplicationControlTypeOutputWithContext(ctx context.Context) AdaptiveApplicationControlTypeOutput {
-	return o
-}
-
-// Location where the resource is stored
-func (o AdaptiveApplicationControlTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AdaptiveApplicationControlType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o AdaptiveApplicationControlTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AdaptiveApplicationControlType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Represents a VM/server group and set of rules to be allowed running on a machine
-func (o AdaptiveApplicationControlTypeOutput) Properties() AppWhitelistingGroupDataResponseOutput {
-	return o.ApplyT(func(v AdaptiveApplicationControlType) AppWhitelistingGroupDataResponse { return v.Properties }).(AppWhitelistingGroupDataResponseOutput)
-}
-
-// Resource type
-func (o AdaptiveApplicationControlTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AdaptiveApplicationControlType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Represents a VM/server group and set of rules to be allowed running on a machine
 type AppWhitelistingGroupDataResponse struct {
 	// The configuration status of the VM/server group or machine or rule on the machine
 	ConfigurationStatus string `pulumi:"configurationStatus"`
 	// The application control policy enforcement/protection mode of the VM/server group
-	EnforcementMode     *string                                `pulumi:"enforcementMode"`
-	Issues              AppWhitelistingIssuesSummariesResponse `pulumi:"issues"`
-	PathRecommendations *PathRecommendationsResponse           `pulumi:"pathRecommendations"`
+	EnforcementMode     *string                               `pulumi:"enforcementMode"`
+	Issues              []AppWhitelistingIssueSummaryResponse `pulumi:"issues"`
+	PathRecommendations []PathRecommendationResponse          `pulumi:"pathRecommendations"`
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 	ProtectionMode *ProtectionModeResponse `pulumi:"protectionMode"`
 	// The recommendation status of the VM/server group or VM/server
 	RecommendationStatus string `pulumi:"recommendationStatus"`
 	// The source type of the VM/server group
 	SourceSystem      string                     `pulumi:"sourceSystem"`
-	VmRecommendations *VmRecommendationsResponse `pulumi:"vmRecommendations"`
+	VmRecommendations []VmRecommendationResponse `pulumi:"vmRecommendations"`
 }
 
 // AppWhitelistingGroupDataResponseInput is an input type that accepts AppWhitelistingGroupDataResponseArgs and AppWhitelistingGroupDataResponseOutput values.
@@ -122,16 +43,16 @@ type AppWhitelistingGroupDataResponseArgs struct {
 	// The configuration status of the VM/server group or machine or rule on the machine
 	ConfigurationStatus pulumi.StringInput `pulumi:"configurationStatus"`
 	// The application control policy enforcement/protection mode of the VM/server group
-	EnforcementMode     pulumi.StringPtrInput                       `pulumi:"enforcementMode"`
-	Issues              AppWhitelistingIssuesSummariesResponseInput `pulumi:"issues"`
-	PathRecommendations PathRecommendationsResponsePtrInput         `pulumi:"pathRecommendations"`
+	EnforcementMode     pulumi.StringPtrInput                         `pulumi:"enforcementMode"`
+	Issues              AppWhitelistingIssueSummaryResponseArrayInput `pulumi:"issues"`
+	PathRecommendations PathRecommendationResponseArrayInput          `pulumi:"pathRecommendations"`
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 	ProtectionMode ProtectionModeResponsePtrInput `pulumi:"protectionMode"`
 	// The recommendation status of the VM/server group or VM/server
 	RecommendationStatus pulumi.StringInput `pulumi:"recommendationStatus"`
 	// The source type of the VM/server group
-	SourceSystem      pulumi.StringInput                `pulumi:"sourceSystem"`
-	VmRecommendations VmRecommendationsResponsePtrInput `pulumi:"vmRecommendations"`
+	SourceSystem      pulumi.StringInput                 `pulumi:"sourceSystem"`
+	VmRecommendations VmRecommendationResponseArrayInput `pulumi:"vmRecommendations"`
 }
 
 func (AppWhitelistingGroupDataResponseArgs) ElementType() reflect.Type {
@@ -222,12 +143,12 @@ func (o AppWhitelistingGroupDataResponseOutput) EnforcementMode() pulumi.StringP
 	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) *string { return v.EnforcementMode }).(pulumi.StringPtrOutput)
 }
 
-func (o AppWhitelistingGroupDataResponseOutput) Issues() AppWhitelistingIssuesSummariesResponseOutput {
-	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) AppWhitelistingIssuesSummariesResponse { return v.Issues }).(AppWhitelistingIssuesSummariesResponseOutput)
+func (o AppWhitelistingGroupDataResponseOutput) Issues() AppWhitelistingIssueSummaryResponseArrayOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) []AppWhitelistingIssueSummaryResponse { return v.Issues }).(AppWhitelistingIssueSummaryResponseArrayOutput)
 }
 
-func (o AppWhitelistingGroupDataResponseOutput) PathRecommendations() PathRecommendationsResponsePtrOutput {
-	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) *PathRecommendationsResponse { return v.PathRecommendations }).(PathRecommendationsResponsePtrOutput)
+func (o AppWhitelistingGroupDataResponseOutput) PathRecommendations() PathRecommendationResponseArrayOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) []PathRecommendationResponse { return v.PathRecommendations }).(PathRecommendationResponseArrayOutput)
 }
 
 // The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
@@ -245,8 +166,8 @@ func (o AppWhitelistingGroupDataResponseOutput) SourceSystem() pulumi.StringOutp
 	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) string { return v.SourceSystem }).(pulumi.StringOutput)
 }
 
-func (o AppWhitelistingGroupDataResponseOutput) VmRecommendations() VmRecommendationsResponsePtrOutput {
-	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) *VmRecommendationsResponse { return v.VmRecommendations }).(VmRecommendationsResponsePtrOutput)
+func (o AppWhitelistingGroupDataResponseOutput) VmRecommendations() VmRecommendationResponseArrayOutput {
+	return o.ApplyT(func(v AppWhitelistingGroupDataResponse) []VmRecommendationResponse { return v.VmRecommendations }).(VmRecommendationResponseArrayOutput)
 }
 
 type AppWhitelistingGroupDataResponsePtrOutput struct{ *pulumi.OutputState }
@@ -287,22 +208,22 @@ func (o AppWhitelistingGroupDataResponsePtrOutput) EnforcementMode() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppWhitelistingGroupDataResponsePtrOutput) Issues() AppWhitelistingIssuesSummariesResponsePtrOutput {
-	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) *AppWhitelistingIssuesSummariesResponse {
+func (o AppWhitelistingGroupDataResponsePtrOutput) Issues() AppWhitelistingIssueSummaryResponseArrayOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) []AppWhitelistingIssueSummaryResponse {
 		if v == nil {
 			return nil
 		}
-		return &v.Issues
-	}).(AppWhitelistingIssuesSummariesResponsePtrOutput)
+		return v.Issues
+	}).(AppWhitelistingIssueSummaryResponseArrayOutput)
 }
 
-func (o AppWhitelistingGroupDataResponsePtrOutput) PathRecommendations() PathRecommendationsResponsePtrOutput {
-	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) *PathRecommendationsResponse {
+func (o AppWhitelistingGroupDataResponsePtrOutput) PathRecommendations() PathRecommendationResponseArrayOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) []PathRecommendationResponse {
 		if v == nil {
 			return nil
 		}
 		return v.PathRecommendations
-	}).(PathRecommendationsResponsePtrOutput)
+	}).(PathRecommendationResponseArrayOutput)
 }
 
 // The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
@@ -335,356 +256,122 @@ func (o AppWhitelistingGroupDataResponsePtrOutput) SourceSystem() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AppWhitelistingGroupDataResponsePtrOutput) VmRecommendations() VmRecommendationsResponsePtrOutput {
-	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) *VmRecommendationsResponse {
+func (o AppWhitelistingGroupDataResponsePtrOutput) VmRecommendations() VmRecommendationResponseArrayOutput {
+	return o.ApplyT(func(v *AppWhitelistingGroupDataResponse) []VmRecommendationResponse {
 		if v == nil {
 			return nil
 		}
 		return v.VmRecommendations
-	}).(VmRecommendationsResponsePtrOutput)
+	}).(VmRecommendationResponseArrayOutput)
 }
 
-type AppWhitelistingIssuesSummaries struct {
+// Represents a summary of the alerts of the VM/server group
+type AppWhitelistingIssueSummaryResponse struct {
+	// An alert that VMs/servers within a group can have
+	Issue *string `pulumi:"issue"`
+	// The number of machines in the VM/server group that have this alert
+	NumberOfVms *float64 `pulumi:"numberOfVms"`
 }
 
-// AppWhitelistingIssuesSummariesInput is an input type that accepts AppWhitelistingIssuesSummariesArgs and AppWhitelistingIssuesSummariesOutput values.
-// You can construct a concrete instance of `AppWhitelistingIssuesSummariesInput` via:
+// AppWhitelistingIssueSummaryResponseInput is an input type that accepts AppWhitelistingIssueSummaryResponseArgs and AppWhitelistingIssueSummaryResponseOutput values.
+// You can construct a concrete instance of `AppWhitelistingIssueSummaryResponseInput` via:
 //
-//          AppWhitelistingIssuesSummariesArgs{...}
-type AppWhitelistingIssuesSummariesInput interface {
+//          AppWhitelistingIssueSummaryResponseArgs{...}
+type AppWhitelistingIssueSummaryResponseInput interface {
 	pulumi.Input
 
-	ToAppWhitelistingIssuesSummariesOutput() AppWhitelistingIssuesSummariesOutput
-	ToAppWhitelistingIssuesSummariesOutputWithContext(context.Context) AppWhitelistingIssuesSummariesOutput
+	ToAppWhitelistingIssueSummaryResponseOutput() AppWhitelistingIssueSummaryResponseOutput
+	ToAppWhitelistingIssueSummaryResponseOutputWithContext(context.Context) AppWhitelistingIssueSummaryResponseOutput
 }
 
-type AppWhitelistingIssuesSummariesArgs struct {
+// Represents a summary of the alerts of the VM/server group
+type AppWhitelistingIssueSummaryResponseArgs struct {
+	// An alert that VMs/servers within a group can have
+	Issue pulumi.StringPtrInput `pulumi:"issue"`
+	// The number of machines in the VM/server group that have this alert
+	NumberOfVms pulumi.Float64PtrInput `pulumi:"numberOfVms"`
 }
 
-func (AppWhitelistingIssuesSummariesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppWhitelistingIssuesSummaries)(nil)).Elem()
+func (AppWhitelistingIssueSummaryResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingIssueSummaryResponse)(nil)).Elem()
 }
 
-func (i AppWhitelistingIssuesSummariesArgs) ToAppWhitelistingIssuesSummariesOutput() AppWhitelistingIssuesSummariesOutput {
-	return i.ToAppWhitelistingIssuesSummariesOutputWithContext(context.Background())
+func (i AppWhitelistingIssueSummaryResponseArgs) ToAppWhitelistingIssueSummaryResponseOutput() AppWhitelistingIssueSummaryResponseOutput {
+	return i.ToAppWhitelistingIssueSummaryResponseOutputWithContext(context.Background())
 }
 
-func (i AppWhitelistingIssuesSummariesArgs) ToAppWhitelistingIssuesSummariesOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssuesSummariesOutput)
+func (i AppWhitelistingIssueSummaryResponseArgs) ToAppWhitelistingIssueSummaryResponseOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssueSummaryResponseOutput)
 }
 
-type AppWhitelistingIssuesSummariesOutput struct{ *pulumi.OutputState }
-
-func (AppWhitelistingIssuesSummariesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppWhitelistingIssuesSummaries)(nil)).Elem()
-}
-
-func (o AppWhitelistingIssuesSummariesOutput) ToAppWhitelistingIssuesSummariesOutput() AppWhitelistingIssuesSummariesOutput {
-	return o
-}
-
-func (o AppWhitelistingIssuesSummariesOutput) ToAppWhitelistingIssuesSummariesOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesOutput {
-	return o
-}
-
-type AppWhitelistingIssuesSummariesResponse struct {
-}
-
-// AppWhitelistingIssuesSummariesResponseInput is an input type that accepts AppWhitelistingIssuesSummariesResponseArgs and AppWhitelistingIssuesSummariesResponseOutput values.
-// You can construct a concrete instance of `AppWhitelistingIssuesSummariesResponseInput` via:
+// AppWhitelistingIssueSummaryResponseArrayInput is an input type that accepts AppWhitelistingIssueSummaryResponseArray and AppWhitelistingIssueSummaryResponseArrayOutput values.
+// You can construct a concrete instance of `AppWhitelistingIssueSummaryResponseArrayInput` via:
 //
-//          AppWhitelistingIssuesSummariesResponseArgs{...}
-type AppWhitelistingIssuesSummariesResponseInput interface {
+//          AppWhitelistingIssueSummaryResponseArray{ AppWhitelistingIssueSummaryResponseArgs{...} }
+type AppWhitelistingIssueSummaryResponseArrayInput interface {
 	pulumi.Input
 
-	ToAppWhitelistingIssuesSummariesResponseOutput() AppWhitelistingIssuesSummariesResponseOutput
-	ToAppWhitelistingIssuesSummariesResponseOutputWithContext(context.Context) AppWhitelistingIssuesSummariesResponseOutput
+	ToAppWhitelistingIssueSummaryResponseArrayOutput() AppWhitelistingIssueSummaryResponseArrayOutput
+	ToAppWhitelistingIssueSummaryResponseArrayOutputWithContext(context.Context) AppWhitelistingIssueSummaryResponseArrayOutput
 }
 
-type AppWhitelistingIssuesSummariesResponseArgs struct {
+type AppWhitelistingIssueSummaryResponseArray []AppWhitelistingIssueSummaryResponseInput
+
+func (AppWhitelistingIssueSummaryResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppWhitelistingIssueSummaryResponse)(nil)).Elem()
 }
 
-func (AppWhitelistingIssuesSummariesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppWhitelistingIssuesSummariesResponse)(nil)).Elem()
+func (i AppWhitelistingIssueSummaryResponseArray) ToAppWhitelistingIssueSummaryResponseArrayOutput() AppWhitelistingIssueSummaryResponseArrayOutput {
+	return i.ToAppWhitelistingIssueSummaryResponseArrayOutputWithContext(context.Background())
 }
 
-func (i AppWhitelistingIssuesSummariesResponseArgs) ToAppWhitelistingIssuesSummariesResponseOutput() AppWhitelistingIssuesSummariesResponseOutput {
-	return i.ToAppWhitelistingIssuesSummariesResponseOutputWithContext(context.Background())
+func (i AppWhitelistingIssueSummaryResponseArray) ToAppWhitelistingIssueSummaryResponseArrayOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssueSummaryResponseArrayOutput)
 }
 
-func (i AppWhitelistingIssuesSummariesResponseArgs) ToAppWhitelistingIssuesSummariesResponseOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssuesSummariesResponseOutput)
+// Represents a summary of the alerts of the VM/server group
+type AppWhitelistingIssueSummaryResponseOutput struct{ *pulumi.OutputState }
+
+func (AppWhitelistingIssueSummaryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppWhitelistingIssueSummaryResponse)(nil)).Elem()
 }
 
-func (i AppWhitelistingIssuesSummariesResponseArgs) ToAppWhitelistingIssuesSummariesResponsePtrOutput() AppWhitelistingIssuesSummariesResponsePtrOutput {
-	return i.ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AppWhitelistingIssuesSummariesResponseArgs) ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssuesSummariesResponseOutput).ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(ctx)
-}
-
-// AppWhitelistingIssuesSummariesResponsePtrInput is an input type that accepts AppWhitelistingIssuesSummariesResponseArgs, AppWhitelistingIssuesSummariesResponsePtr and AppWhitelistingIssuesSummariesResponsePtrOutput values.
-// You can construct a concrete instance of `AppWhitelistingIssuesSummariesResponsePtrInput` via:
-//
-//          AppWhitelistingIssuesSummariesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type AppWhitelistingIssuesSummariesResponsePtrInput interface {
-	pulumi.Input
-
-	ToAppWhitelistingIssuesSummariesResponsePtrOutput() AppWhitelistingIssuesSummariesResponsePtrOutput
-	ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(context.Context) AppWhitelistingIssuesSummariesResponsePtrOutput
-}
-
-type appWhitelistingIssuesSummariesResponsePtrType AppWhitelistingIssuesSummariesResponseArgs
-
-func AppWhitelistingIssuesSummariesResponsePtr(v *AppWhitelistingIssuesSummariesResponseArgs) AppWhitelistingIssuesSummariesResponsePtrInput {
-	return (*appWhitelistingIssuesSummariesResponsePtrType)(v)
-}
-
-func (*appWhitelistingIssuesSummariesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppWhitelistingIssuesSummariesResponse)(nil)).Elem()
-}
-
-func (i *appWhitelistingIssuesSummariesResponsePtrType) ToAppWhitelistingIssuesSummariesResponsePtrOutput() AppWhitelistingIssuesSummariesResponsePtrOutput {
-	return i.ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *appWhitelistingIssuesSummariesResponsePtrType) ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssuesSummariesResponsePtrOutput)
-}
-
-type AppWhitelistingIssuesSummariesResponseOutput struct{ *pulumi.OutputState }
-
-func (AppWhitelistingIssuesSummariesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppWhitelistingIssuesSummariesResponse)(nil)).Elem()
-}
-
-func (o AppWhitelistingIssuesSummariesResponseOutput) ToAppWhitelistingIssuesSummariesResponseOutput() AppWhitelistingIssuesSummariesResponseOutput {
+func (o AppWhitelistingIssueSummaryResponseOutput) ToAppWhitelistingIssueSummaryResponseOutput() AppWhitelistingIssueSummaryResponseOutput {
 	return o
 }
 
-func (o AppWhitelistingIssuesSummariesResponseOutput) ToAppWhitelistingIssuesSummariesResponseOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponseOutput {
+func (o AppWhitelistingIssueSummaryResponseOutput) ToAppWhitelistingIssueSummaryResponseOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryResponseOutput {
 	return o
 }
 
-func (o AppWhitelistingIssuesSummariesResponseOutput) ToAppWhitelistingIssuesSummariesResponsePtrOutput() AppWhitelistingIssuesSummariesResponsePtrOutput {
-	return o.ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(context.Background())
+// An alert that VMs/servers within a group can have
+func (o AppWhitelistingIssueSummaryResponseOutput) Issue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppWhitelistingIssueSummaryResponse) *string { return v.Issue }).(pulumi.StringPtrOutput)
 }
 
-func (o AppWhitelistingIssuesSummariesResponseOutput) ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponsePtrOutput {
-	return o.ApplyT(func(v AppWhitelistingIssuesSummariesResponse) *AppWhitelistingIssuesSummariesResponse {
-		return &v
-	}).(AppWhitelistingIssuesSummariesResponsePtrOutput)
+// The number of machines in the VM/server group that have this alert
+func (o AppWhitelistingIssueSummaryResponseOutput) NumberOfVms() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AppWhitelistingIssueSummaryResponse) *float64 { return v.NumberOfVms }).(pulumi.Float64PtrOutput)
 }
 
-type AppWhitelistingIssuesSummariesResponsePtrOutput struct{ *pulumi.OutputState }
+type AppWhitelistingIssueSummaryResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (AppWhitelistingIssuesSummariesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppWhitelistingIssuesSummariesResponse)(nil)).Elem()
+func (AppWhitelistingIssueSummaryResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AppWhitelistingIssueSummaryResponse)(nil)).Elem()
 }
 
-func (o AppWhitelistingIssuesSummariesResponsePtrOutput) ToAppWhitelistingIssuesSummariesResponsePtrOutput() AppWhitelistingIssuesSummariesResponsePtrOutput {
+func (o AppWhitelistingIssueSummaryResponseArrayOutput) ToAppWhitelistingIssueSummaryResponseArrayOutput() AppWhitelistingIssueSummaryResponseArrayOutput {
 	return o
 }
 
-func (o AppWhitelistingIssuesSummariesResponsePtrOutput) ToAppWhitelistingIssuesSummariesResponsePtrOutputWithContext(ctx context.Context) AppWhitelistingIssuesSummariesResponsePtrOutput {
+func (o AppWhitelistingIssueSummaryResponseArrayOutput) ToAppWhitelistingIssueSummaryResponseArrayOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryResponseArrayOutput {
 	return o
 }
 
-func (o AppWhitelistingIssuesSummariesResponsePtrOutput) Elem() AppWhitelistingIssuesSummariesResponseOutput {
-	return o.ApplyT(func(v *AppWhitelistingIssuesSummariesResponse) AppWhitelistingIssuesSummariesResponse { return *v }).(AppWhitelistingIssuesSummariesResponseOutput)
-}
-
-// Security assessment on a resource
-type AssessmentType struct {
-	// Resource name
-	Name string `pulumi:"name"`
-	// Describes properties of an assessment.
-	Properties SecurityAssessmentPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// AssessmentTypeInput is an input type that accepts AssessmentTypeArgs and AssessmentTypeOutput values.
-// You can construct a concrete instance of `AssessmentTypeInput` via:
-//
-//          AssessmentTypeArgs{...}
-type AssessmentTypeInput interface {
-	pulumi.Input
-
-	ToAssessmentTypeOutput() AssessmentTypeOutput
-	ToAssessmentTypeOutputWithContext(context.Context) AssessmentTypeOutput
-}
-
-// Security assessment on a resource
-type AssessmentTypeArgs struct {
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Describes properties of an assessment.
-	Properties SecurityAssessmentPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AssessmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentType)(nil)).Elem()
-}
-
-func (i AssessmentTypeArgs) ToAssessmentTypeOutput() AssessmentTypeOutput {
-	return i.ToAssessmentTypeOutputWithContext(context.Background())
-}
-
-func (i AssessmentTypeArgs) ToAssessmentTypeOutputWithContext(ctx context.Context) AssessmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTypeOutput)
-}
-
-// Security assessment on a resource
-type AssessmentTypeOutput struct{ *pulumi.OutputState }
-
-func (AssessmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentType)(nil)).Elem()
-}
-
-func (o AssessmentTypeOutput) ToAssessmentTypeOutput() AssessmentTypeOutput {
-	return o
-}
-
-func (o AssessmentTypeOutput) ToAssessmentTypeOutputWithContext(ctx context.Context) AssessmentTypeOutput {
-	return o
-}
-
-// Resource name
-func (o AssessmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Describes properties of an assessment.
-func (o AssessmentTypeOutput) Properties() SecurityAssessmentPropertiesResponseOutput {
-	return o.ApplyT(func(v AssessmentType) SecurityAssessmentPropertiesResponse { return v.Properties }).(SecurityAssessmentPropertiesResponseOutput)
-}
-
-// Resource type
-func (o AssessmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Links relevant to the assessment
-type AssessmentLinks struct {
-}
-
-// AssessmentLinksInput is an input type that accepts AssessmentLinksArgs and AssessmentLinksOutput values.
-// You can construct a concrete instance of `AssessmentLinksInput` via:
-//
-//          AssessmentLinksArgs{...}
-type AssessmentLinksInput interface {
-	pulumi.Input
-
-	ToAssessmentLinksOutput() AssessmentLinksOutput
-	ToAssessmentLinksOutputWithContext(context.Context) AssessmentLinksOutput
-}
-
-// Links relevant to the assessment
-type AssessmentLinksArgs struct {
-}
-
-func (AssessmentLinksArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentLinks)(nil)).Elem()
-}
-
-func (i AssessmentLinksArgs) ToAssessmentLinksOutput() AssessmentLinksOutput {
-	return i.ToAssessmentLinksOutputWithContext(context.Background())
-}
-
-func (i AssessmentLinksArgs) ToAssessmentLinksOutputWithContext(ctx context.Context) AssessmentLinksOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksOutput)
-}
-
-func (i AssessmentLinksArgs) ToAssessmentLinksPtrOutput() AssessmentLinksPtrOutput {
-	return i.ToAssessmentLinksPtrOutputWithContext(context.Background())
-}
-
-func (i AssessmentLinksArgs) ToAssessmentLinksPtrOutputWithContext(ctx context.Context) AssessmentLinksPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksOutput).ToAssessmentLinksPtrOutputWithContext(ctx)
-}
-
-// AssessmentLinksPtrInput is an input type that accepts AssessmentLinksArgs, AssessmentLinksPtr and AssessmentLinksPtrOutput values.
-// You can construct a concrete instance of `AssessmentLinksPtrInput` via:
-//
-//          AssessmentLinksArgs{...}
-//
-//  or:
-//
-//          nil
-type AssessmentLinksPtrInput interface {
-	pulumi.Input
-
-	ToAssessmentLinksPtrOutput() AssessmentLinksPtrOutput
-	ToAssessmentLinksPtrOutputWithContext(context.Context) AssessmentLinksPtrOutput
-}
-
-type assessmentLinksPtrType AssessmentLinksArgs
-
-func AssessmentLinksPtr(v *AssessmentLinksArgs) AssessmentLinksPtrInput {
-	return (*assessmentLinksPtrType)(v)
-}
-
-func (*assessmentLinksPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentLinks)(nil)).Elem()
-}
-
-func (i *assessmentLinksPtrType) ToAssessmentLinksPtrOutput() AssessmentLinksPtrOutput {
-	return i.ToAssessmentLinksPtrOutputWithContext(context.Background())
-}
-
-func (i *assessmentLinksPtrType) ToAssessmentLinksPtrOutputWithContext(ctx context.Context) AssessmentLinksPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentLinksPtrOutput)
-}
-
-// Links relevant to the assessment
-type AssessmentLinksOutput struct{ *pulumi.OutputState }
-
-func (AssessmentLinksOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentLinks)(nil)).Elem()
-}
-
-func (o AssessmentLinksOutput) ToAssessmentLinksOutput() AssessmentLinksOutput {
-	return o
-}
-
-func (o AssessmentLinksOutput) ToAssessmentLinksOutputWithContext(ctx context.Context) AssessmentLinksOutput {
-	return o
-}
-
-func (o AssessmentLinksOutput) ToAssessmentLinksPtrOutput() AssessmentLinksPtrOutput {
-	return o.ToAssessmentLinksPtrOutputWithContext(context.Background())
-}
-
-func (o AssessmentLinksOutput) ToAssessmentLinksPtrOutputWithContext(ctx context.Context) AssessmentLinksPtrOutput {
-	return o.ApplyT(func(v AssessmentLinks) *AssessmentLinks {
-		return &v
-	}).(AssessmentLinksPtrOutput)
-}
-
-type AssessmentLinksPtrOutput struct{ *pulumi.OutputState }
-
-func (AssessmentLinksPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AssessmentLinks)(nil)).Elem()
-}
-
-func (o AssessmentLinksPtrOutput) ToAssessmentLinksPtrOutput() AssessmentLinksPtrOutput {
-	return o
-}
-
-func (o AssessmentLinksPtrOutput) ToAssessmentLinksPtrOutputWithContext(ctx context.Context) AssessmentLinksPtrOutput {
-	return o
-}
-
-func (o AssessmentLinksPtrOutput) Elem() AssessmentLinksOutput {
-	return o.ApplyT(func(v *AssessmentLinks) AssessmentLinks { return *v }).(AssessmentLinksOutput)
+func (o AppWhitelistingIssueSummaryResponseArrayOutput) Index(i pulumi.IntInput) AppWhitelistingIssueSummaryResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AppWhitelistingIssueSummaryResponse {
+		return vs[0].([]AppWhitelistingIssueSummaryResponse)[vs[1].(int)]
+	}).(AppWhitelistingIssueSummaryResponseOutput)
 }
 
 // Links relevant to the assessment
@@ -819,81 +506,6 @@ func (o AssessmentLinksResponsePtrOutput) AzurePortalUri() pulumi.StringPtrOutpu
 		}
 		return &v.AzurePortalUri
 	}).(pulumi.StringPtrOutput)
-}
-
-// Security assessment metadata
-type AssessmentMetadataInSubscriptionType struct {
-	// Resource name
-	Name string `pulumi:"name"`
-	// Describes properties of an assessment metadata.
-	Properties SecurityAssessmentMetadataPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// AssessmentMetadataInSubscriptionTypeInput is an input type that accepts AssessmentMetadataInSubscriptionTypeArgs and AssessmentMetadataInSubscriptionTypeOutput values.
-// You can construct a concrete instance of `AssessmentMetadataInSubscriptionTypeInput` via:
-//
-//          AssessmentMetadataInSubscriptionTypeArgs{...}
-type AssessmentMetadataInSubscriptionTypeInput interface {
-	pulumi.Input
-
-	ToAssessmentMetadataInSubscriptionTypeOutput() AssessmentMetadataInSubscriptionTypeOutput
-	ToAssessmentMetadataInSubscriptionTypeOutputWithContext(context.Context) AssessmentMetadataInSubscriptionTypeOutput
-}
-
-// Security assessment metadata
-type AssessmentMetadataInSubscriptionTypeArgs struct {
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Describes properties of an assessment metadata.
-	Properties SecurityAssessmentMetadataPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AssessmentMetadataInSubscriptionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentMetadataInSubscriptionType)(nil)).Elem()
-}
-
-func (i AssessmentMetadataInSubscriptionTypeArgs) ToAssessmentMetadataInSubscriptionTypeOutput() AssessmentMetadataInSubscriptionTypeOutput {
-	return i.ToAssessmentMetadataInSubscriptionTypeOutputWithContext(context.Background())
-}
-
-func (i AssessmentMetadataInSubscriptionTypeArgs) ToAssessmentMetadataInSubscriptionTypeOutputWithContext(ctx context.Context) AssessmentMetadataInSubscriptionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentMetadataInSubscriptionTypeOutput)
-}
-
-// Security assessment metadata
-type AssessmentMetadataInSubscriptionTypeOutput struct{ *pulumi.OutputState }
-
-func (AssessmentMetadataInSubscriptionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentMetadataInSubscriptionType)(nil)).Elem()
-}
-
-func (o AssessmentMetadataInSubscriptionTypeOutput) ToAssessmentMetadataInSubscriptionTypeOutput() AssessmentMetadataInSubscriptionTypeOutput {
-	return o
-}
-
-func (o AssessmentMetadataInSubscriptionTypeOutput) ToAssessmentMetadataInSubscriptionTypeOutputWithContext(ctx context.Context) AssessmentMetadataInSubscriptionTypeOutput {
-	return o
-}
-
-// Resource name
-func (o AssessmentMetadataInSubscriptionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentMetadataInSubscriptionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Describes properties of an assessment metadata.
-func (o AssessmentMetadataInSubscriptionTypeOutput) Properties() SecurityAssessmentMetadataPropertiesResponseOutput {
-	return o.ApplyT(func(v AssessmentMetadataInSubscriptionType) SecurityAssessmentMetadataPropertiesResponse {
-		return v.Properties
-	}).(SecurityAssessmentMetadataPropertiesResponseOutput)
-}
-
-// Resource type
-func (o AssessmentMetadataInSubscriptionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentMetadataInSubscriptionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The result of the assessment
@@ -1238,91 +850,6 @@ func (o AssessmentStatusResponsePtrOutput) Description() pulumi.StringPtrOutput 
 		}
 		return v.Description
 	}).(pulumi.StringPtrOutput)
-}
-
-type JitNetworkAccessPolicyType struct {
-	// Kind of the resource
-	Kind *string `pulumi:"kind"`
-	// Location where the resource is stored
-	Location string `pulumi:"location"`
-	// Resource name
-	Name       string                                   `pulumi:"name"`
-	Properties JitNetworkAccessPolicyPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// JitNetworkAccessPolicyTypeInput is an input type that accepts JitNetworkAccessPolicyTypeArgs and JitNetworkAccessPolicyTypeOutput values.
-// You can construct a concrete instance of `JitNetworkAccessPolicyTypeInput` via:
-//
-//          JitNetworkAccessPolicyTypeArgs{...}
-type JitNetworkAccessPolicyTypeInput interface {
-	pulumi.Input
-
-	ToJitNetworkAccessPolicyTypeOutput() JitNetworkAccessPolicyTypeOutput
-	ToJitNetworkAccessPolicyTypeOutputWithContext(context.Context) JitNetworkAccessPolicyTypeOutput
-}
-
-type JitNetworkAccessPolicyTypeArgs struct {
-	// Kind of the resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Location where the resource is stored
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name       pulumi.StringInput                            `pulumi:"name"`
-	Properties JitNetworkAccessPolicyPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (JitNetworkAccessPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitNetworkAccessPolicyType)(nil)).Elem()
-}
-
-func (i JitNetworkAccessPolicyTypeArgs) ToJitNetworkAccessPolicyTypeOutput() JitNetworkAccessPolicyTypeOutput {
-	return i.ToJitNetworkAccessPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i JitNetworkAccessPolicyTypeArgs) ToJitNetworkAccessPolicyTypeOutputWithContext(ctx context.Context) JitNetworkAccessPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPolicyTypeOutput)
-}
-
-type JitNetworkAccessPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (JitNetworkAccessPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitNetworkAccessPolicyType)(nil)).Elem()
-}
-
-func (o JitNetworkAccessPolicyTypeOutput) ToJitNetworkAccessPolicyTypeOutput() JitNetworkAccessPolicyTypeOutput {
-	return o
-}
-
-func (o JitNetworkAccessPolicyTypeOutput) ToJitNetworkAccessPolicyTypeOutputWithContext(ctx context.Context) JitNetworkAccessPolicyTypeOutput {
-	return o
-}
-
-// Kind of the resource
-func (o JitNetworkAccessPolicyTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JitNetworkAccessPolicyType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Location where the resource is stored
-func (o JitNetworkAccessPolicyTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v JitNetworkAccessPolicyType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o JitNetworkAccessPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v JitNetworkAccessPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o JitNetworkAccessPolicyTypeOutput) Properties() JitNetworkAccessPolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v JitNetworkAccessPolicyType) JitNetworkAccessPolicyPropertiesResponse { return v.Properties }).(JitNetworkAccessPolicyPropertiesResponseOutput)
-}
-
-// Resource type
-func (o JitNetworkAccessPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JitNetworkAccessPolicyType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type JitNetworkAccessPolicyPropertiesResponse struct {
@@ -2732,228 +2259,336 @@ func (o JitNetworkAccessRequestVirtualMachineResponseArrayOutput) Index(i pulumi
 	}).(JitNetworkAccessRequestVirtualMachineResponseOutput)
 }
 
-type PathRecommendations struct {
+// Represents a path that is recommended to be allowed and its properties
+type PathRecommendation struct {
+	// The recommendation action of the VM/server or rule
+	Action *string `pulumi:"action"`
+	// Whether the path is commonly run on the machine
+	Common *bool `pulumi:"common"`
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus *string `pulumi:"configurationStatus"`
+	// The type of the file (for Linux files - Executable is used)
+	FileType *string `pulumi:"fileType"`
+	// The full path to whitelist
+	Path *string `pulumi:"path"`
+	// Represents the publisher information of a process/rule
+	PublisherInfo *PublisherInfo `pulumi:"publisherInfo"`
+	// The type of the rule to be allowed
+	Type      *string              `pulumi:"type"`
+	UserSids  []string             `pulumi:"userSids"`
+	Usernames []UserRecommendation `pulumi:"usernames"`
 }
 
-// PathRecommendationsInput is an input type that accepts PathRecommendationsArgs and PathRecommendationsOutput values.
-// You can construct a concrete instance of `PathRecommendationsInput` via:
+// PathRecommendationInput is an input type that accepts PathRecommendationArgs and PathRecommendationOutput values.
+// You can construct a concrete instance of `PathRecommendationInput` via:
 //
-//          PathRecommendationsArgs{...}
-type PathRecommendationsInput interface {
+//          PathRecommendationArgs{...}
+type PathRecommendationInput interface {
 	pulumi.Input
 
-	ToPathRecommendationsOutput() PathRecommendationsOutput
-	ToPathRecommendationsOutputWithContext(context.Context) PathRecommendationsOutput
+	ToPathRecommendationOutput() PathRecommendationOutput
+	ToPathRecommendationOutputWithContext(context.Context) PathRecommendationOutput
 }
 
-type PathRecommendationsArgs struct {
+// Represents a path that is recommended to be allowed and its properties
+type PathRecommendationArgs struct {
+	// The recommendation action of the VM/server or rule
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Whether the path is commonly run on the machine
+	Common pulumi.BoolPtrInput `pulumi:"common"`
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
+	// The type of the file (for Linux files - Executable is used)
+	FileType pulumi.StringPtrInput `pulumi:"fileType"`
+	// The full path to whitelist
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Represents the publisher information of a process/rule
+	PublisherInfo PublisherInfoPtrInput `pulumi:"publisherInfo"`
+	// The type of the rule to be allowed
+	Type      pulumi.StringPtrInput        `pulumi:"type"`
+	UserSids  pulumi.StringArrayInput      `pulumi:"userSids"`
+	Usernames UserRecommendationArrayInput `pulumi:"usernames"`
 }
 
-func (PathRecommendationsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PathRecommendations)(nil)).Elem()
+func (PathRecommendationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathRecommendation)(nil)).Elem()
 }
 
-func (i PathRecommendationsArgs) ToPathRecommendationsOutput() PathRecommendationsOutput {
-	return i.ToPathRecommendationsOutputWithContext(context.Background())
+func (i PathRecommendationArgs) ToPathRecommendationOutput() PathRecommendationOutput {
+	return i.ToPathRecommendationOutputWithContext(context.Background())
 }
 
-func (i PathRecommendationsArgs) ToPathRecommendationsOutputWithContext(ctx context.Context) PathRecommendationsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsOutput)
+func (i PathRecommendationArgs) ToPathRecommendationOutputWithContext(ctx context.Context) PathRecommendationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationOutput)
 }
 
-func (i PathRecommendationsArgs) ToPathRecommendationsPtrOutput() PathRecommendationsPtrOutput {
-	return i.ToPathRecommendationsPtrOutputWithContext(context.Background())
-}
-
-func (i PathRecommendationsArgs) ToPathRecommendationsPtrOutputWithContext(ctx context.Context) PathRecommendationsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsOutput).ToPathRecommendationsPtrOutputWithContext(ctx)
-}
-
-// PathRecommendationsPtrInput is an input type that accepts PathRecommendationsArgs, PathRecommendationsPtr and PathRecommendationsPtrOutput values.
-// You can construct a concrete instance of `PathRecommendationsPtrInput` via:
+// PathRecommendationArrayInput is an input type that accepts PathRecommendationArray and PathRecommendationArrayOutput values.
+// You can construct a concrete instance of `PathRecommendationArrayInput` via:
 //
-//          PathRecommendationsArgs{...}
-//
-//  or:
-//
-//          nil
-type PathRecommendationsPtrInput interface {
+//          PathRecommendationArray{ PathRecommendationArgs{...} }
+type PathRecommendationArrayInput interface {
 	pulumi.Input
 
-	ToPathRecommendationsPtrOutput() PathRecommendationsPtrOutput
-	ToPathRecommendationsPtrOutputWithContext(context.Context) PathRecommendationsPtrOutput
+	ToPathRecommendationArrayOutput() PathRecommendationArrayOutput
+	ToPathRecommendationArrayOutputWithContext(context.Context) PathRecommendationArrayOutput
 }
 
-type pathRecommendationsPtrType PathRecommendationsArgs
+type PathRecommendationArray []PathRecommendationInput
 
-func PathRecommendationsPtr(v *PathRecommendationsArgs) PathRecommendationsPtrInput {
-	return (*pathRecommendationsPtrType)(v)
+func (PathRecommendationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathRecommendation)(nil)).Elem()
 }
 
-func (*pathRecommendationsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PathRecommendations)(nil)).Elem()
+func (i PathRecommendationArray) ToPathRecommendationArrayOutput() PathRecommendationArrayOutput {
+	return i.ToPathRecommendationArrayOutputWithContext(context.Background())
 }
 
-func (i *pathRecommendationsPtrType) ToPathRecommendationsPtrOutput() PathRecommendationsPtrOutput {
-	return i.ToPathRecommendationsPtrOutputWithContext(context.Background())
+func (i PathRecommendationArray) ToPathRecommendationArrayOutputWithContext(ctx context.Context) PathRecommendationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationArrayOutput)
 }
 
-func (i *pathRecommendationsPtrType) ToPathRecommendationsPtrOutputWithContext(ctx context.Context) PathRecommendationsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsPtrOutput)
+// Represents a path that is recommended to be allowed and its properties
+type PathRecommendationOutput struct{ *pulumi.OutputState }
+
+func (PathRecommendationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathRecommendation)(nil)).Elem()
 }
 
-type PathRecommendationsOutput struct{ *pulumi.OutputState }
-
-func (PathRecommendationsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PathRecommendations)(nil)).Elem()
-}
-
-func (o PathRecommendationsOutput) ToPathRecommendationsOutput() PathRecommendationsOutput {
+func (o PathRecommendationOutput) ToPathRecommendationOutput() PathRecommendationOutput {
 	return o
 }
 
-func (o PathRecommendationsOutput) ToPathRecommendationsOutputWithContext(ctx context.Context) PathRecommendationsOutput {
+func (o PathRecommendationOutput) ToPathRecommendationOutputWithContext(ctx context.Context) PathRecommendationOutput {
 	return o
 }
 
-func (o PathRecommendationsOutput) ToPathRecommendationsPtrOutput() PathRecommendationsPtrOutput {
-	return o.ToPathRecommendationsPtrOutputWithContext(context.Background())
+// The recommendation action of the VM/server or rule
+func (o PathRecommendationOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendation) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-func (o PathRecommendationsOutput) ToPathRecommendationsPtrOutputWithContext(ctx context.Context) PathRecommendationsPtrOutput {
-	return o.ApplyT(func(v PathRecommendations) *PathRecommendations {
-		return &v
-	}).(PathRecommendationsPtrOutput)
+// Whether the path is commonly run on the machine
+func (o PathRecommendationOutput) Common() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PathRecommendation) *bool { return v.Common }).(pulumi.BoolPtrOutput)
 }
 
-type PathRecommendationsPtrOutput struct{ *pulumi.OutputState }
-
-func (PathRecommendationsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PathRecommendations)(nil)).Elem()
+// The configuration status of the VM/server group or machine or rule on the machine
+func (o PathRecommendationOutput) ConfigurationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendation) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
 }
 
-func (o PathRecommendationsPtrOutput) ToPathRecommendationsPtrOutput() PathRecommendationsPtrOutput {
+// The type of the file (for Linux files - Executable is used)
+func (o PathRecommendationOutput) FileType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendation) *string { return v.FileType }).(pulumi.StringPtrOutput)
+}
+
+// The full path to whitelist
+func (o PathRecommendationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendation) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Represents the publisher information of a process/rule
+func (o PathRecommendationOutput) PublisherInfo() PublisherInfoPtrOutput {
+	return o.ApplyT(func(v PathRecommendation) *PublisherInfo { return v.PublisherInfo }).(PublisherInfoPtrOutput)
+}
+
+// The type of the rule to be allowed
+func (o PathRecommendationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendation) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o PathRecommendationOutput) UserSids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PathRecommendation) []string { return v.UserSids }).(pulumi.StringArrayOutput)
+}
+
+func (o PathRecommendationOutput) Usernames() UserRecommendationArrayOutput {
+	return o.ApplyT(func(v PathRecommendation) []UserRecommendation { return v.Usernames }).(UserRecommendationArrayOutput)
+}
+
+type PathRecommendationArrayOutput struct{ *pulumi.OutputState }
+
+func (PathRecommendationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathRecommendation)(nil)).Elem()
+}
+
+func (o PathRecommendationArrayOutput) ToPathRecommendationArrayOutput() PathRecommendationArrayOutput {
 	return o
 }
 
-func (o PathRecommendationsPtrOutput) ToPathRecommendationsPtrOutputWithContext(ctx context.Context) PathRecommendationsPtrOutput {
+func (o PathRecommendationArrayOutput) ToPathRecommendationArrayOutputWithContext(ctx context.Context) PathRecommendationArrayOutput {
 	return o
 }
 
-func (o PathRecommendationsPtrOutput) Elem() PathRecommendationsOutput {
-	return o.ApplyT(func(v *PathRecommendations) PathRecommendations { return *v }).(PathRecommendationsOutput)
+func (o PathRecommendationArrayOutput) Index(i pulumi.IntInput) PathRecommendationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PathRecommendation {
+		return vs[0].([]PathRecommendation)[vs[1].(int)]
+	}).(PathRecommendationOutput)
 }
 
-type PathRecommendationsResponse struct {
+// Represents a path that is recommended to be allowed and its properties
+type PathRecommendationResponse struct {
+	// The recommendation action of the VM/server or rule
+	Action *string `pulumi:"action"`
+	// Whether the path is commonly run on the machine
+	Common *bool `pulumi:"common"`
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus *string `pulumi:"configurationStatus"`
+	// The type of the file (for Linux files - Executable is used)
+	FileType *string `pulumi:"fileType"`
+	// The full path to whitelist
+	Path *string `pulumi:"path"`
+	// Represents the publisher information of a process/rule
+	PublisherInfo *PublisherInfoResponse `pulumi:"publisherInfo"`
+	// The type of the rule to be allowed
+	Type      *string                      `pulumi:"type"`
+	UserSids  []string                     `pulumi:"userSids"`
+	Usernames []UserRecommendationResponse `pulumi:"usernames"`
 }
 
-// PathRecommendationsResponseInput is an input type that accepts PathRecommendationsResponseArgs and PathRecommendationsResponseOutput values.
-// You can construct a concrete instance of `PathRecommendationsResponseInput` via:
+// PathRecommendationResponseInput is an input type that accepts PathRecommendationResponseArgs and PathRecommendationResponseOutput values.
+// You can construct a concrete instance of `PathRecommendationResponseInput` via:
 //
-//          PathRecommendationsResponseArgs{...}
-type PathRecommendationsResponseInput interface {
+//          PathRecommendationResponseArgs{...}
+type PathRecommendationResponseInput interface {
 	pulumi.Input
 
-	ToPathRecommendationsResponseOutput() PathRecommendationsResponseOutput
-	ToPathRecommendationsResponseOutputWithContext(context.Context) PathRecommendationsResponseOutput
+	ToPathRecommendationResponseOutput() PathRecommendationResponseOutput
+	ToPathRecommendationResponseOutputWithContext(context.Context) PathRecommendationResponseOutput
 }
 
-type PathRecommendationsResponseArgs struct {
+// Represents a path that is recommended to be allowed and its properties
+type PathRecommendationResponseArgs struct {
+	// The recommendation action of the VM/server or rule
+	Action pulumi.StringPtrInput `pulumi:"action"`
+	// Whether the path is commonly run on the machine
+	Common pulumi.BoolPtrInput `pulumi:"common"`
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
+	// The type of the file (for Linux files - Executable is used)
+	FileType pulumi.StringPtrInput `pulumi:"fileType"`
+	// The full path to whitelist
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Represents the publisher information of a process/rule
+	PublisherInfo PublisherInfoResponsePtrInput `pulumi:"publisherInfo"`
+	// The type of the rule to be allowed
+	Type      pulumi.StringPtrInput                `pulumi:"type"`
+	UserSids  pulumi.StringArrayInput              `pulumi:"userSids"`
+	Usernames UserRecommendationResponseArrayInput `pulumi:"usernames"`
 }
 
-func (PathRecommendationsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PathRecommendationsResponse)(nil)).Elem()
+func (PathRecommendationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathRecommendationResponse)(nil)).Elem()
 }
 
-func (i PathRecommendationsResponseArgs) ToPathRecommendationsResponseOutput() PathRecommendationsResponseOutput {
-	return i.ToPathRecommendationsResponseOutputWithContext(context.Background())
+func (i PathRecommendationResponseArgs) ToPathRecommendationResponseOutput() PathRecommendationResponseOutput {
+	return i.ToPathRecommendationResponseOutputWithContext(context.Background())
 }
 
-func (i PathRecommendationsResponseArgs) ToPathRecommendationsResponseOutputWithContext(ctx context.Context) PathRecommendationsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsResponseOutput)
+func (i PathRecommendationResponseArgs) ToPathRecommendationResponseOutputWithContext(ctx context.Context) PathRecommendationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationResponseOutput)
 }
 
-func (i PathRecommendationsResponseArgs) ToPathRecommendationsResponsePtrOutput() PathRecommendationsResponsePtrOutput {
-	return i.ToPathRecommendationsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PathRecommendationsResponseArgs) ToPathRecommendationsResponsePtrOutputWithContext(ctx context.Context) PathRecommendationsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsResponseOutput).ToPathRecommendationsResponsePtrOutputWithContext(ctx)
-}
-
-// PathRecommendationsResponsePtrInput is an input type that accepts PathRecommendationsResponseArgs, PathRecommendationsResponsePtr and PathRecommendationsResponsePtrOutput values.
-// You can construct a concrete instance of `PathRecommendationsResponsePtrInput` via:
+// PathRecommendationResponseArrayInput is an input type that accepts PathRecommendationResponseArray and PathRecommendationResponseArrayOutput values.
+// You can construct a concrete instance of `PathRecommendationResponseArrayInput` via:
 //
-//          PathRecommendationsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type PathRecommendationsResponsePtrInput interface {
+//          PathRecommendationResponseArray{ PathRecommendationResponseArgs{...} }
+type PathRecommendationResponseArrayInput interface {
 	pulumi.Input
 
-	ToPathRecommendationsResponsePtrOutput() PathRecommendationsResponsePtrOutput
-	ToPathRecommendationsResponsePtrOutputWithContext(context.Context) PathRecommendationsResponsePtrOutput
+	ToPathRecommendationResponseArrayOutput() PathRecommendationResponseArrayOutput
+	ToPathRecommendationResponseArrayOutputWithContext(context.Context) PathRecommendationResponseArrayOutput
 }
 
-type pathRecommendationsResponsePtrType PathRecommendationsResponseArgs
+type PathRecommendationResponseArray []PathRecommendationResponseInput
 
-func PathRecommendationsResponsePtr(v *PathRecommendationsResponseArgs) PathRecommendationsResponsePtrInput {
-	return (*pathRecommendationsResponsePtrType)(v)
+func (PathRecommendationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathRecommendationResponse)(nil)).Elem()
 }
 
-func (*pathRecommendationsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PathRecommendationsResponse)(nil)).Elem()
+func (i PathRecommendationResponseArray) ToPathRecommendationResponseArrayOutput() PathRecommendationResponseArrayOutput {
+	return i.ToPathRecommendationResponseArrayOutputWithContext(context.Background())
 }
 
-func (i *pathRecommendationsResponsePtrType) ToPathRecommendationsResponsePtrOutput() PathRecommendationsResponsePtrOutput {
-	return i.ToPathRecommendationsResponsePtrOutputWithContext(context.Background())
+func (i PathRecommendationResponseArray) ToPathRecommendationResponseArrayOutputWithContext(ctx context.Context) PathRecommendationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationResponseArrayOutput)
 }
 
-func (i *pathRecommendationsResponsePtrType) ToPathRecommendationsResponsePtrOutputWithContext(ctx context.Context) PathRecommendationsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationsResponsePtrOutput)
+// Represents a path that is recommended to be allowed and its properties
+type PathRecommendationResponseOutput struct{ *pulumi.OutputState }
+
+func (PathRecommendationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PathRecommendationResponse)(nil)).Elem()
 }
 
-type PathRecommendationsResponseOutput struct{ *pulumi.OutputState }
-
-func (PathRecommendationsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PathRecommendationsResponse)(nil)).Elem()
-}
-
-func (o PathRecommendationsResponseOutput) ToPathRecommendationsResponseOutput() PathRecommendationsResponseOutput {
+func (o PathRecommendationResponseOutput) ToPathRecommendationResponseOutput() PathRecommendationResponseOutput {
 	return o
 }
 
-func (o PathRecommendationsResponseOutput) ToPathRecommendationsResponseOutputWithContext(ctx context.Context) PathRecommendationsResponseOutput {
+func (o PathRecommendationResponseOutput) ToPathRecommendationResponseOutputWithContext(ctx context.Context) PathRecommendationResponseOutput {
 	return o
 }
 
-func (o PathRecommendationsResponseOutput) ToPathRecommendationsResponsePtrOutput() PathRecommendationsResponsePtrOutput {
-	return o.ToPathRecommendationsResponsePtrOutputWithContext(context.Background())
+// The recommendation action of the VM/server or rule
+func (o PathRecommendationResponseOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-func (o PathRecommendationsResponseOutput) ToPathRecommendationsResponsePtrOutputWithContext(ctx context.Context) PathRecommendationsResponsePtrOutput {
-	return o.ApplyT(func(v PathRecommendationsResponse) *PathRecommendationsResponse {
-		return &v
-	}).(PathRecommendationsResponsePtrOutput)
+// Whether the path is commonly run on the machine
+func (o PathRecommendationResponseOutput) Common() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PathRecommendationResponse) *bool { return v.Common }).(pulumi.BoolPtrOutput)
 }
 
-type PathRecommendationsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PathRecommendationsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PathRecommendationsResponse)(nil)).Elem()
+// The configuration status of the VM/server group or machine or rule on the machine
+func (o PathRecommendationResponseOutput) ConfigurationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
 }
 
-func (o PathRecommendationsResponsePtrOutput) ToPathRecommendationsResponsePtrOutput() PathRecommendationsResponsePtrOutput {
+// The type of the file (for Linux files - Executable is used)
+func (o PathRecommendationResponseOutput) FileType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.FileType }).(pulumi.StringPtrOutput)
+}
+
+// The full path to whitelist
+func (o PathRecommendationResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Represents the publisher information of a process/rule
+func (o PathRecommendationResponseOutput) PublisherInfo() PublisherInfoResponsePtrOutput {
+	return o.ApplyT(func(v PathRecommendationResponse) *PublisherInfoResponse { return v.PublisherInfo }).(PublisherInfoResponsePtrOutput)
+}
+
+// The type of the rule to be allowed
+func (o PathRecommendationResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PathRecommendationResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o PathRecommendationResponseOutput) UserSids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PathRecommendationResponse) []string { return v.UserSids }).(pulumi.StringArrayOutput)
+}
+
+func (o PathRecommendationResponseOutput) Usernames() UserRecommendationResponseArrayOutput {
+	return o.ApplyT(func(v PathRecommendationResponse) []UserRecommendationResponse { return v.Usernames }).(UserRecommendationResponseArrayOutput)
+}
+
+type PathRecommendationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PathRecommendationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PathRecommendationResponse)(nil)).Elem()
+}
+
+func (o PathRecommendationResponseArrayOutput) ToPathRecommendationResponseArrayOutput() PathRecommendationResponseArrayOutput {
 	return o
 }
 
-func (o PathRecommendationsResponsePtrOutput) ToPathRecommendationsResponsePtrOutputWithContext(ctx context.Context) PathRecommendationsResponsePtrOutput {
+func (o PathRecommendationResponseArrayOutput) ToPathRecommendationResponseArrayOutputWithContext(ctx context.Context) PathRecommendationResponseArrayOutput {
 	return o
 }
 
-func (o PathRecommendationsResponsePtrOutput) Elem() PathRecommendationsResponseOutput {
-	return o.ApplyT(func(v *PathRecommendationsResponse) PathRecommendationsResponse { return *v }).(PathRecommendationsResponseOutput)
+func (o PathRecommendationResponseArrayOutput) Index(i pulumi.IntInput) PathRecommendationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PathRecommendationResponse {
+		return vs[0].([]PathRecommendationResponse)[vs[1].(int)]
+	}).(PathRecommendationResponseOutput)
 }
 
 // The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
@@ -3335,6 +2970,388 @@ func (o ProtectionModeResponsePtrOutput) Script() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Script
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represents the publisher information of a process/rule
+type PublisherInfo struct {
+	// The "OriginalName" field taken from the file's version resource
+	BinaryName *string `pulumi:"binaryName"`
+	// The product name taken from the file's version resource
+	ProductName *string `pulumi:"productName"`
+	// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+	PublisherName *string `pulumi:"publisherName"`
+	// The binary file version taken from the file's version resource
+	Version *string `pulumi:"version"`
+}
+
+// PublisherInfoInput is an input type that accepts PublisherInfoArgs and PublisherInfoOutput values.
+// You can construct a concrete instance of `PublisherInfoInput` via:
+//
+//          PublisherInfoArgs{...}
+type PublisherInfoInput interface {
+	pulumi.Input
+
+	ToPublisherInfoOutput() PublisherInfoOutput
+	ToPublisherInfoOutputWithContext(context.Context) PublisherInfoOutput
+}
+
+// Represents the publisher information of a process/rule
+type PublisherInfoArgs struct {
+	// The "OriginalName" field taken from the file's version resource
+	BinaryName pulumi.StringPtrInput `pulumi:"binaryName"`
+	// The product name taken from the file's version resource
+	ProductName pulumi.StringPtrInput `pulumi:"productName"`
+	// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+	PublisherName pulumi.StringPtrInput `pulumi:"publisherName"`
+	// The binary file version taken from the file's version resource
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (PublisherInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublisherInfo)(nil)).Elem()
+}
+
+func (i PublisherInfoArgs) ToPublisherInfoOutput() PublisherInfoOutput {
+	return i.ToPublisherInfoOutputWithContext(context.Background())
+}
+
+func (i PublisherInfoArgs) ToPublisherInfoOutputWithContext(ctx context.Context) PublisherInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoOutput)
+}
+
+func (i PublisherInfoArgs) ToPublisherInfoPtrOutput() PublisherInfoPtrOutput {
+	return i.ToPublisherInfoPtrOutputWithContext(context.Background())
+}
+
+func (i PublisherInfoArgs) ToPublisherInfoPtrOutputWithContext(ctx context.Context) PublisherInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoOutput).ToPublisherInfoPtrOutputWithContext(ctx)
+}
+
+// PublisherInfoPtrInput is an input type that accepts PublisherInfoArgs, PublisherInfoPtr and PublisherInfoPtrOutput values.
+// You can construct a concrete instance of `PublisherInfoPtrInput` via:
+//
+//          PublisherInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type PublisherInfoPtrInput interface {
+	pulumi.Input
+
+	ToPublisherInfoPtrOutput() PublisherInfoPtrOutput
+	ToPublisherInfoPtrOutputWithContext(context.Context) PublisherInfoPtrOutput
+}
+
+type publisherInfoPtrType PublisherInfoArgs
+
+func PublisherInfoPtr(v *PublisherInfoArgs) PublisherInfoPtrInput {
+	return (*publisherInfoPtrType)(v)
+}
+
+func (*publisherInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublisherInfo)(nil)).Elem()
+}
+
+func (i *publisherInfoPtrType) ToPublisherInfoPtrOutput() PublisherInfoPtrOutput {
+	return i.ToPublisherInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *publisherInfoPtrType) ToPublisherInfoPtrOutputWithContext(ctx context.Context) PublisherInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoPtrOutput)
+}
+
+// Represents the publisher information of a process/rule
+type PublisherInfoOutput struct{ *pulumi.OutputState }
+
+func (PublisherInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublisherInfo)(nil)).Elem()
+}
+
+func (o PublisherInfoOutput) ToPublisherInfoOutput() PublisherInfoOutput {
+	return o
+}
+
+func (o PublisherInfoOutput) ToPublisherInfoOutputWithContext(ctx context.Context) PublisherInfoOutput {
+	return o
+}
+
+func (o PublisherInfoOutput) ToPublisherInfoPtrOutput() PublisherInfoPtrOutput {
+	return o.ToPublisherInfoPtrOutputWithContext(context.Background())
+}
+
+func (o PublisherInfoOutput) ToPublisherInfoPtrOutputWithContext(ctx context.Context) PublisherInfoPtrOutput {
+	return o.ApplyT(func(v PublisherInfo) *PublisherInfo {
+		return &v
+	}).(PublisherInfoPtrOutput)
+}
+
+// The "OriginalName" field taken from the file's version resource
+func (o PublisherInfoOutput) BinaryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfo) *string { return v.BinaryName }).(pulumi.StringPtrOutput)
+}
+
+// The product name taken from the file's version resource
+func (o PublisherInfoOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfo) *string { return v.ProductName }).(pulumi.StringPtrOutput)
+}
+
+// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+func (o PublisherInfoOutput) PublisherName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfo) *string { return v.PublisherName }).(pulumi.StringPtrOutput)
+}
+
+// The binary file version taken from the file's version resource
+func (o PublisherInfoOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfo) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type PublisherInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (PublisherInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublisherInfo)(nil)).Elem()
+}
+
+func (o PublisherInfoPtrOutput) ToPublisherInfoPtrOutput() PublisherInfoPtrOutput {
+	return o
+}
+
+func (o PublisherInfoPtrOutput) ToPublisherInfoPtrOutputWithContext(ctx context.Context) PublisherInfoPtrOutput {
+	return o
+}
+
+func (o PublisherInfoPtrOutput) Elem() PublisherInfoOutput {
+	return o.ApplyT(func(v *PublisherInfo) PublisherInfo { return *v }).(PublisherInfoOutput)
+}
+
+// The "OriginalName" field taken from the file's version resource
+func (o PublisherInfoPtrOutput) BinaryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BinaryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The product name taken from the file's version resource
+func (o PublisherInfoPtrOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProductName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+func (o PublisherInfoPtrOutput) PublisherName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublisherName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The binary file version taken from the file's version resource
+func (o PublisherInfoPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// Represents the publisher information of a process/rule
+type PublisherInfoResponse struct {
+	// The "OriginalName" field taken from the file's version resource
+	BinaryName *string `pulumi:"binaryName"`
+	// The product name taken from the file's version resource
+	ProductName *string `pulumi:"productName"`
+	// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+	PublisherName *string `pulumi:"publisherName"`
+	// The binary file version taken from the file's version resource
+	Version *string `pulumi:"version"`
+}
+
+// PublisherInfoResponseInput is an input type that accepts PublisherInfoResponseArgs and PublisherInfoResponseOutput values.
+// You can construct a concrete instance of `PublisherInfoResponseInput` via:
+//
+//          PublisherInfoResponseArgs{...}
+type PublisherInfoResponseInput interface {
+	pulumi.Input
+
+	ToPublisherInfoResponseOutput() PublisherInfoResponseOutput
+	ToPublisherInfoResponseOutputWithContext(context.Context) PublisherInfoResponseOutput
+}
+
+// Represents the publisher information of a process/rule
+type PublisherInfoResponseArgs struct {
+	// The "OriginalName" field taken from the file's version resource
+	BinaryName pulumi.StringPtrInput `pulumi:"binaryName"`
+	// The product name taken from the file's version resource
+	ProductName pulumi.StringPtrInput `pulumi:"productName"`
+	// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+	PublisherName pulumi.StringPtrInput `pulumi:"publisherName"`
+	// The binary file version taken from the file's version resource
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (PublisherInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublisherInfoResponse)(nil)).Elem()
+}
+
+func (i PublisherInfoResponseArgs) ToPublisherInfoResponseOutput() PublisherInfoResponseOutput {
+	return i.ToPublisherInfoResponseOutputWithContext(context.Background())
+}
+
+func (i PublisherInfoResponseArgs) ToPublisherInfoResponseOutputWithContext(ctx context.Context) PublisherInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoResponseOutput)
+}
+
+func (i PublisherInfoResponseArgs) ToPublisherInfoResponsePtrOutput() PublisherInfoResponsePtrOutput {
+	return i.ToPublisherInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PublisherInfoResponseArgs) ToPublisherInfoResponsePtrOutputWithContext(ctx context.Context) PublisherInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoResponseOutput).ToPublisherInfoResponsePtrOutputWithContext(ctx)
+}
+
+// PublisherInfoResponsePtrInput is an input type that accepts PublisherInfoResponseArgs, PublisherInfoResponsePtr and PublisherInfoResponsePtrOutput values.
+// You can construct a concrete instance of `PublisherInfoResponsePtrInput` via:
+//
+//          PublisherInfoResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type PublisherInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToPublisherInfoResponsePtrOutput() PublisherInfoResponsePtrOutput
+	ToPublisherInfoResponsePtrOutputWithContext(context.Context) PublisherInfoResponsePtrOutput
+}
+
+type publisherInfoResponsePtrType PublisherInfoResponseArgs
+
+func PublisherInfoResponsePtr(v *PublisherInfoResponseArgs) PublisherInfoResponsePtrInput {
+	return (*publisherInfoResponsePtrType)(v)
+}
+
+func (*publisherInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublisherInfoResponse)(nil)).Elem()
+}
+
+func (i *publisherInfoResponsePtrType) ToPublisherInfoResponsePtrOutput() PublisherInfoResponsePtrOutput {
+	return i.ToPublisherInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *publisherInfoResponsePtrType) ToPublisherInfoResponsePtrOutputWithContext(ctx context.Context) PublisherInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoResponsePtrOutput)
+}
+
+// Represents the publisher information of a process/rule
+type PublisherInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (PublisherInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublisherInfoResponse)(nil)).Elem()
+}
+
+func (o PublisherInfoResponseOutput) ToPublisherInfoResponseOutput() PublisherInfoResponseOutput {
+	return o
+}
+
+func (o PublisherInfoResponseOutput) ToPublisherInfoResponseOutputWithContext(ctx context.Context) PublisherInfoResponseOutput {
+	return o
+}
+
+func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutput() PublisherInfoResponsePtrOutput {
+	return o.ToPublisherInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutputWithContext(ctx context.Context) PublisherInfoResponsePtrOutput {
+	return o.ApplyT(func(v PublisherInfoResponse) *PublisherInfoResponse {
+		return &v
+	}).(PublisherInfoResponsePtrOutput)
+}
+
+// The "OriginalName" field taken from the file's version resource
+func (o PublisherInfoResponseOutput) BinaryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfoResponse) *string { return v.BinaryName }).(pulumi.StringPtrOutput)
+}
+
+// The product name taken from the file's version resource
+func (o PublisherInfoResponseOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfoResponse) *string { return v.ProductName }).(pulumi.StringPtrOutput)
+}
+
+// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+func (o PublisherInfoResponseOutput) PublisherName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfoResponse) *string { return v.PublisherName }).(pulumi.StringPtrOutput)
+}
+
+// The binary file version taken from the file's version resource
+func (o PublisherInfoResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublisherInfoResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type PublisherInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PublisherInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublisherInfoResponse)(nil)).Elem()
+}
+
+func (o PublisherInfoResponsePtrOutput) ToPublisherInfoResponsePtrOutput() PublisherInfoResponsePtrOutput {
+	return o
+}
+
+func (o PublisherInfoResponsePtrOutput) ToPublisherInfoResponsePtrOutputWithContext(ctx context.Context) PublisherInfoResponsePtrOutput {
+	return o
+}
+
+func (o PublisherInfoResponsePtrOutput) Elem() PublisherInfoResponseOutput {
+	return o.ApplyT(func(v *PublisherInfoResponse) PublisherInfoResponse { return *v }).(PublisherInfoResponseOutput)
+}
+
+// The "OriginalName" field taken from the file's version resource
+func (o PublisherInfoResponsePtrOutput) BinaryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BinaryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The product name taken from the file's version resource
+func (o PublisherInfoResponsePtrOutput) ProductName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProductName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Subject field of the x.509 certificate used to sign the code, using the following fields -  O = Organization, L = Locality, S = State or Province, and C = Country
+func (o PublisherInfoResponsePtrOutput) PublisherName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublisherName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The binary file version taken from the file's version resource
+func (o PublisherInfoResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublisherInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5167,81 +5184,6 @@ func (o SecurityAssessmentPropertiesResponsePtrOutput) Status() AssessmentStatus
 	}).(AssessmentStatusResponsePtrOutput)
 }
 
-// Describes the server vulnerability assessment details on a resource
-type ServerVulnerabilityAssessmentType struct {
-	// Resource name
-	Name string `pulumi:"name"`
-	// describes ServerVulnerabilityAssessment properties.
-	Properties ServerVulnerabilityAssessmentPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ServerVulnerabilityAssessmentTypeInput is an input type that accepts ServerVulnerabilityAssessmentTypeArgs and ServerVulnerabilityAssessmentTypeOutput values.
-// You can construct a concrete instance of `ServerVulnerabilityAssessmentTypeInput` via:
-//
-//          ServerVulnerabilityAssessmentTypeArgs{...}
-type ServerVulnerabilityAssessmentTypeInput interface {
-	pulumi.Input
-
-	ToServerVulnerabilityAssessmentTypeOutput() ServerVulnerabilityAssessmentTypeOutput
-	ToServerVulnerabilityAssessmentTypeOutputWithContext(context.Context) ServerVulnerabilityAssessmentTypeOutput
-}
-
-// Describes the server vulnerability assessment details on a resource
-type ServerVulnerabilityAssessmentTypeArgs struct {
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// describes ServerVulnerabilityAssessment properties.
-	Properties ServerVulnerabilityAssessmentPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServerVulnerabilityAssessmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerVulnerabilityAssessmentType)(nil)).Elem()
-}
-
-func (i ServerVulnerabilityAssessmentTypeArgs) ToServerVulnerabilityAssessmentTypeOutput() ServerVulnerabilityAssessmentTypeOutput {
-	return i.ToServerVulnerabilityAssessmentTypeOutputWithContext(context.Background())
-}
-
-func (i ServerVulnerabilityAssessmentTypeArgs) ToServerVulnerabilityAssessmentTypeOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerVulnerabilityAssessmentTypeOutput)
-}
-
-// Describes the server vulnerability assessment details on a resource
-type ServerVulnerabilityAssessmentTypeOutput struct{ *pulumi.OutputState }
-
-func (ServerVulnerabilityAssessmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerVulnerabilityAssessmentType)(nil)).Elem()
-}
-
-func (o ServerVulnerabilityAssessmentTypeOutput) ToServerVulnerabilityAssessmentTypeOutput() ServerVulnerabilityAssessmentTypeOutput {
-	return o
-}
-
-func (o ServerVulnerabilityAssessmentTypeOutput) ToServerVulnerabilityAssessmentTypeOutputWithContext(ctx context.Context) ServerVulnerabilityAssessmentTypeOutput {
-	return o
-}
-
-// Resource name
-func (o ServerVulnerabilityAssessmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerVulnerabilityAssessmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// describes ServerVulnerabilityAssessment properties.
-func (o ServerVulnerabilityAssessmentTypeOutput) Properties() ServerVulnerabilityAssessmentPropertiesResponseOutput {
-	return o.ApplyT(func(v ServerVulnerabilityAssessmentType) ServerVulnerabilityAssessmentPropertiesResponse {
-		return v.Properties
-	}).(ServerVulnerabilityAssessmentPropertiesResponseOutput)
-}
-
-// Resource type
-func (o ServerVulnerabilityAssessmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerVulnerabilityAssessmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // describes ServerVulnerabilityAssessment properties.
 type ServerVulnerabilityAssessmentPropertiesResponse struct {
 	// The provisioningState of the vulnerability assessment capability on the VM
@@ -5378,248 +5320,489 @@ func (o ServerVulnerabilityAssessmentPropertiesResponsePtrOutput) ProvisioningSt
 	}).(pulumi.StringPtrOutput)
 }
 
-type VmRecommendations struct {
+// Represents a user that is recommended to be allowed for a certain rule
+type UserRecommendation struct {
+	// The recommendation action of the VM/server or rule
+	RecommendationAction *string `pulumi:"recommendationAction"`
+	// Represents a user that is recommended to be allowed for a certain rule
+	Username *string `pulumi:"username"`
 }
 
-// VmRecommendationsInput is an input type that accepts VmRecommendationsArgs and VmRecommendationsOutput values.
-// You can construct a concrete instance of `VmRecommendationsInput` via:
+// UserRecommendationInput is an input type that accepts UserRecommendationArgs and UserRecommendationOutput values.
+// You can construct a concrete instance of `UserRecommendationInput` via:
 //
-//          VmRecommendationsArgs{...}
-type VmRecommendationsInput interface {
+//          UserRecommendationArgs{...}
+type UserRecommendationInput interface {
 	pulumi.Input
 
-	ToVmRecommendationsOutput() VmRecommendationsOutput
-	ToVmRecommendationsOutputWithContext(context.Context) VmRecommendationsOutput
+	ToUserRecommendationOutput() UserRecommendationOutput
+	ToUserRecommendationOutputWithContext(context.Context) UserRecommendationOutput
 }
 
-type VmRecommendationsArgs struct {
+// Represents a user that is recommended to be allowed for a certain rule
+type UserRecommendationArgs struct {
+	// The recommendation action of the VM/server or rule
+	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
+	// Represents a user that is recommended to be allowed for a certain rule
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
-func (VmRecommendationsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmRecommendations)(nil)).Elem()
+func (UserRecommendationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserRecommendation)(nil)).Elem()
 }
 
-func (i VmRecommendationsArgs) ToVmRecommendationsOutput() VmRecommendationsOutput {
-	return i.ToVmRecommendationsOutputWithContext(context.Background())
+func (i UserRecommendationArgs) ToUserRecommendationOutput() UserRecommendationOutput {
+	return i.ToUserRecommendationOutputWithContext(context.Background())
 }
 
-func (i VmRecommendationsArgs) ToVmRecommendationsOutputWithContext(ctx context.Context) VmRecommendationsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsOutput)
+func (i UserRecommendationArgs) ToUserRecommendationOutputWithContext(ctx context.Context) UserRecommendationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationOutput)
 }
 
-func (i VmRecommendationsArgs) ToVmRecommendationsPtrOutput() VmRecommendationsPtrOutput {
-	return i.ToVmRecommendationsPtrOutputWithContext(context.Background())
-}
-
-func (i VmRecommendationsArgs) ToVmRecommendationsPtrOutputWithContext(ctx context.Context) VmRecommendationsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsOutput).ToVmRecommendationsPtrOutputWithContext(ctx)
-}
-
-// VmRecommendationsPtrInput is an input type that accepts VmRecommendationsArgs, VmRecommendationsPtr and VmRecommendationsPtrOutput values.
-// You can construct a concrete instance of `VmRecommendationsPtrInput` via:
+// UserRecommendationArrayInput is an input type that accepts UserRecommendationArray and UserRecommendationArrayOutput values.
+// You can construct a concrete instance of `UserRecommendationArrayInput` via:
 //
-//          VmRecommendationsArgs{...}
-//
-//  or:
-//
-//          nil
-type VmRecommendationsPtrInput interface {
+//          UserRecommendationArray{ UserRecommendationArgs{...} }
+type UserRecommendationArrayInput interface {
 	pulumi.Input
 
-	ToVmRecommendationsPtrOutput() VmRecommendationsPtrOutput
-	ToVmRecommendationsPtrOutputWithContext(context.Context) VmRecommendationsPtrOutput
+	ToUserRecommendationArrayOutput() UserRecommendationArrayOutput
+	ToUserRecommendationArrayOutputWithContext(context.Context) UserRecommendationArrayOutput
 }
 
-type vmRecommendationsPtrType VmRecommendationsArgs
+type UserRecommendationArray []UserRecommendationInput
 
-func VmRecommendationsPtr(v *VmRecommendationsArgs) VmRecommendationsPtrInput {
-	return (*vmRecommendationsPtrType)(v)
+func (UserRecommendationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserRecommendation)(nil)).Elem()
 }
 
-func (*vmRecommendationsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VmRecommendations)(nil)).Elem()
+func (i UserRecommendationArray) ToUserRecommendationArrayOutput() UserRecommendationArrayOutput {
+	return i.ToUserRecommendationArrayOutputWithContext(context.Background())
 }
 
-func (i *vmRecommendationsPtrType) ToVmRecommendationsPtrOutput() VmRecommendationsPtrOutput {
-	return i.ToVmRecommendationsPtrOutputWithContext(context.Background())
+func (i UserRecommendationArray) ToUserRecommendationArrayOutputWithContext(ctx context.Context) UserRecommendationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationArrayOutput)
 }
 
-func (i *vmRecommendationsPtrType) ToVmRecommendationsPtrOutputWithContext(ctx context.Context) VmRecommendationsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsPtrOutput)
+// Represents a user that is recommended to be allowed for a certain rule
+type UserRecommendationOutput struct{ *pulumi.OutputState }
+
+func (UserRecommendationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserRecommendation)(nil)).Elem()
 }
 
-type VmRecommendationsOutput struct{ *pulumi.OutputState }
-
-func (VmRecommendationsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmRecommendations)(nil)).Elem()
-}
-
-func (o VmRecommendationsOutput) ToVmRecommendationsOutput() VmRecommendationsOutput {
+func (o UserRecommendationOutput) ToUserRecommendationOutput() UserRecommendationOutput {
 	return o
 }
 
-func (o VmRecommendationsOutput) ToVmRecommendationsOutputWithContext(ctx context.Context) VmRecommendationsOutput {
+func (o UserRecommendationOutput) ToUserRecommendationOutputWithContext(ctx context.Context) UserRecommendationOutput {
 	return o
 }
 
-func (o VmRecommendationsOutput) ToVmRecommendationsPtrOutput() VmRecommendationsPtrOutput {
-	return o.ToVmRecommendationsPtrOutputWithContext(context.Background())
+// The recommendation action of the VM/server or rule
+func (o UserRecommendationOutput) RecommendationAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserRecommendation) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
 }
 
-func (o VmRecommendationsOutput) ToVmRecommendationsPtrOutputWithContext(ctx context.Context) VmRecommendationsPtrOutput {
-	return o.ApplyT(func(v VmRecommendations) *VmRecommendations {
-		return &v
-	}).(VmRecommendationsPtrOutput)
+// Represents a user that is recommended to be allowed for a certain rule
+func (o UserRecommendationOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserRecommendation) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type VmRecommendationsPtrOutput struct{ *pulumi.OutputState }
+type UserRecommendationArrayOutput struct{ *pulumi.OutputState }
 
-func (VmRecommendationsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VmRecommendations)(nil)).Elem()
+func (UserRecommendationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserRecommendation)(nil)).Elem()
 }
 
-func (o VmRecommendationsPtrOutput) ToVmRecommendationsPtrOutput() VmRecommendationsPtrOutput {
+func (o UserRecommendationArrayOutput) ToUserRecommendationArrayOutput() UserRecommendationArrayOutput {
 	return o
 }
 
-func (o VmRecommendationsPtrOutput) ToVmRecommendationsPtrOutputWithContext(ctx context.Context) VmRecommendationsPtrOutput {
+func (o UserRecommendationArrayOutput) ToUserRecommendationArrayOutputWithContext(ctx context.Context) UserRecommendationArrayOutput {
 	return o
 }
 
-func (o VmRecommendationsPtrOutput) Elem() VmRecommendationsOutput {
-	return o.ApplyT(func(v *VmRecommendations) VmRecommendations { return *v }).(VmRecommendationsOutput)
+func (o UserRecommendationArrayOutput) Index(i pulumi.IntInput) UserRecommendationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserRecommendation {
+		return vs[0].([]UserRecommendation)[vs[1].(int)]
+	}).(UserRecommendationOutput)
 }
 
-type VmRecommendationsResponse struct {
+// Represents a user that is recommended to be allowed for a certain rule
+type UserRecommendationResponse struct {
+	// The recommendation action of the VM/server or rule
+	RecommendationAction *string `pulumi:"recommendationAction"`
+	// Represents a user that is recommended to be allowed for a certain rule
+	Username *string `pulumi:"username"`
 }
 
-// VmRecommendationsResponseInput is an input type that accepts VmRecommendationsResponseArgs and VmRecommendationsResponseOutput values.
-// You can construct a concrete instance of `VmRecommendationsResponseInput` via:
+// UserRecommendationResponseInput is an input type that accepts UserRecommendationResponseArgs and UserRecommendationResponseOutput values.
+// You can construct a concrete instance of `UserRecommendationResponseInput` via:
 //
-//          VmRecommendationsResponseArgs{...}
-type VmRecommendationsResponseInput interface {
+//          UserRecommendationResponseArgs{...}
+type UserRecommendationResponseInput interface {
 	pulumi.Input
 
-	ToVmRecommendationsResponseOutput() VmRecommendationsResponseOutput
-	ToVmRecommendationsResponseOutputWithContext(context.Context) VmRecommendationsResponseOutput
+	ToUserRecommendationResponseOutput() UserRecommendationResponseOutput
+	ToUserRecommendationResponseOutputWithContext(context.Context) UserRecommendationResponseOutput
 }
 
-type VmRecommendationsResponseArgs struct {
+// Represents a user that is recommended to be allowed for a certain rule
+type UserRecommendationResponseArgs struct {
+	// The recommendation action of the VM/server or rule
+	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
+	// Represents a user that is recommended to be allowed for a certain rule
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
-func (VmRecommendationsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmRecommendationsResponse)(nil)).Elem()
+func (UserRecommendationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserRecommendationResponse)(nil)).Elem()
 }
 
-func (i VmRecommendationsResponseArgs) ToVmRecommendationsResponseOutput() VmRecommendationsResponseOutput {
-	return i.ToVmRecommendationsResponseOutputWithContext(context.Background())
+func (i UserRecommendationResponseArgs) ToUserRecommendationResponseOutput() UserRecommendationResponseOutput {
+	return i.ToUserRecommendationResponseOutputWithContext(context.Background())
 }
 
-func (i VmRecommendationsResponseArgs) ToVmRecommendationsResponseOutputWithContext(ctx context.Context) VmRecommendationsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsResponseOutput)
+func (i UserRecommendationResponseArgs) ToUserRecommendationResponseOutputWithContext(ctx context.Context) UserRecommendationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationResponseOutput)
 }
 
-func (i VmRecommendationsResponseArgs) ToVmRecommendationsResponsePtrOutput() VmRecommendationsResponsePtrOutput {
-	return i.ToVmRecommendationsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VmRecommendationsResponseArgs) ToVmRecommendationsResponsePtrOutputWithContext(ctx context.Context) VmRecommendationsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsResponseOutput).ToVmRecommendationsResponsePtrOutputWithContext(ctx)
-}
-
-// VmRecommendationsResponsePtrInput is an input type that accepts VmRecommendationsResponseArgs, VmRecommendationsResponsePtr and VmRecommendationsResponsePtrOutput values.
-// You can construct a concrete instance of `VmRecommendationsResponsePtrInput` via:
+// UserRecommendationResponseArrayInput is an input type that accepts UserRecommendationResponseArray and UserRecommendationResponseArrayOutput values.
+// You can construct a concrete instance of `UserRecommendationResponseArrayInput` via:
 //
-//          VmRecommendationsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type VmRecommendationsResponsePtrInput interface {
+//          UserRecommendationResponseArray{ UserRecommendationResponseArgs{...} }
+type UserRecommendationResponseArrayInput interface {
 	pulumi.Input
 
-	ToVmRecommendationsResponsePtrOutput() VmRecommendationsResponsePtrOutput
-	ToVmRecommendationsResponsePtrOutputWithContext(context.Context) VmRecommendationsResponsePtrOutput
+	ToUserRecommendationResponseArrayOutput() UserRecommendationResponseArrayOutput
+	ToUserRecommendationResponseArrayOutputWithContext(context.Context) UserRecommendationResponseArrayOutput
 }
 
-type vmRecommendationsResponsePtrType VmRecommendationsResponseArgs
+type UserRecommendationResponseArray []UserRecommendationResponseInput
 
-func VmRecommendationsResponsePtr(v *VmRecommendationsResponseArgs) VmRecommendationsResponsePtrInput {
-	return (*vmRecommendationsResponsePtrType)(v)
+func (UserRecommendationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserRecommendationResponse)(nil)).Elem()
 }
 
-func (*vmRecommendationsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VmRecommendationsResponse)(nil)).Elem()
+func (i UserRecommendationResponseArray) ToUserRecommendationResponseArrayOutput() UserRecommendationResponseArrayOutput {
+	return i.ToUserRecommendationResponseArrayOutputWithContext(context.Background())
 }
 
-func (i *vmRecommendationsResponsePtrType) ToVmRecommendationsResponsePtrOutput() VmRecommendationsResponsePtrOutput {
-	return i.ToVmRecommendationsResponsePtrOutputWithContext(context.Background())
+func (i UserRecommendationResponseArray) ToUserRecommendationResponseArrayOutputWithContext(ctx context.Context) UserRecommendationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationResponseArrayOutput)
 }
 
-func (i *vmRecommendationsResponsePtrType) ToVmRecommendationsResponsePtrOutputWithContext(ctx context.Context) VmRecommendationsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationsResponsePtrOutput)
+// Represents a user that is recommended to be allowed for a certain rule
+type UserRecommendationResponseOutput struct{ *pulumi.OutputState }
+
+func (UserRecommendationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserRecommendationResponse)(nil)).Elem()
 }
 
-type VmRecommendationsResponseOutput struct{ *pulumi.OutputState }
-
-func (VmRecommendationsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmRecommendationsResponse)(nil)).Elem()
-}
-
-func (o VmRecommendationsResponseOutput) ToVmRecommendationsResponseOutput() VmRecommendationsResponseOutput {
+func (o UserRecommendationResponseOutput) ToUserRecommendationResponseOutput() UserRecommendationResponseOutput {
 	return o
 }
 
-func (o VmRecommendationsResponseOutput) ToVmRecommendationsResponseOutputWithContext(ctx context.Context) VmRecommendationsResponseOutput {
+func (o UserRecommendationResponseOutput) ToUserRecommendationResponseOutputWithContext(ctx context.Context) UserRecommendationResponseOutput {
 	return o
 }
 
-func (o VmRecommendationsResponseOutput) ToVmRecommendationsResponsePtrOutput() VmRecommendationsResponsePtrOutput {
-	return o.ToVmRecommendationsResponsePtrOutputWithContext(context.Background())
+// The recommendation action of the VM/server or rule
+func (o UserRecommendationResponseOutput) RecommendationAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserRecommendationResponse) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
 }
 
-func (o VmRecommendationsResponseOutput) ToVmRecommendationsResponsePtrOutputWithContext(ctx context.Context) VmRecommendationsResponsePtrOutput {
-	return o.ApplyT(func(v VmRecommendationsResponse) *VmRecommendationsResponse {
-		return &v
-	}).(VmRecommendationsResponsePtrOutput)
+// Represents a user that is recommended to be allowed for a certain rule
+func (o UserRecommendationResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserRecommendationResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type VmRecommendationsResponsePtrOutput struct{ *pulumi.OutputState }
+type UserRecommendationResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (VmRecommendationsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VmRecommendationsResponse)(nil)).Elem()
+func (UserRecommendationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserRecommendationResponse)(nil)).Elem()
 }
 
-func (o VmRecommendationsResponsePtrOutput) ToVmRecommendationsResponsePtrOutput() VmRecommendationsResponsePtrOutput {
+func (o UserRecommendationResponseArrayOutput) ToUserRecommendationResponseArrayOutput() UserRecommendationResponseArrayOutput {
 	return o
 }
 
-func (o VmRecommendationsResponsePtrOutput) ToVmRecommendationsResponsePtrOutputWithContext(ctx context.Context) VmRecommendationsResponsePtrOutput {
+func (o UserRecommendationResponseArrayOutput) ToUserRecommendationResponseArrayOutputWithContext(ctx context.Context) UserRecommendationResponseArrayOutput {
 	return o
 }
 
-func (o VmRecommendationsResponsePtrOutput) Elem() VmRecommendationsResponseOutput {
-	return o.ApplyT(func(v *VmRecommendationsResponse) VmRecommendationsResponse { return *v }).(VmRecommendationsResponseOutput)
+func (o UserRecommendationResponseArrayOutput) Index(i pulumi.IntInput) UserRecommendationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserRecommendationResponse {
+		return vs[0].([]UserRecommendationResponse)[vs[1].(int)]
+	}).(UserRecommendationResponseOutput)
+}
+
+// Represents a machine that is part of a VM/server group
+type VmRecommendation struct {
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus *string `pulumi:"configurationStatus"`
+	// The VM/server supportability of Enforce feature
+	EnforcementSupport *string `pulumi:"enforcementSupport"`
+	// The recommendation action of the VM/server or rule
+	RecommendationAction *string `pulumi:"recommendationAction"`
+	// The full azure resource id of the machine
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// VmRecommendationInput is an input type that accepts VmRecommendationArgs and VmRecommendationOutput values.
+// You can construct a concrete instance of `VmRecommendationInput` via:
+//
+//          VmRecommendationArgs{...}
+type VmRecommendationInput interface {
+	pulumi.Input
+
+	ToVmRecommendationOutput() VmRecommendationOutput
+	ToVmRecommendationOutputWithContext(context.Context) VmRecommendationOutput
+}
+
+// Represents a machine that is part of a VM/server group
+type VmRecommendationArgs struct {
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
+	// The VM/server supportability of Enforce feature
+	EnforcementSupport pulumi.StringPtrInput `pulumi:"enforcementSupport"`
+	// The recommendation action of the VM/server or rule
+	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
+	// The full azure resource id of the machine
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (VmRecommendationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmRecommendation)(nil)).Elem()
+}
+
+func (i VmRecommendationArgs) ToVmRecommendationOutput() VmRecommendationOutput {
+	return i.ToVmRecommendationOutputWithContext(context.Background())
+}
+
+func (i VmRecommendationArgs) ToVmRecommendationOutputWithContext(ctx context.Context) VmRecommendationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationOutput)
+}
+
+// VmRecommendationArrayInput is an input type that accepts VmRecommendationArray and VmRecommendationArrayOutput values.
+// You can construct a concrete instance of `VmRecommendationArrayInput` via:
+//
+//          VmRecommendationArray{ VmRecommendationArgs{...} }
+type VmRecommendationArrayInput interface {
+	pulumi.Input
+
+	ToVmRecommendationArrayOutput() VmRecommendationArrayOutput
+	ToVmRecommendationArrayOutputWithContext(context.Context) VmRecommendationArrayOutput
+}
+
+type VmRecommendationArray []VmRecommendationInput
+
+func (VmRecommendationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmRecommendation)(nil)).Elem()
+}
+
+func (i VmRecommendationArray) ToVmRecommendationArrayOutput() VmRecommendationArrayOutput {
+	return i.ToVmRecommendationArrayOutputWithContext(context.Background())
+}
+
+func (i VmRecommendationArray) ToVmRecommendationArrayOutputWithContext(ctx context.Context) VmRecommendationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationArrayOutput)
+}
+
+// Represents a machine that is part of a VM/server group
+type VmRecommendationOutput struct{ *pulumi.OutputState }
+
+func (VmRecommendationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmRecommendation)(nil)).Elem()
+}
+
+func (o VmRecommendationOutput) ToVmRecommendationOutput() VmRecommendationOutput {
+	return o
+}
+
+func (o VmRecommendationOutput) ToVmRecommendationOutputWithContext(ctx context.Context) VmRecommendationOutput {
+	return o
+}
+
+// The configuration status of the VM/server group or machine or rule on the machine
+func (o VmRecommendationOutput) ConfigurationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendation) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
+}
+
+// The VM/server supportability of Enforce feature
+func (o VmRecommendationOutput) EnforcementSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendation) *string { return v.EnforcementSupport }).(pulumi.StringPtrOutput)
+}
+
+// The recommendation action of the VM/server or rule
+func (o VmRecommendationOutput) RecommendationAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendation) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
+}
+
+// The full azure resource id of the machine
+func (o VmRecommendationOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendation) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type VmRecommendationArrayOutput struct{ *pulumi.OutputState }
+
+func (VmRecommendationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmRecommendation)(nil)).Elem()
+}
+
+func (o VmRecommendationArrayOutput) ToVmRecommendationArrayOutput() VmRecommendationArrayOutput {
+	return o
+}
+
+func (o VmRecommendationArrayOutput) ToVmRecommendationArrayOutputWithContext(ctx context.Context) VmRecommendationArrayOutput {
+	return o
+}
+
+func (o VmRecommendationArrayOutput) Index(i pulumi.IntInput) VmRecommendationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VmRecommendation {
+		return vs[0].([]VmRecommendation)[vs[1].(int)]
+	}).(VmRecommendationOutput)
+}
+
+// Represents a machine that is part of a VM/server group
+type VmRecommendationResponse struct {
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus *string `pulumi:"configurationStatus"`
+	// The VM/server supportability of Enforce feature
+	EnforcementSupport *string `pulumi:"enforcementSupport"`
+	// The recommendation action of the VM/server or rule
+	RecommendationAction *string `pulumi:"recommendationAction"`
+	// The full azure resource id of the machine
+	ResourceId *string `pulumi:"resourceId"`
+}
+
+// VmRecommendationResponseInput is an input type that accepts VmRecommendationResponseArgs and VmRecommendationResponseOutput values.
+// You can construct a concrete instance of `VmRecommendationResponseInput` via:
+//
+//          VmRecommendationResponseArgs{...}
+type VmRecommendationResponseInput interface {
+	pulumi.Input
+
+	ToVmRecommendationResponseOutput() VmRecommendationResponseOutput
+	ToVmRecommendationResponseOutputWithContext(context.Context) VmRecommendationResponseOutput
+}
+
+// Represents a machine that is part of a VM/server group
+type VmRecommendationResponseArgs struct {
+	// The configuration status of the VM/server group or machine or rule on the machine
+	ConfigurationStatus pulumi.StringPtrInput `pulumi:"configurationStatus"`
+	// The VM/server supportability of Enforce feature
+	EnforcementSupport pulumi.StringPtrInput `pulumi:"enforcementSupport"`
+	// The recommendation action of the VM/server or rule
+	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
+	// The full azure resource id of the machine
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
+}
+
+func (VmRecommendationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmRecommendationResponse)(nil)).Elem()
+}
+
+func (i VmRecommendationResponseArgs) ToVmRecommendationResponseOutput() VmRecommendationResponseOutput {
+	return i.ToVmRecommendationResponseOutputWithContext(context.Background())
+}
+
+func (i VmRecommendationResponseArgs) ToVmRecommendationResponseOutputWithContext(ctx context.Context) VmRecommendationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationResponseOutput)
+}
+
+// VmRecommendationResponseArrayInput is an input type that accepts VmRecommendationResponseArray and VmRecommendationResponseArrayOutput values.
+// You can construct a concrete instance of `VmRecommendationResponseArrayInput` via:
+//
+//          VmRecommendationResponseArray{ VmRecommendationResponseArgs{...} }
+type VmRecommendationResponseArrayInput interface {
+	pulumi.Input
+
+	ToVmRecommendationResponseArrayOutput() VmRecommendationResponseArrayOutput
+	ToVmRecommendationResponseArrayOutputWithContext(context.Context) VmRecommendationResponseArrayOutput
+}
+
+type VmRecommendationResponseArray []VmRecommendationResponseInput
+
+func (VmRecommendationResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmRecommendationResponse)(nil)).Elem()
+}
+
+func (i VmRecommendationResponseArray) ToVmRecommendationResponseArrayOutput() VmRecommendationResponseArrayOutput {
+	return i.ToVmRecommendationResponseArrayOutputWithContext(context.Background())
+}
+
+func (i VmRecommendationResponseArray) ToVmRecommendationResponseArrayOutputWithContext(ctx context.Context) VmRecommendationResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationResponseArrayOutput)
+}
+
+// Represents a machine that is part of a VM/server group
+type VmRecommendationResponseOutput struct{ *pulumi.OutputState }
+
+func (VmRecommendationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VmRecommendationResponse)(nil)).Elem()
+}
+
+func (o VmRecommendationResponseOutput) ToVmRecommendationResponseOutput() VmRecommendationResponseOutput {
+	return o
+}
+
+func (o VmRecommendationResponseOutput) ToVmRecommendationResponseOutputWithContext(ctx context.Context) VmRecommendationResponseOutput {
+	return o
+}
+
+// The configuration status of the VM/server group or machine or rule on the machine
+func (o VmRecommendationResponseOutput) ConfigurationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.ConfigurationStatus }).(pulumi.StringPtrOutput)
+}
+
+// The VM/server supportability of Enforce feature
+func (o VmRecommendationResponseOutput) EnforcementSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.EnforcementSupport }).(pulumi.StringPtrOutput)
+}
+
+// The recommendation action of the VM/server or rule
+func (o VmRecommendationResponseOutput) RecommendationAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.RecommendationAction }).(pulumi.StringPtrOutput)
+}
+
+// The full azure resource id of the machine
+func (o VmRecommendationResponseOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VmRecommendationResponse) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type VmRecommendationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (VmRecommendationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VmRecommendationResponse)(nil)).Elem()
+}
+
+func (o VmRecommendationResponseArrayOutput) ToVmRecommendationResponseArrayOutput() VmRecommendationResponseArrayOutput {
+	return o
+}
+
+func (o VmRecommendationResponseArrayOutput) ToVmRecommendationResponseArrayOutputWithContext(ctx context.Context) VmRecommendationResponseArrayOutput {
+	return o
+}
+
+func (o VmRecommendationResponseArrayOutput) Index(i pulumi.IntInput) VmRecommendationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VmRecommendationResponse {
+		return vs[0].([]VmRecommendationResponse)[vs[1].(int)]
+	}).(VmRecommendationResponseOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(AdaptiveApplicationControlTypeOutput{})
 	pulumi.RegisterOutputType(AppWhitelistingGroupDataResponseOutput{})
 	pulumi.RegisterOutputType(AppWhitelistingGroupDataResponsePtrOutput{})
-	pulumi.RegisterOutputType(AppWhitelistingIssuesSummariesOutput{})
-	pulumi.RegisterOutputType(AppWhitelistingIssuesSummariesResponseOutput{})
-	pulumi.RegisterOutputType(AppWhitelistingIssuesSummariesResponsePtrOutput{})
-	pulumi.RegisterOutputType(AssessmentTypeOutput{})
-	pulumi.RegisterOutputType(AssessmentLinksOutput{})
-	pulumi.RegisterOutputType(AssessmentLinksPtrOutput{})
+	pulumi.RegisterOutputType(AppWhitelistingIssueSummaryResponseOutput{})
+	pulumi.RegisterOutputType(AppWhitelistingIssueSummaryResponseArrayOutput{})
 	pulumi.RegisterOutputType(AssessmentLinksResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentLinksResponsePtrOutput{})
-	pulumi.RegisterOutputType(AssessmentMetadataInSubscriptionTypeOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentStatusResponsePtrOutput{})
-	pulumi.RegisterOutputType(JitNetworkAccessPolicyTypeOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessPolicyVirtualMachineOutput{})
@@ -5642,14 +5825,18 @@ func init() {
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineArrayOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineResponseOutput{})
 	pulumi.RegisterOutputType(JitNetworkAccessRequestVirtualMachineResponseArrayOutput{})
-	pulumi.RegisterOutputType(PathRecommendationsOutput{})
-	pulumi.RegisterOutputType(PathRecommendationsPtrOutput{})
-	pulumi.RegisterOutputType(PathRecommendationsResponseOutput{})
-	pulumi.RegisterOutputType(PathRecommendationsResponsePtrOutput{})
+	pulumi.RegisterOutputType(PathRecommendationOutput{})
+	pulumi.RegisterOutputType(PathRecommendationArrayOutput{})
+	pulumi.RegisterOutputType(PathRecommendationResponseOutput{})
+	pulumi.RegisterOutputType(PathRecommendationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProtectionModeOutput{})
 	pulumi.RegisterOutputType(ProtectionModePtrOutput{})
 	pulumi.RegisterOutputType(ProtectionModeResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionModeResponsePtrOutput{})
+	pulumi.RegisterOutputType(PublisherInfoOutput{})
+	pulumi.RegisterOutputType(PublisherInfoPtrOutput{})
+	pulumi.RegisterOutputType(PublisherInfoResponseOutput{})
+	pulumi.RegisterOutputType(PublisherInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceDetailsOutput{})
 	pulumi.RegisterOutputType(ResourceDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceDetailsResponseOutput{})
@@ -5668,11 +5855,14 @@ func init() {
 	pulumi.RegisterOutputType(SecurityAssessmentPartnerDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SecurityAssessmentPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentTypeOutput{})
 	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServerVulnerabilityAssessmentPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(VmRecommendationsOutput{})
-	pulumi.RegisterOutputType(VmRecommendationsPtrOutput{})
-	pulumi.RegisterOutputType(VmRecommendationsResponseOutput{})
-	pulumi.RegisterOutputType(VmRecommendationsResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserRecommendationOutput{})
+	pulumi.RegisterOutputType(UserRecommendationArrayOutput{})
+	pulumi.RegisterOutputType(UserRecommendationResponseOutput{})
+	pulumi.RegisterOutputType(UserRecommendationResponseArrayOutput{})
+	pulumi.RegisterOutputType(VmRecommendationOutput{})
+	pulumi.RegisterOutputType(VmRecommendationArrayOutput{})
+	pulumi.RegisterOutputType(VmRecommendationResponseOutput{})
+	pulumi.RegisterOutputType(VmRecommendationResponseArrayOutput{})
 }

@@ -111,7 +111,7 @@ export interface DatasetArgs {
     /**
      * Dataset properties.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.DatasetDefinition>;
+    readonly properties: pulumi.Input<inputs.datafactory.v20180601.Dataset>;
     /**
      * The resource group name.
      */

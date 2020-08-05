@@ -116,7 +116,7 @@ type managedClusterArgs struct {
 	// The identity of the managed cluster, if configured.
 	Identity *ManagedClusterIdentity `pulumi:"identity"`
 	// Identities associated with the cluster.
-	IdentityProfile map[string]map[string]interface{} `pulumi:"identityProfile"`
+	IdentityProfile map[string]ManagedClusterPropertiesIdentityProfile `pulumi:"identityProfile"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.
@@ -158,7 +158,7 @@ type ManagedClusterArgs struct {
 	// The identity of the managed cluster, if configured.
 	Identity ManagedClusterIdentityPtrInput
 	// Identities associated with the cluster.
-	IdentityProfile pulumi.MapMapInput
+	IdentityProfile ManagedClusterPropertiesIdentityProfileMapInput
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion pulumi.StringPtrInput
 	// Profile for Linux VMs in the container service cluster.

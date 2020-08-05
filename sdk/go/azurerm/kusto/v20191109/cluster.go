@@ -29,7 +29,7 @@ type Cluster struct {
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The availability zones of the cluster.
-	Zones ZonesResponsePtrOutput `pulumi:"zones"`
+	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ type clusterState struct {
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type *string `pulumi:"type"`
 	// The availability zones of the cluster.
-	Zones *ZonesResponse `pulumi:"zones"`
+	Zones []string `pulumi:"zones"`
 }
 
 type ClusterState struct {
@@ -106,7 +106,7 @@ type ClusterState struct {
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type pulumi.StringPtrInput
 	// The availability zones of the cluster.
-	Zones ZonesResponsePtrInput
+	Zones pulumi.StringArrayInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -139,7 +139,7 @@ type clusterArgs struct {
 	// Virtual network definition.
 	VirtualNetworkConfiguration *VirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// The availability zones of the cluster.
-	Zones *Zones `pulumi:"zones"`
+	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -169,7 +169,7 @@ type ClusterArgs struct {
 	// Virtual network definition.
 	VirtualNetworkConfiguration VirtualNetworkConfigurationPtrInput
 	// The availability zones of the cluster.
-	Zones ZonesPtrInput
+	Zones pulumi.StringArrayInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.Insights.V20150501.Outputs
         /// <summary>
         /// An XML configuration specification for a WebTest.
         /// </summary>
-        public readonly Outputs.WebTestPropertiesResponsePropertiesResult? Configuration;
+        public readonly Outputs.WebTestPropertiesResponseConfigurationResult? Configuration;
         /// <summary>
         /// Purpose/user defined descriptive test for this WebTest.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Insights.V20150501.Outputs
 
         [OutputConstructor]
         private WebTestPropertiesResponseResult(
-            Outputs.WebTestPropertiesResponsePropertiesResult? Configuration,
+            Outputs.WebTestPropertiesResponseConfigurationResult? Configuration,
 
             string? Description,
 

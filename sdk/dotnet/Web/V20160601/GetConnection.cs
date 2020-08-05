@@ -55,7 +55,7 @@ namespace Pulumi.AzureRM.Web.V20160601
         /// <summary>
         /// Resource tags
         /// </summary>
-        public readonly Outputs.TagsDictionaryResponseResult? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -71,7 +71,7 @@ namespace Pulumi.AzureRM.Web.V20160601
 
             Outputs.ApiConnectionDefinitionResponsePropertiesResult properties,
 
-            Outputs.TagsDictionaryResponseResult? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {

@@ -354,106 +354,6 @@ func (o DomainSecuritySettingsResponsePtrOutput) TlsV1() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Domain service.
-type DomainServiceType struct {
-	// Resource etag
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Domain service properties
-	Properties DomainServicePropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// DomainServiceTypeInput is an input type that accepts DomainServiceTypeArgs and DomainServiceTypeOutput values.
-// You can construct a concrete instance of `DomainServiceTypeInput` via:
-//
-//          DomainServiceTypeArgs{...}
-type DomainServiceTypeInput interface {
-	pulumi.Input
-
-	ToDomainServiceTypeOutput() DomainServiceTypeOutput
-	ToDomainServiceTypeOutputWithContext(context.Context) DomainServiceTypeOutput
-}
-
-// Domain service.
-type DomainServiceTypeArgs struct {
-	// Resource etag
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Domain service properties
-	Properties DomainServicePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DomainServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainServiceType)(nil)).Elem()
-}
-
-func (i DomainServiceTypeArgs) ToDomainServiceTypeOutput() DomainServiceTypeOutput {
-	return i.ToDomainServiceTypeOutputWithContext(context.Background())
-}
-
-func (i DomainServiceTypeArgs) ToDomainServiceTypeOutputWithContext(ctx context.Context) DomainServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainServiceTypeOutput)
-}
-
-// Domain service.
-type DomainServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (DomainServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainServiceType)(nil)).Elem()
-}
-
-func (o DomainServiceTypeOutput) ToDomainServiceTypeOutput() DomainServiceTypeOutput {
-	return o
-}
-
-func (o DomainServiceTypeOutput) ToDomainServiceTypeOutputWithContext(ctx context.Context) DomainServiceTypeOutput {
-	return o
-}
-
-// Resource etag
-func (o DomainServiceTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainServiceType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Resource location
-func (o DomainServiceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainServiceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o DomainServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Domain service properties
-func (o DomainServiceTypeOutput) Properties() DomainServicePropertiesResponseOutput {
-	return o.ApplyT(func(v DomainServiceType) DomainServicePropertiesResponse { return v.Properties }).(DomainServicePropertiesResponseOutput)
-}
-
-// Resource tags
-func (o DomainServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DomainServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o DomainServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the Domain Service.
 type DomainServicePropertiesResponse struct {
 	// Deployment Id
@@ -781,52 +681,6 @@ func (o DomainServicePropertiesResponsePtrOutput) Version() pulumi.IntPtrOutput 
 }
 
 // Health Alert Description
-type HealthAlert struct {
-}
-
-// HealthAlertInput is an input type that accepts HealthAlertArgs and HealthAlertOutput values.
-// You can construct a concrete instance of `HealthAlertInput` via:
-//
-//          HealthAlertArgs{...}
-type HealthAlertInput interface {
-	pulumi.Input
-
-	ToHealthAlertOutput() HealthAlertOutput
-	ToHealthAlertOutputWithContext(context.Context) HealthAlertOutput
-}
-
-// Health Alert Description
-type HealthAlertArgs struct {
-}
-
-func (HealthAlertArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthAlert)(nil)).Elem()
-}
-
-func (i HealthAlertArgs) ToHealthAlertOutput() HealthAlertOutput {
-	return i.ToHealthAlertOutputWithContext(context.Background())
-}
-
-func (i HealthAlertArgs) ToHealthAlertOutputWithContext(ctx context.Context) HealthAlertOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertOutput)
-}
-
-// Health Alert Description
-type HealthAlertOutput struct{ *pulumi.OutputState }
-
-func (HealthAlertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthAlert)(nil)).Elem()
-}
-
-func (o HealthAlertOutput) ToHealthAlertOutput() HealthAlertOutput {
-	return o
-}
-
-func (o HealthAlertOutput) ToHealthAlertOutputWithContext(ctx context.Context) HealthAlertOutput {
-	return o
-}
-
-// Health Alert Description
 type HealthAlertResponse struct {
 	// Health Alert Id
 	Id string `pulumi:"id"`
@@ -978,52 +832,6 @@ func (o HealthAlertResponseArrayOutput) Index(i pulumi.IntInput) HealthAlertResp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HealthAlertResponse {
 		return vs[0].([]HealthAlertResponse)[vs[1].(int)]
 	}).(HealthAlertResponseOutput)
-}
-
-// Health Monitor Description
-type HealthMonitor struct {
-}
-
-// HealthMonitorInput is an input type that accepts HealthMonitorArgs and HealthMonitorOutput values.
-// You can construct a concrete instance of `HealthMonitorInput` via:
-//
-//          HealthMonitorArgs{...}
-type HealthMonitorInput interface {
-	pulumi.Input
-
-	ToHealthMonitorOutput() HealthMonitorOutput
-	ToHealthMonitorOutputWithContext(context.Context) HealthMonitorOutput
-}
-
-// Health Monitor Description
-type HealthMonitorArgs struct {
-}
-
-func (HealthMonitorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthMonitor)(nil)).Elem()
-}
-
-func (i HealthMonitorArgs) ToHealthMonitorOutput() HealthMonitorOutput {
-	return i.ToHealthMonitorOutputWithContext(context.Background())
-}
-
-func (i HealthMonitorArgs) ToHealthMonitorOutputWithContext(ctx context.Context) HealthMonitorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthMonitorOutput)
-}
-
-// Health Monitor Description
-type HealthMonitorOutput struct{ *pulumi.OutputState }
-
-func (HealthMonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthMonitor)(nil)).Elem()
-}
-
-func (o HealthMonitorOutput) ToHealthMonitorOutput() HealthMonitorOutput {
-	return o
-}
-
-func (o HealthMonitorOutput) ToHealthMonitorOutputWithContext(ctx context.Context) HealthMonitorOutput {
-	return o
 }
 
 // Health Monitor Description
@@ -2222,13 +2030,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainSecuritySettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsResponseOutput{})
 	pulumi.RegisterOutputType(DomainSecuritySettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(DomainServiceTypeOutput{})
 	pulumi.RegisterOutputType(DomainServicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DomainServicePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(HealthAlertOutput{})
 	pulumi.RegisterOutputType(HealthAlertResponseOutput{})
 	pulumi.RegisterOutputType(HealthAlertResponseArrayOutput{})
-	pulumi.RegisterOutputType(HealthMonitorOutput{})
 	pulumi.RegisterOutputType(HealthMonitorResponseOutput{})
 	pulumi.RegisterOutputType(HealthMonitorResponseArrayOutput{})
 	pulumi.RegisterOutputType(LdapsSettingsOutput{})

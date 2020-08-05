@@ -27,11 +27,17 @@ namespace Pulumi.AzureRM.Management.V20190901.Inputs
             set => _groupNames = value;
         }
 
+        [Input("parameters")]
+        private InputMap<Inputs.ParameterValuesValueArgs>? _parameters;
+
         /// <summary>
         /// The parameter values for the referenced policy rule. The keys are the parameter names.
         /// </summary>
-        [Input("parameters")]
-        public Input<Inputs.ParameterValuesArgs>? Parameters { get; set; }
+        public InputMap<Inputs.ParameterValuesValueArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterValuesValueArgs>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// The ID of the policy definition or policy set definition.

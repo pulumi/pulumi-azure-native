@@ -80,7 +80,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vaultName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -109,10 +108,6 @@ export interface PrivateEndpointConnectionArgs {
      * Name of the private endpoint connection associated with the key vault.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the private endpoint object.
-     */
-    readonly privateEndpoint?: pulumi.Input<inputs.keyvault.v20190901.PrivateEndpoint>;
     /**
      * Approval state of the private link connection.
      */

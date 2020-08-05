@@ -50,7 +50,7 @@ export interface GetCacheResult {
     /**
      * SKU for the Cache.
      */
-    readonly sku?: outputs.storagecache.v20191101.CacheResponseProperties;
+    readonly sku?: outputs.storagecache.v20191101.CacheResponseSku;
     /**
      * ARM tags as name/value pairs.
      */

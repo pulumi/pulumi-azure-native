@@ -95,7 +95,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
     """
     Type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, azure_asn=None, circuit_name=None, connections=None, express_route_connection=None, gateway_manager_etag=None, id=None, ipv6_peering_config=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, resource_group_name=None, route_filter=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, vlan_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, azure_asn=None, circuit_name=None, connections=None, gateway_manager_etag=None, id=None, ipv6_peering_config=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, resource_group_name=None, route_filter=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, vlan_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Peering in an ExpressRouteCircuit resource.
 
@@ -104,7 +104,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[float] azure_asn: The Azure ASN.
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
         :param pulumi.Input[list] connections: The list of circuit connections associated with Azure Private Peering for this circuit.
-        :param pulumi.Input[dict] express_route_connection: The ExpressRoute connection.
         :param pulumi.Input[str] gateway_manager_etag: The GatewayManager Etag.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[dict] ipv6_peering_config: The IPv6 peering configuration.
@@ -181,7 +180,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                 raise TypeError("Missing required property 'circuit_name'")
             __props__['circuit_name'] = circuit_name
             __props__['connections'] = connections
-            __props__['express_route_connection'] = express_route_connection
             __props__['gateway_manager_etag'] = gateway_manager_etag
             __props__['id'] = id
             __props__['ipv6_peering_config'] = ipv6_peering_config

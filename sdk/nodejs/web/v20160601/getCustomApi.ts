@@ -54,7 +54,7 @@ export interface GetCustomApiResult {
     /**
      * Resource tags
      */
-    readonly tags?: outputs.web.v20160601.TagsDictionaryResponse;
+    readonly tags?: {[key: string]: string};
     /**
      * Resource type
      */

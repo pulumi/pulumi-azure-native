@@ -10,88 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Customer subscription.
-type CustomerSubscriptionType struct {
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag *string `pulumi:"etag"`
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// Customer subscription properties.
-	Properties CustomerSubscriptionPropertiesResponse `pulumi:"properties"`
-	// Type of Resource.
-	Type string `pulumi:"type"`
-}
-
-// CustomerSubscriptionTypeInput is an input type that accepts CustomerSubscriptionTypeArgs and CustomerSubscriptionTypeOutput values.
-// You can construct a concrete instance of `CustomerSubscriptionTypeInput` via:
-//
-//          CustomerSubscriptionTypeArgs{...}
-type CustomerSubscriptionTypeInput interface {
-	pulumi.Input
-
-	ToCustomerSubscriptionTypeOutput() CustomerSubscriptionTypeOutput
-	ToCustomerSubscriptionTypeOutputWithContext(context.Context) CustomerSubscriptionTypeOutput
-}
-
-// Customer subscription.
-type CustomerSubscriptionTypeArgs struct {
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Customer subscription properties.
-	Properties CustomerSubscriptionPropertiesResponseInput `pulumi:"properties"`
-	// Type of Resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CustomerSubscriptionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerSubscriptionType)(nil)).Elem()
-}
-
-func (i CustomerSubscriptionTypeArgs) ToCustomerSubscriptionTypeOutput() CustomerSubscriptionTypeOutput {
-	return i.ToCustomerSubscriptionTypeOutputWithContext(context.Background())
-}
-
-func (i CustomerSubscriptionTypeArgs) ToCustomerSubscriptionTypeOutputWithContext(ctx context.Context) CustomerSubscriptionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomerSubscriptionTypeOutput)
-}
-
-// Customer subscription.
-type CustomerSubscriptionTypeOutput struct{ *pulumi.OutputState }
-
-func (CustomerSubscriptionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerSubscriptionType)(nil)).Elem()
-}
-
-func (o CustomerSubscriptionTypeOutput) ToCustomerSubscriptionTypeOutput() CustomerSubscriptionTypeOutput {
-	return o
-}
-
-func (o CustomerSubscriptionTypeOutput) ToCustomerSubscriptionTypeOutputWithContext(ctx context.Context) CustomerSubscriptionTypeOutput {
-	return o
-}
-
-// The entity tag used for optimistic concurrency when modifying the resource.
-func (o CustomerSubscriptionTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomerSubscriptionType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Name of the resource.
-func (o CustomerSubscriptionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomerSubscriptionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Customer subscription properties.
-func (o CustomerSubscriptionTypeOutput) Properties() CustomerSubscriptionPropertiesResponseOutput {
-	return o.ApplyT(func(v CustomerSubscriptionType) CustomerSubscriptionPropertiesResponse { return v.Properties }).(CustomerSubscriptionPropertiesResponseOutput)
-}
-
-// Type of Resource.
-func (o CustomerSubscriptionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomerSubscriptionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Customer subscription properties.
 type CustomerSubscriptionPropertiesResponse struct {
 	// Tenant Id.
@@ -526,106 +444,6 @@ func (o OsDiskImageResponseOutput) SourceBlobSasUri() pulumi.StringOutput {
 	return o.ApplyT(func(v OsDiskImageResponse) string { return v.SourceBlobSasUri }).(pulumi.StringOutput)
 }
 
-// Registration information.
-type RegistrationType struct {
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag *string `pulumi:"etag"`
-	// Location of the resource.
-	Location string `pulumi:"location"`
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// Registration resource.
-	Properties RegistrationPropertiesResponse `pulumi:"properties"`
-	// Custom tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of Resource.
-	Type string `pulumi:"type"`
-}
-
-// RegistrationTypeInput is an input type that accepts RegistrationTypeArgs and RegistrationTypeOutput values.
-// You can construct a concrete instance of `RegistrationTypeInput` via:
-//
-//          RegistrationTypeArgs{...}
-type RegistrationTypeInput interface {
-	pulumi.Input
-
-	ToRegistrationTypeOutput() RegistrationTypeOutput
-	ToRegistrationTypeOutputWithContext(context.Context) RegistrationTypeOutput
-}
-
-// Registration information.
-type RegistrationTypeArgs struct {
-	// The entity tag used for optimistic concurrency when modifying the resource.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Location of the resource.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Registration resource.
-	Properties RegistrationPropertiesResponseInput `pulumi:"properties"`
-	// Custom tags for the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Type of Resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RegistrationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationType)(nil)).Elem()
-}
-
-func (i RegistrationTypeArgs) ToRegistrationTypeOutput() RegistrationTypeOutput {
-	return i.ToRegistrationTypeOutputWithContext(context.Background())
-}
-
-func (i RegistrationTypeArgs) ToRegistrationTypeOutputWithContext(ctx context.Context) RegistrationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistrationTypeOutput)
-}
-
-// Registration information.
-type RegistrationTypeOutput struct{ *pulumi.OutputState }
-
-func (RegistrationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationType)(nil)).Elem()
-}
-
-func (o RegistrationTypeOutput) ToRegistrationTypeOutput() RegistrationTypeOutput {
-	return o
-}
-
-func (o RegistrationTypeOutput) ToRegistrationTypeOutputWithContext(ctx context.Context) RegistrationTypeOutput {
-	return o
-}
-
-// The entity tag used for optimistic concurrency when modifying the resource.
-func (o RegistrationTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RegistrationType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Location of the resource.
-func (o RegistrationTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistrationType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Name of the resource.
-func (o RegistrationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistrationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Registration resource.
-func (o RegistrationTypeOutput) Properties() RegistrationPropertiesResponseOutput {
-	return o.ApplyT(func(v RegistrationType) RegistrationPropertiesResponse { return v.Properties }).(RegistrationPropertiesResponseOutput)
-}
-
-// Custom tags for the resource.
-func (o RegistrationTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RegistrationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Type of Resource.
-func (o RegistrationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistrationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties portion of the registration resource.
 type RegistrationPropertiesResponse struct {
 	// Specifies the billing mode for the Azure Stack registration.
@@ -854,14 +672,12 @@ func (o UriResponseOutput) Uri() pulumi.StringOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(CustomerSubscriptionTypeOutput{})
 	pulumi.RegisterOutputType(CustomerSubscriptionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CustomerSubscriptionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataDiskImageResponseOutput{})
 	pulumi.RegisterOutputType(DataDiskImageResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExtendedProductPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(OsDiskImageResponseOutput{})
-	pulumi.RegisterOutputType(RegistrationTypeOutput{})
 	pulumi.RegisterOutputType(RegistrationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RegistrationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(UriResponseOutput{})

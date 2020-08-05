@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// Configuration for auto scaling.
         /// </summary>
         [Input("autoScaleConfiguration")]
-        public Input<Inputs.ExpressRouteGatewayPropertiesPropertiesArgs>? AutoScaleConfiguration { get; set; }
+        public Input<Inputs.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs>? AutoScaleConfiguration { get; set; }
 
         /// <summary>
         /// Resource ID.

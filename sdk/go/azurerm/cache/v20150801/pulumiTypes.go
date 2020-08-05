@@ -10,97 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// A Redis item in CreateOrUpdate Operation response.
-type RedisType struct {
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Redis cache properties.
-	Properties RedisReadablePropertiesWithAccessKeyResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// RedisTypeInput is an input type that accepts RedisTypeArgs and RedisTypeOutput values.
-// You can construct a concrete instance of `RedisTypeInput` via:
-//
-//          RedisTypeArgs{...}
-type RedisTypeInput interface {
-	pulumi.Input
-
-	ToRedisTypeOutput() RedisTypeOutput
-	ToRedisTypeOutputWithContext(context.Context) RedisTypeOutput
-}
-
-// A Redis item in CreateOrUpdate Operation response.
-type RedisTypeArgs struct {
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Redis cache properties.
-	Properties RedisReadablePropertiesWithAccessKeyResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RedisTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisType)(nil)).Elem()
-}
-
-func (i RedisTypeArgs) ToRedisTypeOutput() RedisTypeOutput {
-	return i.ToRedisTypeOutputWithContext(context.Background())
-}
-
-func (i RedisTypeArgs) ToRedisTypeOutputWithContext(ctx context.Context) RedisTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RedisTypeOutput)
-}
-
-// A Redis item in CreateOrUpdate Operation response.
-type RedisTypeOutput struct{ *pulumi.OutputState }
-
-func (RedisTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisType)(nil)).Elem()
-}
-
-func (o RedisTypeOutput) ToRedisTypeOutput() RedisTypeOutput {
-	return o
-}
-
-func (o RedisTypeOutput) ToRedisTypeOutputWithContext(ctx context.Context) RedisTypeOutput {
-	return o
-}
-
-// Resource location.
-func (o RedisTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v RedisType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o RedisTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RedisType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Redis cache properties.
-func (o RedisTypeOutput) Properties() RedisReadablePropertiesWithAccessKeyResponseOutput {
-	return o.ApplyT(func(v RedisType) RedisReadablePropertiesWithAccessKeyResponse { return v.Properties }).(RedisReadablePropertiesWithAccessKeyResponseOutput)
-}
-
-// Resource tags.
-func (o RedisTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RedisType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o RedisTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RedisType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Redis cache access keys.
 type RedisAccessKeysResponse struct {
 	// The current primary key that clients can use to authenticate with Redis cache.
@@ -1145,7 +1054,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(RedisTypeOutput{})
 	pulumi.RegisterOutputType(RedisAccessKeysResponseOutput{})
 	pulumi.RegisterOutputType(RedisAccessKeysResponsePtrOutput{})
 	pulumi.RegisterOutputType(RedisReadablePropertiesResponseOutput{})

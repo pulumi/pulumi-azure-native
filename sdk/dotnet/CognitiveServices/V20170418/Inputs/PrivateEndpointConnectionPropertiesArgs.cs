@@ -28,12 +28,6 @@ namespace Pulumi.AzureRM.CognitiveServices.V20170418.Inputs
         }
 
         /// <summary>
-        /// The resource of private end point.
-        /// </summary>
-        [Input("privateEndpoint")]
-        public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
-
-        /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         [Input("privateLinkServiceConnectionState", required: true)]

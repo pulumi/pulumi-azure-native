@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200101.Outputs
         /// <summary>
         /// Information of user assigned identity used by this add-on.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Identity;
+        public readonly Outputs.ManagedClusterAddonProfileResponseIdentityResult Identity;
 
         [OutputConstructor]
         private ManagedClusterAddonProfileResponseResult(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200101.Outputs
 
             bool enabled,
 
-            ImmutableDictionary<string, object> identity)
+            Outputs.ManagedClusterAddonProfileResponseIdentityResult identity)
         {
             Config = config;
             Enabled = enabled;

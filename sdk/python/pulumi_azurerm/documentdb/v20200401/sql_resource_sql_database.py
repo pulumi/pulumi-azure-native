@@ -22,6 +22,11 @@ class SqlResourceSqlDatabase(pulumi.CustomResource):
     """
     The properties of an Azure Cosmos DB SQL database
       * `options` (`dict`)
+        * `autoscale_settings` (`dict`) - Specifies the Autoscale settings.
+          * `max_throughput` (`float`) - Represents maximum throughput, the resource can scale up to.
+
+        * `throughput` (`float`) - Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+
       * `resource` (`dict`)
         * `_colls` (`str`) - A system generated property that specified the addressable path of the collections resource.
         * `_etag` (`str`) - A system generated property representing the resource etag required for optimistic concurrency control.

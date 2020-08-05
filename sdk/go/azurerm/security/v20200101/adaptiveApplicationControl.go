@@ -89,10 +89,10 @@ type adaptiveApplicationControlArgs struct {
 	EnforcementMode *string `pulumi:"enforcementMode"`
 	// Name of an application control VM/server group
 	Name                string               `pulumi:"name"`
-	PathRecommendations *PathRecommendations `pulumi:"pathRecommendations"`
+	PathRecommendations []PathRecommendation `pulumi:"pathRecommendations"`
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 	ProtectionMode    *ProtectionMode    `pulumi:"protectionMode"`
-	VmRecommendations *VmRecommendations `pulumi:"vmRecommendations"`
+	VmRecommendations []VmRecommendation `pulumi:"vmRecommendations"`
 }
 
 // The set of arguments for constructing a AdaptiveApplicationControl resource.
@@ -103,10 +103,10 @@ type AdaptiveApplicationControlArgs struct {
 	EnforcementMode pulumi.StringPtrInput
 	// Name of an application control VM/server group
 	Name                pulumi.StringInput
-	PathRecommendations PathRecommendationsPtrInput
+	PathRecommendations PathRecommendationArrayInput
 	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 	ProtectionMode    ProtectionModePtrInput
-	VmRecommendations VmRecommendationsPtrInput
+	VmRecommendations VmRecommendationArrayInput
 }
 
 func (AdaptiveApplicationControlArgs) ElementType() reflect.Type {

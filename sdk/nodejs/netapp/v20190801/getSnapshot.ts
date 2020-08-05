@@ -65,7 +65,7 @@ export interface GetSnapshotResult {
     /**
      * Resource tags
      */
-    readonly tags?: outputs.netapp.v20190801.ResourceTagsResponse;
+    readonly tags?: {[key: string]: string};
     /**
      * Resource type
      */

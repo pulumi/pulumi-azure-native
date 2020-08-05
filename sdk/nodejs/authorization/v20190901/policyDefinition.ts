@@ -114,7 +114,7 @@ export interface PolicyDefinitionArgs {
     /**
      * The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
      */
-    readonly parameters?: pulumi.Input<inputs.authorization.v20190901.ParameterDefinitions>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20190901.ParameterDefinitionsValue>}>;
     /**
      * The policy rule.
      */

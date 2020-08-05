@@ -60,7 +60,7 @@ export interface GetVolumeResult {
     /**
      * Resource tags
      */
-    readonly tags?: outputs.netapp.v20191101.ResourceTagsResponse;
+    readonly tags?: {[key: string]: string};
     /**
      * Resource type
      */

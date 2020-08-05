@@ -127,7 +127,7 @@ export interface WebTestArgs {
     /**
      * An XML configuration specification for a WebTest.
      */
-    readonly Configuration?: pulumi.Input<inputs.insights.v20150501.WebTestPropertiesProperties>;
+    readonly Configuration?: pulumi.Input<inputs.insights.v20150501.WebTestPropertiesConfiguration>;
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */

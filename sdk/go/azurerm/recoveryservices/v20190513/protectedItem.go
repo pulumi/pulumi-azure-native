@@ -116,7 +116,7 @@ type protectedItemArgs struct {
 	// Item name to be backed up.
 	Name string `pulumi:"name"`
 	// ProtectedItemResource properties
-	Properties *ProtectedItemDefinition `pulumi:"properties"`
+	Properties *ProtectedItemType `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -138,7 +138,7 @@ type ProtectedItemArgs struct {
 	// Item name to be backed up.
 	Name pulumi.StringInput
 	// ProtectedItemResource properties
-	Properties ProtectedItemDefinitionPtrInput
+	Properties ProtectedItemTypePtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

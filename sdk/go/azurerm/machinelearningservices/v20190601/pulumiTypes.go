@@ -633,70 +633,6 @@ func (o ComputeResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
 }
 
 // Error detail information.
-type ErrorDetail struct {
-	// Error code.
-	Code string `pulumi:"code"`
-	// Error message.
-	Message string `pulumi:"message"`
-}
-
-// ErrorDetailInput is an input type that accepts ErrorDetailArgs and ErrorDetailOutput values.
-// You can construct a concrete instance of `ErrorDetailInput` via:
-//
-//          ErrorDetailArgs{...}
-type ErrorDetailInput interface {
-	pulumi.Input
-
-	ToErrorDetailOutput() ErrorDetailOutput
-	ToErrorDetailOutputWithContext(context.Context) ErrorDetailOutput
-}
-
-// Error detail information.
-type ErrorDetailArgs struct {
-	// Error code.
-	Code pulumi.StringInput `pulumi:"code"`
-	// Error message.
-	Message pulumi.StringInput `pulumi:"message"`
-}
-
-func (ErrorDetailArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDetail)(nil)).Elem()
-}
-
-func (i ErrorDetailArgs) ToErrorDetailOutput() ErrorDetailOutput {
-	return i.ToErrorDetailOutputWithContext(context.Background())
-}
-
-func (i ErrorDetailArgs) ToErrorDetailOutputWithContext(ctx context.Context) ErrorDetailOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailOutput)
-}
-
-// Error detail information.
-type ErrorDetailOutput struct{ *pulumi.OutputState }
-
-func (ErrorDetailOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDetail)(nil)).Elem()
-}
-
-func (o ErrorDetailOutput) ToErrorDetailOutput() ErrorDetailOutput {
-	return o
-}
-
-func (o ErrorDetailOutput) ToErrorDetailOutputWithContext(ctx context.Context) ErrorDetailOutput {
-	return o
-}
-
-// Error code.
-func (o ErrorDetailOutput) Code() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDetail) string { return v.Code }).(pulumi.StringOutput)
-}
-
-// Error message.
-func (o ErrorDetailOutput) Message() pulumi.StringOutput {
-	return o.ApplyT(func(v ErrorDetail) string { return v.Message }).(pulumi.StringOutput)
-}
-
-// Error detail information.
 type ErrorDetailResponse struct {
 	// Error code.
 	Code string `pulumi:"code"`
@@ -803,52 +739,6 @@ func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorDetailResponse {
 		return vs[0].([]ErrorDetailResponse)[vs[1].(int)]
 	}).(ErrorDetailResponseOutput)
-}
-
-// Error response information.
-type ErrorResponse struct {
-}
-
-// ErrorResponseInput is an input type that accepts ErrorResponseArgs and ErrorResponseOutput values.
-// You can construct a concrete instance of `ErrorResponseInput` via:
-//
-//          ErrorResponseArgs{...}
-type ErrorResponseInput interface {
-	pulumi.Input
-
-	ToErrorResponseOutput() ErrorResponseOutput
-	ToErrorResponseOutputWithContext(context.Context) ErrorResponseOutput
-}
-
-// Error response information.
-type ErrorResponseArgs struct {
-}
-
-func (ErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorResponse)(nil)).Elem()
-}
-
-func (i ErrorResponseArgs) ToErrorResponseOutput() ErrorResponseOutput {
-	return i.ToErrorResponseOutputWithContext(context.Background())
-}
-
-func (i ErrorResponseArgs) ToErrorResponseOutputWithContext(ctx context.Context) ErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponseOutput)
-}
-
-// Error response information.
-type ErrorResponseOutput struct{ *pulumi.OutputState }
-
-func (ErrorResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorResponse)(nil)).Elem()
-}
-
-func (o ErrorResponseOutput) ToErrorResponseOutput() ErrorResponseOutput {
-	return o
-}
-
-func (o ErrorResponseOutput) ToErrorResponseOutputWithContext(ctx context.Context) ErrorResponseOutput {
-	return o
 }
 
 // Error response information.
@@ -1230,152 +1120,6 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Machine Learning compute object wrapped into ARM resource envelope.
-type MachineLearningComputeType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Compute properties
-	Properties ComputeResponse `pulumi:"properties"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// MachineLearningComputeTypeInput is an input type that accepts MachineLearningComputeTypeArgs and MachineLearningComputeTypeOutput values.
-// You can construct a concrete instance of `MachineLearningComputeTypeInput` via:
-//
-//          MachineLearningComputeTypeArgs{...}
-type MachineLearningComputeTypeInput interface {
-	pulumi.Input
-
-	ToMachineLearningComputeTypeOutput() MachineLearningComputeTypeOutput
-	ToMachineLearningComputeTypeOutputWithContext(context.Context) MachineLearningComputeTypeOutput
-}
-
-// Machine Learning compute object wrapped into ARM resource envelope.
-type MachineLearningComputeTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Compute properties
-	Properties ComputeResponseInput `pulumi:"properties"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MachineLearningComputeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningComputeType)(nil)).Elem()
-}
-
-func (i MachineLearningComputeTypeArgs) ToMachineLearningComputeTypeOutput() MachineLearningComputeTypeOutput {
-	return i.ToMachineLearningComputeTypeOutputWithContext(context.Background())
-}
-
-func (i MachineLearningComputeTypeArgs) ToMachineLearningComputeTypeOutputWithContext(ctx context.Context) MachineLearningComputeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningComputeTypeOutput)
-}
-
-// Machine Learning compute object wrapped into ARM resource envelope.
-type MachineLearningComputeTypeOutput struct{ *pulumi.OutputState }
-
-func (MachineLearningComputeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningComputeType)(nil)).Elem()
-}
-
-func (o MachineLearningComputeTypeOutput) ToMachineLearningComputeTypeOutput() MachineLearningComputeTypeOutput {
-	return o
-}
-
-func (o MachineLearningComputeTypeOutput) ToMachineLearningComputeTypeOutputWithContext(ctx context.Context) MachineLearningComputeTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o MachineLearningComputeTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// Specifies the location of the resource.
-func (o MachineLearningComputeTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the resource.
-func (o MachineLearningComputeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Compute properties
-func (o MachineLearningComputeTypeOutput) Properties() ComputeResponseOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) ComputeResponse { return v.Properties }).(ComputeResponseOutput)
-}
-
-// Contains resource tags defined as key/value pairs.
-func (o MachineLearningComputeTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies the type of the resource.
-func (o MachineLearningComputeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MachineLearningComputeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Wrapper for error response to follow ARM guidelines.
-type MachineLearningServiceError struct {
-}
-
-// MachineLearningServiceErrorInput is an input type that accepts MachineLearningServiceErrorArgs and MachineLearningServiceErrorOutput values.
-// You can construct a concrete instance of `MachineLearningServiceErrorInput` via:
-//
-//          MachineLearningServiceErrorArgs{...}
-type MachineLearningServiceErrorInput interface {
-	pulumi.Input
-
-	ToMachineLearningServiceErrorOutput() MachineLearningServiceErrorOutput
-	ToMachineLearningServiceErrorOutputWithContext(context.Context) MachineLearningServiceErrorOutput
-}
-
-// Wrapper for error response to follow ARM guidelines.
-type MachineLearningServiceErrorArgs struct {
-}
-
-func (MachineLearningServiceErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningServiceError)(nil)).Elem()
-}
-
-func (i MachineLearningServiceErrorArgs) ToMachineLearningServiceErrorOutput() MachineLearningServiceErrorOutput {
-	return i.ToMachineLearningServiceErrorOutputWithContext(context.Background())
-}
-
-func (i MachineLearningServiceErrorArgs) ToMachineLearningServiceErrorOutputWithContext(ctx context.Context) MachineLearningServiceErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningServiceErrorOutput)
-}
-
-// Wrapper for error response to follow ARM guidelines.
-type MachineLearningServiceErrorOutput struct{ *pulumi.OutputState }
-
-func (MachineLearningServiceErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningServiceError)(nil)).Elem()
-}
-
-func (o MachineLearningServiceErrorOutput) ToMachineLearningServiceErrorOutput() MachineLearningServiceErrorOutput {
-	return o
-}
-
-func (o MachineLearningServiceErrorOutput) ToMachineLearningServiceErrorOutputWithContext(ctx context.Context) MachineLearningServiceErrorOutput {
-	return o
-}
-
 // Wrapper for error response to follow ARM guidelines.
 type MachineLearningServiceErrorResponse struct {
 	// The error response.
@@ -1635,106 +1379,6 @@ func (o RegistryListCredentialsResultResponseOutput) Passwords() PasswordRespons
 
 func (o RegistryListCredentialsResultResponseOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryListCredentialsResultResponse) string { return v.Username }).(pulumi.StringOutput)
-}
-
-// An object that represents a machine learning workspace.
-type WorkspaceType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the machine learning workspace.
-	Properties WorkspacePropertiesResponse `pulumi:"properties"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceTypeInput is an input type that accepts WorkspaceTypeArgs and WorkspaceTypeOutput values.
-// You can construct a concrete instance of `WorkspaceTypeInput` via:
-//
-//          WorkspaceTypeArgs{...}
-type WorkspaceTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceTypeOutput() WorkspaceTypeOutput
-	ToWorkspaceTypeOutputWithContext(context.Context) WorkspaceTypeOutput
-}
-
-// An object that represents a machine learning workspace.
-type WorkspaceTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the machine learning workspace.
-	Properties WorkspacePropertiesResponseInput `pulumi:"properties"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceType)(nil)).Elem()
-}
-
-func (i WorkspaceTypeArgs) ToWorkspaceTypeOutput() WorkspaceTypeOutput {
-	return i.ToWorkspaceTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceTypeArgs) ToWorkspaceTypeOutputWithContext(ctx context.Context) WorkspaceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTypeOutput)
-}
-
-// An object that represents a machine learning workspace.
-type WorkspaceTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceType)(nil)).Elem()
-}
-
-func (o WorkspaceTypeOutput) ToWorkspaceTypeOutput() WorkspaceTypeOutput {
-	return o
-}
-
-func (o WorkspaceTypeOutput) ToWorkspaceTypeOutputWithContext(ctx context.Context) WorkspaceTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o WorkspaceTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v WorkspaceType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// Specifies the location of the resource.
-func (o WorkspaceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the resource.
-func (o WorkspaceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the machine learning workspace.
-func (o WorkspaceTypeOutput) Properties() WorkspacePropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceType) WorkspacePropertiesResponse { return v.Properties }).(WorkspacePropertiesResponseOutput)
-}
-
-// Contains resource tags defined as key/value pairs.
-func (o WorkspaceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkspaceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies the type of the resource.
-func (o WorkspaceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties of a machine learning workspace.
@@ -2049,23 +1693,18 @@ func init() {
 	pulumi.RegisterOutputType(ComputePtrOutput{})
 	pulumi.RegisterOutputType(ComputeResponseOutput{})
 	pulumi.RegisterOutputType(ComputeResponsePtrOutput{})
-	pulumi.RegisterOutputType(ErrorDetailOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
-	pulumi.RegisterOutputType(ErrorResponseOutput{})
 	pulumi.RegisterOutputType(ErrorResponseResponseOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(MachineLearningComputeTypeOutput{})
-	pulumi.RegisterOutputType(MachineLearningServiceErrorOutput{})
 	pulumi.RegisterOutputType(MachineLearningServiceErrorResponseOutput{})
 	pulumi.RegisterOutputType(MachineLearningServiceErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(PasswordResponseOutput{})
 	pulumi.RegisterOutputType(PasswordResponseArrayOutput{})
 	pulumi.RegisterOutputType(RegistryListCredentialsResultResponseOutput{})
-	pulumi.RegisterOutputType(WorkspaceTypeOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponsePtrOutput{})
 }

@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Outputs
         /// <summary>
         /// List of application type parameters that can be overridden when creating or updating the application.
         /// </summary>
-        public readonly Outputs.ApplicationTypeParameterListResponseResult DefaultParameterList;
+        public readonly ImmutableDictionary<string, string> DefaultParameterList;
         /// <summary>
         /// The current deployment or provisioning state, which only appears in the response
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Outputs
         private ApplicationTypeVersionResourcePropertiesResponseResult(
             string appPackageUrl,
 
-            Outputs.ApplicationTypeParameterListResponseResult defaultParameterList,
+            ImmutableDictionary<string, string> defaultParameterList,
 
             string provisioningState)
         {

@@ -494,106 +494,6 @@ func (o ResourceSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A class represent a SignalR service resource.
-type SignalRType struct {
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the service.
-	Properties SignalRPropertiesResponse `pulumi:"properties"`
-	// SKU of the service.
-	Sku *ResourceSkuResponse `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the service - e.g. "Microsoft.SignalRService/SignalR"
-	Type string `pulumi:"type"`
-}
-
-// SignalRTypeInput is an input type that accepts SignalRTypeArgs and SignalRTypeOutput values.
-// You can construct a concrete instance of `SignalRTypeInput` via:
-//
-//          SignalRTypeArgs{...}
-type SignalRTypeInput interface {
-	pulumi.Input
-
-	ToSignalRTypeOutput() SignalRTypeOutput
-	ToSignalRTypeOutputWithContext(context.Context) SignalRTypeOutput
-}
-
-// A class represent a SignalR service resource.
-type SignalRTypeArgs struct {
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the service.
-	Properties SignalRPropertiesResponseInput `pulumi:"properties"`
-	// SKU of the service.
-	Sku ResourceSkuResponsePtrInput `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the service - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SignalRTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRType)(nil)).Elem()
-}
-
-func (i SignalRTypeArgs) ToSignalRTypeOutput() SignalRTypeOutput {
-	return i.ToSignalRTypeOutputWithContext(context.Background())
-}
-
-func (i SignalRTypeArgs) ToSignalRTypeOutputWithContext(ctx context.Context) SignalRTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalRTypeOutput)
-}
-
-// A class represent a SignalR service resource.
-type SignalRTypeOutput struct{ *pulumi.OutputState }
-
-func (SignalRTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRType)(nil)).Elem()
-}
-
-func (o SignalRTypeOutput) ToSignalRTypeOutput() SignalRTypeOutput {
-	return o
-}
-
-func (o SignalRTypeOutput) ToSignalRTypeOutputWithContext(ctx context.Context) SignalRTypeOutput {
-	return o
-}
-
-// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-func (o SignalRTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SignalRType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o SignalRTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SignalRType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the service.
-func (o SignalRTypeOutput) Properties() SignalRPropertiesResponseOutput {
-	return o.ApplyT(func(v SignalRType) SignalRPropertiesResponse { return v.Properties }).(SignalRPropertiesResponseOutput)
-}
-
-// SKU of the service.
-func (o SignalRTypeOutput) Sku() ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v SignalRType) *ResourceSkuResponse { return v.Sku }).(ResourceSkuResponsePtrOutput)
-}
-
-// Tags of the service which is a list of key value pairs that describe the resource.
-func (o SignalRTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SignalRType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the service - e.g. "Microsoft.SignalRService/SignalR"
-func (o SignalRTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SignalRType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Cross-Origin Resource Sharing (CORS) settings.
 type SignalRCorsSettings struct {
 	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
@@ -1621,7 +1521,6 @@ func init() {
 	pulumi.RegisterOutputType(ResourceSkuPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(SignalRTypeOutput{})
 	pulumi.RegisterOutputType(SignalRCorsSettingsOutput{})
 	pulumi.RegisterOutputType(SignalRCorsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SignalRCorsSettingsResponseOutput{})

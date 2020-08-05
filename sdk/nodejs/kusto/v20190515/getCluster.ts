@@ -62,5 +62,5 @@ export interface GetClusterResult {
     /**
      * The availability zones of the cluster.
      */
-    readonly zones?: outputs.kusto.v20190515.ZonesResponse;
+    readonly zones?: string[];
 }

@@ -105,7 +105,7 @@ namespace Pulumi.AzureRM.Cdn.V20190615
         /// A policy that specifies the delivery rules to be used for an endpoint.
         /// </summary>
         [Input("deliveryPolicy")]
-        public Input<Inputs.EndpointPropertiesUpdateParametersPropertiesArgs>? DeliveryPolicy { get; set; }
+        public Input<Inputs.EndpointPropertiesUpdateParametersDeliveryPolicyArgs>? DeliveryPolicy { get; set; }
 
         [Input("geoFilters")]
         private InputList<Inputs.GeoFilterArgs>? _geoFilters;
@@ -219,7 +219,7 @@ namespace Pulumi.AzureRM.Cdn.V20190615
         /// Defines the Web Application Firewall policy for the endpoint (if applicable)
         /// </summary>
         [Input("webApplicationFirewallPolicyLink")]
-        public Input<Inputs.EndpointPropertiesUpdateParametersPropertiesArgs>? WebApplicationFirewallPolicyLink { get; set; }
+        public Input<Inputs.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs>? WebApplicationFirewallPolicyLink { get; set; }
 
         public EndpointArgs()
         {

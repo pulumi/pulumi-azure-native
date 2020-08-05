@@ -83,7 +83,6 @@ export class Export extends pulumi.CustomResource {
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["format"] = args ? args.format : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["runHistory"] = args ? args.runHistory : undefined;
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["properties"] = undefined /*out*/;
@@ -124,10 +123,6 @@ export interface ExportArgs {
      * Export Name.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * If requested, has the most recent execution history for the export.
-     */
-    readonly runHistory?: pulumi.Input<inputs.costmanagement.v20200601.ExportExecutionListResult>;
     /**
      * Has schedule information for the export.
      */

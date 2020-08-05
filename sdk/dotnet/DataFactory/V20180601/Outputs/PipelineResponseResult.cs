@@ -32,11 +32,11 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         /// </summary>
-        public readonly Outputs.PipelineResponsePropertiesResult? Folder;
+        public readonly Outputs.PipelineResponseFolderResult? Folder;
         /// <summary>
         /// List of parameters for pipeline.
         /// </summary>
-        public readonly Outputs.ParameterDefinitionSpecificationResponseResult? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>? Parameters;
         /// <summary>
         /// Dimensions emitted by Pipeline.
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of variables for pipeline.
         /// </summary>
-        public readonly Outputs.VariableDefinitionSpecificationResponseResult? Variables;
+        public readonly ImmutableDictionary<string, Outputs.VariableSpecificationResponseResult>? Variables;
 
         [OutputConstructor]
         private PipelineResponseResult(
@@ -56,13 +56,13 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
 
             string? description,
 
-            Outputs.PipelineResponsePropertiesResult? folder,
+            Outputs.PipelineResponseFolderResult? folder,
 
-            Outputs.ParameterDefinitionSpecificationResponseResult? parameters,
+            ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>? parameters,
 
             ImmutableDictionary<string, ImmutableDictionary<string, object>>? runDimensions,
 
-            Outputs.VariableDefinitionSpecificationResponseResult? variables)
+            ImmutableDictionary<string, Outputs.VariableSpecificationResponseResult>? variables)
         {
             Activities = activities;
             Annotations = annotations;

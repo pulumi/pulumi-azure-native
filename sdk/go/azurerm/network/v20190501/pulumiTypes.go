@@ -1088,115 +1088,6 @@ func (o BackendResponseArrayOutput) Index(i pulumi.IntInput) BackendResponseOutp
 }
 
 // Https settings for a domain
-type CustomHttpsConfiguration struct {
-	// Defines the source of the SSL certificate
-	CertificateSource string `pulumi:"certificateSource"`
-	// Defines the type of the certificate used for secure connections to a frontendEndpoint
-	CertificateType *string `pulumi:"certificateType"`
-	// The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
-	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
-	// Defines the TLS extension protocol that is used for secure delivery
-	ProtocolType string `pulumi:"protocolType"`
-	// The name of the Key Vault secret representing the full certificate PFX
-	SecretName *string `pulumi:"secretName"`
-	// The version of the Key Vault secret representing the full certificate PFX
-	SecretVersion *string `pulumi:"secretVersion"`
-	// The Key Vault containing the SSL certificate
-	Vault *KeyVaultCertificateSourceParametersProperties `pulumi:"vault"`
-}
-
-// CustomHttpsConfigurationInput is an input type that accepts CustomHttpsConfigurationArgs and CustomHttpsConfigurationOutput values.
-// You can construct a concrete instance of `CustomHttpsConfigurationInput` via:
-//
-//          CustomHttpsConfigurationArgs{...}
-type CustomHttpsConfigurationInput interface {
-	pulumi.Input
-
-	ToCustomHttpsConfigurationOutput() CustomHttpsConfigurationOutput
-	ToCustomHttpsConfigurationOutputWithContext(context.Context) CustomHttpsConfigurationOutput
-}
-
-// Https settings for a domain
-type CustomHttpsConfigurationArgs struct {
-	// Defines the source of the SSL certificate
-	CertificateSource pulumi.StringInput `pulumi:"certificateSource"`
-	// Defines the type of the certificate used for secure connections to a frontendEndpoint
-	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
-	// The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
-	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
-	// Defines the TLS extension protocol that is used for secure delivery
-	ProtocolType pulumi.StringInput `pulumi:"protocolType"`
-	// The name of the Key Vault secret representing the full certificate PFX
-	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
-	// The version of the Key Vault secret representing the full certificate PFX
-	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
-	// The Key Vault containing the SSL certificate
-	Vault KeyVaultCertificateSourceParametersPropertiesPtrInput `pulumi:"vault"`
-}
-
-func (CustomHttpsConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomHttpsConfiguration)(nil)).Elem()
-}
-
-func (i CustomHttpsConfigurationArgs) ToCustomHttpsConfigurationOutput() CustomHttpsConfigurationOutput {
-	return i.ToCustomHttpsConfigurationOutputWithContext(context.Background())
-}
-
-func (i CustomHttpsConfigurationArgs) ToCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomHttpsConfigurationOutput)
-}
-
-// Https settings for a domain
-type CustomHttpsConfigurationOutput struct{ *pulumi.OutputState }
-
-func (CustomHttpsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomHttpsConfiguration)(nil)).Elem()
-}
-
-func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationOutput() CustomHttpsConfigurationOutput {
-	return o
-}
-
-func (o CustomHttpsConfigurationOutput) ToCustomHttpsConfigurationOutputWithContext(ctx context.Context) CustomHttpsConfigurationOutput {
-	return o
-}
-
-// Defines the source of the SSL certificate
-func (o CustomHttpsConfigurationOutput) CertificateSource() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomHttpsConfiguration) string { return v.CertificateSource }).(pulumi.StringOutput)
-}
-
-// Defines the type of the certificate used for secure connections to a frontendEndpoint
-func (o CustomHttpsConfigurationOutput) CertificateType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomHttpsConfiguration) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
-}
-
-// The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
-func (o CustomHttpsConfigurationOutput) MinimumTlsVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomHttpsConfiguration) string { return v.MinimumTlsVersion }).(pulumi.StringOutput)
-}
-
-// Defines the TLS extension protocol that is used for secure delivery
-func (o CustomHttpsConfigurationOutput) ProtocolType() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomHttpsConfiguration) string { return v.ProtocolType }).(pulumi.StringOutput)
-}
-
-// The name of the Key Vault secret representing the full certificate PFX
-func (o CustomHttpsConfigurationOutput) SecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomHttpsConfiguration) *string { return v.SecretName }).(pulumi.StringPtrOutput)
-}
-
-// The version of the Key Vault secret representing the full certificate PFX
-func (o CustomHttpsConfigurationOutput) SecretVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CustomHttpsConfiguration) *string { return v.SecretVersion }).(pulumi.StringPtrOutput)
-}
-
-// The Key Vault containing the SSL certificate
-func (o CustomHttpsConfigurationOutput) Vault() KeyVaultCertificateSourceParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v CustomHttpsConfiguration) *KeyVaultCertificateSourceParametersProperties { return v.Vault }).(KeyVaultCertificateSourceParametersPropertiesPtrOutput)
-}
-
-// Https settings for a domain
 type CustomHttpsConfigurationResponse struct {
 	// Defines the source of the SSL certificate
 	CertificateSource string `pulumi:"certificateSource"`
@@ -1408,97 +1299,6 @@ func (o CustomHttpsConfigurationResponsePtrOutput) ProtocolType() pulumi.StringP
 		}
 		return &v.ProtocolType
 	}).(pulumi.StringPtrOutput)
-}
-
-// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
-type FrontDoorType struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of the Front Door Load Balancer
-	Properties FrontDoorPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// FrontDoorTypeInput is an input type that accepts FrontDoorTypeArgs and FrontDoorTypeOutput values.
-// You can construct a concrete instance of `FrontDoorTypeInput` via:
-//
-//          FrontDoorTypeArgs{...}
-type FrontDoorTypeInput interface {
-	pulumi.Input
-
-	ToFrontDoorTypeOutput() FrontDoorTypeOutput
-	ToFrontDoorTypeOutputWithContext(context.Context) FrontDoorTypeOutput
-}
-
-// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
-type FrontDoorTypeArgs struct {
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Front Door Load Balancer
-	Properties FrontDoorPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FrontDoorTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorType)(nil)).Elem()
-}
-
-func (i FrontDoorTypeArgs) ToFrontDoorTypeOutput() FrontDoorTypeOutput {
-	return i.ToFrontDoorTypeOutputWithContext(context.Background())
-}
-
-func (i FrontDoorTypeArgs) ToFrontDoorTypeOutputWithContext(ctx context.Context) FrontDoorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontDoorTypeOutput)
-}
-
-// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
-type FrontDoorTypeOutput struct{ *pulumi.OutputState }
-
-func (FrontDoorTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoorType)(nil)).Elem()
-}
-
-func (o FrontDoorTypeOutput) ToFrontDoorTypeOutput() FrontDoorTypeOutput {
-	return o
-}
-
-func (o FrontDoorTypeOutput) ToFrontDoorTypeOutputWithContext(ctx context.Context) FrontDoorTypeOutput {
-	return o
-}
-
-// Resource location.
-func (o FrontDoorTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontDoorType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name.
-func (o FrontDoorTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FrontDoorType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Front Door Load Balancer
-func (o FrontDoorTypeOutput) Properties() FrontDoorPropertiesResponseOutput {
-	return o.ApplyT(func(v FrontDoorType) FrontDoorPropertiesResponse { return v.Properties }).(FrontDoorPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o FrontDoorTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v FrontDoorType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o FrontDoorTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FrontDoorType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Parameters required for enabling SSL with Front Door-managed certificates
@@ -1978,7 +1778,7 @@ type FrontendEndpoint struct {
 	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
 	SessionAffinityTtlSeconds *int `pulumi:"sessionAffinityTtlSeconds"`
 	// Defines the Web Application Firewall policy for each host (if applicable)
-	WebApplicationFirewallPolicyLink *FrontendEndpointUpdateParametersProperties `pulumi:"webApplicationFirewallPolicyLink"`
+	WebApplicationFirewallPolicyLink *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink `pulumi:"webApplicationFirewallPolicyLink"`
 }
 
 // FrontendEndpointInput is an input type that accepts FrontendEndpointArgs and FrontendEndpointOutput values.
@@ -2007,7 +1807,7 @@ type FrontendEndpointArgs struct {
 	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
 	SessionAffinityTtlSeconds pulumi.IntPtrInput `pulumi:"sessionAffinityTtlSeconds"`
 	// Defines the Web Application Firewall policy for each host (if applicable)
-	WebApplicationFirewallPolicyLink FrontendEndpointUpdateParametersPropertiesPtrInput `pulumi:"webApplicationFirewallPolicyLink"`
+	WebApplicationFirewallPolicyLink FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrInput `pulumi:"webApplicationFirewallPolicyLink"`
 }
 
 func (FrontendEndpointArgs) ElementType() reflect.Type {
@@ -2093,10 +1893,10 @@ func (o FrontendEndpointOutput) SessionAffinityTtlSeconds() pulumi.IntPtrOutput 
 }
 
 // Defines the Web Application Firewall policy for each host (if applicable)
-func (o FrontendEndpointOutput) WebApplicationFirewallPolicyLink() FrontendEndpointUpdateParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v FrontendEndpoint) *FrontendEndpointUpdateParametersProperties {
+func (o FrontendEndpointOutput) WebApplicationFirewallPolicyLink() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
+	return o.ApplyT(func(v FrontendEndpoint) *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink {
 		return v.WebApplicationFirewallPolicyLink
-	}).(FrontendEndpointUpdateParametersPropertiesPtrOutput)
+	}).(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
 type FrontendEndpointArrayOutput struct{ *pulumi.OutputState }
@@ -2136,7 +1936,7 @@ type FrontendEndpointPropertiesResponse struct {
 	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
 	SessionAffinityTtlSeconds *int `pulumi:"sessionAffinityTtlSeconds"`
 	// Defines the Web Application Firewall policy for each host (if applicable)
-	WebApplicationFirewallPolicyLink *FrontendEndpointUpdateParametersResponseProperties `pulumi:"webApplicationFirewallPolicyLink"`
+	WebApplicationFirewallPolicyLink *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink `pulumi:"webApplicationFirewallPolicyLink"`
 }
 
 // FrontendEndpointPropertiesResponseInput is an input type that accepts FrontendEndpointPropertiesResponseArgs and FrontendEndpointPropertiesResponseOutput values.
@@ -2167,7 +1967,7 @@ type FrontendEndpointPropertiesResponseArgs struct {
 	// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
 	SessionAffinityTtlSeconds pulumi.IntPtrInput `pulumi:"sessionAffinityTtlSeconds"`
 	// Defines the Web Application Firewall policy for each host (if applicable)
-	WebApplicationFirewallPolicyLink FrontendEndpointUpdateParametersResponsePropertiesPtrInput `pulumi:"webApplicationFirewallPolicyLink"`
+	WebApplicationFirewallPolicyLink FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrInput `pulumi:"webApplicationFirewallPolicyLink"`
 }
 
 func (FrontendEndpointPropertiesResponseArgs) ElementType() reflect.Type {
@@ -2286,10 +2086,10 @@ func (o FrontendEndpointPropertiesResponseOutput) SessionAffinityTtlSeconds() pu
 }
 
 // Defines the Web Application Firewall policy for each host (if applicable)
-func (o FrontendEndpointPropertiesResponseOutput) WebApplicationFirewallPolicyLink() FrontendEndpointUpdateParametersResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointPropertiesResponse) *FrontendEndpointUpdateParametersResponseProperties {
+func (o FrontendEndpointPropertiesResponseOutput) WebApplicationFirewallPolicyLink() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
+	return o.ApplyT(func(v FrontendEndpointPropertiesResponse) *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
 		return v.WebApplicationFirewallPolicyLink
-	}).(FrontendEndpointUpdateParametersResponsePropertiesPtrOutput)
+	}).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
 type FrontendEndpointPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2381,13 +2181,13 @@ func (o FrontendEndpointPropertiesResponsePtrOutput) SessionAffinityTtlSeconds()
 }
 
 // Defines the Web Application Firewall policy for each host (if applicable)
-func (o FrontendEndpointPropertiesResponsePtrOutput) WebApplicationFirewallPolicyLink() FrontendEndpointUpdateParametersResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *FrontendEndpointPropertiesResponse) *FrontendEndpointUpdateParametersResponseProperties {
+func (o FrontendEndpointPropertiesResponsePtrOutput) WebApplicationFirewallPolicyLink() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
+	return o.ApplyT(func(v *FrontendEndpointPropertiesResponse) *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
 		if v == nil {
 			return nil
 		}
 		return v.WebApplicationFirewallPolicyLink
-	}).(FrontendEndpointUpdateParametersResponsePropertiesPtrOutput)
+	}).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
 // A frontend endpoint used for routing.
@@ -2518,134 +2318,134 @@ func (o FrontendEndpointResponseArrayOutput) Index(i pulumi.IntInput) FrontendEn
 }
 
 // Defines the Web Application Firewall policy for each host (if applicable)
-type FrontendEndpointUpdateParametersProperties struct {
+type FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
-// FrontendEndpointUpdateParametersPropertiesInput is an input type that accepts FrontendEndpointUpdateParametersPropertiesArgs and FrontendEndpointUpdateParametersPropertiesOutput values.
-// You can construct a concrete instance of `FrontendEndpointUpdateParametersPropertiesInput` via:
+// FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkInput is an input type that accepts FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs and FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput values.
+// You can construct a concrete instance of `FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkInput` via:
 //
-//          FrontendEndpointUpdateParametersPropertiesArgs{...}
-type FrontendEndpointUpdateParametersPropertiesInput interface {
+//          FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs{...}
+type FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkInput interface {
 	pulumi.Input
 
-	ToFrontendEndpointUpdateParametersPropertiesOutput() FrontendEndpointUpdateParametersPropertiesOutput
-	ToFrontendEndpointUpdateParametersPropertiesOutputWithContext(context.Context) FrontendEndpointUpdateParametersPropertiesOutput
+	ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput
+	ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutputWithContext(context.Context) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput
 }
 
 // Defines the Web Application Firewall policy for each host (if applicable)
-type FrontendEndpointUpdateParametersPropertiesArgs struct {
+type FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
-func (FrontendEndpointUpdateParametersPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontendEndpointUpdateParametersProperties)(nil)).Elem()
+func (FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink)(nil)).Elem()
 }
 
-func (i FrontendEndpointUpdateParametersPropertiesArgs) ToFrontendEndpointUpdateParametersPropertiesOutput() FrontendEndpointUpdateParametersPropertiesOutput {
-	return i.ToFrontendEndpointUpdateParametersPropertiesOutputWithContext(context.Background())
+func (i FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput {
+	return i.ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutputWithContext(context.Background())
 }
 
-func (i FrontendEndpointUpdateParametersPropertiesArgs) ToFrontendEndpointUpdateParametersPropertiesOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersPropertiesOutput)
+func (i FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput)
 }
 
-func (i FrontendEndpointUpdateParametersPropertiesArgs) ToFrontendEndpointUpdateParametersPropertiesPtrOutput() FrontendEndpointUpdateParametersPropertiesPtrOutput {
-	return i.ToFrontendEndpointUpdateParametersPropertiesPtrOutputWithContext(context.Background())
+func (i FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
+	return i.ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(context.Background())
 }
 
-func (i FrontendEndpointUpdateParametersPropertiesArgs) ToFrontendEndpointUpdateParametersPropertiesPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersPropertiesOutput).ToFrontendEndpointUpdateParametersPropertiesPtrOutputWithContext(ctx)
+func (i FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput).ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx)
 }
 
-// FrontendEndpointUpdateParametersPropertiesPtrInput is an input type that accepts FrontendEndpointUpdateParametersPropertiesArgs, FrontendEndpointUpdateParametersPropertiesPtr and FrontendEndpointUpdateParametersPropertiesPtrOutput values.
-// You can construct a concrete instance of `FrontendEndpointUpdateParametersPropertiesPtrInput` via:
+// FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrInput is an input type that accepts FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs, FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtr and FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput values.
+// You can construct a concrete instance of `FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrInput` via:
 //
-//          FrontendEndpointUpdateParametersPropertiesArgs{...}
+//          FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs{...}
 //
 //  or:
 //
 //          nil
-type FrontendEndpointUpdateParametersPropertiesPtrInput interface {
+type FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrInput interface {
 	pulumi.Input
 
-	ToFrontendEndpointUpdateParametersPropertiesPtrOutput() FrontendEndpointUpdateParametersPropertiesPtrOutput
-	ToFrontendEndpointUpdateParametersPropertiesPtrOutputWithContext(context.Context) FrontendEndpointUpdateParametersPropertiesPtrOutput
+	ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput
+	ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(context.Context) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput
 }
 
-type frontendEndpointUpdateParametersPropertiesPtrType FrontendEndpointUpdateParametersPropertiesArgs
+type frontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrType FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs
 
-func FrontendEndpointUpdateParametersPropertiesPtr(v *FrontendEndpointUpdateParametersPropertiesArgs) FrontendEndpointUpdateParametersPropertiesPtrInput {
-	return (*frontendEndpointUpdateParametersPropertiesPtrType)(v)
+func FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtr(v *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkArgs) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrInput {
+	return (*frontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrType)(v)
 }
 
-func (*frontendEndpointUpdateParametersPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontendEndpointUpdateParametersProperties)(nil)).Elem()
+func (*frontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink)(nil)).Elem()
 }
 
-func (i *frontendEndpointUpdateParametersPropertiesPtrType) ToFrontendEndpointUpdateParametersPropertiesPtrOutput() FrontendEndpointUpdateParametersPropertiesPtrOutput {
-	return i.ToFrontendEndpointUpdateParametersPropertiesPtrOutputWithContext(context.Background())
+func (i *frontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrType) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
+	return i.ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(context.Background())
 }
 
-func (i *frontendEndpointUpdateParametersPropertiesPtrType) ToFrontendEndpointUpdateParametersPropertiesPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersPropertiesPtrOutput)
+func (i *frontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrType) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
 // Defines the Web Application Firewall policy for each host (if applicable)
-type FrontendEndpointUpdateParametersPropertiesOutput struct{ *pulumi.OutputState }
+type FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput struct{ *pulumi.OutputState }
 
-func (FrontendEndpointUpdateParametersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontendEndpointUpdateParametersProperties)(nil)).Elem()
+func (FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink)(nil)).Elem()
 }
 
-func (o FrontendEndpointUpdateParametersPropertiesOutput) ToFrontendEndpointUpdateParametersPropertiesOutput() FrontendEndpointUpdateParametersPropertiesOutput {
+func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput {
 	return o
 }
 
-func (o FrontendEndpointUpdateParametersPropertiesOutput) ToFrontendEndpointUpdateParametersPropertiesOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersPropertiesOutput {
+func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput {
 	return o
 }
 
-func (o FrontendEndpointUpdateParametersPropertiesOutput) ToFrontendEndpointUpdateParametersPropertiesPtrOutput() FrontendEndpointUpdateParametersPropertiesPtrOutput {
-	return o.ToFrontendEndpointUpdateParametersPropertiesPtrOutputWithContext(context.Background())
+func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
+	return o.ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(context.Background())
 }
 
-func (o FrontendEndpointUpdateParametersPropertiesOutput) ToFrontendEndpointUpdateParametersPropertiesPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointUpdateParametersProperties) *FrontendEndpointUpdateParametersProperties {
+func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
+	return o.ApplyT(func(v FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
 		return &v
-	}).(FrontendEndpointUpdateParametersPropertiesPtrOutput)
+	}).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
 // Resource ID.
-func (o FrontendEndpointUpdateParametersPropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointUpdateParametersProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-type FrontendEndpointUpdateParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+type FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput struct{ *pulumi.OutputState }
 
-func (FrontendEndpointUpdateParametersPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontendEndpointUpdateParametersProperties)(nil)).Elem()
+func (FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink)(nil)).Elem()
 }
 
-func (o FrontendEndpointUpdateParametersPropertiesPtrOutput) ToFrontendEndpointUpdateParametersPropertiesPtrOutput() FrontendEndpointUpdateParametersPropertiesPtrOutput {
+func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
 	return o
 }
 
-func (o FrontendEndpointUpdateParametersPropertiesPtrOutput) ToFrontendEndpointUpdateParametersPropertiesPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersPropertiesPtrOutput {
+func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput) ToFrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput {
 	return o
 }
 
-func (o FrontendEndpointUpdateParametersPropertiesPtrOutput) Elem() FrontendEndpointUpdateParametersPropertiesOutput {
-	return o.ApplyT(func(v *FrontendEndpointUpdateParametersProperties) FrontendEndpointUpdateParametersProperties {
+func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput) Elem() FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput {
+	return o.ApplyT(func(v *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink {
 		return *v
-	}).(FrontendEndpointUpdateParametersPropertiesOutput)
+	}).(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput)
 }
 
 // Resource ID.
-func (o FrontendEndpointUpdateParametersPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontendEndpointUpdateParametersProperties) *string {
+func (o FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLink) *string {
 		if v == nil {
 			return nil
 		}
@@ -2654,134 +2454,134 @@ func (o FrontendEndpointUpdateParametersPropertiesPtrOutput) Id() pulumi.StringP
 }
 
 // Defines the Web Application Firewall policy for each host (if applicable)
-type FrontendEndpointUpdateParametersResponseProperties struct {
+type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
-// FrontendEndpointUpdateParametersResponsePropertiesInput is an input type that accepts FrontendEndpointUpdateParametersResponsePropertiesArgs and FrontendEndpointUpdateParametersResponsePropertiesOutput values.
-// You can construct a concrete instance of `FrontendEndpointUpdateParametersResponsePropertiesInput` via:
+// FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkInput is an input type that accepts FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs and FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput values.
+// You can construct a concrete instance of `FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkInput` via:
 //
-//          FrontendEndpointUpdateParametersResponsePropertiesArgs{...}
-type FrontendEndpointUpdateParametersResponsePropertiesInput interface {
+//          FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs{...}
+type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkInput interface {
 	pulumi.Input
 
-	ToFrontendEndpointUpdateParametersResponsePropertiesOutput() FrontendEndpointUpdateParametersResponsePropertiesOutput
-	ToFrontendEndpointUpdateParametersResponsePropertiesOutputWithContext(context.Context) FrontendEndpointUpdateParametersResponsePropertiesOutput
+	ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput
+	ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutputWithContext(context.Context) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput
 }
 
 // Defines the Web Application Firewall policy for each host (if applicable)
-type FrontendEndpointUpdateParametersResponsePropertiesArgs struct {
+type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
-func (FrontendEndpointUpdateParametersResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontendEndpointUpdateParametersResponseProperties)(nil)).Elem()
+func (FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink)(nil)).Elem()
 }
 
-func (i FrontendEndpointUpdateParametersResponsePropertiesArgs) ToFrontendEndpointUpdateParametersResponsePropertiesOutput() FrontendEndpointUpdateParametersResponsePropertiesOutput {
-	return i.ToFrontendEndpointUpdateParametersResponsePropertiesOutputWithContext(context.Background())
+func (i FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput {
+	return i.ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutputWithContext(context.Background())
 }
 
-func (i FrontendEndpointUpdateParametersResponsePropertiesArgs) ToFrontendEndpointUpdateParametersResponsePropertiesOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersResponsePropertiesOutput)
+func (i FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput)
 }
 
-func (i FrontendEndpointUpdateParametersResponsePropertiesArgs) ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutput() FrontendEndpointUpdateParametersResponsePropertiesPtrOutput {
-	return i.ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutputWithContext(context.Background())
+func (i FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
+	return i.ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(context.Background())
 }
 
-func (i FrontendEndpointUpdateParametersResponsePropertiesArgs) ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersResponsePropertiesOutput).ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutputWithContext(ctx)
+func (i FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput).ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx)
 }
 
-// FrontendEndpointUpdateParametersResponsePropertiesPtrInput is an input type that accepts FrontendEndpointUpdateParametersResponsePropertiesArgs, FrontendEndpointUpdateParametersResponsePropertiesPtr and FrontendEndpointUpdateParametersResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `FrontendEndpointUpdateParametersResponsePropertiesPtrInput` via:
+// FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrInput is an input type that accepts FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs, FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtr and FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput values.
+// You can construct a concrete instance of `FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrInput` via:
 //
-//          FrontendEndpointUpdateParametersResponsePropertiesArgs{...}
+//          FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs{...}
 //
 //  or:
 //
 //          nil
-type FrontendEndpointUpdateParametersResponsePropertiesPtrInput interface {
+type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrInput interface {
 	pulumi.Input
 
-	ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutput() FrontendEndpointUpdateParametersResponsePropertiesPtrOutput
-	ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutputWithContext(context.Context) FrontendEndpointUpdateParametersResponsePropertiesPtrOutput
+	ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput
+	ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(context.Context) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput
 }
 
-type frontendEndpointUpdateParametersResponsePropertiesPtrType FrontendEndpointUpdateParametersResponsePropertiesArgs
+type frontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrType FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs
 
-func FrontendEndpointUpdateParametersResponsePropertiesPtr(v *FrontendEndpointUpdateParametersResponsePropertiesArgs) FrontendEndpointUpdateParametersResponsePropertiesPtrInput {
-	return (*frontendEndpointUpdateParametersResponsePropertiesPtrType)(v)
+func FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtr(v *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrInput {
+	return (*frontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrType)(v)
 }
 
-func (*frontendEndpointUpdateParametersResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontendEndpointUpdateParametersResponseProperties)(nil)).Elem()
+func (*frontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink)(nil)).Elem()
 }
 
-func (i *frontendEndpointUpdateParametersResponsePropertiesPtrType) ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutput() FrontendEndpointUpdateParametersResponsePropertiesPtrOutput {
-	return i.ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *frontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrType) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
+	return i.ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(context.Background())
 }
 
-func (i *frontendEndpointUpdateParametersResponsePropertiesPtrType) ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersResponsePropertiesPtrOutput)
+func (i *frontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrType) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
 // Defines the Web Application Firewall policy for each host (if applicable)
-type FrontendEndpointUpdateParametersResponsePropertiesOutput struct{ *pulumi.OutputState }
+type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput struct{ *pulumi.OutputState }
 
-func (FrontendEndpointUpdateParametersResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontendEndpointUpdateParametersResponseProperties)(nil)).Elem()
+func (FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink)(nil)).Elem()
 }
 
-func (o FrontendEndpointUpdateParametersResponsePropertiesOutput) ToFrontendEndpointUpdateParametersResponsePropertiesOutput() FrontendEndpointUpdateParametersResponsePropertiesOutput {
+func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput {
 	return o
 }
 
-func (o FrontendEndpointUpdateParametersResponsePropertiesOutput) ToFrontendEndpointUpdateParametersResponsePropertiesOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponsePropertiesOutput {
+func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput {
 	return o
 }
 
-func (o FrontendEndpointUpdateParametersResponsePropertiesOutput) ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutput() FrontendEndpointUpdateParametersResponsePropertiesPtrOutput {
-	return o.ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutputWithContext(context.Background())
+func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
+	return o.ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(context.Background())
 }
 
-func (o FrontendEndpointUpdateParametersResponsePropertiesOutput) ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointUpdateParametersResponseProperties) *FrontendEndpointUpdateParametersResponseProperties {
+func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
+	return o.ApplyT(func(v FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink {
 		return &v
-	}).(FrontendEndpointUpdateParametersResponsePropertiesPtrOutput)
+	}).(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput)
 }
 
 // Resource ID.
-func (o FrontendEndpointUpdateParametersResponsePropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FrontendEndpointUpdateParametersResponseProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-type FrontendEndpointUpdateParametersResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput struct{ *pulumi.OutputState }
 
-func (FrontendEndpointUpdateParametersResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FrontendEndpointUpdateParametersResponseProperties)(nil)).Elem()
+func (FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink)(nil)).Elem()
 }
 
-func (o FrontendEndpointUpdateParametersResponsePropertiesPtrOutput) ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutput() FrontendEndpointUpdateParametersResponsePropertiesPtrOutput {
+func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
 	return o
 }
 
-func (o FrontendEndpointUpdateParametersResponsePropertiesPtrOutput) ToFrontendEndpointUpdateParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersResponsePropertiesPtrOutput {
+func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput) ToFrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutputWithContext(ctx context.Context) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput {
 	return o
 }
 
-func (o FrontendEndpointUpdateParametersResponsePropertiesPtrOutput) Elem() FrontendEndpointUpdateParametersResponsePropertiesOutput {
-	return o.ApplyT(func(v *FrontendEndpointUpdateParametersResponseProperties) FrontendEndpointUpdateParametersResponseProperties {
+func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput) Elem() FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput {
+	return o.ApplyT(func(v *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink {
 		return *v
-	}).(FrontendEndpointUpdateParametersResponsePropertiesOutput)
+	}).(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput)
 }
 
 // Resource ID.
-func (o FrontendEndpointUpdateParametersResponsePropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FrontendEndpointUpdateParametersResponseProperties) *string {
+func (o FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink) *string {
 		if v == nil {
 			return nil
 		}
@@ -3308,142 +3108,6 @@ func (o HealthProbeSettingsPropertiesResponsePtrOutput) ResourceState() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Key Vault containing the SSL certificate
-type KeyVaultCertificateSourceParametersProperties struct {
-	// Resource ID.
-	Id *string `pulumi:"id"`
-}
-
-// KeyVaultCertificateSourceParametersPropertiesInput is an input type that accepts KeyVaultCertificateSourceParametersPropertiesArgs and KeyVaultCertificateSourceParametersPropertiesOutput values.
-// You can construct a concrete instance of `KeyVaultCertificateSourceParametersPropertiesInput` via:
-//
-//          KeyVaultCertificateSourceParametersPropertiesArgs{...}
-type KeyVaultCertificateSourceParametersPropertiesInput interface {
-	pulumi.Input
-
-	ToKeyVaultCertificateSourceParametersPropertiesOutput() KeyVaultCertificateSourceParametersPropertiesOutput
-	ToKeyVaultCertificateSourceParametersPropertiesOutputWithContext(context.Context) KeyVaultCertificateSourceParametersPropertiesOutput
-}
-
-// The Key Vault containing the SSL certificate
-type KeyVaultCertificateSourceParametersPropertiesArgs struct {
-	// Resource ID.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (KeyVaultCertificateSourceParametersPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultCertificateSourceParametersProperties)(nil)).Elem()
-}
-
-func (i KeyVaultCertificateSourceParametersPropertiesArgs) ToKeyVaultCertificateSourceParametersPropertiesOutput() KeyVaultCertificateSourceParametersPropertiesOutput {
-	return i.ToKeyVaultCertificateSourceParametersPropertiesOutputWithContext(context.Background())
-}
-
-func (i KeyVaultCertificateSourceParametersPropertiesArgs) ToKeyVaultCertificateSourceParametersPropertiesOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersPropertiesOutput)
-}
-
-func (i KeyVaultCertificateSourceParametersPropertiesArgs) ToKeyVaultCertificateSourceParametersPropertiesPtrOutput() KeyVaultCertificateSourceParametersPropertiesPtrOutput {
-	return i.ToKeyVaultCertificateSourceParametersPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultCertificateSourceParametersPropertiesArgs) ToKeyVaultCertificateSourceParametersPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersPropertiesOutput).ToKeyVaultCertificateSourceParametersPropertiesPtrOutputWithContext(ctx)
-}
-
-// KeyVaultCertificateSourceParametersPropertiesPtrInput is an input type that accepts KeyVaultCertificateSourceParametersPropertiesArgs, KeyVaultCertificateSourceParametersPropertiesPtr and KeyVaultCertificateSourceParametersPropertiesPtrOutput values.
-// You can construct a concrete instance of `KeyVaultCertificateSourceParametersPropertiesPtrInput` via:
-//
-//          KeyVaultCertificateSourceParametersPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type KeyVaultCertificateSourceParametersPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultCertificateSourceParametersPropertiesPtrOutput() KeyVaultCertificateSourceParametersPropertiesPtrOutput
-	ToKeyVaultCertificateSourceParametersPropertiesPtrOutputWithContext(context.Context) KeyVaultCertificateSourceParametersPropertiesPtrOutput
-}
-
-type keyVaultCertificateSourceParametersPropertiesPtrType KeyVaultCertificateSourceParametersPropertiesArgs
-
-func KeyVaultCertificateSourceParametersPropertiesPtr(v *KeyVaultCertificateSourceParametersPropertiesArgs) KeyVaultCertificateSourceParametersPropertiesPtrInput {
-	return (*keyVaultCertificateSourceParametersPropertiesPtrType)(v)
-}
-
-func (*keyVaultCertificateSourceParametersPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultCertificateSourceParametersProperties)(nil)).Elem()
-}
-
-func (i *keyVaultCertificateSourceParametersPropertiesPtrType) ToKeyVaultCertificateSourceParametersPropertiesPtrOutput() KeyVaultCertificateSourceParametersPropertiesPtrOutput {
-	return i.ToKeyVaultCertificateSourceParametersPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultCertificateSourceParametersPropertiesPtrType) ToKeyVaultCertificateSourceParametersPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersPropertiesPtrOutput)
-}
-
-// The Key Vault containing the SSL certificate
-type KeyVaultCertificateSourceParametersPropertiesOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultCertificateSourceParametersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultCertificateSourceParametersProperties)(nil)).Elem()
-}
-
-func (o KeyVaultCertificateSourceParametersPropertiesOutput) ToKeyVaultCertificateSourceParametersPropertiesOutput() KeyVaultCertificateSourceParametersPropertiesOutput {
-	return o
-}
-
-func (o KeyVaultCertificateSourceParametersPropertiesOutput) ToKeyVaultCertificateSourceParametersPropertiesOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersPropertiesOutput {
-	return o
-}
-
-func (o KeyVaultCertificateSourceParametersPropertiesOutput) ToKeyVaultCertificateSourceParametersPropertiesPtrOutput() KeyVaultCertificateSourceParametersPropertiesPtrOutput {
-	return o.ToKeyVaultCertificateSourceParametersPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultCertificateSourceParametersPropertiesOutput) ToKeyVaultCertificateSourceParametersPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultCertificateSourceParametersProperties) *KeyVaultCertificateSourceParametersProperties {
-		return &v
-	}).(KeyVaultCertificateSourceParametersPropertiesPtrOutput)
-}
-
-// Resource ID.
-func (o KeyVaultCertificateSourceParametersPropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultCertificateSourceParametersProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-type KeyVaultCertificateSourceParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (KeyVaultCertificateSourceParametersPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultCertificateSourceParametersProperties)(nil)).Elem()
-}
-
-func (o KeyVaultCertificateSourceParametersPropertiesPtrOutput) ToKeyVaultCertificateSourceParametersPropertiesPtrOutput() KeyVaultCertificateSourceParametersPropertiesPtrOutput {
-	return o
-}
-
-func (o KeyVaultCertificateSourceParametersPropertiesPtrOutput) ToKeyVaultCertificateSourceParametersPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersPropertiesPtrOutput {
-	return o
-}
-
-func (o KeyVaultCertificateSourceParametersPropertiesPtrOutput) Elem() KeyVaultCertificateSourceParametersPropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersProperties) KeyVaultCertificateSourceParametersProperties {
-		return *v
-	}).(KeyVaultCertificateSourceParametersPropertiesOutput)
-}
-
-// Resource ID.
-func (o KeyVaultCertificateSourceParametersPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
 // Parameters required for bring-your-own-certification via Key Vault
 type KeyVaultCertificateSourceParametersResponse struct {
 	// The name of the Key Vault secret representing the full certificate PFX
@@ -3451,7 +3115,7 @@ type KeyVaultCertificateSourceParametersResponse struct {
 	// The version of the Key Vault secret representing the full certificate PFX
 	SecretVersion *string `pulumi:"secretVersion"`
 	// The Key Vault containing the SSL certificate
-	Vault *KeyVaultCertificateSourceParametersResponseProperties `pulumi:"vault"`
+	Vault *KeyVaultCertificateSourceParametersResponseVault `pulumi:"vault"`
 }
 
 // KeyVaultCertificateSourceParametersResponseInput is an input type that accepts KeyVaultCertificateSourceParametersResponseArgs and KeyVaultCertificateSourceParametersResponseOutput values.
@@ -3472,7 +3136,7 @@ type KeyVaultCertificateSourceParametersResponseArgs struct {
 	// The version of the Key Vault secret representing the full certificate PFX
 	SecretVersion pulumi.StringPtrInput `pulumi:"secretVersion"`
 	// The Key Vault containing the SSL certificate
-	Vault KeyVaultCertificateSourceParametersResponsePropertiesPtrInput `pulumi:"vault"`
+	Vault KeyVaultCertificateSourceParametersResponseVaultPtrInput `pulumi:"vault"`
 }
 
 func (KeyVaultCertificateSourceParametersResponseArgs) ElementType() reflect.Type {
@@ -3564,10 +3228,10 @@ func (o KeyVaultCertificateSourceParametersResponseOutput) SecretVersion() pulum
 }
 
 // The Key Vault containing the SSL certificate
-func (o KeyVaultCertificateSourceParametersResponseOutput) Vault() KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) *KeyVaultCertificateSourceParametersResponseProperties {
+func (o KeyVaultCertificateSourceParametersResponseOutput) Vault() KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponse) *KeyVaultCertificateSourceParametersResponseVault {
 		return v.Vault
-	}).(KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput)
+	}).(KeyVaultCertificateSourceParametersResponseVaultPtrOutput)
 }
 
 type KeyVaultCertificateSourceParametersResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3611,144 +3275,144 @@ func (o KeyVaultCertificateSourceParametersResponsePtrOutput) SecretVersion() pu
 }
 
 // The Key Vault containing the SSL certificate
-func (o KeyVaultCertificateSourceParametersResponsePtrOutput) Vault() KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponse) *KeyVaultCertificateSourceParametersResponseProperties {
+func (o KeyVaultCertificateSourceParametersResponsePtrOutput) Vault() KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
+	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponse) *KeyVaultCertificateSourceParametersResponseVault {
 		if v == nil {
 			return nil
 		}
 		return v.Vault
-	}).(KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput)
+	}).(KeyVaultCertificateSourceParametersResponseVaultPtrOutput)
 }
 
 // The Key Vault containing the SSL certificate
-type KeyVaultCertificateSourceParametersResponseProperties struct {
+type KeyVaultCertificateSourceParametersResponseVault struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
 }
 
-// KeyVaultCertificateSourceParametersResponsePropertiesInput is an input type that accepts KeyVaultCertificateSourceParametersResponsePropertiesArgs and KeyVaultCertificateSourceParametersResponsePropertiesOutput values.
-// You can construct a concrete instance of `KeyVaultCertificateSourceParametersResponsePropertiesInput` via:
+// KeyVaultCertificateSourceParametersResponseVaultInput is an input type that accepts KeyVaultCertificateSourceParametersResponseVaultArgs and KeyVaultCertificateSourceParametersResponseVaultOutput values.
+// You can construct a concrete instance of `KeyVaultCertificateSourceParametersResponseVaultInput` via:
 //
-//          KeyVaultCertificateSourceParametersResponsePropertiesArgs{...}
-type KeyVaultCertificateSourceParametersResponsePropertiesInput interface {
+//          KeyVaultCertificateSourceParametersResponseVaultArgs{...}
+type KeyVaultCertificateSourceParametersResponseVaultInput interface {
 	pulumi.Input
 
-	ToKeyVaultCertificateSourceParametersResponsePropertiesOutput() KeyVaultCertificateSourceParametersResponsePropertiesOutput
-	ToKeyVaultCertificateSourceParametersResponsePropertiesOutputWithContext(context.Context) KeyVaultCertificateSourceParametersResponsePropertiesOutput
+	ToKeyVaultCertificateSourceParametersResponseVaultOutput() KeyVaultCertificateSourceParametersResponseVaultOutput
+	ToKeyVaultCertificateSourceParametersResponseVaultOutputWithContext(context.Context) KeyVaultCertificateSourceParametersResponseVaultOutput
 }
 
 // The Key Vault containing the SSL certificate
-type KeyVaultCertificateSourceParametersResponsePropertiesArgs struct {
+type KeyVaultCertificateSourceParametersResponseVaultArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
-func (KeyVaultCertificateSourceParametersResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultCertificateSourceParametersResponseProperties)(nil)).Elem()
+func (KeyVaultCertificateSourceParametersResponseVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCertificateSourceParametersResponseVault)(nil)).Elem()
 }
 
-func (i KeyVaultCertificateSourceParametersResponsePropertiesArgs) ToKeyVaultCertificateSourceParametersResponsePropertiesOutput() KeyVaultCertificateSourceParametersResponsePropertiesOutput {
-	return i.ToKeyVaultCertificateSourceParametersResponsePropertiesOutputWithContext(context.Background())
+func (i KeyVaultCertificateSourceParametersResponseVaultArgs) ToKeyVaultCertificateSourceParametersResponseVaultOutput() KeyVaultCertificateSourceParametersResponseVaultOutput {
+	return i.ToKeyVaultCertificateSourceParametersResponseVaultOutputWithContext(context.Background())
 }
 
-func (i KeyVaultCertificateSourceParametersResponsePropertiesArgs) ToKeyVaultCertificateSourceParametersResponsePropertiesOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersResponsePropertiesOutput)
+func (i KeyVaultCertificateSourceParametersResponseVaultArgs) ToKeyVaultCertificateSourceParametersResponseVaultOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersResponseVaultOutput)
 }
 
-func (i KeyVaultCertificateSourceParametersResponsePropertiesArgs) ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutput() KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput {
-	return i.ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutputWithContext(context.Background())
+func (i KeyVaultCertificateSourceParametersResponseVaultArgs) ToKeyVaultCertificateSourceParametersResponseVaultPtrOutput() KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
+	return i.ToKeyVaultCertificateSourceParametersResponseVaultPtrOutputWithContext(context.Background())
 }
 
-func (i KeyVaultCertificateSourceParametersResponsePropertiesArgs) ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersResponsePropertiesOutput).ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutputWithContext(ctx)
+func (i KeyVaultCertificateSourceParametersResponseVaultArgs) ToKeyVaultCertificateSourceParametersResponseVaultPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersResponseVaultOutput).ToKeyVaultCertificateSourceParametersResponseVaultPtrOutputWithContext(ctx)
 }
 
-// KeyVaultCertificateSourceParametersResponsePropertiesPtrInput is an input type that accepts KeyVaultCertificateSourceParametersResponsePropertiesArgs, KeyVaultCertificateSourceParametersResponsePropertiesPtr and KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `KeyVaultCertificateSourceParametersResponsePropertiesPtrInput` via:
+// KeyVaultCertificateSourceParametersResponseVaultPtrInput is an input type that accepts KeyVaultCertificateSourceParametersResponseVaultArgs, KeyVaultCertificateSourceParametersResponseVaultPtr and KeyVaultCertificateSourceParametersResponseVaultPtrOutput values.
+// You can construct a concrete instance of `KeyVaultCertificateSourceParametersResponseVaultPtrInput` via:
 //
-//          KeyVaultCertificateSourceParametersResponsePropertiesArgs{...}
+//          KeyVaultCertificateSourceParametersResponseVaultArgs{...}
 //
 //  or:
 //
 //          nil
-type KeyVaultCertificateSourceParametersResponsePropertiesPtrInput interface {
+type KeyVaultCertificateSourceParametersResponseVaultPtrInput interface {
 	pulumi.Input
 
-	ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutput() KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput
-	ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutputWithContext(context.Context) KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput
+	ToKeyVaultCertificateSourceParametersResponseVaultPtrOutput() KeyVaultCertificateSourceParametersResponseVaultPtrOutput
+	ToKeyVaultCertificateSourceParametersResponseVaultPtrOutputWithContext(context.Context) KeyVaultCertificateSourceParametersResponseVaultPtrOutput
 }
 
-type keyVaultCertificateSourceParametersResponsePropertiesPtrType KeyVaultCertificateSourceParametersResponsePropertiesArgs
+type keyVaultCertificateSourceParametersResponseVaultPtrType KeyVaultCertificateSourceParametersResponseVaultArgs
 
-func KeyVaultCertificateSourceParametersResponsePropertiesPtr(v *KeyVaultCertificateSourceParametersResponsePropertiesArgs) KeyVaultCertificateSourceParametersResponsePropertiesPtrInput {
-	return (*keyVaultCertificateSourceParametersResponsePropertiesPtrType)(v)
+func KeyVaultCertificateSourceParametersResponseVaultPtr(v *KeyVaultCertificateSourceParametersResponseVaultArgs) KeyVaultCertificateSourceParametersResponseVaultPtrInput {
+	return (*keyVaultCertificateSourceParametersResponseVaultPtrType)(v)
 }
 
-func (*keyVaultCertificateSourceParametersResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultCertificateSourceParametersResponseProperties)(nil)).Elem()
+func (*keyVaultCertificateSourceParametersResponseVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultCertificateSourceParametersResponseVault)(nil)).Elem()
 }
 
-func (i *keyVaultCertificateSourceParametersResponsePropertiesPtrType) ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutput() KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput {
-	return i.ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *keyVaultCertificateSourceParametersResponseVaultPtrType) ToKeyVaultCertificateSourceParametersResponseVaultPtrOutput() KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
+	return i.ToKeyVaultCertificateSourceParametersResponseVaultPtrOutputWithContext(context.Background())
 }
 
-func (i *keyVaultCertificateSourceParametersResponsePropertiesPtrType) ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput)
+func (i *keyVaultCertificateSourceParametersResponseVaultPtrType) ToKeyVaultCertificateSourceParametersResponseVaultPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultCertificateSourceParametersResponseVaultPtrOutput)
 }
 
 // The Key Vault containing the SSL certificate
-type KeyVaultCertificateSourceParametersResponsePropertiesOutput struct{ *pulumi.OutputState }
+type KeyVaultCertificateSourceParametersResponseVaultOutput struct{ *pulumi.OutputState }
 
-func (KeyVaultCertificateSourceParametersResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultCertificateSourceParametersResponseProperties)(nil)).Elem()
+func (KeyVaultCertificateSourceParametersResponseVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultCertificateSourceParametersResponseVault)(nil)).Elem()
 }
 
-func (o KeyVaultCertificateSourceParametersResponsePropertiesOutput) ToKeyVaultCertificateSourceParametersResponsePropertiesOutput() KeyVaultCertificateSourceParametersResponsePropertiesOutput {
+func (o KeyVaultCertificateSourceParametersResponseVaultOutput) ToKeyVaultCertificateSourceParametersResponseVaultOutput() KeyVaultCertificateSourceParametersResponseVaultOutput {
 	return o
 }
 
-func (o KeyVaultCertificateSourceParametersResponsePropertiesOutput) ToKeyVaultCertificateSourceParametersResponsePropertiesOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponsePropertiesOutput {
+func (o KeyVaultCertificateSourceParametersResponseVaultOutput) ToKeyVaultCertificateSourceParametersResponseVaultOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseVaultOutput {
 	return o
 }
 
-func (o KeyVaultCertificateSourceParametersResponsePropertiesOutput) ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutput() KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput {
-	return o.ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutputWithContext(context.Background())
+func (o KeyVaultCertificateSourceParametersResponseVaultOutput) ToKeyVaultCertificateSourceParametersResponseVaultPtrOutput() KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
+	return o.ToKeyVaultCertificateSourceParametersResponseVaultPtrOutputWithContext(context.Background())
 }
 
-func (o KeyVaultCertificateSourceParametersResponsePropertiesOutput) ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponseProperties) *KeyVaultCertificateSourceParametersResponseProperties {
+func (o KeyVaultCertificateSourceParametersResponseVaultOutput) ToKeyVaultCertificateSourceParametersResponseVaultPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponseVault) *KeyVaultCertificateSourceParametersResponseVault {
 		return &v
-	}).(KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput)
+	}).(KeyVaultCertificateSourceParametersResponseVaultPtrOutput)
 }
 
 // Resource ID.
-func (o KeyVaultCertificateSourceParametersResponsePropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponseProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o KeyVaultCertificateSourceParametersResponseVaultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultCertificateSourceParametersResponseVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-type KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type KeyVaultCertificateSourceParametersResponseVaultPtrOutput struct{ *pulumi.OutputState }
 
-func (KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultCertificateSourceParametersResponseProperties)(nil)).Elem()
+func (KeyVaultCertificateSourceParametersResponseVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultCertificateSourceParametersResponseVault)(nil)).Elem()
 }
 
-func (o KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput) ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutput() KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput {
+func (o KeyVaultCertificateSourceParametersResponseVaultPtrOutput) ToKeyVaultCertificateSourceParametersResponseVaultPtrOutput() KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
 	return o
 }
 
-func (o KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput) ToKeyVaultCertificateSourceParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput {
+func (o KeyVaultCertificateSourceParametersResponseVaultPtrOutput) ToKeyVaultCertificateSourceParametersResponseVaultPtrOutputWithContext(ctx context.Context) KeyVaultCertificateSourceParametersResponseVaultPtrOutput {
 	return o
 }
 
-func (o KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput) Elem() KeyVaultCertificateSourceParametersResponsePropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponseProperties) KeyVaultCertificateSourceParametersResponseProperties {
+func (o KeyVaultCertificateSourceParametersResponseVaultPtrOutput) Elem() KeyVaultCertificateSourceParametersResponseVaultOutput {
+	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponseVault) KeyVaultCertificateSourceParametersResponseVault {
 		return *v
-	}).(KeyVaultCertificateSourceParametersResponsePropertiesOutput)
+	}).(KeyVaultCertificateSourceParametersResponseVaultOutput)
 }
 
 // Resource ID.
-func (o KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponseProperties) *string {
+func (o KeyVaultCertificateSourceParametersResponseVaultPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultCertificateSourceParametersResponseVault) *string {
 		if v == nil {
 			return nil
 		}
@@ -4221,236 +3885,6 @@ func (o LoadBalancingSettingsPropertiesResponsePtrOutput) SuccessfulSamplesRequi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Base class for all types of Route.
-type RouteConfiguration struct {
-}
-
-// RouteConfigurationInput is an input type that accepts RouteConfigurationArgs and RouteConfigurationOutput values.
-// You can construct a concrete instance of `RouteConfigurationInput` via:
-//
-//          RouteConfigurationArgs{...}
-type RouteConfigurationInput interface {
-	pulumi.Input
-
-	ToRouteConfigurationOutput() RouteConfigurationOutput
-	ToRouteConfigurationOutputWithContext(context.Context) RouteConfigurationOutput
-}
-
-// Base class for all types of Route.
-type RouteConfigurationArgs struct {
-}
-
-func (RouteConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteConfiguration)(nil)).Elem()
-}
-
-func (i RouteConfigurationArgs) ToRouteConfigurationOutput() RouteConfigurationOutput {
-	return i.ToRouteConfigurationOutputWithContext(context.Background())
-}
-
-func (i RouteConfigurationArgs) ToRouteConfigurationOutputWithContext(ctx context.Context) RouteConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationOutput)
-}
-
-func (i RouteConfigurationArgs) ToRouteConfigurationPtrOutput() RouteConfigurationPtrOutput {
-	return i.ToRouteConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i RouteConfigurationArgs) ToRouteConfigurationPtrOutputWithContext(ctx context.Context) RouteConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationOutput).ToRouteConfigurationPtrOutputWithContext(ctx)
-}
-
-// RouteConfigurationPtrInput is an input type that accepts RouteConfigurationArgs, RouteConfigurationPtr and RouteConfigurationPtrOutput values.
-// You can construct a concrete instance of `RouteConfigurationPtrInput` via:
-//
-//          RouteConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type RouteConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToRouteConfigurationPtrOutput() RouteConfigurationPtrOutput
-	ToRouteConfigurationPtrOutputWithContext(context.Context) RouteConfigurationPtrOutput
-}
-
-type routeConfigurationPtrType RouteConfigurationArgs
-
-func RouteConfigurationPtr(v *RouteConfigurationArgs) RouteConfigurationPtrInput {
-	return (*routeConfigurationPtrType)(v)
-}
-
-func (*routeConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RouteConfiguration)(nil)).Elem()
-}
-
-func (i *routeConfigurationPtrType) ToRouteConfigurationPtrOutput() RouteConfigurationPtrOutput {
-	return i.ToRouteConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *routeConfigurationPtrType) ToRouteConfigurationPtrOutputWithContext(ctx context.Context) RouteConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationPtrOutput)
-}
-
-// Base class for all types of Route.
-type RouteConfigurationOutput struct{ *pulumi.OutputState }
-
-func (RouteConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteConfiguration)(nil)).Elem()
-}
-
-func (o RouteConfigurationOutput) ToRouteConfigurationOutput() RouteConfigurationOutput {
-	return o
-}
-
-func (o RouteConfigurationOutput) ToRouteConfigurationOutputWithContext(ctx context.Context) RouteConfigurationOutput {
-	return o
-}
-
-func (o RouteConfigurationOutput) ToRouteConfigurationPtrOutput() RouteConfigurationPtrOutput {
-	return o.ToRouteConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o RouteConfigurationOutput) ToRouteConfigurationPtrOutputWithContext(ctx context.Context) RouteConfigurationPtrOutput {
-	return o.ApplyT(func(v RouteConfiguration) *RouteConfiguration {
-		return &v
-	}).(RouteConfigurationPtrOutput)
-}
-
-type RouteConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (RouteConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RouteConfiguration)(nil)).Elem()
-}
-
-func (o RouteConfigurationPtrOutput) ToRouteConfigurationPtrOutput() RouteConfigurationPtrOutput {
-	return o
-}
-
-func (o RouteConfigurationPtrOutput) ToRouteConfigurationPtrOutputWithContext(ctx context.Context) RouteConfigurationPtrOutput {
-	return o
-}
-
-func (o RouteConfigurationPtrOutput) Elem() RouteConfigurationOutput {
-	return o.ApplyT(func(v *RouteConfiguration) RouteConfiguration { return *v }).(RouteConfigurationOutput)
-}
-
-// Base class for all types of Route.
-type RouteConfigurationResponse struct {
-}
-
-// RouteConfigurationResponseInput is an input type that accepts RouteConfigurationResponseArgs and RouteConfigurationResponseOutput values.
-// You can construct a concrete instance of `RouteConfigurationResponseInput` via:
-//
-//          RouteConfigurationResponseArgs{...}
-type RouteConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToRouteConfigurationResponseOutput() RouteConfigurationResponseOutput
-	ToRouteConfigurationResponseOutputWithContext(context.Context) RouteConfigurationResponseOutput
-}
-
-// Base class for all types of Route.
-type RouteConfigurationResponseArgs struct {
-}
-
-func (RouteConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteConfigurationResponse)(nil)).Elem()
-}
-
-func (i RouteConfigurationResponseArgs) ToRouteConfigurationResponseOutput() RouteConfigurationResponseOutput {
-	return i.ToRouteConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i RouteConfigurationResponseArgs) ToRouteConfigurationResponseOutputWithContext(ctx context.Context) RouteConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationResponseOutput)
-}
-
-func (i RouteConfigurationResponseArgs) ToRouteConfigurationResponsePtrOutput() RouteConfigurationResponsePtrOutput {
-	return i.ToRouteConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RouteConfigurationResponseArgs) ToRouteConfigurationResponsePtrOutputWithContext(ctx context.Context) RouteConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationResponseOutput).ToRouteConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-// RouteConfigurationResponsePtrInput is an input type that accepts RouteConfigurationResponseArgs, RouteConfigurationResponsePtr and RouteConfigurationResponsePtrOutput values.
-// You can construct a concrete instance of `RouteConfigurationResponsePtrInput` via:
-//
-//          RouteConfigurationResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RouteConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToRouteConfigurationResponsePtrOutput() RouteConfigurationResponsePtrOutput
-	ToRouteConfigurationResponsePtrOutputWithContext(context.Context) RouteConfigurationResponsePtrOutput
-}
-
-type routeConfigurationResponsePtrType RouteConfigurationResponseArgs
-
-func RouteConfigurationResponsePtr(v *RouteConfigurationResponseArgs) RouteConfigurationResponsePtrInput {
-	return (*routeConfigurationResponsePtrType)(v)
-}
-
-func (*routeConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RouteConfigurationResponse)(nil)).Elem()
-}
-
-func (i *routeConfigurationResponsePtrType) ToRouteConfigurationResponsePtrOutput() RouteConfigurationResponsePtrOutput {
-	return i.ToRouteConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *routeConfigurationResponsePtrType) ToRouteConfigurationResponsePtrOutputWithContext(ctx context.Context) RouteConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationResponsePtrOutput)
-}
-
-// Base class for all types of Route.
-type RouteConfigurationResponseOutput struct{ *pulumi.OutputState }
-
-func (RouteConfigurationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteConfigurationResponse)(nil)).Elem()
-}
-
-func (o RouteConfigurationResponseOutput) ToRouteConfigurationResponseOutput() RouteConfigurationResponseOutput {
-	return o
-}
-
-func (o RouteConfigurationResponseOutput) ToRouteConfigurationResponseOutputWithContext(ctx context.Context) RouteConfigurationResponseOutput {
-	return o
-}
-
-func (o RouteConfigurationResponseOutput) ToRouteConfigurationResponsePtrOutput() RouteConfigurationResponsePtrOutput {
-	return o.ToRouteConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RouteConfigurationResponseOutput) ToRouteConfigurationResponsePtrOutputWithContext(ctx context.Context) RouteConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v RouteConfigurationResponse) *RouteConfigurationResponse {
-		return &v
-	}).(RouteConfigurationResponsePtrOutput)
-}
-
-type RouteConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RouteConfigurationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RouteConfigurationResponse)(nil)).Elem()
-}
-
-func (o RouteConfigurationResponsePtrOutput) ToRouteConfigurationResponsePtrOutput() RouteConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o RouteConfigurationResponsePtrOutput) ToRouteConfigurationResponsePtrOutputWithContext(ctx context.Context) RouteConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o RouteConfigurationResponsePtrOutput) Elem() RouteConfigurationResponseOutput {
-	return o.ApplyT(func(v *RouteConfigurationResponse) RouteConfigurationResponse { return *v }).(RouteConfigurationResponseOutput)
-}
-
 // A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
 type RoutingRule struct {
 	// Protocol schemes to match for this rule
@@ -4467,8 +3901,6 @@ type RoutingRule struct {
 	PatternsToMatch []string `pulumi:"patternsToMatch"`
 	// Resource status.
 	ResourceState *string `pulumi:"resourceState"`
-	// A reference to the routing configuration.
-	RouteConfiguration *RouteConfiguration `pulumi:"routeConfiguration"`
 }
 
 // RoutingRuleInput is an input type that accepts RoutingRuleArgs and RoutingRuleOutput values.
@@ -4498,8 +3930,6 @@ type RoutingRuleArgs struct {
 	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
 	// Resource status.
 	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
-	// A reference to the routing configuration.
-	RouteConfiguration RouteConfigurationPtrInput `pulumi:"routeConfiguration"`
 }
 
 func (RoutingRuleArgs) ElementType() reflect.Type {
@@ -4589,11 +4019,6 @@ func (o RoutingRuleOutput) ResourceState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingRule) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
 }
 
-// A reference to the routing configuration.
-func (o RoutingRuleOutput) RouteConfiguration() RouteConfigurationPtrOutput {
-	return o.ApplyT(func(v RoutingRule) *RouteConfiguration { return v.RouteConfiguration }).(RouteConfigurationPtrOutput)
-}
-
 type RoutingRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (RoutingRuleArrayOutput) ElementType() reflect.Type {
@@ -4626,8 +4051,6 @@ type RoutingRulePropertiesResponse struct {
 	PatternsToMatch []string `pulumi:"patternsToMatch"`
 	// Resource status.
 	ResourceState *string `pulumi:"resourceState"`
-	// A reference to the routing configuration.
-	RouteConfiguration *RouteConfigurationResponse `pulumi:"routeConfiguration"`
 }
 
 // RoutingRulePropertiesResponseInput is an input type that accepts RoutingRulePropertiesResponseArgs and RoutingRulePropertiesResponseOutput values.
@@ -4653,8 +4076,6 @@ type RoutingRulePropertiesResponseArgs struct {
 	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
 	// Resource status.
 	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
-	// A reference to the routing configuration.
-	RouteConfiguration RouteConfigurationResponsePtrInput `pulumi:"routeConfiguration"`
 }
 
 func (RoutingRulePropertiesResponseArgs) ElementType() reflect.Type {
@@ -4760,11 +4181,6 @@ func (o RoutingRulePropertiesResponseOutput) ResourceState() pulumi.StringPtrOut
 	return o.ApplyT(func(v RoutingRulePropertiesResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
 }
 
-// A reference to the routing configuration.
-func (o RoutingRulePropertiesResponseOutput) RouteConfiguration() RouteConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v RoutingRulePropertiesResponse) *RouteConfigurationResponse { return v.RouteConfiguration }).(RouteConfigurationResponsePtrOutput)
-}
-
 type RoutingRulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (RoutingRulePropertiesResponsePtrOutput) ElementType() reflect.Type {
@@ -4831,16 +4247,6 @@ func (o RoutingRulePropertiesResponsePtrOutput) ResourceState() pulumi.StringPtr
 		}
 		return v.ResourceState
 	}).(pulumi.StringPtrOutput)
-}
-
-// A reference to the routing configuration.
-func (o RoutingRulePropertiesResponsePtrOutput) RouteConfiguration() RouteConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *RoutingRulePropertiesResponse) *RouteConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.RouteConfiguration
-	}).(RouteConfigurationResponsePtrOutput)
 }
 
 // A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
@@ -5343,10 +4749,8 @@ func init() {
 	pulumi.RegisterOutputType(BackendPoolsSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(BackendResponseOutput{})
 	pulumi.RegisterOutputType(BackendResponseArrayOutput{})
-	pulumi.RegisterOutputType(CustomHttpsConfigurationOutput{})
 	pulumi.RegisterOutputType(CustomHttpsConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(CustomHttpsConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(FrontDoorTypeOutput{})
 	pulumi.RegisterOutputType(FrontDoorCertificateSourceParametersResponseOutput{})
 	pulumi.RegisterOutputType(FrontDoorCertificateSourceParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(FrontDoorPropertiesResponseOutput{})
@@ -5357,32 +4761,26 @@ func init() {
 	pulumi.RegisterOutputType(FrontendEndpointPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FrontendEndpointResponseOutput{})
 	pulumi.RegisterOutputType(FrontendEndpointResponseArrayOutput{})
-	pulumi.RegisterOutputType(FrontendEndpointUpdateParametersPropertiesOutput{})
-	pulumi.RegisterOutputType(FrontendEndpointUpdateParametersPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(FrontendEndpointUpdateParametersResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(FrontendEndpointUpdateParametersResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkOutput{})
+	pulumi.RegisterOutputType(FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkPtrOutput{})
+	pulumi.RegisterOutputType(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkOutput{})
+	pulumi.RegisterOutputType(FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkPtrOutput{})
 	pulumi.RegisterOutputType(HealthProbeSettingsModelOutput{})
 	pulumi.RegisterOutputType(HealthProbeSettingsModelArrayOutput{})
 	pulumi.RegisterOutputType(HealthProbeSettingsModelResponseOutput{})
 	pulumi.RegisterOutputType(HealthProbeSettingsModelResponseArrayOutput{})
 	pulumi.RegisterOutputType(HealthProbeSettingsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HealthProbeSettingsPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersPropertiesOutput{})
-	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersResponsePtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersResponseVaultOutput{})
+	pulumi.RegisterOutputType(KeyVaultCertificateSourceParametersResponseVaultPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsModelOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsModelArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsModelResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsModelResponseArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(RouteConfigurationOutput{})
-	pulumi.RegisterOutputType(RouteConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(RouteConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(RouteConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(RoutingRuleOutput{})
 	pulumi.RegisterOutputType(RoutingRuleArrayOutput{})
 	pulumi.RegisterOutputType(RoutingRulePropertiesResponseOutput{})

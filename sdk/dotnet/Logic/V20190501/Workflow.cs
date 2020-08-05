@@ -95,11 +95,17 @@ namespace Pulumi.AzureRM.Logic.V20190501
         [Input("accessControl")]
         public Input<Inputs.FlowAccessControlConfigurationArgs>? AccessControl { get; set; }
 
+        [Input("definition")]
+        private InputMap<object>? _definition;
+
         /// <summary>
         /// The definition.
         /// </summary>
-        [Input("definition")]
-        public Input<Inputs.ObjectArgs>? Definition { get; set; }
+        public InputMap<object> Definition
+        {
+            get => _definition ?? (_definition = new InputMap<object>());
+            set => _definition = value;
+        }
 
         /// <summary>
         /// The endpoints configuration.

@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Outputs
         /// <summary>
         /// A list that describes the correlation of the service with other services.
         /// </summary>
-        public readonly Outputs.CorrelationSchemeListResponseResult? CorrelationScheme;
+        public readonly ImmutableArray<Outputs.ServiceCorrelationDescriptionResponseResult> CorrelationScheme;
         /// <summary>
         /// Specifies the move cost for the service.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Outputs
         /// <summary>
         /// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         /// </summary>
-        public readonly Outputs.ServiceLoadMetricsListResponseResult? ServiceLoadMetrics;
+        public readonly ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponseResult> ServiceLoadMetrics;
         /// <summary>
         /// The activation Mode of the service package
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Outputs
         /// <summary>
         /// A list that describes the correlation of the service with other services.
         /// </summary>
-        public readonly Outputs.ServicePlacementPoliciesListResponseResult? ServicePlacementPolicies;
+        public readonly ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponseResult> ServicePlacementPolicies;
         /// <summary>
         /// The name of the service type
         /// </summary>
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Outputs
 
         [OutputConstructor]
         private ServiceResourcePropertiesResponseResult(
-            Outputs.CorrelationSchemeListResponseResult? correlationScheme,
+            ImmutableArray<Outputs.ServiceCorrelationDescriptionResponseResult> correlationScheme,
 
             string? defaultMoveCost,
 
@@ -68,11 +68,11 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Outputs
 
             string serviceKind,
 
-            Outputs.ServiceLoadMetricsListResponseResult? serviceLoadMetrics,
+            ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponseResult> serviceLoadMetrics,
 
             string? servicePackageActivationMode,
 
-            Outputs.ServicePlacementPoliciesListResponseResult? servicePlacementPolicies,
+            ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponseResult> servicePlacementPolicies,
 
             string? serviceTypeName)
         {

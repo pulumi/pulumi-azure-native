@@ -10,170 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-type CacheType struct {
-	// Region name string.
-	Location *string `pulumi:"location"`
-	// Name of Cache.
-	Name string `pulumi:"name"`
-	// Properties of the Cache.
-	Properties CacheResponseProperties `pulumi:"properties"`
-	// SKU for the Cache.
-	Sku *CacheResponseProperties `pulumi:"sku"`
-	// ARM tags as name/value pairs.
-	Tags map[string]interface{} `pulumi:"tags"`
-	// Type of the Cache; Microsoft.StorageCache/Cache
-	Type string `pulumi:"type"`
-}
-
-// CacheTypeInput is an input type that accepts CacheTypeArgs and CacheTypeOutput values.
-// You can construct a concrete instance of `CacheTypeInput` via:
-//
-//          CacheTypeArgs{...}
-type CacheTypeInput interface {
-	pulumi.Input
-
-	ToCacheTypeOutput() CacheTypeOutput
-	ToCacheTypeOutputWithContext(context.Context) CacheTypeOutput
-}
-
-// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-type CacheTypeArgs struct {
-	// Region name string.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of Cache.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Cache.
-	Properties CacheResponsePropertiesInput `pulumi:"properties"`
-	// SKU for the Cache.
-	Sku CacheResponsePropertiesPtrInput `pulumi:"sku"`
-	// ARM tags as name/value pairs.
-	Tags pulumi.MapInput `pulumi:"tags"`
-	// Type of the Cache; Microsoft.StorageCache/Cache
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CacheTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheType)(nil)).Elem()
-}
-
-func (i CacheTypeArgs) ToCacheTypeOutput() CacheTypeOutput {
-	return i.ToCacheTypeOutputWithContext(context.Background())
-}
-
-func (i CacheTypeArgs) ToCacheTypeOutputWithContext(ctx context.Context) CacheTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheTypeOutput)
-}
-
-// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-type CacheTypeOutput struct{ *pulumi.OutputState }
-
-func (CacheTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheType)(nil)).Elem()
-}
-
-func (o CacheTypeOutput) ToCacheTypeOutput() CacheTypeOutput {
-	return o
-}
-
-func (o CacheTypeOutput) ToCacheTypeOutputWithContext(ctx context.Context) CacheTypeOutput {
-	return o
-}
-
-// Region name string.
-func (o CacheTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Name of Cache.
-func (o CacheTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CacheType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Cache.
-func (o CacheTypeOutput) Properties() CacheResponsePropertiesOutput {
-	return o.ApplyT(func(v CacheType) CacheResponseProperties { return v.Properties }).(CacheResponsePropertiesOutput)
-}
-
-// SKU for the Cache.
-func (o CacheTypeOutput) Sku() CacheResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v CacheType) *CacheResponseProperties { return v.Sku }).(CacheResponsePropertiesPtrOutput)
-}
-
-// ARM tags as name/value pairs.
-func (o CacheTypeOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v CacheType) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
-}
-
-// Type of the Cache; Microsoft.StorageCache/Cache
-func (o CacheTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CacheType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
-type CacheHealth struct {
-	// List of Cache health states.
-	State *string `pulumi:"state"`
-	// Describes explanation of state.
-	StatusDescription *string `pulumi:"statusDescription"`
-}
-
-// CacheHealthInput is an input type that accepts CacheHealthArgs and CacheHealthOutput values.
-// You can construct a concrete instance of `CacheHealthInput` via:
-//
-//          CacheHealthArgs{...}
-type CacheHealthInput interface {
-	pulumi.Input
-
-	ToCacheHealthOutput() CacheHealthOutput
-	ToCacheHealthOutputWithContext(context.Context) CacheHealthOutput
-}
-
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
-type CacheHealthArgs struct {
-	// List of Cache health states.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Describes explanation of state.
-	StatusDescription pulumi.StringPtrInput `pulumi:"statusDescription"`
-}
-
-func (CacheHealthArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheHealth)(nil)).Elem()
-}
-
-func (i CacheHealthArgs) ToCacheHealthOutput() CacheHealthOutput {
-	return i.ToCacheHealthOutputWithContext(context.Background())
-}
-
-func (i CacheHealthArgs) ToCacheHealthOutputWithContext(ctx context.Context) CacheHealthOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheHealthOutput)
-}
-
-// An indication of Cache health. Gives more information about health than just that related to provisioning.
-type CacheHealthOutput struct{ *pulumi.OutputState }
-
-func (CacheHealthOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheHealth)(nil)).Elem()
-}
-
-func (o CacheHealthOutput) ToCacheHealthOutput() CacheHealthOutput {
-	return o
-}
-
-func (o CacheHealthOutput) ToCacheHealthOutputWithContext(ctx context.Context) CacheHealthOutput {
-	return o
-}
-
-// List of Cache health states.
-func (o CacheHealthOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheHealth) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-// Describes explanation of state.
-func (o CacheHealthOutput) StatusDescription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheHealth) *string { return v.StatusDescription }).(pulumi.StringPtrOutput)
-}
-
 // An indication of Cache health. Gives more information about health than just that related to provisioning.
 type CacheHealthResponse struct {
 	// List of Cache health states.
@@ -324,140 +160,6 @@ func (o CacheHealthResponsePtrOutput) StatusDescription() pulumi.StringPtrOutput
 			return nil
 		}
 		return v.StatusDescription
-	}).(pulumi.StringPtrOutput)
-}
-
-// SKU for the Cache.
-type CacheProperties struct {
-	// SKU name for this Cache.
-	Name *string `pulumi:"name"`
-}
-
-// CachePropertiesInput is an input type that accepts CachePropertiesArgs and CachePropertiesOutput values.
-// You can construct a concrete instance of `CachePropertiesInput` via:
-//
-//          CachePropertiesArgs{...}
-type CachePropertiesInput interface {
-	pulumi.Input
-
-	ToCachePropertiesOutput() CachePropertiesOutput
-	ToCachePropertiesOutputWithContext(context.Context) CachePropertiesOutput
-}
-
-// SKU for the Cache.
-type CachePropertiesArgs struct {
-	// SKU name for this Cache.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (CachePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheProperties)(nil)).Elem()
-}
-
-func (i CachePropertiesArgs) ToCachePropertiesOutput() CachePropertiesOutput {
-	return i.ToCachePropertiesOutputWithContext(context.Background())
-}
-
-func (i CachePropertiesArgs) ToCachePropertiesOutputWithContext(ctx context.Context) CachePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePropertiesOutput)
-}
-
-func (i CachePropertiesArgs) ToCachePropertiesPtrOutput() CachePropertiesPtrOutput {
-	return i.ToCachePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CachePropertiesArgs) ToCachePropertiesPtrOutputWithContext(ctx context.Context) CachePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePropertiesOutput).ToCachePropertiesPtrOutputWithContext(ctx)
-}
-
-// CachePropertiesPtrInput is an input type that accepts CachePropertiesArgs, CachePropertiesPtr and CachePropertiesPtrOutput values.
-// You can construct a concrete instance of `CachePropertiesPtrInput` via:
-//
-//          CachePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CachePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCachePropertiesPtrOutput() CachePropertiesPtrOutput
-	ToCachePropertiesPtrOutputWithContext(context.Context) CachePropertiesPtrOutput
-}
-
-type cachePropertiesPtrType CachePropertiesArgs
-
-func CachePropertiesPtr(v *CachePropertiesArgs) CachePropertiesPtrInput {
-	return (*cachePropertiesPtrType)(v)
-}
-
-func (*cachePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CacheProperties)(nil)).Elem()
-}
-
-func (i *cachePropertiesPtrType) ToCachePropertiesPtrOutput() CachePropertiesPtrOutput {
-	return i.ToCachePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *cachePropertiesPtrType) ToCachePropertiesPtrOutputWithContext(ctx context.Context) CachePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePropertiesPtrOutput)
-}
-
-// SKU for the Cache.
-type CachePropertiesOutput struct{ *pulumi.OutputState }
-
-func (CachePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheProperties)(nil)).Elem()
-}
-
-func (o CachePropertiesOutput) ToCachePropertiesOutput() CachePropertiesOutput {
-	return o
-}
-
-func (o CachePropertiesOutput) ToCachePropertiesOutputWithContext(ctx context.Context) CachePropertiesOutput {
-	return o
-}
-
-func (o CachePropertiesOutput) ToCachePropertiesPtrOutput() CachePropertiesPtrOutput {
-	return o.ToCachePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CachePropertiesOutput) ToCachePropertiesPtrOutputWithContext(ctx context.Context) CachePropertiesPtrOutput {
-	return o.ApplyT(func(v CacheProperties) *CacheProperties {
-		return &v
-	}).(CachePropertiesPtrOutput)
-}
-
-// SKU name for this Cache.
-func (o CachePropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type CachePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CachePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CacheProperties)(nil)).Elem()
-}
-
-func (o CachePropertiesPtrOutput) ToCachePropertiesPtrOutput() CachePropertiesPtrOutput {
-	return o
-}
-
-func (o CachePropertiesPtrOutput) ToCachePropertiesPtrOutputWithContext(ctx context.Context) CachePropertiesPtrOutput {
-	return o
-}
-
-func (o CachePropertiesPtrOutput) Elem() CachePropertiesOutput {
-	return o.ApplyT(func(v *CacheProperties) CacheProperties { return *v }).(CachePropertiesOutput)
-}
-
-// SKU name for this Cache.
-func (o CachePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -690,119 +392,272 @@ func (o CacheResponsePropertiesPtrOutput) UpgradeStatus() CacheUpgradeStatusResp
 	}).(CacheUpgradeStatusResponsePtrOutput)
 }
 
-// Properties describing the software upgrade state of the Cache.
-type CacheUpgradeStatus struct {
+// SKU for the Cache.
+type CacheResponseSku struct {
+	// SKU name for this Cache.
+	Name *string `pulumi:"name"`
 }
 
-// CacheUpgradeStatusInput is an input type that accepts CacheUpgradeStatusArgs and CacheUpgradeStatusOutput values.
-// You can construct a concrete instance of `CacheUpgradeStatusInput` via:
+// CacheResponseSkuInput is an input type that accepts CacheResponseSkuArgs and CacheResponseSkuOutput values.
+// You can construct a concrete instance of `CacheResponseSkuInput` via:
 //
-//          CacheUpgradeStatusArgs{...}
-type CacheUpgradeStatusInput interface {
+//          CacheResponseSkuArgs{...}
+type CacheResponseSkuInput interface {
 	pulumi.Input
 
-	ToCacheUpgradeStatusOutput() CacheUpgradeStatusOutput
-	ToCacheUpgradeStatusOutputWithContext(context.Context) CacheUpgradeStatusOutput
+	ToCacheResponseSkuOutput() CacheResponseSkuOutput
+	ToCacheResponseSkuOutputWithContext(context.Context) CacheResponseSkuOutput
 }
 
-// Properties describing the software upgrade state of the Cache.
-type CacheUpgradeStatusArgs struct {
+// SKU for the Cache.
+type CacheResponseSkuArgs struct {
+	// SKU name for this Cache.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (CacheUpgradeStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheUpgradeStatus)(nil)).Elem()
+func (CacheResponseSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheResponseSku)(nil)).Elem()
 }
 
-func (i CacheUpgradeStatusArgs) ToCacheUpgradeStatusOutput() CacheUpgradeStatusOutput {
-	return i.ToCacheUpgradeStatusOutputWithContext(context.Background())
+func (i CacheResponseSkuArgs) ToCacheResponseSkuOutput() CacheResponseSkuOutput {
+	return i.ToCacheResponseSkuOutputWithContext(context.Background())
 }
 
-func (i CacheUpgradeStatusArgs) ToCacheUpgradeStatusOutputWithContext(ctx context.Context) CacheUpgradeStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeStatusOutput)
+func (i CacheResponseSkuArgs) ToCacheResponseSkuOutputWithContext(ctx context.Context) CacheResponseSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheResponseSkuOutput)
 }
 
-func (i CacheUpgradeStatusArgs) ToCacheUpgradeStatusPtrOutput() CacheUpgradeStatusPtrOutput {
-	return i.ToCacheUpgradeStatusPtrOutputWithContext(context.Background())
+func (i CacheResponseSkuArgs) ToCacheResponseSkuPtrOutput() CacheResponseSkuPtrOutput {
+	return i.ToCacheResponseSkuPtrOutputWithContext(context.Background())
 }
 
-func (i CacheUpgradeStatusArgs) ToCacheUpgradeStatusPtrOutputWithContext(ctx context.Context) CacheUpgradeStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeStatusOutput).ToCacheUpgradeStatusPtrOutputWithContext(ctx)
+func (i CacheResponseSkuArgs) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheResponseSkuOutput).ToCacheResponseSkuPtrOutputWithContext(ctx)
 }
 
-// CacheUpgradeStatusPtrInput is an input type that accepts CacheUpgradeStatusArgs, CacheUpgradeStatusPtr and CacheUpgradeStatusPtrOutput values.
-// You can construct a concrete instance of `CacheUpgradeStatusPtrInput` via:
+// CacheResponseSkuPtrInput is an input type that accepts CacheResponseSkuArgs, CacheResponseSkuPtr and CacheResponseSkuPtrOutput values.
+// You can construct a concrete instance of `CacheResponseSkuPtrInput` via:
 //
-//          CacheUpgradeStatusArgs{...}
+//          CacheResponseSkuArgs{...}
 //
 //  or:
 //
 //          nil
-type CacheUpgradeStatusPtrInput interface {
+type CacheResponseSkuPtrInput interface {
 	pulumi.Input
 
-	ToCacheUpgradeStatusPtrOutput() CacheUpgradeStatusPtrOutput
-	ToCacheUpgradeStatusPtrOutputWithContext(context.Context) CacheUpgradeStatusPtrOutput
+	ToCacheResponseSkuPtrOutput() CacheResponseSkuPtrOutput
+	ToCacheResponseSkuPtrOutputWithContext(context.Context) CacheResponseSkuPtrOutput
 }
 
-type cacheUpgradeStatusPtrType CacheUpgradeStatusArgs
+type cacheResponseSkuPtrType CacheResponseSkuArgs
 
-func CacheUpgradeStatusPtr(v *CacheUpgradeStatusArgs) CacheUpgradeStatusPtrInput {
-	return (*cacheUpgradeStatusPtrType)(v)
+func CacheResponseSkuPtr(v *CacheResponseSkuArgs) CacheResponseSkuPtrInput {
+	return (*cacheResponseSkuPtrType)(v)
 }
 
-func (*cacheUpgradeStatusPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CacheUpgradeStatus)(nil)).Elem()
+func (*cacheResponseSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheResponseSku)(nil)).Elem()
 }
 
-func (i *cacheUpgradeStatusPtrType) ToCacheUpgradeStatusPtrOutput() CacheUpgradeStatusPtrOutput {
-	return i.ToCacheUpgradeStatusPtrOutputWithContext(context.Background())
+func (i *cacheResponseSkuPtrType) ToCacheResponseSkuPtrOutput() CacheResponseSkuPtrOutput {
+	return i.ToCacheResponseSkuPtrOutputWithContext(context.Background())
 }
 
-func (i *cacheUpgradeStatusPtrType) ToCacheUpgradeStatusPtrOutputWithContext(ctx context.Context) CacheUpgradeStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CacheUpgradeStatusPtrOutput)
+func (i *cacheResponseSkuPtrType) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheResponseSkuPtrOutput)
 }
 
-// Properties describing the software upgrade state of the Cache.
-type CacheUpgradeStatusOutput struct{ *pulumi.OutputState }
+// SKU for the Cache.
+type CacheResponseSkuOutput struct{ *pulumi.OutputState }
 
-func (CacheUpgradeStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CacheUpgradeStatus)(nil)).Elem()
+func (CacheResponseSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheResponseSku)(nil)).Elem()
 }
 
-func (o CacheUpgradeStatusOutput) ToCacheUpgradeStatusOutput() CacheUpgradeStatusOutput {
+func (o CacheResponseSkuOutput) ToCacheResponseSkuOutput() CacheResponseSkuOutput {
 	return o
 }
 
-func (o CacheUpgradeStatusOutput) ToCacheUpgradeStatusOutputWithContext(ctx context.Context) CacheUpgradeStatusOutput {
+func (o CacheResponseSkuOutput) ToCacheResponseSkuOutputWithContext(ctx context.Context) CacheResponseSkuOutput {
 	return o
 }
 
-func (o CacheUpgradeStatusOutput) ToCacheUpgradeStatusPtrOutput() CacheUpgradeStatusPtrOutput {
-	return o.ToCacheUpgradeStatusPtrOutputWithContext(context.Background())
+func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutput() CacheResponseSkuPtrOutput {
+	return o.ToCacheResponseSkuPtrOutputWithContext(context.Background())
 }
 
-func (o CacheUpgradeStatusOutput) ToCacheUpgradeStatusPtrOutputWithContext(ctx context.Context) CacheUpgradeStatusPtrOutput {
-	return o.ApplyT(func(v CacheUpgradeStatus) *CacheUpgradeStatus {
+func (o CacheResponseSkuOutput) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
+	return o.ApplyT(func(v CacheResponseSku) *CacheResponseSku {
 		return &v
-	}).(CacheUpgradeStatusPtrOutput)
+	}).(CacheResponseSkuPtrOutput)
 }
 
-type CacheUpgradeStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (CacheUpgradeStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CacheUpgradeStatus)(nil)).Elem()
+// SKU name for this Cache.
+func (o CacheResponseSkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheResponseSku) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o CacheUpgradeStatusPtrOutput) ToCacheUpgradeStatusPtrOutput() CacheUpgradeStatusPtrOutput {
+type CacheResponseSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheResponseSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheResponseSku)(nil)).Elem()
+}
+
+func (o CacheResponseSkuPtrOutput) ToCacheResponseSkuPtrOutput() CacheResponseSkuPtrOutput {
 	return o
 }
 
-func (o CacheUpgradeStatusPtrOutput) ToCacheUpgradeStatusPtrOutputWithContext(ctx context.Context) CacheUpgradeStatusPtrOutput {
+func (o CacheResponseSkuPtrOutput) ToCacheResponseSkuPtrOutputWithContext(ctx context.Context) CacheResponseSkuPtrOutput {
 	return o
 }
 
-func (o CacheUpgradeStatusPtrOutput) Elem() CacheUpgradeStatusOutput {
-	return o.ApplyT(func(v *CacheUpgradeStatus) CacheUpgradeStatus { return *v }).(CacheUpgradeStatusOutput)
+func (o CacheResponseSkuPtrOutput) Elem() CacheResponseSkuOutput {
+	return o.ApplyT(func(v *CacheResponseSku) CacheResponseSku { return *v }).(CacheResponseSkuOutput)
+}
+
+// SKU name for this Cache.
+func (o CacheResponseSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheResponseSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// SKU for the Cache.
+type CacheSku struct {
+	// SKU name for this Cache.
+	Name *string `pulumi:"name"`
+}
+
+// CacheSkuInput is an input type that accepts CacheSkuArgs and CacheSkuOutput values.
+// You can construct a concrete instance of `CacheSkuInput` via:
+//
+//          CacheSkuArgs{...}
+type CacheSkuInput interface {
+	pulumi.Input
+
+	ToCacheSkuOutput() CacheSkuOutput
+	ToCacheSkuOutputWithContext(context.Context) CacheSkuOutput
+}
+
+// SKU for the Cache.
+type CacheSkuArgs struct {
+	// SKU name for this Cache.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (CacheSkuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSku)(nil)).Elem()
+}
+
+func (i CacheSkuArgs) ToCacheSkuOutput() CacheSkuOutput {
+	return i.ToCacheSkuOutputWithContext(context.Background())
+}
+
+func (i CacheSkuArgs) ToCacheSkuOutputWithContext(ctx context.Context) CacheSkuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSkuOutput)
+}
+
+func (i CacheSkuArgs) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
+	return i.ToCacheSkuPtrOutputWithContext(context.Background())
+}
+
+func (i CacheSkuArgs) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSkuOutput).ToCacheSkuPtrOutputWithContext(ctx)
+}
+
+// CacheSkuPtrInput is an input type that accepts CacheSkuArgs, CacheSkuPtr and CacheSkuPtrOutput values.
+// You can construct a concrete instance of `CacheSkuPtrInput` via:
+//
+//          CacheSkuArgs{...}
+//
+//  or:
+//
+//          nil
+type CacheSkuPtrInput interface {
+	pulumi.Input
+
+	ToCacheSkuPtrOutput() CacheSkuPtrOutput
+	ToCacheSkuPtrOutputWithContext(context.Context) CacheSkuPtrOutput
+}
+
+type cacheSkuPtrType CacheSkuArgs
+
+func CacheSkuPtr(v *CacheSkuArgs) CacheSkuPtrInput {
+	return (*cacheSkuPtrType)(v)
+}
+
+func (*cacheSkuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheSku)(nil)).Elem()
+}
+
+func (i *cacheSkuPtrType) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
+	return i.ToCacheSkuPtrOutputWithContext(context.Background())
+}
+
+func (i *cacheSkuPtrType) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CacheSkuPtrOutput)
+}
+
+// SKU for the Cache.
+type CacheSkuOutput struct{ *pulumi.OutputState }
+
+func (CacheSkuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CacheSku)(nil)).Elem()
+}
+
+func (o CacheSkuOutput) ToCacheSkuOutput() CacheSkuOutput {
+	return o
+}
+
+func (o CacheSkuOutput) ToCacheSkuOutputWithContext(ctx context.Context) CacheSkuOutput {
+	return o
+}
+
+func (o CacheSkuOutput) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
+	return o.ToCacheSkuPtrOutputWithContext(context.Background())
+}
+
+func (o CacheSkuOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
+	return o.ApplyT(func(v CacheSku) *CacheSku {
+		return &v
+	}).(CacheSkuPtrOutput)
+}
+
+// SKU name for this Cache.
+func (o CacheSkuOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheSku) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type CacheSkuPtrOutput struct{ *pulumi.OutputState }
+
+func (CacheSkuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CacheSku)(nil)).Elem()
+}
+
+func (o CacheSkuPtrOutput) ToCacheSkuPtrOutput() CacheSkuPtrOutput {
+	return o
+}
+
+func (o CacheSkuPtrOutput) ToCacheSkuPtrOutputWithContext(ctx context.Context) CacheSkuPtrOutput {
+	return o
+}
+
+func (o CacheSkuPtrOutput) Elem() CacheSkuOutput {
+	return o.ApplyT(func(v *CacheSku) CacheSku { return *v }).(CacheSkuOutput)
+}
+
+// SKU name for this Cache.
+func (o CacheSkuPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CacheSku) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 // Properties describing the software upgrade state of the Cache.
@@ -1825,79 +1680,6 @@ func (o Nfs3TargetResponsePtrOutput) UsageModel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A storage system being cached by a Cache.
-type StorageTargetType struct {
-	// Name of the Storage Target.
-	Name string `pulumi:"name"`
-	// Properties of the Storage Target.
-	Properties StorageTargetResponseProperties `pulumi:"properties"`
-	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
-	Type string `pulumi:"type"`
-}
-
-// StorageTargetTypeInput is an input type that accepts StorageTargetTypeArgs and StorageTargetTypeOutput values.
-// You can construct a concrete instance of `StorageTargetTypeInput` via:
-//
-//          StorageTargetTypeArgs{...}
-type StorageTargetTypeInput interface {
-	pulumi.Input
-
-	ToStorageTargetTypeOutput() StorageTargetTypeOutput
-	ToStorageTargetTypeOutputWithContext(context.Context) StorageTargetTypeOutput
-}
-
-// A storage system being cached by a Cache.
-type StorageTargetTypeArgs struct {
-	// Name of the Storage Target.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Storage Target.
-	Properties StorageTargetResponsePropertiesInput `pulumi:"properties"`
-	// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageTargetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageTargetType)(nil)).Elem()
-}
-
-func (i StorageTargetTypeArgs) ToStorageTargetTypeOutput() StorageTargetTypeOutput {
-	return i.ToStorageTargetTypeOutputWithContext(context.Background())
-}
-
-func (i StorageTargetTypeArgs) ToStorageTargetTypeOutputWithContext(ctx context.Context) StorageTargetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageTargetTypeOutput)
-}
-
-// A storage system being cached by a Cache.
-type StorageTargetTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageTargetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageTargetType)(nil)).Elem()
-}
-
-func (o StorageTargetTypeOutput) ToStorageTargetTypeOutput() StorageTargetTypeOutput {
-	return o
-}
-
-func (o StorageTargetTypeOutput) ToStorageTargetTypeOutputWithContext(ctx context.Context) StorageTargetTypeOutput {
-	return o
-}
-
-// Name of the Storage Target.
-func (o StorageTargetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageTargetType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Storage Target.
-func (o StorageTargetTypeOutput) Properties() StorageTargetResponsePropertiesOutput {
-	return o.ApplyT(func(v StorageTargetType) StorageTargetResponseProperties { return v.Properties }).(StorageTargetResponsePropertiesOutput)
-}
-
-// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
-func (o StorageTargetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageTargetType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the Storage Target.
 type StorageTargetResponseProperties struct {
 	// Properties when targetType is clfs.
@@ -2127,240 +1909,10 @@ func (o StorageTargetResponsePropertiesPtrOutput) Unknown() UnknownTargetRespons
 	}).(UnknownTargetResponsePtrOutput)
 }
 
-// Properties of an unknown type of Storage Target.
-type UnknownProperties struct {
-}
-
-// UnknownPropertiesInput is an input type that accepts UnknownPropertiesArgs and UnknownPropertiesOutput values.
-// You can construct a concrete instance of `UnknownPropertiesInput` via:
-//
-//          UnknownPropertiesArgs{...}
-type UnknownPropertiesInput interface {
-	pulumi.Input
-
-	ToUnknownPropertiesOutput() UnknownPropertiesOutput
-	ToUnknownPropertiesOutputWithContext(context.Context) UnknownPropertiesOutput
-}
-
-// Properties of an unknown type of Storage Target.
-type UnknownPropertiesArgs struct {
-}
-
-func (UnknownPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UnknownProperties)(nil)).Elem()
-}
-
-func (i UnknownPropertiesArgs) ToUnknownPropertiesOutput() UnknownPropertiesOutput {
-	return i.ToUnknownPropertiesOutputWithContext(context.Background())
-}
-
-func (i UnknownPropertiesArgs) ToUnknownPropertiesOutputWithContext(ctx context.Context) UnknownPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UnknownPropertiesOutput)
-}
-
-func (i UnknownPropertiesArgs) ToUnknownPropertiesPtrOutput() UnknownPropertiesPtrOutput {
-	return i.ToUnknownPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i UnknownPropertiesArgs) ToUnknownPropertiesPtrOutputWithContext(ctx context.Context) UnknownPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UnknownPropertiesOutput).ToUnknownPropertiesPtrOutputWithContext(ctx)
-}
-
-// UnknownPropertiesPtrInput is an input type that accepts UnknownPropertiesArgs, UnknownPropertiesPtr and UnknownPropertiesPtrOutput values.
-// You can construct a concrete instance of `UnknownPropertiesPtrInput` via:
-//
-//          UnknownPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type UnknownPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToUnknownPropertiesPtrOutput() UnknownPropertiesPtrOutput
-	ToUnknownPropertiesPtrOutputWithContext(context.Context) UnknownPropertiesPtrOutput
-}
-
-type unknownPropertiesPtrType UnknownPropertiesArgs
-
-func UnknownPropertiesPtr(v *UnknownPropertiesArgs) UnknownPropertiesPtrInput {
-	return (*unknownPropertiesPtrType)(v)
-}
-
-func (*unknownPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UnknownProperties)(nil)).Elem()
-}
-
-func (i *unknownPropertiesPtrType) ToUnknownPropertiesPtrOutput() UnknownPropertiesPtrOutput {
-	return i.ToUnknownPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *unknownPropertiesPtrType) ToUnknownPropertiesPtrOutputWithContext(ctx context.Context) UnknownPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UnknownPropertiesPtrOutput)
-}
-
-// Properties of an unknown type of Storage Target.
-type UnknownPropertiesOutput struct{ *pulumi.OutputState }
-
-func (UnknownPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UnknownProperties)(nil)).Elem()
-}
-
-func (o UnknownPropertiesOutput) ToUnknownPropertiesOutput() UnknownPropertiesOutput {
-	return o
-}
-
-func (o UnknownPropertiesOutput) ToUnknownPropertiesOutputWithContext(ctx context.Context) UnknownPropertiesOutput {
-	return o
-}
-
-func (o UnknownPropertiesOutput) ToUnknownPropertiesPtrOutput() UnknownPropertiesPtrOutput {
-	return o.ToUnknownPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o UnknownPropertiesOutput) ToUnknownPropertiesPtrOutputWithContext(ctx context.Context) UnknownPropertiesPtrOutput {
-	return o.ApplyT(func(v UnknownProperties) *UnknownProperties {
-		return &v
-	}).(UnknownPropertiesPtrOutput)
-}
-
-type UnknownPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (UnknownPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UnknownProperties)(nil)).Elem()
-}
-
-func (o UnknownPropertiesPtrOutput) ToUnknownPropertiesPtrOutput() UnknownPropertiesPtrOutput {
-	return o
-}
-
-func (o UnknownPropertiesPtrOutput) ToUnknownPropertiesPtrOutputWithContext(ctx context.Context) UnknownPropertiesPtrOutput {
-	return o
-}
-
-func (o UnknownPropertiesPtrOutput) Elem() UnknownPropertiesOutput {
-	return o.ApplyT(func(v *UnknownProperties) UnknownProperties { return *v }).(UnknownPropertiesOutput)
-}
-
-// Properties of an unknown type of Storage Target.
-type UnknownPropertiesResponse struct {
-}
-
-// UnknownPropertiesResponseInput is an input type that accepts UnknownPropertiesResponseArgs and UnknownPropertiesResponseOutput values.
-// You can construct a concrete instance of `UnknownPropertiesResponseInput` via:
-//
-//          UnknownPropertiesResponseArgs{...}
-type UnknownPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToUnknownPropertiesResponseOutput() UnknownPropertiesResponseOutput
-	ToUnknownPropertiesResponseOutputWithContext(context.Context) UnknownPropertiesResponseOutput
-}
-
-// Properties of an unknown type of Storage Target.
-type UnknownPropertiesResponseArgs struct {
-}
-
-func (UnknownPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UnknownPropertiesResponse)(nil)).Elem()
-}
-
-func (i UnknownPropertiesResponseArgs) ToUnknownPropertiesResponseOutput() UnknownPropertiesResponseOutput {
-	return i.ToUnknownPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i UnknownPropertiesResponseArgs) ToUnknownPropertiesResponseOutputWithContext(ctx context.Context) UnknownPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UnknownPropertiesResponseOutput)
-}
-
-func (i UnknownPropertiesResponseArgs) ToUnknownPropertiesResponsePtrOutput() UnknownPropertiesResponsePtrOutput {
-	return i.ToUnknownPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i UnknownPropertiesResponseArgs) ToUnknownPropertiesResponsePtrOutputWithContext(ctx context.Context) UnknownPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UnknownPropertiesResponseOutput).ToUnknownPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-// UnknownPropertiesResponsePtrInput is an input type that accepts UnknownPropertiesResponseArgs, UnknownPropertiesResponsePtr and UnknownPropertiesResponsePtrOutput values.
-// You can construct a concrete instance of `UnknownPropertiesResponsePtrInput` via:
-//
-//          UnknownPropertiesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type UnknownPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToUnknownPropertiesResponsePtrOutput() UnknownPropertiesResponsePtrOutput
-	ToUnknownPropertiesResponsePtrOutputWithContext(context.Context) UnknownPropertiesResponsePtrOutput
-}
-
-type unknownPropertiesResponsePtrType UnknownPropertiesResponseArgs
-
-func UnknownPropertiesResponsePtr(v *UnknownPropertiesResponseArgs) UnknownPropertiesResponsePtrInput {
-	return (*unknownPropertiesResponsePtrType)(v)
-}
-
-func (*unknownPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UnknownPropertiesResponse)(nil)).Elem()
-}
-
-func (i *unknownPropertiesResponsePtrType) ToUnknownPropertiesResponsePtrOutput() UnknownPropertiesResponsePtrOutput {
-	return i.ToUnknownPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *unknownPropertiesResponsePtrType) ToUnknownPropertiesResponsePtrOutputWithContext(ctx context.Context) UnknownPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UnknownPropertiesResponsePtrOutput)
-}
-
-// Properties of an unknown type of Storage Target.
-type UnknownPropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (UnknownPropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UnknownPropertiesResponse)(nil)).Elem()
-}
-
-func (o UnknownPropertiesResponseOutput) ToUnknownPropertiesResponseOutput() UnknownPropertiesResponseOutput {
-	return o
-}
-
-func (o UnknownPropertiesResponseOutput) ToUnknownPropertiesResponseOutputWithContext(ctx context.Context) UnknownPropertiesResponseOutput {
-	return o
-}
-
-func (o UnknownPropertiesResponseOutput) ToUnknownPropertiesResponsePtrOutput() UnknownPropertiesResponsePtrOutput {
-	return o.ToUnknownPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o UnknownPropertiesResponseOutput) ToUnknownPropertiesResponsePtrOutputWithContext(ctx context.Context) UnknownPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v UnknownPropertiesResponse) *UnknownPropertiesResponse {
-		return &v
-	}).(UnknownPropertiesResponsePtrOutput)
-}
-
-type UnknownPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (UnknownPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UnknownPropertiesResponse)(nil)).Elem()
-}
-
-func (o UnknownPropertiesResponsePtrOutput) ToUnknownPropertiesResponsePtrOutput() UnknownPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o UnknownPropertiesResponsePtrOutput) ToUnknownPropertiesResponsePtrOutputWithContext(ctx context.Context) UnknownPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o UnknownPropertiesResponsePtrOutput) Elem() UnknownPropertiesResponseOutput {
-	return o.ApplyT(func(v *UnknownPropertiesResponse) UnknownPropertiesResponse { return *v }).(UnknownPropertiesResponseOutput)
-}
-
 // Storage container for use as an Unknown Storage Target.
 type UnknownTarget struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
-	UnknownMap *UnknownProperties `pulumi:"unknownMap"`
+	UnknownMap map[string]string `pulumi:"unknownMap"`
 }
 
 // UnknownTargetInput is an input type that accepts UnknownTargetArgs and UnknownTargetOutput values.
@@ -2377,7 +1929,7 @@ type UnknownTargetInput interface {
 // Storage container for use as an Unknown Storage Target.
 type UnknownTargetArgs struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
-	UnknownMap UnknownPropertiesPtrInput `pulumi:"unknownMap"`
+	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
 }
 
 func (UnknownTargetArgs) ElementType() reflect.Type {
@@ -2459,8 +2011,8 @@ func (o UnknownTargetOutput) ToUnknownTargetPtrOutputWithContext(ctx context.Con
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.
-func (o UnknownTargetOutput) UnknownMap() UnknownPropertiesPtrOutput {
-	return o.ApplyT(func(v UnknownTarget) *UnknownProperties { return v.UnknownMap }).(UnknownPropertiesPtrOutput)
+func (o UnknownTargetOutput) UnknownMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UnknownTarget) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
 }
 
 type UnknownTargetPtrOutput struct{ *pulumi.OutputState }
@@ -2482,19 +2034,19 @@ func (o UnknownTargetPtrOutput) Elem() UnknownTargetOutput {
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.
-func (o UnknownTargetPtrOutput) UnknownMap() UnknownPropertiesPtrOutput {
-	return o.ApplyT(func(v *UnknownTarget) *UnknownProperties {
+func (o UnknownTargetPtrOutput) UnknownMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UnknownTarget) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.UnknownMap
-	}).(UnknownPropertiesPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // Storage container for use as an Unknown Storage Target.
 type UnknownTargetResponse struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
-	UnknownMap *UnknownPropertiesResponse `pulumi:"unknownMap"`
+	UnknownMap map[string]string `pulumi:"unknownMap"`
 }
 
 // UnknownTargetResponseInput is an input type that accepts UnknownTargetResponseArgs and UnknownTargetResponseOutput values.
@@ -2511,7 +2063,7 @@ type UnknownTargetResponseInput interface {
 // Storage container for use as an Unknown Storage Target.
 type UnknownTargetResponseArgs struct {
 	// Dictionary of string->string pairs containing information about the Storage Target.
-	UnknownMap UnknownPropertiesResponsePtrInput `pulumi:"unknownMap"`
+	UnknownMap pulumi.StringMapInput `pulumi:"unknownMap"`
 }
 
 func (UnknownTargetResponseArgs) ElementType() reflect.Type {
@@ -2593,8 +2145,8 @@ func (o UnknownTargetResponseOutput) ToUnknownTargetResponsePtrOutputWithContext
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.
-func (o UnknownTargetResponseOutput) UnknownMap() UnknownPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v UnknownTargetResponse) *UnknownPropertiesResponse { return v.UnknownMap }).(UnknownPropertiesResponsePtrOutput)
+func (o UnknownTargetResponseOutput) UnknownMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UnknownTargetResponse) map[string]string { return v.UnknownMap }).(pulumi.StringMapOutput)
 }
 
 type UnknownTargetResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2616,26 +2168,24 @@ func (o UnknownTargetResponsePtrOutput) Elem() UnknownTargetResponseOutput {
 }
 
 // Dictionary of string->string pairs containing information about the Storage Target.
-func (o UnknownTargetResponsePtrOutput) UnknownMap() UnknownPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *UnknownTargetResponse) *UnknownPropertiesResponse {
+func (o UnknownTargetResponsePtrOutput) UnknownMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UnknownTargetResponse) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.UnknownMap
-	}).(UnknownPropertiesResponsePtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(CacheTypeOutput{})
-	pulumi.RegisterOutputType(CacheHealthOutput{})
 	pulumi.RegisterOutputType(CacheHealthResponseOutput{})
 	pulumi.RegisterOutputType(CacheHealthResponsePtrOutput{})
-	pulumi.RegisterOutputType(CachePropertiesOutput{})
-	pulumi.RegisterOutputType(CachePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CacheResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(CacheResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(CacheUpgradeStatusOutput{})
-	pulumi.RegisterOutputType(CacheUpgradeStatusPtrOutput{})
+	pulumi.RegisterOutputType(CacheResponseSkuOutput{})
+	pulumi.RegisterOutputType(CacheResponseSkuPtrOutput{})
+	pulumi.RegisterOutputType(CacheSkuOutput{})
+	pulumi.RegisterOutputType(CacheSkuPtrOutput{})
 	pulumi.RegisterOutputType(CacheUpgradeStatusResponseOutput{})
 	pulumi.RegisterOutputType(CacheUpgradeStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClfsTargetOutput{})
@@ -2650,13 +2200,8 @@ func init() {
 	pulumi.RegisterOutputType(Nfs3TargetPtrOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetResponseOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageTargetTypeOutput{})
 	pulumi.RegisterOutputType(StorageTargetResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(StorageTargetResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(UnknownPropertiesOutput{})
-	pulumi.RegisterOutputType(UnknownPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(UnknownPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(UnknownPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(UnknownTargetOutput{})
 	pulumi.RegisterOutputType(UnknownTargetPtrOutput{})
 	pulumi.RegisterOutputType(UnknownTargetResponseOutput{})

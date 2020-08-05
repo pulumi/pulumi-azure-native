@@ -10,101 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The alert rule resource.
-type AlertRuleType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The alert rule properties of the resource.
-	Properties AlertRuleResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// AlertRuleTypeInput is an input type that accepts AlertRuleTypeArgs and AlertRuleTypeOutput values.
-// You can construct a concrete instance of `AlertRuleTypeInput` via:
-//
-//          AlertRuleTypeArgs{...}
-type AlertRuleTypeInput interface {
-	pulumi.Input
-
-	ToAlertRuleTypeOutput() AlertRuleTypeOutput
-	ToAlertRuleTypeOutputWithContext(context.Context) AlertRuleTypeOutput
-}
-
-// The alert rule resource.
-type AlertRuleTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The alert rule properties of the resource.
-	Properties AlertRuleResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AlertRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleType)(nil)).Elem()
-}
-
-func (i AlertRuleTypeArgs) ToAlertRuleTypeOutput() AlertRuleTypeOutput {
-	return i.ToAlertRuleTypeOutputWithContext(context.Background())
-}
-
-func (i AlertRuleTypeArgs) ToAlertRuleTypeOutputWithContext(ctx context.Context) AlertRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleTypeOutput)
-}
-
-// The alert rule resource.
-type AlertRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (AlertRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertRuleType)(nil)).Elem()
-}
-
-func (o AlertRuleTypeOutput) ToAlertRuleTypeOutput() AlertRuleTypeOutput {
-	return o
-}
-
-func (o AlertRuleTypeOutput) ToAlertRuleTypeOutputWithContext(ctx context.Context) AlertRuleTypeOutput {
-	return o
-}
-
-// Resource location
-func (o AlertRuleTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertRuleType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o AlertRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The alert rule properties of the resource.
-func (o AlertRuleTypeOutput) Properties() AlertRuleResponseOutput {
-	return o.ApplyT(func(v AlertRuleType) AlertRuleResponse { return v.Properties }).(AlertRuleResponseOutput)
-}
-
-// Resource tags
-func (o AlertRuleTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AlertRuleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type
-func (o AlertRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AlertRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // An alert rule.
 type AlertRuleResponse struct {
-	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions []RuleActionResponse `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
 	Condition RuleConditionResponse `pulumi:"condition"`
 	// the description of the alert rule that will be included in the alert email.
@@ -130,8 +37,6 @@ type AlertRuleResponseInput interface {
 
 // An alert rule.
 type AlertRuleResponseArgs struct {
-	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-	Actions RuleActionResponseArrayInput `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
 	Condition RuleConditionResponseInput `pulumi:"condition"`
 	// the description of the alert rule that will be included in the alert email.
@@ -222,11 +127,6 @@ func (o AlertRuleResponseOutput) ToAlertRuleResponsePtrOutputWithContext(ctx con
 	}).(AlertRuleResponsePtrOutput)
 }
 
-// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-func (o AlertRuleResponseOutput) Actions() RuleActionResponseArrayOutput {
-	return o.ApplyT(func(v AlertRuleResponse) []RuleActionResponse { return v.Actions }).(RuleActionResponseArrayOutput)
-}
-
 // the condition that results in the alert rule being activated.
 func (o AlertRuleResponseOutput) Condition() RuleConditionResponseOutput {
 	return o.ApplyT(func(v AlertRuleResponse) RuleConditionResponse { return v.Condition }).(RuleConditionResponseOutput)
@@ -268,16 +168,6 @@ func (o AlertRuleResponsePtrOutput) ToAlertRuleResponsePtrOutputWithContext(ctx 
 
 func (o AlertRuleResponsePtrOutput) Elem() AlertRuleResponseOutput {
 	return o.ApplyT(func(v *AlertRuleResponse) AlertRuleResponse { return *v }).(AlertRuleResponseOutput)
-}
-
-// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-func (o AlertRuleResponsePtrOutput) Actions() RuleActionResponseArrayOutput {
-	return o.ApplyT(func(v *AlertRuleResponse) []RuleActionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(RuleActionResponseArrayOutput)
 }
 
 // the condition that results in the alert rule being activated.
@@ -328,97 +218,6 @@ func (o AlertRuleResponsePtrOutput) Name() pulumi.StringPtrOutput {
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// The log profile resource.
-type LogProfileType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The log profile properties of the resource.
-	Properties LogProfilePropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// LogProfileTypeInput is an input type that accepts LogProfileTypeArgs and LogProfileTypeOutput values.
-// You can construct a concrete instance of `LogProfileTypeInput` via:
-//
-//          LogProfileTypeArgs{...}
-type LogProfileTypeInput interface {
-	pulumi.Input
-
-	ToLogProfileTypeOutput() LogProfileTypeOutput
-	ToLogProfileTypeOutputWithContext(context.Context) LogProfileTypeOutput
-}
-
-// The log profile resource.
-type LogProfileTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The log profile properties of the resource.
-	Properties LogProfilePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LogProfileTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogProfileType)(nil)).Elem()
-}
-
-func (i LogProfileTypeArgs) ToLogProfileTypeOutput() LogProfileTypeOutput {
-	return i.ToLogProfileTypeOutputWithContext(context.Background())
-}
-
-func (i LogProfileTypeArgs) ToLogProfileTypeOutputWithContext(ctx context.Context) LogProfileTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogProfileTypeOutput)
-}
-
-// The log profile resource.
-type LogProfileTypeOutput struct{ *pulumi.OutputState }
-
-func (LogProfileTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogProfileType)(nil)).Elem()
-}
-
-func (o LogProfileTypeOutput) ToLogProfileTypeOutput() LogProfileTypeOutput {
-	return o
-}
-
-func (o LogProfileTypeOutput) ToLogProfileTypeOutputWithContext(ctx context.Context) LogProfileTypeOutput {
-	return o
-}
-
-// Resource location
-func (o LogProfileTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v LogProfileType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o LogProfileTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LogProfileType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The log profile properties of the resource.
-func (o LogProfileTypeOutput) Properties() LogProfilePropertiesResponseOutput {
-	return o.ApplyT(func(v LogProfileType) LogProfilePropertiesResponse { return v.Properties }).(LogProfilePropertiesResponseOutput)
-}
-
-// Resource tags
-func (o LogProfileTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LogProfileType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type
-func (o LogProfileTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LogProfileType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The log profile properties.
@@ -935,188 +734,6 @@ func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return &v.Enabled
 	}).(pulumi.BoolPtrOutput)
-}
-
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleAction struct {
-}
-
-// RuleActionInput is an input type that accepts RuleActionArgs and RuleActionOutput values.
-// You can construct a concrete instance of `RuleActionInput` via:
-//
-//          RuleActionArgs{...}
-type RuleActionInput interface {
-	pulumi.Input
-
-	ToRuleActionOutput() RuleActionOutput
-	ToRuleActionOutputWithContext(context.Context) RuleActionOutput
-}
-
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleActionArgs struct {
-}
-
-func (RuleActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleAction)(nil)).Elem()
-}
-
-func (i RuleActionArgs) ToRuleActionOutput() RuleActionOutput {
-	return i.ToRuleActionOutputWithContext(context.Background())
-}
-
-func (i RuleActionArgs) ToRuleActionOutputWithContext(ctx context.Context) RuleActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleActionOutput)
-}
-
-// RuleActionArrayInput is an input type that accepts RuleActionArray and RuleActionArrayOutput values.
-// You can construct a concrete instance of `RuleActionArrayInput` via:
-//
-//          RuleActionArray{ RuleActionArgs{...} }
-type RuleActionArrayInput interface {
-	pulumi.Input
-
-	ToRuleActionArrayOutput() RuleActionArrayOutput
-	ToRuleActionArrayOutputWithContext(context.Context) RuleActionArrayOutput
-}
-
-type RuleActionArray []RuleActionInput
-
-func (RuleActionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleAction)(nil)).Elem()
-}
-
-func (i RuleActionArray) ToRuleActionArrayOutput() RuleActionArrayOutput {
-	return i.ToRuleActionArrayOutputWithContext(context.Background())
-}
-
-func (i RuleActionArray) ToRuleActionArrayOutputWithContext(ctx context.Context) RuleActionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleActionArrayOutput)
-}
-
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleActionOutput struct{ *pulumi.OutputState }
-
-func (RuleActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleAction)(nil)).Elem()
-}
-
-func (o RuleActionOutput) ToRuleActionOutput() RuleActionOutput {
-	return o
-}
-
-func (o RuleActionOutput) ToRuleActionOutputWithContext(ctx context.Context) RuleActionOutput {
-	return o
-}
-
-type RuleActionArrayOutput struct{ *pulumi.OutputState }
-
-func (RuleActionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleAction)(nil)).Elem()
-}
-
-func (o RuleActionArrayOutput) ToRuleActionArrayOutput() RuleActionArrayOutput {
-	return o
-}
-
-func (o RuleActionArrayOutput) ToRuleActionArrayOutputWithContext(ctx context.Context) RuleActionArrayOutput {
-	return o
-}
-
-func (o RuleActionArrayOutput) Index(i pulumi.IntInput) RuleActionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleAction {
-		return vs[0].([]RuleAction)[vs[1].(int)]
-	}).(RuleActionOutput)
-}
-
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleActionResponse struct {
-}
-
-// RuleActionResponseInput is an input type that accepts RuleActionResponseArgs and RuleActionResponseOutput values.
-// You can construct a concrete instance of `RuleActionResponseInput` via:
-//
-//          RuleActionResponseArgs{...}
-type RuleActionResponseInput interface {
-	pulumi.Input
-
-	ToRuleActionResponseOutput() RuleActionResponseOutput
-	ToRuleActionResponseOutputWithContext(context.Context) RuleActionResponseOutput
-}
-
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleActionResponseArgs struct {
-}
-
-func (RuleActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleActionResponse)(nil)).Elem()
-}
-
-func (i RuleActionResponseArgs) ToRuleActionResponseOutput() RuleActionResponseOutput {
-	return i.ToRuleActionResponseOutputWithContext(context.Background())
-}
-
-func (i RuleActionResponseArgs) ToRuleActionResponseOutputWithContext(ctx context.Context) RuleActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleActionResponseOutput)
-}
-
-// RuleActionResponseArrayInput is an input type that accepts RuleActionResponseArray and RuleActionResponseArrayOutput values.
-// You can construct a concrete instance of `RuleActionResponseArrayInput` via:
-//
-//          RuleActionResponseArray{ RuleActionResponseArgs{...} }
-type RuleActionResponseArrayInput interface {
-	pulumi.Input
-
-	ToRuleActionResponseArrayOutput() RuleActionResponseArrayOutput
-	ToRuleActionResponseArrayOutputWithContext(context.Context) RuleActionResponseArrayOutput
-}
-
-type RuleActionResponseArray []RuleActionResponseInput
-
-func (RuleActionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleActionResponse)(nil)).Elem()
-}
-
-func (i RuleActionResponseArray) ToRuleActionResponseArrayOutput() RuleActionResponseArrayOutput {
-	return i.ToRuleActionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RuleActionResponseArray) ToRuleActionResponseArrayOutputWithContext(ctx context.Context) RuleActionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleActionResponseArrayOutput)
-}
-
-// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
-type RuleActionResponseOutput struct{ *pulumi.OutputState }
-
-func (RuleActionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleActionResponse)(nil)).Elem()
-}
-
-func (o RuleActionResponseOutput) ToRuleActionResponseOutput() RuleActionResponseOutput {
-	return o
-}
-
-func (o RuleActionResponseOutput) ToRuleActionResponseOutputWithContext(ctx context.Context) RuleActionResponseOutput {
-	return o
-}
-
-type RuleActionResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (RuleActionResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleActionResponse)(nil)).Elem()
-}
-
-func (o RuleActionResponseArrayOutput) ToRuleActionResponseArrayOutput() RuleActionResponseArrayOutput {
-	return o
-}
-
-func (o RuleActionResponseArrayOutput) ToRuleActionResponseArrayOutputWithContext(ctx context.Context) RuleActionResponseArrayOutput {
-	return o
-}
-
-func (o RuleActionResponseArrayOutput) Index(i pulumi.IntInput) RuleActionResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleActionResponse {
-		return vs[0].([]RuleActionResponse)[vs[1].(int)]
-	}).(RuleActionResponseOutput)
 }
 
 // The condition that results in the alert rule being activated.
@@ -1656,20 +1273,14 @@ func (o RuleDataSourceResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(AlertRuleTypeOutput{})
 	pulumi.RegisterOutputType(AlertRuleResponseOutput{})
 	pulumi.RegisterOutputType(AlertRuleResponsePtrOutput{})
-	pulumi.RegisterOutputType(LogProfileTypeOutput{})
 	pulumi.RegisterOutputType(LogProfilePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(LogProfilePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(RuleActionOutput{})
-	pulumi.RegisterOutputType(RuleActionArrayOutput{})
-	pulumi.RegisterOutputType(RuleActionResponseOutput{})
-	pulumi.RegisterOutputType(RuleActionResponseArrayOutput{})
 	pulumi.RegisterOutputType(RuleConditionOutput{})
 	pulumi.RegisterOutputType(RuleConditionPtrOutput{})
 	pulumi.RegisterOutputType(RuleConditionResponseOutput{})

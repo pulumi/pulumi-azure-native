@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Outputs
         /// <summary>
         ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
-        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponsePropertiesResult? DatabricksVirtualNetwork;
+        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkResult? DatabricksVirtualNetwork;
         /// <summary>
         /// The status of the virtual network peering.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Outputs
         /// <summary>
         ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         /// </summary>
-        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponsePropertiesResult RemoteVirtualNetwork;
+        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkResult RemoteVirtualNetwork;
         /// <summary>
         /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         /// </summary>
@@ -64,7 +64,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Outputs
 
             Outputs.AddressSpaceResponseResult? databricksAddressSpace,
 
-            Outputs.VirtualNetworkPeeringPropertiesFormatResponsePropertiesResult? databricksVirtualNetwork,
+            Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkResult? databricksVirtualNetwork,
 
             string peeringState,
 
@@ -72,7 +72,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Outputs
 
             Outputs.AddressSpaceResponseResult? remoteAddressSpace,
 
-            Outputs.VirtualNetworkPeeringPropertiesFormatResponsePropertiesResult remoteVirtualNetwork,
+            Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkResult remoteVirtualNetwork,
 
             bool? useRemoteGateways)
         {

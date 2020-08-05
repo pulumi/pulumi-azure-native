@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Security.V20190801.Outputs
         /// <summary>
         /// List of the configuration status for each recommendation type.
         /// </summary>
-        public readonly Outputs.RecommendationConfigurationListResponseResult? RecommendationsConfiguration;
+        public readonly ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponseResult> RecommendationsConfiguration;
         /// <summary>
         /// Status of the IoT Security solution.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Security.V20190801.Outputs
 
             ImmutableArray<string> iotHubs,
 
-            Outputs.RecommendationConfigurationListResponseResult? recommendationsConfiguration,
+            ImmutableArray<Outputs.RecommendationConfigurationPropertiesResponseResult> recommendationsConfiguration,
 
             string? status,
 

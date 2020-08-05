@@ -141,7 +141,7 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// The parameters schema of integration account map.
         /// </summary>
         [Input("parametersSchema")]
-        public Input<Inputs.IntegrationAccountMapPropertiesPropertiesArgs>? ParametersSchema { get; set; }
+        public Input<Inputs.IntegrationAccountMapPropertiesParametersSchemaArgs>? ParametersSchema { get; set; }
 
         /// <summary>
         /// The resource group name.

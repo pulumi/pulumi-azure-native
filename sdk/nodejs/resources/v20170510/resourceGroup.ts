@@ -51,7 +51,7 @@ export class ResourceGroup extends pulumi.CustomResource {
     /**
      * The resource group properties.
      */
-    public readonly properties!: pulumi.Output<outputs.resources.v20170510.ResourceGroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.resources.v20170510.ResourceGroupPropertiesResponse>;
     /**
      * The tags attached to the resource group.
      */
@@ -79,8 +79,8 @@ export class ResourceGroup extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["managedBy"] = args ? args.managedBy : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -109,10 +109,6 @@ export interface ResourceGroupArgs {
      * The name of the resource group to create or update.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The resource group properties.
-     */
-    readonly properties?: pulumi.Input<inputs.resources.v20170510.ResourceGroupProperties>;
     /**
      * The tags attached to the resource group.
      */

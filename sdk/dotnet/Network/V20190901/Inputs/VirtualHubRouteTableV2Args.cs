@@ -15,11 +15,23 @@ namespace Pulumi.AzureRM.Network.V20190901.Inputs
     /// </summary>
     public sealed class VirtualHubRouteTableV2Args : Pulumi.ResourceArgs
     {
+        [Input("attachedConnections")]
+        private InputList<string>? _attachedConnections;
+
         /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
+        /// List of all connections attached to this route table v2.
         /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
+        public InputList<string> AttachedConnections
+        {
+            get => _attachedConnections ?? (_attachedConnections = new InputList<string>());
+            set => _attachedConnections = value;
+        }
+
+        /// <summary>
+        /// Resource ID.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -27,11 +39,17 @@ namespace Pulumi.AzureRM.Network.V20190901.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("routes")]
+        private InputList<Inputs.VirtualHubRouteV2Args>? _routes;
+
         /// <summary>
-        /// Properties of the virtual hub route table v2.
+        /// List of all routes.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VirtualHubRouteTableV2PropertiesResponseArgs> Properties { get; set; } = null!;
+        public InputList<Inputs.VirtualHubRouteV2Args> Routes
+        {
+            get => _routes ?? (_routes = new InputList<Inputs.VirtualHubRouteV2Args>());
+            set => _routes = value;
+        }
 
         public VirtualHubRouteTableV2Args()
         {

@@ -93,8 +93,6 @@ type expressRouteCircuitPeeringArgs struct {
 	CircuitName string `pulumi:"circuitName"`
 	// The list of circuit connections associated with Azure Private Peering for this circuit.
 	Connections []ExpressRouteCircuitConnectionType `pulumi:"connections"`
-	// The ExpressRoute connection.
-	ExpressRouteConnection *ExpressRouteConnectionId `pulumi:"expressRouteConnection"`
 	// The GatewayManager Etag.
 	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
 	// Resource ID.
@@ -143,8 +141,6 @@ type ExpressRouteCircuitPeeringArgs struct {
 	CircuitName pulumi.StringInput
 	// The list of circuit connections associated with Azure Private Peering for this circuit.
 	Connections ExpressRouteCircuitConnectionTypeArrayInput
-	// The ExpressRoute connection.
-	ExpressRouteConnection ExpressRouteConnectionIdPtrInput
 	// The GatewayManager Etag.
 	GatewayManagerEtag pulumi.StringPtrInput
 	// Resource ID.

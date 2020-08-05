@@ -95,7 +95,7 @@ type dataFlowArgs struct {
 	// The data flow name.
 	Name string `pulumi:"name"`
 	// Data flow properties.
-	Properties DataFlowDefinition `pulumi:"properties"`
+	Properties DataFlowType `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -107,7 +107,7 @@ type DataFlowArgs struct {
 	// The data flow name.
 	Name pulumi.StringInput
 	// Data flow properties.
-	Properties DataFlowDefinitionInput
+	Properties DataFlowTypeInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 }

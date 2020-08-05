@@ -98,6 +98,7 @@ class Endpoint(pulumi.CustomResource):
           * `vault_name` (`str`) - The name of the user's Key Vault containing the secret
 
       * `web_application_firewall_policy_link` (`dict`) - Defines the Web Application Firewall policy for the endpoint (if applicable)
+        * `id` (`str`) - Resource ID.
     """
     tags: pulumi.Output[dict]
     """
@@ -202,6 +203,10 @@ class Endpoint(pulumi.CustomResource):
             * `secret_version` (`pulumi.Input[str]`) - The version(GUID) of secret in Key Vault.
             * `subscription_id` (`pulumi.Input[str]`) - Subscription Id of the user's Key Vault containing the secret
             * `vault_name` (`pulumi.Input[str]`) - The name of the user's Key Vault containing the secret
+
+        The **web_application_firewall_policy_link** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

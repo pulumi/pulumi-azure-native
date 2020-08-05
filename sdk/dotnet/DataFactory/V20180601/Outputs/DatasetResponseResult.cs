@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
         /// </summary>
-        public readonly Outputs.DatasetResponsePropertiesResult? Folder;
+        public readonly Outputs.DatasetResponseFolderResult? Folder;
         /// <summary>
         /// Linked service reference.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// Parameters for dataset.
         /// </summary>
-        public readonly Outputs.ParameterDefinitionSpecificationResponseResult? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>? Parameters;
         /// <summary>
         /// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         /// </summary>
@@ -52,11 +52,11 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
 
             string? description,
 
-            Outputs.DatasetResponsePropertiesResult? folder,
+            Outputs.DatasetResponseFolderResult? folder,
 
             Outputs.LinkedServiceReferenceResponseResult linkedServiceName,
 
-            Outputs.ParameterDefinitionSpecificationResponseResult? parameters,
+            ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>? parameters,
 
             ImmutableDictionary<string, object>? schema,
 

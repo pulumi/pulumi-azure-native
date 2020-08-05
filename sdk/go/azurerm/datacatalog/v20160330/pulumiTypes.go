@@ -10,106 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Azure Data Catalog.
-type ADCCatalogType struct {
-	// Resource etag
-	Etag *string `pulumi:"etag"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Azure Data Catalog properties.
-	Properties ADCCatalogPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ADCCatalogTypeInput is an input type that accepts ADCCatalogTypeArgs and ADCCatalogTypeOutput values.
-// You can construct a concrete instance of `ADCCatalogTypeInput` via:
-//
-//          ADCCatalogTypeArgs{...}
-type ADCCatalogTypeInput interface {
-	pulumi.Input
-
-	ToADCCatalogTypeOutput() ADCCatalogTypeOutput
-	ToADCCatalogTypeOutputWithContext(context.Context) ADCCatalogTypeOutput
-}
-
-// Azure Data Catalog.
-type ADCCatalogTypeArgs struct {
-	// Resource etag
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Azure Data Catalog properties.
-	Properties ADCCatalogPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ADCCatalogTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADCCatalogType)(nil)).Elem()
-}
-
-func (i ADCCatalogTypeArgs) ToADCCatalogTypeOutput() ADCCatalogTypeOutput {
-	return i.ToADCCatalogTypeOutputWithContext(context.Background())
-}
-
-func (i ADCCatalogTypeArgs) ToADCCatalogTypeOutputWithContext(ctx context.Context) ADCCatalogTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ADCCatalogTypeOutput)
-}
-
-// Azure Data Catalog.
-type ADCCatalogTypeOutput struct{ *pulumi.OutputState }
-
-func (ADCCatalogTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADCCatalogType)(nil)).Elem()
-}
-
-func (o ADCCatalogTypeOutput) ToADCCatalogTypeOutput() ADCCatalogTypeOutput {
-	return o
-}
-
-func (o ADCCatalogTypeOutput) ToADCCatalogTypeOutputWithContext(ctx context.Context) ADCCatalogTypeOutput {
-	return o
-}
-
-// Resource etag
-func (o ADCCatalogTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ADCCatalogType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Resource location
-func (o ADCCatalogTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ADCCatalogType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o ADCCatalogTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ADCCatalogType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Azure Data Catalog properties.
-func (o ADCCatalogTypeOutput) Properties() ADCCatalogPropertiesResponseOutput {
-	return o.ApplyT(func(v ADCCatalogType) ADCCatalogPropertiesResponse { return v.Properties }).(ADCCatalogPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o ADCCatalogTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ADCCatalogType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ADCCatalogTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ADCCatalogType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the data catalog.
 type ADCCatalogPropertiesResponse struct {
 	// Azure data catalog admin list.
@@ -558,7 +458,6 @@ func (o PrincipalsResponseArrayOutput) Index(i pulumi.IntInput) PrincipalsRespon
 }
 
 func init() {
-	pulumi.RegisterOutputType(ADCCatalogTypeOutput{})
 	pulumi.RegisterOutputType(ADCCatalogPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ADCCatalogPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrincipalsOutput{})

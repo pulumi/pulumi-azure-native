@@ -3114,79 +3114,6 @@ func (o ChainerSettingsResponsePtrOutput) PythonScriptFilePath() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Information about a Cluster.
-type ClusterType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties associated with the Cluster.
-	Properties ClusterPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// ClusterTypeInput is an input type that accepts ClusterTypeArgs and ClusterTypeOutput values.
-// You can construct a concrete instance of `ClusterTypeInput` via:
-//
-//          ClusterTypeArgs{...}
-type ClusterTypeInput interface {
-	pulumi.Input
-
-	ToClusterTypeOutput() ClusterTypeOutput
-	ToClusterTypeOutputWithContext(context.Context) ClusterTypeOutput
-}
-
-// Information about a Cluster.
-type ClusterTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the Cluster.
-	Properties ClusterPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutput() ClusterTypeOutput {
-	return i.ToClusterTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterTypeOutput)
-}
-
-// Information about a Cluster.
-type ClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutput() ClusterTypeOutput {
-	return o
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o ClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the Cluster.
-func (o ClusterTypeOutput) Properties() ClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterType) ClusterPropertiesResponse { return v.Properties }).(ClusterPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o ClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Cluster properties.
 type ClusterPropertiesResponse struct {
 	// Allocation state of the cluster. Possible values are: steady - Indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing - Indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
@@ -5307,79 +5234,6 @@ func (o EnvironmentVariableWithSecretValueResponseArrayOutput) Index(i pulumi.In
 	}).(EnvironmentVariableWithSecretValueResponseOutput)
 }
 
-// Experiment information.
-type ExperimentType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties associated with the experiment.
-	Properties ExperimentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// ExperimentTypeInput is an input type that accepts ExperimentTypeArgs and ExperimentTypeOutput values.
-// You can construct a concrete instance of `ExperimentTypeInput` via:
-//
-//          ExperimentTypeArgs{...}
-type ExperimentTypeInput interface {
-	pulumi.Input
-
-	ToExperimentTypeOutput() ExperimentTypeOutput
-	ToExperimentTypeOutputWithContext(context.Context) ExperimentTypeOutput
-}
-
-// Experiment information.
-type ExperimentTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the experiment.
-	Properties ExperimentPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ExperimentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentType)(nil)).Elem()
-}
-
-func (i ExperimentTypeArgs) ToExperimentTypeOutput() ExperimentTypeOutput {
-	return i.ToExperimentTypeOutputWithContext(context.Background())
-}
-
-func (i ExperimentTypeArgs) ToExperimentTypeOutputWithContext(ctx context.Context) ExperimentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTypeOutput)
-}
-
-// Experiment information.
-type ExperimentTypeOutput struct{ *pulumi.OutputState }
-
-func (ExperimentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentType)(nil)).Elem()
-}
-
-func (o ExperimentTypeOutput) ToExperimentTypeOutput() ExperimentTypeOutput {
-	return o
-}
-
-func (o ExperimentTypeOutput) ToExperimentTypeOutputWithContext(ctx context.Context) ExperimentTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o ExperimentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ExperimentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the experiment.
-func (o ExperimentTypeOutput) Properties() ExperimentPropertiesResponseOutput {
-	return o.ApplyT(func(v ExperimentType) ExperimentPropertiesResponse { return v.Properties }).(ExperimentPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o ExperimentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ExperimentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Experiment properties.
 type ExperimentPropertiesResponse struct {
 	// Time when the Experiment was created.
@@ -5830,79 +5684,6 @@ func (o FileResponseArrayOutput) Index(i pulumi.IntInput) FileResponseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileResponse {
 		return vs[0].([]FileResponse)[vs[1].(int)]
 	}).(FileResponseOutput)
-}
-
-// File Server information.
-type FileServerType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// File Server properties.
-	Properties FileServerPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// FileServerTypeInput is an input type that accepts FileServerTypeArgs and FileServerTypeOutput values.
-// You can construct a concrete instance of `FileServerTypeInput` via:
-//
-//          FileServerTypeArgs{...}
-type FileServerTypeInput interface {
-	pulumi.Input
-
-	ToFileServerTypeOutput() FileServerTypeOutput
-	ToFileServerTypeOutputWithContext(context.Context) FileServerTypeOutput
-}
-
-// File Server information.
-type FileServerTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// File Server properties.
-	Properties FileServerPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FileServerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileServerType)(nil)).Elem()
-}
-
-func (i FileServerTypeArgs) ToFileServerTypeOutput() FileServerTypeOutput {
-	return i.ToFileServerTypeOutputWithContext(context.Background())
-}
-
-func (i FileServerTypeArgs) ToFileServerTypeOutputWithContext(ctx context.Context) FileServerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileServerTypeOutput)
-}
-
-// File Server information.
-type FileServerTypeOutput struct{ *pulumi.OutputState }
-
-func (FileServerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileServerType)(nil)).Elem()
-}
-
-func (o FileServerTypeOutput) ToFileServerTypeOutput() FileServerTypeOutput {
-	return o
-}
-
-func (o FileServerTypeOutput) ToFileServerTypeOutputWithContext(ctx context.Context) FileServerTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o FileServerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FileServerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// File Server properties.
-func (o FileServerTypeOutput) Properties() FileServerPropertiesResponseOutput {
-	return o.ApplyT(func(v FileServerType) FileServerPropertiesResponse { return v.Properties }).(FileServerPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o FileServerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FileServerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // File Server properties.
@@ -7790,206 +7571,133 @@ func (o InputDirectoryResponseArrayOutput) Index(i pulumi.IntInput) InputDirecto
 	}).(InputDirectoryResponseOutput)
 }
 
-// Information about a Job.
-type JobType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties associated with the Job.
-	Properties JobPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// JobTypeInput is an input type that accepts JobTypeArgs and JobTypeOutput values.
-// You can construct a concrete instance of `JobTypeInput` via:
-//
-//          JobTypeArgs{...}
-type JobTypeInput interface {
-	pulumi.Input
-
-	ToJobTypeOutput() JobTypeOutput
-	ToJobTypeOutputWithContext(context.Context) JobTypeOutput
-}
-
-// Information about a Job.
-type JobTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the Job.
-	Properties JobPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (JobTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobType)(nil)).Elem()
-}
-
-func (i JobTypeArgs) ToJobTypeOutput() JobTypeOutput {
-	return i.ToJobTypeOutputWithContext(context.Background())
-}
-
-func (i JobTypeArgs) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTypeOutput)
-}
-
-// Information about a Job.
-type JobTypeOutput struct{ *pulumi.OutputState }
-
-func (JobTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobType)(nil)).Elem()
-}
-
-func (o JobTypeOutput) ToJobTypeOutput() JobTypeOutput {
-	return o
-}
-
-func (o JobTypeOutput) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o JobTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v JobType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the Job.
-func (o JobTypeOutput) Properties() JobPropertiesResponseOutput {
-	return o.ApplyT(func(v JobType) JobPropertiesResponse { return v.Properties }).(JobPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o JobTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JobType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Constraints associated with the Job.
-type JobBasePropertiesProperties struct {
+type JobBasePropertiesConstraints struct {
 	// Max time the job can run. Default value: 1 week.
 	MaxWallClockTime *string `pulumi:"maxWallClockTime"`
 }
 
-// JobBasePropertiesPropertiesInput is an input type that accepts JobBasePropertiesPropertiesArgs and JobBasePropertiesPropertiesOutput values.
-// You can construct a concrete instance of `JobBasePropertiesPropertiesInput` via:
+// JobBasePropertiesConstraintsInput is an input type that accepts JobBasePropertiesConstraintsArgs and JobBasePropertiesConstraintsOutput values.
+// You can construct a concrete instance of `JobBasePropertiesConstraintsInput` via:
 //
-//          JobBasePropertiesPropertiesArgs{...}
-type JobBasePropertiesPropertiesInput interface {
+//          JobBasePropertiesConstraintsArgs{...}
+type JobBasePropertiesConstraintsInput interface {
 	pulumi.Input
 
-	ToJobBasePropertiesPropertiesOutput() JobBasePropertiesPropertiesOutput
-	ToJobBasePropertiesPropertiesOutputWithContext(context.Context) JobBasePropertiesPropertiesOutput
+	ToJobBasePropertiesConstraintsOutput() JobBasePropertiesConstraintsOutput
+	ToJobBasePropertiesConstraintsOutputWithContext(context.Context) JobBasePropertiesConstraintsOutput
 }
 
 // Constraints associated with the Job.
-type JobBasePropertiesPropertiesArgs struct {
+type JobBasePropertiesConstraintsArgs struct {
 	// Max time the job can run. Default value: 1 week.
 	MaxWallClockTime pulumi.StringPtrInput `pulumi:"maxWallClockTime"`
 }
 
-func (JobBasePropertiesPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobBasePropertiesProperties)(nil)).Elem()
+func (JobBasePropertiesConstraintsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobBasePropertiesConstraints)(nil)).Elem()
 }
 
-func (i JobBasePropertiesPropertiesArgs) ToJobBasePropertiesPropertiesOutput() JobBasePropertiesPropertiesOutput {
-	return i.ToJobBasePropertiesPropertiesOutputWithContext(context.Background())
+func (i JobBasePropertiesConstraintsArgs) ToJobBasePropertiesConstraintsOutput() JobBasePropertiesConstraintsOutput {
+	return i.ToJobBasePropertiesConstraintsOutputWithContext(context.Background())
 }
 
-func (i JobBasePropertiesPropertiesArgs) ToJobBasePropertiesPropertiesOutputWithContext(ctx context.Context) JobBasePropertiesPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobBasePropertiesPropertiesOutput)
+func (i JobBasePropertiesConstraintsArgs) ToJobBasePropertiesConstraintsOutputWithContext(ctx context.Context) JobBasePropertiesConstraintsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobBasePropertiesConstraintsOutput)
 }
 
-func (i JobBasePropertiesPropertiesArgs) ToJobBasePropertiesPropertiesPtrOutput() JobBasePropertiesPropertiesPtrOutput {
-	return i.ToJobBasePropertiesPropertiesPtrOutputWithContext(context.Background())
+func (i JobBasePropertiesConstraintsArgs) ToJobBasePropertiesConstraintsPtrOutput() JobBasePropertiesConstraintsPtrOutput {
+	return i.ToJobBasePropertiesConstraintsPtrOutputWithContext(context.Background())
 }
 
-func (i JobBasePropertiesPropertiesArgs) ToJobBasePropertiesPropertiesPtrOutputWithContext(ctx context.Context) JobBasePropertiesPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobBasePropertiesPropertiesOutput).ToJobBasePropertiesPropertiesPtrOutputWithContext(ctx)
+func (i JobBasePropertiesConstraintsArgs) ToJobBasePropertiesConstraintsPtrOutputWithContext(ctx context.Context) JobBasePropertiesConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobBasePropertiesConstraintsOutput).ToJobBasePropertiesConstraintsPtrOutputWithContext(ctx)
 }
 
-// JobBasePropertiesPropertiesPtrInput is an input type that accepts JobBasePropertiesPropertiesArgs, JobBasePropertiesPropertiesPtr and JobBasePropertiesPropertiesPtrOutput values.
-// You can construct a concrete instance of `JobBasePropertiesPropertiesPtrInput` via:
+// JobBasePropertiesConstraintsPtrInput is an input type that accepts JobBasePropertiesConstraintsArgs, JobBasePropertiesConstraintsPtr and JobBasePropertiesConstraintsPtrOutput values.
+// You can construct a concrete instance of `JobBasePropertiesConstraintsPtrInput` via:
 //
-//          JobBasePropertiesPropertiesArgs{...}
+//          JobBasePropertiesConstraintsArgs{...}
 //
 //  or:
 //
 //          nil
-type JobBasePropertiesPropertiesPtrInput interface {
+type JobBasePropertiesConstraintsPtrInput interface {
 	pulumi.Input
 
-	ToJobBasePropertiesPropertiesPtrOutput() JobBasePropertiesPropertiesPtrOutput
-	ToJobBasePropertiesPropertiesPtrOutputWithContext(context.Context) JobBasePropertiesPropertiesPtrOutput
+	ToJobBasePropertiesConstraintsPtrOutput() JobBasePropertiesConstraintsPtrOutput
+	ToJobBasePropertiesConstraintsPtrOutputWithContext(context.Context) JobBasePropertiesConstraintsPtrOutput
 }
 
-type jobBasePropertiesPropertiesPtrType JobBasePropertiesPropertiesArgs
+type jobBasePropertiesConstraintsPtrType JobBasePropertiesConstraintsArgs
 
-func JobBasePropertiesPropertiesPtr(v *JobBasePropertiesPropertiesArgs) JobBasePropertiesPropertiesPtrInput {
-	return (*jobBasePropertiesPropertiesPtrType)(v)
+func JobBasePropertiesConstraintsPtr(v *JobBasePropertiesConstraintsArgs) JobBasePropertiesConstraintsPtrInput {
+	return (*jobBasePropertiesConstraintsPtrType)(v)
 }
 
-func (*jobBasePropertiesPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobBasePropertiesProperties)(nil)).Elem()
+func (*jobBasePropertiesConstraintsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobBasePropertiesConstraints)(nil)).Elem()
 }
 
-func (i *jobBasePropertiesPropertiesPtrType) ToJobBasePropertiesPropertiesPtrOutput() JobBasePropertiesPropertiesPtrOutput {
-	return i.ToJobBasePropertiesPropertiesPtrOutputWithContext(context.Background())
+func (i *jobBasePropertiesConstraintsPtrType) ToJobBasePropertiesConstraintsPtrOutput() JobBasePropertiesConstraintsPtrOutput {
+	return i.ToJobBasePropertiesConstraintsPtrOutputWithContext(context.Background())
 }
 
-func (i *jobBasePropertiesPropertiesPtrType) ToJobBasePropertiesPropertiesPtrOutputWithContext(ctx context.Context) JobBasePropertiesPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobBasePropertiesPropertiesPtrOutput)
+func (i *jobBasePropertiesConstraintsPtrType) ToJobBasePropertiesConstraintsPtrOutputWithContext(ctx context.Context) JobBasePropertiesConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobBasePropertiesConstraintsPtrOutput)
 }
 
 // Constraints associated with the Job.
-type JobBasePropertiesPropertiesOutput struct{ *pulumi.OutputState }
+type JobBasePropertiesConstraintsOutput struct{ *pulumi.OutputState }
 
-func (JobBasePropertiesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobBasePropertiesProperties)(nil)).Elem()
+func (JobBasePropertiesConstraintsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobBasePropertiesConstraints)(nil)).Elem()
 }
 
-func (o JobBasePropertiesPropertiesOutput) ToJobBasePropertiesPropertiesOutput() JobBasePropertiesPropertiesOutput {
+func (o JobBasePropertiesConstraintsOutput) ToJobBasePropertiesConstraintsOutput() JobBasePropertiesConstraintsOutput {
 	return o
 }
 
-func (o JobBasePropertiesPropertiesOutput) ToJobBasePropertiesPropertiesOutputWithContext(ctx context.Context) JobBasePropertiesPropertiesOutput {
+func (o JobBasePropertiesConstraintsOutput) ToJobBasePropertiesConstraintsOutputWithContext(ctx context.Context) JobBasePropertiesConstraintsOutput {
 	return o
 }
 
-func (o JobBasePropertiesPropertiesOutput) ToJobBasePropertiesPropertiesPtrOutput() JobBasePropertiesPropertiesPtrOutput {
-	return o.ToJobBasePropertiesPropertiesPtrOutputWithContext(context.Background())
+func (o JobBasePropertiesConstraintsOutput) ToJobBasePropertiesConstraintsPtrOutput() JobBasePropertiesConstraintsPtrOutput {
+	return o.ToJobBasePropertiesConstraintsPtrOutputWithContext(context.Background())
 }
 
-func (o JobBasePropertiesPropertiesOutput) ToJobBasePropertiesPropertiesPtrOutputWithContext(ctx context.Context) JobBasePropertiesPropertiesPtrOutput {
-	return o.ApplyT(func(v JobBasePropertiesProperties) *JobBasePropertiesProperties {
+func (o JobBasePropertiesConstraintsOutput) ToJobBasePropertiesConstraintsPtrOutputWithContext(ctx context.Context) JobBasePropertiesConstraintsPtrOutput {
+	return o.ApplyT(func(v JobBasePropertiesConstraints) *JobBasePropertiesConstraints {
 		return &v
-	}).(JobBasePropertiesPropertiesPtrOutput)
+	}).(JobBasePropertiesConstraintsPtrOutput)
 }
 
 // Max time the job can run. Default value: 1 week.
-func (o JobBasePropertiesPropertiesOutput) MaxWallClockTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobBasePropertiesProperties) *string { return v.MaxWallClockTime }).(pulumi.StringPtrOutput)
+func (o JobBasePropertiesConstraintsOutput) MaxWallClockTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobBasePropertiesConstraints) *string { return v.MaxWallClockTime }).(pulumi.StringPtrOutput)
 }
 
-type JobBasePropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+type JobBasePropertiesConstraintsPtrOutput struct{ *pulumi.OutputState }
 
-func (JobBasePropertiesPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobBasePropertiesProperties)(nil)).Elem()
+func (JobBasePropertiesConstraintsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobBasePropertiesConstraints)(nil)).Elem()
 }
 
-func (o JobBasePropertiesPropertiesPtrOutput) ToJobBasePropertiesPropertiesPtrOutput() JobBasePropertiesPropertiesPtrOutput {
+func (o JobBasePropertiesConstraintsPtrOutput) ToJobBasePropertiesConstraintsPtrOutput() JobBasePropertiesConstraintsPtrOutput {
 	return o
 }
 
-func (o JobBasePropertiesPropertiesPtrOutput) ToJobBasePropertiesPropertiesPtrOutputWithContext(ctx context.Context) JobBasePropertiesPropertiesPtrOutput {
+func (o JobBasePropertiesConstraintsPtrOutput) ToJobBasePropertiesConstraintsPtrOutputWithContext(ctx context.Context) JobBasePropertiesConstraintsPtrOutput {
 	return o
 }
 
-func (o JobBasePropertiesPropertiesPtrOutput) Elem() JobBasePropertiesPropertiesOutput {
-	return o.ApplyT(func(v *JobBasePropertiesProperties) JobBasePropertiesProperties { return *v }).(JobBasePropertiesPropertiesOutput)
+func (o JobBasePropertiesConstraintsPtrOutput) Elem() JobBasePropertiesConstraintsOutput {
+	return o.ApplyT(func(v *JobBasePropertiesConstraints) JobBasePropertiesConstraints { return *v }).(JobBasePropertiesConstraintsOutput)
 }
 
 // Max time the job can run. Default value: 1 week.
-func (o JobBasePropertiesPropertiesPtrOutput) MaxWallClockTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobBasePropertiesProperties) *string {
+func (o JobBasePropertiesConstraintsPtrOutput) MaxWallClockTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobBasePropertiesConstraints) *string {
 		if v == nil {
 			return nil
 		}
@@ -8278,7 +7986,7 @@ type JobPropertiesResponse struct {
 	// CNTK (aka Microsoft Cognitive Toolkit) job settings.
 	CntkSettings *CNTKsettingsResponse `pulumi:"cntkSettings"`
 	// Constraints associated with the Job.
-	Constraints *JobPropertiesResponseProperties `pulumi:"constraints"`
+	Constraints *JobPropertiesResponseConstraints `pulumi:"constraints"`
 	// If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
 	ContainerSettings *ContainerSettingsResponse `pulumi:"containerSettings"`
 	// The creation time of the job.
@@ -8290,7 +7998,7 @@ type JobPropertiesResponse struct {
 	// A collection of user defined environment variables to be setup for the job.
 	EnvironmentVariables []EnvironmentVariableResponse `pulumi:"environmentVariables"`
 	// Information about the execution of a job.
-	ExecutionInfo *JobPropertiesResponseProperties `pulumi:"executionInfo"`
+	ExecutionInfo *JobPropertiesResponseExecutionInfo `pulumi:"executionInfo"`
 	// The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
 	ExecutionState string `pulumi:"executionState"`
 	// The time at which the job entered its current execution state.
@@ -8351,7 +8059,7 @@ type JobPropertiesResponseArgs struct {
 	// CNTK (aka Microsoft Cognitive Toolkit) job settings.
 	CntkSettings CNTKsettingsResponsePtrInput `pulumi:"cntkSettings"`
 	// Constraints associated with the Job.
-	Constraints JobPropertiesResponsePropertiesPtrInput `pulumi:"constraints"`
+	Constraints JobPropertiesResponseConstraintsPtrInput `pulumi:"constraints"`
 	// If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
 	ContainerSettings ContainerSettingsResponsePtrInput `pulumi:"containerSettings"`
 	// The creation time of the job.
@@ -8363,7 +8071,7 @@ type JobPropertiesResponseArgs struct {
 	// A collection of user defined environment variables to be setup for the job.
 	EnvironmentVariables EnvironmentVariableResponseArrayInput `pulumi:"environmentVariables"`
 	// Information about the execution of a job.
-	ExecutionInfo JobPropertiesResponsePropertiesPtrInput `pulumi:"executionInfo"`
+	ExecutionInfo JobPropertiesResponseExecutionInfoPtrInput `pulumi:"executionInfo"`
 	// The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
 	ExecutionState pulumi.StringInput `pulumi:"executionState"`
 	// The time at which the job entered its current execution state.
@@ -8504,8 +8212,8 @@ func (o JobPropertiesResponseOutput) CntkSettings() CNTKsettingsResponsePtrOutpu
 }
 
 // Constraints associated with the Job.
-func (o JobPropertiesResponseOutput) Constraints() JobPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v JobPropertiesResponse) *JobPropertiesResponseProperties { return v.Constraints }).(JobPropertiesResponsePropertiesPtrOutput)
+func (o JobPropertiesResponseOutput) Constraints() JobPropertiesResponseConstraintsPtrOutput {
+	return o.ApplyT(func(v JobPropertiesResponse) *JobPropertiesResponseConstraints { return v.Constraints }).(JobPropertiesResponseConstraintsPtrOutput)
 }
 
 // If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
@@ -8534,8 +8242,8 @@ func (o JobPropertiesResponseOutput) EnvironmentVariables() EnvironmentVariableR
 }
 
 // Information about the execution of a job.
-func (o JobPropertiesResponseOutput) ExecutionInfo() JobPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v JobPropertiesResponse) *JobPropertiesResponseProperties { return v.ExecutionInfo }).(JobPropertiesResponsePropertiesPtrOutput)
+func (o JobPropertiesResponseOutput) ExecutionInfo() JobPropertiesResponseExecutionInfoPtrOutput {
+	return o.ApplyT(func(v JobPropertiesResponse) *JobPropertiesResponseExecutionInfo { return v.ExecutionInfo }).(JobPropertiesResponseExecutionInfoPtrOutput)
 }
 
 // The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
@@ -8692,13 +8400,13 @@ func (o JobPropertiesResponsePtrOutput) CntkSettings() CNTKsettingsResponsePtrOu
 }
 
 // Constraints associated with the Job.
-func (o JobPropertiesResponsePtrOutput) Constraints() JobPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *JobPropertiesResponse) *JobPropertiesResponseProperties {
+func (o JobPropertiesResponsePtrOutput) Constraints() JobPropertiesResponseConstraintsPtrOutput {
+	return o.ApplyT(func(v *JobPropertiesResponse) *JobPropertiesResponseConstraints {
 		if v == nil {
 			return nil
 		}
 		return v.Constraints
-	}).(JobPropertiesResponsePropertiesPtrOutput)
+	}).(JobPropertiesResponseConstraintsPtrOutput)
 }
 
 // If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
@@ -8752,13 +8460,13 @@ func (o JobPropertiesResponsePtrOutput) EnvironmentVariables() EnvironmentVariab
 }
 
 // Information about the execution of a job.
-func (o JobPropertiesResponsePtrOutput) ExecutionInfo() JobPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *JobPropertiesResponse) *JobPropertiesResponseProperties {
+func (o JobPropertiesResponsePtrOutput) ExecutionInfo() JobPropertiesResponseExecutionInfoPtrOutput {
+	return o.ApplyT(func(v *JobPropertiesResponse) *JobPropertiesResponseExecutionInfo {
 		if v == nil {
 			return nil
 		}
 		return v.ExecutionInfo
-	}).(JobPropertiesResponsePropertiesPtrOutput)
+	}).(JobPropertiesResponseExecutionInfoPtrOutput)
 }
 
 // The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
@@ -8932,136 +8640,327 @@ func (o JobPropertiesResponsePtrOutput) ToolType() pulumi.StringPtrOutput {
 }
 
 // Constraints associated with the Job.
-type JobPropertiesResponseProperties struct {
+type JobPropertiesResponseConstraints struct {
 	// Max time the job can run. Default value: 1 week.
 	MaxWallClockTime *string `pulumi:"maxWallClockTime"`
 }
 
-// JobPropertiesResponsePropertiesInput is an input type that accepts JobPropertiesResponsePropertiesArgs and JobPropertiesResponsePropertiesOutput values.
-// You can construct a concrete instance of `JobPropertiesResponsePropertiesInput` via:
+// JobPropertiesResponseConstraintsInput is an input type that accepts JobPropertiesResponseConstraintsArgs and JobPropertiesResponseConstraintsOutput values.
+// You can construct a concrete instance of `JobPropertiesResponseConstraintsInput` via:
 //
-//          JobPropertiesResponsePropertiesArgs{...}
-type JobPropertiesResponsePropertiesInput interface {
+//          JobPropertiesResponseConstraintsArgs{...}
+type JobPropertiesResponseConstraintsInput interface {
 	pulumi.Input
 
-	ToJobPropertiesResponsePropertiesOutput() JobPropertiesResponsePropertiesOutput
-	ToJobPropertiesResponsePropertiesOutputWithContext(context.Context) JobPropertiesResponsePropertiesOutput
+	ToJobPropertiesResponseConstraintsOutput() JobPropertiesResponseConstraintsOutput
+	ToJobPropertiesResponseConstraintsOutputWithContext(context.Context) JobPropertiesResponseConstraintsOutput
 }
 
 // Constraints associated with the Job.
-type JobPropertiesResponsePropertiesArgs struct {
+type JobPropertiesResponseConstraintsArgs struct {
 	// Max time the job can run. Default value: 1 week.
 	MaxWallClockTime pulumi.StringPtrInput `pulumi:"maxWallClockTime"`
 }
 
-func (JobPropertiesResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobPropertiesResponseProperties)(nil)).Elem()
+func (JobPropertiesResponseConstraintsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobPropertiesResponseConstraints)(nil)).Elem()
 }
 
-func (i JobPropertiesResponsePropertiesArgs) ToJobPropertiesResponsePropertiesOutput() JobPropertiesResponsePropertiesOutput {
-	return i.ToJobPropertiesResponsePropertiesOutputWithContext(context.Background())
+func (i JobPropertiesResponseConstraintsArgs) ToJobPropertiesResponseConstraintsOutput() JobPropertiesResponseConstraintsOutput {
+	return i.ToJobPropertiesResponseConstraintsOutputWithContext(context.Background())
 }
 
-func (i JobPropertiesResponsePropertiesArgs) ToJobPropertiesResponsePropertiesOutputWithContext(ctx context.Context) JobPropertiesResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobPropertiesResponsePropertiesOutput)
+func (i JobPropertiesResponseConstraintsArgs) ToJobPropertiesResponseConstraintsOutputWithContext(ctx context.Context) JobPropertiesResponseConstraintsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobPropertiesResponseConstraintsOutput)
 }
 
-func (i JobPropertiesResponsePropertiesArgs) ToJobPropertiesResponsePropertiesPtrOutput() JobPropertiesResponsePropertiesPtrOutput {
-	return i.ToJobPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (i JobPropertiesResponseConstraintsArgs) ToJobPropertiesResponseConstraintsPtrOutput() JobPropertiesResponseConstraintsPtrOutput {
+	return i.ToJobPropertiesResponseConstraintsPtrOutputWithContext(context.Background())
 }
 
-func (i JobPropertiesResponsePropertiesArgs) ToJobPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) JobPropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobPropertiesResponsePropertiesOutput).ToJobPropertiesResponsePropertiesPtrOutputWithContext(ctx)
+func (i JobPropertiesResponseConstraintsArgs) ToJobPropertiesResponseConstraintsPtrOutputWithContext(ctx context.Context) JobPropertiesResponseConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobPropertiesResponseConstraintsOutput).ToJobPropertiesResponseConstraintsPtrOutputWithContext(ctx)
 }
 
-// JobPropertiesResponsePropertiesPtrInput is an input type that accepts JobPropertiesResponsePropertiesArgs, JobPropertiesResponsePropertiesPtr and JobPropertiesResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `JobPropertiesResponsePropertiesPtrInput` via:
+// JobPropertiesResponseConstraintsPtrInput is an input type that accepts JobPropertiesResponseConstraintsArgs, JobPropertiesResponseConstraintsPtr and JobPropertiesResponseConstraintsPtrOutput values.
+// You can construct a concrete instance of `JobPropertiesResponseConstraintsPtrInput` via:
 //
-//          JobPropertiesResponsePropertiesArgs{...}
+//          JobPropertiesResponseConstraintsArgs{...}
 //
 //  or:
 //
 //          nil
-type JobPropertiesResponsePropertiesPtrInput interface {
+type JobPropertiesResponseConstraintsPtrInput interface {
 	pulumi.Input
 
-	ToJobPropertiesResponsePropertiesPtrOutput() JobPropertiesResponsePropertiesPtrOutput
-	ToJobPropertiesResponsePropertiesPtrOutputWithContext(context.Context) JobPropertiesResponsePropertiesPtrOutput
+	ToJobPropertiesResponseConstraintsPtrOutput() JobPropertiesResponseConstraintsPtrOutput
+	ToJobPropertiesResponseConstraintsPtrOutputWithContext(context.Context) JobPropertiesResponseConstraintsPtrOutput
 }
 
-type jobPropertiesResponsePropertiesPtrType JobPropertiesResponsePropertiesArgs
+type jobPropertiesResponseConstraintsPtrType JobPropertiesResponseConstraintsArgs
 
-func JobPropertiesResponsePropertiesPtr(v *JobPropertiesResponsePropertiesArgs) JobPropertiesResponsePropertiesPtrInput {
-	return (*jobPropertiesResponsePropertiesPtrType)(v)
+func JobPropertiesResponseConstraintsPtr(v *JobPropertiesResponseConstraintsArgs) JobPropertiesResponseConstraintsPtrInput {
+	return (*jobPropertiesResponseConstraintsPtrType)(v)
 }
 
-func (*jobPropertiesResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobPropertiesResponseProperties)(nil)).Elem()
+func (*jobPropertiesResponseConstraintsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobPropertiesResponseConstraints)(nil)).Elem()
 }
 
-func (i *jobPropertiesResponsePropertiesPtrType) ToJobPropertiesResponsePropertiesPtrOutput() JobPropertiesResponsePropertiesPtrOutput {
-	return i.ToJobPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *jobPropertiesResponseConstraintsPtrType) ToJobPropertiesResponseConstraintsPtrOutput() JobPropertiesResponseConstraintsPtrOutput {
+	return i.ToJobPropertiesResponseConstraintsPtrOutputWithContext(context.Background())
 }
 
-func (i *jobPropertiesResponsePropertiesPtrType) ToJobPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) JobPropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobPropertiesResponsePropertiesPtrOutput)
+func (i *jobPropertiesResponseConstraintsPtrType) ToJobPropertiesResponseConstraintsPtrOutputWithContext(ctx context.Context) JobPropertiesResponseConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobPropertiesResponseConstraintsPtrOutput)
 }
 
 // Constraints associated with the Job.
-type JobPropertiesResponsePropertiesOutput struct{ *pulumi.OutputState }
+type JobPropertiesResponseConstraintsOutput struct{ *pulumi.OutputState }
 
-func (JobPropertiesResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobPropertiesResponseProperties)(nil)).Elem()
+func (JobPropertiesResponseConstraintsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobPropertiesResponseConstraints)(nil)).Elem()
 }
 
-func (o JobPropertiesResponsePropertiesOutput) ToJobPropertiesResponsePropertiesOutput() JobPropertiesResponsePropertiesOutput {
+func (o JobPropertiesResponseConstraintsOutput) ToJobPropertiesResponseConstraintsOutput() JobPropertiesResponseConstraintsOutput {
 	return o
 }
 
-func (o JobPropertiesResponsePropertiesOutput) ToJobPropertiesResponsePropertiesOutputWithContext(ctx context.Context) JobPropertiesResponsePropertiesOutput {
+func (o JobPropertiesResponseConstraintsOutput) ToJobPropertiesResponseConstraintsOutputWithContext(ctx context.Context) JobPropertiesResponseConstraintsOutput {
 	return o
 }
 
-func (o JobPropertiesResponsePropertiesOutput) ToJobPropertiesResponsePropertiesPtrOutput() JobPropertiesResponsePropertiesPtrOutput {
-	return o.ToJobPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (o JobPropertiesResponseConstraintsOutput) ToJobPropertiesResponseConstraintsPtrOutput() JobPropertiesResponseConstraintsPtrOutput {
+	return o.ToJobPropertiesResponseConstraintsPtrOutputWithContext(context.Background())
 }
 
-func (o JobPropertiesResponsePropertiesOutput) ToJobPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) JobPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v JobPropertiesResponseProperties) *JobPropertiesResponseProperties {
+func (o JobPropertiesResponseConstraintsOutput) ToJobPropertiesResponseConstraintsPtrOutputWithContext(ctx context.Context) JobPropertiesResponseConstraintsPtrOutput {
+	return o.ApplyT(func(v JobPropertiesResponseConstraints) *JobPropertiesResponseConstraints {
 		return &v
-	}).(JobPropertiesResponsePropertiesPtrOutput)
+	}).(JobPropertiesResponseConstraintsPtrOutput)
 }
 
 // Max time the job can run. Default value: 1 week.
-func (o JobPropertiesResponsePropertiesOutput) MaxWallClockTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobPropertiesResponseProperties) *string { return v.MaxWallClockTime }).(pulumi.StringPtrOutput)
+func (o JobPropertiesResponseConstraintsOutput) MaxWallClockTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobPropertiesResponseConstraints) *string { return v.MaxWallClockTime }).(pulumi.StringPtrOutput)
 }
 
-type JobPropertiesResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type JobPropertiesResponseConstraintsPtrOutput struct{ *pulumi.OutputState }
 
-func (JobPropertiesResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobPropertiesResponseProperties)(nil)).Elem()
+func (JobPropertiesResponseConstraintsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobPropertiesResponseConstraints)(nil)).Elem()
 }
 
-func (o JobPropertiesResponsePropertiesPtrOutput) ToJobPropertiesResponsePropertiesPtrOutput() JobPropertiesResponsePropertiesPtrOutput {
+func (o JobPropertiesResponseConstraintsPtrOutput) ToJobPropertiesResponseConstraintsPtrOutput() JobPropertiesResponseConstraintsPtrOutput {
 	return o
 }
 
-func (o JobPropertiesResponsePropertiesPtrOutput) ToJobPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) JobPropertiesResponsePropertiesPtrOutput {
+func (o JobPropertiesResponseConstraintsPtrOutput) ToJobPropertiesResponseConstraintsPtrOutputWithContext(ctx context.Context) JobPropertiesResponseConstraintsPtrOutput {
 	return o
 }
 
-func (o JobPropertiesResponsePropertiesPtrOutput) Elem() JobPropertiesResponsePropertiesOutput {
-	return o.ApplyT(func(v *JobPropertiesResponseProperties) JobPropertiesResponseProperties { return *v }).(JobPropertiesResponsePropertiesOutput)
+func (o JobPropertiesResponseConstraintsPtrOutput) Elem() JobPropertiesResponseConstraintsOutput {
+	return o.ApplyT(func(v *JobPropertiesResponseConstraints) JobPropertiesResponseConstraints { return *v }).(JobPropertiesResponseConstraintsOutput)
 }
 
 // Max time the job can run. Default value: 1 week.
-func (o JobPropertiesResponsePropertiesPtrOutput) MaxWallClockTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobPropertiesResponseProperties) *string {
+func (o JobPropertiesResponseConstraintsPtrOutput) MaxWallClockTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobPropertiesResponseConstraints) *string {
 		if v == nil {
 			return nil
 		}
 		return v.MaxWallClockTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the execution of a job.
+type JobPropertiesResponseExecutionInfo struct {
+	// The time at which the job completed. This property is only returned if the job is in completed state.
+	EndTime string `pulumi:"endTime"`
+	// A collection of errors encountered by the service during job execution.
+	Errors []BatchAIErrorResponse `pulumi:"errors"`
+	// The exit code of the job. This property is only returned if the job is in completed state.
+	ExitCode int `pulumi:"exitCode"`
+	// The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+	StartTime string `pulumi:"startTime"`
+}
+
+// JobPropertiesResponseExecutionInfoInput is an input type that accepts JobPropertiesResponseExecutionInfoArgs and JobPropertiesResponseExecutionInfoOutput values.
+// You can construct a concrete instance of `JobPropertiesResponseExecutionInfoInput` via:
+//
+//          JobPropertiesResponseExecutionInfoArgs{...}
+type JobPropertiesResponseExecutionInfoInput interface {
+	pulumi.Input
+
+	ToJobPropertiesResponseExecutionInfoOutput() JobPropertiesResponseExecutionInfoOutput
+	ToJobPropertiesResponseExecutionInfoOutputWithContext(context.Context) JobPropertiesResponseExecutionInfoOutput
+}
+
+// Information about the execution of a job.
+type JobPropertiesResponseExecutionInfoArgs struct {
+	// The time at which the job completed. This property is only returned if the job is in completed state.
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// A collection of errors encountered by the service during job execution.
+	Errors BatchAIErrorResponseArrayInput `pulumi:"errors"`
+	// The exit code of the job. This property is only returned if the job is in completed state.
+	ExitCode pulumi.IntInput `pulumi:"exitCode"`
+	// The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (JobPropertiesResponseExecutionInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobPropertiesResponseExecutionInfo)(nil)).Elem()
+}
+
+func (i JobPropertiesResponseExecutionInfoArgs) ToJobPropertiesResponseExecutionInfoOutput() JobPropertiesResponseExecutionInfoOutput {
+	return i.ToJobPropertiesResponseExecutionInfoOutputWithContext(context.Background())
+}
+
+func (i JobPropertiesResponseExecutionInfoArgs) ToJobPropertiesResponseExecutionInfoOutputWithContext(ctx context.Context) JobPropertiesResponseExecutionInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobPropertiesResponseExecutionInfoOutput)
+}
+
+func (i JobPropertiesResponseExecutionInfoArgs) ToJobPropertiesResponseExecutionInfoPtrOutput() JobPropertiesResponseExecutionInfoPtrOutput {
+	return i.ToJobPropertiesResponseExecutionInfoPtrOutputWithContext(context.Background())
+}
+
+func (i JobPropertiesResponseExecutionInfoArgs) ToJobPropertiesResponseExecutionInfoPtrOutputWithContext(ctx context.Context) JobPropertiesResponseExecutionInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobPropertiesResponseExecutionInfoOutput).ToJobPropertiesResponseExecutionInfoPtrOutputWithContext(ctx)
+}
+
+// JobPropertiesResponseExecutionInfoPtrInput is an input type that accepts JobPropertiesResponseExecutionInfoArgs, JobPropertiesResponseExecutionInfoPtr and JobPropertiesResponseExecutionInfoPtrOutput values.
+// You can construct a concrete instance of `JobPropertiesResponseExecutionInfoPtrInput` via:
+//
+//          JobPropertiesResponseExecutionInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type JobPropertiesResponseExecutionInfoPtrInput interface {
+	pulumi.Input
+
+	ToJobPropertiesResponseExecutionInfoPtrOutput() JobPropertiesResponseExecutionInfoPtrOutput
+	ToJobPropertiesResponseExecutionInfoPtrOutputWithContext(context.Context) JobPropertiesResponseExecutionInfoPtrOutput
+}
+
+type jobPropertiesResponseExecutionInfoPtrType JobPropertiesResponseExecutionInfoArgs
+
+func JobPropertiesResponseExecutionInfoPtr(v *JobPropertiesResponseExecutionInfoArgs) JobPropertiesResponseExecutionInfoPtrInput {
+	return (*jobPropertiesResponseExecutionInfoPtrType)(v)
+}
+
+func (*jobPropertiesResponseExecutionInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobPropertiesResponseExecutionInfo)(nil)).Elem()
+}
+
+func (i *jobPropertiesResponseExecutionInfoPtrType) ToJobPropertiesResponseExecutionInfoPtrOutput() JobPropertiesResponseExecutionInfoPtrOutput {
+	return i.ToJobPropertiesResponseExecutionInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *jobPropertiesResponseExecutionInfoPtrType) ToJobPropertiesResponseExecutionInfoPtrOutputWithContext(ctx context.Context) JobPropertiesResponseExecutionInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobPropertiesResponseExecutionInfoPtrOutput)
+}
+
+// Information about the execution of a job.
+type JobPropertiesResponseExecutionInfoOutput struct{ *pulumi.OutputState }
+
+func (JobPropertiesResponseExecutionInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobPropertiesResponseExecutionInfo)(nil)).Elem()
+}
+
+func (o JobPropertiesResponseExecutionInfoOutput) ToJobPropertiesResponseExecutionInfoOutput() JobPropertiesResponseExecutionInfoOutput {
+	return o
+}
+
+func (o JobPropertiesResponseExecutionInfoOutput) ToJobPropertiesResponseExecutionInfoOutputWithContext(ctx context.Context) JobPropertiesResponseExecutionInfoOutput {
+	return o
+}
+
+func (o JobPropertiesResponseExecutionInfoOutput) ToJobPropertiesResponseExecutionInfoPtrOutput() JobPropertiesResponseExecutionInfoPtrOutput {
+	return o.ToJobPropertiesResponseExecutionInfoPtrOutputWithContext(context.Background())
+}
+
+func (o JobPropertiesResponseExecutionInfoOutput) ToJobPropertiesResponseExecutionInfoPtrOutputWithContext(ctx context.Context) JobPropertiesResponseExecutionInfoPtrOutput {
+	return o.ApplyT(func(v JobPropertiesResponseExecutionInfo) *JobPropertiesResponseExecutionInfo {
+		return &v
+	}).(JobPropertiesResponseExecutionInfoPtrOutput)
+}
+
+// The time at which the job completed. This property is only returned if the job is in completed state.
+func (o JobPropertiesResponseExecutionInfoOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v JobPropertiesResponseExecutionInfo) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// A collection of errors encountered by the service during job execution.
+func (o JobPropertiesResponseExecutionInfoOutput) Errors() BatchAIErrorResponseArrayOutput {
+	return o.ApplyT(func(v JobPropertiesResponseExecutionInfo) []BatchAIErrorResponse { return v.Errors }).(BatchAIErrorResponseArrayOutput)
+}
+
+// The exit code of the job. This property is only returned if the job is in completed state.
+func (o JobPropertiesResponseExecutionInfoOutput) ExitCode() pulumi.IntOutput {
+	return o.ApplyT(func(v JobPropertiesResponseExecutionInfo) int { return v.ExitCode }).(pulumi.IntOutput)
+}
+
+// The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+func (o JobPropertiesResponseExecutionInfoOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v JobPropertiesResponseExecutionInfo) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type JobPropertiesResponseExecutionInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (JobPropertiesResponseExecutionInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobPropertiesResponseExecutionInfo)(nil)).Elem()
+}
+
+func (o JobPropertiesResponseExecutionInfoPtrOutput) ToJobPropertiesResponseExecutionInfoPtrOutput() JobPropertiesResponseExecutionInfoPtrOutput {
+	return o
+}
+
+func (o JobPropertiesResponseExecutionInfoPtrOutput) ToJobPropertiesResponseExecutionInfoPtrOutputWithContext(ctx context.Context) JobPropertiesResponseExecutionInfoPtrOutput {
+	return o
+}
+
+func (o JobPropertiesResponseExecutionInfoPtrOutput) Elem() JobPropertiesResponseExecutionInfoOutput {
+	return o.ApplyT(func(v *JobPropertiesResponseExecutionInfo) JobPropertiesResponseExecutionInfo { return *v }).(JobPropertiesResponseExecutionInfoOutput)
+}
+
+// The time at which the job completed. This property is only returned if the job is in completed state.
+func (o JobPropertiesResponseExecutionInfoPtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobPropertiesResponseExecutionInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// A collection of errors encountered by the service during job execution.
+func (o JobPropertiesResponseExecutionInfoPtrOutput) Errors() BatchAIErrorResponseArrayOutput {
+	return o.ApplyT(func(v *JobPropertiesResponseExecutionInfo) []BatchAIErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Errors
+	}).(BatchAIErrorResponseArrayOutput)
+}
+
+// The exit code of the job. This property is only returned if the job is in completed state.
+func (o JobPropertiesResponseExecutionInfoPtrOutput) ExitCode() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobPropertiesResponseExecutionInfo) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ExitCode
+	}).(pulumi.IntPtrOutput)
+}
+
+// The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+func (o JobPropertiesResponseExecutionInfoPtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobPropertiesResponseExecutionInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14891,97 +14790,6 @@ func (o VirtualMachineConfigurationResponsePtrOutput) ImageReference() ImageRefe
 	}).(ImageReferenceResponsePtrOutput)
 }
 
-// Batch AI Workspace information.
-type WorkspaceType struct {
-	// The location of the resource
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties associated with the workspace.
-	Properties WorkspacePropertiesResponse `pulumi:"properties"`
-	// The tags of the resource
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource
-	Type string `pulumi:"type"`
-}
-
-// WorkspaceTypeInput is an input type that accepts WorkspaceTypeArgs and WorkspaceTypeOutput values.
-// You can construct a concrete instance of `WorkspaceTypeInput` via:
-//
-//          WorkspaceTypeArgs{...}
-type WorkspaceTypeInput interface {
-	pulumi.Input
-
-	ToWorkspaceTypeOutput() WorkspaceTypeOutput
-	ToWorkspaceTypeOutputWithContext(context.Context) WorkspaceTypeOutput
-}
-
-// Batch AI Workspace information.
-type WorkspaceTypeArgs struct {
-	// The location of the resource
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the workspace.
-	Properties WorkspacePropertiesResponseInput `pulumi:"properties"`
-	// The tags of the resource
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkspaceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceType)(nil)).Elem()
-}
-
-func (i WorkspaceTypeArgs) ToWorkspaceTypeOutput() WorkspaceTypeOutput {
-	return i.ToWorkspaceTypeOutputWithContext(context.Background())
-}
-
-func (i WorkspaceTypeArgs) ToWorkspaceTypeOutputWithContext(ctx context.Context) WorkspaceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTypeOutput)
-}
-
-// Batch AI Workspace information.
-type WorkspaceTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceType)(nil)).Elem()
-}
-
-func (o WorkspaceTypeOutput) ToWorkspaceTypeOutput() WorkspaceTypeOutput {
-	return o
-}
-
-func (o WorkspaceTypeOutput) ToWorkspaceTypeOutputWithContext(ctx context.Context) WorkspaceTypeOutput {
-	return o
-}
-
-// The location of the resource
-func (o WorkspaceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o WorkspaceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the workspace.
-func (o WorkspaceTypeOutput) Properties() WorkspacePropertiesResponseOutput {
-	return o.ApplyT(func(v WorkspaceType) WorkspacePropertiesResponse { return v.Properties }).(WorkspacePropertiesResponseOutput)
-}
-
-// The tags of the resource
-func (o WorkspaceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkspaceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource
-func (o WorkspaceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkspaceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Workspace specific properties.
 type WorkspacePropertiesResponse struct {
 	// Time when the Workspace was created.
@@ -15191,7 +14999,6 @@ func init() {
 	pulumi.RegisterOutputType(ChainerSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChainerSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ChainerSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterTypeOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerSettingsOutput{})
@@ -15218,14 +15025,12 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentVariableWithSecretValueArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableWithSecretValueResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableWithSecretValueResponseArrayOutput{})
-	pulumi.RegisterOutputType(ExperimentTypeOutput{})
 	pulumi.RegisterOutputType(ExperimentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ExperimentPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FilePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(FilePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FileResponseOutput{})
 	pulumi.RegisterOutputType(FileResponseArrayOutput{})
-	pulumi.RegisterOutputType(FileServerTypeOutput{})
 	pulumi.RegisterOutputType(FileServerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(FileServerPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FileServerReferenceOutput{})
@@ -15248,17 +15053,18 @@ func init() {
 	pulumi.RegisterOutputType(InputDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(InputDirectoryResponseOutput{})
 	pulumi.RegisterOutputType(InputDirectoryResponseArrayOutput{})
-	pulumi.RegisterOutputType(JobTypeOutput{})
-	pulumi.RegisterOutputType(JobBasePropertiesPropertiesOutput{})
-	pulumi.RegisterOutputType(JobBasePropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobBasePropertiesConstraintsOutput{})
+	pulumi.RegisterOutputType(JobBasePropertiesConstraintsPtrOutput{})
 	pulumi.RegisterOutputType(JobPreparationOutput{})
 	pulumi.RegisterOutputType(JobPreparationPtrOutput{})
 	pulumi.RegisterOutputType(JobPreparationResponseOutput{})
 	pulumi.RegisterOutputType(JobPreparationResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(JobPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(JobPropertiesResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(JobPropertiesResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobPropertiesResponseConstraintsOutput{})
+	pulumi.RegisterOutputType(JobPropertiesResponseConstraintsPtrOutput{})
+	pulumi.RegisterOutputType(JobPropertiesResponseExecutionInfoOutput{})
+	pulumi.RegisterOutputType(JobPropertiesResponseExecutionInfoPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretReferencePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultSecretReferenceResponseOutput{})
@@ -15331,7 +15137,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(WorkspaceTypeOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponsePtrOutput{})
 }

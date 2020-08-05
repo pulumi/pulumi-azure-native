@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.Cdn.V20190615.Outputs
         /// <summary>
         /// A policy that specifies the delivery rules to be used for an endpoint.
         /// </summary>
-        public readonly Outputs.EndpointPropertiesUpdateParametersResponsePropertiesResult? DeliveryPolicy;
+        public readonly Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicyResult? DeliveryPolicy;
         /// <summary>
         /// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         /// </summary>
@@ -76,13 +76,13 @@ namespace Pulumi.AzureRM.Cdn.V20190615.Outputs
         /// <summary>
         /// Defines the Web Application Firewall policy for the endpoint (if applicable)
         /// </summary>
-        public readonly Outputs.EndpointPropertiesUpdateParametersResponsePropertiesResult? WebApplicationFirewallPolicyLink;
+        public readonly Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? WebApplicationFirewallPolicyLink;
 
         [OutputConstructor]
         private EndpointPropertiesResponseResult(
             ImmutableArray<string> contentTypesToCompress,
 
-            Outputs.EndpointPropertiesUpdateParametersResponsePropertiesResult? deliveryPolicy,
+            Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicyResult? deliveryPolicy,
 
             ImmutableArray<Outputs.GeoFilterResponseResult> geoFilters,
 
@@ -110,7 +110,7 @@ namespace Pulumi.AzureRM.Cdn.V20190615.Outputs
 
             string resourceState,
 
-            Outputs.EndpointPropertiesUpdateParametersResponsePropertiesResult? webApplicationFirewallPolicyLink)
+            Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? webApplicationFirewallPolicyLink)
         {
             ContentTypesToCompress = contentTypesToCompress;
             DeliveryPolicy = deliveryPolicy;

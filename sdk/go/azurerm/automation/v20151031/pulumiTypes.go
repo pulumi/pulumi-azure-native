@@ -574,106 +574,6 @@ func (o AdvancedScheduleResponsePtrOutput) WeekDays() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Definition of the automation account type.
-type AutomationAccountType struct {
-	// Gets or sets the etag of the resource.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the automation account properties.
-	Properties AutomationAccountPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// AutomationAccountTypeInput is an input type that accepts AutomationAccountTypeArgs and AutomationAccountTypeOutput values.
-// You can construct a concrete instance of `AutomationAccountTypeInput` via:
-//
-//          AutomationAccountTypeArgs{...}
-type AutomationAccountTypeInput interface {
-	pulumi.Input
-
-	ToAutomationAccountTypeOutput() AutomationAccountTypeOutput
-	ToAutomationAccountTypeOutputWithContext(context.Context) AutomationAccountTypeOutput
-}
-
-// Definition of the automation account type.
-type AutomationAccountTypeArgs struct {
-	// Gets or sets the etag of the resource.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the automation account properties.
-	Properties AutomationAccountPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AutomationAccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationAccountType)(nil)).Elem()
-}
-
-func (i AutomationAccountTypeArgs) ToAutomationAccountTypeOutput() AutomationAccountTypeOutput {
-	return i.ToAutomationAccountTypeOutputWithContext(context.Background())
-}
-
-func (i AutomationAccountTypeArgs) ToAutomationAccountTypeOutputWithContext(ctx context.Context) AutomationAccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationAccountTypeOutput)
-}
-
-// Definition of the automation account type.
-type AutomationAccountTypeOutput struct{ *pulumi.OutputState }
-
-func (AutomationAccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationAccountType)(nil)).Elem()
-}
-
-func (o AutomationAccountTypeOutput) ToAutomationAccountTypeOutput() AutomationAccountTypeOutput {
-	return o
-}
-
-func (o AutomationAccountTypeOutput) ToAutomationAccountTypeOutputWithContext(ctx context.Context) AutomationAccountTypeOutput {
-	return o
-}
-
-// Gets or sets the etag of the resource.
-func (o AutomationAccountTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationAccountType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The Azure Region where the resource lives
-func (o AutomationAccountTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AutomationAccountType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o AutomationAccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AutomationAccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the automation account properties.
-func (o AutomationAccountTypeOutput) Properties() AutomationAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v AutomationAccountType) AutomationAccountPropertiesResponse { return v.Properties }).(AutomationAccountPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o AutomationAccountTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AutomationAccountType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o AutomationAccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AutomationAccountType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Definition of the account property.
 type AutomationAccountPropertiesResponse struct {
 	// Gets the creation time.
@@ -901,79 +801,6 @@ func (o AutomationAccountPropertiesResponsePtrOutput) State() pulumi.StringPtrOu
 		}
 		return &v.State
 	}).(pulumi.StringPtrOutput)
-}
-
-// Definition of the certificate.
-type CertificateType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the properties of the certificate.
-	Properties CertificatePropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// CertificateTypeInput is an input type that accepts CertificateTypeArgs and CertificateTypeOutput values.
-// You can construct a concrete instance of `CertificateTypeInput` via:
-//
-//          CertificateTypeArgs{...}
-type CertificateTypeInput interface {
-	pulumi.Input
-
-	ToCertificateTypeOutput() CertificateTypeOutput
-	ToCertificateTypeOutputWithContext(context.Context) CertificateTypeOutput
-}
-
-// Definition of the certificate.
-type CertificateTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the properties of the certificate.
-	Properties CertificatePropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CertificateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateType)(nil)).Elem()
-}
-
-func (i CertificateTypeArgs) ToCertificateTypeOutput() CertificateTypeOutput {
-	return i.ToCertificateTypeOutputWithContext(context.Background())
-}
-
-func (i CertificateTypeArgs) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateTypeOutput)
-}
-
-// Definition of the certificate.
-type CertificateTypeOutput struct{ *pulumi.OutputState }
-
-func (CertificateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateType)(nil)).Elem()
-}
-
-func (o CertificateTypeOutput) ToCertificateTypeOutput() CertificateTypeOutput {
-	return o
-}
-
-func (o CertificateTypeOutput) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o CertificateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the properties of the certificate.
-func (o CertificateTypeOutput) Properties() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v CertificateType) CertificatePropertiesResponse { return v.Properties }).(CertificatePropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o CertificateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of the certificate.
@@ -1205,79 +1032,6 @@ func (o CertificatePropertiesResponsePtrOutput) Thumbprint() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the connection.
-type ConnectionType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the properties of the connection.
-	Properties ConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// ConnectionTypeInput is an input type that accepts ConnectionTypeArgs and ConnectionTypeOutput values.
-// You can construct a concrete instance of `ConnectionTypeInput` via:
-//
-//          ConnectionTypeArgs{...}
-type ConnectionTypeInput interface {
-	pulumi.Input
-
-	ToConnectionTypeOutput() ConnectionTypeOutput
-	ToConnectionTypeOutputWithContext(context.Context) ConnectionTypeOutput
-}
-
-// Definition of the connection.
-type ConnectionTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the properties of the connection.
-	Properties ConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionType)(nil)).Elem()
-}
-
-func (i ConnectionTypeArgs) ToConnectionTypeOutput() ConnectionTypeOutput {
-	return i.ToConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i ConnectionTypeArgs) ToConnectionTypeOutputWithContext(ctx context.Context) ConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeOutput)
-}
-
-// Definition of the connection.
-type ConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (ConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionType)(nil)).Elem()
-}
-
-func (o ConnectionTypeOutput) ToConnectionTypeOutput() ConnectionTypeOutput {
-	return o
-}
-
-func (o ConnectionTypeOutput) ToConnectionTypeOutputWithContext(ctx context.Context) ConnectionTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o ConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the properties of the connection.
-func (o ConnectionTypeOutput) Properties() ConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v ConnectionType) ConnectionPropertiesResponse { return v.Properties }).(ConnectionPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o ConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Definition of the connection properties.
 type ConnectionPropertiesResponse struct {
 	// Gets or sets the connectionType of the connection.
@@ -1488,79 +1242,6 @@ func (o ConnectionPropertiesResponsePtrOutput) LastModifiedTime() pulumi.StringP
 		}
 		return &v.LastModifiedTime
 	}).(pulumi.StringPtrOutput)
-}
-
-// Definition of the connection type.
-type ConnectionTypeType struct {
-	// Gets the name of the connection type.
-	Name string `pulumi:"name"`
-	// Gets or sets the properties of the connection type.
-	Properties ConnectionTypePropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ConnectionTypeTypeInput is an input type that accepts ConnectionTypeTypeArgs and ConnectionTypeTypeOutput values.
-// You can construct a concrete instance of `ConnectionTypeTypeInput` via:
-//
-//          ConnectionTypeTypeArgs{...}
-type ConnectionTypeTypeInput interface {
-	pulumi.Input
-
-	ToConnectionTypeTypeOutput() ConnectionTypeTypeOutput
-	ToConnectionTypeTypeOutputWithContext(context.Context) ConnectionTypeTypeOutput
-}
-
-// Definition of the connection type.
-type ConnectionTypeTypeArgs struct {
-	// Gets the name of the connection type.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the properties of the connection type.
-	Properties ConnectionTypePropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConnectionTypeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionTypeType)(nil)).Elem()
-}
-
-func (i ConnectionTypeTypeArgs) ToConnectionTypeTypeOutput() ConnectionTypeTypeOutput {
-	return i.ToConnectionTypeTypeOutputWithContext(context.Background())
-}
-
-func (i ConnectionTypeTypeArgs) ToConnectionTypeTypeOutputWithContext(ctx context.Context) ConnectionTypeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeTypeOutput)
-}
-
-// Definition of the connection type.
-type ConnectionTypeTypeOutput struct{ *pulumi.OutputState }
-
-func (ConnectionTypeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionTypeType)(nil)).Elem()
-}
-
-func (o ConnectionTypeTypeOutput) ToConnectionTypeTypeOutput() ConnectionTypeTypeOutput {
-	return o
-}
-
-func (o ConnectionTypeTypeOutput) ToConnectionTypeTypeOutputWithContext(ctx context.Context) ConnectionTypeTypeOutput {
-	return o
-}
-
-// Gets the name of the connection type.
-func (o ConnectionTypeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionTypeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the properties of the connection type.
-func (o ConnectionTypeTypeOutput) Properties() ConnectionTypePropertiesResponseOutput {
-	return o.ApplyT(func(v ConnectionTypeType) ConnectionTypePropertiesResponse { return v.Properties }).(ConnectionTypePropertiesResponseOutput)
-}
-
-// Resource type
-func (o ConnectionTypeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectionTypeType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The connection type property associated with the entity.
@@ -3075,79 +2756,6 @@ func (o ContentSourceResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the credential.
-type CredentialType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the properties of the credential.
-	Properties CredentialPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// CredentialTypeInput is an input type that accepts CredentialTypeArgs and CredentialTypeOutput values.
-// You can construct a concrete instance of `CredentialTypeInput` via:
-//
-//          CredentialTypeArgs{...}
-type CredentialTypeInput interface {
-	pulumi.Input
-
-	ToCredentialTypeOutput() CredentialTypeOutput
-	ToCredentialTypeOutputWithContext(context.Context) CredentialTypeOutput
-}
-
-// Definition of the credential.
-type CredentialTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the properties of the credential.
-	Properties CredentialPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CredentialTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CredentialType)(nil)).Elem()
-}
-
-func (i CredentialTypeArgs) ToCredentialTypeOutput() CredentialTypeOutput {
-	return i.ToCredentialTypeOutputWithContext(context.Background())
-}
-
-func (i CredentialTypeArgs) ToCredentialTypeOutputWithContext(ctx context.Context) CredentialTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CredentialTypeOutput)
-}
-
-// Definition of the credential.
-type CredentialTypeOutput struct{ *pulumi.OutputState }
-
-func (CredentialTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CredentialType)(nil)).Elem()
-}
-
-func (o CredentialTypeOutput) ToCredentialTypeOutput() CredentialTypeOutput {
-	return o
-}
-
-func (o CredentialTypeOutput) ToCredentialTypeOutputWithContext(ctx context.Context) CredentialTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o CredentialTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CredentialType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the properties of the credential.
-func (o CredentialTypeOutput) Properties() CredentialPropertiesResponseOutput {
-	return o.ApplyT(func(v CredentialType) CredentialPropertiesResponse { return v.Properties }).(CredentialPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o CredentialTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CredentialType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Definition of the credential properties
 type CredentialPropertiesResponse struct {
 	// Gets the creation time.
@@ -3337,106 +2945,6 @@ func (o CredentialPropertiesResponsePtrOutput) UserName() pulumi.StringPtrOutput
 		}
 		return &v.UserName
 	}).(pulumi.StringPtrOutput)
-}
-
-// Definition of the configuration type.
-type DscConfigurationType struct {
-	// Gets or sets the etag of the resource.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the configuration properties.
-	Properties DscConfigurationPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// DscConfigurationTypeInput is an input type that accepts DscConfigurationTypeArgs and DscConfigurationTypeOutput values.
-// You can construct a concrete instance of `DscConfigurationTypeInput` via:
-//
-//          DscConfigurationTypeArgs{...}
-type DscConfigurationTypeInput interface {
-	pulumi.Input
-
-	ToDscConfigurationTypeOutput() DscConfigurationTypeOutput
-	ToDscConfigurationTypeOutputWithContext(context.Context) DscConfigurationTypeOutput
-}
-
-// Definition of the configuration type.
-type DscConfigurationTypeArgs struct {
-	// Gets or sets the etag of the resource.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the configuration properties.
-	Properties DscConfigurationPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DscConfigurationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscConfigurationType)(nil)).Elem()
-}
-
-func (i DscConfigurationTypeArgs) ToDscConfigurationTypeOutput() DscConfigurationTypeOutput {
-	return i.ToDscConfigurationTypeOutputWithContext(context.Background())
-}
-
-func (i DscConfigurationTypeArgs) ToDscConfigurationTypeOutputWithContext(ctx context.Context) DscConfigurationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DscConfigurationTypeOutput)
-}
-
-// Definition of the configuration type.
-type DscConfigurationTypeOutput struct{ *pulumi.OutputState }
-
-func (DscConfigurationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscConfigurationType)(nil)).Elem()
-}
-
-func (o DscConfigurationTypeOutput) ToDscConfigurationTypeOutput() DscConfigurationTypeOutput {
-	return o
-}
-
-func (o DscConfigurationTypeOutput) ToDscConfigurationTypeOutputWithContext(ctx context.Context) DscConfigurationTypeOutput {
-	return o
-}
-
-// Gets or sets the etag of the resource.
-func (o DscConfigurationTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DscConfigurationType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The Azure Region where the resource lives
-func (o DscConfigurationTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DscConfigurationType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o DscConfigurationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DscConfigurationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the configuration properties.
-func (o DscConfigurationTypeOutput) Properties() DscConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v DscConfigurationType) DscConfigurationPropertiesResponse { return v.Properties }).(DscConfigurationPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o DscConfigurationTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DscConfigurationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o DscConfigurationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DscConfigurationType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The Dsc configuration property associated with the entity.
@@ -4270,97 +3778,6 @@ func (o DscConfigurationPropertiesResponsePtrOutput) State() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the dsc node configuration.
-type DscNodeConfigurationType struct {
-	// Gets or sets the configuration of the node.
-	Configuration *DscConfigurationAssociationPropertyResponse `pulumi:"configuration"`
-	// Gets or sets creation time.
-	CreationTime *string `pulumi:"creationTime"`
-	// Gets or sets the last modified time.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// DscNodeConfigurationTypeInput is an input type that accepts DscNodeConfigurationTypeArgs and DscNodeConfigurationTypeOutput values.
-// You can construct a concrete instance of `DscNodeConfigurationTypeInput` via:
-//
-//          DscNodeConfigurationTypeArgs{...}
-type DscNodeConfigurationTypeInput interface {
-	pulumi.Input
-
-	ToDscNodeConfigurationTypeOutput() DscNodeConfigurationTypeOutput
-	ToDscNodeConfigurationTypeOutputWithContext(context.Context) DscNodeConfigurationTypeOutput
-}
-
-// Definition of the dsc node configuration.
-type DscNodeConfigurationTypeArgs struct {
-	// Gets or sets the configuration of the node.
-	Configuration DscConfigurationAssociationPropertyResponsePtrInput `pulumi:"configuration"`
-	// Gets or sets creation time.
-	CreationTime pulumi.StringPtrInput `pulumi:"creationTime"`
-	// Gets or sets the last modified time.
-	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DscNodeConfigurationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscNodeConfigurationType)(nil)).Elem()
-}
-
-func (i DscNodeConfigurationTypeArgs) ToDscNodeConfigurationTypeOutput() DscNodeConfigurationTypeOutput {
-	return i.ToDscNodeConfigurationTypeOutputWithContext(context.Background())
-}
-
-func (i DscNodeConfigurationTypeArgs) ToDscNodeConfigurationTypeOutputWithContext(ctx context.Context) DscNodeConfigurationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DscNodeConfigurationTypeOutput)
-}
-
-// Definition of the dsc node configuration.
-type DscNodeConfigurationTypeOutput struct{ *pulumi.OutputState }
-
-func (DscNodeConfigurationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscNodeConfigurationType)(nil)).Elem()
-}
-
-func (o DscNodeConfigurationTypeOutput) ToDscNodeConfigurationTypeOutput() DscNodeConfigurationTypeOutput {
-	return o
-}
-
-func (o DscNodeConfigurationTypeOutput) ToDscNodeConfigurationTypeOutputWithContext(ctx context.Context) DscNodeConfigurationTypeOutput {
-	return o
-}
-
-// Gets or sets the configuration of the node.
-func (o DscNodeConfigurationTypeOutput) Configuration() DscConfigurationAssociationPropertyResponsePtrOutput {
-	return o.ApplyT(func(v DscNodeConfigurationType) *DscConfigurationAssociationPropertyResponse { return v.Configuration }).(DscConfigurationAssociationPropertyResponsePtrOutput)
-}
-
-// Gets or sets creation time.
-func (o DscNodeConfigurationTypeOutput) CreationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DscNodeConfigurationType) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the last modified time.
-func (o DscNodeConfigurationTypeOutput) LastModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DscNodeConfigurationType) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o DscNodeConfigurationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DscNodeConfigurationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The type of the resource.
-func (o DscNodeConfigurationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DscNodeConfigurationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Definition of the connection fields.
 type FieldDefinition struct {
 	// Gets or sets the isEncrypted flag of the connection field definition.
@@ -4595,79 +4012,6 @@ func (o FieldDefinitionResponseMapOutput) MapIndex(k pulumi.StringInput) FieldDe
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FieldDefinitionResponse {
 		return vs[0].(map[string]FieldDefinitionResponse)[vs[1].(string)]
 	}).(FieldDefinitionResponseOutput)
-}
-
-// Definition of the job schedule.
-type JobScheduleType struct {
-	// Gets the name of the variable.
-	Name string `pulumi:"name"`
-	// Gets or sets the properties of the job schedule.
-	Properties JobSchedulePropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// JobScheduleTypeInput is an input type that accepts JobScheduleTypeArgs and JobScheduleTypeOutput values.
-// You can construct a concrete instance of `JobScheduleTypeInput` via:
-//
-//          JobScheduleTypeArgs{...}
-type JobScheduleTypeInput interface {
-	pulumi.Input
-
-	ToJobScheduleTypeOutput() JobScheduleTypeOutput
-	ToJobScheduleTypeOutputWithContext(context.Context) JobScheduleTypeOutput
-}
-
-// Definition of the job schedule.
-type JobScheduleTypeArgs struct {
-	// Gets the name of the variable.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the properties of the job schedule.
-	Properties JobSchedulePropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (JobScheduleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobScheduleType)(nil)).Elem()
-}
-
-func (i JobScheduleTypeArgs) ToJobScheduleTypeOutput() JobScheduleTypeOutput {
-	return i.ToJobScheduleTypeOutputWithContext(context.Background())
-}
-
-func (i JobScheduleTypeArgs) ToJobScheduleTypeOutputWithContext(ctx context.Context) JobScheduleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleTypeOutput)
-}
-
-// Definition of the job schedule.
-type JobScheduleTypeOutput struct{ *pulumi.OutputState }
-
-func (JobScheduleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobScheduleType)(nil)).Elem()
-}
-
-func (o JobScheduleTypeOutput) ToJobScheduleTypeOutput() JobScheduleTypeOutput {
-	return o
-}
-
-func (o JobScheduleTypeOutput) ToJobScheduleTypeOutputWithContext(ctx context.Context) JobScheduleTypeOutput {
-	return o
-}
-
-// Gets the name of the variable.
-func (o JobScheduleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v JobScheduleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the properties of the job schedule.
-func (o JobScheduleTypeOutput) Properties() JobSchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v JobScheduleType) JobSchedulePropertiesResponse { return v.Properties }).(JobSchedulePropertiesResponseOutput)
-}
-
-// Resource type
-func (o JobScheduleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JobScheduleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Definition of job schedule parameters.
@@ -4996,106 +4340,6 @@ func (o KeyResponseArrayOutput) Index(i pulumi.IntInput) KeyResponseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyResponse {
 		return vs[0].([]KeyResponse)[vs[1].(int)]
 	}).(KeyResponseOutput)
-}
-
-// Definition of the module type.
-type ModuleType struct {
-	// Gets or sets the etag of the resource.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the module properties.
-	Properties ModulePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// ModuleTypeInput is an input type that accepts ModuleTypeArgs and ModuleTypeOutput values.
-// You can construct a concrete instance of `ModuleTypeInput` via:
-//
-//          ModuleTypeArgs{...}
-type ModuleTypeInput interface {
-	pulumi.Input
-
-	ToModuleTypeOutput() ModuleTypeOutput
-	ToModuleTypeOutputWithContext(context.Context) ModuleTypeOutput
-}
-
-// Definition of the module type.
-type ModuleTypeArgs struct {
-	// Gets or sets the etag of the resource.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the module properties.
-	Properties ModulePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ModuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModuleType)(nil)).Elem()
-}
-
-func (i ModuleTypeArgs) ToModuleTypeOutput() ModuleTypeOutput {
-	return i.ToModuleTypeOutputWithContext(context.Background())
-}
-
-func (i ModuleTypeArgs) ToModuleTypeOutputWithContext(ctx context.Context) ModuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModuleTypeOutput)
-}
-
-// Definition of the module type.
-type ModuleTypeOutput struct{ *pulumi.OutputState }
-
-func (ModuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModuleType)(nil)).Elem()
-}
-
-func (o ModuleTypeOutput) ToModuleTypeOutput() ModuleTypeOutput {
-	return o
-}
-
-func (o ModuleTypeOutput) ToModuleTypeOutputWithContext(ctx context.Context) ModuleTypeOutput {
-	return o
-}
-
-// Gets or sets the etag of the resource.
-func (o ModuleTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModuleType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The Azure Region where the resource lives
-func (o ModuleTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ModuleType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o ModuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ModuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the module properties.
-func (o ModuleTypeOutput) Properties() ModulePropertiesResponseOutput {
-	return o.ApplyT(func(v ModuleType) ModulePropertiesResponse { return v.Properties }).(ModulePropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ModuleTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ModuleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o ModuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ModuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Definition of the module error info type.
@@ -5573,106 +4817,6 @@ func (o ModulePropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
-}
-
-// Definition of the runbook type.
-type RunbookType struct {
-	// Gets or sets the etag of the resource.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the runbook properties.
-	Properties RunbookPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// RunbookTypeInput is an input type that accepts RunbookTypeArgs and RunbookTypeOutput values.
-// You can construct a concrete instance of `RunbookTypeInput` via:
-//
-//          RunbookTypeArgs{...}
-type RunbookTypeInput interface {
-	pulumi.Input
-
-	ToRunbookTypeOutput() RunbookTypeOutput
-	ToRunbookTypeOutputWithContext(context.Context) RunbookTypeOutput
-}
-
-// Definition of the runbook type.
-type RunbookTypeArgs struct {
-	// Gets or sets the etag of the resource.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the runbook properties.
-	Properties RunbookPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RunbookTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RunbookType)(nil)).Elem()
-}
-
-func (i RunbookTypeArgs) ToRunbookTypeOutput() RunbookTypeOutput {
-	return i.ToRunbookTypeOutputWithContext(context.Background())
-}
-
-func (i RunbookTypeArgs) ToRunbookTypeOutputWithContext(ctx context.Context) RunbookTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RunbookTypeOutput)
-}
-
-// Definition of the runbook type.
-type RunbookTypeOutput struct{ *pulumi.OutputState }
-
-func (RunbookTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RunbookType)(nil)).Elem()
-}
-
-func (o RunbookTypeOutput) ToRunbookTypeOutput() RunbookTypeOutput {
-	return o
-}
-
-func (o RunbookTypeOutput) ToRunbookTypeOutputWithContext(ctx context.Context) RunbookTypeOutput {
-	return o
-}
-
-// Gets or sets the etag of the resource.
-func (o RunbookTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RunbookType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The Azure Region where the resource lives
-func (o RunbookTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RunbookType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o RunbookTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RunbookType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the runbook properties.
-func (o RunbookTypeOutput) Properties() RunbookPropertiesResponseOutput {
-	return o.ApplyT(func(v RunbookType) RunbookPropertiesResponse { return v.Properties }).(RunbookPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o RunbookTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RunbookType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o RunbookTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RunbookType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The runbook property associated with the entity.
@@ -7049,79 +6193,6 @@ func (o RunbookPropertiesResponsePtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the schedule.
-type ScheduleType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the properties of the schedule.
-	Properties SchedulePropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// ScheduleTypeInput is an input type that accepts ScheduleTypeArgs and ScheduleTypeOutput values.
-// You can construct a concrete instance of `ScheduleTypeInput` via:
-//
-//          ScheduleTypeArgs{...}
-type ScheduleTypeInput interface {
-	pulumi.Input
-
-	ToScheduleTypeOutput() ScheduleTypeOutput
-	ToScheduleTypeOutputWithContext(context.Context) ScheduleTypeOutput
-}
-
-// Definition of the schedule.
-type ScheduleTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the properties of the schedule.
-	Properties SchedulePropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ScheduleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleType)(nil)).Elem()
-}
-
-func (i ScheduleTypeArgs) ToScheduleTypeOutput() ScheduleTypeOutput {
-	return i.ToScheduleTypeOutputWithContext(context.Background())
-}
-
-func (i ScheduleTypeArgs) ToScheduleTypeOutputWithContext(ctx context.Context) ScheduleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleTypeOutput)
-}
-
-// Definition of the schedule.
-type ScheduleTypeOutput struct{ *pulumi.OutputState }
-
-func (ScheduleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleType)(nil)).Elem()
-}
-
-func (o ScheduleTypeOutput) ToScheduleTypeOutput() ScheduleTypeOutput {
-	return o
-}
-
-func (o ScheduleTypeOutput) ToScheduleTypeOutputWithContext(ctx context.Context) ScheduleTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o ScheduleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the properties of the schedule.
-func (o ScheduleTypeOutput) Properties() SchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v ScheduleType) SchedulePropertiesResponse { return v.Properties }).(SchedulePropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o ScheduleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The schedule property associated with the entity.
 type ScheduleAssociationProperty struct {
 	// Gets or sets the name of the Schedule.
@@ -8115,79 +7186,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Definition of the variable.
-type VariableType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the properties of the variable.
-	Properties VariablePropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// VariableTypeInput is an input type that accepts VariableTypeArgs and VariableTypeOutput values.
-// You can construct a concrete instance of `VariableTypeInput` via:
-//
-//          VariableTypeArgs{...}
-type VariableTypeInput interface {
-	pulumi.Input
-
-	ToVariableTypeOutput() VariableTypeOutput
-	ToVariableTypeOutputWithContext(context.Context) VariableTypeOutput
-}
-
-// Definition of the variable.
-type VariableTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the properties of the variable.
-	Properties VariablePropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VariableTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VariableType)(nil)).Elem()
-}
-
-func (i VariableTypeArgs) ToVariableTypeOutput() VariableTypeOutput {
-	return i.ToVariableTypeOutputWithContext(context.Background())
-}
-
-func (i VariableTypeArgs) ToVariableTypeOutputWithContext(ctx context.Context) VariableTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VariableTypeOutput)
-}
-
-// Definition of the variable.
-type VariableTypeOutput struct{ *pulumi.OutputState }
-
-func (VariableTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VariableType)(nil)).Elem()
-}
-
-func (o VariableTypeOutput) ToVariableTypeOutput() VariableTypeOutput {
-	return o
-}
-
-func (o VariableTypeOutput) ToVariableTypeOutputWithContext(ctx context.Context) VariableTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o VariableTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VariableType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the properties of the variable.
-func (o VariableTypeOutput) Properties() VariablePropertiesResponseOutput {
-	return o.ApplyT(func(v VariableType) VariablePropertiesResponse { return v.Properties }).(VariablePropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o VariableTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VariableType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Definition of the variable properties
 type VariablePropertiesResponse struct {
 	// Gets or sets the creation time.
@@ -8396,106 +7394,6 @@ func (o VariablePropertiesResponsePtrOutput) Value() pulumi.StringPtrOutput {
 		}
 		return v.Value
 	}).(pulumi.StringPtrOutput)
-}
-
-// Definition of the watcher type.
-type WatcherType struct {
-	// Gets or sets the etag of the resource.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the watcher properties.
-	Properties WatcherPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WatcherTypeInput is an input type that accepts WatcherTypeArgs and WatcherTypeOutput values.
-// You can construct a concrete instance of `WatcherTypeInput` via:
-//
-//          WatcherTypeArgs{...}
-type WatcherTypeInput interface {
-	pulumi.Input
-
-	ToWatcherTypeOutput() WatcherTypeOutput
-	ToWatcherTypeOutputWithContext(context.Context) WatcherTypeOutput
-}
-
-// Definition of the watcher type.
-type WatcherTypeArgs struct {
-	// Gets or sets the etag of the resource.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the watcher properties.
-	Properties WatcherPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WatcherTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WatcherType)(nil)).Elem()
-}
-
-func (i WatcherTypeArgs) ToWatcherTypeOutput() WatcherTypeOutput {
-	return i.ToWatcherTypeOutputWithContext(context.Background())
-}
-
-func (i WatcherTypeArgs) ToWatcherTypeOutputWithContext(ctx context.Context) WatcherTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WatcherTypeOutput)
-}
-
-// Definition of the watcher type.
-type WatcherTypeOutput struct{ *pulumi.OutputState }
-
-func (WatcherTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WatcherType)(nil)).Elem()
-}
-
-func (o WatcherTypeOutput) ToWatcherTypeOutput() WatcherTypeOutput {
-	return o
-}
-
-func (o WatcherTypeOutput) ToWatcherTypeOutputWithContext(ctx context.Context) WatcherTypeOutput {
-	return o
-}
-
-// Gets or sets the etag of the resource.
-func (o WatcherTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WatcherType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The Azure Region where the resource lives
-func (o WatcherTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WatcherType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o WatcherTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WatcherType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the watcher properties.
-func (o WatcherTypeOutput) Properties() WatcherPropertiesResponseOutput {
-	return o.ApplyT(func(v WatcherType) WatcherPropertiesResponse { return v.Properties }).(WatcherPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o WatcherTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WatcherType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o WatcherTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WatcherType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Definition of the watcher properties
@@ -8782,79 +7680,6 @@ func (o WatcherPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
 		}
 		return &v.Status
 	}).(pulumi.StringPtrOutput)
-}
-
-// Definition of the webhook type.
-type WebhookType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets the webhook properties.
-	Properties WebhookPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WebhookTypeInput is an input type that accepts WebhookTypeArgs and WebhookTypeOutput values.
-// You can construct a concrete instance of `WebhookTypeInput` via:
-//
-//          WebhookTypeArgs{...}
-type WebhookTypeInput interface {
-	pulumi.Input
-
-	ToWebhookTypeOutput() WebhookTypeOutput
-	ToWebhookTypeOutputWithContext(context.Context) WebhookTypeOutput
-}
-
-// Definition of the webhook type.
-type WebhookTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the webhook properties.
-	Properties WebhookPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WebhookTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookType)(nil)).Elem()
-}
-
-func (i WebhookTypeArgs) ToWebhookTypeOutput() WebhookTypeOutput {
-	return i.ToWebhookTypeOutputWithContext(context.Background())
-}
-
-func (i WebhookTypeArgs) ToWebhookTypeOutputWithContext(ctx context.Context) WebhookTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookTypeOutput)
-}
-
-// Definition of the webhook type.
-type WebhookTypeOutput struct{ *pulumi.OutputState }
-
-func (WebhookTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookType)(nil)).Elem()
-}
-
-func (o WebhookTypeOutput) ToWebhookTypeOutput() WebhookTypeOutput {
-	return o
-}
-
-func (o WebhookTypeOutput) ToWebhookTypeOutputWithContext(ctx context.Context) WebhookTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o WebhookTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WebhookType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the webhook properties.
-func (o WebhookTypeOutput) Properties() WebhookPropertiesResponseOutput {
-	return o.ApplyT(func(v WebhookType) WebhookPropertiesResponse { return v.Properties }).(WebhookPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o WebhookTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebhookType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Definition of the webhook properties
@@ -9190,16 +8015,12 @@ func init() {
 	pulumi.RegisterOutputType(AdvancedScheduleMonthlyOccurrenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleResponseOutput{})
 	pulumi.RegisterOutputType(AdvancedScheduleResponsePtrOutput{})
-	pulumi.RegisterOutputType(AutomationAccountTypeOutput{})
 	pulumi.RegisterOutputType(AutomationAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AutomationAccountPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(CertificateTypeOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ConnectionTypeOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ConnectionTypeTypeOutput{})
 	pulumi.RegisterOutputType(ConnectionTypeAssociationPropertyOutput{})
 	pulumi.RegisterOutputType(ConnectionTypeAssociationPropertyPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionTypeAssociationPropertyResponseOutput{})
@@ -9218,10 +8039,8 @@ func init() {
 	pulumi.RegisterOutputType(ContentSourcePtrOutput{})
 	pulumi.RegisterOutputType(ContentSourceResponseOutput{})
 	pulumi.RegisterOutputType(ContentSourceResponsePtrOutput{})
-	pulumi.RegisterOutputType(CredentialTypeOutput{})
 	pulumi.RegisterOutputType(CredentialPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CredentialPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(DscConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyPtrOutput{})
 	pulumi.RegisterOutputType(DscConfigurationAssociationPropertyResponseOutput{})
@@ -9232,22 +8051,18 @@ func init() {
 	pulumi.RegisterOutputType(DscConfigurationParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(DscConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DscConfigurationPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(DscNodeConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionMapOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionResponseMapOutput{})
-	pulumi.RegisterOutputType(JobScheduleTypeOutput{})
 	pulumi.RegisterOutputType(JobSchedulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(JobSchedulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyResponseOutput{})
 	pulumi.RegisterOutputType(KeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(ModuleTypeOutput{})
 	pulumi.RegisterOutputType(ModuleErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(ModuleErrorInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ModulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ModulePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(RunbookTypeOutput{})
 	pulumi.RegisterOutputType(RunbookAssociationPropertyOutput{})
 	pulumi.RegisterOutputType(RunbookAssociationPropertyPtrOutput{})
 	pulumi.RegisterOutputType(RunbookAssociationPropertyResponseOutput{})
@@ -9262,7 +8077,6 @@ func init() {
 	pulumi.RegisterOutputType(RunbookParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(RunbookPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RunbookPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ScheduleTypeOutput{})
 	pulumi.RegisterOutputType(ScheduleAssociationPropertyOutput{})
 	pulumi.RegisterOutputType(ScheduleAssociationPropertyPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleAssociationPropertyResponseOutput{})
@@ -9273,13 +8087,10 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(VariableTypeOutput{})
 	pulumi.RegisterOutputType(VariablePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VariablePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(WatcherTypeOutput{})
 	pulumi.RegisterOutputType(WatcherPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WatcherPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(WebhookTypeOutput{})
 	pulumi.RegisterOutputType(WebhookPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WebhookPropertiesResponsePtrOutput{})
 }

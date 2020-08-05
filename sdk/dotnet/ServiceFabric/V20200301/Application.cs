@@ -137,11 +137,17 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         [Input("maximumNodes")]
         public Input<int>? MaximumNodes { get; set; }
 
+        [Input("metrics")]
+        private InputList<Inputs.ApplicationMetricDescriptionArgs>? _metrics;
+
         /// <summary>
         /// List of application capacity metric description.
         /// </summary>
-        [Input("metrics")]
-        public Input<Inputs.ApplicationMetricDescriptionListArgs>? Metrics { get; set; }
+        public InputList<Inputs.ApplicationMetricDescriptionArgs> Metrics
+        {
+            get => _metrics ?? (_metrics = new InputList<Inputs.ApplicationMetricDescriptionArgs>());
+            set => _metrics = value;
+        }
 
         /// <summary>
         /// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
@@ -155,11 +161,17 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputMap<string>? _parameters;
+
         /// <summary>
         /// List of application parameters with overridden values from their default values specified in the application manifest.
         /// </summary>
-        [Input("parameters")]
-        public Input<Inputs.ApplicationParameterListArgs>? Parameters { get; set; }
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// Remove the current application capacity settings.

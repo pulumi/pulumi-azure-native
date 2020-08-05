@@ -13,14 +13,14 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301.Outputs
     [OutputType]
     public sealed class SqlDatabaseGetPropertiesResponseResult
     {
-        public readonly ImmutableDictionary<string, object>? Options;
-        public readonly Outputs.SqlDatabaseGetPropertiesResponsePropertiesResult? Resource;
+        public readonly Outputs.SqlDatabaseGetPropertiesResponseOptionsResult? Options;
+        public readonly Outputs.SqlDatabaseGetPropertiesResponseResourceResult? Resource;
 
         [OutputConstructor]
         private SqlDatabaseGetPropertiesResponseResult(
-            ImmutableDictionary<string, object>? options,
+            Outputs.SqlDatabaseGetPropertiesResponseOptionsResult? options,
 
-            Outputs.SqlDatabaseGetPropertiesResponsePropertiesResult? resource)
+            Outputs.SqlDatabaseGetPropertiesResponseResourceResult? resource)
         {
             Options = options;
             Resource = resource;

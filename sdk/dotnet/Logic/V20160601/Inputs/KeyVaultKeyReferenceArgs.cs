@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Inputs
         /// The key vault reference.
         /// </summary>
         [Input("keyVault", required: true)]
-        public Input<Inputs.KeyVaultKeyReferencePropertiesArgs> KeyVault { get; set; } = null!;
+        public Input<Inputs.KeyVaultKeyReferenceKeyVaultArgs> KeyVault { get; set; } = null!;
 
         /// <summary>
         /// The private key version in key vault.

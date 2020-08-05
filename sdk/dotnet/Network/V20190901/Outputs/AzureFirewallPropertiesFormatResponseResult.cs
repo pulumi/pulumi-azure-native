@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.Network.V20190901.Outputs
         /// <summary>
         /// The additional properties used to further config this azure firewall.
         /// </summary>
-        public readonly Outputs.AzureFirewallAdditionalPropertiesResponseResult? AdditionalProperties;
+        public readonly ImmutableDictionary<string, string>? AdditionalProperties;
         /// <summary>
         /// Collection of application rule collections used by Azure Firewall.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Network.V20190901.Outputs
 
         [OutputConstructor]
         private AzureFirewallPropertiesFormatResponseResult(
-            Outputs.AzureFirewallAdditionalPropertiesResponseResult? additionalProperties,
+            ImmutableDictionary<string, string>? additionalProperties,
 
             ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult> applicationRuleCollections,
 

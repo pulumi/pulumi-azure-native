@@ -21,18 +21,6 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        [Input("userAssignedIdentities")]
-        private InputMap<Inputs.ClusterIdentityPropertiesArgs>? _userAssignedIdentities;
-
-        /// <summary>
-        /// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        /// </summary>
-        public InputMap<Inputs.ClusterIdentityPropertiesArgs> UserAssignedIdentities
-        {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.ClusterIdentityPropertiesArgs>());
-            set => _userAssignedIdentities = value;
-        }
-
         public ClusterIdentityArgs()
         {
         }

@@ -56,8 +56,8 @@ class GetClusterResult:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
-        if zones and not isinstance(zones, dict):
-            raise TypeError("Expected argument 'zones' to be a dict")
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
         __self__.zones = zones
         """
         The availability zones of the cluster.

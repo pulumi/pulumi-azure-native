@@ -22,6 +22,11 @@ class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
     """
     The properties of an Azure Cosmos DB storedProcedure
       * `resource` (`dict`)
+        * `_etag` (`str`) - A system generated property representing the resource etag required for optimistic concurrency control.
+        * `_rid` (`str`) - A system generated property. A unique identifier.
+        * `_ts` (`dict`) - A system generated property that denotes the last updated timestamp of the resource.
+        * `body` (`str`) - Body of the Stored Procedure
+        * `id` (`str`) - Name of the Cosmos DB SQL storedProcedure
     """
     tags: pulumi.Output[dict]
     """

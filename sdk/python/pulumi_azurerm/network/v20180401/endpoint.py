@@ -28,6 +28,10 @@ class Endpoint(pulumi.CustomResource):
       * `min_child_endpoints` (`float`) - The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
       * `priority` (`float`) - The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
       * `subnets` (`list`) - The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+        * `first` (`str`) - First address in the subnet.
+        * `last` (`str`) - Last address in the subnet.
+        * `scope` (`float`) - Block size (number of leading bits in the subnet mask).
+
       * `target` (`str`) - The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
       * `target_resource_id` (`str`) - The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
       * `weight` (`float`) - The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
@@ -64,6 +68,12 @@ class Endpoint(pulumi.CustomResource):
 
           * `name` (`pulumi.Input[str]`) - Header name.
           * `value` (`pulumi.Input[str]`) - Header value.
+
+        The **subnets** object supports the following:
+
+          * `first` (`pulumi.Input[str]`) - First address in the subnet.
+          * `last` (`pulumi.Input[str]`) - Last address in the subnet.
+          * `scope` (`pulumi.Input[float]`) - Block size (number of leading bits in the subnet mask).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

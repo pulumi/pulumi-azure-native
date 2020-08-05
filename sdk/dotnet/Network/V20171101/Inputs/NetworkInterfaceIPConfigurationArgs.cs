@@ -121,7 +121,7 @@ namespace Pulumi.AzureRM.Network.V20171101.Inputs
         /// Subnet bound to the IP configuration.
         /// </summary>
         [Input("subnet")]
-        public Input<Inputs.SubnetDefinitionArgs>? Subnet { get; set; }
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         public NetworkInterfaceIPConfigurationArgs()
         {

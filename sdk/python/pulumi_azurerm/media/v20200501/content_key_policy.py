@@ -21,10 +21,8 @@ class ContentKeyPolicy(pulumi.CustomResource):
       * `description` (`str`) - A description for the Policy.
       * `last_modified` (`str`) - The last modified date of the Policy
       * `options` (`list`) - The Key Policy options.
-        * `configuration` (`dict`) - The key delivery configuration.
         * `name` (`str`) - The Policy Option description.
         * `policy_option_id` (`str`) - The legacy Policy Option ID.
-        * `restriction` (`dict`) - The requirements that must be met to deliver keys with this configuration
 
       * `policy_id` (`str`) - The legacy Policy ID.
     """
@@ -46,9 +44,7 @@ class ContentKeyPolicy(pulumi.CustomResource):
 
         The **options** object supports the following:
 
-          * `configuration` (`pulumi.Input[dict]`) - The key delivery configuration.
           * `name` (`pulumi.Input[str]`) - The Policy Option description.
-          * `restriction` (`pulumi.Input[dict]`) - The requirements that must be met to deliver keys with this configuration
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

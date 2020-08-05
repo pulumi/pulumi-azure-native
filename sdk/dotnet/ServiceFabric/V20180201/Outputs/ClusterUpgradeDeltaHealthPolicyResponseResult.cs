@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201.Outputs
         /// <summary>
         /// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
         /// </summary>
-        public readonly Outputs.ApplicationDeltaHealthPolicyMapResponseResult? ApplicationDeltaHealthPolicies;
+        public readonly ImmutableDictionary<string, Outputs.ApplicationDeltaHealthPolicyResponseResult>? ApplicationDeltaHealthPolicies;
         /// <summary>
         /// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
         /// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
@@ -38,7 +38,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201.Outputs
 
         [OutputConstructor]
         private ClusterUpgradeDeltaHealthPolicyResponseResult(
-            Outputs.ApplicationDeltaHealthPolicyMapResponseResult? applicationDeltaHealthPolicies,
+            ImmutableDictionary<string, Outputs.ApplicationDeltaHealthPolicyResponseResult>? applicationDeltaHealthPolicies,
 
             int maxPercentDeltaUnhealthyApplications,
 

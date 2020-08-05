@@ -16,10 +16,22 @@ namespace Pulumi.AzureRM.Network.V20190701.Inputs
     public sealed class ExpressRouteCircuitAuthorizationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
+        /// The authorization key.
         /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
+        [Input("authorizationKey")]
+        public Input<string>? AuthorizationKey { get; set; }
+
+        /// <summary>
+        /// The authorization use status.
+        /// </summary>
+        [Input("authorizationUseStatus")]
+        public Input<string>? AuthorizationUseStatus { get; set; }
+
+        /// <summary>
+        /// Resource ID.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -28,16 +40,10 @@ namespace Pulumi.AzureRM.Network.V20190701.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the express route circuit authorization.
+        /// The provisioning state of the authorization resource.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AuthorizationPropertiesFormatResponseArgs> Properties { get; set; } = null!;
-
-        /// <summary>
-        /// Type of the resource.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public ExpressRouteCircuitAuthorizationArgs()
         {

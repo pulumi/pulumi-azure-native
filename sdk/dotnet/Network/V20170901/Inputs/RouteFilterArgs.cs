@@ -16,10 +16,10 @@ namespace Pulumi.AzureRM.Network.V20170901.Inputs
     public sealed class RouteFilterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated.
+        /// Resource ID.
         /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -27,17 +27,29 @@ namespace Pulumi.AzureRM.Network.V20170901.Inputs
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("peerings")]
+        private InputList<Inputs.ExpressRouteCircuitPeeringArgs>? _peerings;
 
         /// <summary>
-        /// Route Filter Resource
+        /// A collection of references to express route circuit peerings.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.RouteFilterPropertiesFormatResponseArgs> Properties { get; set; } = null!;
+        public InputList<Inputs.ExpressRouteCircuitPeeringArgs> Peerings
+        {
+            get => _peerings ?? (_peerings = new InputList<Inputs.ExpressRouteCircuitPeeringArgs>());
+            set => _peerings = value;
+        }
+
+        [Input("rules")]
+        private InputList<Inputs.RouteFilterRuleArgs>? _rules;
+
+        /// <summary>
+        /// Collection of RouteFilterRules contained within a route filter.
+        /// </summary>
+        public InputList<Inputs.RouteFilterRuleArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.RouteFilterRuleArgs>());
+            set => _rules = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -50,12 +62,6 @@ namespace Pulumi.AzureRM.Network.V20170901.Inputs
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
 
         public RouteFilterArgs()
         {

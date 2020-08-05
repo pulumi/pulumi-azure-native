@@ -130,7 +130,7 @@ export interface ProtectionContainerArgs {
     /**
      * ProtectionContainerResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20161201.ProtectionContainerDefinition>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20161201.ProtectionContainer>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

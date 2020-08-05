@@ -896,106 +896,6 @@ func (o MxRecordResponseArrayOutput) Index(i pulumi.IntInput) MxRecordResponseOu
 	}).(MxRecordResponseOutput)
 }
 
-// Describes a Private DNS zone.
-type PrivateZoneType struct {
-	// The ETag of the zone.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Properties of the Private DNS zone.
-	Properties PrivateZonePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-	Type string `pulumi:"type"`
-}
-
-// PrivateZoneTypeInput is an input type that accepts PrivateZoneTypeArgs and PrivateZoneTypeOutput values.
-// You can construct a concrete instance of `PrivateZoneTypeInput` via:
-//
-//          PrivateZoneTypeArgs{...}
-type PrivateZoneTypeInput interface {
-	pulumi.Input
-
-	ToPrivateZoneTypeOutput() PrivateZoneTypeOutput
-	ToPrivateZoneTypeOutputWithContext(context.Context) PrivateZoneTypeOutput
-}
-
-// Describes a Private DNS zone.
-type PrivateZoneTypeArgs struct {
-	// The ETag of the zone.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Private DNS zone.
-	Properties PrivateZonePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PrivateZoneTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateZoneType)(nil)).Elem()
-}
-
-func (i PrivateZoneTypeArgs) ToPrivateZoneTypeOutput() PrivateZoneTypeOutput {
-	return i.ToPrivateZoneTypeOutputWithContext(context.Background())
-}
-
-func (i PrivateZoneTypeArgs) ToPrivateZoneTypeOutputWithContext(ctx context.Context) PrivateZoneTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateZoneTypeOutput)
-}
-
-// Describes a Private DNS zone.
-type PrivateZoneTypeOutput struct{ *pulumi.OutputState }
-
-func (PrivateZoneTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateZoneType)(nil)).Elem()
-}
-
-func (o PrivateZoneTypeOutput) ToPrivateZoneTypeOutput() PrivateZoneTypeOutput {
-	return o
-}
-
-func (o PrivateZoneTypeOutput) ToPrivateZoneTypeOutputWithContext(ctx context.Context) PrivateZoneTypeOutput {
-	return o
-}
-
-// The ETag of the zone.
-func (o PrivateZoneTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateZoneType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The Azure Region where the resource lives
-func (o PrivateZoneTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateZoneType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o PrivateZoneTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateZoneType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Private DNS zone.
-func (o PrivateZoneTypeOutput) Properties() PrivateZonePropertiesResponseOutput {
-	return o.ApplyT(func(v PrivateZoneType) PrivateZonePropertiesResponse { return v.Properties }).(PrivateZonePropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o PrivateZoneTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PrivateZoneType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-func (o PrivateZoneTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateZoneType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Represents the properties of the Private DNS zone.
 type PrivateZonePropertiesResponse struct {
 	// The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
@@ -1442,88 +1342,6 @@ func (o PtrRecordResponseArrayOutput) Index(i pulumi.IntInput) PtrRecordResponse
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PtrRecordResponse {
 		return vs[0].([]PtrRecordResponse)[vs[1].(int)]
 	}).(PtrRecordResponseOutput)
-}
-
-// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
-type RecordSetType struct {
-	// The ETag of the record set.
-	Etag *string `pulumi:"etag"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the record set.
-	Properties RecordSetPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-	Type string `pulumi:"type"`
-}
-
-// RecordSetTypeInput is an input type that accepts RecordSetTypeArgs and RecordSetTypeOutput values.
-// You can construct a concrete instance of `RecordSetTypeInput` via:
-//
-//          RecordSetTypeArgs{...}
-type RecordSetTypeInput interface {
-	pulumi.Input
-
-	ToRecordSetTypeOutput() RecordSetTypeOutput
-	ToRecordSetTypeOutputWithContext(context.Context) RecordSetTypeOutput
-}
-
-// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
-type RecordSetTypeArgs struct {
-	// The ETag of the record set.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the record set.
-	Properties RecordSetPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RecordSetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecordSetType)(nil)).Elem()
-}
-
-func (i RecordSetTypeArgs) ToRecordSetTypeOutput() RecordSetTypeOutput {
-	return i.ToRecordSetTypeOutputWithContext(context.Background())
-}
-
-func (i RecordSetTypeArgs) ToRecordSetTypeOutputWithContext(ctx context.Context) RecordSetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordSetTypeOutput)
-}
-
-// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
-type RecordSetTypeOutput struct{ *pulumi.OutputState }
-
-func (RecordSetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecordSetType)(nil)).Elem()
-}
-
-func (o RecordSetTypeOutput) ToRecordSetTypeOutput() RecordSetTypeOutput {
-	return o
-}
-
-func (o RecordSetTypeOutput) ToRecordSetTypeOutputWithContext(ctx context.Context) RecordSetTypeOutput {
-	return o
-}
-
-// The ETag of the record set.
-func (o RecordSetTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecordSetType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o RecordSetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RecordSetType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the record set.
-func (o RecordSetTypeOutput) Properties() RecordSetPropertiesResponseOutput {
-	return o.ApplyT(func(v RecordSetType) RecordSetPropertiesResponse { return v.Properties }).(RecordSetPropertiesResponseOutput)
-}
-
-// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-func (o RecordSetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RecordSetType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Represents the properties of the records in the record set.
@@ -3087,106 +2905,6 @@ func (o TxtRecordResponseArrayOutput) Index(i pulumi.IntInput) TxtRecordResponse
 	}).(TxtRecordResponseOutput)
 }
 
-// Describes a link to virtual network for a Private DNS zone.
-type VirtualNetworkLinkType struct {
-	// The ETag of the virtual network link.
-	Etag *string `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Properties of the virtual network link to the Private DNS zone.
-	Properties VirtualNetworkLinkPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-	Type string `pulumi:"type"`
-}
-
-// VirtualNetworkLinkTypeInput is an input type that accepts VirtualNetworkLinkTypeArgs and VirtualNetworkLinkTypeOutput values.
-// You can construct a concrete instance of `VirtualNetworkLinkTypeInput` via:
-//
-//          VirtualNetworkLinkTypeArgs{...}
-type VirtualNetworkLinkTypeInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkLinkTypeOutput() VirtualNetworkLinkTypeOutput
-	ToVirtualNetworkLinkTypeOutputWithContext(context.Context) VirtualNetworkLinkTypeOutput
-}
-
-// Describes a link to virtual network for a Private DNS zone.
-type VirtualNetworkLinkTypeArgs struct {
-	// The ETag of the virtual network link.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the virtual network link to the Private DNS zone.
-	Properties VirtualNetworkLinkPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VirtualNetworkLinkTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkLinkType)(nil)).Elem()
-}
-
-func (i VirtualNetworkLinkTypeArgs) ToVirtualNetworkLinkTypeOutput() VirtualNetworkLinkTypeOutput {
-	return i.ToVirtualNetworkLinkTypeOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkLinkTypeArgs) ToVirtualNetworkLinkTypeOutputWithContext(ctx context.Context) VirtualNetworkLinkTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkLinkTypeOutput)
-}
-
-// Describes a link to virtual network for a Private DNS zone.
-type VirtualNetworkLinkTypeOutput struct{ *pulumi.OutputState }
-
-func (VirtualNetworkLinkTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkLinkType)(nil)).Elem()
-}
-
-func (o VirtualNetworkLinkTypeOutput) ToVirtualNetworkLinkTypeOutput() VirtualNetworkLinkTypeOutput {
-	return o
-}
-
-func (o VirtualNetworkLinkTypeOutput) ToVirtualNetworkLinkTypeOutputWithContext(ctx context.Context) VirtualNetworkLinkTypeOutput {
-	return o
-}
-
-// The ETag of the virtual network link.
-func (o VirtualNetworkLinkTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkLinkType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The Azure Region where the resource lives
-func (o VirtualNetworkLinkTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkLinkType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o VirtualNetworkLinkTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkLinkType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the virtual network link to the Private DNS zone.
-func (o VirtualNetworkLinkTypeOutput) Properties() VirtualNetworkLinkPropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualNetworkLinkType) VirtualNetworkLinkPropertiesResponse { return v.Properties }).(VirtualNetworkLinkPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o VirtualNetworkLinkTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualNetworkLinkType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
-func (o VirtualNetworkLinkTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkLinkType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Represents the properties of the Private DNS zone.
 type VirtualNetworkLinkPropertiesResponse struct {
 	// The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
@@ -3395,14 +3113,12 @@ func init() {
 	pulumi.RegisterOutputType(MxRecordArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordResponseOutput{})
 	pulumi.RegisterOutputType(MxRecordResponseArrayOutput{})
-	pulumi.RegisterOutputType(PrivateZoneTypeOutput{})
 	pulumi.RegisterOutputType(PrivateZonePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateZonePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PtrRecordOutput{})
 	pulumi.RegisterOutputType(PtrRecordArrayOutput{})
 	pulumi.RegisterOutputType(PtrRecordResponseOutput{})
 	pulumi.RegisterOutputType(PtrRecordResponseArrayOutput{})
-	pulumi.RegisterOutputType(RecordSetTypeOutput{})
 	pulumi.RegisterOutputType(RecordSetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RecordSetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SoaRecordOutput{})
@@ -3421,7 +3137,6 @@ func init() {
 	pulumi.RegisterOutputType(TxtRecordArrayOutput{})
 	pulumi.RegisterOutputType(TxtRecordResponseOutput{})
 	pulumi.RegisterOutputType(TxtRecordResponseArrayOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkLinkTypeOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkLinkPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkLinkPropertiesResponsePtrOutput{})
 }

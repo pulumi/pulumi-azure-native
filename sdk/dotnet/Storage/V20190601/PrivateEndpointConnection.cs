@@ -90,12 +90,6 @@ namespace Pulumi.AzureRM.Storage.V20190601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The resource of private end point.
-        /// </summary>
-        [Input("privateEndpoint")]
-        public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
-
-        /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         [Input("privateLinkServiceConnectionState", required: true)]

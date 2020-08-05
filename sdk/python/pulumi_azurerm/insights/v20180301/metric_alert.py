@@ -26,7 +26,6 @@ class MetricAlert(pulumi.CustomResource):
         * `web_hook_properties` (`dict`) - The properties of a webhook object.
 
       * `auto_mitigate` (`bool`) - the flag that indicates whether the alert should be auto resolved or not. The default is true.
-      * `criteria` (`dict`) - defines the specific alert criteria information.
       * `description` (`str`) - the description of the metric alert that will be included in the alert email.
       * `enabled` (`bool`) - the flag that indicates whether the metric alert is enabled.
       * `evaluation_frequency` (`str`) - how often the metric alert is evaluated represented in ISO 8601 duration format.
@@ -45,7 +44,7 @@ class MetricAlert(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, actions=None, auto_mitigate=None, criteria=None, description=None, enabled=None, evaluation_frequency=None, location=None, name=None, resource_group_name=None, scopes=None, severity=None, tags=None, target_resource_region=None, target_resource_type=None, window_size=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, actions=None, auto_mitigate=None, description=None, enabled=None, evaluation_frequency=None, location=None, name=None, resource_group_name=None, scopes=None, severity=None, tags=None, target_resource_region=None, target_resource_type=None, window_size=None, __props__=None, __name__=None, __opts__=None):
         """
         The metric alert resource.
 
@@ -53,7 +52,6 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         :param pulumi.Input[bool] auto_mitigate: the flag that indicates whether the alert should be auto resolved or not. The default is true.
-        :param pulumi.Input[dict] criteria: defines the specific alert criteria information.
         :param pulumi.Input[str] description: the description of the metric alert that will be included in the alert email.
         :param pulumi.Input[bool] enabled: the flag that indicates whether the metric alert is enabled.
         :param pulumi.Input[str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
@@ -91,9 +89,6 @@ class MetricAlert(pulumi.CustomResource):
 
             __props__['actions'] = actions
             __props__['auto_mitigate'] = auto_mitigate
-            if criteria is None:
-                raise TypeError("Missing required property 'criteria'")
-            __props__['criteria'] = criteria
             if description is None:
                 raise TypeError("Missing required property 'description'")
             __props__['description'] = description

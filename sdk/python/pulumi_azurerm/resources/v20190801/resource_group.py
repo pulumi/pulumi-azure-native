@@ -35,7 +35,7 @@ class ResourceGroup(pulumi.CustomResource):
     """
     The type of the resource group.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, managed_by=None, name=None, properties=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, managed_by=None, name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Resource group information.
 
@@ -44,7 +44,6 @@ class ResourceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
         :param pulumi.Input[str] managed_by: The ID of the resource that manages this resource group.
         :param pulumi.Input[str] name: The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
-        :param pulumi.Input[dict] properties: The resource group properties.
         :param pulumi.Input[dict] tags: The tags attached to the resource group.
         """
         if __name__ is not None:
@@ -71,8 +70,8 @@ class ResourceGroup(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(ResourceGroup, __self__).__init__(
             'azurerm:resources/v20190801:ResourceGroup',

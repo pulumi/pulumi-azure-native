@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901.Outputs
         /// <summary>
         /// The parameter values for the referenced policy rule. The keys are the parameter names.
         /// </summary>
-        public readonly Outputs.ParameterValuesResponseResult? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterValuesValueResponseResult>? Parameters;
         /// <summary>
         /// The ID of the policy definition or policy set definition.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureRM.Authorization.V20190901.Outputs
         private PolicyDefinitionReferenceResponseResult(
             ImmutableArray<string> groupNames,
 
-            Outputs.ParameterValuesResponseResult? parameters,
+            ImmutableDictionary<string, Outputs.ParameterValuesValueResponseResult>? parameters,
 
             string policyDefinitionId,
 

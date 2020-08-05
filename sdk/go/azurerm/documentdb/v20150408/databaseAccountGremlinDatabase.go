@@ -21,7 +21,7 @@ type DatabaseAccountGremlinDatabase struct {
 	// The properties of an Azure Cosmos DB SQL database
 	Properties GremlinDatabasePropertiesResponseOutput `pulumi:"properties"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of Azure resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -76,7 +76,7 @@ type databaseAccountGremlinDatabaseState struct {
 	// The properties of an Azure Cosmos DB SQL database
 	Properties *GremlinDatabasePropertiesResponse `pulumi:"properties"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of Azure resource.
 	Type *string `pulumi:"type"`
 }
@@ -89,7 +89,7 @@ type DatabaseAccountGremlinDatabaseState struct {
 	// The properties of an Azure Cosmos DB SQL database
 	Properties GremlinDatabasePropertiesResponsePtrInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput
+	Tags pulumi.StringMapInput
 	// The type of Azure resource.
 	Type pulumi.StringPtrInput
 }
@@ -104,7 +104,7 @@ type databaseAccountGremlinDatabaseArgs struct {
 	// Cosmos DB database name.
 	Name string `pulumi:"name"`
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptions `pulumi:"options"`
+	Options map[string]string `pulumi:"options"`
 	// The standard JSON format of a Gremlin database
 	Resource GremlinDatabaseResource `pulumi:"resource"`
 	// Name of an Azure resource group.
@@ -118,7 +118,7 @@ type DatabaseAccountGremlinDatabaseArgs struct {
 	// Cosmos DB database name.
 	Name pulumi.StringInput
 	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-	Options CreateUpdateOptionsInput
+	Options pulumi.StringMapInput
 	// The standard JSON format of a Gremlin database
 	Resource GremlinDatabaseResourceInput
 	// Name of an Azure resource group.

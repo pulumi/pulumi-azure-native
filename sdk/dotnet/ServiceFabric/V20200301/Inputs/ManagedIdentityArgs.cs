@@ -21,13 +21,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-        /// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        /// </summary>
-        [Input("userAssignedIdentities")]
-        public Input<Inputs.UserAssignedIdentityMapArgs>? UserAssignedIdentities { get; set; }
-
         public ManagedIdentityArgs()
         {
         }

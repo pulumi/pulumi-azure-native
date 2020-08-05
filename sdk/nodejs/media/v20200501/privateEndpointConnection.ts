@@ -76,7 +76,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -103,10 +102,6 @@ export interface PrivateEndpointConnectionArgs {
      */
     readonly accountName: pulumi.Input<string>;
     readonly name: pulumi.Input<string>;
-    /**
-     * The resource of private end point.
-     */
-    readonly privateEndpoint?: pulumi.Input<inputs.media.v20200501.PrivateEndpoint>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

@@ -10,79 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Event Subscription
-type EventSubscriptionType struct {
-	// Name of the resource
-	Name string `pulumi:"name"`
-	// Properties of the event subscription
-	Properties EventSubscriptionPropertiesResponse `pulumi:"properties"`
-	// Type of the resource
-	Type string `pulumi:"type"`
-}
-
-// EventSubscriptionTypeInput is an input type that accepts EventSubscriptionTypeArgs and EventSubscriptionTypeOutput values.
-// You can construct a concrete instance of `EventSubscriptionTypeInput` via:
-//
-//          EventSubscriptionTypeArgs{...}
-type EventSubscriptionTypeInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionTypeOutput() EventSubscriptionTypeOutput
-	ToEventSubscriptionTypeOutputWithContext(context.Context) EventSubscriptionTypeOutput
-}
-
-// Event Subscription
-type EventSubscriptionTypeArgs struct {
-	// Name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the event subscription
-	Properties EventSubscriptionPropertiesResponseInput `pulumi:"properties"`
-	// Type of the resource
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (EventSubscriptionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionType)(nil)).Elem()
-}
-
-func (i EventSubscriptionTypeArgs) ToEventSubscriptionTypeOutput() EventSubscriptionTypeOutput {
-	return i.ToEventSubscriptionTypeOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionTypeArgs) ToEventSubscriptionTypeOutputWithContext(ctx context.Context) EventSubscriptionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTypeOutput)
-}
-
-// Event Subscription
-type EventSubscriptionTypeOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionType)(nil)).Elem()
-}
-
-func (o EventSubscriptionTypeOutput) ToEventSubscriptionTypeOutput() EventSubscriptionTypeOutput {
-	return o
-}
-
-func (o EventSubscriptionTypeOutput) ToEventSubscriptionTypeOutputWithContext(ctx context.Context) EventSubscriptionTypeOutput {
-	return o
-}
-
-// Name of the resource
-func (o EventSubscriptionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the event subscription
-func (o EventSubscriptionTypeOutput) Properties() EventSubscriptionPropertiesResponseOutput {
-	return o.ApplyT(func(v EventSubscriptionType) EventSubscriptionPropertiesResponse { return v.Properties }).(EventSubscriptionPropertiesResponseOutput)
-}
-
-// Type of the resource
-func (o EventSubscriptionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Information about the destination for an event subscription
 type EventSubscriptionDestination struct {
 	// Type of the endpoint for the event subscription destination
@@ -985,97 +912,6 @@ func (o EventSubscriptionPropertiesResponsePtrOutput) Topic() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventGrid Topic
-type TopicType struct {
-	// Location of the resource
-	Location string `pulumi:"location"`
-	// Name of the resource
-	Name string `pulumi:"name"`
-	// Properties of the topic
-	Properties TopicPropertiesResponse `pulumi:"properties"`
-	// Tags of the resource
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
-	Type string `pulumi:"type"`
-}
-
-// TopicTypeInput is an input type that accepts TopicTypeArgs and TopicTypeOutput values.
-// You can construct a concrete instance of `TopicTypeInput` via:
-//
-//          TopicTypeArgs{...}
-type TopicTypeInput interface {
-	pulumi.Input
-
-	ToTopicTypeOutput() TopicTypeOutput
-	ToTopicTypeOutputWithContext(context.Context) TopicTypeOutput
-}
-
-// EventGrid Topic
-type TopicTypeArgs struct {
-	// Location of the resource
-	Location pulumi.StringInput `pulumi:"location"`
-	// Name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the topic
-	Properties TopicPropertiesResponseInput `pulumi:"properties"`
-	// Tags of the resource
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Type of the resource
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TopicTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicType)(nil)).Elem()
-}
-
-func (i TopicTypeArgs) ToTopicTypeOutput() TopicTypeOutput {
-	return i.ToTopicTypeOutputWithContext(context.Background())
-}
-
-func (i TopicTypeArgs) ToTopicTypeOutputWithContext(ctx context.Context) TopicTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicTypeOutput)
-}
-
-// EventGrid Topic
-type TopicTypeOutput struct{ *pulumi.OutputState }
-
-func (TopicTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicType)(nil)).Elem()
-}
-
-func (o TopicTypeOutput) ToTopicTypeOutput() TopicTypeOutput {
-	return o
-}
-
-func (o TopicTypeOutput) ToTopicTypeOutputWithContext(ctx context.Context) TopicTypeOutput {
-	return o
-}
-
-// Location of the resource
-func (o TopicTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Name of the resource
-func (o TopicTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the topic
-func (o TopicTypeOutput) Properties() TopicPropertiesResponseOutput {
-	return o.ApplyT(func(v TopicType) TopicPropertiesResponse { return v.Properties }).(TopicPropertiesResponseOutput)
-}
-
-// Tags of the resource
-func (o TopicTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TopicType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Type of the resource
-func (o TopicTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the Topic
 type TopicPropertiesResponse struct {
 	// Endpoint for the topic.
@@ -1230,7 +1066,6 @@ func (o TopicPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOu
 }
 
 func init() {
-	pulumi.RegisterOutputType(EventSubscriptionTypeOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDestinationOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDestinationPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDestinationResponseOutput{})
@@ -1241,7 +1076,6 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionFilterResponsePtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(TopicTypeOutput{})
 	pulumi.RegisterOutputType(TopicPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TopicPropertiesResponsePtrOutput{})
 }

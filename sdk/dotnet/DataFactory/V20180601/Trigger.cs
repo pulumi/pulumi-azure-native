@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// Properties of the trigger.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.TriggerDefinitionArgs> Properties { get; set; } = null!;
+        public Input<Inputs.TriggerArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

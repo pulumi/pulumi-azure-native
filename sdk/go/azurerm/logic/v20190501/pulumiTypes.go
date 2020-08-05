@@ -6148,7 +6148,7 @@ type ApiResourcePropertiesResponse struct {
 	// The category.
 	Category *string `pulumi:"category"`
 	// The connection parameters.
-	ConnectionParameters map[string]ObjectResponse `pulumi:"connectionParameters"`
+	ConnectionParameters map[string]map[string]interface{} `pulumi:"connectionParameters"`
 	// The api general information.
 	GeneralInformation *ApiResourceGeneralInformationResponse `pulumi:"generalInformation"`
 	// The integration service environment reference.
@@ -6189,7 +6189,7 @@ type ApiResourcePropertiesResponseArgs struct {
 	// The category.
 	Category pulumi.StringPtrInput `pulumi:"category"`
 	// The connection parameters.
-	ConnectionParameters ObjectResponseMapInput `pulumi:"connectionParameters"`
+	ConnectionParameters pulumi.MapMapInput `pulumi:"connectionParameters"`
 	// The api general information.
 	GeneralInformation ApiResourceGeneralInformationResponsePtrInput `pulumi:"generalInformation"`
 	// The integration service environment reference.
@@ -6310,8 +6310,8 @@ func (o ApiResourcePropertiesResponseOutput) Category() pulumi.StringPtrOutput {
 }
 
 // The connection parameters.
-func (o ApiResourcePropertiesResponseOutput) ConnectionParameters() ObjectResponseMapOutput {
-	return o.ApplyT(func(v ApiResourcePropertiesResponse) map[string]ObjectResponse { return v.ConnectionParameters }).(ObjectResponseMapOutput)
+func (o ApiResourcePropertiesResponseOutput) ConnectionParameters() pulumi.MapMapOutput {
+	return o.ApplyT(func(v ApiResourcePropertiesResponse) map[string]map[string]interface{} { return v.ConnectionParameters }).(pulumi.MapMapOutput)
 }
 
 // The api general information.
@@ -6422,13 +6422,13 @@ func (o ApiResourcePropertiesResponsePtrOutput) Category() pulumi.StringPtrOutpu
 }
 
 // The connection parameters.
-func (o ApiResourcePropertiesResponsePtrOutput) ConnectionParameters() ObjectResponseMapOutput {
-	return o.ApplyT(func(v *ApiResourcePropertiesResponse) map[string]ObjectResponse {
+func (o ApiResourcePropertiesResponsePtrOutput) ConnectionParameters() pulumi.MapMapOutput {
+	return o.ApplyT(func(v *ApiResourcePropertiesResponse) map[string]map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ConnectionParameters
-	}).(ObjectResponseMapOutput)
+	}).(pulumi.MapMapOutput)
 }
 
 // The api general information.
@@ -9047,7 +9047,7 @@ type ContentLink struct {
 	// The content version.
 	ContentVersion *string `pulumi:"contentVersion"`
 	// The metadata.
-	Metadata *Object `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The content link URI.
 	Uri *string `pulumi:"uri"`
 }
@@ -9072,7 +9072,7 @@ type ContentLinkArgs struct {
 	// The content version.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// The metadata.
-	Metadata ObjectPtrInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The content link URI.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
@@ -9171,8 +9171,8 @@ func (o ContentLinkOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o ContentLinkOutput) Metadata() ObjectPtrOutput {
-	return o.ApplyT(func(v ContentLink) *Object { return v.Metadata }).(ObjectPtrOutput)
+func (o ContentLinkOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v ContentLink) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The content link URI.
@@ -9229,13 +9229,13 @@ func (o ContentLinkPtrOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o ContentLinkPtrOutput) Metadata() ObjectPtrOutput {
-	return o.ApplyT(func(v *ContentLink) *Object {
+func (o ContentLinkPtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *ContentLink) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(ObjectPtrOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The content link URI.
@@ -9257,7 +9257,7 @@ type ContentLinkResponse struct {
 	// The content version.
 	ContentVersion *string `pulumi:"contentVersion"`
 	// The metadata.
-	Metadata *ObjectResponse `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The content link URI.
 	Uri *string `pulumi:"uri"`
 }
@@ -9282,7 +9282,7 @@ type ContentLinkResponseArgs struct {
 	// The content version.
 	ContentVersion pulumi.StringPtrInput `pulumi:"contentVersion"`
 	// The metadata.
-	Metadata ObjectResponsePtrInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The content link URI.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
@@ -9381,8 +9381,8 @@ func (o ContentLinkResponseOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o ContentLinkResponseOutput) Metadata() ObjectResponsePtrOutput {
-	return o.ApplyT(func(v ContentLinkResponse) *ObjectResponse { return v.Metadata }).(ObjectResponsePtrOutput)
+func (o ContentLinkResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v ContentLinkResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The content link URI.
@@ -9439,13 +9439,13 @@ func (o ContentLinkResponsePtrOutput) ContentVersion() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o ContentLinkResponsePtrOutput) Metadata() ObjectResponsePtrOutput {
-	return o.ApplyT(func(v *ContentLinkResponse) *ObjectResponse {
+func (o ContentLinkResponsePtrOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v *ContentLinkResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Metadata
-	}).(ObjectResponsePtrOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The content link URI.
@@ -18385,199 +18385,6 @@ func (o FlowEndpointsResponsePtrOutput) OutgoingIpAddresses() IpAddressResponseA
 	}).(IpAddressResponseArrayOutput)
 }
 
-// The integration account.
-type IntegrationAccountType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The integration account properties.
-	Properties IntegrationAccountPropertiesResponse `pulumi:"properties"`
-	// The sku.
-	Sku *IntegrationAccountSkuResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-}
-
-// IntegrationAccountTypeInput is an input type that accepts IntegrationAccountTypeArgs and IntegrationAccountTypeOutput values.
-// You can construct a concrete instance of `IntegrationAccountTypeInput` via:
-//
-//          IntegrationAccountTypeArgs{...}
-type IntegrationAccountTypeInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountTypeOutput() IntegrationAccountTypeOutput
-	ToIntegrationAccountTypeOutputWithContext(context.Context) IntegrationAccountTypeOutput
-}
-
-// The integration account.
-type IntegrationAccountTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The integration account properties.
-	Properties IntegrationAccountPropertiesResponseInput `pulumi:"properties"`
-	// The sku.
-	Sku IntegrationAccountSkuResponsePtrInput `pulumi:"sku"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IntegrationAccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountType)(nil)).Elem()
-}
-
-func (i IntegrationAccountTypeArgs) ToIntegrationAccountTypeOutput() IntegrationAccountTypeOutput {
-	return i.ToIntegrationAccountTypeOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountTypeArgs) ToIntegrationAccountTypeOutputWithContext(ctx context.Context) IntegrationAccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountTypeOutput)
-}
-
-// The integration account.
-type IntegrationAccountTypeOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountType)(nil)).Elem()
-}
-
-func (o IntegrationAccountTypeOutput) ToIntegrationAccountTypeOutput() IntegrationAccountTypeOutput {
-	return o
-}
-
-func (o IntegrationAccountTypeOutput) ToIntegrationAccountTypeOutputWithContext(ctx context.Context) IntegrationAccountTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o IntegrationAccountTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets the resource name.
-func (o IntegrationAccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The integration account properties.
-func (o IntegrationAccountTypeOutput) Properties() IntegrationAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v IntegrationAccountType) IntegrationAccountPropertiesResponse { return v.Properties }).(IntegrationAccountPropertiesResponseOutput)
-}
-
-// The sku.
-func (o IntegrationAccountTypeOutput) Sku() IntegrationAccountSkuResponsePtrOutput {
-	return o.ApplyT(func(v IntegrationAccountType) *IntegrationAccountSkuResponse { return v.Sku }).(IntegrationAccountSkuResponsePtrOutput)
-}
-
-// The resource tags.
-func (o IntegrationAccountTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationAccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The integration account agreement.
-type IntegrationAccountAgreementType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The integration account agreement properties.
-	Properties IntegrationAccountAgreementPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-}
-
-// IntegrationAccountAgreementTypeInput is an input type that accepts IntegrationAccountAgreementTypeArgs and IntegrationAccountAgreementTypeOutput values.
-// You can construct a concrete instance of `IntegrationAccountAgreementTypeInput` via:
-//
-//          IntegrationAccountAgreementTypeArgs{...}
-type IntegrationAccountAgreementTypeInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountAgreementTypeOutput() IntegrationAccountAgreementTypeOutput
-	ToIntegrationAccountAgreementTypeOutputWithContext(context.Context) IntegrationAccountAgreementTypeOutput
-}
-
-// The integration account agreement.
-type IntegrationAccountAgreementTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The integration account agreement properties.
-	Properties IntegrationAccountAgreementPropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IntegrationAccountAgreementTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAgreementType)(nil)).Elem()
-}
-
-func (i IntegrationAccountAgreementTypeArgs) ToIntegrationAccountAgreementTypeOutput() IntegrationAccountAgreementTypeOutput {
-	return i.ToIntegrationAccountAgreementTypeOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountAgreementTypeArgs) ToIntegrationAccountAgreementTypeOutputWithContext(ctx context.Context) IntegrationAccountAgreementTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementTypeOutput)
-}
-
-// The integration account agreement.
-type IntegrationAccountAgreementTypeOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountAgreementTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAgreementType)(nil)).Elem()
-}
-
-func (o IntegrationAccountAgreementTypeOutput) ToIntegrationAccountAgreementTypeOutput() IntegrationAccountAgreementTypeOutput {
-	return o
-}
-
-func (o IntegrationAccountAgreementTypeOutput) ToIntegrationAccountAgreementTypeOutputWithContext(ctx context.Context) IntegrationAccountAgreementTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o IntegrationAccountAgreementTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountAgreementType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets the resource name.
-func (o IntegrationAccountAgreementTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountAgreementType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The integration account agreement properties.
-func (o IntegrationAccountAgreementTypeOutput) Properties() IntegrationAccountAgreementPropertiesResponseOutput {
-	return o.ApplyT(func(v IntegrationAccountAgreementType) IntegrationAccountAgreementPropertiesResponse {
-		return v.Properties
-	}).(IntegrationAccountAgreementPropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o IntegrationAccountAgreementTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountAgreementType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationAccountAgreementTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountAgreementType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The integration account agreement properties.
 type IntegrationAccountAgreementPropertiesResponse struct {
 	// The agreement type.
@@ -18866,283 +18673,6 @@ func (o IntegrationAccountAgreementPropertiesResponsePtrOutput) Metadata() pulum
 	}).(pulumi.MapOutput)
 }
 
-// The assembly definition.
-type IntegrationAccountAssemblyType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The assembly properties.
-	Properties AssemblyPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-}
-
-// IntegrationAccountAssemblyTypeInput is an input type that accepts IntegrationAccountAssemblyTypeArgs and IntegrationAccountAssemblyTypeOutput values.
-// You can construct a concrete instance of `IntegrationAccountAssemblyTypeInput` via:
-//
-//          IntegrationAccountAssemblyTypeArgs{...}
-type IntegrationAccountAssemblyTypeInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountAssemblyTypeOutput() IntegrationAccountAssemblyTypeOutput
-	ToIntegrationAccountAssemblyTypeOutputWithContext(context.Context) IntegrationAccountAssemblyTypeOutput
-}
-
-// The assembly definition.
-type IntegrationAccountAssemblyTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The assembly properties.
-	Properties AssemblyPropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IntegrationAccountAssemblyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAssemblyType)(nil)).Elem()
-}
-
-func (i IntegrationAccountAssemblyTypeArgs) ToIntegrationAccountAssemblyTypeOutput() IntegrationAccountAssemblyTypeOutput {
-	return i.ToIntegrationAccountAssemblyTypeOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountAssemblyTypeArgs) ToIntegrationAccountAssemblyTypeOutputWithContext(ctx context.Context) IntegrationAccountAssemblyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAssemblyTypeOutput)
-}
-
-// The assembly definition.
-type IntegrationAccountAssemblyTypeOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountAssemblyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountAssemblyType)(nil)).Elem()
-}
-
-func (o IntegrationAccountAssemblyTypeOutput) ToIntegrationAccountAssemblyTypeOutput() IntegrationAccountAssemblyTypeOutput {
-	return o
-}
-
-func (o IntegrationAccountAssemblyTypeOutput) ToIntegrationAccountAssemblyTypeOutputWithContext(ctx context.Context) IntegrationAccountAssemblyTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o IntegrationAccountAssemblyTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountAssemblyType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets the resource name.
-func (o IntegrationAccountAssemblyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountAssemblyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The assembly properties.
-func (o IntegrationAccountAssemblyTypeOutput) Properties() AssemblyPropertiesResponseOutput {
-	return o.ApplyT(func(v IntegrationAccountAssemblyType) AssemblyPropertiesResponse { return v.Properties }).(AssemblyPropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o IntegrationAccountAssemblyTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountAssemblyType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationAccountAssemblyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountAssemblyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The batch configuration resource definition.
-type IntegrationAccountBatchConfigurationType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The batch configuration properties.
-	Properties BatchConfigurationPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-}
-
-// IntegrationAccountBatchConfigurationTypeInput is an input type that accepts IntegrationAccountBatchConfigurationTypeArgs and IntegrationAccountBatchConfigurationTypeOutput values.
-// You can construct a concrete instance of `IntegrationAccountBatchConfigurationTypeInput` via:
-//
-//          IntegrationAccountBatchConfigurationTypeArgs{...}
-type IntegrationAccountBatchConfigurationTypeInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountBatchConfigurationTypeOutput() IntegrationAccountBatchConfigurationTypeOutput
-	ToIntegrationAccountBatchConfigurationTypeOutputWithContext(context.Context) IntegrationAccountBatchConfigurationTypeOutput
-}
-
-// The batch configuration resource definition.
-type IntegrationAccountBatchConfigurationTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The batch configuration properties.
-	Properties BatchConfigurationPropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IntegrationAccountBatchConfigurationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountBatchConfigurationType)(nil)).Elem()
-}
-
-func (i IntegrationAccountBatchConfigurationTypeArgs) ToIntegrationAccountBatchConfigurationTypeOutput() IntegrationAccountBatchConfigurationTypeOutput {
-	return i.ToIntegrationAccountBatchConfigurationTypeOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountBatchConfigurationTypeArgs) ToIntegrationAccountBatchConfigurationTypeOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationTypeOutput)
-}
-
-// The batch configuration resource definition.
-type IntegrationAccountBatchConfigurationTypeOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountBatchConfigurationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountBatchConfigurationType)(nil)).Elem()
-}
-
-func (o IntegrationAccountBatchConfigurationTypeOutput) ToIntegrationAccountBatchConfigurationTypeOutput() IntegrationAccountBatchConfigurationTypeOutput {
-	return o
-}
-
-func (o IntegrationAccountBatchConfigurationTypeOutput) ToIntegrationAccountBatchConfigurationTypeOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o IntegrationAccountBatchConfigurationTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountBatchConfigurationType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets the resource name.
-func (o IntegrationAccountBatchConfigurationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountBatchConfigurationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The batch configuration properties.
-func (o IntegrationAccountBatchConfigurationTypeOutput) Properties() BatchConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v IntegrationAccountBatchConfigurationType) BatchConfigurationPropertiesResponse {
-		return v.Properties
-	}).(BatchConfigurationPropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o IntegrationAccountBatchConfigurationTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountBatchConfigurationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationAccountBatchConfigurationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountBatchConfigurationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The integration account certificate.
-type IntegrationAccountCertificateType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The integration account certificate properties.
-	Properties IntegrationAccountCertificatePropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-}
-
-// IntegrationAccountCertificateTypeInput is an input type that accepts IntegrationAccountCertificateTypeArgs and IntegrationAccountCertificateTypeOutput values.
-// You can construct a concrete instance of `IntegrationAccountCertificateTypeInput` via:
-//
-//          IntegrationAccountCertificateTypeArgs{...}
-type IntegrationAccountCertificateTypeInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountCertificateTypeOutput() IntegrationAccountCertificateTypeOutput
-	ToIntegrationAccountCertificateTypeOutputWithContext(context.Context) IntegrationAccountCertificateTypeOutput
-}
-
-// The integration account certificate.
-type IntegrationAccountCertificateTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The integration account certificate properties.
-	Properties IntegrationAccountCertificatePropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IntegrationAccountCertificateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountCertificateType)(nil)).Elem()
-}
-
-func (i IntegrationAccountCertificateTypeArgs) ToIntegrationAccountCertificateTypeOutput() IntegrationAccountCertificateTypeOutput {
-	return i.ToIntegrationAccountCertificateTypeOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountCertificateTypeArgs) ToIntegrationAccountCertificateTypeOutputWithContext(ctx context.Context) IntegrationAccountCertificateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountCertificateTypeOutput)
-}
-
-// The integration account certificate.
-type IntegrationAccountCertificateTypeOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountCertificateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountCertificateType)(nil)).Elem()
-}
-
-func (o IntegrationAccountCertificateTypeOutput) ToIntegrationAccountCertificateTypeOutput() IntegrationAccountCertificateTypeOutput {
-	return o
-}
-
-func (o IntegrationAccountCertificateTypeOutput) ToIntegrationAccountCertificateTypeOutputWithContext(ctx context.Context) IntegrationAccountCertificateTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o IntegrationAccountCertificateTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountCertificateType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets the resource name.
-func (o IntegrationAccountCertificateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountCertificateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The integration account certificate properties.
-func (o IntegrationAccountCertificateTypeOutput) Properties() IntegrationAccountCertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v IntegrationAccountCertificateType) IntegrationAccountCertificatePropertiesResponse {
-		return v.Properties
-	}).(IntegrationAccountCertificatePropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o IntegrationAccountCertificateTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountCertificateType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationAccountCertificateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountCertificateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The integration account certificate properties.
 type IntegrationAccountCertificatePropertiesResponse struct {
 	// The changed time.
@@ -19355,226 +18885,135 @@ func (o IntegrationAccountCertificatePropertiesResponsePtrOutput) PublicCertific
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration account map.
-type IntegrationAccountMapType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The integration account map properties.
-	Properties IntegrationAccountMapPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-}
-
-// IntegrationAccountMapTypeInput is an input type that accepts IntegrationAccountMapTypeArgs and IntegrationAccountMapTypeOutput values.
-// You can construct a concrete instance of `IntegrationAccountMapTypeInput` via:
-//
-//          IntegrationAccountMapTypeArgs{...}
-type IntegrationAccountMapTypeInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountMapTypeOutput() IntegrationAccountMapTypeOutput
-	ToIntegrationAccountMapTypeOutputWithContext(context.Context) IntegrationAccountMapTypeOutput
-}
-
-// The integration account map.
-type IntegrationAccountMapTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The integration account map properties.
-	Properties IntegrationAccountMapPropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IntegrationAccountMapTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMapType)(nil)).Elem()
-}
-
-func (i IntegrationAccountMapTypeArgs) ToIntegrationAccountMapTypeOutput() IntegrationAccountMapTypeOutput {
-	return i.ToIntegrationAccountMapTypeOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountMapTypeArgs) ToIntegrationAccountMapTypeOutputWithContext(ctx context.Context) IntegrationAccountMapTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapTypeOutput)
-}
-
-// The integration account map.
-type IntegrationAccountMapTypeOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountMapTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMapType)(nil)).Elem()
-}
-
-func (o IntegrationAccountMapTypeOutput) ToIntegrationAccountMapTypeOutput() IntegrationAccountMapTypeOutput {
-	return o
-}
-
-func (o IntegrationAccountMapTypeOutput) ToIntegrationAccountMapTypeOutputWithContext(ctx context.Context) IntegrationAccountMapTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o IntegrationAccountMapTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountMapType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets the resource name.
-func (o IntegrationAccountMapTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountMapType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The integration account map properties.
-func (o IntegrationAccountMapTypeOutput) Properties() IntegrationAccountMapPropertiesResponseOutput {
-	return o.ApplyT(func(v IntegrationAccountMapType) IntegrationAccountMapPropertiesResponse { return v.Properties }).(IntegrationAccountMapPropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o IntegrationAccountMapTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountMapType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationAccountMapTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountMapType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The parameters schema of integration account map.
-type IntegrationAccountMapPropertiesProperties struct {
+type IntegrationAccountMapPropertiesParametersSchema struct {
 	// The reference name.
 	Ref *string `pulumi:"ref"`
 }
 
-// IntegrationAccountMapPropertiesPropertiesInput is an input type that accepts IntegrationAccountMapPropertiesPropertiesArgs and IntegrationAccountMapPropertiesPropertiesOutput values.
-// You can construct a concrete instance of `IntegrationAccountMapPropertiesPropertiesInput` via:
+// IntegrationAccountMapPropertiesParametersSchemaInput is an input type that accepts IntegrationAccountMapPropertiesParametersSchemaArgs and IntegrationAccountMapPropertiesParametersSchemaOutput values.
+// You can construct a concrete instance of `IntegrationAccountMapPropertiesParametersSchemaInput` via:
 //
-//          IntegrationAccountMapPropertiesPropertiesArgs{...}
-type IntegrationAccountMapPropertiesPropertiesInput interface {
+//          IntegrationAccountMapPropertiesParametersSchemaArgs{...}
+type IntegrationAccountMapPropertiesParametersSchemaInput interface {
 	pulumi.Input
 
-	ToIntegrationAccountMapPropertiesPropertiesOutput() IntegrationAccountMapPropertiesPropertiesOutput
-	ToIntegrationAccountMapPropertiesPropertiesOutputWithContext(context.Context) IntegrationAccountMapPropertiesPropertiesOutput
+	ToIntegrationAccountMapPropertiesParametersSchemaOutput() IntegrationAccountMapPropertiesParametersSchemaOutput
+	ToIntegrationAccountMapPropertiesParametersSchemaOutputWithContext(context.Context) IntegrationAccountMapPropertiesParametersSchemaOutput
 }
 
 // The parameters schema of integration account map.
-type IntegrationAccountMapPropertiesPropertiesArgs struct {
+type IntegrationAccountMapPropertiesParametersSchemaArgs struct {
 	// The reference name.
 	Ref pulumi.StringPtrInput `pulumi:"ref"`
 }
 
-func (IntegrationAccountMapPropertiesPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMapPropertiesProperties)(nil)).Elem()
+func (IntegrationAccountMapPropertiesParametersSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMapPropertiesParametersSchema)(nil)).Elem()
 }
 
-func (i IntegrationAccountMapPropertiesPropertiesArgs) ToIntegrationAccountMapPropertiesPropertiesOutput() IntegrationAccountMapPropertiesPropertiesOutput {
-	return i.ToIntegrationAccountMapPropertiesPropertiesOutputWithContext(context.Background())
+func (i IntegrationAccountMapPropertiesParametersSchemaArgs) ToIntegrationAccountMapPropertiesParametersSchemaOutput() IntegrationAccountMapPropertiesParametersSchemaOutput {
+	return i.ToIntegrationAccountMapPropertiesParametersSchemaOutputWithContext(context.Background())
 }
 
-func (i IntegrationAccountMapPropertiesPropertiesArgs) ToIntegrationAccountMapPropertiesPropertiesOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesPropertiesOutput)
+func (i IntegrationAccountMapPropertiesParametersSchemaArgs) ToIntegrationAccountMapPropertiesParametersSchemaOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesParametersSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesParametersSchemaOutput)
 }
 
-func (i IntegrationAccountMapPropertiesPropertiesArgs) ToIntegrationAccountMapPropertiesPropertiesPtrOutput() IntegrationAccountMapPropertiesPropertiesPtrOutput {
-	return i.ToIntegrationAccountMapPropertiesPropertiesPtrOutputWithContext(context.Background())
+func (i IntegrationAccountMapPropertiesParametersSchemaArgs) ToIntegrationAccountMapPropertiesParametersSchemaPtrOutput() IntegrationAccountMapPropertiesParametersSchemaPtrOutput {
+	return i.ToIntegrationAccountMapPropertiesParametersSchemaPtrOutputWithContext(context.Background())
 }
 
-func (i IntegrationAccountMapPropertiesPropertiesArgs) ToIntegrationAccountMapPropertiesPropertiesPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesPropertiesOutput).ToIntegrationAccountMapPropertiesPropertiesPtrOutputWithContext(ctx)
+func (i IntegrationAccountMapPropertiesParametersSchemaArgs) ToIntegrationAccountMapPropertiesParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesParametersSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesParametersSchemaOutput).ToIntegrationAccountMapPropertiesParametersSchemaPtrOutputWithContext(ctx)
 }
 
-// IntegrationAccountMapPropertiesPropertiesPtrInput is an input type that accepts IntegrationAccountMapPropertiesPropertiesArgs, IntegrationAccountMapPropertiesPropertiesPtr and IntegrationAccountMapPropertiesPropertiesPtrOutput values.
-// You can construct a concrete instance of `IntegrationAccountMapPropertiesPropertiesPtrInput` via:
+// IntegrationAccountMapPropertiesParametersSchemaPtrInput is an input type that accepts IntegrationAccountMapPropertiesParametersSchemaArgs, IntegrationAccountMapPropertiesParametersSchemaPtr and IntegrationAccountMapPropertiesParametersSchemaPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountMapPropertiesParametersSchemaPtrInput` via:
 //
-//          IntegrationAccountMapPropertiesPropertiesArgs{...}
+//          IntegrationAccountMapPropertiesParametersSchemaArgs{...}
 //
 //  or:
 //
 //          nil
-type IntegrationAccountMapPropertiesPropertiesPtrInput interface {
+type IntegrationAccountMapPropertiesParametersSchemaPtrInput interface {
 	pulumi.Input
 
-	ToIntegrationAccountMapPropertiesPropertiesPtrOutput() IntegrationAccountMapPropertiesPropertiesPtrOutput
-	ToIntegrationAccountMapPropertiesPropertiesPtrOutputWithContext(context.Context) IntegrationAccountMapPropertiesPropertiesPtrOutput
+	ToIntegrationAccountMapPropertiesParametersSchemaPtrOutput() IntegrationAccountMapPropertiesParametersSchemaPtrOutput
+	ToIntegrationAccountMapPropertiesParametersSchemaPtrOutputWithContext(context.Context) IntegrationAccountMapPropertiesParametersSchemaPtrOutput
 }
 
-type integrationAccountMapPropertiesPropertiesPtrType IntegrationAccountMapPropertiesPropertiesArgs
+type integrationAccountMapPropertiesParametersSchemaPtrType IntegrationAccountMapPropertiesParametersSchemaArgs
 
-func IntegrationAccountMapPropertiesPropertiesPtr(v *IntegrationAccountMapPropertiesPropertiesArgs) IntegrationAccountMapPropertiesPropertiesPtrInput {
-	return (*integrationAccountMapPropertiesPropertiesPtrType)(v)
+func IntegrationAccountMapPropertiesParametersSchemaPtr(v *IntegrationAccountMapPropertiesParametersSchemaArgs) IntegrationAccountMapPropertiesParametersSchemaPtrInput {
+	return (*integrationAccountMapPropertiesParametersSchemaPtrType)(v)
 }
 
-func (*integrationAccountMapPropertiesPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountMapPropertiesProperties)(nil)).Elem()
+func (*integrationAccountMapPropertiesParametersSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountMapPropertiesParametersSchema)(nil)).Elem()
 }
 
-func (i *integrationAccountMapPropertiesPropertiesPtrType) ToIntegrationAccountMapPropertiesPropertiesPtrOutput() IntegrationAccountMapPropertiesPropertiesPtrOutput {
-	return i.ToIntegrationAccountMapPropertiesPropertiesPtrOutputWithContext(context.Background())
+func (i *integrationAccountMapPropertiesParametersSchemaPtrType) ToIntegrationAccountMapPropertiesParametersSchemaPtrOutput() IntegrationAccountMapPropertiesParametersSchemaPtrOutput {
+	return i.ToIntegrationAccountMapPropertiesParametersSchemaPtrOutputWithContext(context.Background())
 }
 
-func (i *integrationAccountMapPropertiesPropertiesPtrType) ToIntegrationAccountMapPropertiesPropertiesPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesPropertiesPtrOutput)
+func (i *integrationAccountMapPropertiesParametersSchemaPtrType) ToIntegrationAccountMapPropertiesParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesParametersSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesParametersSchemaPtrOutput)
 }
 
 // The parameters schema of integration account map.
-type IntegrationAccountMapPropertiesPropertiesOutput struct{ *pulumi.OutputState }
+type IntegrationAccountMapPropertiesParametersSchemaOutput struct{ *pulumi.OutputState }
 
-func (IntegrationAccountMapPropertiesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMapPropertiesProperties)(nil)).Elem()
+func (IntegrationAccountMapPropertiesParametersSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMapPropertiesParametersSchema)(nil)).Elem()
 }
 
-func (o IntegrationAccountMapPropertiesPropertiesOutput) ToIntegrationAccountMapPropertiesPropertiesOutput() IntegrationAccountMapPropertiesPropertiesOutput {
+func (o IntegrationAccountMapPropertiesParametersSchemaOutput) ToIntegrationAccountMapPropertiesParametersSchemaOutput() IntegrationAccountMapPropertiesParametersSchemaOutput {
 	return o
 }
 
-func (o IntegrationAccountMapPropertiesPropertiesOutput) ToIntegrationAccountMapPropertiesPropertiesOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesPropertiesOutput {
+func (o IntegrationAccountMapPropertiesParametersSchemaOutput) ToIntegrationAccountMapPropertiesParametersSchemaOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesParametersSchemaOutput {
 	return o
 }
 
-func (o IntegrationAccountMapPropertiesPropertiesOutput) ToIntegrationAccountMapPropertiesPropertiesPtrOutput() IntegrationAccountMapPropertiesPropertiesPtrOutput {
-	return o.ToIntegrationAccountMapPropertiesPropertiesPtrOutputWithContext(context.Background())
+func (o IntegrationAccountMapPropertiesParametersSchemaOutput) ToIntegrationAccountMapPropertiesParametersSchemaPtrOutput() IntegrationAccountMapPropertiesParametersSchemaPtrOutput {
+	return o.ToIntegrationAccountMapPropertiesParametersSchemaPtrOutputWithContext(context.Background())
 }
 
-func (o IntegrationAccountMapPropertiesPropertiesOutput) ToIntegrationAccountMapPropertiesPropertiesPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesPropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountMapPropertiesProperties) *IntegrationAccountMapPropertiesProperties {
+func (o IntegrationAccountMapPropertiesParametersSchemaOutput) ToIntegrationAccountMapPropertiesParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesParametersSchemaPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMapPropertiesParametersSchema) *IntegrationAccountMapPropertiesParametersSchema {
 		return &v
-	}).(IntegrationAccountMapPropertiesPropertiesPtrOutput)
+	}).(IntegrationAccountMapPropertiesParametersSchemaPtrOutput)
 }
 
 // The reference name.
-func (o IntegrationAccountMapPropertiesPropertiesOutput) Ref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountMapPropertiesProperties) *string { return v.Ref }).(pulumi.StringPtrOutput)
+func (o IntegrationAccountMapPropertiesParametersSchemaOutput) Ref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMapPropertiesParametersSchema) *string { return v.Ref }).(pulumi.StringPtrOutput)
 }
 
-type IntegrationAccountMapPropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+type IntegrationAccountMapPropertiesParametersSchemaPtrOutput struct{ *pulumi.OutputState }
 
-func (IntegrationAccountMapPropertiesPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountMapPropertiesProperties)(nil)).Elem()
+func (IntegrationAccountMapPropertiesParametersSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountMapPropertiesParametersSchema)(nil)).Elem()
 }
 
-func (o IntegrationAccountMapPropertiesPropertiesPtrOutput) ToIntegrationAccountMapPropertiesPropertiesPtrOutput() IntegrationAccountMapPropertiesPropertiesPtrOutput {
+func (o IntegrationAccountMapPropertiesParametersSchemaPtrOutput) ToIntegrationAccountMapPropertiesParametersSchemaPtrOutput() IntegrationAccountMapPropertiesParametersSchemaPtrOutput {
 	return o
 }
 
-func (o IntegrationAccountMapPropertiesPropertiesPtrOutput) ToIntegrationAccountMapPropertiesPropertiesPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesPropertiesPtrOutput {
+func (o IntegrationAccountMapPropertiesParametersSchemaPtrOutput) ToIntegrationAccountMapPropertiesParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesParametersSchemaPtrOutput {
 	return o
 }
 
-func (o IntegrationAccountMapPropertiesPropertiesPtrOutput) Elem() IntegrationAccountMapPropertiesPropertiesOutput {
-	return o.ApplyT(func(v *IntegrationAccountMapPropertiesProperties) IntegrationAccountMapPropertiesProperties {
+func (o IntegrationAccountMapPropertiesParametersSchemaPtrOutput) Elem() IntegrationAccountMapPropertiesParametersSchemaOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapPropertiesParametersSchema) IntegrationAccountMapPropertiesParametersSchema {
 		return *v
-	}).(IntegrationAccountMapPropertiesPropertiesOutput)
+	}).(IntegrationAccountMapPropertiesParametersSchemaOutput)
 }
 
 // The reference name.
-func (o IntegrationAccountMapPropertiesPropertiesPtrOutput) Ref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountMapPropertiesProperties) *string {
+func (o IntegrationAccountMapPropertiesParametersSchemaPtrOutput) Ref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapPropertiesParametersSchema) *string {
 		if v == nil {
 			return nil
 		}
@@ -19599,7 +19038,7 @@ type IntegrationAccountMapPropertiesResponse struct {
 	// The metadata.
 	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The parameters schema of integration account map.
-	ParametersSchema *IntegrationAccountMapPropertiesResponseProperties `pulumi:"parametersSchema"`
+	ParametersSchema *IntegrationAccountMapPropertiesResponseParametersSchema `pulumi:"parametersSchema"`
 }
 
 // IntegrationAccountMapPropertiesResponseInput is an input type that accepts IntegrationAccountMapPropertiesResponseArgs and IntegrationAccountMapPropertiesResponseOutput values.
@@ -19630,7 +19069,7 @@ type IntegrationAccountMapPropertiesResponseArgs struct {
 	// The metadata.
 	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The parameters schema of integration account map.
-	ParametersSchema IntegrationAccountMapPropertiesResponsePropertiesPtrInput `pulumi:"parametersSchema"`
+	ParametersSchema IntegrationAccountMapPropertiesResponseParametersSchemaPtrInput `pulumi:"parametersSchema"`
 }
 
 func (IntegrationAccountMapPropertiesResponseArgs) ElementType() reflect.Type {
@@ -19747,10 +19186,10 @@ func (o IntegrationAccountMapPropertiesResponseOutput) Metadata() pulumi.MapOutp
 }
 
 // The parameters schema of integration account map.
-func (o IntegrationAccountMapPropertiesResponseOutput) ParametersSchema() IntegrationAccountMapPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountMapPropertiesResponse) *IntegrationAccountMapPropertiesResponseProperties {
+func (o IntegrationAccountMapPropertiesResponseOutput) ParametersSchema() IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMapPropertiesResponse) *IntegrationAccountMapPropertiesResponseParametersSchema {
 		return v.ParametersSchema
-	}).(IntegrationAccountMapPropertiesResponsePropertiesPtrOutput)
+	}).(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput)
 }
 
 type IntegrationAccountMapPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -19842,240 +19281,149 @@ func (o IntegrationAccountMapPropertiesResponsePtrOutput) Metadata() pulumi.MapO
 }
 
 // The parameters schema of integration account map.
-func (o IntegrationAccountMapPropertiesResponsePtrOutput) ParametersSchema() IntegrationAccountMapPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountMapPropertiesResponse) *IntegrationAccountMapPropertiesResponseProperties {
+func (o IntegrationAccountMapPropertiesResponsePtrOutput) ParametersSchema() IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapPropertiesResponse) *IntegrationAccountMapPropertiesResponseParametersSchema {
 		if v == nil {
 			return nil
 		}
 		return v.ParametersSchema
-	}).(IntegrationAccountMapPropertiesResponsePropertiesPtrOutput)
+	}).(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput)
 }
 
 // The parameters schema of integration account map.
-type IntegrationAccountMapPropertiesResponseProperties struct {
+type IntegrationAccountMapPropertiesResponseParametersSchema struct {
 	// The reference name.
 	Ref *string `pulumi:"ref"`
 }
 
-// IntegrationAccountMapPropertiesResponsePropertiesInput is an input type that accepts IntegrationAccountMapPropertiesResponsePropertiesArgs and IntegrationAccountMapPropertiesResponsePropertiesOutput values.
-// You can construct a concrete instance of `IntegrationAccountMapPropertiesResponsePropertiesInput` via:
+// IntegrationAccountMapPropertiesResponseParametersSchemaInput is an input type that accepts IntegrationAccountMapPropertiesResponseParametersSchemaArgs and IntegrationAccountMapPropertiesResponseParametersSchemaOutput values.
+// You can construct a concrete instance of `IntegrationAccountMapPropertiesResponseParametersSchemaInput` via:
 //
-//          IntegrationAccountMapPropertiesResponsePropertiesArgs{...}
-type IntegrationAccountMapPropertiesResponsePropertiesInput interface {
+//          IntegrationAccountMapPropertiesResponseParametersSchemaArgs{...}
+type IntegrationAccountMapPropertiesResponseParametersSchemaInput interface {
 	pulumi.Input
 
-	ToIntegrationAccountMapPropertiesResponsePropertiesOutput() IntegrationAccountMapPropertiesResponsePropertiesOutput
-	ToIntegrationAccountMapPropertiesResponsePropertiesOutputWithContext(context.Context) IntegrationAccountMapPropertiesResponsePropertiesOutput
+	ToIntegrationAccountMapPropertiesResponseParametersSchemaOutput() IntegrationAccountMapPropertiesResponseParametersSchemaOutput
+	ToIntegrationAccountMapPropertiesResponseParametersSchemaOutputWithContext(context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaOutput
 }
 
 // The parameters schema of integration account map.
-type IntegrationAccountMapPropertiesResponsePropertiesArgs struct {
+type IntegrationAccountMapPropertiesResponseParametersSchemaArgs struct {
 	// The reference name.
 	Ref pulumi.StringPtrInput `pulumi:"ref"`
 }
 
-func (IntegrationAccountMapPropertiesResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMapPropertiesResponseProperties)(nil)).Elem()
+func (IntegrationAccountMapPropertiesResponseParametersSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMapPropertiesResponseParametersSchema)(nil)).Elem()
 }
 
-func (i IntegrationAccountMapPropertiesResponsePropertiesArgs) ToIntegrationAccountMapPropertiesResponsePropertiesOutput() IntegrationAccountMapPropertiesResponsePropertiesOutput {
-	return i.ToIntegrationAccountMapPropertiesResponsePropertiesOutputWithContext(context.Background())
+func (i IntegrationAccountMapPropertiesResponseParametersSchemaArgs) ToIntegrationAccountMapPropertiesResponseParametersSchemaOutput() IntegrationAccountMapPropertiesResponseParametersSchemaOutput {
+	return i.ToIntegrationAccountMapPropertiesResponseParametersSchemaOutputWithContext(context.Background())
 }
 
-func (i IntegrationAccountMapPropertiesResponsePropertiesArgs) ToIntegrationAccountMapPropertiesResponsePropertiesOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesResponsePropertiesOutput)
+func (i IntegrationAccountMapPropertiesResponseParametersSchemaArgs) ToIntegrationAccountMapPropertiesResponseParametersSchemaOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesResponseParametersSchemaOutput)
 }
 
-func (i IntegrationAccountMapPropertiesResponsePropertiesArgs) ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutput() IntegrationAccountMapPropertiesResponsePropertiesPtrOutput {
-	return i.ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (i IntegrationAccountMapPropertiesResponseParametersSchemaArgs) ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput() IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
+	return i.ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutputWithContext(context.Background())
 }
 
-func (i IntegrationAccountMapPropertiesResponsePropertiesArgs) ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesResponsePropertiesOutput).ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutputWithContext(ctx)
+func (i IntegrationAccountMapPropertiesResponseParametersSchemaArgs) ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesResponseParametersSchemaOutput).ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutputWithContext(ctx)
 }
 
-// IntegrationAccountMapPropertiesResponsePropertiesPtrInput is an input type that accepts IntegrationAccountMapPropertiesResponsePropertiesArgs, IntegrationAccountMapPropertiesResponsePropertiesPtr and IntegrationAccountMapPropertiesResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `IntegrationAccountMapPropertiesResponsePropertiesPtrInput` via:
+// IntegrationAccountMapPropertiesResponseParametersSchemaPtrInput is an input type that accepts IntegrationAccountMapPropertiesResponseParametersSchemaArgs, IntegrationAccountMapPropertiesResponseParametersSchemaPtr and IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput values.
+// You can construct a concrete instance of `IntegrationAccountMapPropertiesResponseParametersSchemaPtrInput` via:
 //
-//          IntegrationAccountMapPropertiesResponsePropertiesArgs{...}
+//          IntegrationAccountMapPropertiesResponseParametersSchemaArgs{...}
 //
 //  or:
 //
 //          nil
-type IntegrationAccountMapPropertiesResponsePropertiesPtrInput interface {
+type IntegrationAccountMapPropertiesResponseParametersSchemaPtrInput interface {
 	pulumi.Input
 
-	ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutput() IntegrationAccountMapPropertiesResponsePropertiesPtrOutput
-	ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutputWithContext(context.Context) IntegrationAccountMapPropertiesResponsePropertiesPtrOutput
+	ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput() IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput
+	ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutputWithContext(context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput
 }
 
-type integrationAccountMapPropertiesResponsePropertiesPtrType IntegrationAccountMapPropertiesResponsePropertiesArgs
+type integrationAccountMapPropertiesResponseParametersSchemaPtrType IntegrationAccountMapPropertiesResponseParametersSchemaArgs
 
-func IntegrationAccountMapPropertiesResponsePropertiesPtr(v *IntegrationAccountMapPropertiesResponsePropertiesArgs) IntegrationAccountMapPropertiesResponsePropertiesPtrInput {
-	return (*integrationAccountMapPropertiesResponsePropertiesPtrType)(v)
+func IntegrationAccountMapPropertiesResponseParametersSchemaPtr(v *IntegrationAccountMapPropertiesResponseParametersSchemaArgs) IntegrationAccountMapPropertiesResponseParametersSchemaPtrInput {
+	return (*integrationAccountMapPropertiesResponseParametersSchemaPtrType)(v)
 }
 
-func (*integrationAccountMapPropertiesResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountMapPropertiesResponseProperties)(nil)).Elem()
+func (*integrationAccountMapPropertiesResponseParametersSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountMapPropertiesResponseParametersSchema)(nil)).Elem()
 }
 
-func (i *integrationAccountMapPropertiesResponsePropertiesPtrType) ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutput() IntegrationAccountMapPropertiesResponsePropertiesPtrOutput {
-	return i.ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *integrationAccountMapPropertiesResponseParametersSchemaPtrType) ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput() IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
+	return i.ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutputWithContext(context.Background())
 }
 
-func (i *integrationAccountMapPropertiesResponsePropertiesPtrType) ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesResponsePropertiesPtrOutput)
+func (i *integrationAccountMapPropertiesResponseParametersSchemaPtrType) ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput)
 }
 
 // The parameters schema of integration account map.
-type IntegrationAccountMapPropertiesResponsePropertiesOutput struct{ *pulumi.OutputState }
+type IntegrationAccountMapPropertiesResponseParametersSchemaOutput struct{ *pulumi.OutputState }
 
-func (IntegrationAccountMapPropertiesResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMapPropertiesResponseProperties)(nil)).Elem()
+func (IntegrationAccountMapPropertiesResponseParametersSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMapPropertiesResponseParametersSchema)(nil)).Elem()
 }
 
-func (o IntegrationAccountMapPropertiesResponsePropertiesOutput) ToIntegrationAccountMapPropertiesResponsePropertiesOutput() IntegrationAccountMapPropertiesResponsePropertiesOutput {
+func (o IntegrationAccountMapPropertiesResponseParametersSchemaOutput) ToIntegrationAccountMapPropertiesResponseParametersSchemaOutput() IntegrationAccountMapPropertiesResponseParametersSchemaOutput {
 	return o
 }
 
-func (o IntegrationAccountMapPropertiesResponsePropertiesOutput) ToIntegrationAccountMapPropertiesResponsePropertiesOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponsePropertiesOutput {
+func (o IntegrationAccountMapPropertiesResponseParametersSchemaOutput) ToIntegrationAccountMapPropertiesResponseParametersSchemaOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaOutput {
 	return o
 }
 
-func (o IntegrationAccountMapPropertiesResponsePropertiesOutput) ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutput() IntegrationAccountMapPropertiesResponsePropertiesPtrOutput {
-	return o.ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (o IntegrationAccountMapPropertiesResponseParametersSchemaOutput) ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput() IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
+	return o.ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutputWithContext(context.Background())
 }
 
-func (o IntegrationAccountMapPropertiesResponsePropertiesOutput) ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountMapPropertiesResponseProperties) *IntegrationAccountMapPropertiesResponseProperties {
+func (o IntegrationAccountMapPropertiesResponseParametersSchemaOutput) ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMapPropertiesResponseParametersSchema) *IntegrationAccountMapPropertiesResponseParametersSchema {
 		return &v
-	}).(IntegrationAccountMapPropertiesResponsePropertiesPtrOutput)
+	}).(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput)
 }
 
 // The reference name.
-func (o IntegrationAccountMapPropertiesResponsePropertiesOutput) Ref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountMapPropertiesResponseProperties) *string { return v.Ref }).(pulumi.StringPtrOutput)
+func (o IntegrationAccountMapPropertiesResponseParametersSchemaOutput) Ref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMapPropertiesResponseParametersSchema) *string { return v.Ref }).(pulumi.StringPtrOutput)
 }
 
-type IntegrationAccountMapPropertiesResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput struct{ *pulumi.OutputState }
 
-func (IntegrationAccountMapPropertiesResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntegrationAccountMapPropertiesResponseProperties)(nil)).Elem()
+func (IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationAccountMapPropertiesResponseParametersSchema)(nil)).Elem()
 }
 
-func (o IntegrationAccountMapPropertiesResponsePropertiesPtrOutput) ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutput() IntegrationAccountMapPropertiesResponsePropertiesPtrOutput {
+func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput() IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
 	return o
 }
 
-func (o IntegrationAccountMapPropertiesResponsePropertiesPtrOutput) ToIntegrationAccountMapPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponsePropertiesPtrOutput {
+func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) ToIntegrationAccountMapPropertiesResponseParametersSchemaPtrOutputWithContext(ctx context.Context) IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput {
 	return o
 }
 
-func (o IntegrationAccountMapPropertiesResponsePropertiesPtrOutput) Elem() IntegrationAccountMapPropertiesResponsePropertiesOutput {
-	return o.ApplyT(func(v *IntegrationAccountMapPropertiesResponseProperties) IntegrationAccountMapPropertiesResponseProperties {
+func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) Elem() IntegrationAccountMapPropertiesResponseParametersSchemaOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapPropertiesResponseParametersSchema) IntegrationAccountMapPropertiesResponseParametersSchema {
 		return *v
-	}).(IntegrationAccountMapPropertiesResponsePropertiesOutput)
+	}).(IntegrationAccountMapPropertiesResponseParametersSchemaOutput)
 }
 
 // The reference name.
-func (o IntegrationAccountMapPropertiesResponsePropertiesPtrOutput) Ref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountMapPropertiesResponseProperties) *string {
+func (o IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput) Ref() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationAccountMapPropertiesResponseParametersSchema) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Ref
 	}).(pulumi.StringPtrOutput)
-}
-
-// The integration account partner.
-type IntegrationAccountPartnerType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The integration account partner properties.
-	Properties IntegrationAccountPartnerPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-}
-
-// IntegrationAccountPartnerTypeInput is an input type that accepts IntegrationAccountPartnerTypeArgs and IntegrationAccountPartnerTypeOutput values.
-// You can construct a concrete instance of `IntegrationAccountPartnerTypeInput` via:
-//
-//          IntegrationAccountPartnerTypeArgs{...}
-type IntegrationAccountPartnerTypeInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountPartnerTypeOutput() IntegrationAccountPartnerTypeOutput
-	ToIntegrationAccountPartnerTypeOutputWithContext(context.Context) IntegrationAccountPartnerTypeOutput
-}
-
-// The integration account partner.
-type IntegrationAccountPartnerTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The integration account partner properties.
-	Properties IntegrationAccountPartnerPropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IntegrationAccountPartnerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountPartnerType)(nil)).Elem()
-}
-
-func (i IntegrationAccountPartnerTypeArgs) ToIntegrationAccountPartnerTypeOutput() IntegrationAccountPartnerTypeOutput {
-	return i.ToIntegrationAccountPartnerTypeOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountPartnerTypeArgs) ToIntegrationAccountPartnerTypeOutputWithContext(ctx context.Context) IntegrationAccountPartnerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountPartnerTypeOutput)
-}
-
-// The integration account partner.
-type IntegrationAccountPartnerTypeOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountPartnerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountPartnerType)(nil)).Elem()
-}
-
-func (o IntegrationAccountPartnerTypeOutput) ToIntegrationAccountPartnerTypeOutput() IntegrationAccountPartnerTypeOutput {
-	return o
-}
-
-func (o IntegrationAccountPartnerTypeOutput) ToIntegrationAccountPartnerTypeOutputWithContext(ctx context.Context) IntegrationAccountPartnerTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o IntegrationAccountPartnerTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountPartnerType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets the resource name.
-func (o IntegrationAccountPartnerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountPartnerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The integration account partner properties.
-func (o IntegrationAccountPartnerTypeOutput) Properties() IntegrationAccountPartnerPropertiesResponseOutput {
-	return o.ApplyT(func(v IntegrationAccountPartnerType) IntegrationAccountPartnerPropertiesResponse { return v.Properties }).(IntegrationAccountPartnerPropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o IntegrationAccountPartnerTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountPartnerType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationAccountPartnerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountPartnerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The integration account partner properties.
@@ -20445,97 +19793,6 @@ func (o IntegrationAccountPropertiesResponsePtrOutput) State() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration account schema.
-type IntegrationAccountSchemaType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The integration account schema properties.
-	Properties IntegrationAccountSchemaPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-}
-
-// IntegrationAccountSchemaTypeInput is an input type that accepts IntegrationAccountSchemaTypeArgs and IntegrationAccountSchemaTypeOutput values.
-// You can construct a concrete instance of `IntegrationAccountSchemaTypeInput` via:
-//
-//          IntegrationAccountSchemaTypeArgs{...}
-type IntegrationAccountSchemaTypeInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountSchemaTypeOutput() IntegrationAccountSchemaTypeOutput
-	ToIntegrationAccountSchemaTypeOutputWithContext(context.Context) IntegrationAccountSchemaTypeOutput
-}
-
-// The integration account schema.
-type IntegrationAccountSchemaTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The integration account schema properties.
-	Properties IntegrationAccountSchemaPropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IntegrationAccountSchemaTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountSchemaType)(nil)).Elem()
-}
-
-func (i IntegrationAccountSchemaTypeArgs) ToIntegrationAccountSchemaTypeOutput() IntegrationAccountSchemaTypeOutput {
-	return i.ToIntegrationAccountSchemaTypeOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountSchemaTypeArgs) ToIntegrationAccountSchemaTypeOutputWithContext(ctx context.Context) IntegrationAccountSchemaTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSchemaTypeOutput)
-}
-
-// The integration account schema.
-type IntegrationAccountSchemaTypeOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountSchemaTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountSchemaType)(nil)).Elem()
-}
-
-func (o IntegrationAccountSchemaTypeOutput) ToIntegrationAccountSchemaTypeOutput() IntegrationAccountSchemaTypeOutput {
-	return o
-}
-
-func (o IntegrationAccountSchemaTypeOutput) ToIntegrationAccountSchemaTypeOutputWithContext(ctx context.Context) IntegrationAccountSchemaTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o IntegrationAccountSchemaTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountSchemaType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets the resource name.
-func (o IntegrationAccountSchemaTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountSchemaType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The integration account schema properties.
-func (o IntegrationAccountSchemaTypeOutput) Properties() IntegrationAccountSchemaPropertiesResponseOutput {
-	return o.ApplyT(func(v IntegrationAccountSchemaType) IntegrationAccountSchemaPropertiesResponse { return v.Properties }).(IntegrationAccountSchemaPropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o IntegrationAccountSchemaTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountSchemaType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationAccountSchemaTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountSchemaType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The integration account schema properties.
 type IntegrationAccountSchemaPropertiesResponse struct {
 	// The changed time.
@@ -20843,103 +20100,12 @@ func (o IntegrationAccountSchemaPropertiesResponsePtrOutput) TargetNamespace() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The integration account session.
-type IntegrationAccountSessionType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The integration account session properties.
-	Properties IntegrationAccountSessionPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-}
-
-// IntegrationAccountSessionTypeInput is an input type that accepts IntegrationAccountSessionTypeArgs and IntegrationAccountSessionTypeOutput values.
-// You can construct a concrete instance of `IntegrationAccountSessionTypeInput` via:
-//
-//          IntegrationAccountSessionTypeArgs{...}
-type IntegrationAccountSessionTypeInput interface {
-	pulumi.Input
-
-	ToIntegrationAccountSessionTypeOutput() IntegrationAccountSessionTypeOutput
-	ToIntegrationAccountSessionTypeOutputWithContext(context.Context) IntegrationAccountSessionTypeOutput
-}
-
-// The integration account session.
-type IntegrationAccountSessionTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The integration account session properties.
-	Properties IntegrationAccountSessionPropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IntegrationAccountSessionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountSessionType)(nil)).Elem()
-}
-
-func (i IntegrationAccountSessionTypeArgs) ToIntegrationAccountSessionTypeOutput() IntegrationAccountSessionTypeOutput {
-	return i.ToIntegrationAccountSessionTypeOutputWithContext(context.Background())
-}
-
-func (i IntegrationAccountSessionTypeArgs) ToIntegrationAccountSessionTypeOutputWithContext(ctx context.Context) IntegrationAccountSessionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSessionTypeOutput)
-}
-
-// The integration account session.
-type IntegrationAccountSessionTypeOutput struct{ *pulumi.OutputState }
-
-func (IntegrationAccountSessionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountSessionType)(nil)).Elem()
-}
-
-func (o IntegrationAccountSessionTypeOutput) ToIntegrationAccountSessionTypeOutput() IntegrationAccountSessionTypeOutput {
-	return o
-}
-
-func (o IntegrationAccountSessionTypeOutput) ToIntegrationAccountSessionTypeOutputWithContext(ctx context.Context) IntegrationAccountSessionTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o IntegrationAccountSessionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationAccountSessionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets the resource name.
-func (o IntegrationAccountSessionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountSessionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The integration account session properties.
-func (o IntegrationAccountSessionTypeOutput) Properties() IntegrationAccountSessionPropertiesResponseOutput {
-	return o.ApplyT(func(v IntegrationAccountSessionType) IntegrationAccountSessionPropertiesResponse { return v.Properties }).(IntegrationAccountSessionPropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o IntegrationAccountSessionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationAccountSessionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationAccountSessionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationAccountSessionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The integration account session properties.
 type IntegrationAccountSessionPropertiesResponse struct {
 	// The changed time.
 	ChangedTime string `pulumi:"changedTime"`
 	// The session content.
-	Content *ObjectResponse `pulumi:"content"`
+	Content map[string]interface{} `pulumi:"content"`
 	// The created time.
 	CreatedTime string `pulumi:"createdTime"`
 }
@@ -20960,7 +20126,7 @@ type IntegrationAccountSessionPropertiesResponseArgs struct {
 	// The changed time.
 	ChangedTime pulumi.StringInput `pulumi:"changedTime"`
 	// The session content.
-	Content ObjectResponsePtrInput `pulumi:"content"`
+	Content pulumi.MapInput `pulumi:"content"`
 	// The created time.
 	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
 }
@@ -21049,8 +20215,8 @@ func (o IntegrationAccountSessionPropertiesResponseOutput) ChangedTime() pulumi.
 }
 
 // The session content.
-func (o IntegrationAccountSessionPropertiesResponseOutput) Content() ObjectResponsePtrOutput {
-	return o.ApplyT(func(v IntegrationAccountSessionPropertiesResponse) *ObjectResponse { return v.Content }).(ObjectResponsePtrOutput)
+func (o IntegrationAccountSessionPropertiesResponseOutput) Content() pulumi.MapOutput {
+	return o.ApplyT(func(v IntegrationAccountSessionPropertiesResponse) map[string]interface{} { return v.Content }).(pulumi.MapOutput)
 }
 
 // The created time.
@@ -21089,13 +20255,13 @@ func (o IntegrationAccountSessionPropertiesResponsePtrOutput) ChangedTime() pulu
 }
 
 // The session content.
-func (o IntegrationAccountSessionPropertiesResponsePtrOutput) Content() ObjectResponsePtrOutput {
-	return o.ApplyT(func(v *IntegrationAccountSessionPropertiesResponse) *ObjectResponse {
+func (o IntegrationAccountSessionPropertiesResponsePtrOutput) Content() pulumi.MapOutput {
+	return o.ApplyT(func(v *IntegrationAccountSessionPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Content
-	}).(ObjectResponsePtrOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The created time.
@@ -21380,16 +20546,12 @@ func (o IntegrationAccountSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 type IntegrationServiceEnvironmentType struct {
 	// The resource location.
 	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
 	// The integration service environment properties.
-	Properties IntegrationServiceEnvironmentPropertiesResponse `pulumi:"properties"`
+	Properties *IntegrationServiceEnvironmentProperties `pulumi:"properties"`
 	// The sku.
-	Sku *IntegrationServiceEnvironmentSkuResponse `pulumi:"sku"`
+	Sku *IntegrationServiceEnvironmentSku `pulumi:"sku"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
 }
 
 // IntegrationServiceEnvironmentTypeInput is an input type that accepts IntegrationServiceEnvironmentTypeArgs and IntegrationServiceEnvironmentTypeOutput values.
@@ -21407,16 +20569,12 @@ type IntegrationServiceEnvironmentTypeInput interface {
 type IntegrationServiceEnvironmentTypeArgs struct {
 	// The resource location.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The integration service environment properties.
-	Properties IntegrationServiceEnvironmentPropertiesResponseInput `pulumi:"properties"`
+	Properties IntegrationServiceEnvironmentPropertiesPtrInput `pulumi:"properties"`
 	// The sku.
-	Sku IntegrationServiceEnvironmentSkuResponsePtrInput `pulumi:"sku"`
+	Sku IntegrationServiceEnvironmentSkuPtrInput `pulumi:"sku"`
 	// The resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (IntegrationServiceEnvironmentTypeArgs) ElementType() reflect.Type {
@@ -21502,31 +20660,21 @@ func (o IntegrationServiceEnvironmentTypeOutput) Location() pulumi.StringPtrOutp
 	return o.ApplyT(func(v IntegrationServiceEnvironmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Gets the resource name.
-func (o IntegrationServiceEnvironmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The integration service environment properties.
-func (o IntegrationServiceEnvironmentTypeOutput) Properties() IntegrationServiceEnvironmentPropertiesResponseOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentType) IntegrationServiceEnvironmentPropertiesResponse {
+func (o IntegrationServiceEnvironmentTypeOutput) Properties() IntegrationServiceEnvironmentPropertiesPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentProperties {
 		return v.Properties
-	}).(IntegrationServiceEnvironmentPropertiesResponseOutput)
+	}).(IntegrationServiceEnvironmentPropertiesPtrOutput)
 }
 
 // The sku.
-func (o IntegrationServiceEnvironmentTypeOutput) Sku() IntegrationServiceEnvironmentSkuResponsePtrOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentSkuResponse { return v.Sku }).(IntegrationServiceEnvironmentSkuResponsePtrOutput)
+func (o IntegrationServiceEnvironmentTypeOutput) Sku() IntegrationServiceEnvironmentSkuPtrOutput {
+	return o.ApplyT(func(v IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentSku { return v.Sku }).(IntegrationServiceEnvironmentSkuPtrOutput)
 }
 
 // The resource tags.
 func (o IntegrationServiceEnvironmentTypeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v IntegrationServiceEnvironmentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationServiceEnvironmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type IntegrationServiceEnvironmentTypePtrOutput struct{ *pulumi.OutputState }
@@ -21557,34 +20705,24 @@ func (o IntegrationServiceEnvironmentTypePtrOutput) Location() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the resource name.
-func (o IntegrationServiceEnvironmentTypePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentType) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 // The integration service environment properties.
-func (o IntegrationServiceEnvironmentTypePtrOutput) Properties() IntegrationServiceEnvironmentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentPropertiesResponse {
+func (o IntegrationServiceEnvironmentTypePtrOutput) Properties() IntegrationServiceEnvironmentPropertiesPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentProperties {
 		if v == nil {
 			return nil
 		}
-		return &v.Properties
-	}).(IntegrationServiceEnvironmentPropertiesResponsePtrOutput)
+		return v.Properties
+	}).(IntegrationServiceEnvironmentPropertiesPtrOutput)
 }
 
 // The sku.
-func (o IntegrationServiceEnvironmentTypePtrOutput) Sku() IntegrationServiceEnvironmentSkuResponsePtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentSkuResponse {
+func (o IntegrationServiceEnvironmentTypePtrOutput) Sku() IntegrationServiceEnvironmentSkuPtrOutput {
+	return o.ApplyT(func(v *IntegrationServiceEnvironmentType) *IntegrationServiceEnvironmentSku {
 		if v == nil {
 			return nil
 		}
 		return v.Sku
-	}).(IntegrationServiceEnvironmentSkuResponsePtrOutput)
+	}).(IntegrationServiceEnvironmentSkuPtrOutput)
 }
 
 // The resource tags.
@@ -21595,16 +20733,6 @@ func (o IntegrationServiceEnvironmentTypePtrOutput) Tags() pulumi.StringMapOutpu
 		}
 		return v.Tags
 	}).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationServiceEnvironmentTypePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntegrationServiceEnvironmentType) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 // The integration service environment access endpoint.
@@ -21877,97 +21005,6 @@ func (o IntegrationServiceEnvironmentAccessEndpointResponsePtrOutput) Type() pul
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-// The managed api definition.
-type IntegrationServiceEnvironmentManagedApiType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The api resource properties.
-	Properties ApiResourcePropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-}
-
-// IntegrationServiceEnvironmentManagedApiTypeInput is an input type that accepts IntegrationServiceEnvironmentManagedApiTypeArgs and IntegrationServiceEnvironmentManagedApiTypeOutput values.
-// You can construct a concrete instance of `IntegrationServiceEnvironmentManagedApiTypeInput` via:
-//
-//          IntegrationServiceEnvironmentManagedApiTypeArgs{...}
-type IntegrationServiceEnvironmentManagedApiTypeInput interface {
-	pulumi.Input
-
-	ToIntegrationServiceEnvironmentManagedApiTypeOutput() IntegrationServiceEnvironmentManagedApiTypeOutput
-	ToIntegrationServiceEnvironmentManagedApiTypeOutputWithContext(context.Context) IntegrationServiceEnvironmentManagedApiTypeOutput
-}
-
-// The managed api definition.
-type IntegrationServiceEnvironmentManagedApiTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The api resource properties.
-	Properties ApiResourcePropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IntegrationServiceEnvironmentManagedApiTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiType)(nil)).Elem()
-}
-
-func (i IntegrationServiceEnvironmentManagedApiTypeArgs) ToIntegrationServiceEnvironmentManagedApiTypeOutput() IntegrationServiceEnvironmentManagedApiTypeOutput {
-	return i.ToIntegrationServiceEnvironmentManagedApiTypeOutputWithContext(context.Background())
-}
-
-func (i IntegrationServiceEnvironmentManagedApiTypeArgs) ToIntegrationServiceEnvironmentManagedApiTypeOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntegrationServiceEnvironmentManagedApiTypeOutput)
-}
-
-// The managed api definition.
-type IntegrationServiceEnvironmentManagedApiTypeOutput struct{ *pulumi.OutputState }
-
-func (IntegrationServiceEnvironmentManagedApiTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationServiceEnvironmentManagedApiType)(nil)).Elem()
-}
-
-func (o IntegrationServiceEnvironmentManagedApiTypeOutput) ToIntegrationServiceEnvironmentManagedApiTypeOutput() IntegrationServiceEnvironmentManagedApiTypeOutput {
-	return o
-}
-
-func (o IntegrationServiceEnvironmentManagedApiTypeOutput) ToIntegrationServiceEnvironmentManagedApiTypeOutputWithContext(ctx context.Context) IntegrationServiceEnvironmentManagedApiTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o IntegrationServiceEnvironmentManagedApiTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentManagedApiType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets the resource name.
-func (o IntegrationServiceEnvironmentManagedApiTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentManagedApiType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The api resource properties.
-func (o IntegrationServiceEnvironmentManagedApiTypeOutput) Properties() ApiResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentManagedApiType) ApiResourcePropertiesResponse { return v.Properties }).(ApiResourcePropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o IntegrationServiceEnvironmentManagedApiTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentManagedApiType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o IntegrationServiceEnvironmentManagedApiTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IntegrationServiceEnvironmentManagedApiType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The integration service environment properties.
@@ -23361,7 +22398,7 @@ type KeyVaultKeyReference struct {
 	// The private key name in key vault.
 	KeyName string `pulumi:"keyName"`
 	// The key vault reference.
-	KeyVault KeyVaultKeyReferenceProperties `pulumi:"keyVault"`
+	KeyVault KeyVaultKeyReferenceKeyVault `pulumi:"keyVault"`
 	// The private key version in key vault.
 	KeyVersion *string `pulumi:"keyVersion"`
 }
@@ -23382,7 +22419,7 @@ type KeyVaultKeyReferenceArgs struct {
 	// The private key name in key vault.
 	KeyName pulumi.StringInput `pulumi:"keyName"`
 	// The key vault reference.
-	KeyVault KeyVaultKeyReferencePropertiesInput `pulumi:"keyVault"`
+	KeyVault KeyVaultKeyReferenceKeyVaultInput `pulumi:"keyVault"`
 	// The private key version in key vault.
 	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
@@ -23471,8 +22508,8 @@ func (o KeyVaultKeyReferenceOutput) KeyName() pulumi.StringOutput {
 }
 
 // The key vault reference.
-func (o KeyVaultKeyReferenceOutput) KeyVault() KeyVaultKeyReferencePropertiesOutput {
-	return o.ApplyT(func(v KeyVaultKeyReference) KeyVaultKeyReferenceProperties { return v.KeyVault }).(KeyVaultKeyReferencePropertiesOutput)
+func (o KeyVaultKeyReferenceOutput) KeyVault() KeyVaultKeyReferenceKeyVaultOutput {
+	return o.ApplyT(func(v KeyVaultKeyReference) KeyVaultKeyReferenceKeyVault { return v.KeyVault }).(KeyVaultKeyReferenceKeyVaultOutput)
 }
 
 // The private key version in key vault.
@@ -23509,13 +22546,13 @@ func (o KeyVaultKeyReferencePtrOutput) KeyName() pulumi.StringPtrOutput {
 }
 
 // The key vault reference.
-func (o KeyVaultKeyReferencePtrOutput) KeyVault() KeyVaultKeyReferencePropertiesPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReference) *KeyVaultKeyReferenceProperties {
+func (o KeyVaultKeyReferencePtrOutput) KeyVault() KeyVaultKeyReferenceKeyVaultPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReference) *KeyVaultKeyReferenceKeyVault {
 		if v == nil {
 			return nil
 		}
 		return &v.KeyVault
-	}).(KeyVaultKeyReferencePropertiesPtrOutput)
+	}).(KeyVaultKeyReferenceKeyVaultPtrOutput)
 }
 
 // The private key version in key vault.
@@ -23529,132 +22566,132 @@ func (o KeyVaultKeyReferencePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 }
 
 // The key vault reference.
-type KeyVaultKeyReferenceProperties struct {
+type KeyVaultKeyReferenceKeyVault struct {
 	// The resource id.
 	Id *string `pulumi:"id"`
 }
 
-// KeyVaultKeyReferencePropertiesInput is an input type that accepts KeyVaultKeyReferencePropertiesArgs and KeyVaultKeyReferencePropertiesOutput values.
-// You can construct a concrete instance of `KeyVaultKeyReferencePropertiesInput` via:
+// KeyVaultKeyReferenceKeyVaultInput is an input type that accepts KeyVaultKeyReferenceKeyVaultArgs and KeyVaultKeyReferenceKeyVaultOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceKeyVaultInput` via:
 //
-//          KeyVaultKeyReferencePropertiesArgs{...}
-type KeyVaultKeyReferencePropertiesInput interface {
+//          KeyVaultKeyReferenceKeyVaultArgs{...}
+type KeyVaultKeyReferenceKeyVaultInput interface {
 	pulumi.Input
 
-	ToKeyVaultKeyReferencePropertiesOutput() KeyVaultKeyReferencePropertiesOutput
-	ToKeyVaultKeyReferencePropertiesOutputWithContext(context.Context) KeyVaultKeyReferencePropertiesOutput
+	ToKeyVaultKeyReferenceKeyVaultOutput() KeyVaultKeyReferenceKeyVaultOutput
+	ToKeyVaultKeyReferenceKeyVaultOutputWithContext(context.Context) KeyVaultKeyReferenceKeyVaultOutput
 }
 
 // The key vault reference.
-type KeyVaultKeyReferencePropertiesArgs struct {
+type KeyVaultKeyReferenceKeyVaultArgs struct {
 	// The resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
-func (KeyVaultKeyReferencePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultKeyReferenceProperties)(nil)).Elem()
+func (KeyVaultKeyReferenceKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceKeyVault)(nil)).Elem()
 }
 
-func (i KeyVaultKeyReferencePropertiesArgs) ToKeyVaultKeyReferencePropertiesOutput() KeyVaultKeyReferencePropertiesOutput {
-	return i.ToKeyVaultKeyReferencePropertiesOutputWithContext(context.Background())
+func (i KeyVaultKeyReferenceKeyVaultArgs) ToKeyVaultKeyReferenceKeyVaultOutput() KeyVaultKeyReferenceKeyVaultOutput {
+	return i.ToKeyVaultKeyReferenceKeyVaultOutputWithContext(context.Background())
 }
 
-func (i KeyVaultKeyReferencePropertiesArgs) ToKeyVaultKeyReferencePropertiesOutputWithContext(ctx context.Context) KeyVaultKeyReferencePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferencePropertiesOutput)
+func (i KeyVaultKeyReferenceKeyVaultArgs) ToKeyVaultKeyReferenceKeyVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceKeyVaultOutput)
 }
 
-func (i KeyVaultKeyReferencePropertiesArgs) ToKeyVaultKeyReferencePropertiesPtrOutput() KeyVaultKeyReferencePropertiesPtrOutput {
-	return i.ToKeyVaultKeyReferencePropertiesPtrOutputWithContext(context.Background())
+func (i KeyVaultKeyReferenceKeyVaultArgs) ToKeyVaultKeyReferenceKeyVaultPtrOutput() KeyVaultKeyReferenceKeyVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceKeyVaultPtrOutputWithContext(context.Background())
 }
 
-func (i KeyVaultKeyReferencePropertiesArgs) ToKeyVaultKeyReferencePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferencePropertiesOutput).ToKeyVaultKeyReferencePropertiesPtrOutputWithContext(ctx)
+func (i KeyVaultKeyReferenceKeyVaultArgs) ToKeyVaultKeyReferenceKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceKeyVaultOutput).ToKeyVaultKeyReferenceKeyVaultPtrOutputWithContext(ctx)
 }
 
-// KeyVaultKeyReferencePropertiesPtrInput is an input type that accepts KeyVaultKeyReferencePropertiesArgs, KeyVaultKeyReferencePropertiesPtr and KeyVaultKeyReferencePropertiesPtrOutput values.
-// You can construct a concrete instance of `KeyVaultKeyReferencePropertiesPtrInput` via:
+// KeyVaultKeyReferenceKeyVaultPtrInput is an input type that accepts KeyVaultKeyReferenceKeyVaultArgs, KeyVaultKeyReferenceKeyVaultPtr and KeyVaultKeyReferenceKeyVaultPtrOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceKeyVaultPtrInput` via:
 //
-//          KeyVaultKeyReferencePropertiesArgs{...}
+//          KeyVaultKeyReferenceKeyVaultArgs{...}
 //
 //  or:
 //
 //          nil
-type KeyVaultKeyReferencePropertiesPtrInput interface {
+type KeyVaultKeyReferenceKeyVaultPtrInput interface {
 	pulumi.Input
 
-	ToKeyVaultKeyReferencePropertiesPtrOutput() KeyVaultKeyReferencePropertiesPtrOutput
-	ToKeyVaultKeyReferencePropertiesPtrOutputWithContext(context.Context) KeyVaultKeyReferencePropertiesPtrOutput
+	ToKeyVaultKeyReferenceKeyVaultPtrOutput() KeyVaultKeyReferenceKeyVaultPtrOutput
+	ToKeyVaultKeyReferenceKeyVaultPtrOutputWithContext(context.Context) KeyVaultKeyReferenceKeyVaultPtrOutput
 }
 
-type keyVaultKeyReferencePropertiesPtrType KeyVaultKeyReferencePropertiesArgs
+type keyVaultKeyReferenceKeyVaultPtrType KeyVaultKeyReferenceKeyVaultArgs
 
-func KeyVaultKeyReferencePropertiesPtr(v *KeyVaultKeyReferencePropertiesArgs) KeyVaultKeyReferencePropertiesPtrInput {
-	return (*keyVaultKeyReferencePropertiesPtrType)(v)
+func KeyVaultKeyReferenceKeyVaultPtr(v *KeyVaultKeyReferenceKeyVaultArgs) KeyVaultKeyReferenceKeyVaultPtrInput {
+	return (*keyVaultKeyReferenceKeyVaultPtrType)(v)
 }
 
-func (*keyVaultKeyReferencePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultKeyReferenceProperties)(nil)).Elem()
+func (*keyVaultKeyReferenceKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceKeyVault)(nil)).Elem()
 }
 
-func (i *keyVaultKeyReferencePropertiesPtrType) ToKeyVaultKeyReferencePropertiesPtrOutput() KeyVaultKeyReferencePropertiesPtrOutput {
-	return i.ToKeyVaultKeyReferencePropertiesPtrOutputWithContext(context.Background())
+func (i *keyVaultKeyReferenceKeyVaultPtrType) ToKeyVaultKeyReferenceKeyVaultPtrOutput() KeyVaultKeyReferenceKeyVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceKeyVaultPtrOutputWithContext(context.Background())
 }
 
-func (i *keyVaultKeyReferencePropertiesPtrType) ToKeyVaultKeyReferencePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferencePropertiesPtrOutput)
+func (i *keyVaultKeyReferenceKeyVaultPtrType) ToKeyVaultKeyReferenceKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceKeyVaultPtrOutput)
 }
 
 // The key vault reference.
-type KeyVaultKeyReferencePropertiesOutput struct{ *pulumi.OutputState }
+type KeyVaultKeyReferenceKeyVaultOutput struct{ *pulumi.OutputState }
 
-func (KeyVaultKeyReferencePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultKeyReferenceProperties)(nil)).Elem()
+func (KeyVaultKeyReferenceKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceKeyVault)(nil)).Elem()
 }
 
-func (o KeyVaultKeyReferencePropertiesOutput) ToKeyVaultKeyReferencePropertiesOutput() KeyVaultKeyReferencePropertiesOutput {
+func (o KeyVaultKeyReferenceKeyVaultOutput) ToKeyVaultKeyReferenceKeyVaultOutput() KeyVaultKeyReferenceKeyVaultOutput {
 	return o
 }
 
-func (o KeyVaultKeyReferencePropertiesOutput) ToKeyVaultKeyReferencePropertiesOutputWithContext(ctx context.Context) KeyVaultKeyReferencePropertiesOutput {
+func (o KeyVaultKeyReferenceKeyVaultOutput) ToKeyVaultKeyReferenceKeyVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceKeyVaultOutput {
 	return o
 }
 
-func (o KeyVaultKeyReferencePropertiesOutput) ToKeyVaultKeyReferencePropertiesPtrOutput() KeyVaultKeyReferencePropertiesPtrOutput {
-	return o.ToKeyVaultKeyReferencePropertiesPtrOutputWithContext(context.Background())
+func (o KeyVaultKeyReferenceKeyVaultOutput) ToKeyVaultKeyReferenceKeyVaultPtrOutput() KeyVaultKeyReferenceKeyVaultPtrOutput {
+	return o.ToKeyVaultKeyReferenceKeyVaultPtrOutputWithContext(context.Background())
 }
 
-func (o KeyVaultKeyReferencePropertiesOutput) ToKeyVaultKeyReferencePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceProperties) *KeyVaultKeyReferenceProperties {
+func (o KeyVaultKeyReferenceKeyVaultOutput) ToKeyVaultKeyReferenceKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceKeyVaultPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceKeyVault) *KeyVaultKeyReferenceKeyVault {
 		return &v
-	}).(KeyVaultKeyReferencePropertiesPtrOutput)
+	}).(KeyVaultKeyReferenceKeyVaultPtrOutput)
 }
 
 // The resource id.
-func (o KeyVaultKeyReferencePropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o KeyVaultKeyReferenceKeyVaultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceKeyVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-type KeyVaultKeyReferencePropertiesPtrOutput struct{ *pulumi.OutputState }
+type KeyVaultKeyReferenceKeyVaultPtrOutput struct{ *pulumi.OutputState }
 
-func (KeyVaultKeyReferencePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultKeyReferenceProperties)(nil)).Elem()
+func (KeyVaultKeyReferenceKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceKeyVault)(nil)).Elem()
 }
 
-func (o KeyVaultKeyReferencePropertiesPtrOutput) ToKeyVaultKeyReferencePropertiesPtrOutput() KeyVaultKeyReferencePropertiesPtrOutput {
+func (o KeyVaultKeyReferenceKeyVaultPtrOutput) ToKeyVaultKeyReferenceKeyVaultPtrOutput() KeyVaultKeyReferenceKeyVaultPtrOutput {
 	return o
 }
 
-func (o KeyVaultKeyReferencePropertiesPtrOutput) ToKeyVaultKeyReferencePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferencePropertiesPtrOutput {
+func (o KeyVaultKeyReferenceKeyVaultPtrOutput) ToKeyVaultKeyReferenceKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceKeyVaultPtrOutput {
 	return o
 }
 
-func (o KeyVaultKeyReferencePropertiesPtrOutput) Elem() KeyVaultKeyReferencePropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceProperties) KeyVaultKeyReferenceProperties { return *v }).(KeyVaultKeyReferencePropertiesOutput)
+func (o KeyVaultKeyReferenceKeyVaultPtrOutput) Elem() KeyVaultKeyReferenceKeyVaultOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceKeyVault) KeyVaultKeyReferenceKeyVault { return *v }).(KeyVaultKeyReferenceKeyVaultOutput)
 }
 
 // The resource id.
-func (o KeyVaultKeyReferencePropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceProperties) *string {
+func (o KeyVaultKeyReferenceKeyVaultPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceKeyVault) *string {
 		if v == nil {
 			return nil
 		}
@@ -23667,7 +22704,7 @@ type KeyVaultKeyReferenceResponse struct {
 	// The private key name in key vault.
 	KeyName string `pulumi:"keyName"`
 	// The key vault reference.
-	KeyVault KeyVaultKeyReferenceResponseProperties `pulumi:"keyVault"`
+	KeyVault KeyVaultKeyReferenceResponseKeyVault `pulumi:"keyVault"`
 	// The private key version in key vault.
 	KeyVersion *string `pulumi:"keyVersion"`
 }
@@ -23688,7 +22725,7 @@ type KeyVaultKeyReferenceResponseArgs struct {
 	// The private key name in key vault.
 	KeyName pulumi.StringInput `pulumi:"keyName"`
 	// The key vault reference.
-	KeyVault KeyVaultKeyReferenceResponsePropertiesInput `pulumi:"keyVault"`
+	KeyVault KeyVaultKeyReferenceResponseKeyVaultInput `pulumi:"keyVault"`
 	// The private key version in key vault.
 	KeyVersion pulumi.StringPtrInput `pulumi:"keyVersion"`
 }
@@ -23777,8 +22814,8 @@ func (o KeyVaultKeyReferenceResponseOutput) KeyName() pulumi.StringOutput {
 }
 
 // The key vault reference.
-func (o KeyVaultKeyReferenceResponseOutput) KeyVault() KeyVaultKeyReferenceResponsePropertiesOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponseProperties { return v.KeyVault }).(KeyVaultKeyReferenceResponsePropertiesOutput)
+func (o KeyVaultKeyReferenceResponseOutput) KeyVault() KeyVaultKeyReferenceResponseKeyVaultOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceResponse) KeyVaultKeyReferenceResponseKeyVault { return v.KeyVault }).(KeyVaultKeyReferenceResponseKeyVaultOutput)
 }
 
 // The private key version in key vault.
@@ -23815,13 +22852,13 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) KeyName() pulumi.StringPtrOutput 
 }
 
 // The key vault reference.
-func (o KeyVaultKeyReferenceResponsePtrOutput) KeyVault() KeyVaultKeyReferenceResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponseProperties {
+func (o KeyVaultKeyReferenceResponsePtrOutput) KeyVault() KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponse) *KeyVaultKeyReferenceResponseKeyVault {
 		if v == nil {
 			return nil
 		}
 		return &v.KeyVault
-	}).(KeyVaultKeyReferenceResponsePropertiesPtrOutput)
+	}).(KeyVaultKeyReferenceResponseKeyVaultPtrOutput)
 }
 
 // The private key version in key vault.
@@ -23835,7 +22872,7 @@ func (o KeyVaultKeyReferenceResponsePtrOutput) KeyVersion() pulumi.StringPtrOutp
 }
 
 // The key vault reference.
-type KeyVaultKeyReferenceResponseProperties struct {
+type KeyVaultKeyReferenceResponseKeyVault struct {
 	// The resource id.
 	Id *string `pulumi:"id"`
 	// The resource name.
@@ -23844,19 +22881,19 @@ type KeyVaultKeyReferenceResponseProperties struct {
 	Type string `pulumi:"type"`
 }
 
-// KeyVaultKeyReferenceResponsePropertiesInput is an input type that accepts KeyVaultKeyReferenceResponsePropertiesArgs and KeyVaultKeyReferenceResponsePropertiesOutput values.
-// You can construct a concrete instance of `KeyVaultKeyReferenceResponsePropertiesInput` via:
+// KeyVaultKeyReferenceResponseKeyVaultInput is an input type that accepts KeyVaultKeyReferenceResponseKeyVaultArgs and KeyVaultKeyReferenceResponseKeyVaultOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceResponseKeyVaultInput` via:
 //
-//          KeyVaultKeyReferenceResponsePropertiesArgs{...}
-type KeyVaultKeyReferenceResponsePropertiesInput interface {
+//          KeyVaultKeyReferenceResponseKeyVaultArgs{...}
+type KeyVaultKeyReferenceResponseKeyVaultInput interface {
 	pulumi.Input
 
-	ToKeyVaultKeyReferenceResponsePropertiesOutput() KeyVaultKeyReferenceResponsePropertiesOutput
-	ToKeyVaultKeyReferenceResponsePropertiesOutputWithContext(context.Context) KeyVaultKeyReferenceResponsePropertiesOutput
+	ToKeyVaultKeyReferenceResponseKeyVaultOutput() KeyVaultKeyReferenceResponseKeyVaultOutput
+	ToKeyVaultKeyReferenceResponseKeyVaultOutputWithContext(context.Context) KeyVaultKeyReferenceResponseKeyVaultOutput
 }
 
 // The key vault reference.
-type KeyVaultKeyReferenceResponsePropertiesArgs struct {
+type KeyVaultKeyReferenceResponseKeyVaultArgs struct {
 	// The resource id.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The resource name.
@@ -23865,120 +22902,120 @@ type KeyVaultKeyReferenceResponsePropertiesArgs struct {
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (KeyVaultKeyReferenceResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultKeyReferenceResponseProperties)(nil)).Elem()
+func (KeyVaultKeyReferenceResponseKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceResponseKeyVault)(nil)).Elem()
 }
 
-func (i KeyVaultKeyReferenceResponsePropertiesArgs) ToKeyVaultKeyReferenceResponsePropertiesOutput() KeyVaultKeyReferenceResponsePropertiesOutput {
-	return i.ToKeyVaultKeyReferenceResponsePropertiesOutputWithContext(context.Background())
+func (i KeyVaultKeyReferenceResponseKeyVaultArgs) ToKeyVaultKeyReferenceResponseKeyVaultOutput() KeyVaultKeyReferenceResponseKeyVaultOutput {
+	return i.ToKeyVaultKeyReferenceResponseKeyVaultOutputWithContext(context.Background())
 }
 
-func (i KeyVaultKeyReferenceResponsePropertiesArgs) ToKeyVaultKeyReferenceResponsePropertiesOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponsePropertiesOutput)
+func (i KeyVaultKeyReferenceResponseKeyVaultArgs) ToKeyVaultKeyReferenceResponseKeyVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseKeyVaultOutput)
 }
 
-func (i KeyVaultKeyReferenceResponsePropertiesArgs) ToKeyVaultKeyReferenceResponsePropertiesPtrOutput() KeyVaultKeyReferenceResponsePropertiesPtrOutput {
-	return i.ToKeyVaultKeyReferenceResponsePropertiesPtrOutputWithContext(context.Background())
+func (i KeyVaultKeyReferenceResponseKeyVaultArgs) ToKeyVaultKeyReferenceResponseKeyVaultPtrOutput() KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceResponseKeyVaultPtrOutputWithContext(context.Background())
 }
 
-func (i KeyVaultKeyReferenceResponsePropertiesArgs) ToKeyVaultKeyReferenceResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponsePropertiesOutput).ToKeyVaultKeyReferenceResponsePropertiesPtrOutputWithContext(ctx)
+func (i KeyVaultKeyReferenceResponseKeyVaultArgs) ToKeyVaultKeyReferenceResponseKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseKeyVaultOutput).ToKeyVaultKeyReferenceResponseKeyVaultPtrOutputWithContext(ctx)
 }
 
-// KeyVaultKeyReferenceResponsePropertiesPtrInput is an input type that accepts KeyVaultKeyReferenceResponsePropertiesArgs, KeyVaultKeyReferenceResponsePropertiesPtr and KeyVaultKeyReferenceResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `KeyVaultKeyReferenceResponsePropertiesPtrInput` via:
+// KeyVaultKeyReferenceResponseKeyVaultPtrInput is an input type that accepts KeyVaultKeyReferenceResponseKeyVaultArgs, KeyVaultKeyReferenceResponseKeyVaultPtr and KeyVaultKeyReferenceResponseKeyVaultPtrOutput values.
+// You can construct a concrete instance of `KeyVaultKeyReferenceResponseKeyVaultPtrInput` via:
 //
-//          KeyVaultKeyReferenceResponsePropertiesArgs{...}
+//          KeyVaultKeyReferenceResponseKeyVaultArgs{...}
 //
 //  or:
 //
 //          nil
-type KeyVaultKeyReferenceResponsePropertiesPtrInput interface {
+type KeyVaultKeyReferenceResponseKeyVaultPtrInput interface {
 	pulumi.Input
 
-	ToKeyVaultKeyReferenceResponsePropertiesPtrOutput() KeyVaultKeyReferenceResponsePropertiesPtrOutput
-	ToKeyVaultKeyReferenceResponsePropertiesPtrOutputWithContext(context.Context) KeyVaultKeyReferenceResponsePropertiesPtrOutput
+	ToKeyVaultKeyReferenceResponseKeyVaultPtrOutput() KeyVaultKeyReferenceResponseKeyVaultPtrOutput
+	ToKeyVaultKeyReferenceResponseKeyVaultPtrOutputWithContext(context.Context) KeyVaultKeyReferenceResponseKeyVaultPtrOutput
 }
 
-type keyVaultKeyReferenceResponsePropertiesPtrType KeyVaultKeyReferenceResponsePropertiesArgs
+type keyVaultKeyReferenceResponseKeyVaultPtrType KeyVaultKeyReferenceResponseKeyVaultArgs
 
-func KeyVaultKeyReferenceResponsePropertiesPtr(v *KeyVaultKeyReferenceResponsePropertiesArgs) KeyVaultKeyReferenceResponsePropertiesPtrInput {
-	return (*keyVaultKeyReferenceResponsePropertiesPtrType)(v)
+func KeyVaultKeyReferenceResponseKeyVaultPtr(v *KeyVaultKeyReferenceResponseKeyVaultArgs) KeyVaultKeyReferenceResponseKeyVaultPtrInput {
+	return (*keyVaultKeyReferenceResponseKeyVaultPtrType)(v)
 }
 
-func (*keyVaultKeyReferenceResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultKeyReferenceResponseProperties)(nil)).Elem()
+func (*keyVaultKeyReferenceResponseKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceResponseKeyVault)(nil)).Elem()
 }
 
-func (i *keyVaultKeyReferenceResponsePropertiesPtrType) ToKeyVaultKeyReferenceResponsePropertiesPtrOutput() KeyVaultKeyReferenceResponsePropertiesPtrOutput {
-	return i.ToKeyVaultKeyReferenceResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *keyVaultKeyReferenceResponseKeyVaultPtrType) ToKeyVaultKeyReferenceResponseKeyVaultPtrOutput() KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
+	return i.ToKeyVaultKeyReferenceResponseKeyVaultPtrOutputWithContext(context.Background())
 }
 
-func (i *keyVaultKeyReferenceResponsePropertiesPtrType) ToKeyVaultKeyReferenceResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponsePropertiesPtrOutput)
+func (i *keyVaultKeyReferenceResponseKeyVaultPtrType) ToKeyVaultKeyReferenceResponseKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyReferenceResponseKeyVaultPtrOutput)
 }
 
 // The key vault reference.
-type KeyVaultKeyReferenceResponsePropertiesOutput struct{ *pulumi.OutputState }
+type KeyVaultKeyReferenceResponseKeyVaultOutput struct{ *pulumi.OutputState }
 
-func (KeyVaultKeyReferenceResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultKeyReferenceResponseProperties)(nil)).Elem()
+func (KeyVaultKeyReferenceResponseKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyReferenceResponseKeyVault)(nil)).Elem()
 }
 
-func (o KeyVaultKeyReferenceResponsePropertiesOutput) ToKeyVaultKeyReferenceResponsePropertiesOutput() KeyVaultKeyReferenceResponsePropertiesOutput {
+func (o KeyVaultKeyReferenceResponseKeyVaultOutput) ToKeyVaultKeyReferenceResponseKeyVaultOutput() KeyVaultKeyReferenceResponseKeyVaultOutput {
 	return o
 }
 
-func (o KeyVaultKeyReferenceResponsePropertiesOutput) ToKeyVaultKeyReferenceResponsePropertiesOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePropertiesOutput {
+func (o KeyVaultKeyReferenceResponseKeyVaultOutput) ToKeyVaultKeyReferenceResponseKeyVaultOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseKeyVaultOutput {
 	return o
 }
 
-func (o KeyVaultKeyReferenceResponsePropertiesOutput) ToKeyVaultKeyReferenceResponsePropertiesPtrOutput() KeyVaultKeyReferenceResponsePropertiesPtrOutput {
-	return o.ToKeyVaultKeyReferenceResponsePropertiesPtrOutputWithContext(context.Background())
+func (o KeyVaultKeyReferenceResponseKeyVaultOutput) ToKeyVaultKeyReferenceResponseKeyVaultPtrOutput() KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
+	return o.ToKeyVaultKeyReferenceResponseKeyVaultPtrOutputWithContext(context.Background())
 }
 
-func (o KeyVaultKeyReferenceResponsePropertiesOutput) ToKeyVaultKeyReferenceResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponseProperties) *KeyVaultKeyReferenceResponseProperties {
+func (o KeyVaultKeyReferenceResponseKeyVaultOutput) ToKeyVaultKeyReferenceResponseKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceResponseKeyVault) *KeyVaultKeyReferenceResponseKeyVault {
 		return &v
-	}).(KeyVaultKeyReferenceResponsePropertiesPtrOutput)
+	}).(KeyVaultKeyReferenceResponseKeyVaultPtrOutput)
 }
 
 // The resource id.
-func (o KeyVaultKeyReferenceResponsePropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponseProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o KeyVaultKeyReferenceResponseKeyVaultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceResponseKeyVault) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // The resource name.
-func (o KeyVaultKeyReferenceResponsePropertiesOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponseProperties) string { return v.Name }).(pulumi.StringOutput)
+func (o KeyVaultKeyReferenceResponseKeyVaultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceResponseKeyVault) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The resource type.
-func (o KeyVaultKeyReferenceResponsePropertiesOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyVaultKeyReferenceResponseProperties) string { return v.Type }).(pulumi.StringOutput)
+func (o KeyVaultKeyReferenceResponseKeyVaultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultKeyReferenceResponseKeyVault) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type KeyVaultKeyReferenceResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type KeyVaultKeyReferenceResponseKeyVaultPtrOutput struct{ *pulumi.OutputState }
 
-func (KeyVaultKeyReferenceResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultKeyReferenceResponseProperties)(nil)).Elem()
+func (KeyVaultKeyReferenceResponseKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyReferenceResponseKeyVault)(nil)).Elem()
 }
 
-func (o KeyVaultKeyReferenceResponsePropertiesPtrOutput) ToKeyVaultKeyReferenceResponsePropertiesPtrOutput() KeyVaultKeyReferenceResponsePropertiesPtrOutput {
+func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) ToKeyVaultKeyReferenceResponseKeyVaultPtrOutput() KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
 	return o
 }
 
-func (o KeyVaultKeyReferenceResponsePropertiesPtrOutput) ToKeyVaultKeyReferenceResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponsePropertiesPtrOutput {
+func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) ToKeyVaultKeyReferenceResponseKeyVaultPtrOutputWithContext(ctx context.Context) KeyVaultKeyReferenceResponseKeyVaultPtrOutput {
 	return o
 }
 
-func (o KeyVaultKeyReferenceResponsePropertiesPtrOutput) Elem() KeyVaultKeyReferenceResponsePropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseProperties) KeyVaultKeyReferenceResponseProperties { return *v }).(KeyVaultKeyReferenceResponsePropertiesOutput)
+func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Elem() KeyVaultKeyReferenceResponseKeyVaultOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseKeyVault) KeyVaultKeyReferenceResponseKeyVault { return *v }).(KeyVaultKeyReferenceResponseKeyVaultOutput)
 }
 
 // The resource id.
-func (o KeyVaultKeyReferenceResponsePropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseProperties) *string {
+func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseKeyVault) *string {
 		if v == nil {
 			return nil
 		}
@@ -23987,8 +23024,8 @@ func (o KeyVaultKeyReferenceResponsePropertiesPtrOutput) Id() pulumi.StringPtrOu
 }
 
 // The resource name.
-func (o KeyVaultKeyReferenceResponsePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseProperties) *string {
+func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseKeyVault) *string {
 		if v == nil {
 			return nil
 		}
@@ -23997,8 +23034,8 @@ func (o KeyVaultKeyReferenceResponsePropertiesPtrOutput) Name() pulumi.StringPtr
 }
 
 // The resource type.
-func (o KeyVaultKeyReferenceResponsePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseProperties) *string {
+func (o KeyVaultKeyReferenceResponseKeyVaultPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyReferenceResponseKeyVault) *string {
 		if v == nil {
 			return nil
 		}
@@ -24009,7 +23046,7 @@ func (o KeyVaultKeyReferenceResponsePropertiesPtrOutput) Type() pulumi.StringPtr
 // The key vault key.
 type KeyVaultKeyResponse struct {
 	// The key attributes.
-	Attributes *KeyVaultKeyResponseProperties `pulumi:"attributes"`
+	Attributes *KeyVaultKeyResponseAttributes `pulumi:"attributes"`
 	// The key id.
 	Kid *string `pulumi:"kid"`
 }
@@ -24028,7 +23065,7 @@ type KeyVaultKeyResponseInput interface {
 // The key vault key.
 type KeyVaultKeyResponseArgs struct {
 	// The key attributes.
-	Attributes KeyVaultKeyResponsePropertiesPtrInput `pulumi:"attributes"`
+	Attributes KeyVaultKeyResponseAttributesPtrInput `pulumi:"attributes"`
 	// The key id.
 	Kid pulumi.StringPtrInput `pulumi:"kid"`
 }
@@ -24086,8 +23123,8 @@ func (o KeyVaultKeyResponseOutput) ToKeyVaultKeyResponseOutputWithContext(ctx co
 }
 
 // The key attributes.
-func (o KeyVaultKeyResponseOutput) Attributes() KeyVaultKeyResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponse) *KeyVaultKeyResponseProperties { return v.Attributes }).(KeyVaultKeyResponsePropertiesPtrOutput)
+func (o KeyVaultKeyResponseOutput) Attributes() KeyVaultKeyResponseAttributesPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponse) *KeyVaultKeyResponseAttributes { return v.Attributes }).(KeyVaultKeyResponseAttributesPtrOutput)
 }
 
 // The key id.
@@ -24116,7 +23153,7 @@ func (o KeyVaultKeyResponseArrayOutput) Index(i pulumi.IntInput) KeyVaultKeyResp
 }
 
 // The key attributes.
-type KeyVaultKeyResponseProperties struct {
+type KeyVaultKeyResponseAttributes struct {
 	// When the key was created.
 	Created *int `pulumi:"created"`
 	// Whether the key is enabled or not.
@@ -24125,19 +23162,19 @@ type KeyVaultKeyResponseProperties struct {
 	Updated *int `pulumi:"updated"`
 }
 
-// KeyVaultKeyResponsePropertiesInput is an input type that accepts KeyVaultKeyResponsePropertiesArgs and KeyVaultKeyResponsePropertiesOutput values.
-// You can construct a concrete instance of `KeyVaultKeyResponsePropertiesInput` via:
+// KeyVaultKeyResponseAttributesInput is an input type that accepts KeyVaultKeyResponseAttributesArgs and KeyVaultKeyResponseAttributesOutput values.
+// You can construct a concrete instance of `KeyVaultKeyResponseAttributesInput` via:
 //
-//          KeyVaultKeyResponsePropertiesArgs{...}
-type KeyVaultKeyResponsePropertiesInput interface {
+//          KeyVaultKeyResponseAttributesArgs{...}
+type KeyVaultKeyResponseAttributesInput interface {
 	pulumi.Input
 
-	ToKeyVaultKeyResponsePropertiesOutput() KeyVaultKeyResponsePropertiesOutput
-	ToKeyVaultKeyResponsePropertiesOutputWithContext(context.Context) KeyVaultKeyResponsePropertiesOutput
+	ToKeyVaultKeyResponseAttributesOutput() KeyVaultKeyResponseAttributesOutput
+	ToKeyVaultKeyResponseAttributesOutputWithContext(context.Context) KeyVaultKeyResponseAttributesOutput
 }
 
 // The key attributes.
-type KeyVaultKeyResponsePropertiesArgs struct {
+type KeyVaultKeyResponseAttributesArgs struct {
 	// When the key was created.
 	Created pulumi.IntPtrInput `pulumi:"created"`
 	// Whether the key is enabled or not.
@@ -24146,120 +23183,120 @@ type KeyVaultKeyResponsePropertiesArgs struct {
 	Updated pulumi.IntPtrInput `pulumi:"updated"`
 }
 
-func (KeyVaultKeyResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultKeyResponseProperties)(nil)).Elem()
+func (KeyVaultKeyResponseAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyResponseAttributes)(nil)).Elem()
 }
 
-func (i KeyVaultKeyResponsePropertiesArgs) ToKeyVaultKeyResponsePropertiesOutput() KeyVaultKeyResponsePropertiesOutput {
-	return i.ToKeyVaultKeyResponsePropertiesOutputWithContext(context.Background())
+func (i KeyVaultKeyResponseAttributesArgs) ToKeyVaultKeyResponseAttributesOutput() KeyVaultKeyResponseAttributesOutput {
+	return i.ToKeyVaultKeyResponseAttributesOutputWithContext(context.Background())
 }
 
-func (i KeyVaultKeyResponsePropertiesArgs) ToKeyVaultKeyResponsePropertiesOutputWithContext(ctx context.Context) KeyVaultKeyResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponsePropertiesOutput)
+func (i KeyVaultKeyResponseAttributesArgs) ToKeyVaultKeyResponseAttributesOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseAttributesOutput)
 }
 
-func (i KeyVaultKeyResponsePropertiesArgs) ToKeyVaultKeyResponsePropertiesPtrOutput() KeyVaultKeyResponsePropertiesPtrOutput {
-	return i.ToKeyVaultKeyResponsePropertiesPtrOutputWithContext(context.Background())
+func (i KeyVaultKeyResponseAttributesArgs) ToKeyVaultKeyResponseAttributesPtrOutput() KeyVaultKeyResponseAttributesPtrOutput {
+	return i.ToKeyVaultKeyResponseAttributesPtrOutputWithContext(context.Background())
 }
 
-func (i KeyVaultKeyResponsePropertiesArgs) ToKeyVaultKeyResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponsePropertiesOutput).ToKeyVaultKeyResponsePropertiesPtrOutputWithContext(ctx)
+func (i KeyVaultKeyResponseAttributesArgs) ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseAttributesOutput).ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx)
 }
 
-// KeyVaultKeyResponsePropertiesPtrInput is an input type that accepts KeyVaultKeyResponsePropertiesArgs, KeyVaultKeyResponsePropertiesPtr and KeyVaultKeyResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `KeyVaultKeyResponsePropertiesPtrInput` via:
+// KeyVaultKeyResponseAttributesPtrInput is an input type that accepts KeyVaultKeyResponseAttributesArgs, KeyVaultKeyResponseAttributesPtr and KeyVaultKeyResponseAttributesPtrOutput values.
+// You can construct a concrete instance of `KeyVaultKeyResponseAttributesPtrInput` via:
 //
-//          KeyVaultKeyResponsePropertiesArgs{...}
+//          KeyVaultKeyResponseAttributesArgs{...}
 //
 //  or:
 //
 //          nil
-type KeyVaultKeyResponsePropertiesPtrInput interface {
+type KeyVaultKeyResponseAttributesPtrInput interface {
 	pulumi.Input
 
-	ToKeyVaultKeyResponsePropertiesPtrOutput() KeyVaultKeyResponsePropertiesPtrOutput
-	ToKeyVaultKeyResponsePropertiesPtrOutputWithContext(context.Context) KeyVaultKeyResponsePropertiesPtrOutput
+	ToKeyVaultKeyResponseAttributesPtrOutput() KeyVaultKeyResponseAttributesPtrOutput
+	ToKeyVaultKeyResponseAttributesPtrOutputWithContext(context.Context) KeyVaultKeyResponseAttributesPtrOutput
 }
 
-type keyVaultKeyResponsePropertiesPtrType KeyVaultKeyResponsePropertiesArgs
+type keyVaultKeyResponseAttributesPtrType KeyVaultKeyResponseAttributesArgs
 
-func KeyVaultKeyResponsePropertiesPtr(v *KeyVaultKeyResponsePropertiesArgs) KeyVaultKeyResponsePropertiesPtrInput {
-	return (*keyVaultKeyResponsePropertiesPtrType)(v)
+func KeyVaultKeyResponseAttributesPtr(v *KeyVaultKeyResponseAttributesArgs) KeyVaultKeyResponseAttributesPtrInput {
+	return (*keyVaultKeyResponseAttributesPtrType)(v)
 }
 
-func (*keyVaultKeyResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultKeyResponseProperties)(nil)).Elem()
+func (*keyVaultKeyResponseAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyResponseAttributes)(nil)).Elem()
 }
 
-func (i *keyVaultKeyResponsePropertiesPtrType) ToKeyVaultKeyResponsePropertiesPtrOutput() KeyVaultKeyResponsePropertiesPtrOutput {
-	return i.ToKeyVaultKeyResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *keyVaultKeyResponseAttributesPtrType) ToKeyVaultKeyResponseAttributesPtrOutput() KeyVaultKeyResponseAttributesPtrOutput {
+	return i.ToKeyVaultKeyResponseAttributesPtrOutputWithContext(context.Background())
 }
 
-func (i *keyVaultKeyResponsePropertiesPtrType) ToKeyVaultKeyResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponsePropertiesPtrOutput)
+func (i *keyVaultKeyResponseAttributesPtrType) ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultKeyResponseAttributesPtrOutput)
 }
 
 // The key attributes.
-type KeyVaultKeyResponsePropertiesOutput struct{ *pulumi.OutputState }
+type KeyVaultKeyResponseAttributesOutput struct{ *pulumi.OutputState }
 
-func (KeyVaultKeyResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultKeyResponseProperties)(nil)).Elem()
+func (KeyVaultKeyResponseAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultKeyResponseAttributes)(nil)).Elem()
 }
 
-func (o KeyVaultKeyResponsePropertiesOutput) ToKeyVaultKeyResponsePropertiesOutput() KeyVaultKeyResponsePropertiesOutput {
+func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesOutput() KeyVaultKeyResponseAttributesOutput {
 	return o
 }
 
-func (o KeyVaultKeyResponsePropertiesOutput) ToKeyVaultKeyResponsePropertiesOutputWithContext(ctx context.Context) KeyVaultKeyResponsePropertiesOutput {
+func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesOutput {
 	return o
 }
 
-func (o KeyVaultKeyResponsePropertiesOutput) ToKeyVaultKeyResponsePropertiesPtrOutput() KeyVaultKeyResponsePropertiesPtrOutput {
-	return o.ToKeyVaultKeyResponsePropertiesPtrOutputWithContext(context.Background())
+func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesPtrOutput() KeyVaultKeyResponseAttributesPtrOutput {
+	return o.ToKeyVaultKeyResponseAttributesPtrOutputWithContext(context.Background())
 }
 
-func (o KeyVaultKeyResponsePropertiesOutput) ToKeyVaultKeyResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseProperties) *KeyVaultKeyResponseProperties {
+func (o KeyVaultKeyResponseAttributesOutput) ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *KeyVaultKeyResponseAttributes {
 		return &v
-	}).(KeyVaultKeyResponsePropertiesPtrOutput)
+	}).(KeyVaultKeyResponseAttributesPtrOutput)
 }
 
 // When the key was created.
-func (o KeyVaultKeyResponsePropertiesOutput) Created() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseProperties) *int { return v.Created }).(pulumi.IntPtrOutput)
+func (o KeyVaultKeyResponseAttributesOutput) Created() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *int { return v.Created }).(pulumi.IntPtrOutput)
 }
 
 // Whether the key is enabled or not.
-func (o KeyVaultKeyResponsePropertiesOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o KeyVaultKeyResponseAttributesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // When the key was updated.
-func (o KeyVaultKeyResponsePropertiesOutput) Updated() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KeyVaultKeyResponseProperties) *int { return v.Updated }).(pulumi.IntPtrOutput)
+func (o KeyVaultKeyResponseAttributesOutput) Updated() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KeyVaultKeyResponseAttributes) *int { return v.Updated }).(pulumi.IntPtrOutput)
 }
 
-type KeyVaultKeyResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type KeyVaultKeyResponseAttributesPtrOutput struct{ *pulumi.OutputState }
 
-func (KeyVaultKeyResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultKeyResponseProperties)(nil)).Elem()
+func (KeyVaultKeyResponseAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultKeyResponseAttributes)(nil)).Elem()
 }
 
-func (o KeyVaultKeyResponsePropertiesPtrOutput) ToKeyVaultKeyResponsePropertiesPtrOutput() KeyVaultKeyResponsePropertiesPtrOutput {
+func (o KeyVaultKeyResponseAttributesPtrOutput) ToKeyVaultKeyResponseAttributesPtrOutput() KeyVaultKeyResponseAttributesPtrOutput {
 	return o
 }
 
-func (o KeyVaultKeyResponsePropertiesPtrOutput) ToKeyVaultKeyResponsePropertiesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponsePropertiesPtrOutput {
+func (o KeyVaultKeyResponseAttributesPtrOutput) ToKeyVaultKeyResponseAttributesPtrOutputWithContext(ctx context.Context) KeyVaultKeyResponseAttributesPtrOutput {
 	return o
 }
 
-func (o KeyVaultKeyResponsePropertiesPtrOutput) Elem() KeyVaultKeyResponsePropertiesOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseProperties) KeyVaultKeyResponseProperties { return *v }).(KeyVaultKeyResponsePropertiesOutput)
+func (o KeyVaultKeyResponseAttributesPtrOutput) Elem() KeyVaultKeyResponseAttributesOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) KeyVaultKeyResponseAttributes { return *v }).(KeyVaultKeyResponseAttributesOutput)
 }
 
 // When the key was created.
-func (o KeyVaultKeyResponsePropertiesPtrOutput) Created() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseProperties) *int {
+func (o KeyVaultKeyResponseAttributesPtrOutput) Created() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *int {
 		if v == nil {
 			return nil
 		}
@@ -24268,8 +23305,8 @@ func (o KeyVaultKeyResponsePropertiesPtrOutput) Created() pulumi.IntPtrOutput {
 }
 
 // Whether the key is enabled or not.
-func (o KeyVaultKeyResponsePropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseProperties) *bool {
+func (o KeyVaultKeyResponseAttributesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *bool {
 		if v == nil {
 			return nil
 		}
@@ -24278,8 +23315,8 @@ func (o KeyVaultKeyResponsePropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 // When the key was updated.
-func (o KeyVaultKeyResponsePropertiesPtrOutput) Updated() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KeyVaultKeyResponseProperties) *int {
+func (o KeyVaultKeyResponseAttributesPtrOutput) Updated() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KeyVaultKeyResponseAttributes) *int {
 		if v == nil {
 			return nil
 		}
@@ -24695,275 +23732,6 @@ func (o NetworkConfigurationResponsePtrOutput) VirtualNetworkAddressSpace() pulu
 		}
 		return v.VirtualNetworkAddressSpace
 	}).(pulumi.StringPtrOutput)
-}
-
-type Object struct {
-}
-
-// ObjectInput is an input type that accepts ObjectArgs and ObjectOutput values.
-// You can construct a concrete instance of `ObjectInput` via:
-//
-//          ObjectArgs{...}
-type ObjectInput interface {
-	pulumi.Input
-
-	ToObjectOutput() ObjectOutput
-	ToObjectOutputWithContext(context.Context) ObjectOutput
-}
-
-type ObjectArgs struct {
-}
-
-func (ObjectArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Object)(nil)).Elem()
-}
-
-func (i ObjectArgs) ToObjectOutput() ObjectOutput {
-	return i.ToObjectOutputWithContext(context.Background())
-}
-
-func (i ObjectArgs) ToObjectOutputWithContext(ctx context.Context) ObjectOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectOutput)
-}
-
-func (i ObjectArgs) ToObjectPtrOutput() ObjectPtrOutput {
-	return i.ToObjectPtrOutputWithContext(context.Background())
-}
-
-func (i ObjectArgs) ToObjectPtrOutputWithContext(ctx context.Context) ObjectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectOutput).ToObjectPtrOutputWithContext(ctx)
-}
-
-// ObjectPtrInput is an input type that accepts ObjectArgs, ObjectPtr and ObjectPtrOutput values.
-// You can construct a concrete instance of `ObjectPtrInput` via:
-//
-//          ObjectArgs{...}
-//
-//  or:
-//
-//          nil
-type ObjectPtrInput interface {
-	pulumi.Input
-
-	ToObjectPtrOutput() ObjectPtrOutput
-	ToObjectPtrOutputWithContext(context.Context) ObjectPtrOutput
-}
-
-type objectPtrType ObjectArgs
-
-func ObjectPtr(v *ObjectArgs) ObjectPtrInput {
-	return (*objectPtrType)(v)
-}
-
-func (*objectPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Object)(nil)).Elem()
-}
-
-func (i *objectPtrType) ToObjectPtrOutput() ObjectPtrOutput {
-	return i.ToObjectPtrOutputWithContext(context.Background())
-}
-
-func (i *objectPtrType) ToObjectPtrOutputWithContext(ctx context.Context) ObjectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectPtrOutput)
-}
-
-type ObjectOutput struct{ *pulumi.OutputState }
-
-func (ObjectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Object)(nil)).Elem()
-}
-
-func (o ObjectOutput) ToObjectOutput() ObjectOutput {
-	return o
-}
-
-func (o ObjectOutput) ToObjectOutputWithContext(ctx context.Context) ObjectOutput {
-	return o
-}
-
-func (o ObjectOutput) ToObjectPtrOutput() ObjectPtrOutput {
-	return o.ToObjectPtrOutputWithContext(context.Background())
-}
-
-func (o ObjectOutput) ToObjectPtrOutputWithContext(ctx context.Context) ObjectPtrOutput {
-	return o.ApplyT(func(v Object) *Object {
-		return &v
-	}).(ObjectPtrOutput)
-}
-
-type ObjectPtrOutput struct{ *pulumi.OutputState }
-
-func (ObjectPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Object)(nil)).Elem()
-}
-
-func (o ObjectPtrOutput) ToObjectPtrOutput() ObjectPtrOutput {
-	return o
-}
-
-func (o ObjectPtrOutput) ToObjectPtrOutputWithContext(ctx context.Context) ObjectPtrOutput {
-	return o
-}
-
-func (o ObjectPtrOutput) Elem() ObjectOutput {
-	return o.ApplyT(func(v *Object) Object { return *v }).(ObjectOutput)
-}
-
-type ObjectResponse struct {
-}
-
-// ObjectResponseInput is an input type that accepts ObjectResponseArgs and ObjectResponseOutput values.
-// You can construct a concrete instance of `ObjectResponseInput` via:
-//
-//          ObjectResponseArgs{...}
-type ObjectResponseInput interface {
-	pulumi.Input
-
-	ToObjectResponseOutput() ObjectResponseOutput
-	ToObjectResponseOutputWithContext(context.Context) ObjectResponseOutput
-}
-
-type ObjectResponseArgs struct {
-}
-
-func (ObjectResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectResponse)(nil)).Elem()
-}
-
-func (i ObjectResponseArgs) ToObjectResponseOutput() ObjectResponseOutput {
-	return i.ToObjectResponseOutputWithContext(context.Background())
-}
-
-func (i ObjectResponseArgs) ToObjectResponseOutputWithContext(ctx context.Context) ObjectResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectResponseOutput)
-}
-
-func (i ObjectResponseArgs) ToObjectResponsePtrOutput() ObjectResponsePtrOutput {
-	return i.ToObjectResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ObjectResponseArgs) ToObjectResponsePtrOutputWithContext(ctx context.Context) ObjectResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectResponseOutput).ToObjectResponsePtrOutputWithContext(ctx)
-}
-
-// ObjectResponsePtrInput is an input type that accepts ObjectResponseArgs, ObjectResponsePtr and ObjectResponsePtrOutput values.
-// You can construct a concrete instance of `ObjectResponsePtrInput` via:
-//
-//          ObjectResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ObjectResponsePtrInput interface {
-	pulumi.Input
-
-	ToObjectResponsePtrOutput() ObjectResponsePtrOutput
-	ToObjectResponsePtrOutputWithContext(context.Context) ObjectResponsePtrOutput
-}
-
-type objectResponsePtrType ObjectResponseArgs
-
-func ObjectResponsePtr(v *ObjectResponseArgs) ObjectResponsePtrInput {
-	return (*objectResponsePtrType)(v)
-}
-
-func (*objectResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectResponse)(nil)).Elem()
-}
-
-func (i *objectResponsePtrType) ToObjectResponsePtrOutput() ObjectResponsePtrOutput {
-	return i.ToObjectResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *objectResponsePtrType) ToObjectResponsePtrOutputWithContext(ctx context.Context) ObjectResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectResponsePtrOutput)
-}
-
-// ObjectResponseMapInput is an input type that accepts ObjectResponseMap and ObjectResponseMapOutput values.
-// You can construct a concrete instance of `ObjectResponseMapInput` via:
-//
-//          ObjectResponseMap{ "key": ObjectResponseArgs{...} }
-type ObjectResponseMapInput interface {
-	pulumi.Input
-
-	ToObjectResponseMapOutput() ObjectResponseMapOutput
-	ToObjectResponseMapOutputWithContext(context.Context) ObjectResponseMapOutput
-}
-
-type ObjectResponseMap map[string]ObjectResponseInput
-
-func (ObjectResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ObjectResponse)(nil)).Elem()
-}
-
-func (i ObjectResponseMap) ToObjectResponseMapOutput() ObjectResponseMapOutput {
-	return i.ToObjectResponseMapOutputWithContext(context.Background())
-}
-
-func (i ObjectResponseMap) ToObjectResponseMapOutputWithContext(ctx context.Context) ObjectResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObjectResponseMapOutput)
-}
-
-type ObjectResponseOutput struct{ *pulumi.OutputState }
-
-func (ObjectResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectResponse)(nil)).Elem()
-}
-
-func (o ObjectResponseOutput) ToObjectResponseOutput() ObjectResponseOutput {
-	return o
-}
-
-func (o ObjectResponseOutput) ToObjectResponseOutputWithContext(ctx context.Context) ObjectResponseOutput {
-	return o
-}
-
-func (o ObjectResponseOutput) ToObjectResponsePtrOutput() ObjectResponsePtrOutput {
-	return o.ToObjectResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ObjectResponseOutput) ToObjectResponsePtrOutputWithContext(ctx context.Context) ObjectResponsePtrOutput {
-	return o.ApplyT(func(v ObjectResponse) *ObjectResponse {
-		return &v
-	}).(ObjectResponsePtrOutput)
-}
-
-type ObjectResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ObjectResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObjectResponse)(nil)).Elem()
-}
-
-func (o ObjectResponsePtrOutput) ToObjectResponsePtrOutput() ObjectResponsePtrOutput {
-	return o
-}
-
-func (o ObjectResponsePtrOutput) ToObjectResponsePtrOutputWithContext(ctx context.Context) ObjectResponsePtrOutput {
-	return o
-}
-
-func (o ObjectResponsePtrOutput) Elem() ObjectResponseOutput {
-	return o.ApplyT(func(v *ObjectResponse) ObjectResponse { return *v }).(ObjectResponseOutput)
-}
-
-type ObjectResponseMapOutput struct{ *pulumi.OutputState }
-
-func (ObjectResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ObjectResponse)(nil)).Elem()
-}
-
-func (o ObjectResponseMapOutput) ToObjectResponseMapOutput() ObjectResponseMapOutput {
-	return o
-}
-
-func (o ObjectResponseMapOutput) ToObjectResponseMapOutputWithContext(ctx context.Context) ObjectResponseMapOutput {
-	return o
-}
-
-func (o ObjectResponseMapOutput) MapIndex(k pulumi.StringInput) ObjectResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ObjectResponse {
-		return vs[0].(map[string]ObjectResponse)[vs[1].(string)]
-	}).(ObjectResponseOutput)
 }
 
 // AuthenticationPolicy of type Open.
@@ -26968,70 +25736,6 @@ func (o ResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) ResourceR
 }
 
 // The sku type.
-type Sku struct {
-	// The name.
-	Name string `pulumi:"name"`
-	// The reference to plan.
-	Plan *ResourceReference `pulumi:"plan"`
-}
-
-// SkuInput is an input type that accepts SkuArgs and SkuOutput values.
-// You can construct a concrete instance of `SkuInput` via:
-//
-//          SkuArgs{...}
-type SkuInput interface {
-	pulumi.Input
-
-	ToSkuOutput() SkuOutput
-	ToSkuOutputWithContext(context.Context) SkuOutput
-}
-
-// The sku type.
-type SkuArgs struct {
-	// The name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The reference to plan.
-	Plan ResourceReferencePtrInput `pulumi:"plan"`
-}
-
-func (SkuArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sku)(nil)).Elem()
-}
-
-func (i SkuArgs) ToSkuOutput() SkuOutput {
-	return i.ToSkuOutputWithContext(context.Background())
-}
-
-func (i SkuArgs) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuOutput)
-}
-
-// The sku type.
-type SkuOutput struct{ *pulumi.OutputState }
-
-func (SkuOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sku)(nil)).Elem()
-}
-
-func (o SkuOutput) ToSkuOutput() SkuOutput {
-	return o
-}
-
-func (o SkuOutput) ToSkuOutputWithContext(ctx context.Context) SkuOutput {
-	return o
-}
-
-// The name.
-func (o SkuOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The reference to plan.
-func (o SkuOutput) Plan() ResourceReferencePtrOutput {
-	return o.ApplyT(func(v Sku) *ResourceReference { return v.Plan }).(ResourceReferencePtrOutput)
-}
-
-// The sku type.
 type SkuResponse struct {
 	// The name.
 	Name string `pulumi:"name"`
@@ -27184,107 +25888,16 @@ func (o SkuResponsePtrOutput) Plan() ResourceReferenceResponsePtrOutput {
 	}).(ResourceReferenceResponsePtrOutput)
 }
 
-// The workflow type.
-type WorkflowType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Gets the resource name.
-	Name string `pulumi:"name"`
-	// The workflow properties.
-	Properties WorkflowPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the resource type.
-	Type string `pulumi:"type"`
-}
-
-// WorkflowTypeInput is an input type that accepts WorkflowTypeArgs and WorkflowTypeOutput values.
-// You can construct a concrete instance of `WorkflowTypeInput` via:
-//
-//          WorkflowTypeArgs{...}
-type WorkflowTypeInput interface {
-	pulumi.Input
-
-	ToWorkflowTypeOutput() WorkflowTypeOutput
-	ToWorkflowTypeOutputWithContext(context.Context) WorkflowTypeOutput
-}
-
-// The workflow type.
-type WorkflowTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets the resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The workflow properties.
-	Properties WorkflowPropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WorkflowTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowType)(nil)).Elem()
-}
-
-func (i WorkflowTypeArgs) ToWorkflowTypeOutput() WorkflowTypeOutput {
-	return i.ToWorkflowTypeOutputWithContext(context.Background())
-}
-
-func (i WorkflowTypeArgs) ToWorkflowTypeOutputWithContext(ctx context.Context) WorkflowTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTypeOutput)
-}
-
-// The workflow type.
-type WorkflowTypeOutput struct{ *pulumi.OutputState }
-
-func (WorkflowTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkflowType)(nil)).Elem()
-}
-
-func (o WorkflowTypeOutput) ToWorkflowTypeOutput() WorkflowTypeOutput {
-	return o
-}
-
-func (o WorkflowTypeOutput) ToWorkflowTypeOutputWithContext(ctx context.Context) WorkflowTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o WorkflowTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkflowType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets the resource name.
-func (o WorkflowTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkflowType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The workflow properties.
-func (o WorkflowTypeOutput) Properties() WorkflowPropertiesResponseOutput {
-	return o.ApplyT(func(v WorkflowType) WorkflowPropertiesResponse { return v.Properties }).(WorkflowPropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o WorkflowTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WorkflowType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the resource type.
-func (o WorkflowTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkflowType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The workflow parameters.
 type WorkflowParameter struct {
 	// The description.
 	Description *string `pulumi:"description"`
 	// The metadata.
-	Metadata *Object `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The type.
 	Type *string `pulumi:"type"`
 	// The value.
-	Value *Object `pulumi:"value"`
+	Value map[string]interface{} `pulumi:"value"`
 }
 
 // WorkflowParameterInput is an input type that accepts WorkflowParameterArgs and WorkflowParameterOutput values.
@@ -27303,11 +25916,11 @@ type WorkflowParameterArgs struct {
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The metadata.
-	Metadata ObjectPtrInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The value.
-	Value ObjectPtrInput `pulumi:"value"`
+	Value pulumi.MapInput `pulumi:"value"`
 }
 
 func (WorkflowParameterArgs) ElementType() reflect.Type {
@@ -27368,8 +25981,8 @@ func (o WorkflowParameterOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o WorkflowParameterOutput) Metadata() ObjectPtrOutput {
-	return o.ApplyT(func(v WorkflowParameter) *Object { return v.Metadata }).(ObjectPtrOutput)
+func (o WorkflowParameterOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v WorkflowParameter) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The type.
@@ -27378,8 +25991,8 @@ func (o WorkflowParameterOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The value.
-func (o WorkflowParameterOutput) Value() ObjectPtrOutput {
-	return o.ApplyT(func(v WorkflowParameter) *Object { return v.Value }).(ObjectPtrOutput)
+func (o WorkflowParameterOutput) Value() pulumi.MapOutput {
+	return o.ApplyT(func(v WorkflowParameter) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
 }
 
 type WorkflowParameterMapOutput struct{ *pulumi.OutputState }
@@ -27407,11 +26020,11 @@ type WorkflowParameterResponse struct {
 	// The description.
 	Description *string `pulumi:"description"`
 	// The metadata.
-	Metadata *ObjectResponse `pulumi:"metadata"`
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The type.
 	Type *string `pulumi:"type"`
 	// The value.
-	Value *ObjectResponse `pulumi:"value"`
+	Value map[string]interface{} `pulumi:"value"`
 }
 
 // WorkflowParameterResponseInput is an input type that accepts WorkflowParameterResponseArgs and WorkflowParameterResponseOutput values.
@@ -27430,11 +26043,11 @@ type WorkflowParameterResponseArgs struct {
 	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The metadata.
-	Metadata ObjectResponsePtrInput `pulumi:"metadata"`
+	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The value.
-	Value ObjectResponsePtrInput `pulumi:"value"`
+	Value pulumi.MapInput `pulumi:"value"`
 }
 
 func (WorkflowParameterResponseArgs) ElementType() reflect.Type {
@@ -27495,8 +26108,8 @@ func (o WorkflowParameterResponseOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The metadata.
-func (o WorkflowParameterResponseOutput) Metadata() ObjectResponsePtrOutput {
-	return o.ApplyT(func(v WorkflowParameterResponse) *ObjectResponse { return v.Metadata }).(ObjectResponsePtrOutput)
+func (o WorkflowParameterResponseOutput) Metadata() pulumi.MapOutput {
+	return o.ApplyT(func(v WorkflowParameterResponse) map[string]interface{} { return v.Metadata }).(pulumi.MapOutput)
 }
 
 // The type.
@@ -27505,8 +26118,8 @@ func (o WorkflowParameterResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The value.
-func (o WorkflowParameterResponseOutput) Value() ObjectResponsePtrOutput {
-	return o.ApplyT(func(v WorkflowParameterResponse) *ObjectResponse { return v.Value }).(ObjectResponsePtrOutput)
+func (o WorkflowParameterResponseOutput) Value() pulumi.MapOutput {
+	return o.ApplyT(func(v WorkflowParameterResponse) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
 }
 
 type WorkflowParameterResponseMapOutput struct{ *pulumi.OutputState }
@@ -27540,7 +26153,7 @@ type WorkflowPropertiesResponse struct {
 	// Gets the created time.
 	CreatedTime string `pulumi:"createdTime"`
 	// The definition.
-	Definition *ObjectResponse `pulumi:"definition"`
+	Definition map[string]interface{} `pulumi:"definition"`
 	// The endpoints configuration.
 	EndpointsConfiguration *FlowEndpointsConfigurationResponse `pulumi:"endpointsConfiguration"`
 	// The integration account.
@@ -27581,7 +26194,7 @@ type WorkflowPropertiesResponseArgs struct {
 	// Gets the created time.
 	CreatedTime pulumi.StringInput `pulumi:"createdTime"`
 	// The definition.
-	Definition ObjectResponsePtrInput `pulumi:"definition"`
+	Definition pulumi.MapInput `pulumi:"definition"`
 	// The endpoints configuration.
 	EndpointsConfiguration FlowEndpointsConfigurationResponsePtrInput `pulumi:"endpointsConfiguration"`
 	// The integration account.
@@ -27699,8 +26312,8 @@ func (o WorkflowPropertiesResponseOutput) CreatedTime() pulumi.StringOutput {
 }
 
 // The definition.
-func (o WorkflowPropertiesResponseOutput) Definition() ObjectResponsePtrOutput {
-	return o.ApplyT(func(v WorkflowPropertiesResponse) *ObjectResponse { return v.Definition }).(ObjectResponsePtrOutput)
+func (o WorkflowPropertiesResponseOutput) Definition() pulumi.MapOutput {
+	return o.ApplyT(func(v WorkflowPropertiesResponse) map[string]interface{} { return v.Definition }).(pulumi.MapOutput)
 }
 
 // The endpoints configuration.
@@ -27804,13 +26417,13 @@ func (o WorkflowPropertiesResponsePtrOutput) CreatedTime() pulumi.StringPtrOutpu
 }
 
 // The definition.
-func (o WorkflowPropertiesResponsePtrOutput) Definition() ObjectResponsePtrOutput {
-	return o.ApplyT(func(v *WorkflowPropertiesResponse) *ObjectResponse {
+func (o WorkflowPropertiesResponsePtrOutput) Definition() pulumi.MapOutput {
+	return o.ApplyT(func(v *WorkflowPropertiesResponse) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Definition
-	}).(ObjectResponsePtrOutput)
+	}).(pulumi.MapOutput)
 }
 
 // The endpoints configuration.
@@ -35718,31 +34331,22 @@ func init() {
 	pulumi.RegisterOutputType(FlowEndpointsConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(FlowEndpointsResponseOutput{})
 	pulumi.RegisterOutputType(FlowEndpointsResponsePtrOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountTypeOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountAgreementTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAgreementPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountAgreementPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountAssemblyTypeOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountBatchConfigurationTypeOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountCertificateTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountCertificatePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountCertificatePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountMapTypeOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesPropertiesOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesParametersSchemaOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesParametersSchemaPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountPartnerTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesResponseParametersSchemaOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMapPropertiesResponseParametersSchemaPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountPartnerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountPartnerPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountSchemaTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSchemaPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSchemaPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(IntegrationAccountSessionTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSessionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSessionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountSkuOutput{})
@@ -35755,7 +34359,6 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentAccessEndpointResponsePtrOutput{})
-	pulumi.RegisterOutputType(IntegrationServiceEnvironmentManagedApiTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationServiceEnvironmentPropertiesResponseOutput{})
@@ -35776,26 +34379,21 @@ func init() {
 	pulumi.RegisterOutputType(IpAddressResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferencePtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultKeyReferencePropertiesOutput{})
-	pulumi.RegisterOutputType(KeyVaultKeyReferencePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceKeyVaultOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponsePtrOutput{})
-	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseKeyVaultOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyReferenceResponseKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultKeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(KeyVaultKeyResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(KeyVaultKeyResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyResponseAttributesOutput{})
+	pulumi.RegisterOutputType(KeyVaultKeyResponseAttributesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultReferenceOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(NetworkConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(ObjectOutput{})
-	pulumi.RegisterOutputType(ObjectPtrOutput{})
-	pulumi.RegisterOutputType(ObjectResponseOutput{})
-	pulumi.RegisterOutputType(ObjectResponsePtrOutput{})
-	pulumi.RegisterOutputType(ObjectResponseMapOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationAccessPoliciesOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationAccessPoliciesPtrOutput{})
 	pulumi.RegisterOutputType(OpenAuthenticationAccessPoliciesResponseOutput{})
@@ -35826,10 +34424,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(WorkflowTypeOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterMapOutput{})
 	pulumi.RegisterOutputType(WorkflowParameterResponseOutput{})

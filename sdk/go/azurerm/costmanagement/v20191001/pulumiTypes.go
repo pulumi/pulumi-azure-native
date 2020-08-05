@@ -10,88 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// A export resource.
-type ExportType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of the export.
-	Properties ExportPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ExportTypeInput is an input type that accepts ExportTypeArgs and ExportTypeOutput values.
-// You can construct a concrete instance of `ExportTypeInput` via:
-//
-//          ExportTypeArgs{...}
-type ExportTypeInput interface {
-	pulumi.Input
-
-	ToExportTypeOutput() ExportTypeOutput
-	ToExportTypeOutputWithContext(context.Context) ExportTypeOutput
-}
-
-// A export resource.
-type ExportTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the export.
-	Properties ExportPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ExportTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportType)(nil)).Elem()
-}
-
-func (i ExportTypeArgs) ToExportTypeOutput() ExportTypeOutput {
-	return i.ToExportTypeOutputWithContext(context.Background())
-}
-
-func (i ExportTypeArgs) ToExportTypeOutputWithContext(ctx context.Context) ExportTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportTypeOutput)
-}
-
-// A export resource.
-type ExportTypeOutput struct{ *pulumi.OutputState }
-
-func (ExportTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportType)(nil)).Elem()
-}
-
-func (o ExportTypeOutput) ToExportTypeOutput() ExportTypeOutput {
-	return o
-}
-
-func (o ExportTypeOutput) ToExportTypeOutputWithContext(ctx context.Context) ExportTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ExportTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the export.
-func (o ExportTypeOutput) Properties() ExportPropertiesResponseOutput {
-	return o.ApplyT(func(v ExportType) ExportPropertiesResponse { return v.Properties }).(ExportPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ExportTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExportType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o ExportTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The destination information for the delivery of the export.
 type ExportDeliveryDestination struct {
 	// The name of the container where exports will be uploaded.
@@ -4468,7 +4386,6 @@ func (o QueryTimePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ExportTypeOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationResponseOutput{})

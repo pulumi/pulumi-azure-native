@@ -29,9 +29,6 @@ type ScheduledQueryRule struct {
 // NewScheduledQueryRule registers a new resource with the given unique name, arguments, and options.
 func NewScheduledQueryRule(ctx *pulumi.Context,
 	name string, args *ScheduledQueryRuleArgs, opts ...pulumi.ResourceOption) (*ScheduledQueryRule, error) {
-	if args == nil || args.Action == nil {
-		return nil, errors.New("missing required argument 'Action'")
-	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -99,8 +96,6 @@ func (ScheduledQueryRuleState) ElementType() reflect.Type {
 }
 
 type scheduledQueryRuleArgs struct {
-	// Action needs to be taken on rule execution.
-	Action Action `pulumi:"action"`
 	// The description of the Log Search rule.
 	Description *string `pulumi:"description"`
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
@@ -121,8 +116,6 @@ type scheduledQueryRuleArgs struct {
 
 // The set of arguments for constructing a ScheduledQueryRule resource.
 type ScheduledQueryRuleArgs struct {
-	// Action needs to be taken on rule execution.
-	Action ActionInput
 	// The description of the Log Search rule.
 	Description pulumi.StringPtrInput
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false

@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Management.V20190901.Outputs
         /// <summary>
         /// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
         /// </summary>
-        public readonly Outputs.ParameterDefinitionsResponseResult? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? Parameters;
         /// <summary>
         /// The policy rule.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Management.V20190901.Outputs
 
             string? mode,
 
-            Outputs.ParameterDefinitionsResponseResult? parameters,
+            ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? parameters,
 
             ImmutableDictionary<string, object>? policyRule,
 

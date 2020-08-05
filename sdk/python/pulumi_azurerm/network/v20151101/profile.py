@@ -82,18 +82,17 @@ class Profile(pulumi.CustomResource):
 
         The **endpoints** object supports the following:
 
+          * `endpoint_location` (`pulumi.Input[str]`) - Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+          * `endpoint_monitor_status` (`pulumi.Input[str]`) - Gets or sets the monitoring status of the endpoint.
+          * `endpoint_status` (`pulumi.Input[str]`) - Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
+          * `id` (`pulumi.Input[str]`) - Gets or sets the ID of the Traffic Manager endpoint.
+          * `min_child_endpoints` (`pulumi.Input[float]`) - Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
           * `name` (`pulumi.Input[str]`) - Gets or sets the name of the Traffic Manager endpoint.
-          * `properties` (`pulumi.Input[dict]`) - Class representing a Traffic Manager endpoint properties.
-            * `endpoint_location` (`pulumi.Input[str]`) - Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-            * `endpoint_monitor_status` (`pulumi.Input[str]`) - Gets or sets the monitoring status of the endpoint.
-            * `endpoint_status` (`pulumi.Input[str]`) - Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
-            * `min_child_endpoints` (`pulumi.Input[float]`) - Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-            * `priority` (`pulumi.Input[float]`) - Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-            * `target` (`pulumi.Input[str]`) - Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-            * `target_resource_id` (`pulumi.Input[str]`) - Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
-            * `weight` (`pulumi.Input[float]`) - Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-
+          * `priority` (`pulumi.Input[float]`) - Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+          * `target` (`pulumi.Input[str]`) - Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+          * `target_resource_id` (`pulumi.Input[str]`) - Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
           * `type` (`pulumi.Input[str]`) - Gets or sets the endpoint type of the Traffic Manager endpoint.
+          * `weight` (`pulumi.Input[float]`) - Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
 
         The **monitor_config** object supports the following:
 

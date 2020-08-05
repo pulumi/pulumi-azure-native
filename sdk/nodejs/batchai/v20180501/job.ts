@@ -149,7 +149,7 @@ export interface JobArgs {
     /**
      * Constraints associated with the Job.
      */
-    readonly constraints?: pulumi.Input<inputs.batchai.v20180501.JobBasePropertiesProperties>;
+    readonly constraints?: pulumi.Input<inputs.batchai.v20180501.JobBasePropertiesConstraints>;
     /**
      * Docker container settings for the job. If not provided, the job will run directly on the node.
      */

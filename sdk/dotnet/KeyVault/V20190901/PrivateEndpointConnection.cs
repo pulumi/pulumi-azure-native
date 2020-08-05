@@ -96,12 +96,6 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the private endpoint object.
-        /// </summary>
-        [Input("privateEndpoint")]
-        public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
-
-        /// <summary>
         /// Approval state of the private link connection.
         /// </summary>
         [Input("privateLinkServiceConnectionState")]

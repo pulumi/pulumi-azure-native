@@ -686,76 +686,6 @@ func (o HttpRequestResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type JobType struct {
-	// Gets the job resource name.
-	Name string `pulumi:"name"`
-	// Gets or sets the job properties.
-	Properties JobPropertiesResponse `pulumi:"properties"`
-	// Gets the job resource type.
-	Type string `pulumi:"type"`
-}
-
-// JobTypeInput is an input type that accepts JobTypeArgs and JobTypeOutput values.
-// You can construct a concrete instance of `JobTypeInput` via:
-//
-//          JobTypeArgs{...}
-type JobTypeInput interface {
-	pulumi.Input
-
-	ToJobTypeOutput() JobTypeOutput
-	ToJobTypeOutputWithContext(context.Context) JobTypeOutput
-}
-
-type JobTypeArgs struct {
-	// Gets the job resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets the job properties.
-	Properties JobPropertiesResponseInput `pulumi:"properties"`
-	// Gets the job resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (JobTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobType)(nil)).Elem()
-}
-
-func (i JobTypeArgs) ToJobTypeOutput() JobTypeOutput {
-	return i.ToJobTypeOutputWithContext(context.Background())
-}
-
-func (i JobTypeArgs) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTypeOutput)
-}
-
-type JobTypeOutput struct{ *pulumi.OutputState }
-
-func (JobTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobType)(nil)).Elem()
-}
-
-func (o JobTypeOutput) ToJobTypeOutput() JobTypeOutput {
-	return o
-}
-
-func (o JobTypeOutput) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
-	return o
-}
-
-// Gets the job resource name.
-func (o JobTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v JobType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets the job properties.
-func (o JobTypeOutput) Properties() JobPropertiesResponseOutput {
-	return o.ApplyT(func(v JobType) JobPropertiesResponse { return v.Properties }).(JobPropertiesResponseOutput)
-}
-
-// Gets the job resource type.
-func (o JobTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JobType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 type JobAction struct {
 	// Gets or sets the error action.
 	ErrorAction *JobErrorAction `pulumi:"errorAction"`
@@ -1244,94 +1174,6 @@ func (o JobActionResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-type JobCollectionType struct {
-	// Gets or sets the storage account location.
-	Location *string `pulumi:"location"`
-	// Gets or sets the job collection resource name.
-	Name *string `pulumi:"name"`
-	// Gets or sets the job collection properties.
-	Properties JobCollectionPropertiesResponse `pulumi:"properties"`
-	// Gets or sets the tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets the job collection resource type.
-	Type string `pulumi:"type"`
-}
-
-// JobCollectionTypeInput is an input type that accepts JobCollectionTypeArgs and JobCollectionTypeOutput values.
-// You can construct a concrete instance of `JobCollectionTypeInput` via:
-//
-//          JobCollectionTypeArgs{...}
-type JobCollectionTypeInput interface {
-	pulumi.Input
-
-	ToJobCollectionTypeOutput() JobCollectionTypeOutput
-	ToJobCollectionTypeOutputWithContext(context.Context) JobCollectionTypeOutput
-}
-
-type JobCollectionTypeArgs struct {
-	// Gets or sets the storage account location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets or sets the job collection resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets the job collection properties.
-	Properties JobCollectionPropertiesResponseInput `pulumi:"properties"`
-	// Gets or sets the tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets the job collection resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (JobCollectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobCollectionType)(nil)).Elem()
-}
-
-func (i JobCollectionTypeArgs) ToJobCollectionTypeOutput() JobCollectionTypeOutput {
-	return i.ToJobCollectionTypeOutputWithContext(context.Background())
-}
-
-func (i JobCollectionTypeArgs) ToJobCollectionTypeOutputWithContext(ctx context.Context) JobCollectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobCollectionTypeOutput)
-}
-
-type JobCollectionTypeOutput struct{ *pulumi.OutputState }
-
-func (JobCollectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobCollectionType)(nil)).Elem()
-}
-
-func (o JobCollectionTypeOutput) ToJobCollectionTypeOutput() JobCollectionTypeOutput {
-	return o
-}
-
-func (o JobCollectionTypeOutput) ToJobCollectionTypeOutputWithContext(ctx context.Context) JobCollectionTypeOutput {
-	return o
-}
-
-// Gets or sets the storage account location.
-func (o JobCollectionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobCollectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the job collection resource name.
-func (o JobCollectionTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobCollectionType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets the job collection properties.
-func (o JobCollectionTypeOutput) Properties() JobCollectionPropertiesResponseOutput {
-	return o.ApplyT(func(v JobCollectionType) JobCollectionPropertiesResponse { return v.Properties }).(JobCollectionPropertiesResponseOutput)
-}
-
-// Gets or sets the tags.
-func (o JobCollectionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v JobCollectionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets the job collection resource type.
-func (o JobCollectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JobCollectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 type JobCollectionProperties struct {
@@ -4189,49 +4031,6 @@ func (o JobRecurrenceScheduleResponsePtrOutput) WeekDays() pulumi.StringArrayOut
 		}
 		return v.WeekDays
 	}).(pulumi.StringArrayOutput)
-}
-
-type JobStatus struct {
-}
-
-// JobStatusInput is an input type that accepts JobStatusArgs and JobStatusOutput values.
-// You can construct a concrete instance of `JobStatusInput` via:
-//
-//          JobStatusArgs{...}
-type JobStatusInput interface {
-	pulumi.Input
-
-	ToJobStatusOutput() JobStatusOutput
-	ToJobStatusOutputWithContext(context.Context) JobStatusOutput
-}
-
-type JobStatusArgs struct {
-}
-
-func (JobStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStatus)(nil)).Elem()
-}
-
-func (i JobStatusArgs) ToJobStatusOutput() JobStatusOutput {
-	return i.ToJobStatusOutputWithContext(context.Background())
-}
-
-func (i JobStatusArgs) ToJobStatusOutputWithContext(ctx context.Context) JobStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStatusOutput)
-}
-
-type JobStatusOutput struct{ *pulumi.OutputState }
-
-func (JobStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStatus)(nil)).Elem()
-}
-
-func (o JobStatusOutput) ToJobStatusOutput() JobStatusOutput {
-	return o
-}
-
-func (o JobStatusOutput) ToJobStatusOutputWithContext(ctx context.Context) JobStatusOutput {
-	return o
 }
 
 type JobStatusResponse struct {
@@ -7472,12 +7271,10 @@ func init() {
 	pulumi.RegisterOutputType(HttpRequestPtrOutput{})
 	pulumi.RegisterOutputType(HttpRequestResponseOutput{})
 	pulumi.RegisterOutputType(HttpRequestResponsePtrOutput{})
-	pulumi.RegisterOutputType(JobTypeOutput{})
 	pulumi.RegisterOutputType(JobActionOutput{})
 	pulumi.RegisterOutputType(JobActionPtrOutput{})
 	pulumi.RegisterOutputType(JobActionResponseOutput{})
 	pulumi.RegisterOutputType(JobActionResponsePtrOutput{})
-	pulumi.RegisterOutputType(JobCollectionTypeOutput{})
 	pulumi.RegisterOutputType(JobCollectionPropertiesOutput{})
 	pulumi.RegisterOutputType(JobCollectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobCollectionPropertiesResponseOutput{})
@@ -7510,7 +7307,6 @@ func init() {
 	pulumi.RegisterOutputType(JobRecurrenceScheduleMonthlyOccurrenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceScheduleResponseOutput{})
 	pulumi.RegisterOutputType(JobRecurrenceScheduleResponsePtrOutput{})
-	pulumi.RegisterOutputType(JobStatusOutput{})
 	pulumi.RegisterOutputType(JobStatusResponseOutput{})
 	pulumi.RegisterOutputType(JobStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(RetryPolicyOutput{})

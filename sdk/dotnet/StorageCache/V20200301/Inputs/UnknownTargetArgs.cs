@@ -15,11 +15,17 @@ namespace Pulumi.AzureRM.StorageCache.V20200301.Inputs
     /// </summary>
     public sealed class UnknownTargetArgs : Pulumi.ResourceArgs
     {
+        [Input("unknownMap")]
+        private InputMap<string>? _unknownMap;
+
         /// <summary>
         /// Dictionary of string-&gt;string pairs containing information about the Storage Target.
         /// </summary>
-        [Input("unknownMap")]
-        public Input<Inputs.UnknownPropertiesArgs>? UnknownMap { get; set; }
+        public InputMap<string> UnknownMap
+        {
+            get => _unknownMap ?? (_unknownMap = new InputMap<string>());
+            set => _unknownMap = value;
+        }
 
         public UnknownTargetArgs()
         {

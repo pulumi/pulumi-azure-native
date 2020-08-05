@@ -73,13 +73,12 @@ class PrivateCloud(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, circuit=None, identity_sources=None, internet=None, location=None, management_cluster=None, name=None, network_block=None, nsxt_password=None, resource_group_name=None, sku=None, tags=None, vcenter_password=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, identity_sources=None, internet=None, location=None, management_cluster=None, name=None, network_block=None, nsxt_password=None, resource_group_name=None, sku=None, tags=None, vcenter_password=None, __props__=None, __name__=None, __opts__=None):
         """
         A private cloud resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] circuit: An ExpressRoute Circuit
         :param pulumi.Input[list] identity_sources: vCenter Single Sign On Identity Sources
         :param pulumi.Input[str] internet: Connectivity to internet is enabled or disabled
         :param pulumi.Input[str] location: Resource location
@@ -130,7 +129,6 @@ class PrivateCloud(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            __props__['circuit'] = circuit
             __props__['identity_sources'] = identity_sources
             __props__['internet'] = internet
             if location is None:

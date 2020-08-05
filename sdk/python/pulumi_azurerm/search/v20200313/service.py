@@ -42,6 +42,9 @@ class Service(pulumi.CustomResource):
             * `id` (`str`) - The resource id of the private endpoint resource from Microsoft.Network provider.
 
           * `private_link_service_connection_state` (`dict`) - Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+            * `actions_required` (`str`) - A description of any extra actions that may be required.
+            * `description` (`str`) - The description for the private link service connection state.
+            * `status` (`str`) - Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
 
         * `type` (`str`) - The resource type.
 

@@ -13,7 +13,7 @@ class GetAccountResult:
     """
     An Azure resource which represents access to a suite of Maps REST APIs.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, sku=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -25,12 +25,6 @@ class GetAccountResult:
         __self__.name = name
         """
         The name of the Maps Account, which is unique within a Resource Group.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The map account properties.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -60,7 +54,6 @@ class AwaitableGetAccountResult(GetAccountResult):
         return GetAccountResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -85,7 +78,6 @@ def get_account(name=None, resource_group_name=None, opts=None):
     return AwaitableGetAccountResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

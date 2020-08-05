@@ -24,11 +24,11 @@ namespace Pulumi.AzureRM.NetApp.V20191001.Outputs
         /// <summary>
         /// DataProtection type volumes include an object containing details of the replication
         /// </summary>
-        public readonly Outputs.VolumePropertiesResponsePropertiesResult? DataProtection;
+        public readonly Outputs.VolumePropertiesResponseDataProtectionResult? DataProtection;
         /// <summary>
         /// Set of export policy rules
         /// </summary>
-        public readonly Outputs.VolumePropertiesResponsePropertiesResult? ExportPolicy;
+        public readonly Outputs.VolumePropertiesResponseExportPolicyResult? ExportPolicy;
         /// <summary>
         /// Unique FileSystem Identifier.
         /// </summary>
@@ -76,9 +76,9 @@ namespace Pulumi.AzureRM.NetApp.V20191001.Outputs
 
             string creationToken,
 
-            Outputs.VolumePropertiesResponsePropertiesResult? dataProtection,
+            Outputs.VolumePropertiesResponseDataProtectionResult? dataProtection,
 
-            Outputs.VolumePropertiesResponsePropertiesResult? exportPolicy,
+            Outputs.VolumePropertiesResponseExportPolicyResult? exportPolicy,
 
             string fileSystemId,
 

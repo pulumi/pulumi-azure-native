@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// Properties of linked service.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.LinkedServiceDefinitionArgs> Properties { get; set; } = null!;
+        public Input<Inputs.LinkedServiceArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

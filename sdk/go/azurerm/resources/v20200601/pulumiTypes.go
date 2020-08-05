@@ -949,370 +949,6 @@ func (o DependencyResponseArrayOutput) Index(i pulumi.IntInput) DependencyRespon
 	}).(DependencyResponseOutput)
 }
 
-// Deployment information.
-type DeploymentType struct {
-	// the location of the deployment.
-	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name string `pulumi:"name"`
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
-	// Deployment tags
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the deployment.
-	Type string `pulumi:"type"`
-}
-
-// DeploymentTypeInput is an input type that accepts DeploymentTypeArgs and DeploymentTypeOutput values.
-// You can construct a concrete instance of `DeploymentTypeInput` via:
-//
-//          DeploymentTypeArgs{...}
-type DeploymentTypeInput interface {
-	pulumi.Input
-
-	ToDeploymentTypeOutput() DeploymentTypeOutput
-	ToDeploymentTypeOutputWithContext(context.Context) DeploymentTypeOutput
-}
-
-// Deployment information.
-type DeploymentTypeArgs struct {
-	// the location of the deployment.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the deployment.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponseInput `pulumi:"properties"`
-	// Deployment tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the deployment.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DeploymentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentType)(nil)).Elem()
-}
-
-func (i DeploymentTypeArgs) ToDeploymentTypeOutput() DeploymentTypeOutput {
-	return i.ToDeploymentTypeOutputWithContext(context.Background())
-}
-
-func (i DeploymentTypeArgs) ToDeploymentTypeOutputWithContext(ctx context.Context) DeploymentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentTypeOutput)
-}
-
-// Deployment information.
-type DeploymentTypeOutput struct{ *pulumi.OutputState }
-
-func (DeploymentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentType)(nil)).Elem()
-}
-
-func (o DeploymentTypeOutput) ToDeploymentTypeOutput() DeploymentTypeOutput {
-	return o
-}
-
-func (o DeploymentTypeOutput) ToDeploymentTypeOutputWithContext(ctx context.Context) DeploymentTypeOutput {
-	return o
-}
-
-// the location of the deployment.
-func (o DeploymentTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the deployment.
-func (o DeploymentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deployment properties.
-func (o DeploymentTypeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
-	return o.ApplyT(func(v DeploymentType) DeploymentPropertiesExtendedResponse { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
-}
-
-// Deployment tags
-func (o DeploymentTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the deployment.
-func (o DeploymentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Deployment information.
-type DeploymentAtScopeType struct {
-	// the location of the deployment.
-	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name string `pulumi:"name"`
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
-	// Deployment tags
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the deployment.
-	Type string `pulumi:"type"`
-}
-
-// DeploymentAtScopeTypeInput is an input type that accepts DeploymentAtScopeTypeArgs and DeploymentAtScopeTypeOutput values.
-// You can construct a concrete instance of `DeploymentAtScopeTypeInput` via:
-//
-//          DeploymentAtScopeTypeArgs{...}
-type DeploymentAtScopeTypeInput interface {
-	pulumi.Input
-
-	ToDeploymentAtScopeTypeOutput() DeploymentAtScopeTypeOutput
-	ToDeploymentAtScopeTypeOutputWithContext(context.Context) DeploymentAtScopeTypeOutput
-}
-
-// Deployment information.
-type DeploymentAtScopeTypeArgs struct {
-	// the location of the deployment.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the deployment.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponseInput `pulumi:"properties"`
-	// Deployment tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the deployment.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DeploymentAtScopeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtScopeType)(nil)).Elem()
-}
-
-func (i DeploymentAtScopeTypeArgs) ToDeploymentAtScopeTypeOutput() DeploymentAtScopeTypeOutput {
-	return i.ToDeploymentAtScopeTypeOutputWithContext(context.Background())
-}
-
-func (i DeploymentAtScopeTypeArgs) ToDeploymentAtScopeTypeOutputWithContext(ctx context.Context) DeploymentAtScopeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtScopeTypeOutput)
-}
-
-// Deployment information.
-type DeploymentAtScopeTypeOutput struct{ *pulumi.OutputState }
-
-func (DeploymentAtScopeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtScopeType)(nil)).Elem()
-}
-
-func (o DeploymentAtScopeTypeOutput) ToDeploymentAtScopeTypeOutput() DeploymentAtScopeTypeOutput {
-	return o
-}
-
-func (o DeploymentAtScopeTypeOutput) ToDeploymentAtScopeTypeOutputWithContext(ctx context.Context) DeploymentAtScopeTypeOutput {
-	return o
-}
-
-// the location of the deployment.
-func (o DeploymentAtScopeTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentAtScopeType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the deployment.
-func (o DeploymentAtScopeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentAtScopeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deployment properties.
-func (o DeploymentAtScopeTypeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
-	return o.ApplyT(func(v DeploymentAtScopeType) DeploymentPropertiesExtendedResponse { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
-}
-
-// Deployment tags
-func (o DeploymentAtScopeTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentAtScopeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the deployment.
-func (o DeploymentAtScopeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentAtScopeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Deployment information.
-type DeploymentAtSubscriptionScopeType struct {
-	// the location of the deployment.
-	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name string `pulumi:"name"`
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
-	// Deployment tags
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the deployment.
-	Type string `pulumi:"type"`
-}
-
-// DeploymentAtSubscriptionScopeTypeInput is an input type that accepts DeploymentAtSubscriptionScopeTypeArgs and DeploymentAtSubscriptionScopeTypeOutput values.
-// You can construct a concrete instance of `DeploymentAtSubscriptionScopeTypeInput` via:
-//
-//          DeploymentAtSubscriptionScopeTypeArgs{...}
-type DeploymentAtSubscriptionScopeTypeInput interface {
-	pulumi.Input
-
-	ToDeploymentAtSubscriptionScopeTypeOutput() DeploymentAtSubscriptionScopeTypeOutput
-	ToDeploymentAtSubscriptionScopeTypeOutputWithContext(context.Context) DeploymentAtSubscriptionScopeTypeOutput
-}
-
-// Deployment information.
-type DeploymentAtSubscriptionScopeTypeArgs struct {
-	// the location of the deployment.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the deployment.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponseInput `pulumi:"properties"`
-	// Deployment tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the deployment.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DeploymentAtSubscriptionScopeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtSubscriptionScopeType)(nil)).Elem()
-}
-
-func (i DeploymentAtSubscriptionScopeTypeArgs) ToDeploymentAtSubscriptionScopeTypeOutput() DeploymentAtSubscriptionScopeTypeOutput {
-	return i.ToDeploymentAtSubscriptionScopeTypeOutputWithContext(context.Background())
-}
-
-func (i DeploymentAtSubscriptionScopeTypeArgs) ToDeploymentAtSubscriptionScopeTypeOutputWithContext(ctx context.Context) DeploymentAtSubscriptionScopeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtSubscriptionScopeTypeOutput)
-}
-
-// Deployment information.
-type DeploymentAtSubscriptionScopeTypeOutput struct{ *pulumi.OutputState }
-
-func (DeploymentAtSubscriptionScopeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtSubscriptionScopeType)(nil)).Elem()
-}
-
-func (o DeploymentAtSubscriptionScopeTypeOutput) ToDeploymentAtSubscriptionScopeTypeOutput() DeploymentAtSubscriptionScopeTypeOutput {
-	return o
-}
-
-func (o DeploymentAtSubscriptionScopeTypeOutput) ToDeploymentAtSubscriptionScopeTypeOutputWithContext(ctx context.Context) DeploymentAtSubscriptionScopeTypeOutput {
-	return o
-}
-
-// the location of the deployment.
-func (o DeploymentAtSubscriptionScopeTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentAtSubscriptionScopeType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the deployment.
-func (o DeploymentAtSubscriptionScopeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentAtSubscriptionScopeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deployment properties.
-func (o DeploymentAtSubscriptionScopeTypeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
-	return o.ApplyT(func(v DeploymentAtSubscriptionScopeType) DeploymentPropertiesExtendedResponse { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
-}
-
-// Deployment tags
-func (o DeploymentAtSubscriptionScopeTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentAtSubscriptionScopeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the deployment.
-func (o DeploymentAtSubscriptionScopeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentAtSubscriptionScopeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Deployment information.
-type DeploymentAtTenantScopeType struct {
-	// the location of the deployment.
-	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name string `pulumi:"name"`
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
-	// Deployment tags
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the deployment.
-	Type string `pulumi:"type"`
-}
-
-// DeploymentAtTenantScopeTypeInput is an input type that accepts DeploymentAtTenantScopeTypeArgs and DeploymentAtTenantScopeTypeOutput values.
-// You can construct a concrete instance of `DeploymentAtTenantScopeTypeInput` via:
-//
-//          DeploymentAtTenantScopeTypeArgs{...}
-type DeploymentAtTenantScopeTypeInput interface {
-	pulumi.Input
-
-	ToDeploymentAtTenantScopeTypeOutput() DeploymentAtTenantScopeTypeOutput
-	ToDeploymentAtTenantScopeTypeOutputWithContext(context.Context) DeploymentAtTenantScopeTypeOutput
-}
-
-// Deployment information.
-type DeploymentAtTenantScopeTypeArgs struct {
-	// the location of the deployment.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the deployment.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponseInput `pulumi:"properties"`
-	// Deployment tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the deployment.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DeploymentAtTenantScopeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtTenantScopeType)(nil)).Elem()
-}
-
-func (i DeploymentAtTenantScopeTypeArgs) ToDeploymentAtTenantScopeTypeOutput() DeploymentAtTenantScopeTypeOutput {
-	return i.ToDeploymentAtTenantScopeTypeOutputWithContext(context.Background())
-}
-
-func (i DeploymentAtTenantScopeTypeArgs) ToDeploymentAtTenantScopeTypeOutputWithContext(ctx context.Context) DeploymentAtTenantScopeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtTenantScopeTypeOutput)
-}
-
-// Deployment information.
-type DeploymentAtTenantScopeTypeOutput struct{ *pulumi.OutputState }
-
-func (DeploymentAtTenantScopeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtTenantScopeType)(nil)).Elem()
-}
-
-func (o DeploymentAtTenantScopeTypeOutput) ToDeploymentAtTenantScopeTypeOutput() DeploymentAtTenantScopeTypeOutput {
-	return o
-}
-
-func (o DeploymentAtTenantScopeTypeOutput) ToDeploymentAtTenantScopeTypeOutputWithContext(ctx context.Context) DeploymentAtTenantScopeTypeOutput {
-	return o
-}
-
-// the location of the deployment.
-func (o DeploymentAtTenantScopeTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentAtTenantScopeType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the deployment.
-func (o DeploymentAtTenantScopeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentAtTenantScopeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deployment properties.
-func (o DeploymentAtTenantScopeTypeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
-	return o.ApplyT(func(v DeploymentAtTenantScopeType) DeploymentPropertiesExtendedResponse { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
-}
-
-// Deployment tags
-func (o DeploymentAtTenantScopeTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentAtTenantScopeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the deployment.
-func (o DeploymentAtTenantScopeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentAtTenantScopeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Deployment properties.
 type DeploymentProperties struct {
 	// The debug setting of the deployment.
@@ -2369,8 +2005,6 @@ func (o ErrorResponseResponseArrayOutput) Index(i pulumi.IntInput) ErrorResponse
 type Identity struct {
 	// The identity type.
 	Type *string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]IdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -2388,8 +2022,6 @@ type IdentityInput interface {
 type IdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities IdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -2475,11 +2107,6 @@ func (o IdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityOutput) UserAssignedIdentities() IdentityPropertiesMapOutput {
-	return o.ApplyT(func(v Identity) map[string]IdentityProperties { return v.UserAssignedIdentities }).(IdentityPropertiesMapOutput)
-}
-
 type IdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityPtrOutput) ElementType() reflect.Type {
@@ -2508,104 +2135,6 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityPtrOutput) UserAssignedIdentities() IdentityPropertiesMapOutput {
-	return o.ApplyT(func(v *Identity) map[string]IdentityProperties {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(IdentityPropertiesMapOutput)
-}
-
-type IdentityProperties struct {
-}
-
-// IdentityPropertiesInput is an input type that accepts IdentityPropertiesArgs and IdentityPropertiesOutput values.
-// You can construct a concrete instance of `IdentityPropertiesInput` via:
-//
-//          IdentityPropertiesArgs{...}
-type IdentityPropertiesInput interface {
-	pulumi.Input
-
-	ToIdentityPropertiesOutput() IdentityPropertiesOutput
-	ToIdentityPropertiesOutputWithContext(context.Context) IdentityPropertiesOutput
-}
-
-type IdentityPropertiesArgs struct {
-}
-
-func (IdentityPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
-}
-
-func (i IdentityPropertiesArgs) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
-	return i.ToIdentityPropertiesOutputWithContext(context.Background())
-}
-
-func (i IdentityPropertiesArgs) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesOutput)
-}
-
-// IdentityPropertiesMapInput is an input type that accepts IdentityPropertiesMap and IdentityPropertiesMapOutput values.
-// You can construct a concrete instance of `IdentityPropertiesMapInput` via:
-//
-//          IdentityPropertiesMap{ "key": IdentityPropertiesArgs{...} }
-type IdentityPropertiesMapInput interface {
-	pulumi.Input
-
-	ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput
-	ToIdentityPropertiesMapOutputWithContext(context.Context) IdentityPropertiesMapOutput
-}
-
-type IdentityPropertiesMap map[string]IdentityPropertiesInput
-
-func (IdentityPropertiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityProperties)(nil)).Elem()
-}
-
-func (i IdentityPropertiesMap) ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput {
-	return i.ToIdentityPropertiesMapOutputWithContext(context.Background())
-}
-
-func (i IdentityPropertiesMap) ToIdentityPropertiesMapOutputWithContext(ctx context.Context) IdentityPropertiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesMapOutput)
-}
-
-type IdentityPropertiesOutput struct{ *pulumi.OutputState }
-
-func (IdentityPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
-}
-
-func (o IdentityPropertiesOutput) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
-	return o
-}
-
-func (o IdentityPropertiesOutput) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
-	return o
-}
-
-type IdentityPropertiesMapOutput struct{ *pulumi.OutputState }
-
-func (IdentityPropertiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityProperties)(nil)).Elem()
-}
-
-func (o IdentityPropertiesMapOutput) ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput {
-	return o
-}
-
-func (o IdentityPropertiesMapOutput) ToIdentityPropertiesMapOutputWithContext(ctx context.Context) IdentityPropertiesMapOutput {
-	return o
-}
-
-func (o IdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) IdentityPropertiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityProperties {
-		return vs[0].(map[string]IdentityProperties)[vs[1].(string)]
-	}).(IdentityPropertiesOutput)
-}
-
 // Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
@@ -2615,7 +2144,7 @@ type IdentityResponse struct {
 	// The identity type.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]IdentityResponseProperties `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]IdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -2638,7 +2167,7 @@ type IdentityResponseArgs struct {
 	// The identity type.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities IdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities IdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -2735,8 +2264,10 @@ func (o IdentityResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponsePropertiesMapOutput {
-	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseProperties { return v.UserAssignedIdentities }).(IdentityResponsePropertiesMapOutput)
+func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
+		return v.UserAssignedIdentities
+	}).(IdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
 type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2788,119 +2319,119 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponsePropertiesMapOutput {
-	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseProperties {
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(IdentityResponsePropertiesMapOutput)
+	}).(IdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
-type IdentityResponseProperties struct {
+type IdentityResponseUserAssignedIdentities struct {
 	// The client id of user assigned identity.
 	ClientId string `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId string `pulumi:"principalId"`
 }
 
-// IdentityResponsePropertiesInput is an input type that accepts IdentityResponsePropertiesArgs and IdentityResponsePropertiesOutput values.
-// You can construct a concrete instance of `IdentityResponsePropertiesInput` via:
+// IdentityResponseUserAssignedIdentitiesInput is an input type that accepts IdentityResponseUserAssignedIdentitiesArgs and IdentityResponseUserAssignedIdentitiesOutput values.
+// You can construct a concrete instance of `IdentityResponseUserAssignedIdentitiesInput` via:
 //
-//          IdentityResponsePropertiesArgs{...}
-type IdentityResponsePropertiesInput interface {
+//          IdentityResponseUserAssignedIdentitiesArgs{...}
+type IdentityResponseUserAssignedIdentitiesInput interface {
 	pulumi.Input
 
-	ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput
-	ToIdentityResponsePropertiesOutputWithContext(context.Context) IdentityResponsePropertiesOutput
+	ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput
+	ToIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Context) IdentityResponseUserAssignedIdentitiesOutput
 }
 
-type IdentityResponsePropertiesArgs struct {
+type IdentityResponseUserAssignedIdentitiesArgs struct {
 	// The client id of user assigned identity.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
-func (IdentityResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (i IdentityResponsePropertiesArgs) ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput {
-	return i.ToIdentityResponsePropertiesOutputWithContext(context.Background())
+func (i IdentityResponseUserAssignedIdentitiesArgs) ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput {
+	return i.ToIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Background())
 }
 
-func (i IdentityResponsePropertiesArgs) ToIdentityResponsePropertiesOutputWithContext(ctx context.Context) IdentityResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePropertiesOutput)
+func (i IdentityResponseUserAssignedIdentitiesArgs) ToIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// IdentityResponsePropertiesMapInput is an input type that accepts IdentityResponsePropertiesMap and IdentityResponsePropertiesMapOutput values.
-// You can construct a concrete instance of `IdentityResponsePropertiesMapInput` via:
+// IdentityResponseUserAssignedIdentitiesMapInput is an input type that accepts IdentityResponseUserAssignedIdentitiesMap and IdentityResponseUserAssignedIdentitiesMapOutput values.
+// You can construct a concrete instance of `IdentityResponseUserAssignedIdentitiesMapInput` via:
 //
-//          IdentityResponsePropertiesMap{ "key": IdentityResponsePropertiesArgs{...} }
-type IdentityResponsePropertiesMapInput interface {
+//          IdentityResponseUserAssignedIdentitiesMap{ "key": IdentityResponseUserAssignedIdentitiesArgs{...} }
+type IdentityResponseUserAssignedIdentitiesMapInput interface {
 	pulumi.Input
 
-	ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput
-	ToIdentityResponsePropertiesMapOutputWithContext(context.Context) IdentityResponsePropertiesMapOutput
+	ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput
+	ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Context) IdentityResponseUserAssignedIdentitiesMapOutput
 }
 
-type IdentityResponsePropertiesMap map[string]IdentityResponsePropertiesInput
+type IdentityResponseUserAssignedIdentitiesMap map[string]IdentityResponseUserAssignedIdentitiesInput
 
-func (IdentityResponsePropertiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (i IdentityResponsePropertiesMap) ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput {
-	return i.ToIdentityResponsePropertiesMapOutputWithContext(context.Background())
+func (i IdentityResponseUserAssignedIdentitiesMap) ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return i.ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Background())
 }
 
-func (i IdentityResponsePropertiesMap) ToIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) IdentityResponsePropertiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePropertiesMapOutput)
+func (i IdentityResponseUserAssignedIdentitiesMap) ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
-type IdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+type IdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
 
-func (IdentityResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (o IdentityResponsePropertiesOutput) ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput {
+func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput {
 	return o
 }
 
-func (o IdentityResponsePropertiesOutput) ToIdentityResponsePropertiesOutputWithContext(ctx context.Context) IdentityResponsePropertiesOutput {
+func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesOutput {
 	return o
 }
 
 // The client id of user assigned identity.
-func (o IdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+func (o IdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
 // The principal id of user assigned identity.
-func (o IdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o IdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-type IdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+type IdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
 
-func (IdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (o IdentityResponsePropertiesMapOutput) ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput {
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput {
 	return o
 }
 
-func (o IdentityResponsePropertiesMapOutput) ToIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) IdentityResponsePropertiesMapOutput {
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesMapOutput {
 	return o
 }
 
-func (o IdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) IdentityResponsePropertiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityResponseProperties {
-		return vs[0].(map[string]IdentityResponseProperties)[vs[1].(string)]
-	}).(IdentityResponsePropertiesOutput)
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) IdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityResponseUserAssignedIdentities {
+		return vs[0].(map[string]IdentityResponseUserAssignedIdentities)[vs[1].(string)]
+	}).(IdentityResponseUserAssignedIdentitiesOutput)
 }
 
 // Deployment on error behavior.
@@ -4235,357 +3766,6 @@ func (o ProviderResponseArrayOutput) Index(i pulumi.IntInput) ProviderResponseOu
 	}).(ProviderResponseOutput)
 }
 
-// Resource information.
-type ResourceType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// ID of the resource that manages this resource.
-	ManagedBy *string `pulumi:"managedBy"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The plan of the resource.
-	Plan *PlanResponse `pulumi:"plan"`
-	// The resource properties.
-	Properties map[string]interface{} `pulumi:"properties"`
-	// The SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ResourceTypeInput is an input type that accepts ResourceTypeArgs and ResourceTypeOutput values.
-// You can construct a concrete instance of `ResourceTypeInput` via:
-//
-//          ResourceTypeArgs{...}
-type ResourceTypeInput interface {
-	pulumi.Input
-
-	ToResourceTypeOutput() ResourceTypeOutput
-	ToResourceTypeOutputWithContext(context.Context) ResourceTypeOutput
-}
-
-// Resource information.
-type ResourceTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// The kind of the resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// ID of the resource that manages this resource.
-	ManagedBy pulumi.StringPtrInput `pulumi:"managedBy"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The plan of the resource.
-	Plan PlanResponsePtrInput `pulumi:"plan"`
-	// The resource properties.
-	Properties pulumi.MapInput `pulumi:"properties"`
-	// The SKU of the resource.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ResourceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceType)(nil)).Elem()
-}
-
-func (i ResourceTypeArgs) ToResourceTypeOutput() ResourceTypeOutput {
-	return i.ToResourceTypeOutputWithContext(context.Background())
-}
-
-func (i ResourceTypeArgs) ToResourceTypeOutputWithContext(ctx context.Context) ResourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceTypeOutput)
-}
-
-// Resource information.
-type ResourceTypeOutput struct{ *pulumi.OutputState }
-
-func (ResourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceType)(nil)).Elem()
-}
-
-func (o ResourceTypeOutput) ToResourceTypeOutput() ResourceTypeOutput {
-	return o
-}
-
-func (o ResourceTypeOutput) ToResourceTypeOutputWithContext(ctx context.Context) ResourceTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o ResourceTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v ResourceType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// The kind of the resource.
-func (o ResourceTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource location
-func (o ResourceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// ID of the resource that manages this resource.
-func (o ResourceTypeOutput) ManagedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceType) *string { return v.ManagedBy }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o ResourceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The plan of the resource.
-func (o ResourceTypeOutput) Plan() PlanResponsePtrOutput {
-	return o.ApplyT(func(v ResourceType) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
-}
-
-// The resource properties.
-func (o ResourceTypeOutput) Properties() pulumi.MapOutput {
-	return o.ApplyT(func(v ResourceType) map[string]interface{} { return v.Properties }).(pulumi.MapOutput)
-}
-
-// The SKU of the resource.
-func (o ResourceTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v ResourceType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Resource tags
-func (o ResourceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ResourceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ResourceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Resource group information.
-type ResourceGroupType struct {
-	// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
-	Location string `pulumi:"location"`
-	// The ID of the resource that manages this resource group.
-	ManagedBy *string `pulumi:"managedBy"`
-	// The name of the resource group.
-	Name string `pulumi:"name"`
-	// The resource group properties.
-	Properties ResourceGroupPropertiesResponse `pulumi:"properties"`
-	// The tags attached to the resource group.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource group.
-	Type string `pulumi:"type"`
-}
-
-// ResourceGroupTypeInput is an input type that accepts ResourceGroupTypeArgs and ResourceGroupTypeOutput values.
-// You can construct a concrete instance of `ResourceGroupTypeInput` via:
-//
-//          ResourceGroupTypeArgs{...}
-type ResourceGroupTypeInput interface {
-	pulumi.Input
-
-	ToResourceGroupTypeOutput() ResourceGroupTypeOutput
-	ToResourceGroupTypeOutputWithContext(context.Context) ResourceGroupTypeOutput
-}
-
-// Resource group information.
-type ResourceGroupTypeArgs struct {
-	// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The ID of the resource that manages this resource group.
-	ManagedBy pulumi.StringPtrInput `pulumi:"managedBy"`
-	// The name of the resource group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The resource group properties.
-	Properties ResourceGroupPropertiesResponseInput `pulumi:"properties"`
-	// The tags attached to the resource group.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource group.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ResourceGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupType)(nil)).Elem()
-}
-
-func (i ResourceGroupTypeArgs) ToResourceGroupTypeOutput() ResourceGroupTypeOutput {
-	return i.ToResourceGroupTypeOutputWithContext(context.Background())
-}
-
-func (i ResourceGroupTypeArgs) ToResourceGroupTypeOutputWithContext(ctx context.Context) ResourceGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTypeOutput)
-}
-
-// Resource group information.
-type ResourceGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (ResourceGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupType)(nil)).Elem()
-}
-
-func (o ResourceGroupTypeOutput) ToResourceGroupTypeOutput() ResourceGroupTypeOutput {
-	return o
-}
-
-func (o ResourceGroupTypeOutput) ToResourceGroupTypeOutputWithContext(ctx context.Context) ResourceGroupTypeOutput {
-	return o
-}
-
-// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
-func (o ResourceGroupTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceGroupType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The ID of the resource that manages this resource group.
-func (o ResourceGroupTypeOutput) ManagedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceGroupType) *string { return v.ManagedBy }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource group.
-func (o ResourceGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The resource group properties.
-func (o ResourceGroupTypeOutput) Properties() ResourceGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v ResourceGroupType) ResourceGroupPropertiesResponse { return v.Properties }).(ResourceGroupPropertiesResponseOutput)
-}
-
-// The tags attached to the resource group.
-func (o ResourceGroupTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ResourceGroupType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource group.
-func (o ResourceGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The resource group properties.
-type ResourceGroupProperties struct {
-}
-
-// ResourceGroupPropertiesInput is an input type that accepts ResourceGroupPropertiesArgs and ResourceGroupPropertiesOutput values.
-// You can construct a concrete instance of `ResourceGroupPropertiesInput` via:
-//
-//          ResourceGroupPropertiesArgs{...}
-type ResourceGroupPropertiesInput interface {
-	pulumi.Input
-
-	ToResourceGroupPropertiesOutput() ResourceGroupPropertiesOutput
-	ToResourceGroupPropertiesOutputWithContext(context.Context) ResourceGroupPropertiesOutput
-}
-
-// The resource group properties.
-type ResourceGroupPropertiesArgs struct {
-}
-
-func (ResourceGroupPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupProperties)(nil)).Elem()
-}
-
-func (i ResourceGroupPropertiesArgs) ToResourceGroupPropertiesOutput() ResourceGroupPropertiesOutput {
-	return i.ToResourceGroupPropertiesOutputWithContext(context.Background())
-}
-
-func (i ResourceGroupPropertiesArgs) ToResourceGroupPropertiesOutputWithContext(ctx context.Context) ResourceGroupPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPropertiesOutput)
-}
-
-func (i ResourceGroupPropertiesArgs) ToResourceGroupPropertiesPtrOutput() ResourceGroupPropertiesPtrOutput {
-	return i.ToResourceGroupPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ResourceGroupPropertiesArgs) ToResourceGroupPropertiesPtrOutputWithContext(ctx context.Context) ResourceGroupPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPropertiesOutput).ToResourceGroupPropertiesPtrOutputWithContext(ctx)
-}
-
-// ResourceGroupPropertiesPtrInput is an input type that accepts ResourceGroupPropertiesArgs, ResourceGroupPropertiesPtr and ResourceGroupPropertiesPtrOutput values.
-// You can construct a concrete instance of `ResourceGroupPropertiesPtrInput` via:
-//
-//          ResourceGroupPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceGroupPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToResourceGroupPropertiesPtrOutput() ResourceGroupPropertiesPtrOutput
-	ToResourceGroupPropertiesPtrOutputWithContext(context.Context) ResourceGroupPropertiesPtrOutput
-}
-
-type resourceGroupPropertiesPtrType ResourceGroupPropertiesArgs
-
-func ResourceGroupPropertiesPtr(v *ResourceGroupPropertiesArgs) ResourceGroupPropertiesPtrInput {
-	return (*resourceGroupPropertiesPtrType)(v)
-}
-
-func (*resourceGroupPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceGroupProperties)(nil)).Elem()
-}
-
-func (i *resourceGroupPropertiesPtrType) ToResourceGroupPropertiesPtrOutput() ResourceGroupPropertiesPtrOutput {
-	return i.ToResourceGroupPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceGroupPropertiesPtrType) ToResourceGroupPropertiesPtrOutputWithContext(ctx context.Context) ResourceGroupPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPropertiesPtrOutput)
-}
-
-// The resource group properties.
-type ResourceGroupPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ResourceGroupPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceGroupProperties)(nil)).Elem()
-}
-
-func (o ResourceGroupPropertiesOutput) ToResourceGroupPropertiesOutput() ResourceGroupPropertiesOutput {
-	return o
-}
-
-func (o ResourceGroupPropertiesOutput) ToResourceGroupPropertiesOutputWithContext(ctx context.Context) ResourceGroupPropertiesOutput {
-	return o
-}
-
-func (o ResourceGroupPropertiesOutput) ToResourceGroupPropertiesPtrOutput() ResourceGroupPropertiesPtrOutput {
-	return o.ToResourceGroupPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceGroupPropertiesOutput) ToResourceGroupPropertiesPtrOutputWithContext(ctx context.Context) ResourceGroupPropertiesPtrOutput {
-	return o.ApplyT(func(v ResourceGroupProperties) *ResourceGroupProperties {
-		return &v
-	}).(ResourceGroupPropertiesPtrOutput)
-}
-
-type ResourceGroupPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceGroupPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceGroupProperties)(nil)).Elem()
-}
-
-func (o ResourceGroupPropertiesPtrOutput) ToResourceGroupPropertiesPtrOutput() ResourceGroupPropertiesPtrOutput {
-	return o
-}
-
-func (o ResourceGroupPropertiesPtrOutput) ToResourceGroupPropertiesPtrOutputWithContext(ctx context.Context) ResourceGroupPropertiesPtrOutput {
-	return o
-}
-
-func (o ResourceGroupPropertiesPtrOutput) Elem() ResourceGroupPropertiesOutput {
-	return o.ApplyT(func(v *ResourceGroupProperties) ResourceGroupProperties { return *v }).(ResourceGroupPropertiesOutput)
-}
-
 // The resource group properties.
 type ResourceGroupPropertiesResponse struct {
 	// The provisioning state.
@@ -5278,79 +4458,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Wrapper resource for tags API requests and responses.
-type TagAtScopeType struct {
-	// The name of the tags wrapper resource.
-	Name string `pulumi:"name"`
-	// The set of tags.
-	Properties TagsResponse `pulumi:"properties"`
-	// The type of the tags wrapper resource.
-	Type string `pulumi:"type"`
-}
-
-// TagAtScopeTypeInput is an input type that accepts TagAtScopeTypeArgs and TagAtScopeTypeOutput values.
-// You can construct a concrete instance of `TagAtScopeTypeInput` via:
-//
-//          TagAtScopeTypeArgs{...}
-type TagAtScopeTypeInput interface {
-	pulumi.Input
-
-	ToTagAtScopeTypeOutput() TagAtScopeTypeOutput
-	ToTagAtScopeTypeOutputWithContext(context.Context) TagAtScopeTypeOutput
-}
-
-// Wrapper resource for tags API requests and responses.
-type TagAtScopeTypeArgs struct {
-	// The name of the tags wrapper resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The set of tags.
-	Properties TagsResponseInput `pulumi:"properties"`
-	// The type of the tags wrapper resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TagAtScopeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagAtScopeType)(nil)).Elem()
-}
-
-func (i TagAtScopeTypeArgs) ToTagAtScopeTypeOutput() TagAtScopeTypeOutput {
-	return i.ToTagAtScopeTypeOutputWithContext(context.Background())
-}
-
-func (i TagAtScopeTypeArgs) ToTagAtScopeTypeOutputWithContext(ctx context.Context) TagAtScopeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagAtScopeTypeOutput)
-}
-
-// Wrapper resource for tags API requests and responses.
-type TagAtScopeTypeOutput struct{ *pulumi.OutputState }
-
-func (TagAtScopeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagAtScopeType)(nil)).Elem()
-}
-
-func (o TagAtScopeTypeOutput) ToTagAtScopeTypeOutput() TagAtScopeTypeOutput {
-	return o
-}
-
-func (o TagAtScopeTypeOutput) ToTagAtScopeTypeOutputWithContext(ctx context.Context) TagAtScopeTypeOutput {
-	return o
-}
-
-// The name of the tags wrapper resource.
-func (o TagAtScopeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TagAtScopeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The set of tags.
-func (o TagAtScopeTypeOutput) Properties() TagsResponseOutput {
-	return o.ApplyT(func(v TagAtScopeType) TagsResponse { return v.Properties }).(TagsResponseOutput)
-}
-
-// The type of the tags wrapper resource.
-func (o TagAtScopeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TagAtScopeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // A dictionary of name and value pairs.
 type Tags struct {
 	Tags map[string]string `pulumi:"tags"`
@@ -6006,10 +5113,6 @@ func init() {
 	pulumi.RegisterOutputType(DebugSettingResponsePtrOutput{})
 	pulumi.RegisterOutputType(DependencyResponseOutput{})
 	pulumi.RegisterOutputType(DependencyResponseArrayOutput{})
-	pulumi.RegisterOutputType(DeploymentTypeOutput{})
-	pulumi.RegisterOutputType(DeploymentAtScopeTypeOutput{})
-	pulumi.RegisterOutputType(DeploymentAtSubscriptionScopeTypeOutput{})
-	pulumi.RegisterOutputType(DeploymentAtTenantScopeTypeOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesExtendedResponseOutput{})
@@ -6021,12 +5124,10 @@ func init() {
 	pulumi.RegisterOutputType(ErrorResponseResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
-	pulumi.RegisterOutputType(IdentityPropertiesOutput{})
-	pulumi.RegisterOutputType(IdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(IdentityResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(IdentityResponsePropertiesMapOutput{})
+	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(OnErrorDeploymentOutput{})
 	pulumi.RegisterOutputType(OnErrorDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(OnErrorDeploymentExtendedResponseOutput{})
@@ -6043,10 +5144,6 @@ func init() {
 	pulumi.RegisterOutputType(ProviderResourceTypeResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProviderResponseOutput{})
 	pulumi.RegisterOutputType(ProviderResponseArrayOutput{})
-	pulumi.RegisterOutputType(ResourceTypeOutput{})
-	pulumi.RegisterOutputType(ResourceGroupTypeOutput{})
-	pulumi.RegisterOutputType(ResourceGroupPropertiesOutput{})
-	pulumi.RegisterOutputType(ResourceGroupPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})
@@ -6055,7 +5152,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(TagAtScopeTypeOutput{})
 	pulumi.RegisterOutputType(TagsOutput{})
 	pulumi.RegisterOutputType(TagsPtrOutput{})
 	pulumi.RegisterOutputType(TagsResponseOutput{})

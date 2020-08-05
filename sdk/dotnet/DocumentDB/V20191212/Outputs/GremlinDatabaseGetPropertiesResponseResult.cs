@@ -13,10 +13,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212.Outputs
     [OutputType]
     public sealed class GremlinDatabaseGetPropertiesResponseResult
     {
-        public readonly ImmutableDictionary<string, object>? Resource;
+        public readonly Outputs.GremlinDatabaseGetPropertiesResponseResourceResult? Resource;
 
         [OutputConstructor]
-        private GremlinDatabaseGetPropertiesResponseResult(ImmutableDictionary<string, object>? resource)
+        private GremlinDatabaseGetPropertiesResponseResult(Outputs.GremlinDatabaseGetPropertiesResponseResourceResult? resource)
         {
             Resource = resource;
         }

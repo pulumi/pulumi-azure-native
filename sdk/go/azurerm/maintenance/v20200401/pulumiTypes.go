@@ -10,97 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Maintenance configuration record type
-type MaintenanceConfigurationType struct {
-	// Gets or sets location of the resource
-	Location *string `pulumi:"location"`
-	// Name of the resource
-	Name string `pulumi:"name"`
-	// Gets or sets properties of the resource
-	Properties MaintenanceConfigurationPropertiesResponse `pulumi:"properties"`
-	// Gets or sets tags of the resource
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource
-	Type string `pulumi:"type"`
-}
-
-// MaintenanceConfigurationTypeInput is an input type that accepts MaintenanceConfigurationTypeArgs and MaintenanceConfigurationTypeOutput values.
-// You can construct a concrete instance of `MaintenanceConfigurationTypeInput` via:
-//
-//          MaintenanceConfigurationTypeArgs{...}
-type MaintenanceConfigurationTypeInput interface {
-	pulumi.Input
-
-	ToMaintenanceConfigurationTypeOutput() MaintenanceConfigurationTypeOutput
-	ToMaintenanceConfigurationTypeOutputWithContext(context.Context) MaintenanceConfigurationTypeOutput
-}
-
-// Maintenance configuration record type
-type MaintenanceConfigurationTypeArgs struct {
-	// Gets or sets location of the resource
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Gets or sets properties of the resource
-	Properties MaintenanceConfigurationPropertiesResponseInput `pulumi:"properties"`
-	// Gets or sets tags of the resource
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Type of the resource
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MaintenanceConfigurationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceConfigurationType)(nil)).Elem()
-}
-
-func (i MaintenanceConfigurationTypeArgs) ToMaintenanceConfigurationTypeOutput() MaintenanceConfigurationTypeOutput {
-	return i.ToMaintenanceConfigurationTypeOutputWithContext(context.Background())
-}
-
-func (i MaintenanceConfigurationTypeArgs) ToMaintenanceConfigurationTypeOutputWithContext(ctx context.Context) MaintenanceConfigurationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceConfigurationTypeOutput)
-}
-
-// Maintenance configuration record type
-type MaintenanceConfigurationTypeOutput struct{ *pulumi.OutputState }
-
-func (MaintenanceConfigurationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceConfigurationType)(nil)).Elem()
-}
-
-func (o MaintenanceConfigurationTypeOutput) ToMaintenanceConfigurationTypeOutput() MaintenanceConfigurationTypeOutput {
-	return o
-}
-
-func (o MaintenanceConfigurationTypeOutput) ToMaintenanceConfigurationTypeOutputWithContext(ctx context.Context) MaintenanceConfigurationTypeOutput {
-	return o
-}
-
-// Gets or sets location of the resource
-func (o MaintenanceConfigurationTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MaintenanceConfigurationType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Name of the resource
-func (o MaintenanceConfigurationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MaintenanceConfigurationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Gets or sets properties of the resource
-func (o MaintenanceConfigurationTypeOutput) Properties() MaintenanceConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v MaintenanceConfigurationType) MaintenanceConfigurationPropertiesResponse { return v.Properties }).(MaintenanceConfigurationPropertiesResponseOutput)
-}
-
-// Gets or sets tags of the resource
-func (o MaintenanceConfigurationTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MaintenanceConfigurationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Type of the resource
-func (o MaintenanceConfigurationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MaintenanceConfigurationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties for maintenance configuration
 type MaintenanceConfigurationPropertiesResponse struct {
 	// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
@@ -276,7 +185,6 @@ func (o MaintenanceConfigurationPropertiesResponsePtrOutput) Namespace() pulumi.
 }
 
 func init() {
-	pulumi.RegisterOutputType(MaintenanceConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(MaintenanceConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceConfigurationPropertiesResponsePtrOutput{})
 }

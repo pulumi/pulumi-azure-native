@@ -87,7 +87,10 @@ class ManagedCluster(pulumi.CustomResource):
             * `count` (`float`) - Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
 
           * `outbound_ip_prefixes` (`dict`) - Desired outbound IP Prefix resources for the cluster load balancer.
+            * `public_ip_prefixes` (`list`) - A list of public IP prefix resources.
+
           * `outbound_i_ps` (`dict`) - Desired outbound IP resources for the cluster load balancer.
+            * `public_i_ps` (`list`) - A list of public IP resources.
 
         * `load_balancer_sku` (`str`) - The load balancer sku for the managed cluster.
         * `network_plugin` (`str`) - Network plugin used for building Kubernetes network.
@@ -200,7 +203,10 @@ class ManagedCluster(pulumi.CustomResource):
               * `count` (`pulumi.Input[float]`) - Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
 
             * `outbound_ip_prefixes` (`pulumi.Input[dict]`) - Desired outbound IP Prefix resources for the cluster load balancer.
+              * `public_ip_prefixes` (`pulumi.Input[list]`) - A list of public IP prefix resources.
+
             * `outbound_i_ps` (`pulumi.Input[dict]`) - Desired outbound IP resources for the cluster load balancer.
+              * `public_i_ps` (`pulumi.Input[list]`) - A list of public IP resources.
 
           * `load_balancer_sku` (`pulumi.Input[str]`) - The load balancer sku for the managed cluster.
           * `network_plugin` (`pulumi.Input[str]`) - Network plugin used for building Kubernetes network.

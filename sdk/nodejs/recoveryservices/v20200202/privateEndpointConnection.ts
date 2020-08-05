@@ -122,7 +122,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * PrivateEndpointConnectionResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20200202.PrivateEndpointConnectionDefinition>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20200202.PrivateEndpointConnection>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

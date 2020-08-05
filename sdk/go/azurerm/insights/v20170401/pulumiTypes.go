@@ -10,97 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// An action group resource.
-type ActionGroupType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The action groups properties of the resource.
-	Properties ActionGroupResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// ActionGroupTypeInput is an input type that accepts ActionGroupTypeArgs and ActionGroupTypeOutput values.
-// You can construct a concrete instance of `ActionGroupTypeInput` via:
-//
-//          ActionGroupTypeArgs{...}
-type ActionGroupTypeInput interface {
-	pulumi.Input
-
-	ToActionGroupTypeOutput() ActionGroupTypeOutput
-	ToActionGroupTypeOutputWithContext(context.Context) ActionGroupTypeOutput
-}
-
-// An action group resource.
-type ActionGroupTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The action groups properties of the resource.
-	Properties ActionGroupResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ActionGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroupType)(nil)).Elem()
-}
-
-func (i ActionGroupTypeArgs) ToActionGroupTypeOutput() ActionGroupTypeOutput {
-	return i.ToActionGroupTypeOutputWithContext(context.Background())
-}
-
-func (i ActionGroupTypeArgs) ToActionGroupTypeOutputWithContext(ctx context.Context) ActionGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionGroupTypeOutput)
-}
-
-// An action group resource.
-type ActionGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (ActionGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionGroupType)(nil)).Elem()
-}
-
-func (o ActionGroupTypeOutput) ToActionGroupTypeOutput() ActionGroupTypeOutput {
-	return o
-}
-
-func (o ActionGroupTypeOutput) ToActionGroupTypeOutputWithContext(ctx context.Context) ActionGroupTypeOutput {
-	return o
-}
-
-// Resource location
-func (o ActionGroupTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ActionGroupType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o ActionGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ActionGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The action groups properties of the resource.
-func (o ActionGroupTypeOutput) Properties() ActionGroupResponseOutput {
-	return o.ApplyT(func(v ActionGroupType) ActionGroupResponse { return v.Properties }).(ActionGroupResponseOutput)
-}
-
-// Resource tags
-func (o ActionGroupTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ActionGroupType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type
-func (o ActionGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ActionGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // An Azure action group.
 type ActionGroupResponse struct {
 	// The list of AutomationRunbook receivers that are part of this action group.
@@ -366,97 +275,6 @@ func (o ActionGroupResponsePtrOutput) WebhookReceivers() WebhookReceiverResponse
 		}
 		return v.WebhookReceivers
 	}).(WebhookReceiverResponseArrayOutput)
-}
-
-// An activity log alert resource.
-type ActivityLogAlertType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The activity log alert properties of the resource.
-	Properties ActivityLogAlertResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// ActivityLogAlertTypeInput is an input type that accepts ActivityLogAlertTypeArgs and ActivityLogAlertTypeOutput values.
-// You can construct a concrete instance of `ActivityLogAlertTypeInput` via:
-//
-//          ActivityLogAlertTypeArgs{...}
-type ActivityLogAlertTypeInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertTypeOutput() ActivityLogAlertTypeOutput
-	ToActivityLogAlertTypeOutputWithContext(context.Context) ActivityLogAlertTypeOutput
-}
-
-// An activity log alert resource.
-type ActivityLogAlertTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The activity log alert properties of the resource.
-	Properties ActivityLogAlertResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ActivityLogAlertTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertType)(nil)).Elem()
-}
-
-func (i ActivityLogAlertTypeArgs) ToActivityLogAlertTypeOutput() ActivityLogAlertTypeOutput {
-	return i.ToActivityLogAlertTypeOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertTypeArgs) ToActivityLogAlertTypeOutputWithContext(ctx context.Context) ActivityLogAlertTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertTypeOutput)
-}
-
-// An activity log alert resource.
-type ActivityLogAlertTypeOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertType)(nil)).Elem()
-}
-
-func (o ActivityLogAlertTypeOutput) ToActivityLogAlertTypeOutput() ActivityLogAlertTypeOutput {
-	return o
-}
-
-func (o ActivityLogAlertTypeOutput) ToActivityLogAlertTypeOutputWithContext(ctx context.Context) ActivityLogAlertTypeOutput {
-	return o
-}
-
-// Resource location
-func (o ActivityLogAlertTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o ActivityLogAlertTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The activity log alert properties of the resource.
-func (o ActivityLogAlertTypeOutput) Properties() ActivityLogAlertResponseOutput {
-	return o.ApplyT(func(v ActivityLogAlertType) ActivityLogAlertResponse { return v.Properties }).(ActivityLogAlertResponseOutput)
-}
-
-// Resource tags
-func (o ActivityLogAlertTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ActivityLogAlertType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type
-func (o ActivityLogAlertTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ActivityLogAlertType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // A pointer to an Azure Action Group.
@@ -3114,10 +2932,8 @@ func (o WebhookReceiverResponseArrayOutput) Index(i pulumi.IntInput) WebhookRece
 }
 
 func init() {
-	pulumi.RegisterOutputType(ActionGroupTypeOutput{})
 	pulumi.RegisterOutputType(ActionGroupResponseOutput{})
 	pulumi.RegisterOutputType(ActionGroupResponsePtrOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertTypeOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertActionGroupOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertActionGroupArrayOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertActionGroupResponseOutput{})

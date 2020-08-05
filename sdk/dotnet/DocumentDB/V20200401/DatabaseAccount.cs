@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.TagsResponseResult?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of Azure resource.
@@ -167,11 +167,17 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
         [Input("enableMultipleWriteLocations")]
         public Input<bool>? EnableMultipleWriteLocations { get; set; }
 
+        [Input("ipRules")]
+        private InputList<Inputs.IpAddressOrRangeArgs>? _ipRules;
+
         /// <summary>
         /// List of IpRules.
         /// </summary>
-        [Input("ipRules")]
-        public Input<Inputs.IPRulesArgs>? IpRules { get; set; }
+        public InputList<Inputs.IpAddressOrRangeArgs> IpRules
+        {
+            get => _ipRules ?? (_ipRules = new InputList<Inputs.IpAddressOrRangeArgs>());
+            set => _ipRules = value;
+        }
 
         /// <summary>
         /// Flag to indicate whether to enable/disable Virtual Network ACL rules.
@@ -227,11 +233,17 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.TagsArgs>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         [Input("virtualNetworkRules")]
         private InputList<Inputs.VirtualNetworkRuleArgs>? _virtualNetworkRules;

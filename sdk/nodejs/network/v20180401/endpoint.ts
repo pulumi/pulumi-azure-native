@@ -111,7 +111,7 @@ export interface EndpointArgs {
     /**
      * List of custom headers.
      */
-    readonly customHeaders?: pulumi.Input<pulumi.Input<inputs.network.v20180401.EndpointPropertiesProperties>[]>;
+    readonly customHeaders?: pulumi.Input<pulumi.Input<inputs.network.v20180401.EndpointPropertiesCustomHeaders>[]>;
     /**
      * Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
      */
@@ -159,7 +159,7 @@ export interface EndpointArgs {
     /**
      * The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20180401.EndpointPropertiesProperties>[]>;
+    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20180401.EndpointPropertiesSubnets>[]>;
     /**
      * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
      */

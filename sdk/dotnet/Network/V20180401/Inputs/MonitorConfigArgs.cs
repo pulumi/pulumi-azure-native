@@ -16,26 +16,26 @@ namespace Pulumi.AzureRM.Network.V20180401.Inputs
     public sealed class MonitorConfigArgs : Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
-        private InputList<Inputs.MonitorConfigPropertiesArgs>? _customHeaders;
+        private InputList<Inputs.MonitorConfigCustomHeadersArgs>? _customHeaders;
 
         /// <summary>
         /// List of custom headers.
         /// </summary>
-        public InputList<Inputs.MonitorConfigPropertiesArgs> CustomHeaders
+        public InputList<Inputs.MonitorConfigCustomHeadersArgs> CustomHeaders
         {
-            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.MonitorConfigPropertiesArgs>());
+            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.MonitorConfigCustomHeadersArgs>());
             set => _customHeaders = value;
         }
 
         [Input("expectedStatusCodeRanges")]
-        private InputList<Inputs.MonitorConfigPropertiesArgs>? _expectedStatusCodeRanges;
+        private InputList<Inputs.MonitorConfigExpectedStatusCodeRangesArgs>? _expectedStatusCodeRanges;
 
         /// <summary>
         /// List of expected status code ranges.
         /// </summary>
-        public InputList<Inputs.MonitorConfigPropertiesArgs> ExpectedStatusCodeRanges
+        public InputList<Inputs.MonitorConfigExpectedStatusCodeRangesArgs> ExpectedStatusCodeRanges
         {
-            get => _expectedStatusCodeRanges ?? (_expectedStatusCodeRanges = new InputList<Inputs.MonitorConfigPropertiesArgs>());
+            get => _expectedStatusCodeRanges ?? (_expectedStatusCodeRanges = new InputList<Inputs.MonitorConfigExpectedStatusCodeRangesArgs>());
             set => _expectedStatusCodeRanges = value;
         }
 

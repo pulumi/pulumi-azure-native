@@ -70,6 +70,18 @@ class Job(pulumi.CustomResource):
         * `value` (`str`)
 
       * `execution_info` (`dict`) - Contains information about the execution of a job in the Azure Batch service.
+        * `end_time` (`str`) - This property is only returned if the job is in completed state.
+        * `errors` (`list`)
+          * `code` (`str`) - An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+          * `details` (`list`) - A list of additional details about the error.
+            * `name` (`str`)
+            * `value` (`str`)
+
+          * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
+
+        * `exit_code` (`float`) - This property is only returned if the job is in completed state.
+        * `start_time` (`str`) - 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+
       * `execution_state` (`str`) - The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
       * `execution_state_transition_time` (`str`) - The time at which the job entered its current execution state.
       * `experiment_name` (`str`) - Describe the experiment information of the job

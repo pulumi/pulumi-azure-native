@@ -10,242 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Bot resource definition
-type BotType struct {
-	// Entity Tag
-	Etag *string `pulumi:"etag"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// The set of properties specific to bot resource
-	Properties BotPropertiesResponse `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// BotTypeInput is an input type that accepts BotTypeArgs and BotTypeOutput values.
-// You can construct a concrete instance of `BotTypeInput` via:
-//
-//          BotTypeArgs{...}
-type BotTypeInput interface {
-	pulumi.Input
-
-	ToBotTypeOutput() BotTypeOutput
-	ToBotTypeOutputWithContext(context.Context) BotTypeOutput
-}
-
-// Bot resource definition
-type BotTypeArgs struct {
-	// Entity Tag
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The set of properties specific to bot resource
-	Properties BotPropertiesResponseInput `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (BotTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotType)(nil)).Elem()
-}
-
-func (i BotTypeArgs) ToBotTypeOutput() BotTypeOutput {
-	return i.ToBotTypeOutputWithContext(context.Background())
-}
-
-func (i BotTypeArgs) ToBotTypeOutputWithContext(ctx context.Context) BotTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotTypeOutput)
-}
-
-// Bot resource definition
-type BotTypeOutput struct{ *pulumi.OutputState }
-
-func (BotTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotType)(nil)).Elem()
-}
-
-func (o BotTypeOutput) ToBotTypeOutput() BotTypeOutput {
-	return o
-}
-
-func (o BotTypeOutput) ToBotTypeOutputWithContext(ctx context.Context) BotTypeOutput {
-	return o
-}
-
-// Entity Tag
-func (o BotTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BotType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Required. Gets or sets the Kind of the resource.
-func (o BotTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BotType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the location of the resource.
-func (o BotTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BotType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the resource.
-func (o BotTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v BotType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The set of properties specific to bot resource
-func (o BotTypeOutput) Properties() BotPropertiesResponseOutput {
-	return o.ApplyT(func(v BotType) BotPropertiesResponse { return v.Properties }).(BotPropertiesResponseOutput)
-}
-
-// Gets or sets the SKU of the resource.
-func (o BotTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v BotType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Contains resource tags defined as key/value pairs.
-func (o BotTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BotType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies the type of the resource.
-func (o BotTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BotType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Bot channel resource definition
-type BotConnectionType struct {
-	// Entity Tag
-	Etag *string `pulumi:"etag"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// The set of properties specific to bot channel resource
-	Properties ConnectionSettingPropertiesResponse `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// BotConnectionTypeInput is an input type that accepts BotConnectionTypeArgs and BotConnectionTypeOutput values.
-// You can construct a concrete instance of `BotConnectionTypeInput` via:
-//
-//          BotConnectionTypeArgs{...}
-type BotConnectionTypeInput interface {
-	pulumi.Input
-
-	ToBotConnectionTypeOutput() BotConnectionTypeOutput
-	ToBotConnectionTypeOutputWithContext(context.Context) BotConnectionTypeOutput
-}
-
-// Bot channel resource definition
-type BotConnectionTypeArgs struct {
-	// Entity Tag
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The set of properties specific to bot channel resource
-	Properties ConnectionSettingPropertiesResponseInput `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (BotConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotConnectionType)(nil)).Elem()
-}
-
-func (i BotConnectionTypeArgs) ToBotConnectionTypeOutput() BotConnectionTypeOutput {
-	return i.ToBotConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i BotConnectionTypeArgs) ToBotConnectionTypeOutputWithContext(ctx context.Context) BotConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotConnectionTypeOutput)
-}
-
-// Bot channel resource definition
-type BotConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (BotConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotConnectionType)(nil)).Elem()
-}
-
-func (o BotConnectionTypeOutput) ToBotConnectionTypeOutput() BotConnectionTypeOutput {
-	return o
-}
-
-func (o BotConnectionTypeOutput) ToBotConnectionTypeOutputWithContext(ctx context.Context) BotConnectionTypeOutput {
-	return o
-}
-
-// Entity Tag
-func (o BotConnectionTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BotConnectionType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Required. Gets or sets the Kind of the resource.
-func (o BotConnectionTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BotConnectionType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the location of the resource.
-func (o BotConnectionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BotConnectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the resource.
-func (o BotConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v BotConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The set of properties specific to bot channel resource
-func (o BotConnectionTypeOutput) Properties() ConnectionSettingPropertiesResponseOutput {
-	return o.ApplyT(func(v BotConnectionType) ConnectionSettingPropertiesResponse { return v.Properties }).(ConnectionSettingPropertiesResponseOutput)
-}
-
-// Gets or sets the SKU of the resource.
-func (o BotConnectionTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v BotConnectionType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Contains resource tags defined as key/value pairs.
-func (o BotConnectionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BotConnectionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies the type of the resource.
-func (o BotConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BotConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The parameters to provide for the Bot.
 type BotProperties struct {
 	// The description of the bot
@@ -913,24 +677,10 @@ func (o BotPropertiesResponsePtrOutput) MsaAppId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Bot channel resource definition
+// Channel definition
 type ChannelType struct {
-	// Entity Tag
-	Etag *string `pulumi:"etag"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind *string `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location *string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// The set of properties specific to bot channel resource
-	Properties ChannelResponse `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
+	// The channel name
+	ChannelName string `pulumi:"channelName"`
 }
 
 // ChannelTypeInput is an input type that accepts ChannelTypeArgs and ChannelTypeOutput values.
@@ -944,24 +694,10 @@ type ChannelTypeInput interface {
 	ToChannelTypeOutputWithContext(context.Context) ChannelTypeOutput
 }
 
-// Bot channel resource definition
+// Channel definition
 type ChannelTypeArgs struct {
-	// Entity Tag
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Required. Gets or sets the Kind of the resource.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Specifies the location of the resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The set of properties specific to bot channel resource
-	Properties ChannelResponseInput `pulumi:"properties"`
-	// Gets or sets the SKU of the resource.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
+	// The channel name
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
 }
 
 func (ChannelTypeArgs) ElementType() reflect.Type {
@@ -976,7 +712,48 @@ func (i ChannelTypeArgs) ToChannelTypeOutputWithContext(ctx context.Context) Cha
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTypeOutput)
 }
 
-// Bot channel resource definition
+func (i ChannelTypeArgs) ToChannelTypePtrOutput() ChannelTypePtrOutput {
+	return i.ToChannelTypePtrOutputWithContext(context.Background())
+}
+
+func (i ChannelTypeArgs) ToChannelTypePtrOutputWithContext(ctx context.Context) ChannelTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTypeOutput).ToChannelTypePtrOutputWithContext(ctx)
+}
+
+// ChannelTypePtrInput is an input type that accepts ChannelTypeArgs, ChannelTypePtr and ChannelTypePtrOutput values.
+// You can construct a concrete instance of `ChannelTypePtrInput` via:
+//
+//          ChannelTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type ChannelTypePtrInput interface {
+	pulumi.Input
+
+	ToChannelTypePtrOutput() ChannelTypePtrOutput
+	ToChannelTypePtrOutputWithContext(context.Context) ChannelTypePtrOutput
+}
+
+type channelTypePtrType ChannelTypeArgs
+
+func ChannelTypePtr(v *ChannelTypeArgs) ChannelTypePtrInput {
+	return (*channelTypePtrType)(v)
+}
+
+func (*channelTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelType)(nil)).Elem()
+}
+
+func (i *channelTypePtrType) ToChannelTypePtrOutput() ChannelTypePtrOutput {
+	return i.ToChannelTypePtrOutputWithContext(context.Background())
+}
+
+func (i *channelTypePtrType) ToChannelTypePtrOutputWithContext(ctx context.Context) ChannelTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTypePtrOutput)
+}
+
+// Channel definition
 type ChannelTypeOutput struct{ *pulumi.OutputState }
 
 func (ChannelTypeOutput) ElementType() reflect.Type {
@@ -991,173 +768,42 @@ func (o ChannelTypeOutput) ToChannelTypeOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// Entity Tag
-func (o ChannelTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelType) *string { return v.Etag }).(pulumi.StringPtrOutput)
+func (o ChannelTypeOutput) ToChannelTypePtrOutput() ChannelTypePtrOutput {
+	return o.ToChannelTypePtrOutputWithContext(context.Background())
 }
 
-// Required. Gets or sets the Kind of the resource.
-func (o ChannelTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the location of the resource.
-func (o ChannelTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ChannelType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the name of the resource.
-func (o ChannelTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ChannelType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The set of properties specific to bot channel resource
-func (o ChannelTypeOutput) Properties() ChannelResponseOutput {
-	return o.ApplyT(func(v ChannelType) ChannelResponse { return v.Properties }).(ChannelResponseOutput)
-}
-
-// Gets or sets the SKU of the resource.
-func (o ChannelTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v ChannelType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Contains resource tags defined as key/value pairs.
-func (o ChannelTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ChannelType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies the type of the resource.
-func (o ChannelTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ChannelType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Channel definition
-type ChannelDefinition struct {
-	// The channel name
-	ChannelName string `pulumi:"channelName"`
-}
-
-// ChannelDefinitionInput is an input type that accepts ChannelDefinitionArgs and ChannelDefinitionOutput values.
-// You can construct a concrete instance of `ChannelDefinitionInput` via:
-//
-//          ChannelDefinitionArgs{...}
-type ChannelDefinitionInput interface {
-	pulumi.Input
-
-	ToChannelDefinitionOutput() ChannelDefinitionOutput
-	ToChannelDefinitionOutputWithContext(context.Context) ChannelDefinitionOutput
-}
-
-// Channel definition
-type ChannelDefinitionArgs struct {
-	// The channel name
-	ChannelName pulumi.StringInput `pulumi:"channelName"`
-}
-
-func (ChannelDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelDefinition)(nil)).Elem()
-}
-
-func (i ChannelDefinitionArgs) ToChannelDefinitionOutput() ChannelDefinitionOutput {
-	return i.ToChannelDefinitionOutputWithContext(context.Background())
-}
-
-func (i ChannelDefinitionArgs) ToChannelDefinitionOutputWithContext(ctx context.Context) ChannelDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelDefinitionOutput)
-}
-
-func (i ChannelDefinitionArgs) ToChannelDefinitionPtrOutput() ChannelDefinitionPtrOutput {
-	return i.ToChannelDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i ChannelDefinitionArgs) ToChannelDefinitionPtrOutputWithContext(ctx context.Context) ChannelDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelDefinitionOutput).ToChannelDefinitionPtrOutputWithContext(ctx)
-}
-
-// ChannelDefinitionPtrInput is an input type that accepts ChannelDefinitionArgs, ChannelDefinitionPtr and ChannelDefinitionPtrOutput values.
-// You can construct a concrete instance of `ChannelDefinitionPtrInput` via:
-//
-//          ChannelDefinitionArgs{...}
-//
-//  or:
-//
-//          nil
-type ChannelDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToChannelDefinitionPtrOutput() ChannelDefinitionPtrOutput
-	ToChannelDefinitionPtrOutputWithContext(context.Context) ChannelDefinitionPtrOutput
-}
-
-type channelDefinitionPtrType ChannelDefinitionArgs
-
-func ChannelDefinitionPtr(v *ChannelDefinitionArgs) ChannelDefinitionPtrInput {
-	return (*channelDefinitionPtrType)(v)
-}
-
-func (*channelDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelDefinition)(nil)).Elem()
-}
-
-func (i *channelDefinitionPtrType) ToChannelDefinitionPtrOutput() ChannelDefinitionPtrOutput {
-	return i.ToChannelDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *channelDefinitionPtrType) ToChannelDefinitionPtrOutputWithContext(ctx context.Context) ChannelDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ChannelDefinitionPtrOutput)
-}
-
-// Channel definition
-type ChannelDefinitionOutput struct{ *pulumi.OutputState }
-
-func (ChannelDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChannelDefinition)(nil)).Elem()
-}
-
-func (o ChannelDefinitionOutput) ToChannelDefinitionOutput() ChannelDefinitionOutput {
-	return o
-}
-
-func (o ChannelDefinitionOutput) ToChannelDefinitionOutputWithContext(ctx context.Context) ChannelDefinitionOutput {
-	return o
-}
-
-func (o ChannelDefinitionOutput) ToChannelDefinitionPtrOutput() ChannelDefinitionPtrOutput {
-	return o.ToChannelDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o ChannelDefinitionOutput) ToChannelDefinitionPtrOutputWithContext(ctx context.Context) ChannelDefinitionPtrOutput {
-	return o.ApplyT(func(v ChannelDefinition) *ChannelDefinition {
+func (o ChannelTypeOutput) ToChannelTypePtrOutputWithContext(ctx context.Context) ChannelTypePtrOutput {
+	return o.ApplyT(func(v ChannelType) *ChannelType {
 		return &v
-	}).(ChannelDefinitionPtrOutput)
+	}).(ChannelTypePtrOutput)
 }
 
 // The channel name
-func (o ChannelDefinitionOutput) ChannelName() pulumi.StringOutput {
-	return o.ApplyT(func(v ChannelDefinition) string { return v.ChannelName }).(pulumi.StringOutput)
+func (o ChannelTypeOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelType) string { return v.ChannelName }).(pulumi.StringOutput)
 }
 
-type ChannelDefinitionPtrOutput struct{ *pulumi.OutputState }
+type ChannelTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ChannelDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ChannelDefinition)(nil)).Elem()
+func (ChannelTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelType)(nil)).Elem()
 }
 
-func (o ChannelDefinitionPtrOutput) ToChannelDefinitionPtrOutput() ChannelDefinitionPtrOutput {
+func (o ChannelTypePtrOutput) ToChannelTypePtrOutput() ChannelTypePtrOutput {
 	return o
 }
 
-func (o ChannelDefinitionPtrOutput) ToChannelDefinitionPtrOutputWithContext(ctx context.Context) ChannelDefinitionPtrOutput {
+func (o ChannelTypePtrOutput) ToChannelTypePtrOutputWithContext(ctx context.Context) ChannelTypePtrOutput {
 	return o
 }
 
-func (o ChannelDefinitionPtrOutput) Elem() ChannelDefinitionOutput {
-	return o.ApplyT(func(v *ChannelDefinition) ChannelDefinition { return *v }).(ChannelDefinitionOutput)
+func (o ChannelTypePtrOutput) Elem() ChannelTypeOutput {
+	return o.ApplyT(func(v *ChannelType) ChannelType { return *v }).(ChannelTypeOutput)
 }
 
 // The channel name
-func (o ChannelDefinitionPtrOutput) ChannelName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ChannelDefinition) *string {
+func (o ChannelTypePtrOutput) ChannelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2756,15 +2402,12 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(BotTypeOutput{})
-	pulumi.RegisterOutputType(BotConnectionTypeOutput{})
 	pulumi.RegisterOutputType(BotPropertiesOutput{})
 	pulumi.RegisterOutputType(BotPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BotPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BotPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ChannelTypeOutput{})
-	pulumi.RegisterOutputType(ChannelDefinitionOutput{})
-	pulumi.RegisterOutputType(ChannelDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ChannelTypePtrOutput{})
 	pulumi.RegisterOutputType(ChannelResponseOutput{})
 	pulumi.RegisterOutputType(ChannelResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingParameterOutput{})

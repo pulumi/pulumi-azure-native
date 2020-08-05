@@ -10,88 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// A PostgreSQL Server key.
-type ServerKeyType struct {
-	// Kind of encryption protector used to protect the key.
-	Kind string `pulumi:"kind"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Properties of the ServerKey Resource.
-	Properties ServerKeyPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// ServerKeyTypeInput is an input type that accepts ServerKeyTypeArgs and ServerKeyTypeOutput values.
-// You can construct a concrete instance of `ServerKeyTypeInput` via:
-//
-//          ServerKeyTypeArgs{...}
-type ServerKeyTypeInput interface {
-	pulumi.Input
-
-	ToServerKeyTypeOutput() ServerKeyTypeOutput
-	ToServerKeyTypeOutputWithContext(context.Context) ServerKeyTypeOutput
-}
-
-// A PostgreSQL Server key.
-type ServerKeyTypeArgs struct {
-	// Kind of encryption protector used to protect the key.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the ServerKey Resource.
-	Properties ServerKeyPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServerKeyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerKeyType)(nil)).Elem()
-}
-
-func (i ServerKeyTypeArgs) ToServerKeyTypeOutput() ServerKeyTypeOutput {
-	return i.ToServerKeyTypeOutputWithContext(context.Background())
-}
-
-func (i ServerKeyTypeArgs) ToServerKeyTypeOutputWithContext(ctx context.Context) ServerKeyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerKeyTypeOutput)
-}
-
-// A PostgreSQL Server key.
-type ServerKeyTypeOutput struct{ *pulumi.OutputState }
-
-func (ServerKeyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerKeyType)(nil)).Elem()
-}
-
-func (o ServerKeyTypeOutput) ToServerKeyTypeOutput() ServerKeyTypeOutput {
-	return o
-}
-
-func (o ServerKeyTypeOutput) ToServerKeyTypeOutputWithContext(ctx context.Context) ServerKeyTypeOutput {
-	return o
-}
-
-// Kind of encryption protector used to protect the key.
-func (o ServerKeyTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerKeyType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o ServerKeyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerKeyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the ServerKey Resource.
-func (o ServerKeyTypeOutput) Properties() ServerKeyPropertiesResponseOutput {
-	return o.ApplyT(func(v ServerKeyType) ServerKeyPropertiesResponse { return v.Properties }).(ServerKeyPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o ServerKeyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerKeyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties for a key execution.
 type ServerKeyPropertiesResponse struct {
 	// The key creation date.
@@ -265,7 +183,6 @@ func (o ServerKeyPropertiesResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ServerKeyTypeOutput{})
 	pulumi.RegisterOutputType(ServerKeyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServerKeyPropertiesResponsePtrOutput{})
 }

@@ -22,7 +22,7 @@ type ConnectionGateway struct {
 	Name       pulumi.StringOutput                                 `pulumi:"name"`
 	Properties ConnectionGatewayDefinitionResponsePropertiesOutput `pulumi:"properties"`
 	// Resource tags
-	Tags TagsDictionaryResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -69,7 +69,7 @@ type connectionGatewayState struct {
 	Name       *string                                        `pulumi:"name"`
 	Properties *ConnectionGatewayDefinitionResponseProperties `pulumi:"properties"`
 	// Resource tags
-	Tags *TagsDictionaryResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -83,7 +83,7 @@ type ConnectionGatewayState struct {
 	Name       pulumi.StringPtrInput
 	Properties ConnectionGatewayDefinitionResponsePropertiesPtrInput
 	// Resource tags
-	Tags TagsDictionaryResponsePtrInput
+	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }
@@ -103,7 +103,7 @@ type connectionGatewayArgs struct {
 	// The resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
-	Tags *TagsDictionary `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectionGateway resource.
@@ -118,7 +118,7 @@ type ConnectionGatewayArgs struct {
 	// The resource group
 	ResourceGroupName pulumi.StringInput
 	// Resource tags
-	Tags TagsDictionaryPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (ConnectionGatewayArgs) ElementType() reflect.Type {

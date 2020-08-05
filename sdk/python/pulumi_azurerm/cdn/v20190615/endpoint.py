@@ -58,6 +58,7 @@ class Endpoint(pulumi.CustomResource):
       * `query_string_caching_behavior` (`str`) - Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
       * `resource_state` (`str`) - Resource status of the endpoint.
       * `web_application_firewall_policy_link` (`dict`) - Defines the Web Application Firewall policy for the endpoint (if applicable)
+        * `id` (`str`) - Resource ID.
     """
     tags: pulumi.Output[dict]
     """
@@ -117,6 +118,10 @@ class Endpoint(pulumi.CustomResource):
           * `http_port` (`pulumi.Input[float]`) - The value of the HTTP port. Must be between 1 and 65535
           * `https_port` (`pulumi.Input[float]`) - The value of the HTTPS port. Must be between 1 and 65535
           * `name` (`pulumi.Input[str]`) - Origin name
+
+        The **web_application_firewall_policy_link** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

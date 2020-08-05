@@ -16,22 +16,10 @@ namespace Pulumi.AzureRM.Media.V20200501.Inputs
     public sealed class ContentKeyPolicyOptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The key delivery configuration.
-        /// </summary>
-        [Input("configuration", required: true)]
-        public Input<Inputs.ContentKeyPolicyConfigurationArgs> Configuration { get; set; } = null!;
-
-        /// <summary>
         /// The Policy Option description.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The requirements that must be met to deliver keys with this configuration
-        /// </summary>
-        [Input("restriction", required: true)]
-        public Input<Inputs.ContentKeyPolicyRestrictionArgs> Restriction { get; set; } = null!;
 
         public ContentKeyPolicyOptionArgs()
         {

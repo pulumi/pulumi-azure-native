@@ -4110,97 +4110,6 @@ func (o TableSpecificationResponseMapOutput) MapIndex(k pulumi.StringInput) Tabl
 	}).(TableSpecificationResponseOutput)
 }
 
-// Instance of an Azure ML web service resource.
-type WebServiceType struct {
-	// Specifies the location of the resource.
-	Location string `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name string `pulumi:"name"`
-	// Contains the property payload that describes the web service.
-	Properties WebServicePropertiesResponse `pulumi:"properties"`
-	// Contains resource tags defined as key/value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// WebServiceTypeInput is an input type that accepts WebServiceTypeArgs and WebServiceTypeOutput values.
-// You can construct a concrete instance of `WebServiceTypeInput` via:
-//
-//          WebServiceTypeArgs{...}
-type WebServiceTypeInput interface {
-	pulumi.Input
-
-	ToWebServiceTypeOutput() WebServiceTypeOutput
-	ToWebServiceTypeOutputWithContext(context.Context) WebServiceTypeOutput
-}
-
-// Instance of an Azure ML web service resource.
-type WebServiceTypeArgs struct {
-	// Specifies the location of the resource.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Specifies the name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Contains the property payload that describes the web service.
-	Properties WebServicePropertiesResponseInput `pulumi:"properties"`
-	// Contains resource tags defined as key/value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Specifies the type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (WebServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebServiceType)(nil)).Elem()
-}
-
-func (i WebServiceTypeArgs) ToWebServiceTypeOutput() WebServiceTypeOutput {
-	return i.ToWebServiceTypeOutputWithContext(context.Background())
-}
-
-func (i WebServiceTypeArgs) ToWebServiceTypeOutputWithContext(ctx context.Context) WebServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServiceTypeOutput)
-}
-
-// Instance of an Azure ML web service resource.
-type WebServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (WebServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebServiceType)(nil)).Elem()
-}
-
-func (o WebServiceTypeOutput) ToWebServiceTypeOutput() WebServiceTypeOutput {
-	return o
-}
-
-func (o WebServiceTypeOutput) ToWebServiceTypeOutputWithContext(ctx context.Context) WebServiceTypeOutput {
-	return o
-}
-
-// Specifies the location of the resource.
-func (o WebServiceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v WebServiceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Specifies the name of the resource.
-func (o WebServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v WebServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Contains the property payload that describes the web service.
-func (o WebServiceTypeOutput) Properties() WebServicePropertiesResponseOutput {
-	return o.ApplyT(func(v WebServiceType) WebServicePropertiesResponse { return v.Properties }).(WebServicePropertiesResponseOutput)
-}
-
-// Contains resource tags defined as key/value pairs.
-func (o WebServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v WebServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Specifies the type of the resource.
-func (o WebServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v WebServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Access keys for the web service calls.
 type WebServiceKeys struct {
 	// The primary access key.
@@ -5778,7 +5687,6 @@ func init() {
 	pulumi.RegisterOutputType(TableSpecificationMapOutput{})
 	pulumi.RegisterOutputType(TableSpecificationResponseOutput{})
 	pulumi.RegisterOutputType(TableSpecificationResponseMapOutput{})
-	pulumi.RegisterOutputType(WebServiceTypeOutput{})
 	pulumi.RegisterOutputType(WebServiceKeysOutput{})
 	pulumi.RegisterOutputType(WebServiceKeysPtrOutput{})
 	pulumi.RegisterOutputType(WebServiceKeysResponseOutput{})

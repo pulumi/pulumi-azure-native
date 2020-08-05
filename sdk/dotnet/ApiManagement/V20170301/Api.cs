@@ -189,7 +189,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// Criteria to limit import of WSDL to a subset of the document.
         /// </summary>
         [Input("wsdlSelector")]
-        public Input<Inputs.ApiCreateOrUpdatePropertiesPropertiesArgs>? WsdlSelector { get; set; }
+        public Input<Inputs.ApiCreateOrUpdatePropertiesWsdlSelectorArgs>? WsdlSelector { get; set; }
 
         public ApiArgs()
         {

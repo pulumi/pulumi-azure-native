@@ -51,7 +51,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<outputs.netapp.v20190801.ResourceTagsResponse | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -139,11 +139,11 @@ export interface VolumeArgs {
     /**
      * DataProtection volume, can have a replication object
      */
-    readonly dataProtection?: pulumi.Input<inputs.netapp.v20190801.VolumePropertiesProperties>;
+    readonly dataProtection?: pulumi.Input<inputs.netapp.v20190801.VolumePropertiesDataProtection>;
     /**
      * Set of export policy rules
      */
-    readonly exportPolicy?: pulumi.Input<inputs.netapp.v20190801.VolumePropertiesProperties>;
+    readonly exportPolicy?: pulumi.Input<inputs.netapp.v20190801.VolumePropertiesExportPolicy>;
     /**
      * Resource location
      */
@@ -183,7 +183,7 @@ export interface VolumeArgs {
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<inputs.netapp.v20190801.ResourceTags>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
      */

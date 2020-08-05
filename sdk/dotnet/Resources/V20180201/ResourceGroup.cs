@@ -107,12 +107,6 @@ namespace Pulumi.AzureRM.Resources.V20180201
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The resource group properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ResourceGroupPropertiesArgs>? Properties { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 

@@ -87,8 +87,6 @@ type privateEndpointConnectionArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
 	Name        string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
@@ -102,8 +100,6 @@ type PrivateEndpointConnectionArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
 	Name        pulumi.StringInput
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointPtrInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	// The provisioning state of the private endpoint connection resource.

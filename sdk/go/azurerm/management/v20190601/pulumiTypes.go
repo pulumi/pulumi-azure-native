@@ -10,79 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The policy definition.
-type PolicyDefinitionAtManagementGroupType struct {
-	// The name of the policy definition.
-	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type string `pulumi:"type"`
-}
-
-// PolicyDefinitionAtManagementGroupTypeInput is an input type that accepts PolicyDefinitionAtManagementGroupTypeArgs and PolicyDefinitionAtManagementGroupTypeOutput values.
-// You can construct a concrete instance of `PolicyDefinitionAtManagementGroupTypeInput` via:
-//
-//          PolicyDefinitionAtManagementGroupTypeArgs{...}
-type PolicyDefinitionAtManagementGroupTypeInput interface {
-	pulumi.Input
-
-	ToPolicyDefinitionAtManagementGroupTypeOutput() PolicyDefinitionAtManagementGroupTypeOutput
-	ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(context.Context) PolicyDefinitionAtManagementGroupTypeOutput
-}
-
-// The policy definition.
-type PolicyDefinitionAtManagementGroupTypeArgs struct {
-	// The name of the policy definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PolicyDefinitionAtManagementGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionAtManagementGroupType)(nil)).Elem()
-}
-
-func (i PolicyDefinitionAtManagementGroupTypeArgs) ToPolicyDefinitionAtManagementGroupTypeOutput() PolicyDefinitionAtManagementGroupTypeOutput {
-	return i.ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(context.Background())
-}
-
-func (i PolicyDefinitionAtManagementGroupTypeArgs) ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionAtManagementGroupTypeOutput)
-}
-
-// The policy definition.
-type PolicyDefinitionAtManagementGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (PolicyDefinitionAtManagementGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionAtManagementGroupType)(nil)).Elem()
-}
-
-func (o PolicyDefinitionAtManagementGroupTypeOutput) ToPolicyDefinitionAtManagementGroupTypeOutput() PolicyDefinitionAtManagementGroupTypeOutput {
-	return o
-}
-
-func (o PolicyDefinitionAtManagementGroupTypeOutput) ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupTypeOutput {
-	return o
-}
-
-// The name of the policy definition.
-func (o PolicyDefinitionAtManagementGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyDefinitionAtManagementGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The policy definition properties.
-func (o PolicyDefinitionAtManagementGroupTypeOutput) Properties() PolicyDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicyDefinitionAtManagementGroupType) PolicyDefinitionPropertiesResponse { return v.Properties }).(PolicyDefinitionPropertiesResponseOutput)
-}
-
-// The type of the resource (Microsoft.Authorization/policyDefinitions).
-func (o PolicyDefinitionAtManagementGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyDefinitionAtManagementGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The policy definition properties.
 type PolicyDefinitionPropertiesResponse struct {
 	// The policy definition description.
@@ -549,81 +476,6 @@ func (o PolicyDefinitionReferenceResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PolicyDefinitionReferenceResponseOutput)
 }
 
-// The policy set definition.
-type PolicySetDefinitionAtManagementGroupType struct {
-	// The name of the policy set definition.
-	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
-	Type string `pulumi:"type"`
-}
-
-// PolicySetDefinitionAtManagementGroupTypeInput is an input type that accepts PolicySetDefinitionAtManagementGroupTypeArgs and PolicySetDefinitionAtManagementGroupTypeOutput values.
-// You can construct a concrete instance of `PolicySetDefinitionAtManagementGroupTypeInput` via:
-//
-//          PolicySetDefinitionAtManagementGroupTypeArgs{...}
-type PolicySetDefinitionAtManagementGroupTypeInput interface {
-	pulumi.Input
-
-	ToPolicySetDefinitionAtManagementGroupTypeOutput() PolicySetDefinitionAtManagementGroupTypeOutput
-	ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(context.Context) PolicySetDefinitionAtManagementGroupTypeOutput
-}
-
-// The policy set definition.
-type PolicySetDefinitionAtManagementGroupTypeArgs struct {
-	// The name of the policy set definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PolicySetDefinitionAtManagementGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinitionAtManagementGroupType)(nil)).Elem()
-}
-
-func (i PolicySetDefinitionAtManagementGroupTypeArgs) ToPolicySetDefinitionAtManagementGroupTypeOutput() PolicySetDefinitionAtManagementGroupTypeOutput {
-	return i.ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(context.Background())
-}
-
-func (i PolicySetDefinitionAtManagementGroupTypeArgs) ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicySetDefinitionAtManagementGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionAtManagementGroupTypeOutput)
-}
-
-// The policy set definition.
-type PolicySetDefinitionAtManagementGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (PolicySetDefinitionAtManagementGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinitionAtManagementGroupType)(nil)).Elem()
-}
-
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) ToPolicySetDefinitionAtManagementGroupTypeOutput() PolicySetDefinitionAtManagementGroupTypeOutput {
-	return o
-}
-
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicySetDefinitionAtManagementGroupTypeOutput {
-	return o
-}
-
-// The name of the policy set definition.
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicySetDefinitionAtManagementGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The policy definition properties.
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) Properties() PolicySetDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicySetDefinitionAtManagementGroupType) PolicySetDefinitionPropertiesResponse {
-		return v.Properties
-	}).(PolicySetDefinitionPropertiesResponseOutput)
-}
-
-// The type of the resource (Microsoft.Authorization/policySetDefinitions).
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicySetDefinitionAtManagementGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The policy set definition properties.
 type PolicySetDefinitionPropertiesResponse struct {
 	// The policy set definition description.
@@ -856,14 +708,12 @@ func (o PolicySetDefinitionPropertiesResponsePtrOutput) PolicyType() pulumi.Stri
 }
 
 func init() {
-	pulumi.RegisterOutputType(PolicyDefinitionAtManagementGroupTypeOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceArrayOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(PolicySetDefinitionAtManagementGroupTypeOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPropertiesResponsePtrOutput{})
 }

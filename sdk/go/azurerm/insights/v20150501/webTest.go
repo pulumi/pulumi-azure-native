@@ -109,7 +109,7 @@ func (WebTestState) ElementType() reflect.Type {
 
 type webTestArgs struct {
 	// An XML configuration specification for a WebTest.
-	Configuration *WebTestPropertiesProperties `pulumi:"Configuration"`
+	Configuration *WebTestPropertiesConfiguration `pulumi:"Configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
 	Description *string `pulumi:"Description"`
 	// Is the test actively being monitored.
@@ -141,7 +141,7 @@ type webTestArgs struct {
 // The set of arguments for constructing a WebTest resource.
 type WebTestArgs struct {
 	// An XML configuration specification for a WebTest.
-	Configuration WebTestPropertiesPropertiesPtrInput
+	Configuration WebTestPropertiesConfigurationPtrInput
 	// Purpose/user defined descriptive test for this WebTest.
 	Description pulumi.StringPtrInput
 	// Is the test actively being monitored.

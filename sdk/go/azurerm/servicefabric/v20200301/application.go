@@ -116,13 +116,13 @@ type applicationArgs struct {
 	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
 	MaximumNodes *int `pulumi:"maximumNodes"`
 	// List of application capacity metric description.
-	Metrics *ApplicationMetricDescriptionList `pulumi:"metrics"`
+	Metrics []ApplicationMetricDescription `pulumi:"metrics"`
 	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
 	MinimumNodes *int `pulumi:"minimumNodes"`
 	// The name of the application resource.
 	Name string `pulumi:"name"`
 	// List of application parameters with overridden values from their default values specified in the application manifest.
-	Parameters *ApplicationParameterList `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// Remove the current application capacity settings.
 	RemoveApplicationCapacity *bool `pulumi:"removeApplicationCapacity"`
 	// The name of the resource group.
@@ -150,13 +150,13 @@ type ApplicationArgs struct {
 	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
 	MaximumNodes pulumi.IntPtrInput
 	// List of application capacity metric description.
-	Metrics ApplicationMetricDescriptionListPtrInput
+	Metrics ApplicationMetricDescriptionArrayInput
 	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
 	MinimumNodes pulumi.IntPtrInput
 	// The name of the application resource.
 	Name pulumi.StringInput
 	// List of application parameters with overridden values from their default values specified in the application manifest.
-	Parameters ApplicationParameterListPtrInput
+	Parameters pulumi.StringMapInput
 	// Remove the current application capacity settings.
 	RemoveApplicationCapacity pulumi.BoolPtrInput
 	// The name of the resource group.

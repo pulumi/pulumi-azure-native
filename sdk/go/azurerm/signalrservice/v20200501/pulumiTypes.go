@@ -686,72 +686,6 @@ func (o PrivateEndpointACLResponseArrayOutput) Index(i pulumi.IntInput) PrivateE
 	}).(PrivateEndpointACLResponseOutput)
 }
 
-// A private endpoint connection to SignalR resource
-type PrivateEndpointConnection struct {
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
-	// Connection state
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-}
-
-// PrivateEndpointConnectionInput is an input type that accepts PrivateEndpointConnectionArgs and PrivateEndpointConnectionOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionInput` via:
-//
-//          PrivateEndpointConnectionArgs{...}
-type PrivateEndpointConnectionInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput
-	ToPrivateEndpointConnectionOutputWithContext(context.Context) PrivateEndpointConnectionOutput
-}
-
-// A private endpoint connection to SignalR resource
-type PrivateEndpointConnectionArgs struct {
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
-	// Connection state
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
-}
-
-func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
-	return i.ToPrivateEndpointConnectionOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionArgs) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionOutput)
-}
-
-// A private endpoint connection to SignalR resource
-type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithContext(ctx context.Context) PrivateEndpointConnectionOutput {
-	return o
-}
-
-// Private endpoint associated with the private endpoint connection
-func (o PrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
-}
-
-// Connection state
-func (o PrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateLinkServiceConnectionState {
-		return v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
 // Private endpoint connection properties
 type PrivateEndpointConnectionPropertiesResponse struct {
 	// Private endpoint associated with the private endpoint connection
@@ -2289,115 +2223,6 @@ func (o ServerlessUpstreamSettingsResponsePtrOutput) Templates() UpstreamTemplat
 	}).(UpstreamTemplateResponseArrayOutput)
 }
 
-// A class represent a SignalR service resource.
-type SignalRType struct {
-	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
-	Kind *string `pulumi:"kind"`
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Settings used to provision or configure the resource
-	Properties SignalRPropertiesResponse `pulumi:"properties"`
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku *ResourceSkuResponse `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type string `pulumi:"type"`
-}
-
-// SignalRTypeInput is an input type that accepts SignalRTypeArgs and SignalRTypeOutput values.
-// You can construct a concrete instance of `SignalRTypeInput` via:
-//
-//          SignalRTypeArgs{...}
-type SignalRTypeInput interface {
-	pulumi.Input
-
-	ToSignalRTypeOutput() SignalRTypeOutput
-	ToSignalRTypeOutputWithContext(context.Context) SignalRTypeOutput
-}
-
-// A class represent a SignalR service resource.
-type SignalRTypeArgs struct {
-	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Settings used to provision or configure the resource
-	Properties SignalRPropertiesResponseInput `pulumi:"properties"`
-	// The billing information of the resource.(e.g. Free, Standard)
-	Sku ResourceSkuResponsePtrInput `pulumi:"sku"`
-	// Tags of the service which is a list of key value pairs that describe the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SignalRTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRType)(nil)).Elem()
-}
-
-func (i SignalRTypeArgs) ToSignalRTypeOutput() SignalRTypeOutput {
-	return i.ToSignalRTypeOutputWithContext(context.Background())
-}
-
-func (i SignalRTypeArgs) ToSignalRTypeOutputWithContext(ctx context.Context) SignalRTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalRTypeOutput)
-}
-
-// A class represent a SignalR service resource.
-type SignalRTypeOutput struct{ *pulumi.OutputState }
-
-func (SignalRTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRType)(nil)).Elem()
-}
-
-func (o SignalRTypeOutput) ToSignalRTypeOutput() SignalRTypeOutput {
-	return o
-}
-
-func (o SignalRTypeOutput) ToSignalRTypeOutputWithContext(ctx context.Context) SignalRTypeOutput {
-	return o
-}
-
-// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
-func (o SignalRTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SignalRType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
-func (o SignalRTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SignalRType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o SignalRTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SignalRType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Settings used to provision or configure the resource
-func (o SignalRTypeOutput) Properties() SignalRPropertiesResponseOutput {
-	return o.ApplyT(func(v SignalRType) SignalRPropertiesResponse { return v.Properties }).(SignalRPropertiesResponseOutput)
-}
-
-// The billing information of the resource.(e.g. Free, Standard)
-func (o SignalRTypeOutput) Sku() ResourceSkuResponsePtrOutput {
-	return o.ApplyT(func(v SignalRType) *ResourceSkuResponse { return v.Sku }).(ResourceSkuResponsePtrOutput)
-}
-
-// Tags of the service which is a list of key value pairs that describe the resource.
-func (o SignalRTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SignalRType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-func (o SignalRTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SignalRType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Cross-Origin Resource Sharing (CORS) settings.
 type SignalRCorsSettings struct {
 	// Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
@@ -3258,81 +3083,6 @@ func (o SignalRNetworkACLsResponsePtrOutput) PublicNetwork() NetworkACLResponseP
 	}).(NetworkACLResponsePtrOutput)
 }
 
-// A private endpoint connection to SignalR resource
-type SignalRPrivateEndpointConnectionType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Properties of the private endpoint connection
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type string `pulumi:"type"`
-}
-
-// SignalRPrivateEndpointConnectionTypeInput is an input type that accepts SignalRPrivateEndpointConnectionTypeArgs and SignalRPrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `SignalRPrivateEndpointConnectionTypeInput` via:
-//
-//          SignalRPrivateEndpointConnectionTypeArgs{...}
-type SignalRPrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToSignalRPrivateEndpointConnectionTypeOutput() SignalRPrivateEndpointConnectionTypeOutput
-	ToSignalRPrivateEndpointConnectionTypeOutputWithContext(context.Context) SignalRPrivateEndpointConnectionTypeOutput
-}
-
-// A private endpoint connection to SignalR resource
-type SignalRPrivateEndpointConnectionTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the private endpoint connection
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SignalRPrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i SignalRPrivateEndpointConnectionTypeArgs) ToSignalRPrivateEndpointConnectionTypeOutput() SignalRPrivateEndpointConnectionTypeOutput {
-	return i.ToSignalRPrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i SignalRPrivateEndpointConnectionTypeArgs) ToSignalRPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) SignalRPrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalRPrivateEndpointConnectionTypeOutput)
-}
-
-// A private endpoint connection to SignalR resource
-type SignalRPrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (SignalRPrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRPrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o SignalRPrivateEndpointConnectionTypeOutput) ToSignalRPrivateEndpointConnectionTypeOutput() SignalRPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o SignalRPrivateEndpointConnectionTypeOutput) ToSignalRPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) SignalRPrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o SignalRPrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SignalRPrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the private endpoint connection
-func (o SignalRPrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v SignalRPrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse {
-		return v.Properties
-	}).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-func (o SignalRPrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SignalRPrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // A class that describes the properties of the SignalR service that should contain more read-only properties than AzSignalR.Models.SignalRCreateOrUpdateProperties
 type SignalRPropertiesResponse struct {
 	// Cross-Origin Resource Sharing (CORS) settings.
@@ -4051,7 +3801,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointACLArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointACLResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointACLResponseArrayOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
@@ -4070,7 +3819,6 @@ func init() {
 	pulumi.RegisterOutputType(ServerlessUpstreamSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessUpstreamSettingsResponseOutput{})
 	pulumi.RegisterOutputType(ServerlessUpstreamSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(SignalRTypeOutput{})
 	pulumi.RegisterOutputType(SignalRCorsSettingsOutput{})
 	pulumi.RegisterOutputType(SignalRCorsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SignalRCorsSettingsResponseOutput{})
@@ -4083,7 +3831,6 @@ func init() {
 	pulumi.RegisterOutputType(SignalRNetworkACLsPtrOutput{})
 	pulumi.RegisterOutputType(SignalRNetworkACLsResponseOutput{})
 	pulumi.RegisterOutputType(SignalRNetworkACLsResponsePtrOutput{})
-	pulumi.RegisterOutputType(SignalRPrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(SignalRPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SignalRPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(UpstreamTemplateOutput{})

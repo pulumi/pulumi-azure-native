@@ -109,7 +109,7 @@ type predictionArgs struct {
 	// Display name of the prediction.
 	DisplayName map[string]string `pulumi:"displayName"`
 	// The prediction grades.
-	Grades []PredictionProperties `pulumi:"grades"`
+	Grades []PredictionGrades `pulumi:"grades"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
 	// Interaction types involved in the prediction.
@@ -119,7 +119,7 @@ type predictionArgs struct {
 	// Relationships involved in the prediction.
 	InvolvedRelationships []string `pulumi:"involvedRelationships"`
 	// Definition of the link mapping of prediction.
-	Mappings PredictionProperties `pulumi:"mappings"`
+	Mappings PredictionMappings `pulumi:"mappings"`
 	// Name of the prediction.
 	Name string `pulumi:"name"`
 	// Negative outcome expression.
@@ -145,7 +145,7 @@ type PredictionArgs struct {
 	// Display name of the prediction.
 	DisplayName pulumi.StringMapInput
 	// The prediction grades.
-	Grades PredictionPropertiesArrayInput
+	Grades PredictionGradesArrayInput
 	// The name of the hub.
 	HubName pulumi.StringInput
 	// Interaction types involved in the prediction.
@@ -155,7 +155,7 @@ type PredictionArgs struct {
 	// Relationships involved in the prediction.
 	InvolvedRelationships pulumi.StringArrayInput
 	// Definition of the link mapping of prediction.
-	Mappings PredictionPropertiesInput
+	Mappings PredictionMappingsInput
 	// Name of the prediction.
 	Name pulumi.StringInput
 	// Negative outcome expression.

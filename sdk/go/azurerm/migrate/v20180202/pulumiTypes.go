@@ -10,88 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// An assessment created for a group in the Migration project.
-type AssessmentType struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Unique name of an assessment.
-	Name string `pulumi:"name"`
-	// Properties of the assessment.
-	Properties AssessmentPropertiesResponse `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/projects/groups/assessments].
-	Type string `pulumi:"type"`
-}
-
-// AssessmentTypeInput is an input type that accepts AssessmentTypeArgs and AssessmentTypeOutput values.
-// You can construct a concrete instance of `AssessmentTypeInput` via:
-//
-//          AssessmentTypeArgs{...}
-type AssessmentTypeInput interface {
-	pulumi.Input
-
-	ToAssessmentTypeOutput() AssessmentTypeOutput
-	ToAssessmentTypeOutputWithContext(context.Context) AssessmentTypeOutput
-}
-
-// An assessment created for a group in the Migration project.
-type AssessmentTypeArgs struct {
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Unique name of an assessment.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the assessment.
-	Properties AssessmentPropertiesResponseInput `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/projects/groups/assessments].
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AssessmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentType)(nil)).Elem()
-}
-
-func (i AssessmentTypeArgs) ToAssessmentTypeOutput() AssessmentTypeOutput {
-	return i.ToAssessmentTypeOutputWithContext(context.Background())
-}
-
-func (i AssessmentTypeArgs) ToAssessmentTypeOutputWithContext(ctx context.Context) AssessmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTypeOutput)
-}
-
-// An assessment created for a group in the Migration project.
-type AssessmentTypeOutput struct{ *pulumi.OutputState }
-
-func (AssessmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentType)(nil)).Elem()
-}
-
-func (o AssessmentTypeOutput) ToAssessmentTypeOutput() AssessmentTypeOutput {
-	return o
-}
-
-func (o AssessmentTypeOutput) ToAssessmentTypeOutputWithContext(ctx context.Context) AssessmentTypeOutput {
-	return o
-}
-
-// For optimistic concurrency control.
-func (o AssessmentTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AssessmentType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Unique name of an assessment.
-func (o AssessmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the assessment.
-func (o AssessmentTypeOutput) Properties() AssessmentPropertiesResponseOutput {
-	return o.ApplyT(func(v AssessmentType) AssessmentPropertiesResponse { return v.Properties }).(AssessmentPropertiesResponseOutput)
-}
-
-// Type of the object = [Microsoft.Migrate/projects/groups/assessments].
-func (o AssessmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AssessmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of an assessment.
 type AssessmentPropertiesResponse struct {
 	// AHUB discount on windows virtual machines.
@@ -606,88 +524,6 @@ func (o AssessmentPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// A group created in a Migration project.
-type GroupType struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Name of the group.
-	Name string `pulumi:"name"`
-	// Properties of the group.
-	Properties GroupPropertiesResponse `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/projects/groups].
-	Type string `pulumi:"type"`
-}
-
-// GroupTypeInput is an input type that accepts GroupTypeArgs and GroupTypeOutput values.
-// You can construct a concrete instance of `GroupTypeInput` via:
-//
-//          GroupTypeArgs{...}
-type GroupTypeInput interface {
-	pulumi.Input
-
-	ToGroupTypeOutput() GroupTypeOutput
-	ToGroupTypeOutputWithContext(context.Context) GroupTypeOutput
-}
-
-// A group created in a Migration project.
-type GroupTypeArgs struct {
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Name of the group.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the group.
-	Properties GroupPropertiesResponseInput `pulumi:"properties"`
-	// Type of the object = [Microsoft.Migrate/projects/groups].
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupType)(nil)).Elem()
-}
-
-func (i GroupTypeArgs) ToGroupTypeOutput() GroupTypeOutput {
-	return i.ToGroupTypeOutputWithContext(context.Background())
-}
-
-func (i GroupTypeArgs) ToGroupTypeOutputWithContext(ctx context.Context) GroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupTypeOutput)
-}
-
-// A group created in a Migration project.
-type GroupTypeOutput struct{ *pulumi.OutputState }
-
-func (GroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GroupType)(nil)).Elem()
-}
-
-func (o GroupTypeOutput) ToGroupTypeOutput() GroupTypeOutput {
-	return o
-}
-
-func (o GroupTypeOutput) ToGroupTypeOutputWithContext(ctx context.Context) GroupTypeOutput {
-	return o
-}
-
-// For optimistic concurrency control.
-func (o GroupTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GroupType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Name of the group.
-func (o GroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the group.
-func (o GroupTypeOutput) Properties() GroupPropertiesResponseOutput {
-	return o.ApplyT(func(v GroupType) GroupPropertiesResponse { return v.Properties }).(GroupPropertiesResponseOutput)
-}
-
-// Type of the object = [Microsoft.Migrate/projects/groups].
-func (o GroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of group resource.
 type GroupPropertiesResponse struct {
 	// List of References to Assessments created on this group.
@@ -877,106 +713,6 @@ func (o GroupPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPtrOut
 		}
 		return &v.UpdatedTimestamp
 	}).(pulumi.StringPtrOutput)
-}
-
-// Azure Migrate Project.
-type ProjectType struct {
-	// For optimistic concurrency control.
-	ETag *string `pulumi:"eTag"`
-	// Azure location in which project is created.
-	Location *string `pulumi:"location"`
-	// Name of the project.
-	Name string `pulumi:"name"`
-	// Properties of the project.
-	Properties ProjectPropertiesResponse `pulumi:"properties"`
-	// Tags provided by Azure Tagging service.
-	Tags map[string]interface{} `pulumi:"tags"`
-	// Type of the object = [Microsoft.Migrate/projects].
-	Type string `pulumi:"type"`
-}
-
-// ProjectTypeInput is an input type that accepts ProjectTypeArgs and ProjectTypeOutput values.
-// You can construct a concrete instance of `ProjectTypeInput` via:
-//
-//          ProjectTypeArgs{...}
-type ProjectTypeInput interface {
-	pulumi.Input
-
-	ToProjectTypeOutput() ProjectTypeOutput
-	ToProjectTypeOutputWithContext(context.Context) ProjectTypeOutput
-}
-
-// Azure Migrate Project.
-type ProjectTypeArgs struct {
-	// For optimistic concurrency control.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Azure location in which project is created.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of the project.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the project.
-	Properties ProjectPropertiesResponseInput `pulumi:"properties"`
-	// Tags provided by Azure Tagging service.
-	Tags pulumi.MapInput `pulumi:"tags"`
-	// Type of the object = [Microsoft.Migrate/projects].
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ProjectTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectType)(nil)).Elem()
-}
-
-func (i ProjectTypeArgs) ToProjectTypeOutput() ProjectTypeOutput {
-	return i.ToProjectTypeOutputWithContext(context.Background())
-}
-
-func (i ProjectTypeArgs) ToProjectTypeOutputWithContext(ctx context.Context) ProjectTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectTypeOutput)
-}
-
-// Azure Migrate Project.
-type ProjectTypeOutput struct{ *pulumi.OutputState }
-
-func (ProjectTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectType)(nil)).Elem()
-}
-
-func (o ProjectTypeOutput) ToProjectTypeOutput() ProjectTypeOutput {
-	return o
-}
-
-func (o ProjectTypeOutput) ToProjectTypeOutputWithContext(ctx context.Context) ProjectTypeOutput {
-	return o
-}
-
-// For optimistic concurrency control.
-func (o ProjectTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Azure location in which project is created.
-func (o ProjectTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProjectType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Name of the project.
-func (o ProjectTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the project.
-func (o ProjectTypeOutput) Properties() ProjectPropertiesResponseOutput {
-	return o.ApplyT(func(v ProjectType) ProjectPropertiesResponse { return v.Properties }).(ProjectPropertiesResponseOutput)
-}
-
-// Tags provided by Azure Tagging service.
-func (o ProjectTypeOutput) Tags() pulumi.MapOutput {
-	return o.ApplyT(func(v ProjectType) map[string]interface{} { return v.Tags }).(pulumi.MapOutput)
-}
-
-// Type of the object = [Microsoft.Migrate/projects].
-func (o ProjectTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a project.
@@ -1323,13 +1059,10 @@ func (o ProjectPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPtrO
 }
 
 func init() {
-	pulumi.RegisterOutputType(AssessmentTypeOutput{})
 	pulumi.RegisterOutputType(AssessmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AssessmentPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(GroupTypeOutput{})
 	pulumi.RegisterOutputType(GroupPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GroupPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ProjectTypeOutput{})
 	pulumi.RegisterOutputType(ProjectPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProjectPropertiesResponsePtrOutput{})
 }

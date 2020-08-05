@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
         /// <summary>
         /// The metadata.
         /// </summary>
-        public readonly Outputs.ObjectResponseResult? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The content link URI.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
 
             string? contentVersion,
 
-            Outputs.ObjectResponseResult? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             string? uri)
         {

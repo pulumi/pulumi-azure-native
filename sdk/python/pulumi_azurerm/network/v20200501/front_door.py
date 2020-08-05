@@ -119,7 +119,6 @@ class FrontDoor(pulumi.CustomResource):
           * `frontend_endpoints` (`list`) - Frontend endpoints associated with this rule
           * `patterns_to_match` (`list`) - The route patterns of the rule.
           * `resource_state` (`str`) - Resource status.
-          * `route_configuration` (`dict`) - A reference to the routing configuration.
           * `rules_engine` (`dict`) - A reference to a specific Rules Engine Configuration to apply to this route.
           * `web_application_firewall_policy_link` (`dict`) - Defines the Web Application Firewall policy for each routing rule (if applicable)
             * `id` (`str`) - Resource ID.
@@ -139,7 +138,6 @@ class FrontDoor(pulumi.CustomResource):
                 * `value` (`str`) - The value to update the given header name with. This value is not used if the actionType is Delete.
 
               * `response_header_actions` (`list`) - A list of header actions to apply from the response from AFD to the client.
-              * `route_configuration_override` (`dict`) - Override the route configuration.
 
             * `match_conditions` (`list`) - A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
               * `negate_condition` (`bool`) - Describes if this is negate condition or not
@@ -251,7 +249,6 @@ class FrontDoor(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - Resource name.
           * `patterns_to_match` (`pulumi.Input[list]`) - The route patterns of the rule.
           * `resource_state` (`pulumi.Input[str]`) - Resource status.
-          * `route_configuration` (`pulumi.Input[dict]`) - A reference to the routing configuration.
           * `rules_engine` (`pulumi.Input[dict]`) - A reference to a specific Rules Engine Configuration to apply to this route.
           * `web_application_firewall_policy_link` (`pulumi.Input[dict]`) - Defines the Web Application Firewall policy for each routing rule (if applicable)
             * `id` (`pulumi.Input[str]`) - Resource ID.

@@ -518,97 +518,6 @@ func (o AutoscaleProfileResponseArrayOutput) Index(i pulumi.IntInput) AutoscaleP
 	}).(AutoscaleProfileResponseOutput)
 }
 
-// The autoscale setting resource.
-type AutoscaleSettingType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The autoscale setting of the resource.
-	Properties AutoscaleSettingResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// AutoscaleSettingTypeInput is an input type that accepts AutoscaleSettingTypeArgs and AutoscaleSettingTypeOutput values.
-// You can construct a concrete instance of `AutoscaleSettingTypeInput` via:
-//
-//          AutoscaleSettingTypeArgs{...}
-type AutoscaleSettingTypeInput interface {
-	pulumi.Input
-
-	ToAutoscaleSettingTypeOutput() AutoscaleSettingTypeOutput
-	ToAutoscaleSettingTypeOutputWithContext(context.Context) AutoscaleSettingTypeOutput
-}
-
-// The autoscale setting resource.
-type AutoscaleSettingTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The autoscale setting of the resource.
-	Properties AutoscaleSettingResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AutoscaleSettingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleSettingType)(nil)).Elem()
-}
-
-func (i AutoscaleSettingTypeArgs) ToAutoscaleSettingTypeOutput() AutoscaleSettingTypeOutput {
-	return i.ToAutoscaleSettingTypeOutputWithContext(context.Background())
-}
-
-func (i AutoscaleSettingTypeArgs) ToAutoscaleSettingTypeOutputWithContext(ctx context.Context) AutoscaleSettingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingTypeOutput)
-}
-
-// The autoscale setting resource.
-type AutoscaleSettingTypeOutput struct{ *pulumi.OutputState }
-
-func (AutoscaleSettingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleSettingType)(nil)).Elem()
-}
-
-func (o AutoscaleSettingTypeOutput) ToAutoscaleSettingTypeOutput() AutoscaleSettingTypeOutput {
-	return o
-}
-
-func (o AutoscaleSettingTypeOutput) ToAutoscaleSettingTypeOutputWithContext(ctx context.Context) AutoscaleSettingTypeOutput {
-	return o
-}
-
-// Resource location
-func (o AutoscaleSettingTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoscaleSettingType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o AutoscaleSettingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoscaleSettingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The autoscale setting of the resource.
-func (o AutoscaleSettingTypeOutput) Properties() AutoscaleSettingResponseOutput {
-	return o.ApplyT(func(v AutoscaleSettingType) AutoscaleSettingResponse { return v.Properties }).(AutoscaleSettingResponseOutput)
-}
-
-// Resource tags
-func (o AutoscaleSettingTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AutoscaleSettingType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type
-func (o AutoscaleSettingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AutoscaleSettingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // A setting that contains all of the configuration for the automatic scaling of a resource.
 type AutoscaleSettingResponse struct {
 	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
@@ -3458,7 +3367,6 @@ func init() {
 	pulumi.RegisterOutputType(AutoscaleProfileArrayOutput{})
 	pulumi.RegisterOutputType(AutoscaleProfileResponseOutput{})
 	pulumi.RegisterOutputType(AutoscaleProfileResponseArrayOutput{})
-	pulumi.RegisterOutputType(AutoscaleSettingTypeOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingResponseOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingResponsePtrOutput{})
 	pulumi.RegisterOutputType(EmailNotificationOutput{})

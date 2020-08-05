@@ -32,7 +32,7 @@ type LookupVirtualMachineResult struct {
 	// Virtual machine properties
 	Properties VirtualMachinePropertiesResponse `pulumi:"properties"`
 	// The list of tags
-	Tags *TagsResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}
 	Type string `pulumi:"type"`
 }

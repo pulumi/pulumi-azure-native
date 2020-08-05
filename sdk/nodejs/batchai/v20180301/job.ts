@@ -153,7 +153,7 @@ export interface JobArgs {
     /**
      * Constraints associated with the Job.
      */
-    readonly constraints?: pulumi.Input<inputs.batchai.v20180301.JobBasePropertiesProperties>;
+    readonly constraints?: pulumi.Input<inputs.batchai.v20180301.JobBasePropertiesConstraints>;
     /**
      * If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
      */

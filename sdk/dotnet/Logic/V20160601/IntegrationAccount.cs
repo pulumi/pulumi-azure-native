@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// The integration account properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.IntegrationAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The sku.

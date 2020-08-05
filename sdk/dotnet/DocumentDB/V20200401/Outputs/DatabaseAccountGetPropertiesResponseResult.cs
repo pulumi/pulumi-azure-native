@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401.Outputs
         /// <summary>
         /// List of IpRules.
         /// </summary>
-        public readonly Outputs.IPRulesResponseResult? IpRules;
+        public readonly ImmutableArray<Outputs.IpAddressOrRangeResponseResult> IpRules;
         /// <summary>
         /// Flag to indicate whether to enable/disable Virtual Network ACL rules.
         /// </summary>
@@ -134,7 +134,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401.Outputs
 
             ImmutableArray<Outputs.FailoverPolicyResponseResult> failoverPolicies,
 
-            Outputs.IPRulesResponseResult? ipRules,
+            ImmutableArray<Outputs.IpAddressOrRangeResponseResult> ipRules,
 
             bool? isVirtualNetworkFilterEnabled,
 

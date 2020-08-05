@@ -430,124 +430,6 @@ func (o CreationDataResponsePtrOutput) StorageAccountId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Disk resource.
-type DiskType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// A relative URI containing the ID of the VM that has the disk attached.
-	ManagedBy string `pulumi:"managedBy"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Disk resource properties.
-	Properties DiskPropertiesResponse `pulumi:"properties"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-	Sku *DiskSkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The Logical zone list for Disk.
-	Zones []string `pulumi:"zones"`
-}
-
-// DiskTypeInput is an input type that accepts DiskTypeArgs and DiskTypeOutput values.
-// You can construct a concrete instance of `DiskTypeInput` via:
-//
-//          DiskTypeArgs{...}
-type DiskTypeInput interface {
-	pulumi.Input
-
-	ToDiskTypeOutput() DiskTypeOutput
-	ToDiskTypeOutputWithContext(context.Context) DiskTypeOutput
-}
-
-// Disk resource.
-type DiskTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// A relative URI containing the ID of the VM that has the disk attached.
-	ManagedBy pulumi.StringInput `pulumi:"managedBy"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Disk resource properties.
-	Properties DiskPropertiesResponseInput `pulumi:"properties"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-	Sku DiskSkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-	// The Logical zone list for Disk.
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
-}
-
-func (DiskTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskType)(nil)).Elem()
-}
-
-func (i DiskTypeArgs) ToDiskTypeOutput() DiskTypeOutput {
-	return i.ToDiskTypeOutputWithContext(context.Background())
-}
-
-func (i DiskTypeArgs) ToDiskTypeOutputWithContext(ctx context.Context) DiskTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskTypeOutput)
-}
-
-// Disk resource.
-type DiskTypeOutput struct{ *pulumi.OutputState }
-
-func (DiskTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskType)(nil)).Elem()
-}
-
-func (o DiskTypeOutput) ToDiskTypeOutput() DiskTypeOutput {
-	return o
-}
-
-func (o DiskTypeOutput) ToDiskTypeOutputWithContext(ctx context.Context) DiskTypeOutput {
-	return o
-}
-
-// Resource location
-func (o DiskTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// A relative URI containing the ID of the VM that has the disk attached.
-func (o DiskTypeOutput) ManagedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskType) string { return v.ManagedBy }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o DiskTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Disk resource properties.
-func (o DiskTypeOutput) Properties() DiskPropertiesResponseOutput {
-	return o.ApplyT(func(v DiskType) DiskPropertiesResponse { return v.Properties }).(DiskPropertiesResponseOutput)
-}
-
-// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-func (o DiskTypeOutput) Sku() DiskSkuResponsePtrOutput {
-	return o.ApplyT(func(v DiskType) *DiskSkuResponse { return v.Sku }).(DiskSkuResponsePtrOutput)
-}
-
-// Resource tags
-func (o DiskTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DiskType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o DiskTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Logical zone list for Disk.
-func (o DiskTypeOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DiskType) []string { return v.Zones }).(pulumi.StringArrayOutput)
-}
-
 // Disk resource properties.
 type DiskPropertiesResponse struct {
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
@@ -2588,115 +2470,6 @@ func (o KeyVaultAndSecretReferenceResponsePtrOutput) SourceVault() SourceVaultRe
 	}).(SourceVaultResponsePtrOutput)
 }
 
-// Snapshot resource.
-type SnapshotType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Unused. Always Null.
-	ManagedBy string `pulumi:"managedBy"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Snapshot resource properties.
-	Properties SnapshotPropertiesResponse `pulumi:"properties"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-	Sku *SnapshotSkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// SnapshotTypeInput is an input type that accepts SnapshotTypeArgs and SnapshotTypeOutput values.
-// You can construct a concrete instance of `SnapshotTypeInput` via:
-//
-//          SnapshotTypeArgs{...}
-type SnapshotTypeInput interface {
-	pulumi.Input
-
-	ToSnapshotTypeOutput() SnapshotTypeOutput
-	ToSnapshotTypeOutputWithContext(context.Context) SnapshotTypeOutput
-}
-
-// Snapshot resource.
-type SnapshotTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Unused. Always Null.
-	ManagedBy pulumi.StringInput `pulumi:"managedBy"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Snapshot resource properties.
-	Properties SnapshotPropertiesResponseInput `pulumi:"properties"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-	Sku SnapshotSkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SnapshotTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotType)(nil)).Elem()
-}
-
-func (i SnapshotTypeArgs) ToSnapshotTypeOutput() SnapshotTypeOutput {
-	return i.ToSnapshotTypeOutputWithContext(context.Background())
-}
-
-func (i SnapshotTypeArgs) ToSnapshotTypeOutputWithContext(ctx context.Context) SnapshotTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotTypeOutput)
-}
-
-// Snapshot resource.
-type SnapshotTypeOutput struct{ *pulumi.OutputState }
-
-func (SnapshotTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotType)(nil)).Elem()
-}
-
-func (o SnapshotTypeOutput) ToSnapshotTypeOutput() SnapshotTypeOutput {
-	return o
-}
-
-func (o SnapshotTypeOutput) ToSnapshotTypeOutputWithContext(ctx context.Context) SnapshotTypeOutput {
-	return o
-}
-
-// Resource location
-func (o SnapshotTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Unused. Always Null.
-func (o SnapshotTypeOutput) ManagedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotType) string { return v.ManagedBy }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o SnapshotTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Snapshot resource properties.
-func (o SnapshotTypeOutput) Properties() SnapshotPropertiesResponseOutput {
-	return o.ApplyT(func(v SnapshotType) SnapshotPropertiesResponse { return v.Properties }).(SnapshotPropertiesResponseOutput)
-}
-
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-func (o SnapshotTypeOutput) Sku() SnapshotSkuResponsePtrOutput {
-	return o.ApplyT(func(v SnapshotType) *SnapshotSkuResponse { return v.Sku }).(SnapshotSkuResponsePtrOutput)
-}
-
-// Resource tags
-func (o SnapshotTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SnapshotType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o SnapshotTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Snapshot resource properties.
 type SnapshotPropertiesResponse struct {
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
@@ -3507,7 +3280,6 @@ func init() {
 	pulumi.RegisterOutputType(CreationDataPtrOutput{})
 	pulumi.RegisterOutputType(CreationDataResponseOutput{})
 	pulumi.RegisterOutputType(CreationDataResponsePtrOutput{})
-	pulumi.RegisterOutputType(DiskTypeOutput{})
 	pulumi.RegisterOutputType(DiskPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DiskPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskSkuOutput{})
@@ -3534,7 +3306,6 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferencePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultAndSecretReferenceResponsePtrOutput{})
-	pulumi.RegisterOutputType(SnapshotTypeOutput{})
 	pulumi.RegisterOutputType(SnapshotPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SnapshotPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuOutput{})

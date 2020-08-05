@@ -95,12 +95,6 @@ namespace Pulumi.AzureRM.AVS.V20200320
 
     public sealed class PrivateCloudArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An ExpressRoute Circuit
-        /// </summary>
-        [Input("circuit")]
-        public Input<Inputs.CircuitArgs>? Circuit { get; set; }
-
         [Input("identitySources")]
         private InputList<Inputs.IdentitySourceArgs>? _identitySources;
 

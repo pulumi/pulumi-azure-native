@@ -95,7 +95,7 @@ type triggerArgs struct {
 	// The trigger name.
 	Name string `pulumi:"name"`
 	// Properties of the trigger.
-	Properties TriggerDefinition `pulumi:"properties"`
+	Properties TriggerType `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -107,7 +107,7 @@ type TriggerArgs struct {
 	// The trigger name.
 	Name pulumi.StringInput
 	// Properties of the trigger.
-	Properties TriggerDefinitionInput
+	Properties TriggerTypeInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 }

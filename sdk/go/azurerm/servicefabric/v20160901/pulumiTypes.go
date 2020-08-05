@@ -1152,97 +1152,6 @@ func (o ClientCertificateThumbprintResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ClientCertificateThumbprintResponseOutput)
 }
 
-// The cluster resource
-type ClusterType struct {
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The cluster resource properties
-	Properties ClusterPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ClusterTypeInput is an input type that accepts ClusterTypeArgs and ClusterTypeOutput values.
-// You can construct a concrete instance of `ClusterTypeInput` via:
-//
-//          ClusterTypeArgs{...}
-type ClusterTypeInput interface {
-	pulumi.Input
-
-	ToClusterTypeOutput() ClusterTypeOutput
-	ToClusterTypeOutputWithContext(context.Context) ClusterTypeOutput
-}
-
-// The cluster resource
-type ClusterTypeArgs struct {
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The cluster resource properties
-	Properties ClusterPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutput() ClusterTypeOutput {
-	return i.ToClusterTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterTypeOutput)
-}
-
-// The cluster resource
-type ClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutput() ClusterTypeOutput {
-	return o
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return o
-}
-
-// Resource location.
-func (o ClusterTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o ClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The cluster resource properties
-func (o ClusterTypeOutput) Properties() ClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterType) ClusterPropertiesResponse { return v.Properties }).(ClusterPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ClusterTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ClusterType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o ClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicy struct {
 	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
@@ -2990,79 +2899,6 @@ func (o ClusterUpgradePolicyResponsePtrOutput) UpgradeTimeout() pulumi.StringPtr
 }
 
 // The detail of the ServiceFabric runtime version result
-type ClusterVersionDetails struct {
-	// The ServiceFabric runtime version of the cluster
-	CodeVersion *string `pulumi:"codeVersion"`
-	// Cluster operating system
-	Environment *string `pulumi:"environment"`
-	// The date of expiry of support of the version
-	SupportExpiryUtc *string `pulumi:"supportExpiryUtc"`
-}
-
-// ClusterVersionDetailsInput is an input type that accepts ClusterVersionDetailsArgs and ClusterVersionDetailsOutput values.
-// You can construct a concrete instance of `ClusterVersionDetailsInput` via:
-//
-//          ClusterVersionDetailsArgs{...}
-type ClusterVersionDetailsInput interface {
-	pulumi.Input
-
-	ToClusterVersionDetailsOutput() ClusterVersionDetailsOutput
-	ToClusterVersionDetailsOutputWithContext(context.Context) ClusterVersionDetailsOutput
-}
-
-// The detail of the ServiceFabric runtime version result
-type ClusterVersionDetailsArgs struct {
-	// The ServiceFabric runtime version of the cluster
-	CodeVersion pulumi.StringPtrInput `pulumi:"codeVersion"`
-	// Cluster operating system
-	Environment pulumi.StringPtrInput `pulumi:"environment"`
-	// The date of expiry of support of the version
-	SupportExpiryUtc pulumi.StringPtrInput `pulumi:"supportExpiryUtc"`
-}
-
-func (ClusterVersionDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterVersionDetails)(nil)).Elem()
-}
-
-func (i ClusterVersionDetailsArgs) ToClusterVersionDetailsOutput() ClusterVersionDetailsOutput {
-	return i.ToClusterVersionDetailsOutputWithContext(context.Background())
-}
-
-func (i ClusterVersionDetailsArgs) ToClusterVersionDetailsOutputWithContext(ctx context.Context) ClusterVersionDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterVersionDetailsOutput)
-}
-
-// The detail of the ServiceFabric runtime version result
-type ClusterVersionDetailsOutput struct{ *pulumi.OutputState }
-
-func (ClusterVersionDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterVersionDetails)(nil)).Elem()
-}
-
-func (o ClusterVersionDetailsOutput) ToClusterVersionDetailsOutput() ClusterVersionDetailsOutput {
-	return o
-}
-
-func (o ClusterVersionDetailsOutput) ToClusterVersionDetailsOutputWithContext(ctx context.Context) ClusterVersionDetailsOutput {
-	return o
-}
-
-// The ServiceFabric runtime version of the cluster
-func (o ClusterVersionDetailsOutput) CodeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetails) *string { return v.CodeVersion }).(pulumi.StringPtrOutput)
-}
-
-// Cluster operating system
-func (o ClusterVersionDetailsOutput) Environment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetails) *string { return v.Environment }).(pulumi.StringPtrOutput)
-}
-
-// The date of expiry of support of the version
-func (o ClusterVersionDetailsOutput) SupportExpiryUtc() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetails) *string { return v.SupportExpiryUtc }).(pulumi.StringPtrOutput)
-}
-
-// The detail of the ServiceFabric runtime version result
 type ClusterVersionDetailsResponse struct {
 	// The ServiceFabric runtime version of the cluster
 	CodeVersion *string `pulumi:"codeVersion"`
@@ -4739,7 +4575,6 @@ func init() {
 	pulumi.RegisterOutputType(ClientCertificateThumbprintArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseArrayOutput{})
-	pulumi.RegisterOutputType(ClusterTypeOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyResponseOutput{})
@@ -4754,7 +4589,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyResponseOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterVersionDetailsOutput{})
 	pulumi.RegisterOutputType(ClusterVersionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ClusterVersionDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigOutput{})

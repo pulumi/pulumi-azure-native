@@ -28,6 +28,18 @@ class RegistrationAssignment(pulumi.CustomResource):
           * `version` (`str`) - The plan's version.
 
         * `properties` (`dict`) - Properties of registration definition inside registration assignment.
+          * `authorizations` (`list`) - Authorization tuple containing principal id of the user/security group or service principal and id of the build-in role.
+            * `principal_id` (`str`) - Principal Id of the security group/service principal/user that would be assigned permissions to the projected subscription
+            * `role_definition_id` (`str`) - The role definition identifier. This role will define all the permissions that the security group/service principal/user must have on the projected subscription. This role cannot be an owner role.
+
+          * `description` (`str`) - Description of the registration definition.
+          * `managed_by_tenant_id` (`str`) - Id of the managedBy tenant.
+          * `managed_by_tenant_name` (`str`) - Name of the managedBy tenant.
+          * `managee_tenant_id` (`str`) - Id of the home tenant.
+          * `managee_tenant_name` (`str`) - Name of the home tenant.
+          * `provisioning_state` (`str`) - Current state of the registration definition.
+          * `registration_definition_name` (`str`) - Name of the registration definition.
+
         * `type` (`str`) - Type of the resource (Microsoft.ManagedServices/registrationDefinitions).
 
       * `registration_definition_id` (`str`) - Fully qualified path of the registration definition.

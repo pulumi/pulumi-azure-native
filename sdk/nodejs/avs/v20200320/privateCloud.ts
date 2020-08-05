@@ -92,7 +92,6 @@ export class PrivateCloud extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["circuit"] = args ? args.circuit : undefined;
             inputs["identitySources"] = args ? args.identitySources : undefined;
             inputs["internet"] = args ? args.internet : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -122,10 +121,6 @@ export class PrivateCloud extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivateCloud resource.
  */
 export interface PrivateCloudArgs {
-    /**
-     * An ExpressRoute Circuit
-     */
-    readonly circuit?: pulumi.Input<inputs.avs.v20200320.Circuit>;
     /**
      * vCenter Single Sign On Identity Sources
      */

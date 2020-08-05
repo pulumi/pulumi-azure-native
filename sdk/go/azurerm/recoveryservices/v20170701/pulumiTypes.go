@@ -12,18 +12,18 @@ import (
 
 // Base class for backup ProtectionIntent.
 type ProtectionIntentType struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name string `pulumi:"name"`
-	// ProtectionIntentResource properties
-	Properties ProtectionIntentResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type string `pulumi:"type"`
+	// Type of backup management for the backed up item.
+	BackupManagementType *string `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId *string `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId *string `pulumi:"policyId"`
+	// backup protectionIntent type.
+	ProtectionIntentItemType *string `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState *string `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
 }
 
 // ProtectionIntentTypeInput is an input type that accepts ProtectionIntentTypeArgs and ProtectionIntentTypeOutput values.
@@ -39,18 +39,18 @@ type ProtectionIntentTypeInput interface {
 
 // Base class for backup ProtectionIntent.
 type ProtectionIntentTypeArgs struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// ProtectionIntentResource properties
-	Properties ProtectionIntentResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringInput `pulumi:"type"`
+	// Type of backup management for the backed up item.
+	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+	ItemId pulumi.StringPtrInput `pulumi:"itemId"`
+	// ID of the backup policy with which this item is backed up.
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
+	// backup protectionIntent type.
+	ProtectionIntentItemType pulumi.StringPtrInput `pulumi:"protectionIntentItemType"`
+	// Backup state of this backup item.
+	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	// ARM ID of the resource to be backed up.
+	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
 }
 
 func (ProtectionIntentTypeArgs) ElementType() reflect.Type {
@@ -63,6 +63,47 @@ func (i ProtectionIntentTypeArgs) ToProtectionIntentTypeOutput() ProtectionInten
 
 func (i ProtectionIntentTypeArgs) ToProtectionIntentTypeOutputWithContext(ctx context.Context) ProtectionIntentTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionIntentTypeOutput)
+}
+
+func (i ProtectionIntentTypeArgs) ToProtectionIntentTypePtrOutput() ProtectionIntentTypePtrOutput {
+	return i.ToProtectionIntentTypePtrOutputWithContext(context.Background())
+}
+
+func (i ProtectionIntentTypeArgs) ToProtectionIntentTypePtrOutputWithContext(ctx context.Context) ProtectionIntentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionIntentTypeOutput).ToProtectionIntentTypePtrOutputWithContext(ctx)
+}
+
+// ProtectionIntentTypePtrInput is an input type that accepts ProtectionIntentTypeArgs, ProtectionIntentTypePtr and ProtectionIntentTypePtrOutput values.
+// You can construct a concrete instance of `ProtectionIntentTypePtrInput` via:
+//
+//          ProtectionIntentTypeArgs{...}
+//
+//  or:
+//
+//          nil
+type ProtectionIntentTypePtrInput interface {
+	pulumi.Input
+
+	ToProtectionIntentTypePtrOutput() ProtectionIntentTypePtrOutput
+	ToProtectionIntentTypePtrOutputWithContext(context.Context) ProtectionIntentTypePtrOutput
+}
+
+type protectionIntentTypePtrType ProtectionIntentTypeArgs
+
+func ProtectionIntentTypePtr(v *ProtectionIntentTypeArgs) ProtectionIntentTypePtrInput {
+	return (*protectionIntentTypePtrType)(v)
+}
+
+func (*protectionIntentTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionIntentType)(nil)).Elem()
+}
+
+func (i *protectionIntentTypePtrType) ToProtectionIntentTypePtrOutput() ProtectionIntentTypePtrOutput {
+	return i.ToProtectionIntentTypePtrOutputWithContext(context.Background())
+}
+
+func (i *protectionIntentTypePtrType) ToProtectionIntentTypePtrOutputWithContext(ctx context.Context) ProtectionIntentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionIntentTypePtrOutput)
 }
 
 // Base class for backup ProtectionIntent.
@@ -80,208 +121,67 @@ func (o ProtectionIntentTypeOutput) ToProtectionIntentTypeOutputWithContext(ctx 
 	return o
 }
 
-// Optional ETag.
-func (o ProtectionIntentTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionIntentType) *string { return v.ETag }).(pulumi.StringPtrOutput)
+func (o ProtectionIntentTypeOutput) ToProtectionIntentTypePtrOutput() ProtectionIntentTypePtrOutput {
+	return o.ToProtectionIntentTypePtrOutputWithContext(context.Background())
 }
 
-// Resource location.
-func (o ProtectionIntentTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionIntentType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name associated with the resource.
-func (o ProtectionIntentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProtectionIntentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// ProtectionIntentResource properties
-func (o ProtectionIntentTypeOutput) Properties() ProtectionIntentResponseOutput {
-	return o.ApplyT(func(v ProtectionIntentType) ProtectionIntentResponse { return v.Properties }).(ProtectionIntentResponseOutput)
-}
-
-// Resource tags.
-func (o ProtectionIntentTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProtectionIntentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-func (o ProtectionIntentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProtectionIntentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Base class for backup ProtectionIntent.
-type ProtectionIntentDefinition struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
-	ItemId *string `pulumi:"itemId"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId *string `pulumi:"policyId"`
-	// backup protectionIntent type.
-	ProtectionIntentItemType *string `pulumi:"protectionIntentItemType"`
-	// Backup state of this backup item.
-	ProtectionState *string `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId *string `pulumi:"sourceResourceId"`
-}
-
-// ProtectionIntentDefinitionInput is an input type that accepts ProtectionIntentDefinitionArgs and ProtectionIntentDefinitionOutput values.
-// You can construct a concrete instance of `ProtectionIntentDefinitionInput` via:
-//
-//          ProtectionIntentDefinitionArgs{...}
-type ProtectionIntentDefinitionInput interface {
-	pulumi.Input
-
-	ToProtectionIntentDefinitionOutput() ProtectionIntentDefinitionOutput
-	ToProtectionIntentDefinitionOutputWithContext(context.Context) ProtectionIntentDefinitionOutput
-}
-
-// Base class for backup ProtectionIntent.
-type ProtectionIntentDefinitionArgs struct {
-	// Type of backup management for the backed up item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	// ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
-	ItemId pulumi.StringPtrInput `pulumi:"itemId"`
-	// ID of the backup policy with which this item is backed up.
-	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
-	// backup protectionIntent type.
-	ProtectionIntentItemType pulumi.StringPtrInput `pulumi:"protectionIntentItemType"`
-	// Backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
-	// ARM ID of the resource to be backed up.
-	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
-}
-
-func (ProtectionIntentDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionIntentDefinition)(nil)).Elem()
-}
-
-func (i ProtectionIntentDefinitionArgs) ToProtectionIntentDefinitionOutput() ProtectionIntentDefinitionOutput {
-	return i.ToProtectionIntentDefinitionOutputWithContext(context.Background())
-}
-
-func (i ProtectionIntentDefinitionArgs) ToProtectionIntentDefinitionOutputWithContext(ctx context.Context) ProtectionIntentDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionIntentDefinitionOutput)
-}
-
-func (i ProtectionIntentDefinitionArgs) ToProtectionIntentDefinitionPtrOutput() ProtectionIntentDefinitionPtrOutput {
-	return i.ToProtectionIntentDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i ProtectionIntentDefinitionArgs) ToProtectionIntentDefinitionPtrOutputWithContext(ctx context.Context) ProtectionIntentDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionIntentDefinitionOutput).ToProtectionIntentDefinitionPtrOutputWithContext(ctx)
-}
-
-// ProtectionIntentDefinitionPtrInput is an input type that accepts ProtectionIntentDefinitionArgs, ProtectionIntentDefinitionPtr and ProtectionIntentDefinitionPtrOutput values.
-// You can construct a concrete instance of `ProtectionIntentDefinitionPtrInput` via:
-//
-//          ProtectionIntentDefinitionArgs{...}
-//
-//  or:
-//
-//          nil
-type ProtectionIntentDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToProtectionIntentDefinitionPtrOutput() ProtectionIntentDefinitionPtrOutput
-	ToProtectionIntentDefinitionPtrOutputWithContext(context.Context) ProtectionIntentDefinitionPtrOutput
-}
-
-type protectionIntentDefinitionPtrType ProtectionIntentDefinitionArgs
-
-func ProtectionIntentDefinitionPtr(v *ProtectionIntentDefinitionArgs) ProtectionIntentDefinitionPtrInput {
-	return (*protectionIntentDefinitionPtrType)(v)
-}
-
-func (*protectionIntentDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionIntentDefinition)(nil)).Elem()
-}
-
-func (i *protectionIntentDefinitionPtrType) ToProtectionIntentDefinitionPtrOutput() ProtectionIntentDefinitionPtrOutput {
-	return i.ToProtectionIntentDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *protectionIntentDefinitionPtrType) ToProtectionIntentDefinitionPtrOutputWithContext(ctx context.Context) ProtectionIntentDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionIntentDefinitionPtrOutput)
-}
-
-// Base class for backup ProtectionIntent.
-type ProtectionIntentDefinitionOutput struct{ *pulumi.OutputState }
-
-func (ProtectionIntentDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionIntentDefinition)(nil)).Elem()
-}
-
-func (o ProtectionIntentDefinitionOutput) ToProtectionIntentDefinitionOutput() ProtectionIntentDefinitionOutput {
-	return o
-}
-
-func (o ProtectionIntentDefinitionOutput) ToProtectionIntentDefinitionOutputWithContext(ctx context.Context) ProtectionIntentDefinitionOutput {
-	return o
-}
-
-func (o ProtectionIntentDefinitionOutput) ToProtectionIntentDefinitionPtrOutput() ProtectionIntentDefinitionPtrOutput {
-	return o.ToProtectionIntentDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o ProtectionIntentDefinitionOutput) ToProtectionIntentDefinitionPtrOutputWithContext(ctx context.Context) ProtectionIntentDefinitionPtrOutput {
-	return o.ApplyT(func(v ProtectionIntentDefinition) *ProtectionIntentDefinition {
+func (o ProtectionIntentTypeOutput) ToProtectionIntentTypePtrOutputWithContext(ctx context.Context) ProtectionIntentTypePtrOutput {
+	return o.ApplyT(func(v ProtectionIntentType) *ProtectionIntentType {
 		return &v
-	}).(ProtectionIntentDefinitionPtrOutput)
+	}).(ProtectionIntentTypePtrOutput)
 }
 
 // Type of backup management for the backed up item.
-func (o ProtectionIntentDefinitionOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionIntentDefinition) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+func (o ProtectionIntentTypeOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionIntentType) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
 // ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
-func (o ProtectionIntentDefinitionOutput) ItemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionIntentDefinition) *string { return v.ItemId }).(pulumi.StringPtrOutput)
+func (o ProtectionIntentTypeOutput) ItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionIntentType) *string { return v.ItemId }).(pulumi.StringPtrOutput)
 }
 
 // ID of the backup policy with which this item is backed up.
-func (o ProtectionIntentDefinitionOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionIntentDefinition) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+func (o ProtectionIntentTypeOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionIntentType) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
 // backup protectionIntent type.
-func (o ProtectionIntentDefinitionOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionIntentDefinition) *string { return v.ProtectionIntentItemType }).(pulumi.StringPtrOutput)
+func (o ProtectionIntentTypeOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionIntentType) *string { return v.ProtectionIntentItemType }).(pulumi.StringPtrOutput)
 }
 
 // Backup state of this backup item.
-func (o ProtectionIntentDefinitionOutput) ProtectionState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionIntentDefinition) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
+func (o ProtectionIntentTypeOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionIntentType) *string { return v.ProtectionState }).(pulumi.StringPtrOutput)
 }
 
 // ARM ID of the resource to be backed up.
-func (o ProtectionIntentDefinitionOutput) SourceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionIntentDefinition) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+func (o ProtectionIntentTypeOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionIntentType) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
-type ProtectionIntentDefinitionPtrOutput struct{ *pulumi.OutputState }
+type ProtectionIntentTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ProtectionIntentDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionIntentDefinition)(nil)).Elem()
+func (ProtectionIntentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionIntentType)(nil)).Elem()
 }
 
-func (o ProtectionIntentDefinitionPtrOutput) ToProtectionIntentDefinitionPtrOutput() ProtectionIntentDefinitionPtrOutput {
+func (o ProtectionIntentTypePtrOutput) ToProtectionIntentTypePtrOutput() ProtectionIntentTypePtrOutput {
 	return o
 }
 
-func (o ProtectionIntentDefinitionPtrOutput) ToProtectionIntentDefinitionPtrOutputWithContext(ctx context.Context) ProtectionIntentDefinitionPtrOutput {
+func (o ProtectionIntentTypePtrOutput) ToProtectionIntentTypePtrOutputWithContext(ctx context.Context) ProtectionIntentTypePtrOutput {
 	return o
 }
 
-func (o ProtectionIntentDefinitionPtrOutput) Elem() ProtectionIntentDefinitionOutput {
-	return o.ApplyT(func(v *ProtectionIntentDefinition) ProtectionIntentDefinition { return *v }).(ProtectionIntentDefinitionOutput)
+func (o ProtectionIntentTypePtrOutput) Elem() ProtectionIntentTypeOutput {
+	return o.ApplyT(func(v *ProtectionIntentType) ProtectionIntentType { return *v }).(ProtectionIntentTypeOutput)
 }
 
 // Type of backup management for the backed up item.
-func (o ProtectionIntentDefinitionPtrOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionIntentDefinition) *string {
+func (o ProtectionIntentTypePtrOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionIntentType) *string {
 		if v == nil {
 			return nil
 		}
@@ -290,8 +190,8 @@ func (o ProtectionIntentDefinitionPtrOutput) BackupManagementType() pulumi.Strin
 }
 
 // ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
-func (o ProtectionIntentDefinitionPtrOutput) ItemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionIntentDefinition) *string {
+func (o ProtectionIntentTypePtrOutput) ItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionIntentType) *string {
 		if v == nil {
 			return nil
 		}
@@ -300,8 +200,8 @@ func (o ProtectionIntentDefinitionPtrOutput) ItemId() pulumi.StringPtrOutput {
 }
 
 // ID of the backup policy with which this item is backed up.
-func (o ProtectionIntentDefinitionPtrOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionIntentDefinition) *string {
+func (o ProtectionIntentTypePtrOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionIntentType) *string {
 		if v == nil {
 			return nil
 		}
@@ -310,8 +210,8 @@ func (o ProtectionIntentDefinitionPtrOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // backup protectionIntent type.
-func (o ProtectionIntentDefinitionPtrOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionIntentDefinition) *string {
+func (o ProtectionIntentTypePtrOutput) ProtectionIntentItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionIntentType) *string {
 		if v == nil {
 			return nil
 		}
@@ -320,8 +220,8 @@ func (o ProtectionIntentDefinitionPtrOutput) ProtectionIntentItemType() pulumi.S
 }
 
 // Backup state of this backup item.
-func (o ProtectionIntentDefinitionPtrOutput) ProtectionState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionIntentDefinition) *string {
+func (o ProtectionIntentTypePtrOutput) ProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionIntentType) *string {
 		if v == nil {
 			return nil
 		}
@@ -330,8 +230,8 @@ func (o ProtectionIntentDefinitionPtrOutput) ProtectionState() pulumi.StringPtrO
 }
 
 // ARM ID of the resource to be backed up.
-func (o ProtectionIntentDefinitionPtrOutput) SourceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectionIntentDefinition) *string {
+func (o ProtectionIntentTypePtrOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionIntentType) *string {
 		if v == nil {
 			return nil
 		}
@@ -570,8 +470,7 @@ func (o ProtectionIntentResponsePtrOutput) SourceResourceId() pulumi.StringPtrOu
 
 func init() {
 	pulumi.RegisterOutputType(ProtectionIntentTypeOutput{})
-	pulumi.RegisterOutputType(ProtectionIntentDefinitionOutput{})
-	pulumi.RegisterOutputType(ProtectionIntentDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ProtectionIntentTypePtrOutput{})
 	pulumi.RegisterOutputType(ProtectionIntentResponseOutput{})
 	pulumi.RegisterOutputType(ProtectionIntentResponsePtrOutput{})
 }

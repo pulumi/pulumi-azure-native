@@ -140,7 +140,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * List of the configuration status for each recommendation type.
      */
-    readonly recommendationsConfiguration?: pulumi.Input<inputs.security.v20190801.RecommendationConfigurationList>;
+    readonly recommendationsConfiguration?: pulumi.Input<pulumi.Input<inputs.security.v20190801.RecommendationConfigurationProperties>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

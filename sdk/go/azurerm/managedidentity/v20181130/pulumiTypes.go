@@ -10,97 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Describes an identity resource.
-type UserAssignedIdentityType struct {
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties associated with the identity.
-	Properties UserAssignedIdentityPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// UserAssignedIdentityTypeInput is an input type that accepts UserAssignedIdentityTypeArgs and UserAssignedIdentityTypeOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityTypeInput` via:
-//
-//          UserAssignedIdentityTypeArgs{...}
-type UserAssignedIdentityTypeInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityTypeOutput() UserAssignedIdentityTypeOutput
-	ToUserAssignedIdentityTypeOutputWithContext(context.Context) UserAssignedIdentityTypeOutput
-}
-
-// Describes an identity resource.
-type UserAssignedIdentityTypeArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties associated with the identity.
-	Properties UserAssignedIdentityPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (UserAssignedIdentityTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityType)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityTypeArgs) ToUserAssignedIdentityTypeOutput() UserAssignedIdentityTypeOutput {
-	return i.ToUserAssignedIdentityTypeOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityTypeArgs) ToUserAssignedIdentityTypeOutputWithContext(ctx context.Context) UserAssignedIdentityTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityTypeOutput)
-}
-
-// Describes an identity resource.
-type UserAssignedIdentityTypeOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityType)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityTypeOutput) ToUserAssignedIdentityTypeOutput() UserAssignedIdentityTypeOutput {
-	return o
-}
-
-func (o UserAssignedIdentityTypeOutput) ToUserAssignedIdentityTypeOutputWithContext(ctx context.Context) UserAssignedIdentityTypeOutput {
-	return o
-}
-
-// The geo-location where the resource lives
-func (o UserAssignedIdentityTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v UserAssignedIdentityType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o UserAssignedIdentityTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v UserAssignedIdentityType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties associated with the identity.
-func (o UserAssignedIdentityTypeOutput) Properties() UserAssignedIdentityPropertiesResponseOutput {
-	return o.ApplyT(func(v UserAssignedIdentityType) UserAssignedIdentityPropertiesResponse { return v.Properties }).(UserAssignedIdentityPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o UserAssignedIdentityTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v UserAssignedIdentityType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o UserAssignedIdentityTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v UserAssignedIdentityType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties associated with the user assigned identity.
 type UserAssignedIdentityPropertiesResponse struct {
 	// The id of the app associated with the identity. This is a random generated UUID by MSI.
@@ -274,7 +183,6 @@ func (o UserAssignedIdentityPropertiesResponsePtrOutput) TenantId() pulumi.Strin
 }
 
 func init() {
-	pulumi.RegisterOutputType(UserAssignedIdentityTypeOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityPropertiesResponsePtrOutput{})
 }

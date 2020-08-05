@@ -246,152 +246,6 @@ func (o AssignmentPrincipalResponseArrayOutput) Index(i pulumi.IntInput) Assignm
 	}).(AssignmentPrincipalResponseOutput)
 }
 
-// The connector resource format.
-type ConnectorType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of connector.
-	Properties ConnectorResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ConnectorTypeInput is an input type that accepts ConnectorTypeArgs and ConnectorTypeOutput values.
-// You can construct a concrete instance of `ConnectorTypeInput` via:
-//
-//          ConnectorTypeArgs{...}
-type ConnectorTypeInput interface {
-	pulumi.Input
-
-	ToConnectorTypeOutput() ConnectorTypeOutput
-	ToConnectorTypeOutputWithContext(context.Context) ConnectorTypeOutput
-}
-
-// The connector resource format.
-type ConnectorTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of connector.
-	Properties ConnectorResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConnectorTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorType)(nil)).Elem()
-}
-
-func (i ConnectorTypeArgs) ToConnectorTypeOutput() ConnectorTypeOutput {
-	return i.ToConnectorTypeOutputWithContext(context.Background())
-}
-
-func (i ConnectorTypeArgs) ToConnectorTypeOutputWithContext(ctx context.Context) ConnectorTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTypeOutput)
-}
-
-// The connector resource format.
-type ConnectorTypeOutput struct{ *pulumi.OutputState }
-
-func (ConnectorTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorType)(nil)).Elem()
-}
-
-func (o ConnectorTypeOutput) ToConnectorTypeOutput() ConnectorTypeOutput {
-	return o
-}
-
-func (o ConnectorTypeOutput) ToConnectorTypeOutputWithContext(ctx context.Context) ConnectorTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ConnectorTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of connector.
-func (o ConnectorTypeOutput) Properties() ConnectorResponseOutput {
-	return o.ApplyT(func(v ConnectorType) ConnectorResponse { return v.Properties }).(ConnectorResponseOutput)
-}
-
-// Resource type.
-func (o ConnectorTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The connector mapping resource format.
-type ConnectorMappingType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The connector mapping definition.
-	Properties ConnectorMappingResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ConnectorMappingTypeInput is an input type that accepts ConnectorMappingTypeArgs and ConnectorMappingTypeOutput values.
-// You can construct a concrete instance of `ConnectorMappingTypeInput` via:
-//
-//          ConnectorMappingTypeArgs{...}
-type ConnectorMappingTypeInput interface {
-	pulumi.Input
-
-	ToConnectorMappingTypeOutput() ConnectorMappingTypeOutput
-	ToConnectorMappingTypeOutputWithContext(context.Context) ConnectorMappingTypeOutput
-}
-
-// The connector mapping resource format.
-type ConnectorMappingTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The connector mapping definition.
-	Properties ConnectorMappingResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConnectorMappingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMappingType)(nil)).Elem()
-}
-
-func (i ConnectorMappingTypeArgs) ToConnectorMappingTypeOutput() ConnectorMappingTypeOutput {
-	return i.ToConnectorMappingTypeOutputWithContext(context.Background())
-}
-
-func (i ConnectorMappingTypeArgs) ToConnectorMappingTypeOutputWithContext(ctx context.Context) ConnectorMappingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMappingTypeOutput)
-}
-
-// The connector mapping resource format.
-type ConnectorMappingTypeOutput struct{ *pulumi.OutputState }
-
-func (ConnectorMappingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMappingType)(nil)).Elem()
-}
-
-func (o ConnectorMappingTypeOutput) ToConnectorMappingTypeOutput() ConnectorMappingTypeOutput {
-	return o
-}
-
-func (o ConnectorMappingTypeOutput) ToConnectorMappingTypeOutputWithContext(ctx context.Context) ConnectorMappingTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ConnectorMappingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorMappingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The connector mapping definition.
-func (o ConnectorMappingTypeOutput) Properties() ConnectorMappingResponseOutput {
-	return o.ApplyT(func(v ConnectorMappingType) ConnectorMappingResponse { return v.Properties }).(ConnectorMappingResponseOutput)
-}
-
-// Resource type.
-func (o ConnectorMappingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConnectorMappingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Connector mapping property availability.
 type ConnectorMappingAvailability struct {
 	// The frequency to update.
@@ -3287,61 +3141,6 @@ func (o ConnectorResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The data source precedence is a way to know the precedence of each data source.
-type DataSourcePrecedence struct {
-	// the precedence value.
-	Precedence *int `pulumi:"precedence"`
-}
-
-// DataSourcePrecedenceInput is an input type that accepts DataSourcePrecedenceArgs and DataSourcePrecedenceOutput values.
-// You can construct a concrete instance of `DataSourcePrecedenceInput` via:
-//
-//          DataSourcePrecedenceArgs{...}
-type DataSourcePrecedenceInput interface {
-	pulumi.Input
-
-	ToDataSourcePrecedenceOutput() DataSourcePrecedenceOutput
-	ToDataSourcePrecedenceOutputWithContext(context.Context) DataSourcePrecedenceOutput
-}
-
-// The data source precedence is a way to know the precedence of each data source.
-type DataSourcePrecedenceArgs struct {
-	// the precedence value.
-	Precedence pulumi.IntPtrInput `pulumi:"precedence"`
-}
-
-func (DataSourcePrecedenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourcePrecedence)(nil)).Elem()
-}
-
-func (i DataSourcePrecedenceArgs) ToDataSourcePrecedenceOutput() DataSourcePrecedenceOutput {
-	return i.ToDataSourcePrecedenceOutputWithContext(context.Background())
-}
-
-func (i DataSourcePrecedenceArgs) ToDataSourcePrecedenceOutputWithContext(ctx context.Context) DataSourcePrecedenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourcePrecedenceOutput)
-}
-
-// The data source precedence is a way to know the precedence of each data source.
-type DataSourcePrecedenceOutput struct{ *pulumi.OutputState }
-
-func (DataSourcePrecedenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourcePrecedence)(nil)).Elem()
-}
-
-func (o DataSourcePrecedenceOutput) ToDataSourcePrecedenceOutput() DataSourcePrecedenceOutput {
-	return o
-}
-
-func (o DataSourcePrecedenceOutput) ToDataSourcePrecedenceOutputWithContext(ctx context.Context) DataSourcePrecedenceOutput {
-	return o
-}
-
-// the precedence value.
-func (o DataSourcePrecedenceOutput) Precedence() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DataSourcePrecedence) *int { return v.Precedence }).(pulumi.IntPtrOutput)
-}
-
-// The data source precedence is a way to know the precedence of each data source.
 type DataSourcePrecedenceResponse struct {
 	// Data Source is a way for us to know the source of instances. A single type can have data coming in from multiple places. In activities we use this to determine precedence rules.
 	DataSource *DataSourceResponse `pulumi:"dataSource"`
@@ -3658,97 +3457,6 @@ func (o DataSourceResponsePtrOutput) Status() pulumi.StringPtrOutput {
 		}
 		return &v.Status
 	}).(pulumi.StringPtrOutput)
-}
-
-// Hub resource.
-type HubType struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Properties of hub.
-	Properties HubPropertiesFormatResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HubTypeInput is an input type that accepts HubTypeArgs and HubTypeOutput values.
-// You can construct a concrete instance of `HubTypeInput` via:
-//
-//          HubTypeArgs{...}
-type HubTypeInput interface {
-	pulumi.Input
-
-	ToHubTypeOutput() HubTypeOutput
-	ToHubTypeOutputWithContext(context.Context) HubTypeOutput
-}
-
-// Hub resource.
-type HubTypeArgs struct {
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of hub.
-	Properties HubPropertiesFormatResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HubTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubType)(nil)).Elem()
-}
-
-func (i HubTypeArgs) ToHubTypeOutput() HubTypeOutput {
-	return i.ToHubTypeOutputWithContext(context.Background())
-}
-
-func (i HubTypeArgs) ToHubTypeOutputWithContext(ctx context.Context) HubTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HubTypeOutput)
-}
-
-// Hub resource.
-type HubTypeOutput struct{ *pulumi.OutputState }
-
-func (HubTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubType)(nil)).Elem()
-}
-
-func (o HubTypeOutput) ToHubTypeOutput() HubTypeOutput {
-	return o
-}
-
-func (o HubTypeOutput) ToHubTypeOutputWithContext(ctx context.Context) HubTypeOutput {
-	return o
-}
-
-// Resource location.
-func (o HubTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HubType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name.
-func (o HubTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HubType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of hub.
-func (o HubTypeOutput) Properties() HubPropertiesFormatResponseOutput {
-	return o.ApplyT(func(v HubType) HubPropertiesFormatResponse { return v.Properties }).(HubPropertiesFormatResponseOutput)
-}
-
-// Resource tags.
-func (o HubTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v HubType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o HubTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HubType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Hub billing info.
@@ -4303,79 +4011,6 @@ func (o HubPropertiesFormatResponsePtrOutput) WebEndpoint() pulumi.StringPtrOutp
 		}
 		return &v.WebEndpoint
 	}).(pulumi.StringPtrOutput)
-}
-
-// The KPI resource format.
-type KpiType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Defines the KPI Threshold limits.
-	Properties KpiDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// KpiTypeInput is an input type that accepts KpiTypeArgs and KpiTypeOutput values.
-// You can construct a concrete instance of `KpiTypeInput` via:
-//
-//          KpiTypeArgs{...}
-type KpiTypeInput interface {
-	pulumi.Input
-
-	ToKpiTypeOutput() KpiTypeOutput
-	ToKpiTypeOutputWithContext(context.Context) KpiTypeOutput
-}
-
-// The KPI resource format.
-type KpiTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Defines the KPI Threshold limits.
-	Properties KpiDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (KpiTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiType)(nil)).Elem()
-}
-
-func (i KpiTypeArgs) ToKpiTypeOutput() KpiTypeOutput {
-	return i.ToKpiTypeOutputWithContext(context.Background())
-}
-
-func (i KpiTypeArgs) ToKpiTypeOutputWithContext(ctx context.Context) KpiTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiTypeOutput)
-}
-
-// The KPI resource format.
-type KpiTypeOutput struct{ *pulumi.OutputState }
-
-func (KpiTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiType)(nil)).Elem()
-}
-
-func (o KpiTypeOutput) ToKpiTypeOutput() KpiTypeOutput {
-	return o
-}
-
-func (o KpiTypeOutput) ToKpiTypeOutputWithContext(ctx context.Context) KpiTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o KpiTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v KpiType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Defines the KPI Threshold limits.
-func (o KpiTypeOutput) Properties() KpiDefinitionResponseOutput {
-	return o.ApplyT(func(v KpiType) KpiDefinitionResponse { return v.Properties }).(KpiDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o KpiTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v KpiType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The KPI alias.
@@ -5293,79 +4928,6 @@ func (o KpiExtractResponseArrayOutput) Index(i pulumi.IntInput) KpiExtractRespon
 }
 
 // The KPI GroupBy field metadata.
-type KpiGroupByMetadata struct {
-	// The display name.
-	DisplayName map[string]string `pulumi:"displayName"`
-	// The name of the field.
-	FieldName *string `pulumi:"fieldName"`
-	// The type of the field.
-	FieldType *string `pulumi:"fieldType"`
-}
-
-// KpiGroupByMetadataInput is an input type that accepts KpiGroupByMetadataArgs and KpiGroupByMetadataOutput values.
-// You can construct a concrete instance of `KpiGroupByMetadataInput` via:
-//
-//          KpiGroupByMetadataArgs{...}
-type KpiGroupByMetadataInput interface {
-	pulumi.Input
-
-	ToKpiGroupByMetadataOutput() KpiGroupByMetadataOutput
-	ToKpiGroupByMetadataOutputWithContext(context.Context) KpiGroupByMetadataOutput
-}
-
-// The KPI GroupBy field metadata.
-type KpiGroupByMetadataArgs struct {
-	// The display name.
-	DisplayName pulumi.StringMapInput `pulumi:"displayName"`
-	// The name of the field.
-	FieldName pulumi.StringPtrInput `pulumi:"fieldName"`
-	// The type of the field.
-	FieldType pulumi.StringPtrInput `pulumi:"fieldType"`
-}
-
-func (KpiGroupByMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiGroupByMetadata)(nil)).Elem()
-}
-
-func (i KpiGroupByMetadataArgs) ToKpiGroupByMetadataOutput() KpiGroupByMetadataOutput {
-	return i.ToKpiGroupByMetadataOutputWithContext(context.Background())
-}
-
-func (i KpiGroupByMetadataArgs) ToKpiGroupByMetadataOutputWithContext(ctx context.Context) KpiGroupByMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiGroupByMetadataOutput)
-}
-
-// The KPI GroupBy field metadata.
-type KpiGroupByMetadataOutput struct{ *pulumi.OutputState }
-
-func (KpiGroupByMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiGroupByMetadata)(nil)).Elem()
-}
-
-func (o KpiGroupByMetadataOutput) ToKpiGroupByMetadataOutput() KpiGroupByMetadataOutput {
-	return o
-}
-
-func (o KpiGroupByMetadataOutput) ToKpiGroupByMetadataOutputWithContext(ctx context.Context) KpiGroupByMetadataOutput {
-	return o
-}
-
-// The display name.
-func (o KpiGroupByMetadataOutput) DisplayName() pulumi.StringMapOutput {
-	return o.ApplyT(func(v KpiGroupByMetadata) map[string]string { return v.DisplayName }).(pulumi.StringMapOutput)
-}
-
-// The name of the field.
-func (o KpiGroupByMetadataOutput) FieldName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KpiGroupByMetadata) *string { return v.FieldName }).(pulumi.StringPtrOutput)
-}
-
-// The type of the field.
-func (o KpiGroupByMetadataOutput) FieldType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KpiGroupByMetadata) *string { return v.FieldType }).(pulumi.StringPtrOutput)
-}
-
-// The KPI GroupBy field metadata.
 type KpiGroupByMetadataResponse struct {
 	// The display name.
 	DisplayName map[string]string `pulumi:"displayName"`
@@ -5481,61 +5043,6 @@ func (o KpiGroupByMetadataResponseArrayOutput) Index(i pulumi.IntInput) KpiGroup
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KpiGroupByMetadataResponse {
 		return vs[0].([]KpiGroupByMetadataResponse)[vs[1].(int)]
 	}).(KpiGroupByMetadataResponseOutput)
-}
-
-// The KPI participant profile metadata.
-type KpiParticipantProfilesMetadata struct {
-	// Name of the type.
-	TypeName string `pulumi:"typeName"`
-}
-
-// KpiParticipantProfilesMetadataInput is an input type that accepts KpiParticipantProfilesMetadataArgs and KpiParticipantProfilesMetadataOutput values.
-// You can construct a concrete instance of `KpiParticipantProfilesMetadataInput` via:
-//
-//          KpiParticipantProfilesMetadataArgs{...}
-type KpiParticipantProfilesMetadataInput interface {
-	pulumi.Input
-
-	ToKpiParticipantProfilesMetadataOutput() KpiParticipantProfilesMetadataOutput
-	ToKpiParticipantProfilesMetadataOutputWithContext(context.Context) KpiParticipantProfilesMetadataOutput
-}
-
-// The KPI participant profile metadata.
-type KpiParticipantProfilesMetadataArgs struct {
-	// Name of the type.
-	TypeName pulumi.StringInput `pulumi:"typeName"`
-}
-
-func (KpiParticipantProfilesMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiParticipantProfilesMetadata)(nil)).Elem()
-}
-
-func (i KpiParticipantProfilesMetadataArgs) ToKpiParticipantProfilesMetadataOutput() KpiParticipantProfilesMetadataOutput {
-	return i.ToKpiParticipantProfilesMetadataOutputWithContext(context.Background())
-}
-
-func (i KpiParticipantProfilesMetadataArgs) ToKpiParticipantProfilesMetadataOutputWithContext(ctx context.Context) KpiParticipantProfilesMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KpiParticipantProfilesMetadataOutput)
-}
-
-// The KPI participant profile metadata.
-type KpiParticipantProfilesMetadataOutput struct{ *pulumi.OutputState }
-
-func (KpiParticipantProfilesMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KpiParticipantProfilesMetadata)(nil)).Elem()
-}
-
-func (o KpiParticipantProfilesMetadataOutput) ToKpiParticipantProfilesMetadataOutput() KpiParticipantProfilesMetadataOutput {
-	return o
-}
-
-func (o KpiParticipantProfilesMetadataOutput) ToKpiParticipantProfilesMetadataOutputWithContext(ctx context.Context) KpiParticipantProfilesMetadataOutput {
-	return o
-}
-
-// Name of the type.
-func (o KpiParticipantProfilesMetadataOutput) TypeName() pulumi.StringOutput {
-	return o.ApplyT(func(v KpiParticipantProfilesMetadata) string { return v.TypeName }).(pulumi.StringOutput)
 }
 
 // The KPI participant profile metadata.
@@ -5980,79 +5487,6 @@ func (o KpiThresholdsResponsePtrOutput) UpperLimit() pulumi.Float64PtrOutput {
 		}
 		return &v.UpperLimit
 	}).(pulumi.Float64PtrOutput)
-}
-
-// The link resource format.
-type LinkType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The definition of Link.
-	Properties LinkDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// LinkTypeInput is an input type that accepts LinkTypeArgs and LinkTypeOutput values.
-// You can construct a concrete instance of `LinkTypeInput` via:
-//
-//          LinkTypeArgs{...}
-type LinkTypeInput interface {
-	pulumi.Input
-
-	ToLinkTypeOutput() LinkTypeOutput
-	ToLinkTypeOutputWithContext(context.Context) LinkTypeOutput
-}
-
-// The link resource format.
-type LinkTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The definition of Link.
-	Properties LinkDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (LinkTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkType)(nil)).Elem()
-}
-
-func (i LinkTypeArgs) ToLinkTypeOutput() LinkTypeOutput {
-	return i.ToLinkTypeOutputWithContext(context.Background())
-}
-
-func (i LinkTypeArgs) ToLinkTypeOutputWithContext(ctx context.Context) LinkTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkTypeOutput)
-}
-
-// The link resource format.
-type LinkTypeOutput struct{ *pulumi.OutputState }
-
-func (LinkTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkType)(nil)).Elem()
-}
-
-func (o LinkTypeOutput) ToLinkTypeOutput() LinkTypeOutput {
-	return o
-}
-
-func (o LinkTypeOutput) ToLinkTypeOutputWithContext(ctx context.Context) LinkTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o LinkTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The definition of Link.
-func (o LinkTypeOutput) Properties() LinkDefinitionResponseOutput {
-	return o.ApplyT(func(v LinkType) LinkDefinitionResponse { return v.Properties }).(LinkDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o LinkTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The definition of Link.
@@ -6855,81 +6289,8 @@ func (o ParticipantPropertyReferenceResponseArrayOutput) Index(i pulumi.IntInput
 	}).(ParticipantPropertyReferenceResponseOutput)
 }
 
-// The prediction resource format.
-type PredictionType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The prediction definition.
-	Properties PredictionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// PredictionTypeInput is an input type that accepts PredictionTypeArgs and PredictionTypeOutput values.
-// You can construct a concrete instance of `PredictionTypeInput` via:
-//
-//          PredictionTypeArgs{...}
-type PredictionTypeInput interface {
-	pulumi.Input
-
-	ToPredictionTypeOutput() PredictionTypeOutput
-	ToPredictionTypeOutputWithContext(context.Context) PredictionTypeOutput
-}
-
-// The prediction resource format.
-type PredictionTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The prediction definition.
-	Properties PredictionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PredictionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PredictionType)(nil)).Elem()
-}
-
-func (i PredictionTypeArgs) ToPredictionTypeOutput() PredictionTypeOutput {
-	return i.ToPredictionTypeOutputWithContext(context.Background())
-}
-
-func (i PredictionTypeArgs) ToPredictionTypeOutputWithContext(ctx context.Context) PredictionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionTypeOutput)
-}
-
-// The prediction resource format.
-type PredictionTypeOutput struct{ *pulumi.OutputState }
-
-func (PredictionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PredictionType)(nil)).Elem()
-}
-
-func (o PredictionTypeOutput) ToPredictionTypeOutput() PredictionTypeOutput {
-	return o
-}
-
-func (o PredictionTypeOutput) ToPredictionTypeOutputWithContext(ctx context.Context) PredictionTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o PredictionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PredictionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The prediction definition.
-func (o PredictionTypeOutput) Properties() PredictionResponseOutput {
-	return o.ApplyT(func(v PredictionType) PredictionResponse { return v.Properties }).(PredictionResponseOutput)
-}
-
-// Resource type.
-func (o PredictionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PredictionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The definition of a prediction grade.
-type PredictionProperties struct {
+type PredictionGrades struct {
 	// Name of the grade.
 	GradeName *string `pulumi:"gradeName"`
 	// Maximum score threshold.
@@ -6938,19 +6299,19 @@ type PredictionProperties struct {
 	MinScoreThreshold *int `pulumi:"minScoreThreshold"`
 }
 
-// PredictionPropertiesInput is an input type that accepts PredictionPropertiesArgs and PredictionPropertiesOutput values.
-// You can construct a concrete instance of `PredictionPropertiesInput` via:
+// PredictionGradesInput is an input type that accepts PredictionGradesArgs and PredictionGradesOutput values.
+// You can construct a concrete instance of `PredictionGradesInput` via:
 //
-//          PredictionPropertiesArgs{...}
-type PredictionPropertiesInput interface {
+//          PredictionGradesArgs{...}
+type PredictionGradesInput interface {
 	pulumi.Input
 
-	ToPredictionPropertiesOutput() PredictionPropertiesOutput
-	ToPredictionPropertiesOutputWithContext(context.Context) PredictionPropertiesOutput
+	ToPredictionGradesOutput() PredictionGradesOutput
+	ToPredictionGradesOutputWithContext(context.Context) PredictionGradesOutput
 }
 
 // The definition of a prediction grade.
-type PredictionPropertiesArgs struct {
+type PredictionGradesArgs struct {
 	// Name of the grade.
 	GradeName pulumi.StringPtrInput `pulumi:"gradeName"`
 	// Maximum score threshold.
@@ -6959,190 +6320,263 @@ type PredictionPropertiesArgs struct {
 	MinScoreThreshold pulumi.IntPtrInput `pulumi:"minScoreThreshold"`
 }
 
-func (PredictionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PredictionProperties)(nil)).Elem()
+func (PredictionGradesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionGrades)(nil)).Elem()
 }
 
-func (i PredictionPropertiesArgs) ToPredictionPropertiesOutput() PredictionPropertiesOutput {
-	return i.ToPredictionPropertiesOutputWithContext(context.Background())
+func (i PredictionGradesArgs) ToPredictionGradesOutput() PredictionGradesOutput {
+	return i.ToPredictionGradesOutputWithContext(context.Background())
 }
 
-func (i PredictionPropertiesArgs) ToPredictionPropertiesOutputWithContext(ctx context.Context) PredictionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionPropertiesOutput)
+func (i PredictionGradesArgs) ToPredictionGradesOutputWithContext(ctx context.Context) PredictionGradesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionGradesOutput)
 }
 
-func (i PredictionPropertiesArgs) ToPredictionPropertiesPtrOutput() PredictionPropertiesPtrOutput {
-	return i.ToPredictionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PredictionPropertiesArgs) ToPredictionPropertiesPtrOutputWithContext(ctx context.Context) PredictionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionPropertiesOutput).ToPredictionPropertiesPtrOutputWithContext(ctx)
-}
-
-// PredictionPropertiesPtrInput is an input type that accepts PredictionPropertiesArgs, PredictionPropertiesPtr and PredictionPropertiesPtrOutput values.
-// You can construct a concrete instance of `PredictionPropertiesPtrInput` via:
+// PredictionGradesArrayInput is an input type that accepts PredictionGradesArray and PredictionGradesArrayOutput values.
+// You can construct a concrete instance of `PredictionGradesArrayInput` via:
 //
-//          PredictionPropertiesArgs{...}
+//          PredictionGradesArray{ PredictionGradesArgs{...} }
+type PredictionGradesArrayInput interface {
+	pulumi.Input
+
+	ToPredictionGradesArrayOutput() PredictionGradesArrayOutput
+	ToPredictionGradesArrayOutputWithContext(context.Context) PredictionGradesArrayOutput
+}
+
+type PredictionGradesArray []PredictionGradesInput
+
+func (PredictionGradesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PredictionGrades)(nil)).Elem()
+}
+
+func (i PredictionGradesArray) ToPredictionGradesArrayOutput() PredictionGradesArrayOutput {
+	return i.ToPredictionGradesArrayOutputWithContext(context.Background())
+}
+
+func (i PredictionGradesArray) ToPredictionGradesArrayOutputWithContext(ctx context.Context) PredictionGradesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionGradesArrayOutput)
+}
+
+// The definition of a prediction grade.
+type PredictionGradesOutput struct{ *pulumi.OutputState }
+
+func (PredictionGradesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionGrades)(nil)).Elem()
+}
+
+func (o PredictionGradesOutput) ToPredictionGradesOutput() PredictionGradesOutput {
+	return o
+}
+
+func (o PredictionGradesOutput) ToPredictionGradesOutputWithContext(ctx context.Context) PredictionGradesOutput {
+	return o
+}
+
+// Name of the grade.
+func (o PredictionGradesOutput) GradeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PredictionGrades) *string { return v.GradeName }).(pulumi.StringPtrOutput)
+}
+
+// Maximum score threshold.
+func (o PredictionGradesOutput) MaxScoreThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PredictionGrades) *int { return v.MaxScoreThreshold }).(pulumi.IntPtrOutput)
+}
+
+// Minimum score threshold.
+func (o PredictionGradesOutput) MinScoreThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PredictionGrades) *int { return v.MinScoreThreshold }).(pulumi.IntPtrOutput)
+}
+
+type PredictionGradesArrayOutput struct{ *pulumi.OutputState }
+
+func (PredictionGradesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PredictionGrades)(nil)).Elem()
+}
+
+func (o PredictionGradesArrayOutput) ToPredictionGradesArrayOutput() PredictionGradesArrayOutput {
+	return o
+}
+
+func (o PredictionGradesArrayOutput) ToPredictionGradesArrayOutputWithContext(ctx context.Context) PredictionGradesArrayOutput {
+	return o
+}
+
+func (o PredictionGradesArrayOutput) Index(i pulumi.IntInput) PredictionGradesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PredictionGrades {
+		return vs[0].([]PredictionGrades)[vs[1].(int)]
+	}).(PredictionGradesOutput)
+}
+
+// Definition of the link mapping of prediction.
+type PredictionMappings struct {
+	// The grade of the link mapping.
+	Grade string `pulumi:"grade"`
+	// The reason of the link mapping.
+	Reason string `pulumi:"reason"`
+	// The score of the link mapping.
+	Score string `pulumi:"score"`
+}
+
+// PredictionMappingsInput is an input type that accepts PredictionMappingsArgs and PredictionMappingsOutput values.
+// You can construct a concrete instance of `PredictionMappingsInput` via:
+//
+//          PredictionMappingsArgs{...}
+type PredictionMappingsInput interface {
+	pulumi.Input
+
+	ToPredictionMappingsOutput() PredictionMappingsOutput
+	ToPredictionMappingsOutputWithContext(context.Context) PredictionMappingsOutput
+}
+
+// Definition of the link mapping of prediction.
+type PredictionMappingsArgs struct {
+	// The grade of the link mapping.
+	Grade pulumi.StringInput `pulumi:"grade"`
+	// The reason of the link mapping.
+	Reason pulumi.StringInput `pulumi:"reason"`
+	// The score of the link mapping.
+	Score pulumi.StringInput `pulumi:"score"`
+}
+
+func (PredictionMappingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionMappings)(nil)).Elem()
+}
+
+func (i PredictionMappingsArgs) ToPredictionMappingsOutput() PredictionMappingsOutput {
+	return i.ToPredictionMappingsOutputWithContext(context.Background())
+}
+
+func (i PredictionMappingsArgs) ToPredictionMappingsOutputWithContext(ctx context.Context) PredictionMappingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionMappingsOutput)
+}
+
+func (i PredictionMappingsArgs) ToPredictionMappingsPtrOutput() PredictionMappingsPtrOutput {
+	return i.ToPredictionMappingsPtrOutputWithContext(context.Background())
+}
+
+func (i PredictionMappingsArgs) ToPredictionMappingsPtrOutputWithContext(ctx context.Context) PredictionMappingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionMappingsOutput).ToPredictionMappingsPtrOutputWithContext(ctx)
+}
+
+// PredictionMappingsPtrInput is an input type that accepts PredictionMappingsArgs, PredictionMappingsPtr and PredictionMappingsPtrOutput values.
+// You can construct a concrete instance of `PredictionMappingsPtrInput` via:
+//
+//          PredictionMappingsArgs{...}
 //
 //  or:
 //
 //          nil
-type PredictionPropertiesPtrInput interface {
+type PredictionMappingsPtrInput interface {
 	pulumi.Input
 
-	ToPredictionPropertiesPtrOutput() PredictionPropertiesPtrOutput
-	ToPredictionPropertiesPtrOutputWithContext(context.Context) PredictionPropertiesPtrOutput
+	ToPredictionMappingsPtrOutput() PredictionMappingsPtrOutput
+	ToPredictionMappingsPtrOutputWithContext(context.Context) PredictionMappingsPtrOutput
 }
 
-type predictionPropertiesPtrType PredictionPropertiesArgs
+type predictionMappingsPtrType PredictionMappingsArgs
 
-func PredictionPropertiesPtr(v *PredictionPropertiesArgs) PredictionPropertiesPtrInput {
-	return (*predictionPropertiesPtrType)(v)
+func PredictionMappingsPtr(v *PredictionMappingsArgs) PredictionMappingsPtrInput {
+	return (*predictionMappingsPtrType)(v)
 }
 
-func (*predictionPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PredictionProperties)(nil)).Elem()
+func (*predictionMappingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PredictionMappings)(nil)).Elem()
 }
 
-func (i *predictionPropertiesPtrType) ToPredictionPropertiesPtrOutput() PredictionPropertiesPtrOutput {
-	return i.ToPredictionPropertiesPtrOutputWithContext(context.Background())
+func (i *predictionMappingsPtrType) ToPredictionMappingsPtrOutput() PredictionMappingsPtrOutput {
+	return i.ToPredictionMappingsPtrOutputWithContext(context.Background())
 }
 
-func (i *predictionPropertiesPtrType) ToPredictionPropertiesPtrOutputWithContext(ctx context.Context) PredictionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionPropertiesPtrOutput)
+func (i *predictionMappingsPtrType) ToPredictionMappingsPtrOutputWithContext(ctx context.Context) PredictionMappingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionMappingsPtrOutput)
 }
 
-// PredictionPropertiesArrayInput is an input type that accepts PredictionPropertiesArray and PredictionPropertiesArrayOutput values.
-// You can construct a concrete instance of `PredictionPropertiesArrayInput` via:
-//
-//          PredictionPropertiesArray{ PredictionPropertiesArgs{...} }
-type PredictionPropertiesArrayInput interface {
-	pulumi.Input
+// Definition of the link mapping of prediction.
+type PredictionMappingsOutput struct{ *pulumi.OutputState }
 
-	ToPredictionPropertiesArrayOutput() PredictionPropertiesArrayOutput
-	ToPredictionPropertiesArrayOutputWithContext(context.Context) PredictionPropertiesArrayOutput
+func (PredictionMappingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionMappings)(nil)).Elem()
 }
 
-type PredictionPropertiesArray []PredictionPropertiesInput
-
-func (PredictionPropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PredictionProperties)(nil)).Elem()
-}
-
-func (i PredictionPropertiesArray) ToPredictionPropertiesArrayOutput() PredictionPropertiesArrayOutput {
-	return i.ToPredictionPropertiesArrayOutputWithContext(context.Background())
-}
-
-func (i PredictionPropertiesArray) ToPredictionPropertiesArrayOutputWithContext(ctx context.Context) PredictionPropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionPropertiesArrayOutput)
-}
-
-// The definition of a prediction grade.
-type PredictionPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PredictionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PredictionProperties)(nil)).Elem()
-}
-
-func (o PredictionPropertiesOutput) ToPredictionPropertiesOutput() PredictionPropertiesOutput {
+func (o PredictionMappingsOutput) ToPredictionMappingsOutput() PredictionMappingsOutput {
 	return o
 }
 
-func (o PredictionPropertiesOutput) ToPredictionPropertiesOutputWithContext(ctx context.Context) PredictionPropertiesOutput {
+func (o PredictionMappingsOutput) ToPredictionMappingsOutputWithContext(ctx context.Context) PredictionMappingsOutput {
 	return o
 }
 
-func (o PredictionPropertiesOutput) ToPredictionPropertiesPtrOutput() PredictionPropertiesPtrOutput {
-	return o.ToPredictionPropertiesPtrOutputWithContext(context.Background())
+func (o PredictionMappingsOutput) ToPredictionMappingsPtrOutput() PredictionMappingsPtrOutput {
+	return o.ToPredictionMappingsPtrOutputWithContext(context.Background())
 }
 
-func (o PredictionPropertiesOutput) ToPredictionPropertiesPtrOutputWithContext(ctx context.Context) PredictionPropertiesPtrOutput {
-	return o.ApplyT(func(v PredictionProperties) *PredictionProperties {
+func (o PredictionMappingsOutput) ToPredictionMappingsPtrOutputWithContext(ctx context.Context) PredictionMappingsPtrOutput {
+	return o.ApplyT(func(v PredictionMappings) *PredictionMappings {
 		return &v
-	}).(PredictionPropertiesPtrOutput)
+	}).(PredictionMappingsPtrOutput)
 }
 
-// Name of the grade.
-func (o PredictionPropertiesOutput) GradeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PredictionProperties) *string { return v.GradeName }).(pulumi.StringPtrOutput)
+// The grade of the link mapping.
+func (o PredictionMappingsOutput) Grade() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionMappings) string { return v.Grade }).(pulumi.StringOutput)
 }
 
-// Maximum score threshold.
-func (o PredictionPropertiesOutput) MaxScoreThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PredictionProperties) *int { return v.MaxScoreThreshold }).(pulumi.IntPtrOutput)
+// The reason of the link mapping.
+func (o PredictionMappingsOutput) Reason() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionMappings) string { return v.Reason }).(pulumi.StringOutput)
 }
 
-// Minimum score threshold.
-func (o PredictionPropertiesOutput) MinScoreThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PredictionProperties) *int { return v.MinScoreThreshold }).(pulumi.IntPtrOutput)
+// The score of the link mapping.
+func (o PredictionMappingsOutput) Score() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionMappings) string { return v.Score }).(pulumi.StringOutput)
 }
 
-type PredictionPropertiesPtrOutput struct{ *pulumi.OutputState }
+type PredictionMappingsPtrOutput struct{ *pulumi.OutputState }
 
-func (PredictionPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PredictionProperties)(nil)).Elem()
+func (PredictionMappingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PredictionMappings)(nil)).Elem()
 }
 
-func (o PredictionPropertiesPtrOutput) ToPredictionPropertiesPtrOutput() PredictionPropertiesPtrOutput {
+func (o PredictionMappingsPtrOutput) ToPredictionMappingsPtrOutput() PredictionMappingsPtrOutput {
 	return o
 }
 
-func (o PredictionPropertiesPtrOutput) ToPredictionPropertiesPtrOutputWithContext(ctx context.Context) PredictionPropertiesPtrOutput {
+func (o PredictionMappingsPtrOutput) ToPredictionMappingsPtrOutputWithContext(ctx context.Context) PredictionMappingsPtrOutput {
 	return o
 }
 
-func (o PredictionPropertiesPtrOutput) Elem() PredictionPropertiesOutput {
-	return o.ApplyT(func(v *PredictionProperties) PredictionProperties { return *v }).(PredictionPropertiesOutput)
+func (o PredictionMappingsPtrOutput) Elem() PredictionMappingsOutput {
+	return o.ApplyT(func(v *PredictionMappings) PredictionMappings { return *v }).(PredictionMappingsOutput)
 }
 
-// Name of the grade.
-func (o PredictionPropertiesPtrOutput) GradeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PredictionProperties) *string {
+// The grade of the link mapping.
+func (o PredictionMappingsPtrOutput) Grade() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionMappings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.GradeName
+		return &v.Grade
 	}).(pulumi.StringPtrOutput)
 }
 
-// Maximum score threshold.
-func (o PredictionPropertiesPtrOutput) MaxScoreThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PredictionProperties) *int {
+// The reason of the link mapping.
+func (o PredictionMappingsPtrOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionMappings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.MaxScoreThreshold
-	}).(pulumi.IntPtrOutput)
+		return &v.Reason
+	}).(pulumi.StringPtrOutput)
 }
 
-// Minimum score threshold.
-func (o PredictionPropertiesPtrOutput) MinScoreThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PredictionProperties) *int {
+// The score of the link mapping.
+func (o PredictionMappingsPtrOutput) Score() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionMappings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.MinScoreThreshold
-	}).(pulumi.IntPtrOutput)
-}
-
-type PredictionPropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (PredictionPropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PredictionProperties)(nil)).Elem()
-}
-
-func (o PredictionPropertiesArrayOutput) ToPredictionPropertiesArrayOutput() PredictionPropertiesArrayOutput {
-	return o
-}
-
-func (o PredictionPropertiesArrayOutput) ToPredictionPropertiesArrayOutputWithContext(ctx context.Context) PredictionPropertiesArrayOutput {
-	return o
-}
-
-func (o PredictionPropertiesArrayOutput) Index(i pulumi.IntInput) PredictionPropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PredictionProperties {
-		return vs[0].([]PredictionProperties)[vs[1].(int)]
-	}).(PredictionPropertiesOutput)
+		return &v.Score
+	}).(pulumi.StringPtrOutput)
 }
 
 // The prediction definition.
@@ -7154,7 +6588,7 @@ type PredictionResponse struct {
 	// Display name of the prediction.
 	DisplayName map[string]string `pulumi:"displayName"`
 	// The prediction grades.
-	Grades []PredictionResponseProperties `pulumi:"grades"`
+	Grades []PredictionResponseGrades `pulumi:"grades"`
 	// Interaction types involved in the prediction.
 	InvolvedInteractionTypes []string `pulumi:"involvedInteractionTypes"`
 	// KPI types involved in the prediction.
@@ -7162,7 +6596,7 @@ type PredictionResponse struct {
 	// Relationships involved in the prediction.
 	InvolvedRelationships []string `pulumi:"involvedRelationships"`
 	// Definition of the link mapping of prediction.
-	Mappings PredictionResponseProperties `pulumi:"mappings"`
+	Mappings PredictionResponseMappings `pulumi:"mappings"`
 	// Negative outcome expression.
 	NegativeOutcomeExpression string `pulumi:"negativeOutcomeExpression"`
 	// Positive outcome expression.
@@ -7178,7 +6612,7 @@ type PredictionResponse struct {
 	// Score label.
 	ScoreLabel string `pulumi:"scoreLabel"`
 	// System generated entities.
-	SystemGeneratedEntities PredictionResponseProperties `pulumi:"systemGeneratedEntities"`
+	SystemGeneratedEntities PredictionResponseSystemGeneratedEntities `pulumi:"systemGeneratedEntities"`
 	// The hub name.
 	TenantId string `pulumi:"tenantId"`
 }
@@ -7203,7 +6637,7 @@ type PredictionResponseArgs struct {
 	// Display name of the prediction.
 	DisplayName pulumi.StringMapInput `pulumi:"displayName"`
 	// The prediction grades.
-	Grades PredictionResponsePropertiesArrayInput `pulumi:"grades"`
+	Grades PredictionResponseGradesArrayInput `pulumi:"grades"`
 	// Interaction types involved in the prediction.
 	InvolvedInteractionTypes pulumi.StringArrayInput `pulumi:"involvedInteractionTypes"`
 	// KPI types involved in the prediction.
@@ -7211,7 +6645,7 @@ type PredictionResponseArgs struct {
 	// Relationships involved in the prediction.
 	InvolvedRelationships pulumi.StringArrayInput `pulumi:"involvedRelationships"`
 	// Definition of the link mapping of prediction.
-	Mappings PredictionResponsePropertiesInput `pulumi:"mappings"`
+	Mappings PredictionResponseMappingsInput `pulumi:"mappings"`
 	// Negative outcome expression.
 	NegativeOutcomeExpression pulumi.StringInput `pulumi:"negativeOutcomeExpression"`
 	// Positive outcome expression.
@@ -7227,7 +6661,7 @@ type PredictionResponseArgs struct {
 	// Score label.
 	ScoreLabel pulumi.StringInput `pulumi:"scoreLabel"`
 	// System generated entities.
-	SystemGeneratedEntities PredictionResponsePropertiesInput `pulumi:"systemGeneratedEntities"`
+	SystemGeneratedEntities PredictionResponseSystemGeneratedEntitiesInput `pulumi:"systemGeneratedEntities"`
 	// The hub name.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
@@ -7326,8 +6760,8 @@ func (o PredictionResponseOutput) DisplayName() pulumi.StringMapOutput {
 }
 
 // The prediction grades.
-func (o PredictionResponseOutput) Grades() PredictionResponsePropertiesArrayOutput {
-	return o.ApplyT(func(v PredictionResponse) []PredictionResponseProperties { return v.Grades }).(PredictionResponsePropertiesArrayOutput)
+func (o PredictionResponseOutput) Grades() PredictionResponseGradesArrayOutput {
+	return o.ApplyT(func(v PredictionResponse) []PredictionResponseGrades { return v.Grades }).(PredictionResponseGradesArrayOutput)
 }
 
 // Interaction types involved in the prediction.
@@ -7346,8 +6780,8 @@ func (o PredictionResponseOutput) InvolvedRelationships() pulumi.StringArrayOutp
 }
 
 // Definition of the link mapping of prediction.
-func (o PredictionResponseOutput) Mappings() PredictionResponsePropertiesOutput {
-	return o.ApplyT(func(v PredictionResponse) PredictionResponseProperties { return v.Mappings }).(PredictionResponsePropertiesOutput)
+func (o PredictionResponseOutput) Mappings() PredictionResponseMappingsOutput {
+	return o.ApplyT(func(v PredictionResponse) PredictionResponseMappings { return v.Mappings }).(PredictionResponseMappingsOutput)
 }
 
 // Negative outcome expression.
@@ -7386,8 +6820,8 @@ func (o PredictionResponseOutput) ScoreLabel() pulumi.StringOutput {
 }
 
 // System generated entities.
-func (o PredictionResponseOutput) SystemGeneratedEntities() PredictionResponsePropertiesOutput {
-	return o.ApplyT(func(v PredictionResponse) PredictionResponseProperties { return v.SystemGeneratedEntities }).(PredictionResponsePropertiesOutput)
+func (o PredictionResponseOutput) SystemGeneratedEntities() PredictionResponseSystemGeneratedEntitiesOutput {
+	return o.ApplyT(func(v PredictionResponse) PredictionResponseSystemGeneratedEntities { return v.SystemGeneratedEntities }).(PredictionResponseSystemGeneratedEntitiesOutput)
 }
 
 // The hub name.
@@ -7444,13 +6878,13 @@ func (o PredictionResponsePtrOutput) DisplayName() pulumi.StringMapOutput {
 }
 
 // The prediction grades.
-func (o PredictionResponsePtrOutput) Grades() PredictionResponsePropertiesArrayOutput {
-	return o.ApplyT(func(v *PredictionResponse) []PredictionResponseProperties {
+func (o PredictionResponsePtrOutput) Grades() PredictionResponseGradesArrayOutput {
+	return o.ApplyT(func(v *PredictionResponse) []PredictionResponseGrades {
 		if v == nil {
 			return nil
 		}
 		return v.Grades
-	}).(PredictionResponsePropertiesArrayOutput)
+	}).(PredictionResponseGradesArrayOutput)
 }
 
 // Interaction types involved in the prediction.
@@ -7484,13 +6918,13 @@ func (o PredictionResponsePtrOutput) InvolvedRelationships() pulumi.StringArrayO
 }
 
 // Definition of the link mapping of prediction.
-func (o PredictionResponsePtrOutput) Mappings() PredictionResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *PredictionResponse) *PredictionResponseProperties {
+func (o PredictionResponsePtrOutput) Mappings() PredictionResponseMappingsPtrOutput {
+	return o.ApplyT(func(v *PredictionResponse) *PredictionResponseMappings {
 		if v == nil {
 			return nil
 		}
 		return &v.Mappings
-	}).(PredictionResponsePropertiesPtrOutput)
+	}).(PredictionResponseMappingsPtrOutput)
 }
 
 // Negative outcome expression.
@@ -7564,13 +6998,13 @@ func (o PredictionResponsePtrOutput) ScoreLabel() pulumi.StringPtrOutput {
 }
 
 // System generated entities.
-func (o PredictionResponsePtrOutput) SystemGeneratedEntities() PredictionResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *PredictionResponse) *PredictionResponseProperties {
+func (o PredictionResponsePtrOutput) SystemGeneratedEntities() PredictionResponseSystemGeneratedEntitiesPtrOutput {
+	return o.ApplyT(func(v *PredictionResponse) *PredictionResponseSystemGeneratedEntities {
 		if v == nil {
 			return nil
 		}
 		return &v.SystemGeneratedEntities
-	}).(PredictionResponsePropertiesPtrOutput)
+	}).(PredictionResponseSystemGeneratedEntitiesPtrOutput)
 }
 
 // The hub name.
@@ -7584,7 +7018,7 @@ func (o PredictionResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // The definition of a prediction grade.
-type PredictionResponseProperties struct {
+type PredictionResponseGrades struct {
 	// Name of the grade.
 	GradeName *string `pulumi:"gradeName"`
 	// Maximum score threshold.
@@ -7593,19 +7027,19 @@ type PredictionResponseProperties struct {
 	MinScoreThreshold *int `pulumi:"minScoreThreshold"`
 }
 
-// PredictionResponsePropertiesInput is an input type that accepts PredictionResponsePropertiesArgs and PredictionResponsePropertiesOutput values.
-// You can construct a concrete instance of `PredictionResponsePropertiesInput` via:
+// PredictionResponseGradesInput is an input type that accepts PredictionResponseGradesArgs and PredictionResponseGradesOutput values.
+// You can construct a concrete instance of `PredictionResponseGradesInput` via:
 //
-//          PredictionResponsePropertiesArgs{...}
-type PredictionResponsePropertiesInput interface {
+//          PredictionResponseGradesArgs{...}
+type PredictionResponseGradesInput interface {
 	pulumi.Input
 
-	ToPredictionResponsePropertiesOutput() PredictionResponsePropertiesOutput
-	ToPredictionResponsePropertiesOutputWithContext(context.Context) PredictionResponsePropertiesOutput
+	ToPredictionResponseGradesOutput() PredictionResponseGradesOutput
+	ToPredictionResponseGradesOutputWithContext(context.Context) PredictionResponseGradesOutput
 }
 
 // The definition of a prediction grade.
-type PredictionResponsePropertiesArgs struct {
+type PredictionResponseGradesArgs struct {
 	// Name of the grade.
 	GradeName pulumi.StringPtrInput `pulumi:"gradeName"`
 	// Maximum score threshold.
@@ -7614,263 +7048,437 @@ type PredictionResponsePropertiesArgs struct {
 	MinScoreThreshold pulumi.IntPtrInput `pulumi:"minScoreThreshold"`
 }
 
-func (PredictionResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PredictionResponseProperties)(nil)).Elem()
+func (PredictionResponseGradesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionResponseGrades)(nil)).Elem()
 }
 
-func (i PredictionResponsePropertiesArgs) ToPredictionResponsePropertiesOutput() PredictionResponsePropertiesOutput {
-	return i.ToPredictionResponsePropertiesOutputWithContext(context.Background())
+func (i PredictionResponseGradesArgs) ToPredictionResponseGradesOutput() PredictionResponseGradesOutput {
+	return i.ToPredictionResponseGradesOutputWithContext(context.Background())
 }
 
-func (i PredictionResponsePropertiesArgs) ToPredictionResponsePropertiesOutputWithContext(ctx context.Context) PredictionResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponsePropertiesOutput)
+func (i PredictionResponseGradesArgs) ToPredictionResponseGradesOutputWithContext(ctx context.Context) PredictionResponseGradesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponseGradesOutput)
 }
 
-func (i PredictionResponsePropertiesArgs) ToPredictionResponsePropertiesPtrOutput() PredictionResponsePropertiesPtrOutput {
-	return i.ToPredictionResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PredictionResponsePropertiesArgs) ToPredictionResponsePropertiesPtrOutputWithContext(ctx context.Context) PredictionResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponsePropertiesOutput).ToPredictionResponsePropertiesPtrOutputWithContext(ctx)
-}
-
-// PredictionResponsePropertiesPtrInput is an input type that accepts PredictionResponsePropertiesArgs, PredictionResponsePropertiesPtr and PredictionResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `PredictionResponsePropertiesPtrInput` via:
+// PredictionResponseGradesArrayInput is an input type that accepts PredictionResponseGradesArray and PredictionResponseGradesArrayOutput values.
+// You can construct a concrete instance of `PredictionResponseGradesArrayInput` via:
 //
-//          PredictionResponsePropertiesArgs{...}
+//          PredictionResponseGradesArray{ PredictionResponseGradesArgs{...} }
+type PredictionResponseGradesArrayInput interface {
+	pulumi.Input
+
+	ToPredictionResponseGradesArrayOutput() PredictionResponseGradesArrayOutput
+	ToPredictionResponseGradesArrayOutputWithContext(context.Context) PredictionResponseGradesArrayOutput
+}
+
+type PredictionResponseGradesArray []PredictionResponseGradesInput
+
+func (PredictionResponseGradesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PredictionResponseGrades)(nil)).Elem()
+}
+
+func (i PredictionResponseGradesArray) ToPredictionResponseGradesArrayOutput() PredictionResponseGradesArrayOutput {
+	return i.ToPredictionResponseGradesArrayOutputWithContext(context.Background())
+}
+
+func (i PredictionResponseGradesArray) ToPredictionResponseGradesArrayOutputWithContext(ctx context.Context) PredictionResponseGradesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponseGradesArrayOutput)
+}
+
+// The definition of a prediction grade.
+type PredictionResponseGradesOutput struct{ *pulumi.OutputState }
+
+func (PredictionResponseGradesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionResponseGrades)(nil)).Elem()
+}
+
+func (o PredictionResponseGradesOutput) ToPredictionResponseGradesOutput() PredictionResponseGradesOutput {
+	return o
+}
+
+func (o PredictionResponseGradesOutput) ToPredictionResponseGradesOutputWithContext(ctx context.Context) PredictionResponseGradesOutput {
+	return o
+}
+
+// Name of the grade.
+func (o PredictionResponseGradesOutput) GradeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PredictionResponseGrades) *string { return v.GradeName }).(pulumi.StringPtrOutput)
+}
+
+// Maximum score threshold.
+func (o PredictionResponseGradesOutput) MaxScoreThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PredictionResponseGrades) *int { return v.MaxScoreThreshold }).(pulumi.IntPtrOutput)
+}
+
+// Minimum score threshold.
+func (o PredictionResponseGradesOutput) MinScoreThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PredictionResponseGrades) *int { return v.MinScoreThreshold }).(pulumi.IntPtrOutput)
+}
+
+type PredictionResponseGradesArrayOutput struct{ *pulumi.OutputState }
+
+func (PredictionResponseGradesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PredictionResponseGrades)(nil)).Elem()
+}
+
+func (o PredictionResponseGradesArrayOutput) ToPredictionResponseGradesArrayOutput() PredictionResponseGradesArrayOutput {
+	return o
+}
+
+func (o PredictionResponseGradesArrayOutput) ToPredictionResponseGradesArrayOutputWithContext(ctx context.Context) PredictionResponseGradesArrayOutput {
+	return o
+}
+
+func (o PredictionResponseGradesArrayOutput) Index(i pulumi.IntInput) PredictionResponseGradesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PredictionResponseGrades {
+		return vs[0].([]PredictionResponseGrades)[vs[1].(int)]
+	}).(PredictionResponseGradesOutput)
+}
+
+// Definition of the link mapping of prediction.
+type PredictionResponseMappings struct {
+	// The grade of the link mapping.
+	Grade string `pulumi:"grade"`
+	// The reason of the link mapping.
+	Reason string `pulumi:"reason"`
+	// The score of the link mapping.
+	Score string `pulumi:"score"`
+}
+
+// PredictionResponseMappingsInput is an input type that accepts PredictionResponseMappingsArgs and PredictionResponseMappingsOutput values.
+// You can construct a concrete instance of `PredictionResponseMappingsInput` via:
+//
+//          PredictionResponseMappingsArgs{...}
+type PredictionResponseMappingsInput interface {
+	pulumi.Input
+
+	ToPredictionResponseMappingsOutput() PredictionResponseMappingsOutput
+	ToPredictionResponseMappingsOutputWithContext(context.Context) PredictionResponseMappingsOutput
+}
+
+// Definition of the link mapping of prediction.
+type PredictionResponseMappingsArgs struct {
+	// The grade of the link mapping.
+	Grade pulumi.StringInput `pulumi:"grade"`
+	// The reason of the link mapping.
+	Reason pulumi.StringInput `pulumi:"reason"`
+	// The score of the link mapping.
+	Score pulumi.StringInput `pulumi:"score"`
+}
+
+func (PredictionResponseMappingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionResponseMappings)(nil)).Elem()
+}
+
+func (i PredictionResponseMappingsArgs) ToPredictionResponseMappingsOutput() PredictionResponseMappingsOutput {
+	return i.ToPredictionResponseMappingsOutputWithContext(context.Background())
+}
+
+func (i PredictionResponseMappingsArgs) ToPredictionResponseMappingsOutputWithContext(ctx context.Context) PredictionResponseMappingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponseMappingsOutput)
+}
+
+func (i PredictionResponseMappingsArgs) ToPredictionResponseMappingsPtrOutput() PredictionResponseMappingsPtrOutput {
+	return i.ToPredictionResponseMappingsPtrOutputWithContext(context.Background())
+}
+
+func (i PredictionResponseMappingsArgs) ToPredictionResponseMappingsPtrOutputWithContext(ctx context.Context) PredictionResponseMappingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponseMappingsOutput).ToPredictionResponseMappingsPtrOutputWithContext(ctx)
+}
+
+// PredictionResponseMappingsPtrInput is an input type that accepts PredictionResponseMappingsArgs, PredictionResponseMappingsPtr and PredictionResponseMappingsPtrOutput values.
+// You can construct a concrete instance of `PredictionResponseMappingsPtrInput` via:
+//
+//          PredictionResponseMappingsArgs{...}
 //
 //  or:
 //
 //          nil
-type PredictionResponsePropertiesPtrInput interface {
+type PredictionResponseMappingsPtrInput interface {
 	pulumi.Input
 
-	ToPredictionResponsePropertiesPtrOutput() PredictionResponsePropertiesPtrOutput
-	ToPredictionResponsePropertiesPtrOutputWithContext(context.Context) PredictionResponsePropertiesPtrOutput
+	ToPredictionResponseMappingsPtrOutput() PredictionResponseMappingsPtrOutput
+	ToPredictionResponseMappingsPtrOutputWithContext(context.Context) PredictionResponseMappingsPtrOutput
 }
 
-type predictionResponsePropertiesPtrType PredictionResponsePropertiesArgs
+type predictionResponseMappingsPtrType PredictionResponseMappingsArgs
 
-func PredictionResponsePropertiesPtr(v *PredictionResponsePropertiesArgs) PredictionResponsePropertiesPtrInput {
-	return (*predictionResponsePropertiesPtrType)(v)
+func PredictionResponseMappingsPtr(v *PredictionResponseMappingsArgs) PredictionResponseMappingsPtrInput {
+	return (*predictionResponseMappingsPtrType)(v)
 }
 
-func (*predictionResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PredictionResponseProperties)(nil)).Elem()
+func (*predictionResponseMappingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PredictionResponseMappings)(nil)).Elem()
 }
 
-func (i *predictionResponsePropertiesPtrType) ToPredictionResponsePropertiesPtrOutput() PredictionResponsePropertiesPtrOutput {
-	return i.ToPredictionResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *predictionResponseMappingsPtrType) ToPredictionResponseMappingsPtrOutput() PredictionResponseMappingsPtrOutput {
+	return i.ToPredictionResponseMappingsPtrOutputWithContext(context.Background())
 }
 
-func (i *predictionResponsePropertiesPtrType) ToPredictionResponsePropertiesPtrOutputWithContext(ctx context.Context) PredictionResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponsePropertiesPtrOutput)
+func (i *predictionResponseMappingsPtrType) ToPredictionResponseMappingsPtrOutputWithContext(ctx context.Context) PredictionResponseMappingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponseMappingsPtrOutput)
 }
 
-// PredictionResponsePropertiesArrayInput is an input type that accepts PredictionResponsePropertiesArray and PredictionResponsePropertiesArrayOutput values.
-// You can construct a concrete instance of `PredictionResponsePropertiesArrayInput` via:
-//
-//          PredictionResponsePropertiesArray{ PredictionResponsePropertiesArgs{...} }
-type PredictionResponsePropertiesArrayInput interface {
-	pulumi.Input
+// Definition of the link mapping of prediction.
+type PredictionResponseMappingsOutput struct{ *pulumi.OutputState }
 
-	ToPredictionResponsePropertiesArrayOutput() PredictionResponsePropertiesArrayOutput
-	ToPredictionResponsePropertiesArrayOutputWithContext(context.Context) PredictionResponsePropertiesArrayOutput
+func (PredictionResponseMappingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionResponseMappings)(nil)).Elem()
 }
 
-type PredictionResponsePropertiesArray []PredictionResponsePropertiesInput
-
-func (PredictionResponsePropertiesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PredictionResponseProperties)(nil)).Elem()
-}
-
-func (i PredictionResponsePropertiesArray) ToPredictionResponsePropertiesArrayOutput() PredictionResponsePropertiesArrayOutput {
-	return i.ToPredictionResponsePropertiesArrayOutputWithContext(context.Background())
-}
-
-func (i PredictionResponsePropertiesArray) ToPredictionResponsePropertiesArrayOutputWithContext(ctx context.Context) PredictionResponsePropertiesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponsePropertiesArrayOutput)
-}
-
-// The definition of a prediction grade.
-type PredictionResponsePropertiesOutput struct{ *pulumi.OutputState }
-
-func (PredictionResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PredictionResponseProperties)(nil)).Elem()
-}
-
-func (o PredictionResponsePropertiesOutput) ToPredictionResponsePropertiesOutput() PredictionResponsePropertiesOutput {
+func (o PredictionResponseMappingsOutput) ToPredictionResponseMappingsOutput() PredictionResponseMappingsOutput {
 	return o
 }
 
-func (o PredictionResponsePropertiesOutput) ToPredictionResponsePropertiesOutputWithContext(ctx context.Context) PredictionResponsePropertiesOutput {
+func (o PredictionResponseMappingsOutput) ToPredictionResponseMappingsOutputWithContext(ctx context.Context) PredictionResponseMappingsOutput {
 	return o
 }
 
-func (o PredictionResponsePropertiesOutput) ToPredictionResponsePropertiesPtrOutput() PredictionResponsePropertiesPtrOutput {
-	return o.ToPredictionResponsePropertiesPtrOutputWithContext(context.Background())
+func (o PredictionResponseMappingsOutput) ToPredictionResponseMappingsPtrOutput() PredictionResponseMappingsPtrOutput {
+	return o.ToPredictionResponseMappingsPtrOutputWithContext(context.Background())
 }
 
-func (o PredictionResponsePropertiesOutput) ToPredictionResponsePropertiesPtrOutputWithContext(ctx context.Context) PredictionResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v PredictionResponseProperties) *PredictionResponseProperties {
+func (o PredictionResponseMappingsOutput) ToPredictionResponseMappingsPtrOutputWithContext(ctx context.Context) PredictionResponseMappingsPtrOutput {
+	return o.ApplyT(func(v PredictionResponseMappings) *PredictionResponseMappings {
 		return &v
-	}).(PredictionResponsePropertiesPtrOutput)
+	}).(PredictionResponseMappingsPtrOutput)
 }
 
-// Name of the grade.
-func (o PredictionResponsePropertiesOutput) GradeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PredictionResponseProperties) *string { return v.GradeName }).(pulumi.StringPtrOutput)
+// The grade of the link mapping.
+func (o PredictionResponseMappingsOutput) Grade() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionResponseMappings) string { return v.Grade }).(pulumi.StringOutput)
 }
 
-// Maximum score threshold.
-func (o PredictionResponsePropertiesOutput) MaxScoreThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PredictionResponseProperties) *int { return v.MaxScoreThreshold }).(pulumi.IntPtrOutput)
+// The reason of the link mapping.
+func (o PredictionResponseMappingsOutput) Reason() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionResponseMappings) string { return v.Reason }).(pulumi.StringOutput)
 }
 
-// Minimum score threshold.
-func (o PredictionResponsePropertiesOutput) MinScoreThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PredictionResponseProperties) *int { return v.MinScoreThreshold }).(pulumi.IntPtrOutput)
+// The score of the link mapping.
+func (o PredictionResponseMappingsOutput) Score() pulumi.StringOutput {
+	return o.ApplyT(func(v PredictionResponseMappings) string { return v.Score }).(pulumi.StringOutput)
 }
 
-type PredictionResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type PredictionResponseMappingsPtrOutput struct{ *pulumi.OutputState }
 
-func (PredictionResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PredictionResponseProperties)(nil)).Elem()
+func (PredictionResponseMappingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PredictionResponseMappings)(nil)).Elem()
 }
 
-func (o PredictionResponsePropertiesPtrOutput) ToPredictionResponsePropertiesPtrOutput() PredictionResponsePropertiesPtrOutput {
+func (o PredictionResponseMappingsPtrOutput) ToPredictionResponseMappingsPtrOutput() PredictionResponseMappingsPtrOutput {
 	return o
 }
 
-func (o PredictionResponsePropertiesPtrOutput) ToPredictionResponsePropertiesPtrOutputWithContext(ctx context.Context) PredictionResponsePropertiesPtrOutput {
+func (o PredictionResponseMappingsPtrOutput) ToPredictionResponseMappingsPtrOutputWithContext(ctx context.Context) PredictionResponseMappingsPtrOutput {
 	return o
 }
 
-func (o PredictionResponsePropertiesPtrOutput) Elem() PredictionResponsePropertiesOutput {
-	return o.ApplyT(func(v *PredictionResponseProperties) PredictionResponseProperties { return *v }).(PredictionResponsePropertiesOutput)
+func (o PredictionResponseMappingsPtrOutput) Elem() PredictionResponseMappingsOutput {
+	return o.ApplyT(func(v *PredictionResponseMappings) PredictionResponseMappings { return *v }).(PredictionResponseMappingsOutput)
 }
 
-// Name of the grade.
-func (o PredictionResponsePropertiesPtrOutput) GradeName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PredictionResponseProperties) *string {
+// The grade of the link mapping.
+func (o PredictionResponseMappingsPtrOutput) Grade() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionResponseMappings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.GradeName
+		return &v.Grade
 	}).(pulumi.StringPtrOutput)
 }
 
-// Maximum score threshold.
-func (o PredictionResponsePropertiesPtrOutput) MaxScoreThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PredictionResponseProperties) *int {
+// The reason of the link mapping.
+func (o PredictionResponseMappingsPtrOutput) Reason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionResponseMappings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.MaxScoreThreshold
-	}).(pulumi.IntPtrOutput)
+		return &v.Reason
+	}).(pulumi.StringPtrOutput)
 }
 
-// Minimum score threshold.
-func (o PredictionResponsePropertiesPtrOutput) MinScoreThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PredictionResponseProperties) *int {
+// The score of the link mapping.
+func (o PredictionResponseMappingsPtrOutput) Score() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PredictionResponseMappings) *string {
 		if v == nil {
 			return nil
 		}
-		return v.MinScoreThreshold
-	}).(pulumi.IntPtrOutput)
+		return &v.Score
+	}).(pulumi.StringPtrOutput)
 }
 
-type PredictionResponsePropertiesArrayOutput struct{ *pulumi.OutputState }
-
-func (PredictionResponsePropertiesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PredictionResponseProperties)(nil)).Elem()
+// System generated entities.
+type PredictionResponseSystemGeneratedEntities struct {
+	// Generated interaction types.
+	GeneratedInteractionTypes []string `pulumi:"generatedInteractionTypes"`
+	// Generated KPIs.
+	GeneratedKpis map[string]string `pulumi:"generatedKpis"`
+	// Generated links.
+	GeneratedLinks []string `pulumi:"generatedLinks"`
 }
 
-func (o PredictionResponsePropertiesArrayOutput) ToPredictionResponsePropertiesArrayOutput() PredictionResponsePropertiesArrayOutput {
-	return o
-}
-
-func (o PredictionResponsePropertiesArrayOutput) ToPredictionResponsePropertiesArrayOutputWithContext(ctx context.Context) PredictionResponsePropertiesArrayOutput {
-	return o
-}
-
-func (o PredictionResponsePropertiesArrayOutput) Index(i pulumi.IntInput) PredictionResponsePropertiesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PredictionResponseProperties {
-		return vs[0].([]PredictionResponseProperties)[vs[1].(int)]
-	}).(PredictionResponsePropertiesOutput)
-}
-
-// The profile resource format.
-type ProfileType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The profile type definition.
-	Properties ProfileTypeDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ProfileTypeInput is an input type that accepts ProfileTypeArgs and ProfileTypeOutput values.
-// You can construct a concrete instance of `ProfileTypeInput` via:
+// PredictionResponseSystemGeneratedEntitiesInput is an input type that accepts PredictionResponseSystemGeneratedEntitiesArgs and PredictionResponseSystemGeneratedEntitiesOutput values.
+// You can construct a concrete instance of `PredictionResponseSystemGeneratedEntitiesInput` via:
 //
-//          ProfileTypeArgs{...}
-type ProfileTypeInput interface {
+//          PredictionResponseSystemGeneratedEntitiesArgs{...}
+type PredictionResponseSystemGeneratedEntitiesInput interface {
 	pulumi.Input
 
-	ToProfileTypeOutput() ProfileTypeOutput
-	ToProfileTypeOutputWithContext(context.Context) ProfileTypeOutput
+	ToPredictionResponseSystemGeneratedEntitiesOutput() PredictionResponseSystemGeneratedEntitiesOutput
+	ToPredictionResponseSystemGeneratedEntitiesOutputWithContext(context.Context) PredictionResponseSystemGeneratedEntitiesOutput
 }
 
-// The profile resource format.
-type ProfileTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The profile type definition.
-	Properties ProfileTypeDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+// System generated entities.
+type PredictionResponseSystemGeneratedEntitiesArgs struct {
+	// Generated interaction types.
+	GeneratedInteractionTypes pulumi.StringArrayInput `pulumi:"generatedInteractionTypes"`
+	// Generated KPIs.
+	GeneratedKpis pulumi.StringMapInput `pulumi:"generatedKpis"`
+	// Generated links.
+	GeneratedLinks pulumi.StringArrayInput `pulumi:"generatedLinks"`
 }
 
-func (ProfileTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileType)(nil)).Elem()
+func (PredictionResponseSystemGeneratedEntitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionResponseSystemGeneratedEntities)(nil)).Elem()
 }
 
-func (i ProfileTypeArgs) ToProfileTypeOutput() ProfileTypeOutput {
-	return i.ToProfileTypeOutputWithContext(context.Background())
+func (i PredictionResponseSystemGeneratedEntitiesArgs) ToPredictionResponseSystemGeneratedEntitiesOutput() PredictionResponseSystemGeneratedEntitiesOutput {
+	return i.ToPredictionResponseSystemGeneratedEntitiesOutputWithContext(context.Background())
 }
 
-func (i ProfileTypeArgs) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileTypeOutput)
+func (i PredictionResponseSystemGeneratedEntitiesArgs) ToPredictionResponseSystemGeneratedEntitiesOutputWithContext(ctx context.Context) PredictionResponseSystemGeneratedEntitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponseSystemGeneratedEntitiesOutput)
 }
 
-// The profile resource format.
-type ProfileTypeOutput struct{ *pulumi.OutputState }
-
-func (ProfileTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileType)(nil)).Elem()
+func (i PredictionResponseSystemGeneratedEntitiesArgs) ToPredictionResponseSystemGeneratedEntitiesPtrOutput() PredictionResponseSystemGeneratedEntitiesPtrOutput {
+	return i.ToPredictionResponseSystemGeneratedEntitiesPtrOutputWithContext(context.Background())
 }
 
-func (o ProfileTypeOutput) ToProfileTypeOutput() ProfileTypeOutput {
+func (i PredictionResponseSystemGeneratedEntitiesArgs) ToPredictionResponseSystemGeneratedEntitiesPtrOutputWithContext(ctx context.Context) PredictionResponseSystemGeneratedEntitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponseSystemGeneratedEntitiesOutput).ToPredictionResponseSystemGeneratedEntitiesPtrOutputWithContext(ctx)
+}
+
+// PredictionResponseSystemGeneratedEntitiesPtrInput is an input type that accepts PredictionResponseSystemGeneratedEntitiesArgs, PredictionResponseSystemGeneratedEntitiesPtr and PredictionResponseSystemGeneratedEntitiesPtrOutput values.
+// You can construct a concrete instance of `PredictionResponseSystemGeneratedEntitiesPtrInput` via:
+//
+//          PredictionResponseSystemGeneratedEntitiesArgs{...}
+//
+//  or:
+//
+//          nil
+type PredictionResponseSystemGeneratedEntitiesPtrInput interface {
+	pulumi.Input
+
+	ToPredictionResponseSystemGeneratedEntitiesPtrOutput() PredictionResponseSystemGeneratedEntitiesPtrOutput
+	ToPredictionResponseSystemGeneratedEntitiesPtrOutputWithContext(context.Context) PredictionResponseSystemGeneratedEntitiesPtrOutput
+}
+
+type predictionResponseSystemGeneratedEntitiesPtrType PredictionResponseSystemGeneratedEntitiesArgs
+
+func PredictionResponseSystemGeneratedEntitiesPtr(v *PredictionResponseSystemGeneratedEntitiesArgs) PredictionResponseSystemGeneratedEntitiesPtrInput {
+	return (*predictionResponseSystemGeneratedEntitiesPtrType)(v)
+}
+
+func (*predictionResponseSystemGeneratedEntitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PredictionResponseSystemGeneratedEntities)(nil)).Elem()
+}
+
+func (i *predictionResponseSystemGeneratedEntitiesPtrType) ToPredictionResponseSystemGeneratedEntitiesPtrOutput() PredictionResponseSystemGeneratedEntitiesPtrOutput {
+	return i.ToPredictionResponseSystemGeneratedEntitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *predictionResponseSystemGeneratedEntitiesPtrType) ToPredictionResponseSystemGeneratedEntitiesPtrOutputWithContext(ctx context.Context) PredictionResponseSystemGeneratedEntitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PredictionResponseSystemGeneratedEntitiesPtrOutput)
+}
+
+// System generated entities.
+type PredictionResponseSystemGeneratedEntitiesOutput struct{ *pulumi.OutputState }
+
+func (PredictionResponseSystemGeneratedEntitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PredictionResponseSystemGeneratedEntities)(nil)).Elem()
+}
+
+func (o PredictionResponseSystemGeneratedEntitiesOutput) ToPredictionResponseSystemGeneratedEntitiesOutput() PredictionResponseSystemGeneratedEntitiesOutput {
 	return o
 }
 
-func (o ProfileTypeOutput) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
+func (o PredictionResponseSystemGeneratedEntitiesOutput) ToPredictionResponseSystemGeneratedEntitiesOutputWithContext(ctx context.Context) PredictionResponseSystemGeneratedEntitiesOutput {
 	return o
 }
 
-// Resource name.
-func (o ProfileTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Name }).(pulumi.StringOutput)
+func (o PredictionResponseSystemGeneratedEntitiesOutput) ToPredictionResponseSystemGeneratedEntitiesPtrOutput() PredictionResponseSystemGeneratedEntitiesPtrOutput {
+	return o.ToPredictionResponseSystemGeneratedEntitiesPtrOutputWithContext(context.Background())
 }
 
-// The profile type definition.
-func (o ProfileTypeOutput) Properties() ProfileTypeDefinitionResponseOutput {
-	return o.ApplyT(func(v ProfileType) ProfileTypeDefinitionResponse { return v.Properties }).(ProfileTypeDefinitionResponseOutput)
+func (o PredictionResponseSystemGeneratedEntitiesOutput) ToPredictionResponseSystemGeneratedEntitiesPtrOutputWithContext(ctx context.Context) PredictionResponseSystemGeneratedEntitiesPtrOutput {
+	return o.ApplyT(func(v PredictionResponseSystemGeneratedEntities) *PredictionResponseSystemGeneratedEntities {
+		return &v
+	}).(PredictionResponseSystemGeneratedEntitiesPtrOutput)
 }
 
-// Resource type.
-func (o ProfileTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Type }).(pulumi.StringOutput)
+// Generated interaction types.
+func (o PredictionResponseSystemGeneratedEntitiesOutput) GeneratedInteractionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PredictionResponseSystemGeneratedEntities) []string { return v.GeneratedInteractionTypes }).(pulumi.StringArrayOutput)
+}
+
+// Generated KPIs.
+func (o PredictionResponseSystemGeneratedEntitiesOutput) GeneratedKpis() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PredictionResponseSystemGeneratedEntities) map[string]string { return v.GeneratedKpis }).(pulumi.StringMapOutput)
+}
+
+// Generated links.
+func (o PredictionResponseSystemGeneratedEntitiesOutput) GeneratedLinks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PredictionResponseSystemGeneratedEntities) []string { return v.GeneratedLinks }).(pulumi.StringArrayOutput)
+}
+
+type PredictionResponseSystemGeneratedEntitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PredictionResponseSystemGeneratedEntitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PredictionResponseSystemGeneratedEntities)(nil)).Elem()
+}
+
+func (o PredictionResponseSystemGeneratedEntitiesPtrOutput) ToPredictionResponseSystemGeneratedEntitiesPtrOutput() PredictionResponseSystemGeneratedEntitiesPtrOutput {
+	return o
+}
+
+func (o PredictionResponseSystemGeneratedEntitiesPtrOutput) ToPredictionResponseSystemGeneratedEntitiesPtrOutputWithContext(ctx context.Context) PredictionResponseSystemGeneratedEntitiesPtrOutput {
+	return o
+}
+
+func (o PredictionResponseSystemGeneratedEntitiesPtrOutput) Elem() PredictionResponseSystemGeneratedEntitiesOutput {
+	return o.ApplyT(func(v *PredictionResponseSystemGeneratedEntities) PredictionResponseSystemGeneratedEntities {
+		return *v
+	}).(PredictionResponseSystemGeneratedEntitiesOutput)
+}
+
+// Generated interaction types.
+func (o PredictionResponseSystemGeneratedEntitiesPtrOutput) GeneratedInteractionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PredictionResponseSystemGeneratedEntities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GeneratedInteractionTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Generated KPIs.
+func (o PredictionResponseSystemGeneratedEntitiesPtrOutput) GeneratedKpis() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PredictionResponseSystemGeneratedEntities) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.GeneratedKpis
+	}).(pulumi.StringMapOutput)
+}
+
+// Generated links.
+func (o PredictionResponseSystemGeneratedEntitiesPtrOutput) GeneratedLinks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PredictionResponseSystemGeneratedEntities) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GeneratedLinks
+	}).(pulumi.StringArrayOutput)
 }
 
 // Valid enum values in case of an enum property.
@@ -9009,79 +8617,6 @@ func (o PropertyDefinitionResponseArrayOutput) Index(i pulumi.IntInput) Property
 	}).(PropertyDefinitionResponseOutput)
 }
 
-// The relationship resource format.
-type RelationshipType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The definition of Relationship.
-	Properties RelationshipDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// RelationshipTypeInput is an input type that accepts RelationshipTypeArgs and RelationshipTypeOutput values.
-// You can construct a concrete instance of `RelationshipTypeInput` via:
-//
-//          RelationshipTypeArgs{...}
-type RelationshipTypeInput interface {
-	pulumi.Input
-
-	ToRelationshipTypeOutput() RelationshipTypeOutput
-	ToRelationshipTypeOutputWithContext(context.Context) RelationshipTypeOutput
-}
-
-// The relationship resource format.
-type RelationshipTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The definition of Relationship.
-	Properties RelationshipDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RelationshipTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipType)(nil)).Elem()
-}
-
-func (i RelationshipTypeArgs) ToRelationshipTypeOutput() RelationshipTypeOutput {
-	return i.ToRelationshipTypeOutputWithContext(context.Background())
-}
-
-func (i RelationshipTypeArgs) ToRelationshipTypeOutputWithContext(ctx context.Context) RelationshipTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelationshipTypeOutput)
-}
-
-// The relationship resource format.
-type RelationshipTypeOutput struct{ *pulumi.OutputState }
-
-func (RelationshipTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipType)(nil)).Elem()
-}
-
-func (o RelationshipTypeOutput) ToRelationshipTypeOutput() RelationshipTypeOutput {
-	return o
-}
-
-func (o RelationshipTypeOutput) ToRelationshipTypeOutputWithContext(ctx context.Context) RelationshipTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o RelationshipTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RelationshipType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The definition of Relationship.
-func (o RelationshipTypeOutput) Properties() RelationshipDefinitionResponseOutput {
-	return o.ApplyT(func(v RelationshipType) RelationshipDefinitionResponse { return v.Properties }).(RelationshipDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o RelationshipTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RelationshipType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The definition of Relationship.
 type RelationshipDefinitionResponse struct {
 	// The Relationship Cardinality.
@@ -9423,79 +8958,6 @@ func (o RelationshipDefinitionResponsePtrOutput) TenantId() pulumi.StringPtrOutp
 		}
 		return &v.TenantId
 	}).(pulumi.StringPtrOutput)
-}
-
-// The relationship link resource format.
-type RelationshipLinkType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The definition of relationship link.
-	Properties RelationshipLinkDefinitionResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// RelationshipLinkTypeInput is an input type that accepts RelationshipLinkTypeArgs and RelationshipLinkTypeOutput values.
-// You can construct a concrete instance of `RelationshipLinkTypeInput` via:
-//
-//          RelationshipLinkTypeArgs{...}
-type RelationshipLinkTypeInput interface {
-	pulumi.Input
-
-	ToRelationshipLinkTypeOutput() RelationshipLinkTypeOutput
-	ToRelationshipLinkTypeOutputWithContext(context.Context) RelationshipLinkTypeOutput
-}
-
-// The relationship link resource format.
-type RelationshipLinkTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The definition of relationship link.
-	Properties RelationshipLinkDefinitionResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RelationshipLinkTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipLinkType)(nil)).Elem()
-}
-
-func (i RelationshipLinkTypeArgs) ToRelationshipLinkTypeOutput() RelationshipLinkTypeOutput {
-	return i.ToRelationshipLinkTypeOutputWithContext(context.Background())
-}
-
-func (i RelationshipLinkTypeArgs) ToRelationshipLinkTypeOutputWithContext(ctx context.Context) RelationshipLinkTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelationshipLinkTypeOutput)
-}
-
-// The relationship link resource format.
-type RelationshipLinkTypeOutput struct{ *pulumi.OutputState }
-
-func (RelationshipLinkTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipLinkType)(nil)).Elem()
-}
-
-func (o RelationshipLinkTypeOutput) ToRelationshipLinkTypeOutput() RelationshipLinkTypeOutput {
-	return o
-}
-
-func (o RelationshipLinkTypeOutput) ToRelationshipLinkTypeOutputWithContext(ctx context.Context) RelationshipLinkTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o RelationshipLinkTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RelationshipLinkType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The definition of relationship link.
-func (o RelationshipLinkTypeOutput) Properties() RelationshipLinkDefinitionResponseOutput {
-	return o.ApplyT(func(v RelationshipLinkType) RelationshipLinkDefinitionResponse { return v.Properties }).(RelationshipLinkDefinitionResponseOutput)
-}
-
-// Resource type.
-func (o RelationshipLinkTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RelationshipLinkType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The definition of relationship link.
@@ -10786,79 +10248,6 @@ func (o ResourceSetDescriptionResponsePtrOutput) Exceptions() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Role Assignment resource format.
-type RoleAssignmentType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The Role Assignment definition.
-	Properties RoleAssignmentResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// RoleAssignmentTypeInput is an input type that accepts RoleAssignmentTypeArgs and RoleAssignmentTypeOutput values.
-// You can construct a concrete instance of `RoleAssignmentTypeInput` via:
-//
-//          RoleAssignmentTypeArgs{...}
-type RoleAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput
-	ToRoleAssignmentTypeOutputWithContext(context.Context) RoleAssignmentTypeOutput
-}
-
-// The Role Assignment resource format.
-type RoleAssignmentTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Role Assignment definition.
-	Properties RoleAssignmentResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RoleAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentType)(nil)).Elem()
-}
-
-func (i RoleAssignmentTypeArgs) ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput {
-	return i.ToRoleAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i RoleAssignmentTypeArgs) ToRoleAssignmentTypeOutputWithContext(ctx context.Context) RoleAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentTypeOutput)
-}
-
-// The Role Assignment resource format.
-type RoleAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (RoleAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentType)(nil)).Elem()
-}
-
-func (o RoleAssignmentTypeOutput) ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput {
-	return o
-}
-
-func (o RoleAssignmentTypeOutput) ToRoleAssignmentTypeOutputWithContext(ctx context.Context) RoleAssignmentTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o RoleAssignmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RoleAssignmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Role Assignment definition.
-func (o RoleAssignmentTypeOutput) Properties() RoleAssignmentResponseOutput {
-	return o.ApplyT(func(v RoleAssignmentType) RoleAssignmentResponse { return v.Properties }).(RoleAssignmentResponseOutput)
-}
-
-// Resource type.
-func (o RoleAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RoleAssignmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The Role Assignment definition.
 type RoleAssignmentResponse struct {
 	// The name of the metadata object.
@@ -11844,79 +11233,6 @@ func (o TypePropertiesMappingResponseArrayOutput) Index(i pulumi.IntInput) TypeP
 	}).(TypePropertiesMappingResponseOutput)
 }
 
-// The view resource format.
-type ViewType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The view in Customer 360 web application.
-	Properties ViewResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ViewTypeInput is an input type that accepts ViewTypeArgs and ViewTypeOutput values.
-// You can construct a concrete instance of `ViewTypeInput` via:
-//
-//          ViewTypeArgs{...}
-type ViewTypeInput interface {
-	pulumi.Input
-
-	ToViewTypeOutput() ViewTypeOutput
-	ToViewTypeOutputWithContext(context.Context) ViewTypeOutput
-}
-
-// The view resource format.
-type ViewTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The view in Customer 360 web application.
-	Properties ViewResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ViewTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewType)(nil)).Elem()
-}
-
-func (i ViewTypeArgs) ToViewTypeOutput() ViewTypeOutput {
-	return i.ToViewTypeOutputWithContext(context.Background())
-}
-
-func (i ViewTypeArgs) ToViewTypeOutputWithContext(ctx context.Context) ViewTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewTypeOutput)
-}
-
-// The view resource format.
-type ViewTypeOutput struct{ *pulumi.OutputState }
-
-func (ViewTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewType)(nil)).Elem()
-}
-
-func (o ViewTypeOutput) ToViewTypeOutput() ViewTypeOutput {
-	return o
-}
-
-func (o ViewTypeOutput) ToViewTypeOutputWithContext(ctx context.Context) ViewTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ViewTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ViewType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The view in Customer 360 web application.
-func (o ViewTypeOutput) Properties() ViewResponseOutput {
-	return o.ApplyT(func(v ViewType) ViewResponse { return v.Properties }).(ViewResponseOutput)
-}
-
-// Resource type.
-func (o ViewTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ViewType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The view in Customer 360 web application.
 type ViewResponse struct {
 	// Date time when view was last modified.
@@ -12170,8 +11486,6 @@ func init() {
 	pulumi.RegisterOutputType(AssignmentPrincipalArrayOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseOutput{})
 	pulumi.RegisterOutputType(AssignmentPrincipalResponseArrayOutput{})
-	pulumi.RegisterOutputType(ConnectorTypeOutput{})
-	pulumi.RegisterOutputType(ConnectorMappingTypeOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorMappingAvailabilityResponseOutput{})
@@ -12200,19 +11514,16 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorMappingStructureResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectorResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorResponsePtrOutput{})
-	pulumi.RegisterOutputType(DataSourcePrecedenceOutput{})
 	pulumi.RegisterOutputType(DataSourcePrecedenceResponseOutput{})
 	pulumi.RegisterOutputType(DataSourcePrecedenceResponseArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceResponseOutput{})
 	pulumi.RegisterOutputType(DataSourceResponsePtrOutput{})
-	pulumi.RegisterOutputType(HubTypeOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatPtrOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatResponseOutput{})
 	pulumi.RegisterOutputType(HubBillingInfoFormatResponsePtrOutput{})
 	pulumi.RegisterOutputType(HubPropertiesFormatResponseOutput{})
 	pulumi.RegisterOutputType(HubPropertiesFormatResponsePtrOutput{})
-	pulumi.RegisterOutputType(KpiTypeOutput{})
 	pulumi.RegisterOutputType(KpiAliasOutput{})
 	pulumi.RegisterOutputType(KpiAliasArrayOutput{})
 	pulumi.RegisterOutputType(KpiAliasResponseOutput{})
@@ -12223,17 +11534,14 @@ func init() {
 	pulumi.RegisterOutputType(KpiExtractArrayOutput{})
 	pulumi.RegisterOutputType(KpiExtractResponseOutput{})
 	pulumi.RegisterOutputType(KpiExtractResponseArrayOutput{})
-	pulumi.RegisterOutputType(KpiGroupByMetadataOutput{})
 	pulumi.RegisterOutputType(KpiGroupByMetadataResponseOutput{})
 	pulumi.RegisterOutputType(KpiGroupByMetadataResponseArrayOutput{})
-	pulumi.RegisterOutputType(KpiParticipantProfilesMetadataOutput{})
 	pulumi.RegisterOutputType(KpiParticipantProfilesMetadataResponseOutput{})
 	pulumi.RegisterOutputType(KpiParticipantProfilesMetadataResponseArrayOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsPtrOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsResponseOutput{})
 	pulumi.RegisterOutputType(KpiThresholdsResponsePtrOutput{})
-	pulumi.RegisterOutputType(LinkTypeOutput{})
 	pulumi.RegisterOutputType(LinkDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(LinkDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ParticipantProfilePropertyReferenceOutput{})
@@ -12244,16 +11552,18 @@ func init() {
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceArrayOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceResponseOutput{})
 	pulumi.RegisterOutputType(ParticipantPropertyReferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(PredictionTypeOutput{})
-	pulumi.RegisterOutputType(PredictionPropertiesOutput{})
-	pulumi.RegisterOutputType(PredictionPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(PredictionPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(PredictionGradesOutput{})
+	pulumi.RegisterOutputType(PredictionGradesArrayOutput{})
+	pulumi.RegisterOutputType(PredictionMappingsOutput{})
+	pulumi.RegisterOutputType(PredictionMappingsPtrOutput{})
 	pulumi.RegisterOutputType(PredictionResponseOutput{})
 	pulumi.RegisterOutputType(PredictionResponsePtrOutput{})
-	pulumi.RegisterOutputType(PredictionResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(PredictionResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(PredictionResponsePropertiesArrayOutput{})
-	pulumi.RegisterOutputType(ProfileTypeOutput{})
+	pulumi.RegisterOutputType(PredictionResponseGradesOutput{})
+	pulumi.RegisterOutputType(PredictionResponseGradesArrayOutput{})
+	pulumi.RegisterOutputType(PredictionResponseMappingsOutput{})
+	pulumi.RegisterOutputType(PredictionResponseMappingsPtrOutput{})
+	pulumi.RegisterOutputType(PredictionResponseSystemGeneratedEntitiesOutput{})
+	pulumi.RegisterOutputType(PredictionResponseSystemGeneratedEntitiesPtrOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatArrayOutput{})
 	pulumi.RegisterOutputType(ProfileEnumValidValuesFormatResponseOutput{})
@@ -12264,10 +11574,8 @@ func init() {
 	pulumi.RegisterOutputType(PropertyDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(PropertyDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(PropertyDefinitionResponseArrayOutput{})
-	pulumi.RegisterOutputType(RelationshipTypeOutput{})
 	pulumi.RegisterOutputType(RelationshipDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(RelationshipDefinitionResponsePtrOutput{})
-	pulumi.RegisterOutputType(RelationshipLinkTypeOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(RelationshipLinkFieldMappingOutput{})
@@ -12286,7 +11594,6 @@ func init() {
 	pulumi.RegisterOutputType(ResourceSetDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(ResourceSetDescriptionResponsePtrOutput{})
-	pulumi.RegisterOutputType(RoleAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentResponseOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentResponsePtrOutput{})
 	pulumi.RegisterOutputType(StrongIdOutput{})
@@ -12297,7 +11604,6 @@ func init() {
 	pulumi.RegisterOutputType(TypePropertiesMappingArrayOutput{})
 	pulumi.RegisterOutputType(TypePropertiesMappingResponseOutput{})
 	pulumi.RegisterOutputType(TypePropertiesMappingResponseArrayOutput{})
-	pulumi.RegisterOutputType(ViewTypeOutput{})
 	pulumi.RegisterOutputType(ViewResponseOutput{})
 	pulumi.RegisterOutputType(ViewResponsePtrOutput{})
 }

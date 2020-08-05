@@ -10,106 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// An object that represents a container registry.
-type RegistryType struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the container registry.
-	Properties RegistryPropertiesResponse `pulumi:"properties"`
-	// The SKU of the container registry.
-	Sku SkuResponse `pulumi:"sku"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// RegistryTypeInput is an input type that accepts RegistryTypeArgs and RegistryTypeOutput values.
-// You can construct a concrete instance of `RegistryTypeInput` via:
-//
-//          RegistryTypeArgs{...}
-type RegistryTypeInput interface {
-	pulumi.Input
-
-	ToRegistryTypeOutput() RegistryTypeOutput
-	ToRegistryTypeOutputWithContext(context.Context) RegistryTypeOutput
-}
-
-// An object that represents a container registry.
-type RegistryTypeArgs struct {
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the container registry.
-	Properties RegistryPropertiesResponseInput `pulumi:"properties"`
-	// The SKU of the container registry.
-	Sku SkuResponseInput `pulumi:"sku"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RegistryTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryType)(nil)).Elem()
-}
-
-func (i RegistryTypeArgs) ToRegistryTypeOutput() RegistryTypeOutput {
-	return i.ToRegistryTypeOutputWithContext(context.Background())
-}
-
-func (i RegistryTypeArgs) ToRegistryTypeOutputWithContext(ctx context.Context) RegistryTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryTypeOutput)
-}
-
-// An object that represents a container registry.
-type RegistryTypeOutput struct{ *pulumi.OutputState }
-
-func (RegistryTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryType)(nil)).Elem()
-}
-
-func (o RegistryTypeOutput) ToRegistryTypeOutput() RegistryTypeOutput {
-	return o
-}
-
-func (o RegistryTypeOutput) ToRegistryTypeOutputWithContext(ctx context.Context) RegistryTypeOutput {
-	return o
-}
-
-// The location of the resource. This cannot be changed after the resource is created.
-func (o RegistryTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource.
-func (o RegistryTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the container registry.
-func (o RegistryTypeOutput) Properties() RegistryPropertiesResponseOutput {
-	return o.ApplyT(func(v RegistryType) RegistryPropertiesResponse { return v.Properties }).(RegistryPropertiesResponseOutput)
-}
-
-// The SKU of the container registry.
-func (o RegistryTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v RegistryType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// The tags of the resource.
-func (o RegistryTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v RegistryType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o RegistryTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RegistryType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The login password for the container registry.
 type RegistryPasswordResponse struct {
 	// The password name.
@@ -1004,7 +904,6 @@ func (o StorageAccountPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput
 }
 
 func init() {
-	pulumi.RegisterOutputType(RegistryTypeOutput{})
 	pulumi.RegisterOutputType(RegistryPasswordResponseOutput{})
 	pulumi.RegisterOutputType(RegistryPasswordResponseArrayOutput{})
 	pulumi.RegisterOutputType(RegistryPropertiesResponseOutput{})

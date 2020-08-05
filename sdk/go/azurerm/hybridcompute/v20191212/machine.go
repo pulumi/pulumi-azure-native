@@ -14,13 +14,13 @@ import (
 type Machine struct {
 	pulumi.CustomResourceState
 
-	Identity pulumi.MapOutput `pulumi:"identity"`
+	Identity MachineResponseIdentityPtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Hybrid Compute Machine properties
-	Properties pulumi.MapOutput `pulumi:"properties"`
+	Properties MachineResponsePropertiesOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -64,13 +64,13 @@ func GetMachine(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Machine resources.
 type machineState struct {
-	Identity map[string]interface{} `pulumi:"identity"`
+	Identity *MachineResponseIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Hybrid Compute Machine properties
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties *MachineResponseProperties `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -78,13 +78,13 @@ type machineState struct {
 }
 
 type MachineState struct {
-	Identity pulumi.MapInput
+	Identity MachineResponseIdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Hybrid Compute Machine properties
-	Properties pulumi.MapInput
+	Properties MachineResponsePropertiesPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -100,15 +100,13 @@ type machineArgs struct {
 	ClientPublicKey *string `pulumi:"clientPublicKey"`
 	// Machine Extensions information
 	Extensions []MachineExtensionInstanceView `pulumi:"extensions"`
-	Identity   map[string]interface{}         `pulumi:"identity"`
+	Identity   *MachineIdentity               `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Metadata pertaining to the geographic location of the resource.
 	LocationData *LocationData `pulumi:"locationData"`
 	// The name of the hybrid machine.
 	Name string `pulumi:"name"`
-	// Specifies the operating system settings for the hybrid machine.
-	OsProfile map[string]interface{} `pulumi:"osProfile"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -123,15 +121,13 @@ type MachineArgs struct {
 	ClientPublicKey pulumi.StringPtrInput
 	// Machine Extensions information
 	Extensions MachineExtensionInstanceViewArrayInput
-	Identity   pulumi.MapInput
+	Identity   MachineIdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// Metadata pertaining to the geographic location of the resource.
 	LocationData LocationDataPtrInput
 	// The name of the hybrid machine.
 	Name pulumi.StringInput
-	// Specifies the operating system settings for the hybrid machine.
-	OsProfile pulumi.MapInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

@@ -52,7 +52,7 @@ export class ConnectionGateway extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<outputs.web.v20160601.TagsDictionaryResponse | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -120,5 +120,5 @@ export interface ConnectionGatewayArgs {
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<inputs.web.v20160601.TagsDictionary>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

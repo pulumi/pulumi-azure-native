@@ -124,14 +124,14 @@ namespace Pulumi.AzureRM.Network.V20181001.Inputs
         public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         [Input("virtualNetworkTaps")]
-        private InputList<Inputs.VirtualNetworkTapDefinitionArgs>? _virtualNetworkTaps;
+        private InputList<Inputs.VirtualNetworkTapArgs>? _virtualNetworkTaps;
 
         /// <summary>
         /// The reference to Virtual Network Taps.
         /// </summary>
-        public InputList<Inputs.VirtualNetworkTapDefinitionArgs> VirtualNetworkTaps
+        public InputList<Inputs.VirtualNetworkTapArgs> VirtualNetworkTaps
         {
-            get => _virtualNetworkTaps ?? (_virtualNetworkTaps = new InputList<Inputs.VirtualNetworkTapDefinitionArgs>());
+            get => _virtualNetworkTaps ?? (_virtualNetworkTaps = new InputList<Inputs.VirtualNetworkTapArgs>());
             set => _virtualNetworkTaps = value;
         }
 

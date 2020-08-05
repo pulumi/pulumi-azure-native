@@ -32,7 +32,7 @@ type LookupDedicatedCloudServiceResult struct {
 	// The properties of Dedicated Node Service
 	Properties DedicatedCloudServicePropertiesResponse `pulumi:"properties"`
 	// The list of tags
-	Tags *TagsResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}
 	Type string `pulumi:"type"`
 }

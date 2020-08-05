@@ -54,7 +54,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// <summary>
         /// The list of tags
         /// </summary>
-        public readonly Outputs.TagsResponseResult? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// {resourceProviderNamespace}/{resourceType}
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
 
             Outputs.VirtualMachinePropertiesResponseResult properties,
 
-            Outputs.TagsResponseResult? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {

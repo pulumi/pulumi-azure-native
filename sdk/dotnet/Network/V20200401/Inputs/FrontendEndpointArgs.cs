@@ -55,7 +55,7 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
         /// Defines the Web Application Firewall policy for each host (if applicable)
         /// </summary>
         [Input("webApplicationFirewallPolicyLink")]
-        public Input<Inputs.FrontendEndpointUpdateParametersPropertiesArgs>? WebApplicationFirewallPolicyLink { get; set; }
+        public Input<Inputs.FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs>? WebApplicationFirewallPolicyLink { get; set; }
 
         public FrontendEndpointArgs()
         {

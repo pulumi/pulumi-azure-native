@@ -16,10 +16,58 @@ namespace Pulumi.AzureRM.Network.V20200501.Inputs
     public sealed class VpnConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
+        /// Expected bandwidth in MBPS.
         /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
+        [Input("connectionBandwidth")]
+        public Input<int>? ConnectionBandwidth { get; set; }
+
+        /// <summary>
+        /// The connection status.
+        /// </summary>
+        [Input("connectionStatus")]
+        public Input<string>? ConnectionStatus { get; set; }
+
+        /// <summary>
+        /// The dead peer detection timeout for a vpn connection in seconds.
+        /// </summary>
+        [Input("dpdTimeoutSeconds")]
+        public Input<int>? DpdTimeoutSeconds { get; set; }
+
+        /// <summary>
+        /// EnableBgp flag.
+        /// </summary>
+        [Input("enableBgp")]
+        public Input<bool>? EnableBgp { get; set; }
+
+        /// <summary>
+        /// Enable internet security.
+        /// </summary>
+        [Input("enableInternetSecurity")]
+        public Input<bool>? EnableInternetSecurity { get; set; }
+
+        /// <summary>
+        /// EnableBgp flag.
+        /// </summary>
+        [Input("enableRateLimiting")]
+        public Input<bool>? EnableRateLimiting { get; set; }
+
+        /// <summary>
+        /// Resource ID.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        [Input("ipsecPolicies")]
+        private InputList<Inputs.IpsecPolicyArgs>? _ipsecPolicies;
+
+        /// <summary>
+        /// The IPSec Policies to be considered by this connection.
+        /// </summary>
+        public InputList<Inputs.IpsecPolicyArgs> IpsecPolicies
+        {
+            get => _ipsecPolicies ?? (_ipsecPolicies = new InputList<Inputs.IpsecPolicyArgs>());
+            set => _ipsecPolicies = value;
+        }
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -28,10 +76,58 @@ namespace Pulumi.AzureRM.Network.V20200501.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the VPN connection.
+        /// Id of the connected vpn site.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VpnConnectionPropertiesResponseArgs> Properties { get; set; } = null!;
+        [Input("remoteVpnSite")]
+        public Input<Inputs.SubResourceArgs>? RemoteVpnSite { get; set; }
+
+        /// <summary>
+        /// The Routing Configuration indicating the associated and propagated route tables on this connection.
+        /// </summary>
+        [Input("routingConfiguration")]
+        public Input<Inputs.RoutingConfigurationArgs>? RoutingConfiguration { get; set; }
+
+        /// <summary>
+        /// Routing weight for vpn connection.
+        /// </summary>
+        [Input("routingWeight")]
+        public Input<int>? RoutingWeight { get; set; }
+
+        /// <summary>
+        /// SharedKey for the vpn connection.
+        /// </summary>
+        [Input("sharedKey")]
+        public Input<string>? SharedKey { get; set; }
+
+        /// <summary>
+        /// Use local azure ip to initiate connection.
+        /// </summary>
+        [Input("useLocalAzureIpAddress")]
+        public Input<bool>? UseLocalAzureIpAddress { get; set; }
+
+        /// <summary>
+        /// Enable policy-based traffic selectors.
+        /// </summary>
+        [Input("usePolicyBasedTrafficSelectors")]
+        public Input<bool>? UsePolicyBasedTrafficSelectors { get; set; }
+
+        /// <summary>
+        /// Connection protocol used for this connection.
+        /// </summary>
+        [Input("vpnConnectionProtocolType")]
+        public Input<string>? VpnConnectionProtocolType { get; set; }
+
+        [Input("vpnLinkConnections")]
+        private InputList<Inputs.VpnSiteLinkConnectionArgs>? _vpnLinkConnections;
+
+        /// <summary>
+        /// List of all vpn site link connections to the gateway.
+        /// </summary>
+        public InputList<Inputs.VpnSiteLinkConnectionArgs> VpnLinkConnections
+        {
+            get => _vpnLinkConnections ?? (_vpnLinkConnections = new InputList<Inputs.VpnSiteLinkConnectionArgs>());
+            set => _vpnLinkConnections = value;
+        }
 
         public VpnConnectionArgs()
         {

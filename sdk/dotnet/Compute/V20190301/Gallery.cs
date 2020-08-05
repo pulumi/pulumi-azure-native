@@ -96,12 +96,6 @@ namespace Pulumi.AzureRM.Compute.V20190301
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Describes the gallery unique name.
-        /// </summary>
-        [Input("identifier")]
-        public Input<Inputs.GalleryIdentifierArgs>? Identifier { get; set; }
-
-        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]

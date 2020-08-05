@@ -87,20 +87,16 @@ class Topic(pulumi.CustomResource):
 
         The **private_endpoint_connections** object supports the following:
 
-          * `name` (`pulumi.Input[str]`) - Name of the resource.
-          * `properties` (`pulumi.Input[dict]`) - Properties of the PrivateEndpointConnection.
-            * `group_ids` (`pulumi.Input[list]`) - GroupIds from the private link service resource.
-            * `private_endpoint` (`pulumi.Input[dict]`) - The Private Endpoint resource for this Connection.
-              * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint.
+          * `group_ids` (`pulumi.Input[list]`) - GroupIds from the private link service resource.
+          * `private_endpoint` (`pulumi.Input[dict]`) - The Private Endpoint resource for this Connection.
+            * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint.
 
-            * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Details about the state of the connection.
-              * `actions_required` (`pulumi.Input[str]`) - Actions required (if any).
-              * `description` (`pulumi.Input[str]`) - Description of the connection state.
-              * `status` (`pulumi.Input[str]`) - Status of the connection.
+          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Details about the state of the connection.
+            * `actions_required` (`pulumi.Input[str]`) - Actions required (if any).
+            * `description` (`pulumi.Input[str]`) - Description of the connection state.
+            * `status` (`pulumi.Input[str]`) - Status of the connection.
 
-            * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Private Endpoint Connection.
-
-          * `type` (`pulumi.Input[str]`) - Type of the resource.
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Private Endpoint Connection.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

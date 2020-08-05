@@ -12,106 +12,6 @@ import (
 
 // Base class for backup items.
 type ProtectedItemType struct {
-	// Optional ETag.
-	ETag *string `pulumi:"eTag"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name string `pulumi:"name"`
-	// ProtectedItemResource properties
-	Properties ProtectedItemResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type string `pulumi:"type"`
-}
-
-// ProtectedItemTypeInput is an input type that accepts ProtectedItemTypeArgs and ProtectedItemTypeOutput values.
-// You can construct a concrete instance of `ProtectedItemTypeInput` via:
-//
-//          ProtectedItemTypeArgs{...}
-type ProtectedItemTypeInput interface {
-	pulumi.Input
-
-	ToProtectedItemTypeOutput() ProtectedItemTypeOutput
-	ToProtectedItemTypeOutputWithContext(context.Context) ProtectedItemTypeOutput
-}
-
-// Base class for backup items.
-type ProtectedItemTypeArgs struct {
-	// Optional ETag.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name associated with the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// ProtectedItemResource properties
-	Properties ProtectedItemResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ProtectedItemTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItemType)(nil)).Elem()
-}
-
-func (i ProtectedItemTypeArgs) ToProtectedItemTypeOutput() ProtectedItemTypeOutput {
-	return i.ToProtectedItemTypeOutputWithContext(context.Background())
-}
-
-func (i ProtectedItemTypeArgs) ToProtectedItemTypeOutputWithContext(ctx context.Context) ProtectedItemTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemTypeOutput)
-}
-
-// Base class for backup items.
-type ProtectedItemTypeOutput struct{ *pulumi.OutputState }
-
-func (ProtectedItemTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItemType)(nil)).Elem()
-}
-
-func (o ProtectedItemTypeOutput) ToProtectedItemTypeOutput() ProtectedItemTypeOutput {
-	return o
-}
-
-func (o ProtectedItemTypeOutput) ToProtectedItemTypeOutputWithContext(ctx context.Context) ProtectedItemTypeOutput {
-	return o
-}
-
-// Optional ETag.
-func (o ProtectedItemTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Resource location.
-func (o ProtectedItemTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name associated with the resource.
-func (o ProtectedItemTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProtectedItemType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// ProtectedItemResource properties
-func (o ProtectedItemTypeOutput) Properties() ProtectedItemResponseOutput {
-	return o.ApplyT(func(v ProtectedItemType) ProtectedItemResponse { return v.Properties }).(ProtectedItemResponseOutput)
-}
-
-// Resource tags.
-func (o ProtectedItemTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProtectedItemType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
-func (o ProtectedItemTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProtectedItemType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Base class for backup items.
-type ProtectedItemDefinition struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType *string `pulumi:"backupManagementType"`
 	// Name of the backup set the backup item belongs to
@@ -142,19 +42,19 @@ type ProtectedItemDefinition struct {
 	WorkloadType *string `pulumi:"workloadType"`
 }
 
-// ProtectedItemDefinitionInput is an input type that accepts ProtectedItemDefinitionArgs and ProtectedItemDefinitionOutput values.
-// You can construct a concrete instance of `ProtectedItemDefinitionInput` via:
+// ProtectedItemTypeInput is an input type that accepts ProtectedItemTypeArgs and ProtectedItemTypeOutput values.
+// You can construct a concrete instance of `ProtectedItemTypeInput` via:
 //
-//          ProtectedItemDefinitionArgs{...}
-type ProtectedItemDefinitionInput interface {
+//          ProtectedItemTypeArgs{...}
+type ProtectedItemTypeInput interface {
 	pulumi.Input
 
-	ToProtectedItemDefinitionOutput() ProtectedItemDefinitionOutput
-	ToProtectedItemDefinitionOutputWithContext(context.Context) ProtectedItemDefinitionOutput
+	ToProtectedItemTypeOutput() ProtectedItemTypeOutput
+	ToProtectedItemTypeOutputWithContext(context.Context) ProtectedItemTypeOutput
 }
 
 // Base class for backup items.
-type ProtectedItemDefinitionArgs struct {
+type ProtectedItemTypeArgs struct {
 	// Type of backup management for the backed up item.
 	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
 	// Name of the backup set the backup item belongs to
@@ -185,175 +85,175 @@ type ProtectedItemDefinitionArgs struct {
 	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
 }
 
-func (ProtectedItemDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItemDefinition)(nil)).Elem()
+func (ProtectedItemTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedItemType)(nil)).Elem()
 }
 
-func (i ProtectedItemDefinitionArgs) ToProtectedItemDefinitionOutput() ProtectedItemDefinitionOutput {
-	return i.ToProtectedItemDefinitionOutputWithContext(context.Background())
+func (i ProtectedItemTypeArgs) ToProtectedItemTypeOutput() ProtectedItemTypeOutput {
+	return i.ToProtectedItemTypeOutputWithContext(context.Background())
 }
 
-func (i ProtectedItemDefinitionArgs) ToProtectedItemDefinitionOutputWithContext(ctx context.Context) ProtectedItemDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemDefinitionOutput)
+func (i ProtectedItemTypeArgs) ToProtectedItemTypeOutputWithContext(ctx context.Context) ProtectedItemTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemTypeOutput)
 }
 
-func (i ProtectedItemDefinitionArgs) ToProtectedItemDefinitionPtrOutput() ProtectedItemDefinitionPtrOutput {
-	return i.ToProtectedItemDefinitionPtrOutputWithContext(context.Background())
+func (i ProtectedItemTypeArgs) ToProtectedItemTypePtrOutput() ProtectedItemTypePtrOutput {
+	return i.ToProtectedItemTypePtrOutputWithContext(context.Background())
 }
 
-func (i ProtectedItemDefinitionArgs) ToProtectedItemDefinitionPtrOutputWithContext(ctx context.Context) ProtectedItemDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemDefinitionOutput).ToProtectedItemDefinitionPtrOutputWithContext(ctx)
+func (i ProtectedItemTypeArgs) ToProtectedItemTypePtrOutputWithContext(ctx context.Context) ProtectedItemTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemTypeOutput).ToProtectedItemTypePtrOutputWithContext(ctx)
 }
 
-// ProtectedItemDefinitionPtrInput is an input type that accepts ProtectedItemDefinitionArgs, ProtectedItemDefinitionPtr and ProtectedItemDefinitionPtrOutput values.
-// You can construct a concrete instance of `ProtectedItemDefinitionPtrInput` via:
+// ProtectedItemTypePtrInput is an input type that accepts ProtectedItemTypeArgs, ProtectedItemTypePtr and ProtectedItemTypePtrOutput values.
+// You can construct a concrete instance of `ProtectedItemTypePtrInput` via:
 //
-//          ProtectedItemDefinitionArgs{...}
+//          ProtectedItemTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type ProtectedItemDefinitionPtrInput interface {
+type ProtectedItemTypePtrInput interface {
 	pulumi.Input
 
-	ToProtectedItemDefinitionPtrOutput() ProtectedItemDefinitionPtrOutput
-	ToProtectedItemDefinitionPtrOutputWithContext(context.Context) ProtectedItemDefinitionPtrOutput
+	ToProtectedItemTypePtrOutput() ProtectedItemTypePtrOutput
+	ToProtectedItemTypePtrOutputWithContext(context.Context) ProtectedItemTypePtrOutput
 }
 
-type protectedItemDefinitionPtrType ProtectedItemDefinitionArgs
+type protectedItemTypePtrType ProtectedItemTypeArgs
 
-func ProtectedItemDefinitionPtr(v *ProtectedItemDefinitionArgs) ProtectedItemDefinitionPtrInput {
-	return (*protectedItemDefinitionPtrType)(v)
+func ProtectedItemTypePtr(v *ProtectedItemTypeArgs) ProtectedItemTypePtrInput {
+	return (*protectedItemTypePtrType)(v)
 }
 
-func (*protectedItemDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectedItemDefinition)(nil)).Elem()
+func (*protectedItemTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectedItemType)(nil)).Elem()
 }
 
-func (i *protectedItemDefinitionPtrType) ToProtectedItemDefinitionPtrOutput() ProtectedItemDefinitionPtrOutput {
-	return i.ToProtectedItemDefinitionPtrOutputWithContext(context.Background())
+func (i *protectedItemTypePtrType) ToProtectedItemTypePtrOutput() ProtectedItemTypePtrOutput {
+	return i.ToProtectedItemTypePtrOutputWithContext(context.Background())
 }
 
-func (i *protectedItemDefinitionPtrType) ToProtectedItemDefinitionPtrOutputWithContext(ctx context.Context) ProtectedItemDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemDefinitionPtrOutput)
+func (i *protectedItemTypePtrType) ToProtectedItemTypePtrOutputWithContext(ctx context.Context) ProtectedItemTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectedItemTypePtrOutput)
 }
 
 // Base class for backup items.
-type ProtectedItemDefinitionOutput struct{ *pulumi.OutputState }
+type ProtectedItemTypeOutput struct{ *pulumi.OutputState }
 
-func (ProtectedItemDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItemDefinition)(nil)).Elem()
+func (ProtectedItemTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectedItemType)(nil)).Elem()
 }
 
-func (o ProtectedItemDefinitionOutput) ToProtectedItemDefinitionOutput() ProtectedItemDefinitionOutput {
+func (o ProtectedItemTypeOutput) ToProtectedItemTypeOutput() ProtectedItemTypeOutput {
 	return o
 }
 
-func (o ProtectedItemDefinitionOutput) ToProtectedItemDefinitionOutputWithContext(ctx context.Context) ProtectedItemDefinitionOutput {
+func (o ProtectedItemTypeOutput) ToProtectedItemTypeOutputWithContext(ctx context.Context) ProtectedItemTypeOutput {
 	return o
 }
 
-func (o ProtectedItemDefinitionOutput) ToProtectedItemDefinitionPtrOutput() ProtectedItemDefinitionPtrOutput {
-	return o.ToProtectedItemDefinitionPtrOutputWithContext(context.Background())
+func (o ProtectedItemTypeOutput) ToProtectedItemTypePtrOutput() ProtectedItemTypePtrOutput {
+	return o.ToProtectedItemTypePtrOutputWithContext(context.Background())
 }
 
-func (o ProtectedItemDefinitionOutput) ToProtectedItemDefinitionPtrOutputWithContext(ctx context.Context) ProtectedItemDefinitionPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *ProtectedItemDefinition {
+func (o ProtectedItemTypeOutput) ToProtectedItemTypePtrOutputWithContext(ctx context.Context) ProtectedItemTypePtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *ProtectedItemType {
 		return &v
-	}).(ProtectedItemDefinitionPtrOutput)
+	}).(ProtectedItemTypePtrOutput)
 }
 
 // Type of backup management for the backed up item.
-func (o ProtectedItemDefinitionOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
+func (o ProtectedItemTypeOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *string { return v.BackupManagementType }).(pulumi.StringPtrOutput)
 }
 
 // Name of the backup set the backup item belongs to
-func (o ProtectedItemDefinitionOutput) BackupSetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
+func (o ProtectedItemTypeOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *string { return v.BackupSetName }).(pulumi.StringPtrOutput)
 }
 
 // Unique name of container
-func (o ProtectedItemDefinitionOutput) ContainerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+func (o ProtectedItemTypeOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
 }
 
 // Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-func (o ProtectedItemDefinitionOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
+func (o ProtectedItemTypeOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *string { return v.CreateMode }).(pulumi.StringPtrOutput)
 }
 
 // Time for deferred deletion in UTC
-func (o ProtectedItemDefinitionOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
+func (o ProtectedItemTypeOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *string { return v.DeferredDeleteTimeInUTC }).(pulumi.StringPtrOutput)
 }
 
 // Time remaining before the DS marked for deferred delete is permanently deleted
-func (o ProtectedItemDefinitionOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
+func (o ProtectedItemTypeOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *string { return v.DeferredDeleteTimeRemaining }).(pulumi.StringPtrOutput)
 }
 
 // Flag to identify whether the deferred deleted DS is to be purged soon
-func (o ProtectedItemDefinitionOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
+func (o ProtectedItemTypeOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
 
 // Flag to identify that deferred deleted DS is to be moved into Pause state
-func (o ProtectedItemDefinitionOutput) IsRehydrate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
+func (o ProtectedItemTypeOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *bool { return v.IsRehydrate }).(pulumi.BoolPtrOutput)
 }
 
 // Flag to identify whether the DS is scheduled for deferred delete
-func (o ProtectedItemDefinitionOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
+func (o ProtectedItemTypeOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *bool { return v.IsScheduledForDeferredDelete }).(pulumi.BoolPtrOutput)
 }
 
 // Timestamp when the last (latest) backup copy was created for this backup item.
-func (o ProtectedItemDefinitionOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
+func (o ProtectedItemTypeOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *string { return v.LastRecoveryPoint }).(pulumi.StringPtrOutput)
 }
 
 // ID of the backup policy with which this item is backed up.
-func (o ProtectedItemDefinitionOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+func (o ProtectedItemTypeOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
 // backup item type.
-func (o ProtectedItemDefinitionOutput) ProtectedItemType() pulumi.StringOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) string { return v.ProtectedItemType }).(pulumi.StringOutput)
+func (o ProtectedItemTypeOutput) ProtectedItemType() pulumi.StringOutput {
+	return o.ApplyT(func(v ProtectedItemType) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
 
 // ARM ID of the resource to be backed up.
-func (o ProtectedItemDefinitionOutput) SourceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
+func (o ProtectedItemTypeOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *string { return v.SourceResourceId }).(pulumi.StringPtrOutput)
 }
 
 // Type of workload this item represents.
-func (o ProtectedItemDefinitionOutput) WorkloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectedItemDefinition) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
+func (o ProtectedItemTypeOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectedItemType) *string { return v.WorkloadType }).(pulumi.StringPtrOutput)
 }
 
-type ProtectedItemDefinitionPtrOutput struct{ *pulumi.OutputState }
+type ProtectedItemTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ProtectedItemDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectedItemDefinition)(nil)).Elem()
+func (ProtectedItemTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectedItemType)(nil)).Elem()
 }
 
-func (o ProtectedItemDefinitionPtrOutput) ToProtectedItemDefinitionPtrOutput() ProtectedItemDefinitionPtrOutput {
+func (o ProtectedItemTypePtrOutput) ToProtectedItemTypePtrOutput() ProtectedItemTypePtrOutput {
 	return o
 }
 
-func (o ProtectedItemDefinitionPtrOutput) ToProtectedItemDefinitionPtrOutputWithContext(ctx context.Context) ProtectedItemDefinitionPtrOutput {
+func (o ProtectedItemTypePtrOutput) ToProtectedItemTypePtrOutputWithContext(ctx context.Context) ProtectedItemTypePtrOutput {
 	return o
 }
 
-func (o ProtectedItemDefinitionPtrOutput) Elem() ProtectedItemDefinitionOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) ProtectedItemDefinition { return *v }).(ProtectedItemDefinitionOutput)
+func (o ProtectedItemTypePtrOutput) Elem() ProtectedItemTypeOutput {
+	return o.ApplyT(func(v *ProtectedItemType) ProtectedItemType { return *v }).(ProtectedItemTypeOutput)
 }
 
 // Type of backup management for the backed up item.
-func (o ProtectedItemDefinitionPtrOutput) BackupManagementType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *string {
+func (o ProtectedItemTypePtrOutput) BackupManagementType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *string {
 		if v == nil {
 			return nil
 		}
@@ -362,8 +262,8 @@ func (o ProtectedItemDefinitionPtrOutput) BackupManagementType() pulumi.StringPt
 }
 
 // Name of the backup set the backup item belongs to
-func (o ProtectedItemDefinitionPtrOutput) BackupSetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *string {
+func (o ProtectedItemTypePtrOutput) BackupSetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *string {
 		if v == nil {
 			return nil
 		}
@@ -372,8 +272,8 @@ func (o ProtectedItemDefinitionPtrOutput) BackupSetName() pulumi.StringPtrOutput
 }
 
 // Unique name of container
-func (o ProtectedItemDefinitionPtrOutput) ContainerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *string {
+func (o ProtectedItemTypePtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *string {
 		if v == nil {
 			return nil
 		}
@@ -382,8 +282,8 @@ func (o ProtectedItemDefinitionPtrOutput) ContainerName() pulumi.StringPtrOutput
 }
 
 // Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
-func (o ProtectedItemDefinitionPtrOutput) CreateMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *string {
+func (o ProtectedItemTypePtrOutput) CreateMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *string {
 		if v == nil {
 			return nil
 		}
@@ -392,8 +292,8 @@ func (o ProtectedItemDefinitionPtrOutput) CreateMode() pulumi.StringPtrOutput {
 }
 
 // Time for deferred deletion in UTC
-func (o ProtectedItemDefinitionPtrOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *string {
+func (o ProtectedItemTypePtrOutput) DeferredDeleteTimeInUTC() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *string {
 		if v == nil {
 			return nil
 		}
@@ -402,8 +302,8 @@ func (o ProtectedItemDefinitionPtrOutput) DeferredDeleteTimeInUTC() pulumi.Strin
 }
 
 // Time remaining before the DS marked for deferred delete is permanently deleted
-func (o ProtectedItemDefinitionPtrOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *string {
+func (o ProtectedItemTypePtrOutput) DeferredDeleteTimeRemaining() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *string {
 		if v == nil {
 			return nil
 		}
@@ -412,8 +312,8 @@ func (o ProtectedItemDefinitionPtrOutput) DeferredDeleteTimeRemaining() pulumi.S
 }
 
 // Flag to identify whether the deferred deleted DS is to be purged soon
-func (o ProtectedItemDefinitionPtrOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *bool {
+func (o ProtectedItemTypePtrOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -422,8 +322,8 @@ func (o ProtectedItemDefinitionPtrOutput) IsDeferredDeleteScheduleUpcoming() pul
 }
 
 // Flag to identify that deferred deleted DS is to be moved into Pause state
-func (o ProtectedItemDefinitionPtrOutput) IsRehydrate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *bool {
+func (o ProtectedItemTypePtrOutput) IsRehydrate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -432,8 +332,8 @@ func (o ProtectedItemDefinitionPtrOutput) IsRehydrate() pulumi.BoolPtrOutput {
 }
 
 // Flag to identify whether the DS is scheduled for deferred delete
-func (o ProtectedItemDefinitionPtrOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *bool {
+func (o ProtectedItemTypePtrOutput) IsScheduledForDeferredDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *bool {
 		if v == nil {
 			return nil
 		}
@@ -442,8 +342,8 @@ func (o ProtectedItemDefinitionPtrOutput) IsScheduledForDeferredDelete() pulumi.
 }
 
 // Timestamp when the last (latest) backup copy was created for this backup item.
-func (o ProtectedItemDefinitionPtrOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *string {
+func (o ProtectedItemTypePtrOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *string {
 		if v == nil {
 			return nil
 		}
@@ -452,8 +352,8 @@ func (o ProtectedItemDefinitionPtrOutput) LastRecoveryPoint() pulumi.StringPtrOu
 }
 
 // ID of the backup policy with which this item is backed up.
-func (o ProtectedItemDefinitionPtrOutput) PolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *string {
+func (o ProtectedItemTypePtrOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *string {
 		if v == nil {
 			return nil
 		}
@@ -462,8 +362,8 @@ func (o ProtectedItemDefinitionPtrOutput) PolicyId() pulumi.StringPtrOutput {
 }
 
 // backup item type.
-func (o ProtectedItemDefinitionPtrOutput) ProtectedItemType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *string {
+func (o ProtectedItemTypePtrOutput) ProtectedItemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *string {
 		if v == nil {
 			return nil
 		}
@@ -472,8 +372,8 @@ func (o ProtectedItemDefinitionPtrOutput) ProtectedItemType() pulumi.StringPtrOu
 }
 
 // ARM ID of the resource to be backed up.
-func (o ProtectedItemDefinitionPtrOutput) SourceResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *string {
+func (o ProtectedItemTypePtrOutput) SourceResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *string {
 		if v == nil {
 			return nil
 		}
@@ -482,8 +382,8 @@ func (o ProtectedItemDefinitionPtrOutput) SourceResourceId() pulumi.StringPtrOut
 }
 
 // Type of workload this item represents.
-func (o ProtectedItemDefinitionPtrOutput) WorkloadType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProtectedItemDefinition) *string {
+func (o ProtectedItemTypePtrOutput) WorkloadType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectedItemType) *string {
 		if v == nil {
 			return nil
 		}
@@ -874,8 +774,7 @@ func (o ProtectedItemResponsePtrOutput) WorkloadType() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(ProtectedItemTypeOutput{})
-	pulumi.RegisterOutputType(ProtectedItemDefinitionOutput{})
-	pulumi.RegisterOutputType(ProtectedItemDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ProtectedItemTypePtrOutput{})
 	pulumi.RegisterOutputType(ProtectedItemResponseOutput{})
 	pulumi.RegisterOutputType(ProtectedItemResponsePtrOutput{})
 }

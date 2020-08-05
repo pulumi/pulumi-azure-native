@@ -113,8 +113,6 @@ type managedClusterArgs struct {
 	AgentPoolProfiles []ManagedClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
 	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfile `pulumi:"apiServerAccessProfile"`
-	// Parameters to be applied to the cluster-autoscaler when enabled
-	AutoScalerProfile *ManagedClusterPropertiesProperties `pulumi:"autoScalerProfile"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -126,7 +124,7 @@ type managedClusterArgs struct {
 	// The identity of the managed cluster, if configured.
 	Identity *ManagedClusterIdentity `pulumi:"identity"`
 	// Identities associated with the cluster.
-	IdentityProfile map[string]map[string]interface{} `pulumi:"identityProfile"`
+	IdentityProfile map[string]ManagedClusterPropertiesIdentityProfile `pulumi:"identityProfile"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.
@@ -161,8 +159,6 @@ type ManagedClusterArgs struct {
 	AgentPoolProfiles ManagedClusterAgentPoolProfileArrayInput
 	// Access profile for managed cluster API server.
 	ApiServerAccessProfile ManagedClusterAPIServerAccessProfilePtrInput
-	// Parameters to be applied to the cluster-autoscaler when enabled
-	AutoScalerProfile ManagedClusterPropertiesPropertiesPtrInput
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster.
@@ -174,7 +170,7 @@ type ManagedClusterArgs struct {
 	// The identity of the managed cluster, if configured.
 	Identity ManagedClusterIdentityPtrInput
 	// Identities associated with the cluster.
-	IdentityProfile pulumi.MapMapInput
+	IdentityProfile ManagedClusterPropertiesIdentityProfileMapInput
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion pulumi.StringPtrInput
 	// Profile for Linux VMs in the container service cluster.

@@ -1408,97 +1408,6 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 	}).(CredentialResultResponseOutput)
 }
 
-// Managed cluster.
-type ManagedClusterType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of a managed cluster.
-	Properties ManagedClusterPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ManagedClusterTypeInput is an input type that accepts ManagedClusterTypeArgs and ManagedClusterTypeOutput values.
-// You can construct a concrete instance of `ManagedClusterTypeInput` via:
-//
-//          ManagedClusterTypeArgs{...}
-type ManagedClusterTypeInput interface {
-	pulumi.Input
-
-	ToManagedClusterTypeOutput() ManagedClusterTypeOutput
-	ToManagedClusterTypeOutputWithContext(context.Context) ManagedClusterTypeOutput
-}
-
-// Managed cluster.
-type ManagedClusterTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of a managed cluster.
-	Properties ManagedClusterPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagedClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterType)(nil)).Elem()
-}
-
-func (i ManagedClusterTypeArgs) ToManagedClusterTypeOutput() ManagedClusterTypeOutput {
-	return i.ToManagedClusterTypeOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterTypeArgs) ToManagedClusterTypeOutputWithContext(ctx context.Context) ManagedClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterTypeOutput)
-}
-
-// Managed cluster.
-type ManagedClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagedClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterType)(nil)).Elem()
-}
-
-func (o ManagedClusterTypeOutput) ToManagedClusterTypeOutput() ManagedClusterTypeOutput {
-	return o
-}
-
-func (o ManagedClusterTypeOutput) ToManagedClusterTypeOutputWithContext(ctx context.Context) ManagedClusterTypeOutput {
-	return o
-}
-
-// Resource location
-func (o ManagedClusterTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o ManagedClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of a managed cluster.
-func (o ManagedClusterTypeOutput) Properties() ManagedClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagedClusterType) ManagedClusterPropertiesResponse { return v.Properties }).(ManagedClusterPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o ManagedClusterTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ManagedClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // AADProfile specifies attributes for Azure Active Directory integration.
 type ManagedClusterAADProfile struct {
 	// The client AAD application ID.
@@ -3095,7 +3004,6 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
-	pulumi.RegisterOutputType(ManagedClusterTypeOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileResponseOutput{})

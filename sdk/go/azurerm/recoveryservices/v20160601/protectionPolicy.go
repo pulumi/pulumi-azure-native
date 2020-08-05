@@ -108,7 +108,7 @@ type protectionPolicyArgs struct {
 	// The backup policy to be created.
 	Name string `pulumi:"name"`
 	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
-	Properties *ProtectionPolicyDefinition `pulumi:"properties"`
+	Properties *ProtectionPolicyType `pulumi:"properties"`
 	// The name of the resource group associated with the Recovery Services vault.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -130,7 +130,7 @@ type ProtectionPolicyArgs struct {
 	// The backup policy to be created.
 	Name pulumi.StringInput
 	// The base class for a backup policy. Workload-specific backup policies are derived from this class.
-	Properties ProtectionPolicyDefinitionPtrInput
+	Properties ProtectionPolicyTypePtrInput
 	// The name of the resource group associated with the Recovery Services vault.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

@@ -108,15 +108,6 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
             * `kind` (`pulumi.Input[str]`) - Kind of the guest configuration. For example:DSC
             * `name` (`pulumi.Input[str]`) - Name of the guest configuration.
             * `version` (`pulumi.Input[str]`) - Version of the guest configuration.
-
-          * `latest_assignment_report` (`pulumi.Input[dict]`) - Last reported guest configuration assignment report.
-            * `assignment` (`pulumi.Input[dict]`) - Configuration details of the guest configuration assignment.
-              * `configuration` (`pulumi.Input[dict]`) - Information about the configuration.
-
-            * `resources` (`pulumi.Input[list]`) - The list of resources for which guest configuration assignment compliance is checked.
-              * `reasons` (`pulumi.Input[list]`) - Compliance reason and reason code for a resource.
-
-            * `vm` (`pulumi.Input[dict]`) - Information about the VM.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

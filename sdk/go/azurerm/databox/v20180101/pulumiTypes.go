@@ -469,52 +469,6 @@ func (o ContactDetailsResponsePtrOutput) PhoneExtension() pulumi.StringPtrOutput
 }
 
 // Details for log generated during copy.
-type CopyLogDetails struct {
-}
-
-// CopyLogDetailsInput is an input type that accepts CopyLogDetailsArgs and CopyLogDetailsOutput values.
-// You can construct a concrete instance of `CopyLogDetailsInput` via:
-//
-//          CopyLogDetailsArgs{...}
-type CopyLogDetailsInput interface {
-	pulumi.Input
-
-	ToCopyLogDetailsOutput() CopyLogDetailsOutput
-	ToCopyLogDetailsOutputWithContext(context.Context) CopyLogDetailsOutput
-}
-
-// Details for log generated during copy.
-type CopyLogDetailsArgs struct {
-}
-
-func (CopyLogDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CopyLogDetails)(nil)).Elem()
-}
-
-func (i CopyLogDetailsArgs) ToCopyLogDetailsOutput() CopyLogDetailsOutput {
-	return i.ToCopyLogDetailsOutputWithContext(context.Background())
-}
-
-func (i CopyLogDetailsArgs) ToCopyLogDetailsOutputWithContext(ctx context.Context) CopyLogDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CopyLogDetailsOutput)
-}
-
-// Details for log generated during copy.
-type CopyLogDetailsOutput struct{ *pulumi.OutputState }
-
-func (CopyLogDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CopyLogDetails)(nil)).Elem()
-}
-
-func (o CopyLogDetailsOutput) ToCopyLogDetailsOutput() CopyLogDetailsOutput {
-	return o
-}
-
-func (o CopyLogDetailsOutput) ToCopyLogDetailsOutputWithContext(ctx context.Context) CopyLogDetailsOutput {
-	return o
-}
-
-// Details for log generated during copy.
 type CopyLogDetailsResponse struct {
 	// Indicates the type of job details.
 	CopyLogDetailsType string `pulumi:"copyLogDetailsType"`
@@ -833,52 +787,6 @@ func (o DestinationAccountDetailsResponseArrayOutput) Index(i pulumi.IntInput) D
 }
 
 // Top level error for the job.
-type Error struct {
-}
-
-// ErrorInput is an input type that accepts ErrorArgs and ErrorOutput values.
-// You can construct a concrete instance of `ErrorInput` via:
-//
-//          ErrorArgs{...}
-type ErrorInput interface {
-	pulumi.Input
-
-	ToErrorOutput() ErrorOutput
-	ToErrorOutputWithContext(context.Context) ErrorOutput
-}
-
-// Top level error for the job.
-type ErrorArgs struct {
-}
-
-func (ErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Error)(nil)).Elem()
-}
-
-func (i ErrorArgs) ToErrorOutput() ErrorOutput {
-	return i.ToErrorOutputWithContext(context.Background())
-}
-
-func (i ErrorArgs) ToErrorOutputWithContext(ctx context.Context) ErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorOutput)
-}
-
-// Top level error for the job.
-type ErrorOutput struct{ *pulumi.OutputState }
-
-func (ErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Error)(nil)).Elem()
-}
-
-func (o ErrorOutput) ToErrorOutput() ErrorOutput {
-	return o
-}
-
-func (o ErrorOutput) ToErrorOutputWithContext(ctx context.Context) ErrorOutput {
-	return o
-}
-
-// Top level error for the job.
 type ErrorResponse struct {
 	// Error code that can be used to programmatically identify the error.
 	Code string `pulumi:"code"`
@@ -1029,106 +937,6 @@ func (o ErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
 		}
 		return &v.Message
 	}).(pulumi.StringPtrOutput)
-}
-
-// Job Resource.
-type JobType struct {
-	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
-	Location string `pulumi:"location"`
-	// Name of the object.
-	Name string `pulumi:"name"`
-	// Properties of a job.
-	Properties JobPropertiesResponse `pulumi:"properties"`
-	// The sku type.
-	Sku SkuResponse `pulumi:"sku"`
-	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the object.
-	Type string `pulumi:"type"`
-}
-
-// JobTypeInput is an input type that accepts JobTypeArgs and JobTypeOutput values.
-// You can construct a concrete instance of `JobTypeInput` via:
-//
-//          JobTypeArgs{...}
-type JobTypeInput interface {
-	pulumi.Input
-
-	ToJobTypeOutput() JobTypeOutput
-	ToJobTypeOutputWithContext(context.Context) JobTypeOutput
-}
-
-// Job Resource.
-type JobTypeArgs struct {
-	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Name of the object.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of a job.
-	Properties JobPropertiesResponseInput `pulumi:"properties"`
-	// The sku type.
-	Sku SkuResponseInput `pulumi:"sku"`
-	// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Type of the object.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (JobTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobType)(nil)).Elem()
-}
-
-func (i JobTypeArgs) ToJobTypeOutput() JobTypeOutput {
-	return i.ToJobTypeOutputWithContext(context.Background())
-}
-
-func (i JobTypeArgs) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobTypeOutput)
-}
-
-// Job Resource.
-type JobTypeOutput struct{ *pulumi.OutputState }
-
-func (JobTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobType)(nil)).Elem()
-}
-
-func (o JobTypeOutput) ToJobTypeOutput() JobTypeOutput {
-	return o
-}
-
-func (o JobTypeOutput) ToJobTypeOutputWithContext(ctx context.Context) JobTypeOutput {
-	return o
-}
-
-// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
-func (o JobTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v JobType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Name of the object.
-func (o JobTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v JobType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of a job.
-func (o JobTypeOutput) Properties() JobPropertiesResponseOutput {
-	return o.ApplyT(func(v JobType) JobPropertiesResponse { return v.Properties }).(JobPropertiesResponseOutput)
-}
-
-// The sku type.
-func (o JobTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v JobType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
-func (o JobTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v JobType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Type of the object.
-func (o JobTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v JobType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Job details.
@@ -1723,52 +1531,6 @@ func (o JobDetailsResponsePtrOutput) ShippingAddress() ShippingAddressResponsePt
 }
 
 // Job Error Details for providing the information and recommended action.
-type JobErrorDetails struct {
-}
-
-// JobErrorDetailsInput is an input type that accepts JobErrorDetailsArgs and JobErrorDetailsOutput values.
-// You can construct a concrete instance of `JobErrorDetailsInput` via:
-//
-//          JobErrorDetailsArgs{...}
-type JobErrorDetailsInput interface {
-	pulumi.Input
-
-	ToJobErrorDetailsOutput() JobErrorDetailsOutput
-	ToJobErrorDetailsOutputWithContext(context.Context) JobErrorDetailsOutput
-}
-
-// Job Error Details for providing the information and recommended action.
-type JobErrorDetailsArgs struct {
-}
-
-func (JobErrorDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobErrorDetails)(nil)).Elem()
-}
-
-func (i JobErrorDetailsArgs) ToJobErrorDetailsOutput() JobErrorDetailsOutput {
-	return i.ToJobErrorDetailsOutputWithContext(context.Background())
-}
-
-func (i JobErrorDetailsArgs) ToJobErrorDetailsOutputWithContext(ctx context.Context) JobErrorDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobErrorDetailsOutput)
-}
-
-// Job Error Details for providing the information and recommended action.
-type JobErrorDetailsOutput struct{ *pulumi.OutputState }
-
-func (JobErrorDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobErrorDetails)(nil)).Elem()
-}
-
-func (o JobErrorDetailsOutput) ToJobErrorDetailsOutput() JobErrorDetailsOutput {
-	return o
-}
-
-func (o JobErrorDetailsOutput) ToJobErrorDetailsOutputWithContext(ctx context.Context) JobErrorDetailsOutput {
-	return o
-}
-
-// Job Error Details for providing the information and recommended action.
 type JobErrorDetailsResponse struct {
 	// Code for the error.
 	ErrorCode int `pulumi:"errorCode"`
@@ -2218,52 +1980,6 @@ func (o JobSecretsResponseOutput) JobSecretsType() pulumi.StringOutput {
 }
 
 // Job stages.
-type JobStages struct {
-}
-
-// JobStagesInput is an input type that accepts JobStagesArgs and JobStagesOutput values.
-// You can construct a concrete instance of `JobStagesInput` via:
-//
-//          JobStagesArgs{...}
-type JobStagesInput interface {
-	pulumi.Input
-
-	ToJobStagesOutput() JobStagesOutput
-	ToJobStagesOutputWithContext(context.Context) JobStagesOutput
-}
-
-// Job stages.
-type JobStagesArgs struct {
-}
-
-func (JobStagesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStages)(nil)).Elem()
-}
-
-func (i JobStagesArgs) ToJobStagesOutput() JobStagesOutput {
-	return i.ToJobStagesOutputWithContext(context.Background())
-}
-
-func (i JobStagesArgs) ToJobStagesOutputWithContext(ctx context.Context) JobStagesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobStagesOutput)
-}
-
-// Job stages.
-type JobStagesOutput struct{ *pulumi.OutputState }
-
-func (JobStagesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStages)(nil)).Elem()
-}
-
-func (o JobStagesOutput) ToJobStagesOutput() JobStagesOutput {
-	return o
-}
-
-func (o JobStagesOutput) ToJobStagesOutputWithContext(ctx context.Context) JobStagesOutput {
-	return o
-}
-
-// Job stages.
 type JobStagesResponse struct {
 	// Display name of the job stage.
 	DisplayName string `pulumi:"displayName"`
@@ -2624,52 +2340,6 @@ func (o NotificationPreferenceResponseArrayOutput) Index(i pulumi.IntInput) Noti
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationPreferenceResponse {
 		return vs[0].([]NotificationPreferenceResponse)[vs[1].(int)]
 	}).(NotificationPreferenceResponseOutput)
-}
-
-// Shipping details.
-type PackageShippingDetails struct {
-}
-
-// PackageShippingDetailsInput is an input type that accepts PackageShippingDetailsArgs and PackageShippingDetailsOutput values.
-// You can construct a concrete instance of `PackageShippingDetailsInput` via:
-//
-//          PackageShippingDetailsArgs{...}
-type PackageShippingDetailsInput interface {
-	pulumi.Input
-
-	ToPackageShippingDetailsOutput() PackageShippingDetailsOutput
-	ToPackageShippingDetailsOutputWithContext(context.Context) PackageShippingDetailsOutput
-}
-
-// Shipping details.
-type PackageShippingDetailsArgs struct {
-}
-
-func (PackageShippingDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PackageShippingDetails)(nil)).Elem()
-}
-
-func (i PackageShippingDetailsArgs) ToPackageShippingDetailsOutput() PackageShippingDetailsOutput {
-	return i.ToPackageShippingDetailsOutputWithContext(context.Background())
-}
-
-func (i PackageShippingDetailsArgs) ToPackageShippingDetailsOutputWithContext(ctx context.Context) PackageShippingDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PackageShippingDetailsOutput)
-}
-
-// Shipping details.
-type PackageShippingDetailsOutput struct{ *pulumi.OutputState }
-
-func (PackageShippingDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PackageShippingDetails)(nil)).Elem()
-}
-
-func (o PackageShippingDetailsOutput) ToPackageShippingDetailsOutput() PackageShippingDetailsOutput {
-	return o
-}
-
-func (o PackageShippingDetailsOutput) ToPackageShippingDetailsOutputWithContext(ctx context.Context) PackageShippingDetailsOutput {
-	return o
 }
 
 // Shipping details.
@@ -4170,35 +3840,29 @@ func init() {
 	pulumi.RegisterOutputType(ContactDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ContactDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(CopyLogDetailsOutput{})
 	pulumi.RegisterOutputType(CopyLogDetailsResponseOutput{})
 	pulumi.RegisterOutputType(CopyLogDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(DestinationAccountDetailsOutput{})
 	pulumi.RegisterOutputType(DestinationAccountDetailsArrayOutput{})
 	pulumi.RegisterOutputType(DestinationAccountDetailsResponseOutput{})
 	pulumi.RegisterOutputType(DestinationAccountDetailsResponseArrayOutput{})
-	pulumi.RegisterOutputType(ErrorOutput{})
 	pulumi.RegisterOutputType(ErrorResponseOutput{})
 	pulumi.RegisterOutputType(ErrorResponsePtrOutput{})
-	pulumi.RegisterOutputType(JobTypeOutput{})
 	pulumi.RegisterOutputType(JobDetailsOutput{})
 	pulumi.RegisterOutputType(JobDetailsPtrOutput{})
 	pulumi.RegisterOutputType(JobDetailsResponseOutput{})
 	pulumi.RegisterOutputType(JobDetailsResponsePtrOutput{})
-	pulumi.RegisterOutputType(JobErrorDetailsOutput{})
 	pulumi.RegisterOutputType(JobErrorDetailsResponseOutput{})
 	pulumi.RegisterOutputType(JobErrorDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(JobPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobSecretsResponseOutput{})
-	pulumi.RegisterOutputType(JobStagesOutput{})
 	pulumi.RegisterOutputType(JobStagesResponseOutput{})
 	pulumi.RegisterOutputType(JobStagesResponseArrayOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceArrayOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceResponseOutput{})
 	pulumi.RegisterOutputType(NotificationPreferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(PackageShippingDetailsOutput{})
 	pulumi.RegisterOutputType(PackageShippingDetailsResponseOutput{})
 	pulumi.RegisterOutputType(PackageShippingDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PreferencesOutput{})

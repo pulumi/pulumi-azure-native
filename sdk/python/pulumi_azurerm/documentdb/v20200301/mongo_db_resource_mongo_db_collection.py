@@ -22,7 +22,22 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
     """
     The properties of an Azure Cosmos DB MongoDB collection
       * `options` (`dict`)
+        * `throughput` (`float`) - Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+
       * `resource` (`dict`)
+        * `_etag` (`str`) - A system generated property representing the resource etag required for optimistic concurrency control.
+        * `_rid` (`str`) - A system generated property. A unique identifier.
+        * `_ts` (`dict`) - A system generated property that denotes the last updated timestamp of the resource.
+        * `id` (`str`) - Name of the Cosmos DB MongoDB collection
+        * `indexes` (`list`) - List of index keys
+          * `key` (`dict`) - Cosmos DB MongoDB collection index keys
+            * `keys` (`list`) - List of keys for each MongoDB collection in the Azure Cosmos DB service
+
+          * `options` (`dict`) - Cosmos DB MongoDB collection index key options
+            * `expire_after_seconds` (`float`) - Expire after seconds
+            * `unique` (`bool`) - Is unique or not
+
+        * `shard_key` (`dict`) - A key-value pair of shard keys to be applied for the request.
     """
     tags: pulumi.Output[dict]
     """

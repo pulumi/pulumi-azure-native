@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// Data flow properties.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.DataFlowDefinitionArgs> Properties { get; set; } = null!;
+        public Input<Inputs.DataFlowArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

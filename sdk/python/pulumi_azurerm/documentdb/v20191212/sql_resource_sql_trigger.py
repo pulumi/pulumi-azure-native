@@ -22,6 +22,13 @@ class SqlResourceSqlTrigger(pulumi.CustomResource):
     """
     The properties of an Azure Cosmos DB trigger
       * `resource` (`dict`)
+        * `_etag` (`str`) - A system generated property representing the resource etag required for optimistic concurrency control.
+        * `_rid` (`str`) - A system generated property. A unique identifier.
+        * `_ts` (`dict`) - A system generated property that denotes the last updated timestamp of the resource.
+        * `body` (`str`) - Body of the Trigger
+        * `id` (`str`) - Name of the Cosmos DB SQL trigger
+        * `trigger_operation` (`str`) - The operation the trigger is associated with
+        * `trigger_type` (`str`) - Type of the Trigger
     """
     tags: pulumi.Output[dict]
     """

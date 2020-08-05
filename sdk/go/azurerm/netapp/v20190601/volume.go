@@ -21,7 +21,7 @@ type Volume struct {
 	// Volume properties
 	Properties VolumePropertiesResponseOutput `pulumi:"properties"`
 	// Resource tags
-	Tags ResourceTagsResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -85,7 +85,7 @@ type volumeState struct {
 	// Volume properties
 	Properties *VolumePropertiesResponse `pulumi:"properties"`
 	// Resource tags
-	Tags *ResourceTagsResponse `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -98,7 +98,7 @@ type VolumeState struct {
 	// Volume properties
 	Properties VolumePropertiesResponsePtrInput
 	// Resource tags
-	Tags ResourceTagsResponsePtrInput
+	Tags pulumi.MapInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }
@@ -113,7 +113,7 @@ type volumeArgs struct {
 	// A unique file path for the volume. Used when creating mount targets
 	CreationToken string `pulumi:"creationToken"`
 	// Set of export policy rules
-	ExportPolicy *VolumePropertiesProperties `pulumi:"exportPolicy"`
+	ExportPolicy *VolumePropertiesExportPolicy `pulumi:"exportPolicy"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// List of mount targets
@@ -133,7 +133,7 @@ type volumeArgs struct {
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
 	SubnetId string `pulumi:"subnetId"`
 	// Resource tags
-	Tags *ResourceTags `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold int `pulumi:"usageThreshold"`
 }
@@ -145,7 +145,7 @@ type VolumeArgs struct {
 	// A unique file path for the volume. Used when creating mount targets
 	CreationToken pulumi.StringInput
 	// Set of export policy rules
-	ExportPolicy VolumePropertiesPropertiesPtrInput
+	ExportPolicy VolumePropertiesExportPolicyPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// List of mount targets
@@ -165,7 +165,7 @@ type VolumeArgs struct {
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
 	SubnetId pulumi.StringInput
 	// Resource tags
-	Tags ResourceTagsPtrInput
+	Tags pulumi.MapInput
 	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 	UsageThreshold pulumi.IntInput
 }

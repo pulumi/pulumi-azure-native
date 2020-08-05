@@ -91,7 +91,6 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["addonProfiles"] = args ? args.addonProfiles : undefined;
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
             inputs["apiServerAccessProfile"] = args ? args.apiServerAccessProfile : undefined;
-            inputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
             inputs["diskEncryptionSetID"] = args ? args.diskEncryptionSetID : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             inputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
@@ -144,10 +143,6 @@ export interface ManagedClusterArgs {
      */
     readonly apiServerAccessProfile?: pulumi.Input<inputs.containerservice.v20200601.ManagedClusterAPIServerAccessProfile>;
     /**
-     * Parameters to be applied to the cluster-autoscaler when enabled
-     */
-    readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.v20200601.ManagedClusterPropertiesProperties>;
-    /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
     readonly diskEncryptionSetID?: pulumi.Input<string>;
@@ -170,7 +165,7 @@ export interface ManagedClusterArgs {
     /**
      * Identities associated with the cluster.
      */
-    readonly identityProfile?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+    readonly identityProfile?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20200601.ManagedClusterPropertiesIdentityProfile>}>;
     /**
      * Version of Kubernetes specified when creating the managed cluster.
      */

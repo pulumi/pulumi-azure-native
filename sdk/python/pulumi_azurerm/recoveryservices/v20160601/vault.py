@@ -72,7 +72,7 @@ class Vault(pulumi.CustomResource):
     """
     Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
     """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, e_tag=None, identity=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Resource information, as returned by the resource provider.
 
@@ -82,7 +82,6 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[dict] identity: Identity for the resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the recovery services vault.
-        :param pulumi.Input[dict] properties: Properties of the vault.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[dict] sku: Identifies the unique system identifier for each Azure resource.
         :param pulumi.Input[dict] tags: Resource tags.
@@ -90,10 +89,6 @@ class Vault(pulumi.CustomResource):
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **properties** object supports the following:
-
-          * `upgrade_details` (`pulumi.Input[dict]`) - Details for upgrading vault.
 
         The **sku** object supports the following:
 
@@ -124,12 +119,12 @@ class Vault(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Vault, __self__).__init__(
             'azurerm:recoveryservices/v20160601:Vault',

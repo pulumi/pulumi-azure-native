@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180401.Outputs
         /// <summary>
         /// The instance view of the container instance. Only valid in response.
         /// </summary>
-        public readonly Outputs.ContainerPropertiesResponsePropertiesResult InstanceView;
+        public readonly Outputs.ContainerPropertiesResponseInstanceViewResult InstanceView;
         /// <summary>
         /// The exposed ports on the container instance.
         /// </summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180401.Outputs
 
             string image,
 
-            Outputs.ContainerPropertiesResponsePropertiesResult instanceView,
+            Outputs.ContainerPropertiesResponseInstanceViewResult instanceView,
 
             ImmutableArray<Outputs.ContainerPortResponseResult> ports,
 

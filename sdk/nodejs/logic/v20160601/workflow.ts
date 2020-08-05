@@ -77,7 +77,6 @@ export class Workflow extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["definition"] = args ? args.definition : undefined;
-            inputs["integrationAccount"] = args ? args.integrationAccount : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
@@ -106,11 +105,7 @@ export interface WorkflowArgs {
     /**
      * The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
      */
-    readonly definition?: pulumi.Input<inputs.logic.v20160601.Object>;
-    /**
-     * The integration account.
-     */
-    readonly integrationAccount?: pulumi.Input<inputs.logic.v20160601.ResourceReference>;
+    readonly definition?: pulumi.Input<{[key: string]: any}>;
     /**
      * The resource location.
      */

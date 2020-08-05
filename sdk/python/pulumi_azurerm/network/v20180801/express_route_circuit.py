@@ -173,12 +173,11 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
         The **authorizations** object supports the following:
 
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `authorization_key` (`pulumi.Input[str]`) - The authorization key.
+          * `authorization_use_status` (`pulumi.Input[str]`) - AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
           * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `properties` (`pulumi.Input[dict]`)
-            * `authorization_key` (`pulumi.Input[str]`) - The authorization key.
-            * `authorization_use_status` (`pulumi.Input[str]`) - AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
-            * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+          * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 
         The **express_route_port** object supports the following:
 
@@ -195,7 +194,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
             * `peer_express_route_circuit_peering` (`pulumi.Input[dict]`) - Reference to Express Route Circuit Private Peering Resource of the peered circuit.
 
-          * `express_route_connection` (`pulumi.Input[dict]`) - The ExpressRoute connection.
           * `gateway_manager_etag` (`pulumi.Input[str]`) - The GatewayManager Etag.
           * `id` (`pulumi.Input[str]`) - Resource ID.
           * `ipv6_peering_config` (`pulumi.Input[dict]`) - The IPv6 peering configuration.
@@ -213,14 +211,12 @@ class ExpressRouteCircuit(pulumi.CustomResource):
               * `location` (`pulumi.Input[str]`) - Resource location.
               * `peerings` (`pulumi.Input[list]`) - A collection of references to express route circuit peerings.
               * `rules` (`pulumi.Input[list]`) - Collection of RouteFilterRules contained within a route filter.
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+                * `access` (`pulumi.Input[str]`) - The access type of the rule. Valid values are: 'Allow', 'Deny'
+                * `communities` (`pulumi.Input[list]`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+                * `id` (`pulumi.Input[str]`) - Resource ID.
                 * `location` (`pulumi.Input[str]`) - Resource location.
                 * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`pulumi.Input[dict]`) - Route Filter Rule Resource
-                  * `access` (`pulumi.Input[str]`) - The access type of the rule. Valid values are: 'Allow', 'Deny'
-                  * `communities` (`pulumi.Input[list]`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
-                  * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
-                  * `route_filter_rule_type` (`pulumi.Input[str]`) - The rule type of the rule. Valid value is: 'Community'
+                * `route_filter_rule_type` (`pulumi.Input[str]`) - The rule type of the rule. Valid value is: 'Community'
 
               * `tags` (`pulumi.Input[dict]`) - Resource tags.
 

@@ -106,7 +106,7 @@ export interface SessionArgs {
     /**
      * The session content.
      */
-    readonly content?: pulumi.Input<inputs.logic.v20160601.Object>;
+    readonly content?: pulumi.Input<{[key: string]: any}>;
     /**
      * The integration account name.
      */

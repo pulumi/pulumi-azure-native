@@ -1040,103 +1040,6 @@ func (o ContactResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a domain
-type DomainType struct {
-	// Kind of resource
-	Kind *string `pulumi:"kind"`
-	// Resource Location
-	Location string `pulumi:"location"`
-	// Resource Name
-	Name       *string                  `pulumi:"name"`
-	Properties DomainResponseProperties `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type *string `pulumi:"type"`
-}
-
-// DomainTypeInput is an input type that accepts DomainTypeArgs and DomainTypeOutput values.
-// You can construct a concrete instance of `DomainTypeInput` via:
-//
-//          DomainTypeArgs{...}
-type DomainTypeInput interface {
-	pulumi.Input
-
-	ToDomainTypeOutput() DomainTypeOutput
-	ToDomainTypeOutputWithContext(context.Context) DomainTypeOutput
-}
-
-// Represents a domain
-type DomainTypeArgs struct {
-	// Kind of resource
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// Resource Location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource Name
-	Name       pulumi.StringPtrInput         `pulumi:"name"`
-	Properties DomainResponsePropertiesInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (DomainTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainType)(nil)).Elem()
-}
-
-func (i DomainTypeArgs) ToDomainTypeOutput() DomainTypeOutput {
-	return i.ToDomainTypeOutputWithContext(context.Background())
-}
-
-func (i DomainTypeArgs) ToDomainTypeOutputWithContext(ctx context.Context) DomainTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainTypeOutput)
-}
-
-// Represents a domain
-type DomainTypeOutput struct{ *pulumi.OutputState }
-
-func (DomainTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainType)(nil)).Elem()
-}
-
-func (o DomainTypeOutput) ToDomainTypeOutput() DomainTypeOutput {
-	return o
-}
-
-func (o DomainTypeOutput) ToDomainTypeOutputWithContext(ctx context.Context) DomainTypeOutput {
-	return o
-}
-
-// Kind of resource
-func (o DomainTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// Resource Location
-func (o DomainTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource Name
-func (o DomainTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o DomainTypeOutput) Properties() DomainResponsePropertiesOutput {
-	return o.ApplyT(func(v DomainType) DomainResponseProperties { return v.Properties }).(DomainResponsePropertiesOutput)
-}
-
-// Resource tags
-func (o DomainTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DomainType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o DomainTypeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DomainType) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
 // Domain purchase consent object representing acceptance of applicable legal agreements
 type DomainPurchaseConsent struct {
 	// Timestamp when the agreements were accepted
@@ -2423,7 +2326,6 @@ func init() {
 	pulumi.RegisterOutputType(ContactPtrOutput{})
 	pulumi.RegisterOutputType(ContactResponseOutput{})
 	pulumi.RegisterOutputType(ContactResponsePtrOutput{})
-	pulumi.RegisterOutputType(DomainTypeOutput{})
 	pulumi.RegisterOutputType(DomainPurchaseConsentOutput{})
 	pulumi.RegisterOutputType(DomainPurchaseConsentPtrOutput{})
 	pulumi.RegisterOutputType(DomainPurchaseConsentResponseOutput{})

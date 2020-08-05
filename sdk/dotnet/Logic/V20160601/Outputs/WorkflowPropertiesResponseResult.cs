@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
         /// <summary>
         /// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
         /// </summary>
-        public readonly Outputs.ObjectResponseResult? Definition;
+        public readonly ImmutableDictionary<string, object>? Definition;
         /// <summary>
         /// The integration account.
         /// </summary>
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
 
             string createdTime,
 
-            Outputs.ObjectResponseResult? definition,
+            ImmutableDictionary<string, object>? definition,
 
             Outputs.ResourceReferenceResponseResult? integrationAccount,
 

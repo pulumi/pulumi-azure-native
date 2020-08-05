@@ -112,7 +112,7 @@ export interface WorkflowArgs {
     /**
      * The definition.
      */
-    readonly definition?: pulumi.Input<inputs.logic.v20190501.Object>;
+    readonly definition?: pulumi.Input<{[key: string]: any}>;
     /**
      * The endpoints configuration.
      */

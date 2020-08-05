@@ -10,240 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Action descriptor.
-type Action struct {
-}
-
-// ActionInput is an input type that accepts ActionArgs and ActionOutput values.
-// You can construct a concrete instance of `ActionInput` via:
-//
-//          ActionArgs{...}
-type ActionInput interface {
-	pulumi.Input
-
-	ToActionOutput() ActionOutput
-	ToActionOutputWithContext(context.Context) ActionOutput
-}
-
-// Action descriptor.
-type ActionArgs struct {
-}
-
-func (ActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil)).Elem()
-}
-
-func (i ActionArgs) ToActionOutput() ActionOutput {
-	return i.ToActionOutputWithContext(context.Background())
-}
-
-func (i ActionArgs) ToActionOutputWithContext(ctx context.Context) ActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionOutput)
-}
-
-func (i ActionArgs) ToActionPtrOutput() ActionPtrOutput {
-	return i.ToActionPtrOutputWithContext(context.Background())
-}
-
-func (i ActionArgs) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionOutput).ToActionPtrOutputWithContext(ctx)
-}
-
-// ActionPtrInput is an input type that accepts ActionArgs, ActionPtr and ActionPtrOutput values.
-// You can construct a concrete instance of `ActionPtrInput` via:
-//
-//          ActionArgs{...}
-//
-//  or:
-//
-//          nil
-type ActionPtrInput interface {
-	pulumi.Input
-
-	ToActionPtrOutput() ActionPtrOutput
-	ToActionPtrOutputWithContext(context.Context) ActionPtrOutput
-}
-
-type actionPtrType ActionArgs
-
-func ActionPtr(v *ActionArgs) ActionPtrInput {
-	return (*actionPtrType)(v)
-}
-
-func (*actionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Action)(nil)).Elem()
-}
-
-func (i *actionPtrType) ToActionPtrOutput() ActionPtrOutput {
-	return i.ToActionPtrOutputWithContext(context.Background())
-}
-
-func (i *actionPtrType) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionPtrOutput)
-}
-
-// Action descriptor.
-type ActionOutput struct{ *pulumi.OutputState }
-
-func (ActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil)).Elem()
-}
-
-func (o ActionOutput) ToActionOutput() ActionOutput {
-	return o
-}
-
-func (o ActionOutput) ToActionOutputWithContext(ctx context.Context) ActionOutput {
-	return o
-}
-
-func (o ActionOutput) ToActionPtrOutput() ActionPtrOutput {
-	return o.ToActionPtrOutputWithContext(context.Background())
-}
-
-func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return o.ApplyT(func(v Action) *Action {
-		return &v
-	}).(ActionPtrOutput)
-}
-
-type ActionPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Action)(nil)).Elem()
-}
-
-func (o ActionPtrOutput) ToActionPtrOutput() ActionPtrOutput {
-	return o
-}
-
-func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
-	return o
-}
-
-func (o ActionPtrOutput) Elem() ActionOutput {
-	return o.ApplyT(func(v *Action) Action { return *v }).(ActionOutput)
-}
-
-// Action descriptor.
-type ActionResponse struct {
-}
-
-// ActionResponseInput is an input type that accepts ActionResponseArgs and ActionResponseOutput values.
-// You can construct a concrete instance of `ActionResponseInput` via:
-//
-//          ActionResponseArgs{...}
-type ActionResponseInput interface {
-	pulumi.Input
-
-	ToActionResponseOutput() ActionResponseOutput
-	ToActionResponseOutputWithContext(context.Context) ActionResponseOutput
-}
-
-// Action descriptor.
-type ActionResponseArgs struct {
-}
-
-func (ActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionResponse)(nil)).Elem()
-}
-
-func (i ActionResponseArgs) ToActionResponseOutput() ActionResponseOutput {
-	return i.ToActionResponseOutputWithContext(context.Background())
-}
-
-func (i ActionResponseArgs) ToActionResponseOutputWithContext(ctx context.Context) ActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseOutput)
-}
-
-func (i ActionResponseArgs) ToActionResponsePtrOutput() ActionResponsePtrOutput {
-	return i.ToActionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ActionResponseArgs) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseOutput).ToActionResponsePtrOutputWithContext(ctx)
-}
-
-// ActionResponsePtrInput is an input type that accepts ActionResponseArgs, ActionResponsePtr and ActionResponsePtrOutput values.
-// You can construct a concrete instance of `ActionResponsePtrInput` via:
-//
-//          ActionResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ActionResponsePtrInput interface {
-	pulumi.Input
-
-	ToActionResponsePtrOutput() ActionResponsePtrOutput
-	ToActionResponsePtrOutputWithContext(context.Context) ActionResponsePtrOutput
-}
-
-type actionResponsePtrType ActionResponseArgs
-
-func ActionResponsePtr(v *ActionResponseArgs) ActionResponsePtrInput {
-	return (*actionResponsePtrType)(v)
-}
-
-func (*actionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionResponse)(nil)).Elem()
-}
-
-func (i *actionResponsePtrType) ToActionResponsePtrOutput() ActionResponsePtrOutput {
-	return i.ToActionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *actionResponsePtrType) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionResponsePtrOutput)
-}
-
-// Action descriptor.
-type ActionResponseOutput struct{ *pulumi.OutputState }
-
-func (ActionResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionResponse)(nil)).Elem()
-}
-
-func (o ActionResponseOutput) ToActionResponseOutput() ActionResponseOutput {
-	return o
-}
-
-func (o ActionResponseOutput) ToActionResponseOutputWithContext(ctx context.Context) ActionResponseOutput {
-	return o
-}
-
-func (o ActionResponseOutput) ToActionResponsePtrOutput() ActionResponsePtrOutput {
-	return o.ToActionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ActionResponseOutput) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
-	return o.ApplyT(func(v ActionResponse) *ActionResponse {
-		return &v
-	}).(ActionResponsePtrOutput)
-}
-
-type ActionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ActionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionResponse)(nil)).Elem()
-}
-
-func (o ActionResponsePtrOutput) ToActionResponsePtrOutput() ActionResponsePtrOutput {
-	return o
-}
-
-func (o ActionResponsePtrOutput) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
-	return o
-}
-
-func (o ActionResponsePtrOutput) Elem() ActionResponseOutput {
-	return o.ApplyT(func(v *ActionResponse) ActionResponse { return *v }).(ActionResponseOutput)
-}
-
 // Log Search Rule Definition
 type LogSearchRuleResponse struct {
-	// Action needs to be taken on rule execution.
-	Action ActionResponse `pulumi:"action"`
 	// The description of the Log Search rule.
 	Description *string `pulumi:"description"`
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
@@ -271,8 +39,6 @@ type LogSearchRuleResponseInput interface {
 
 // Log Search Rule Definition
 type LogSearchRuleResponseArgs struct {
-	// Action needs to be taken on rule execution.
-	Action ActionResponseInput `pulumi:"action"`
 	// The description of the Log Search rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
@@ -365,11 +131,6 @@ func (o LogSearchRuleResponseOutput) ToLogSearchRuleResponsePtrOutputWithContext
 	}).(LogSearchRuleResponsePtrOutput)
 }
 
-// Action needs to be taken on rule execution.
-func (o LogSearchRuleResponseOutput) Action() ActionResponseOutput {
-	return o.ApplyT(func(v LogSearchRuleResponse) ActionResponse { return v.Action }).(ActionResponseOutput)
-}
-
 // The description of the Log Search rule.
 func (o LogSearchRuleResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogSearchRuleResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
@@ -416,16 +177,6 @@ func (o LogSearchRuleResponsePtrOutput) ToLogSearchRuleResponsePtrOutputWithCont
 
 func (o LogSearchRuleResponsePtrOutput) Elem() LogSearchRuleResponseOutput {
 	return o.ApplyT(func(v *LogSearchRuleResponse) LogSearchRuleResponse { return *v }).(LogSearchRuleResponseOutput)
-}
-
-// Action needs to be taken on rule execution.
-func (o LogSearchRuleResponsePtrOutput) Action() ActionResponsePtrOutput {
-	return o.ApplyT(func(v *LogSearchRuleResponse) *ActionResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Action
-	}).(ActionResponsePtrOutput)
 }
 
 // The description of the Log Search rule.
@@ -792,97 +543,6 @@ func (o ScheduleResponsePtrOutput) TimeWindowInMinutes() pulumi.IntPtrOutput {
 		}
 		return &v.TimeWindowInMinutes
 	}).(pulumi.IntPtrOutput)
-}
-
-// The Log Search Rule resource.
-type ScheduledQueryRuleType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// The rule properties of the resource.
-	Properties LogSearchRuleResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// ScheduledQueryRuleTypeInput is an input type that accepts ScheduledQueryRuleTypeArgs and ScheduledQueryRuleTypeOutput values.
-// You can construct a concrete instance of `ScheduledQueryRuleTypeInput` via:
-//
-//          ScheduledQueryRuleTypeArgs{...}
-type ScheduledQueryRuleTypeInput interface {
-	pulumi.Input
-
-	ToScheduledQueryRuleTypeOutput() ScheduledQueryRuleTypeOutput
-	ToScheduledQueryRuleTypeOutputWithContext(context.Context) ScheduledQueryRuleTypeOutput
-}
-
-// The Log Search Rule resource.
-type ScheduledQueryRuleTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The rule properties of the resource.
-	Properties LogSearchRuleResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ScheduledQueryRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRuleType)(nil)).Elem()
-}
-
-func (i ScheduledQueryRuleTypeArgs) ToScheduledQueryRuleTypeOutput() ScheduledQueryRuleTypeOutput {
-	return i.ToScheduledQueryRuleTypeOutputWithContext(context.Background())
-}
-
-func (i ScheduledQueryRuleTypeArgs) ToScheduledQueryRuleTypeOutputWithContext(ctx context.Context) ScheduledQueryRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleTypeOutput)
-}
-
-// The Log Search Rule resource.
-type ScheduledQueryRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (ScheduledQueryRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRuleType)(nil)).Elem()
-}
-
-func (o ScheduledQueryRuleTypeOutput) ToScheduledQueryRuleTypeOutput() ScheduledQueryRuleTypeOutput {
-	return o
-}
-
-func (o ScheduledQueryRuleTypeOutput) ToScheduledQueryRuleTypeOutputWithContext(ctx context.Context) ScheduledQueryRuleTypeOutput {
-	return o
-}
-
-// Resource location
-func (o ScheduledQueryRuleTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduledQueryRuleType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name
-func (o ScheduledQueryRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduledQueryRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The rule properties of the resource.
-func (o ScheduledQueryRuleTypeOutput) Properties() LogSearchRuleResponseOutput {
-	return o.ApplyT(func(v ScheduledQueryRuleType) LogSearchRuleResponse { return v.Properties }).(LogSearchRuleResponseOutput)
-}
-
-// Resource tags
-func (o ScheduledQueryRuleTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ScheduledQueryRuleType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type
-func (o ScheduledQueryRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ScheduledQueryRuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Specifies the log search query.
@@ -1268,17 +928,12 @@ func (o SourceResponsePtrOutput) QueryType() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ActionOutput{})
-	pulumi.RegisterOutputType(ActionPtrOutput{})
-	pulumi.RegisterOutputType(ActionResponseOutput{})
-	pulumi.RegisterOutputType(ActionResponsePtrOutput{})
 	pulumi.RegisterOutputType(LogSearchRuleResponseOutput{})
 	pulumi.RegisterOutputType(LogSearchRuleResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleOutput{})
 	pulumi.RegisterOutputType(SchedulePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleResponsePtrOutput{})
-	pulumi.RegisterOutputType(ScheduledQueryRuleTypeOutput{})
 	pulumi.RegisterOutputType(SourceOutput{})
 	pulumi.RegisterOutputType(SourcePtrOutput{})
 	pulumi.RegisterOutputType(SourceResponseOutput{})

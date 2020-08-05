@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
         /// <summary>
         /// The definition.
         /// </summary>
-        public readonly Outputs.ObjectResponseResult? Definition;
+        public readonly ImmutableDictionary<string, object>? Definition;
         /// <summary>
         /// The endpoints configuration.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
 
             string createdTime,
 
-            Outputs.ObjectResponseResult? definition,
+            ImmutableDictionary<string, object>? definition,
 
             Outputs.FlowEndpointsConfigurationResponseResult? endpointsConfiguration,
 

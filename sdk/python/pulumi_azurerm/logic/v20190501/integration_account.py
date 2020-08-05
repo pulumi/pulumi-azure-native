@@ -89,7 +89,6 @@ class IntegrationAccount(pulumi.CustomResource):
         The **integration_service_environment** object supports the following:
 
           * `location` (`pulumi.Input[str]`) - The resource location.
-          * `name` (`pulumi.Input[str]`) - Gets the resource name.
           * `properties` (`pulumi.Input[dict]`) - The integration service environment properties.
             * `endpoints_configuration` (`pulumi.Input[dict]`) - The endpoints configuration.
               * `connector` (`pulumi.Input[dict]`) - The connector endpoints.
@@ -107,8 +106,6 @@ class IntegrationAccount(pulumi.CustomResource):
 
               * `subnets` (`pulumi.Input[list]`) - The subnets.
                 * `id` (`pulumi.Input[str]`) - The resource id.
-                * `name` (`pulumi.Input[str]`) - Gets the resource name.
-                * `type` (`pulumi.Input[str]`) - Gets the resource type.
 
               * `virtual_network_address_space` (`pulumi.Input[str]`) - Gets the virtual network address space.
 
@@ -120,7 +117,6 @@ class IntegrationAccount(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - The sku name.
 
           * `tags` (`pulumi.Input[dict]`) - The resource tags.
-          * `type` (`pulumi.Input[str]`) - Gets the resource type.
 
         The **sku** object supports the following:
 

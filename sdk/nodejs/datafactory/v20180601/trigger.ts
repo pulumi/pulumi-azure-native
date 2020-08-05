@@ -111,7 +111,7 @@ export interface TriggerArgs {
     /**
      * Properties of the trigger.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.TriggerDefinition>;
+    readonly properties: pulumi.Input<inputs.datafactory.v20180601.Trigger>;
     /**
      * The resource group name.
      */

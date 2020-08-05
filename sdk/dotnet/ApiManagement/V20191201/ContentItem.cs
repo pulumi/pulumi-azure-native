@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// Properties of the content item.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.ContentItemContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, object>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

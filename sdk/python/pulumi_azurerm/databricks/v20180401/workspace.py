@@ -78,14 +78,13 @@ class Workspace(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, authorizations=None, created_by=None, created_date_time=None, location=None, managed_resource_group_id=None, name=None, parameters=None, resource_group_name=None, sku=None, storage_account_identity=None, tags=None, ui_definition_uri=None, updated_by=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authorizations=None, created_date_time=None, location=None, managed_resource_group_id=None, name=None, parameters=None, resource_group_name=None, sku=None, tags=None, ui_definition_uri=None, __props__=None, __name__=None, __opts__=None):
         """
         Information about workspace.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] authorizations: The workspace provider authorizations.
-        :param pulumi.Input[dict] created_by: Indicates the Object ID, PUID and Application ID of entity that created the workspace.
         :param pulumi.Input[str] created_date_time: Specifies the date and time when the workspace is created.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
@@ -93,10 +92,8 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[dict] parameters: The workspace's custom parameters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[dict] sku: The SKU of the resource.
-        :param pulumi.Input[dict] storage_account_identity: The details of Managed Identity of Storage Account
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[str] ui_definition_uri: The blob URI where the UI definition file is located.
-        :param pulumi.Input[dict] updated_by: Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
 
         The **authorizations** object supports the following:
 
@@ -148,7 +145,6 @@ class Workspace(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authorizations'] = authorizations
-            __props__['created_by'] = created_by
             __props__['created_date_time'] = created_date_time
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -164,10 +160,8 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
-            __props__['storage_account_identity'] = storage_account_identity
             __props__['tags'] = tags
             __props__['ui_definition_uri'] = ui_definition_uri
-            __props__['updated_by'] = updated_by
             __props__['properties'] = None
             __props__['type'] = None
         super(Workspace, __self__).__init__(

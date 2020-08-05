@@ -654,115 +654,6 @@ func (o SearchServicePropertiesResponsePtrOutput) StatusDetails() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes an Azure Cognitive Search service and its current state.
-type ServiceType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// Properties of the Search service.
-	Properties SearchServicePropertiesResponse `pulumi:"properties"`
-	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Tags to help categorize the resource in the Azure portal.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// ServiceTypeInput is an input type that accepts ServiceTypeArgs and ServiceTypeOutput values.
-// You can construct a concrete instance of `ServiceTypeInput` via:
-//
-//          ServiceTypeArgs{...}
-type ServiceTypeInput interface {
-	pulumi.Input
-
-	ToServiceTypeOutput() ServiceTypeOutput
-	ToServiceTypeOutputWithContext(context.Context) ServiceTypeOutput
-}
-
-// Describes an Azure Cognitive Search service and its current state.
-type ServiceTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Search service.
-	Properties SearchServicePropertiesResponseInput `pulumi:"properties"`
-	// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Tags to help categorize the resource in the Azure portal.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceType)(nil)).Elem()
-}
-
-func (i ServiceTypeArgs) ToServiceTypeOutput() ServiceTypeOutput {
-	return i.ToServiceTypeOutputWithContext(context.Background())
-}
-
-func (i ServiceTypeArgs) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeOutput)
-}
-
-// Describes an Azure Cognitive Search service and its current state.
-type ServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceType)(nil)).Elem()
-}
-
-func (o ServiceTypeOutput) ToServiceTypeOutput() ServiceTypeOutput {
-	return o
-}
-
-func (o ServiceTypeOutput) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o ServiceTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v ServiceType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
-func (o ServiceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o ServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Search service.
-func (o ServiceTypeOutput) Properties() SearchServicePropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceType) SearchServicePropertiesResponse { return v.Properties }).(SearchServicePropertiesResponseOutput)
-}
-
-// The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
-func (o ServiceTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v ServiceType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Tags to help categorize the resource in the Azure portal.
-func (o ServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The resource type.
-func (o ServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
 type Sku struct {
 	// The SKU of the Search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
@@ -1040,7 +931,6 @@ func init() {
 	pulumi.RegisterOutputType(QueryKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(SearchServicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SearchServicePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServiceTypeOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

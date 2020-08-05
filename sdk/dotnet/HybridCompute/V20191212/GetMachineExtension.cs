@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         /// <summary>
         /// Describes Machine Extension Properties.
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Properties;
+        public readonly Outputs.MachineExtensionResponsePropertiesResult Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
 
             string name,
 
-            ImmutableDictionary<string, object> properties,
+            Outputs.MachineExtensionResponsePropertiesResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

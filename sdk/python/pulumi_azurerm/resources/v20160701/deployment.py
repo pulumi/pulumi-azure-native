@@ -74,7 +74,6 @@ class Deployment(pulumi.CustomResource):
 
         The **properties** object supports the following:
 
-          * `debug_setting` (`pulumi.Input[dict]`) - The debug setting of the deployment.
           * `mode` (`pulumi.Input[str]`) - The deployment mode.
           * `parameters` (`pulumi.Input[dict]`) - Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
           * `parameters_link` (`pulumi.Input[dict]`) - The parameters URI. Use only one of Parameters or ParametersLink.

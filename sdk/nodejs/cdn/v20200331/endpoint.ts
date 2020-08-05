@@ -135,7 +135,7 @@ export interface EndpointArgs {
     /**
      * A policy that specifies the delivery rules to be used for an endpoint.
      */
-    readonly deliveryPolicy?: pulumi.Input<inputs.cdn.v20200331.EndpointPropertiesUpdateParametersProperties>;
+    readonly deliveryPolicy?: pulumi.Input<inputs.cdn.v20200331.EndpointPropertiesUpdateParametersDeliveryPolicy>;
     /**
      * List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
      */
@@ -207,5 +207,5 @@ export interface EndpointArgs {
     /**
      * Defines the Web Application Firewall policy for the endpoint (if applicable)
      */
-    readonly webApplicationFirewallPolicyLink?: pulumi.Input<inputs.cdn.v20200331.EndpointPropertiesUpdateParametersProperties>;
+    readonly webApplicationFirewallPolicyLink?: pulumi.Input<inputs.cdn.v20200331.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink>;
 }

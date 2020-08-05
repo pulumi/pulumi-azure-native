@@ -20,25 +20,25 @@ namespace Pulumi.AzureRM.ContainerService.V20190801.Outputs
         /// <summary>
         /// Desired managed outbound IPs for the cluster load balancer.
         /// </summary>
-        public readonly Outputs.ManagedClusterLoadBalancerProfileResponsePropertiesResult? ManagedOutboundIPs;
+        public readonly Outputs.ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsResult? ManagedOutboundIPs;
         /// <summary>
         /// Desired outbound IP Prefix resources for the cluster load balancer.
         /// </summary>
-        public readonly Outputs.ManagedClusterLoadBalancerProfileResponsePropertiesResult? OutboundIPPrefixes;
+        public readonly Outputs.ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesResult? OutboundIPPrefixes;
         /// <summary>
         /// Desired outbound IP resources for the cluster load balancer.
         /// </summary>
-        public readonly Outputs.ManagedClusterLoadBalancerProfileResponsePropertiesResult? OutboundIPs;
+        public readonly Outputs.ManagedClusterLoadBalancerProfileResponseOutboundIPsResult? OutboundIPs;
 
         [OutputConstructor]
         private ManagedClusterLoadBalancerProfileResponseResult(
             ImmutableArray<Outputs.ResourceReferenceResponseResult> effectiveOutboundIPs,
 
-            Outputs.ManagedClusterLoadBalancerProfileResponsePropertiesResult? managedOutboundIPs,
+            Outputs.ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsResult? managedOutboundIPs,
 
-            Outputs.ManagedClusterLoadBalancerProfileResponsePropertiesResult? outboundIPPrefixes,
+            Outputs.ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesResult? outboundIPPrefixes,
 
-            Outputs.ManagedClusterLoadBalancerProfileResponsePropertiesResult? outboundIPs)
+            Outputs.ManagedClusterLoadBalancerProfileResponseOutboundIPsResult? outboundIPs)
         {
             EffectiveOutboundIPs = effectiveOutboundIPs;
             ManagedOutboundIPs = managedOutboundIPs;
