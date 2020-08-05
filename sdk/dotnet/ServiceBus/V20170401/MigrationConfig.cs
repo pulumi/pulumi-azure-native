@@ -90,16 +90,22 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties required to the Create Migration Configuration
+        /// Name to access Standard Namespace after migration
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.MigrationConfigPropertiesPropertiesArgs>? Properties { get; set; }
+        [Input("postMigrationName", required: true)]
+        public Input<string> PostMigrationName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Existing premium Namespace ARM Id name which has no entities, will be used for migration
+        /// </summary>
+        [Input("targetNamespace", required: true)]
+        public Input<string> TargetNamespace { get; set; } = null!;
 
         public MigrationConfigArgs()
         {

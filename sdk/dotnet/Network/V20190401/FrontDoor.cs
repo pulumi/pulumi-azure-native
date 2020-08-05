@@ -89,6 +89,72 @@ namespace Pulumi.AzureRM.Network.V20190401
 
     public sealed class FrontDoorArgs : Pulumi.ResourceArgs
     {
+        [Input("backendPools")]
+        private InputList<Inputs.BackendPoolArgs>? _backendPools;
+
+        /// <summary>
+        /// Backend pools available to routing rules.
+        /// </summary>
+        public InputList<Inputs.BackendPoolArgs> BackendPools
+        {
+            get => _backendPools ?? (_backendPools = new InputList<Inputs.BackendPoolArgs>());
+            set => _backendPools = value;
+        }
+
+        /// <summary>
+        /// Settings for all backendPools
+        /// </summary>
+        [Input("backendPoolsSettings")]
+        public Input<Inputs.BackendPoolsSettingsArgs>? BackendPoolsSettings { get; set; }
+
+        /// <summary>
+        /// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+        /// </summary>
+        [Input("enabledState")]
+        public Input<string>? EnabledState { get; set; }
+
+        /// <summary>
+        /// A friendly name for the frontDoor
+        /// </summary>
+        [Input("friendlyName")]
+        public Input<string>? FriendlyName { get; set; }
+
+        [Input("frontendEndpoints")]
+        private InputList<Inputs.FrontendEndpointArgs>? _frontendEndpoints;
+
+        /// <summary>
+        /// Frontend endpoints available to routing rules.
+        /// </summary>
+        public InputList<Inputs.FrontendEndpointArgs> FrontendEndpoints
+        {
+            get => _frontendEndpoints ?? (_frontendEndpoints = new InputList<Inputs.FrontendEndpointArgs>());
+            set => _frontendEndpoints = value;
+        }
+
+        [Input("healthProbeSettings")]
+        private InputList<Inputs.HealthProbeSettingsModelArgs>? _healthProbeSettings;
+
+        /// <summary>
+        /// Health probe settings associated with this Front Door instance.
+        /// </summary>
+        public InputList<Inputs.HealthProbeSettingsModelArgs> HealthProbeSettings
+        {
+            get => _healthProbeSettings ?? (_healthProbeSettings = new InputList<Inputs.HealthProbeSettingsModelArgs>());
+            set => _healthProbeSettings = value;
+        }
+
+        [Input("loadBalancingSettings")]
+        private InputList<Inputs.LoadBalancingSettingsModelArgs>? _loadBalancingSettings;
+
+        /// <summary>
+        /// Load balancing settings associated with this Front Door instance.
+        /// </summary>
+        public InputList<Inputs.LoadBalancingSettingsModelArgs> LoadBalancingSettings
+        {
+            get => _loadBalancingSettings ?? (_loadBalancingSettings = new InputList<Inputs.LoadBalancingSettingsModelArgs>());
+            set => _loadBalancingSettings = value;
+        }
+
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -102,16 +168,28 @@ namespace Pulumi.AzureRM.Network.V20190401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Front Door Load Balancer
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FrontDoorPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource status of the Front Door.
+        /// </summary>
+        [Input("resourceState")]
+        public Input<string>? ResourceState { get; set; }
+
+        [Input("routingRules")]
+        private InputList<Inputs.RoutingRuleArgs>? _routingRules;
+
+        /// <summary>
+        /// Routing rules associated with this Front Door.
+        /// </summary>
+        public InputList<Inputs.RoutingRuleArgs> RoutingRules
+        {
+            get => _routingRules ?? (_routingRules = new InputList<Inputs.RoutingRuleArgs>());
+            set => _routingRules = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

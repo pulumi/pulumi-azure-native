@@ -93,6 +93,18 @@ namespace Pulumi.AzureRM.Compute.V20200501
     public sealed class DiskEncryptionSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The key vault key which is currently used by this disk encryption set.
+        /// </summary>
+        [Input("activeKey")]
+        public Input<Inputs.KeyVaultAndKeyReferenceArgs>? ActiveKey { get; set; }
+
+        /// <summary>
+        /// The type of key used to encrypt the data of the disk.
+        /// </summary>
+        [Input("encryptionType")]
+        public Input<string>? EncryptionType { get; set; }
+
+        /// <summary>
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         /// </summary>
         [Input("identity")]
@@ -109,9 +121,6 @@ namespace Pulumi.AzureRM.Compute.V20200501
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        [Input("properties")]
-        public Input<Inputs.EncryptionSetPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

@@ -84,6 +84,24 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public sealed class NamespaceAuthorizationRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A string that describes Claim Type for authorization rule.
+        /// </summary>
+        [Input("claimType")]
+        public Input<string>? ClaimType { get; set; }
+
+        /// <summary>
+        /// A string that describes Claim Value of authorization rule.
+        /// </summary>
+        [Input("claimValue")]
+        public Input<string>? ClaimValue { get; set; }
+
+        /// <summary>
+        /// A string that describes the Key Name of authorization rule.
+        /// </summary>
+        [Input("keyName")]
+        public Input<string>? KeyName { get; set; }
+
+        /// <summary>
         /// data center location.
         /// </summary>
         [Input("location")]
@@ -102,16 +120,34 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// AuthorizationRule properties.
+        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SharedAccessAuthorizationRulePropertiesArgs>? Properties { get; set; }
+        [Input("primaryKey")]
+        public Input<string>? PrimaryKey { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("rights", required: true)]
+        private InputList<string>? _rights;
+
+        /// <summary>
+        /// The rights associated with the rule.
+        /// </summary>
+        public InputList<string> Rights
+        {
+            get => _rights ?? (_rights = new InputList<string>());
+            set => _rights = value;
+        }
+
+        /// <summary>
+        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        /// </summary>
+        [Input("secondaryKey")]
+        public Input<string>? SecondaryKey { get; set; }
 
         public NamespaceAuthorizationRuleArgs()
         {

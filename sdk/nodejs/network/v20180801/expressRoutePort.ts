@@ -51,7 +51,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
     /**
      * ExpressRoutePort properties
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180801.ExpressRoutePortPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180801.ExpressRoutePortPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,18 @@ export class ExpressRoutePort extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
+            inputs["encapsulation"] = args ? args.encapsulation : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["links"] = args ? args.links : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peeringLocation"] = args ? args.peeringLocation : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,9 +110,21 @@ export class ExpressRoutePort extends pulumi.CustomResource {
  */
 export interface ExpressRoutePortArgs {
     /**
+     * Bandwidth of procured ports in Gbps
+     */
+    readonly bandwidthInGbps?: pulumi.Input<number>;
+    /**
+     * Encapsulation method on physical ports.
+     */
+    readonly encapsulation?: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * The set of physical links of the ExpressRoutePort resource
+     */
+    readonly links?: pulumi.Input<pulumi.Input<inputs.network.v20180801.ExpressRouteLink>[]>;
     /**
      * Resource location.
      */
@@ -117,13 +134,17 @@ export interface ExpressRoutePortArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * ExpressRoutePort properties
+     * The name of the peering location that the ExpressRoutePort is mapped to physically.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20180801.ExpressRoutePortPropertiesFormat>;
+    readonly peeringLocation?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource GUID property of the ExpressRoutePort resource.
+     */
+    readonly resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -28,10 +28,22 @@ namespace Pulumi.AzureRM.Network.V20191101.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Represents the ip configuration associated with the resource.
+        /// Private IP allocation method.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BastionHostIPConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("privateIPAllocationMethod")]
+        public Input<string>? PrivateIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// Reference of the PublicIP resource.
+        /// </summary>
+        [Input("publicIPAddress", required: true)]
+        public Input<Inputs.SubResourceArgs> PublicIPAddress { get; set; } = null!;
+
+        /// <summary>
+        /// Reference of the subnet resource.
+        /// </summary>
+        [Input("subnet", required: true)]
+        public Input<Inputs.SubResourceArgs> Subnet { get; set; } = null!;
 
         public BastionHostIPConfigurationArgs()
         {

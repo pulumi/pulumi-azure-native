@@ -43,7 +43,7 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
     /**
      * Properties of the Policy.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.PolicyContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.PolicyContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -77,12 +77,17 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.value === undefined) {
+                throw new Error("Missing required property 'value'");
+            }
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["format"] = args ? args.format : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["operationId"] = args ? args.operationId : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["value"] = args ? args.value : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +110,10 @@ export interface ApiOperationPolicyArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
+     * Format of the policyContent.
+     */
+    readonly format?: pulumi.Input<string>;
+    /**
      * The identifier of the Policy.
      */
     readonly name: pulumi.Input<string>;
@@ -113,10 +122,6 @@ export interface ApiOperationPolicyArgs {
      */
     readonly operationId: pulumi.Input<string>;
     /**
-     * Properties of the Policy.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20190101.PolicyContractProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -124,4 +129,8 @@ export interface ApiOperationPolicyArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Contents of the Policy as defined by the format.
+     */
+    readonly value: pulumi.Input<string>;
 }

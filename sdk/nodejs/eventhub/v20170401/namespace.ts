@@ -47,7 +47,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Namespace properties supplied for create namespace operation.
      */
-    public readonly properties!: pulumi.Output<outputs.eventhub.v20170401.EHNamespaceResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20170401.EHNamespaceResponseProperties>;
     /**
      * Properties of sku resource
      */
@@ -80,12 +80,15 @@ export class Namespace extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["isAutoInflateEnabled"] = args ? args.isAutoInflateEnabled : undefined;
+            inputs["kafkaEnabled"] = args ? args.kafkaEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,17 +107,25 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceArgs {
     /**
+     * Value that indicates whether AutoInflate is enabled for eventhub namespace.
+     */
+    readonly isAutoInflateEnabled?: pulumi.Input<boolean>;
+    /**
+     * Value that indicates whether Kafka is enabled for eventhub namespace.
+     */
+    readonly kafkaEnabled?: pulumi.Input<boolean>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+     */
+    readonly maximumThroughputUnits?: pulumi.Input<number>;
+    /**
      * The Namespace name
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Namespace properties supplied for create namespace operation.
-     */
-    readonly properties?: pulumi.Input<inputs.eventhub.v20170401.EHNamespaceProperties>;
     /**
      * Name of the resource group within the azure subscription.
      */

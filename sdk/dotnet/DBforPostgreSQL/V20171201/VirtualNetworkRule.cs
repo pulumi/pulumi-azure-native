@@ -78,16 +78,16 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
     public sealed class VirtualNetworkRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Create firewall rule before the virtual network has vnet service endpoint enabled.
+        /// </summary>
+        [Input("ignoreMissingVnetServiceEndpoint")]
+        public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }
+
+        /// <summary>
         /// The name of the virtual network rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Resource properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualNetworkRulePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -100,6 +100,12 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The ARM resource id of the virtual network subnet.
+        /// </summary>
+        [Input("virtualNetworkSubnetId", required: true)]
+        public Input<string> VirtualNetworkSubnetId { get; set; } = null!;
 
         public VirtualNetworkRuleArgs()
         {

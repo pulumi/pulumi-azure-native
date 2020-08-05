@@ -47,7 +47,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * AuthorizationRule properties.
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20140901.SharedAccessAuthorizationRulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20140901.SharedAccessAuthorizationRulePropertiesResponse>;
     /**
      * Resource type
      */
@@ -75,11 +75,20 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.rights === undefined) {
+                throw new Error("Missing required property 'rights'");
+            }
+            inputs["claimType"] = args ? args.claimType : undefined;
+            inputs["claimValue"] = args ? args.claimValue : undefined;
+            inputs["keyName"] = args ? args.keyName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["primaryKey"] = args ? args.primaryKey : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rights"] = args ? args.rights : undefined;
+            inputs["secondaryKey"] = args ? args.secondaryKey : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,6 +107,18 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
  */
 export interface NamespaceAuthorizationRuleArgs {
     /**
+     * A string that describes Claim Type for authorization rule.
+     */
+    readonly claimType?: pulumi.Input<string>;
+    /**
+     * A string that describes Claim Value of authorization rule.
+     */
+    readonly claimValue?: pulumi.Input<string>;
+    /**
+     * A string that describes the Key Name of authorization rule.
+     */
+    readonly keyName?: pulumi.Input<string>;
+    /**
      * data center location.
      */
     readonly location?: pulumi.Input<string>;
@@ -110,11 +131,19 @@ export interface NamespaceAuthorizationRuleArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * AuthorizationRule properties.
+     * A base64-encoded 256-bit primary key for signing and validating the SAS token.
      */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20140901.SharedAccessAuthorizationRuleProperties>;
+    readonly primaryKey?: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The rights associated with the rule.
+     */
+    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A base64-encoded 256-bit primary key for signing and validating the SAS token.
+     */
+    readonly secondaryKey?: pulumi.Input<string>;
 }

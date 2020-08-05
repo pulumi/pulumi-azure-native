@@ -775,6 +775,53 @@ func (k *azurermProvider) azurePost(
 	return outputs, nil
 }
 
+func (k *azurermProvider) sdkPropertyToPayload(prop *AzureApiProperty, value interface{}) interface{} {
+	switch value := value.(type) {
+	case map[string]interface{}:
+		if prop.Ref == "" {
+			// Return untyped dictionaries as-is.
+			return value
+		}
+
+		typeName := strings.TrimPrefix(prop.Ref, "#/types/")
+		typ := k.resourceMap.Types[typeName]
+		return k.sdkPropertiesToPayload(typ.Properties, value)
+	case []interface{}:
+		var result []interface{}
+		for _, item := range value {
+			result = append(result, k.sdkPropertyToPayload(prop.Items, item))
+		}
+		return result
+	}
+	return value
+}
+
+func (k *azurermProvider) sdkPropertiesToPayload(props map[string]AzureApiProperty, values map[string]interface{}) map[string]interface{} {
+	result := map[string]interface{}{}
+	for name, prop := range props {
+		sdkName := name
+		if prop.SdkName != "" {
+			sdkName = prop.SdkName
+		}
+		if value, has := values[sdkName]; has {
+			if prop.Container == "" {
+				result[name] = k.sdkPropertyToPayload(&prop, value)
+			} else {
+				// "Unflatten" the property into a container property.
+				container := map[string]interface{}{}
+				if v, ok := result[prop.Container]; ok {
+					if v, ok := v.(map[string]interface{}); ok {
+						container = v
+					}
+				}
+				container[name] = k.sdkPropertyToPayload(&prop, value)
+				result[prop.Container] = container
+			}
+		}
+	}
+	return result
+}
+
 func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []AzureApiParameter, methodInputs,
 	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
@@ -790,15 +837,7 @@ func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []Azure
 
 	for _, param := range parameters {
 		if param.Location == "body" {
-			for name, prop := range param.Body.Properties {
-				sdkName := name
-				if prop.SdkName != "" {
-					sdkName = prop.SdkName
-				}
-				if value, has := methodInputs[sdkName]; has {
-					params["body"][name] = value
-				}
-			}
+			params["body"] = k.sdkPropertiesToPayload(param.Body.Properties, methodInputs)
 		} else {
 			var val interface{}
 			var has bool

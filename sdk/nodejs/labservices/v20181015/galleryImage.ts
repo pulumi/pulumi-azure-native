@@ -47,7 +47,7 @@ export class GalleryImage extends pulumi.CustomResource {
     /**
      * The gallery image properties
      */
-    public readonly properties!: pulumi.Output<outputs.labservices.v20181015.GalleryImagePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.labservices.v20181015.GalleryImagePropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -79,12 +79,17 @@ export class GalleryImage extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["isEnabled"] = args ? args.isEnabled : undefined;
+            inputs["isOverride"] = args ? args.isOverride : undefined;
+            inputs["isPlanAuthorized"] = args ? args.isPlanAuthorized : undefined;
             inputs["labAccountName"] = args ? args.labAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,6 +108,18 @@ export class GalleryImage extends pulumi.CustomResource {
  */
 export interface GalleryImageArgs {
     /**
+     * Indicates whether this gallery image is enabled.
+     */
+    readonly isEnabled?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether this gallery has been overridden for this lab account
+     */
+    readonly isOverride?: pulumi.Input<boolean>;
+    /**
+     * Indicates if the plan has been authorized for programmatic deployment.
+     */
+    readonly isPlanAuthorized?: pulumi.Input<boolean>;
+    /**
      * The name of the lab Account.
      */
     readonly labAccountName: pulumi.Input<string>;
@@ -115,9 +132,9 @@ export interface GalleryImageArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The gallery image properties
+     * The provisioning status of the resource.
      */
-    readonly properties?: pulumi.Input<inputs.labservices.v20181015.GalleryImageProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -126,4 +143,8 @@ export interface GalleryImageArgs {
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
 }

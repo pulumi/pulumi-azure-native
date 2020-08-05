@@ -47,7 +47,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Properties of the domain.
      */
-    public readonly properties!: pulumi.Output<outputs.eventgrid.v20190601.DomainPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventgrid.v20190601.DomainPropertiesResponse>;
     /**
      * Tags of the resource.
      */
@@ -81,9 +81,9 @@ export class Domain extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,10 +109,6 @@ export interface DomainArgs {
      * Name of the domain.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the domain.
-     */
-    readonly properties?: pulumi.Input<inputs.eventgrid.v20190601.DomainProperties>;
     /**
      * The name of the resource group within the user's subscription.
      */

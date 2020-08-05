@@ -96,14 +96,18 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
+	// ARM ID of the Service Map workspace created by user.
+	CustomerWorkspaceId *string `pulumi:"customerWorkspaceId"`
+	// Location of the Service Map workspace created by user.
+	CustomerWorkspaceLocation *string `pulumi:"customerWorkspaceLocation"`
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
 	// Azure location in which project is created.
 	Location *string `pulumi:"location"`
 	// Name of the Azure Migrate project.
 	Name string `pulumi:"name"`
-	// Properties of the project.
-	Properties *ProjectProperties `pulumi:"properties"`
+	// Provisioning state of the project.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags provided by Azure Tagging service.
@@ -112,14 +116,18 @@ type projectArgs struct {
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
+	// ARM ID of the Service Map workspace created by user.
+	CustomerWorkspaceId pulumi.StringPtrInput
+	// Location of the Service Map workspace created by user.
+	CustomerWorkspaceLocation pulumi.StringPtrInput
 	// For optimistic concurrency control.
 	ETag pulumi.StringPtrInput
 	// Azure location in which project is created.
 	Location pulumi.StringPtrInput
 	// Name of the Azure Migrate project.
 	Name pulumi.StringInput
-	// Properties of the project.
-	Properties ProjectPropertiesPtrInput
+	// Provisioning state of the project.
+	ProvisioningState pulumi.StringPtrInput
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName pulumi.StringInput
 	// Tags provided by Azure Tagging service.

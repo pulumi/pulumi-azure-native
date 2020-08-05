@@ -27,27 +27,23 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
       * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
       * `type_handler_version` (`str`) - Specifies the version of the script handler.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, vm_scale_set_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, force_update_tag=None, name=None, protected_settings=None, provision_after_extensions=None, publisher=None, resource_group_name=None, settings=None, type=None, type_handler_version=None, vm_scale_set_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a Virtual Machine Scale Set Extension.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param pulumi.Input[str] force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
         :param pulumi.Input[str] name: The name of the VM scale set extension.
-        :param pulumi.Input[dict] properties: Describes the properties of a Virtual Machine Scale Set Extension.
+        :param pulumi.Input[dict] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param pulumi.Input[list] provision_after_extensions: Collection of extension names after which this extension needs to be provisioned.
+        :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] settings: Json formatted public settings for the extension.
+        :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         :param pulumi.Input[str] vm_scale_set_name: The name of the VM scale set where the extension should be create or updated.
-
-        The **properties** object supports the following:
-
-          * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-          * `force_update_tag` (`pulumi.Input[str]`) - If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-          * `protected_settings` (`pulumi.Input[dict]`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-          * `provision_after_extensions` (`pulumi.Input[list]`) - Collection of extension names after which this extension needs to be provisioned.
-          * `publisher` (`pulumi.Input[str]`) - The name of the extension handler publisher.
-          * `settings` (`pulumi.Input[dict]`) - Json formatted public settings for the extension.
-          * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-          * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,16 +62,24 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
+            __props__['force_update_tag'] = force_update_tag
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['protected_settings'] = protected_settings
+            __props__['provision_after_extensions'] = provision_after_extensions
+            __props__['publisher'] = publisher
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['settings'] = settings
+            __props__['type'] = type
+            __props__['type_handler_version'] = type_handler_version
             if vm_scale_set_name is None:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__['vm_scale_set_name'] = vm_scale_set_name
+            __props__['properties'] = None
         super(VirtualMachineScaleSetExtension, __self__).__init__(
             'azurerm:compute/v20190301:VirtualMachineScaleSetExtension',
             resource_name,

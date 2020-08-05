@@ -96,16 +96,16 @@ namespace Pulumi.AzureRM.Storage.V20180701
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
+        /// The immutability period for the blobs in the container since the policy creation, in days.
+        /// </summary>
+        [Input("immutabilityPeriodSinceCreationInDays", required: true)]
+        public Input<int> ImmutabilityPeriodSinceCreationInDays { get; set; } = null!;
+
+        /// <summary>
         /// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of an ImmutabilityPolicy of a blob container.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ImmutabilityPolicyPropertyArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

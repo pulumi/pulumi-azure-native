@@ -47,7 +47,7 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
     /**
      * The properties of an Azure Cosmos DB MongoDB collection
      */
-    public readonly properties!: pulumi.Output<outputs.documentdb.v20150408.MongoDBCollectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.v20150408.MongoDBCollectionPropertiesResponse>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -79,8 +79,11 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.options === undefined) {
+                throw new Error("Missing required property 'options'");
+            }
+            if (!args || args.resource === undefined) {
+                throw new Error("Missing required property 'resource'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -88,9 +91,11 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["options"] = args ? args.options : undefined;
+            inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -122,9 +127,13 @@ export interface DatabaseAccountMongoDBCollectionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties to create and update Azure Cosmos DB MongoDB collection.
+     * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly properties: pulumi.Input<inputs.documentdb.v20150408.MongoDBCollectionCreateUpdateProperties>;
+    readonly options: pulumi.Input<inputs.documentdb.v20150408.CreateUpdateOptions>;
+    /**
+     * The standard JSON format of a MongoDB collection
+     */
+    readonly resource: pulumi.Input<inputs.documentdb.v20150408.MongoDBCollectionResource>;
     /**
      * Name of an Azure resource group.
      */

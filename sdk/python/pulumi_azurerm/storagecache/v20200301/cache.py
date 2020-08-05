@@ -95,42 +95,48 @@ class Cache(pulumi.CustomResource):
     """
     Type of the Cache; Microsoft.StorageCache/Cache
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cache_size_gb=None, encryption_settings=None, identity=None, location=None, name=None, network_settings=None, provisioning_state=None, resource_group_name=None, security_settings=None, sku=None, subnet=None, tags=None, upgrade_status=None, __props__=None, __name__=None, __opts__=None):
         """
         A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] cache_size_gb: The size of this Cache, in GB.
+        :param pulumi.Input[dict] encryption_settings: Specifies encryption settings of the cache.
         :param pulumi.Input[dict] identity: The identity of the cache, if configured.
         :param pulumi.Input[str] location: Region name string.
         :param pulumi.Input[str] name: Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
-        :param pulumi.Input[dict] properties: Properties of the Cache.
+        :param pulumi.Input[dict] network_settings: Specifies network settings of the cache.
+        :param pulumi.Input[str] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
+        :param pulumi.Input[dict] security_settings: Specifies security settings of the cache.
         :param pulumi.Input[dict] sku: SKU for the Cache.
+        :param pulumi.Input[str] subnet: Subnet used for the Cache.
         :param pulumi.Input[dict] tags: ARM tags as name/value pairs.
+        :param pulumi.Input[dict] upgrade_status: Upgrade status of the Cache.
+
+        The **encryption_settings** object supports the following:
+
+          * `key_encryption_key` (`pulumi.Input[dict]`) - Specifies the location of the key encryption key in Key Vault.
+            * `key_url` (`pulumi.Input[str]`) - The URL referencing a key encryption key in Key Vault.
+            * `source_vault` (`pulumi.Input[dict]`) - Describes a resource Id to source Key Vault.
+              * `id` (`pulumi.Input[str]`) - Resource Id.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of identity used for the cache
 
-        The **properties** object supports the following:
+        The **network_settings** object supports the following:
 
-          * `cache_size_gb` (`pulumi.Input[float]`) - The size of this Cache, in GB.
-          * `encryption_settings` (`pulumi.Input[dict]`) - Specifies encryption settings of the cache.
-            * `key_encryption_key` (`pulumi.Input[dict]`) - Specifies the location of the key encryption key in Key Vault.
-              * `key_url` (`pulumi.Input[str]`) - The URL referencing a key encryption key in Key Vault.
-              * `source_vault` (`pulumi.Input[dict]`) - Describes a resource Id to source Key Vault.
-                * `id` (`pulumi.Input[str]`) - Resource Id.
+          * `mtu` (`pulumi.Input[float]`) - The IPv4 maximum transmission unit configured for the subnet.
 
-          * `network_settings` (`pulumi.Input[dict]`) - Specifies network settings of the cache.
-            * `mtu` (`pulumi.Input[float]`) - The IPv4 maximum transmission unit configured for the subnet.
+        The **security_settings** object supports the following:
 
-          * `provisioning_state` (`pulumi.Input[str]`) - ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-          * `security_settings` (`pulumi.Input[dict]`) - Specifies security settings of the cache.
-            * `root_squash` (`pulumi.Input[bool]`) - root squash of cache property.
+          * `root_squash` (`pulumi.Input[bool]`) - root squash of cache property.
 
-          * `subnet` (`pulumi.Input[str]`) - Subnet used for the Cache.
-          * `upgrade_status` (`pulumi.Input[dict]`) - Upgrade status of the Cache.
+        The **sku** object supports the following:
+
+          * `name` (`pulumi.Input[str]`) - SKU name for this Cache.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -149,17 +155,24 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['cache_size_gb'] = cache_size_gb
+            __props__['encryption_settings'] = encryption_settings
             __props__['identity'] = identity
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['network_settings'] = network_settings
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['security_settings'] = security_settings
             __props__['sku'] = sku
+            __props__['subnet'] = subnet
             __props__['tags'] = tags
+            __props__['upgrade_status'] = upgrade_status
+            __props__['properties'] = None
             __props__['type'] = None
         super(Cache, __self__).__init__(
             'azurerm:storagecache/v20200301:Cache',

@@ -19,45 +19,46 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
     Gets name of the resource that is unique within a resource group. This name can be used to access the resource
     """
     properties: pulumi.Output[dict]
-    def __init__(__self__, resource_name, opts=None, circuit_name=None, etag=None, id=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, azure_asn=None, circuit_name=None, etag=None, gateway_manager_etag=None, id=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, resource_group_name=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, vlan_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Peering in a ExpressRouteCircuit resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] azure_asn: Gets or sets the azure ASN
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated
+        :param pulumi.Input[str] gateway_manager_etag: Gets or sets the GatewayManager Etag
         :param pulumi.Input[str] id: Resource Id
+        :param pulumi.Input[str] last_modified_by: Gets whether the provider or the customer last modified the peering
+        :param pulumi.Input[dict] microsoft_peering_config: Gets or sets the Microsoft peering config
         :param pulumi.Input[str] name: The name of the peering.
+        :param pulumi.Input[float] peer_asn: Gets or sets the peer ASN
+        :param pulumi.Input[str] peering_type: Gets or sets PeeringType
+        :param pulumi.Input[str] primary_azure_port: Gets or sets the primary port
+        :param pulumi.Input[str] primary_peer_address_prefix: Gets or sets the primary address prefix
+        :param pulumi.Input[str] provisioning_state: Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] secondary_azure_port: Gets or sets the secondary port
+        :param pulumi.Input[str] secondary_peer_address_prefix: Gets or sets the secondary address prefix
+        :param pulumi.Input[str] shared_key: Gets or sets the shared key
+        :param pulumi.Input[str] state: Gets or sets state of Peering
+        :param pulumi.Input[dict] stats: Gets or peering stats
+        :param pulumi.Input[float] vlan_id: Gets or sets the vlan id
 
-        The **properties** object supports the following:
+        The **microsoft_peering_config** object supports the following:
 
-          * `azure_asn` (`pulumi.Input[float]`) - Gets or sets the azure ASN
-          * `gateway_manager_etag` (`pulumi.Input[str]`) - Gets or sets the GatewayManager Etag
-          * `last_modified_by` (`pulumi.Input[str]`) - Gets whether the provider or the customer last modified the peering
-          * `microsoft_peering_config` (`pulumi.Input[dict]`) - Gets or sets the Microsoft peering config
-            * `advertised_public_prefixes` (`pulumi.Input[list]`) - Gets or sets the reference of AdvertisedPublicPrefixes
-            * `advertised_public_prefixes_state` (`pulumi.Input[str]`) - Gets or sets AdvertisedPublicPrefixState of the Peering resource 
-            * `customer_asn` (`pulumi.Input[float]`) - Gets or Sets CustomerAsn of the peering.
-            * `routing_registry_name` (`pulumi.Input[str]`) - Gets or Sets RoutingRegistryName of the config.
+          * `advertised_public_prefixes` (`pulumi.Input[list]`) - Gets or sets the reference of AdvertisedPublicPrefixes
+          * `advertised_public_prefixes_state` (`pulumi.Input[str]`) - Gets or sets AdvertisedPublicPrefixState of the Peering resource 
+          * `customer_asn` (`pulumi.Input[float]`) - Gets or Sets CustomerAsn of the peering.
+          * `routing_registry_name` (`pulumi.Input[str]`) - Gets or Sets RoutingRegistryName of the config.
 
-          * `peer_asn` (`pulumi.Input[float]`) - Gets or sets the peer ASN
-          * `peering_type` (`pulumi.Input[str]`) - Gets or sets PeeringType
-          * `primary_azure_port` (`pulumi.Input[str]`) - Gets or sets the primary port
-          * `primary_peer_address_prefix` (`pulumi.Input[str]`) - Gets or sets the primary address prefix
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-          * `secondary_azure_port` (`pulumi.Input[str]`) - Gets or sets the secondary port
-          * `secondary_peer_address_prefix` (`pulumi.Input[str]`) - Gets or sets the secondary address prefix
-          * `shared_key` (`pulumi.Input[str]`) - Gets or sets the shared key
-          * `state` (`pulumi.Input[str]`) - Gets or sets state of Peering
-          * `stats` (`pulumi.Input[dict]`) - Gets or peering stats
-            * `primarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
-            * `primarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
-            * `secondarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
-            * `secondarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
+        The **stats** object supports the following:
 
-          * `vlan_id` (`pulumi.Input[float]`) - Gets or sets the vlan id
+          * `primarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
+          * `primarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
+          * `secondarybytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
+          * `secondarybytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,18 +77,33 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['azure_asn'] = azure_asn
             if circuit_name is None:
                 raise TypeError("Missing required property 'circuit_name'")
             __props__['circuit_name'] = circuit_name
             __props__['etag'] = etag
+            __props__['gateway_manager_etag'] = gateway_manager_etag
             __props__['id'] = id
+            __props__['last_modified_by'] = last_modified_by
+            __props__['microsoft_peering_config'] = microsoft_peering_config
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['peer_asn'] = peer_asn
+            __props__['peering_type'] = peering_type
+            __props__['primary_azure_port'] = primary_azure_port
+            __props__['primary_peer_address_prefix'] = primary_peer_address_prefix
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['secondary_azure_port'] = secondary_azure_port
+            __props__['secondary_peer_address_prefix'] = secondary_peer_address_prefix
+            __props__['shared_key'] = shared_key
+            __props__['state'] = state
+            __props__['stats'] = stats
+            __props__['vlan_id'] = vlan_id
+            __props__['properties'] = None
         super(ExpressRouteCircuitPeering, __self__).__init__(
             'azurerm:network/v20160601:ExpressRouteCircuitPeering',
             resource_name,

@@ -43,7 +43,7 @@ export class ManagementGroup extends pulumi.CustomResource {
     /**
      * The generic properties of a management group.
      */
-    public readonly properties!: pulumi.Output<outputs.management.v20200201.ManagementGroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.management.v20200201.ManagementGroupPropertiesResponse>;
     /**
      * The type of the resource.  For example, Microsoft.Management/managementGroups
      */
@@ -65,8 +65,10 @@ export class ManagementGroup extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            inputs["details"] = args ? args.details : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -85,11 +87,15 @@ export class ManagementGroup extends pulumi.CustomResource {
  */
 export interface ManagementGroupArgs {
     /**
+     * The details of a management group used during creation.
+     */
+    readonly details?: pulumi.Input<inputs.management.v20200201.CreateManagementGroupDetails>;
+    /**
+     * The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
      * Management Group ID.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The generic properties of a management group used during creation.
-     */
-    readonly properties?: pulumi.Input<inputs.management.v20200201.CreateManagementGroupProperties>;
 }

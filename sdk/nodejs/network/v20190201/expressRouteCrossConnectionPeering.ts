@@ -47,7 +47,7 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
     /**
      * Properties of the express route cross connection peering.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190201.ExpressRouteCrossConnectionPeeringPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190201.ExpressRouteCrossConnectionPeeringPropertiesResponse>;
 
     /**
      * Create a ExpressRouteCrossConnectionPeering resource with the given unique name, arguments, and options.
@@ -72,11 +72,22 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["crossConnectionName"] = args ? args.crossConnectionName : undefined;
+            inputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipv6PeeringConfig"] = args ? args.ipv6PeeringConfig : undefined;
+            inputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
+            inputs["microsoftPeeringConfig"] = args ? args.microsoftPeeringConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peerASN"] = args ? args.peerASN : undefined;
+            inputs["peeringType"] = args ? args.peeringType : undefined;
+            inputs["primaryPeerAddressPrefix"] = args ? args.primaryPeerAddressPrefix : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["secondaryPeerAddressPrefix"] = args ? args.secondaryPeerAddressPrefix : undefined;
+            inputs["sharedKey"] = args ? args.sharedKey : undefined;
+            inputs["state"] = args ? args.state : undefined;
+            inputs["vlanId"] = args ? args.vlanId : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -98,19 +109,59 @@ export interface ExpressRouteCrossConnectionPeeringArgs {
      */
     readonly crossConnectionName: pulumi.Input<string>;
     /**
+     * The GatewayManager Etag.
+     */
+    readonly gatewayManagerEtag?: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * The IPv6 peering configuration.
+     */
+    readonly ipv6PeeringConfig?: pulumi.Input<inputs.network.v20190201.Ipv6ExpressRouteCircuitPeeringConfig>;
+    /**
+     * Gets whether the provider or the customer last modified the peering.
+     */
+    readonly lastModifiedBy?: pulumi.Input<string>;
+    /**
+     * The Microsoft peering configuration.
+     */
+    readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.v20190201.ExpressRouteCircuitPeeringConfig>;
     /**
      * The name of the peering.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the express route cross connection peering.
+     * The peer ASN.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190201.ExpressRouteCrossConnectionPeeringProperties>;
+    readonly peerASN?: pulumi.Input<number>;
+    /**
+     * The peering type.
+     */
+    readonly peeringType?: pulumi.Input<string>;
+    /**
+     * The primary address prefix.
+     */
+    readonly primaryPeerAddressPrefix?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The secondary address prefix.
+     */
+    readonly secondaryPeerAddressPrefix?: pulumi.Input<string>;
+    /**
+     * The shared key.
+     */
+    readonly sharedKey?: pulumi.Input<string>;
+    /**
+     * The peering state.
+     */
+    readonly state?: pulumi.Input<string>;
+    /**
+     * The VLAN ID.
+     */
+    readonly vlanId?: pulumi.Input<number>;
 }

@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.Batch.V20151201
     public sealed class BatchAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The properties related to auto storage account.
+        /// </summary>
+        [Input("autoStorage")]
+        public Input<Inputs.AutoStorageBasePropertiesArgs>? AutoStorage { get; set; }
+
+        /// <summary>
         /// The region in which to create the account.
         /// </summary>
         [Input("location", required: true)]
@@ -100,12 +106,6 @@ namespace Pulumi.AzureRM.Batch.V20151201
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the account.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BatchAccountBasePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the new Batch account.

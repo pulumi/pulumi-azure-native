@@ -131,11 +131,9 @@ class Job(pulumi.CustomResource):
             * `verbose_log_uri` (`pulumi.Input[str]`) - A URI that points to the blob containing the verbose log for the data transfer operation. 
 
           * `export` (`pulumi.Input[dict]`) - A property containing information about the blobs to be exported for an export job. This property is included for export jobs only.
-            * `blob_list` (`pulumi.Input[dict]`) - A list of the blobs to be exported.
-              * `blob_path` (`pulumi.Input[list]`) - A collection of blob-path strings.
-              * `blob_path_prefix` (`pulumi.Input[list]`) - A collection of blob-prefix strings.
-
             * `blob_listblob_path` (`pulumi.Input[str]`) - The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
+            * `blob_path` (`pulumi.Input[list]`) - A collection of blob-path strings.
+            * `blob_path_prefix` (`pulumi.Input[list]`) - A collection of blob-prefix strings.
 
           * `incomplete_blob_list_uri` (`pulumi.Input[str]`) - A blob path that points to a block blob containing a list of blob names that were not exported due to insufficient drive space. If all blobs were exported successfully, then this element is not included in the response.
           * `job_type` (`pulumi.Input[str]`) - The type of job

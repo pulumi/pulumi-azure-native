@@ -43,7 +43,7 @@ export class Container extends pulumi.CustomResource {
     /**
      * The container properties.
      */
-    public readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.ContainerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.ContainerPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -62,14 +62,14 @@ export class Container extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ContainerArgs | undefined;
+            if (!args || args.dataFormat === undefined) {
+                throw new Error("Missing required property 'dataFormat'");
+            }
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -77,11 +77,12 @@ export class Container extends pulumi.CustomResource {
             if (!args || args.storageAccountName === undefined) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
+            inputs["dataFormat"] = args ? args.dataFormat : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,6 +101,10 @@ export class Container extends pulumi.CustomResource {
  */
 export interface ContainerArgs {
     /**
+     * DataFormat for Container
+     */
+    readonly dataFormat: pulumi.Input<string>;
+    /**
      * The device name.
      */
     readonly deviceName: pulumi.Input<string>;
@@ -107,10 +112,6 @@ export interface ContainerArgs {
      * The container name.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The container properties.
-     */
-    readonly properties: pulumi.Input<inputs.databoxedge.v20190801.ContainerProperties>;
     /**
      * The resource group name.
      */

@@ -47,7 +47,7 @@ export class WebAppDeployment extends pulumi.CustomResource {
     /**
      * Deployment resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20181101.DeploymentResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20181101.DeploymentResponseProperties>;
     /**
      * Resource type.
      */
@@ -72,10 +72,19 @@ export class WebAppDeployment extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["active"] = args ? args.active : undefined;
+            inputs["author"] = args ? args.author : undefined;
+            inputs["author_email"] = args ? args.author_email : undefined;
+            inputs["deployer"] = args ? args.deployer : undefined;
+            inputs["details"] = args ? args.details : undefined;
+            inputs["end_time"] = args ? args.end_time : undefined;
             inputs["kind"] = args ? args.kind : undefined;
+            inputs["message"] = args ? args.message : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["start_time"] = args ? args.start_time : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -94,19 +103,51 @@ export class WebAppDeployment extends pulumi.CustomResource {
  */
 export interface WebAppDeploymentArgs {
     /**
+     * True if deployment is currently active, false if completed and null if not started.
+     */
+    readonly active?: pulumi.Input<boolean>;
+    /**
+     * Who authored the deployment.
+     */
+    readonly author?: pulumi.Input<string>;
+    /**
+     * Author email.
+     */
+    readonly author_email?: pulumi.Input<string>;
+    /**
+     * Who performed the deployment.
+     */
+    readonly deployer?: pulumi.Input<string>;
+    /**
+     * Details on deployment.
+     */
+    readonly details?: pulumi.Input<string>;
+    /**
+     * End time.
+     */
+    readonly end_time?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
+    /**
+     * Details about deployment status.
+     */
+    readonly message?: pulumi.Input<string>;
     /**
      * ID of an existing deployment.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Deployment resource specific properties
-     */
-    readonly properties?: pulumi.Input<inputs.web.v20181101.DeploymentProperties>;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Start time.
+     */
+    readonly start_time?: pulumi.Input<string>;
+    /**
+     * Deployment status.
+     */
+    readonly status?: pulumi.Input<number>;
 }

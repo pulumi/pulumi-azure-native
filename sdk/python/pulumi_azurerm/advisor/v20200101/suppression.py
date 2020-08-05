@@ -24,21 +24,17 @@ class Suppression(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, recommendation_id=None, resource_uri=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, recommendation_id=None, resource_uri=None, suppression_id=None, ttl=None, __props__=None, __name__=None, __opts__=None):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the suppression.
-        :param pulumi.Input[dict] properties: The properties of the suppression.
         :param pulumi.Input[str] recommendation_id: The recommendation ID.
         :param pulumi.Input[str] resource_uri: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
-
-        The **properties** object supports the following:
-
-          * `suppression_id` (`pulumi.Input[str]`) - The GUID of the suppression.
-          * `ttl` (`pulumi.Input[str]`) - The duration for which the suppression is valid.
+        :param pulumi.Input[str] suppression_id: The GUID of the suppression.
+        :param pulumi.Input[str] ttl: The duration for which the suppression is valid.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,13 +56,15 @@ class Suppression(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if recommendation_id is None:
                 raise TypeError("Missing required property 'recommendation_id'")
             __props__['recommendation_id'] = recommendation_id
             if resource_uri is None:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__['resource_uri'] = resource_uri
+            __props__['suppression_id'] = suppression_id
+            __props__['ttl'] = ttl
+            __props__['properties'] = None
             __props__['type'] = None
         super(Suppression, __self__).__init__(
             'azurerm:advisor/v20200101:Suppression',

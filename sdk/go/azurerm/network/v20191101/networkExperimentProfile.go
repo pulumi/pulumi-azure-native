@@ -96,32 +96,36 @@ func (NetworkExperimentProfileState) ElementType() reflect.Type {
 }
 
 type networkExperimentProfileArgs struct {
+	// The state of the Experiment
+	EnabledState *string `pulumi:"enabledState"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The Profile identifier associated with the Tenant and Partner
 	Name string `pulumi:"name"`
-	// The properties of a Profile
-	Properties *ProfileProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkExperimentProfile resource.
 type NetworkExperimentProfileArgs struct {
+	// The state of the Experiment
+	EnabledState pulumi.StringPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The Profile identifier associated with the Tenant and Partner
 	Name pulumi.StringInput
-	// The properties of a Profile
-	Properties ProfilePropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Resource status.
+	ResourceState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

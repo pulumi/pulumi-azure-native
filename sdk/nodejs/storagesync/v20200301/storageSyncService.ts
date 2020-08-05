@@ -47,7 +47,7 @@ export class StorageSyncService extends pulumi.CustomResource {
     /**
      * Storage Sync Service properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storagesync.v20200301.StorageSyncServicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20200301.StorageSyncServicePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -79,11 +79,12 @@ export class StorageSyncService extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["incomingTrafficPolicy"] = args ? args.incomingTrafficPolicy : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +103,10 @@ export class StorageSyncService extends pulumi.CustomResource {
  */
 export interface StorageSyncServiceArgs {
     /**
+     * Incoming Traffic Policy
+     */
+    readonly incomingTrafficPolicy?: pulumi.Input<string>;
+    /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
     readonly location: pulumi.Input<string>;
@@ -109,10 +114,6 @@ export interface StorageSyncServiceArgs {
      * Name of Storage Sync Service resource.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The parameters used to create the storage sync service.
-     */
-    readonly properties?: pulumi.Input<inputs.storagesync.v20200301.StorageSyncServiceCreateParametersProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

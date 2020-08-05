@@ -78,20 +78,36 @@ func (RoleDefinitionState) ElementType() reflect.Type {
 }
 
 type roleDefinitionArgs struct {
+	// Role definition assignable scopes.
+	AssignableScopes []string `pulumi:"assignableScopes"`
+	// The role definition description.
+	Description *string `pulumi:"description"`
 	// The ID of the role definition.
 	Name string `pulumi:"name"`
-	// Role definition properties.
-	Properties *RoleDefinitionProperties `pulumi:"properties"`
+	// Role definition permissions.
+	Permissions []Permission `pulumi:"permissions"`
+	// The role name.
+	RoleName *string `pulumi:"roleName"`
+	// The role type.
+	RoleType *string `pulumi:"roleType"`
 	// The scope of the role definition.
 	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a RoleDefinition resource.
 type RoleDefinitionArgs struct {
+	// Role definition assignable scopes.
+	AssignableScopes pulumi.StringArrayInput
+	// The role definition description.
+	Description pulumi.StringPtrInput
 	// The ID of the role definition.
 	Name pulumi.StringInput
-	// Role definition properties.
-	Properties RoleDefinitionPropertiesPtrInput
+	// Role definition permissions.
+	Permissions PermissionArrayInput
+	// The role name.
+	RoleName pulumi.StringPtrInput
+	// The role type.
+	RoleType pulumi.StringPtrInput
 	// The scope of the role definition.
 	Scope pulumi.StringInput
 }

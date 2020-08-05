@@ -43,7 +43,7 @@ export class ApiIssue extends pulumi.CustomResource {
     /**
      * Properties of the Issue.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.IssueContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.IssueContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -65,6 +65,9 @@ export class ApiIssue extends pulumi.CustomResource {
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
+            if (!args || args.description === undefined) {
+                throw new Error("Missing required property 'description'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -74,11 +77,22 @@ export class ApiIssue extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.title === undefined) {
+                throw new Error("Missing required property 'title'");
+            }
+            if (!args || args.userId === undefined) {
+                throw new Error("Missing required property 'userId'");
+            }
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["createdDate"] = args ? args.createdDate : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["state"] = args ? args.state : undefined;
+            inputs["title"] = args ? args.title : undefined;
+            inputs["userId"] = args ? args.userId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,17 +111,21 @@ export class ApiIssue extends pulumi.CustomResource {
  */
 export interface ApiIssueArgs {
     /**
-     * API identifier. Must be unique in the current API Management service instance.
+     * A resource identifier for the API the issue was created for.
      */
     readonly apiId: pulumi.Input<string>;
+    /**
+     * Date and time when the issue was created.
+     */
+    readonly createdDate?: pulumi.Input<string>;
+    /**
+     * Text describing the issue.
+     */
+    readonly description: pulumi.Input<string>;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the Issue.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.IssueContractProperties>;
     /**
      * The name of the resource group.
      */
@@ -116,4 +134,16 @@ export interface ApiIssueArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Status of the issue.
+     */
+    readonly state?: pulumi.Input<string>;
+    /**
+     * The issue title.
+     */
+    readonly title: pulumi.Input<string>;
+    /**
+     * A resource identifier for the user created the issue.
+     */
+    readonly userId: pulumi.Input<string>;
 }

@@ -43,7 +43,7 @@ export class ManagementLock extends pulumi.CustomResource {
     /**
      * The properties of the lock.
      */
-    public readonly properties!: pulumi.Output<outputs.authorization.v20150101.ManagementLockPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20150101.ManagementLockPropertiesResponse>;
     /**
      * The type of the lock.
      */
@@ -65,8 +65,10 @@ export class ManagementLock extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            inputs["level"] = args ? args.level : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notes"] = args ? args.notes : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -85,11 +87,15 @@ export class ManagementLock extends pulumi.CustomResource {
  */
 export interface ManagementLockArgs {
     /**
+     * The lock level of the management lock.
+     */
+    readonly level?: pulumi.Input<string>;
+    /**
      * The name of lock.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the lock.
+     * The notes of the management lock.
      */
-    readonly properties?: pulumi.Input<inputs.authorization.v20150101.ManagementLockProperties>;
+    readonly notes?: pulumi.Input<string>;
 }

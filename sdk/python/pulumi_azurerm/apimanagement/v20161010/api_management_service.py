@@ -74,44 +74,44 @@ class ApiManagementService(pulumi.CustomResource):
     """
     Resource type for API Management resource is set to Microsoft.ApiManagement.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_locations=None, addresser_email=None, custom_properties=None, hostname_configurations=None, location=None, name=None, publisher_email=None, publisher_name=None, resource_group_name=None, sku=None, tags=None, vpn_type=None, vpnconfiguration=None, __props__=None, __name__=None, __opts__=None):
         """
         A single API Management service resource in List or Get response.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] additional_locations: Additional datacenter locations of the API Management service.
+        :param pulumi.Input[str] addresser_email: Addresser email.
+        :param pulumi.Input[dict] custom_properties: Custom properties of the API Management service, like disabling TLS 1.0.
+        :param pulumi.Input[list] hostname_configurations: Custom hostname configuration of the API Management service.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the API Management service.
-        :param pulumi.Input[dict] properties: Properties of the API Management service.
+        :param pulumi.Input[str] publisher_email: Publisher email.
+        :param pulumi.Input[str] publisher_name: Publisher name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] sku: SKU properties of the API Management service.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[str] vpn_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+        :param pulumi.Input[dict] vpnconfiguration: Virtual network configuration of the API Management service.
 
-        The **properties** object supports the following:
+        The **additional_locations** object supports the following:
 
-          * `additional_locations` (`pulumi.Input[list]`) - Additional datacenter locations of the API Management service.
-            * `location` (`pulumi.Input[str]`) - The location name of the additional region among Azure Data center regions.
-            * `sku_type` (`pulumi.Input[str]`) - The SKU type in the location.
-            * `sku_unit_count` (`pulumi.Input[float]`) - The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
-            * `vpnconfiguration` (`pulumi.Input[dict]`) - Virtual network configuration for the location.
-              * `location` (`pulumi.Input[str]`) - The location of the virtual network.
-              * `subnet_resource_id` (`pulumi.Input[str]`) - The full resource ID of a subnet in a virtual network to deploy the API Management service in.
+          * `location` (`pulumi.Input[str]`) - The location name of the additional region among Azure Data center regions.
+          * `sku_type` (`pulumi.Input[str]`) - The SKU type in the location.
+          * `sku_unit_count` (`pulumi.Input[float]`) - The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
+          * `vpnconfiguration` (`pulumi.Input[dict]`) - Virtual network configuration for the location.
+            * `location` (`pulumi.Input[str]`) - The location of the virtual network.
+            * `subnet_resource_id` (`pulumi.Input[str]`) - The full resource ID of a subnet in a virtual network to deploy the API Management service in.
 
-          * `addresser_email` (`pulumi.Input[str]`) - Addresser email.
-          * `custom_properties` (`pulumi.Input[dict]`) - Custom properties of the API Management service, like disabling TLS 1.0.
-          * `hostname_configurations` (`pulumi.Input[list]`) - Custom hostname configuration of the API Management service.
-            * `certificate` (`pulumi.Input[dict]`) - Certificate information.
-              * `expiry` (`pulumi.Input[str]`) - Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-              * `subject` (`pulumi.Input[str]`) - Subject of the certificate.
-              * `thumbprint` (`pulumi.Input[str]`) - Thumbprint of the certificate.
+        The **hostname_configurations** object supports the following:
 
-            * `hostname` (`pulumi.Input[str]`) - Hostname.
-            * `type` (`pulumi.Input[str]`) - Hostname type.
+          * `certificate` (`pulumi.Input[dict]`) - Certificate information.
+            * `expiry` (`pulumi.Input[str]`) - Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+            * `subject` (`pulumi.Input[str]`) - Subject of the certificate.
+            * `thumbprint` (`pulumi.Input[str]`) - Thumbprint of the certificate.
 
-          * `publisher_email` (`pulumi.Input[str]`) - Publisher email.
-          * `publisher_name` (`pulumi.Input[str]`) - Publisher name.
-          * `vpn_type` (`pulumi.Input[str]`) - The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
-          * `vpnconfiguration` (`pulumi.Input[dict]`) - Virtual network configuration of the API Management service.
+          * `hostname` (`pulumi.Input[str]`) - Hostname.
+          * `type` (`pulumi.Input[str]`) - Hostname type.
 
         The **sku** object supports the following:
 
@@ -135,15 +135,22 @@ class ApiManagementService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['additional_locations'] = additional_locations
+            __props__['addresser_email'] = addresser_email
+            __props__['custom_properties'] = custom_properties
+            __props__['hostname_configurations'] = hostname_configurations
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if publisher_email is None:
+                raise TypeError("Missing required property 'publisher_email'")
+            __props__['publisher_email'] = publisher_email
+            if publisher_name is None:
+                raise TypeError("Missing required property 'publisher_name'")
+            __props__['publisher_name'] = publisher_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -151,7 +158,10 @@ class ApiManagementService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['vpn_type'] = vpn_type
+            __props__['vpnconfiguration'] = vpnconfiguration
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ApiManagementService, __self__).__init__(
             'azurerm:apimanagement/v20161010:ApiManagementService',

@@ -35,9 +35,6 @@ func NewDisk(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -99,14 +96,26 @@ func (DiskState) ElementType() reflect.Type {
 }
 
 type diskArgs struct {
+	// When backed by a blob, the name of the VHD blob without extension.
+	DiskBlobName *string `pulumi:"diskBlobName"`
+	// The size of the disk in GibiBytes.
+	DiskSizeGiB *int `pulumi:"diskSizeGiB"`
+	// The storage type for the disk (i.e. Standard, Premium).
+	DiskType *string `pulumi:"diskType"`
+	// When backed by a blob, the URI of underlying blob.
+	DiskUri *string `pulumi:"diskUri"`
+	// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+	HostCaching *string `pulumi:"hostCaching"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
+	// The resource ID of the VM to which this disk is leased.
+	LeasedByLabVmId *string `pulumi:"leasedByLabVmId"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
+	// When backed by managed disk, this is the ID of the compute disk resource.
+	ManagedDiskId *string `pulumi:"managedDiskId"`
 	// The name of the disk.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties DiskProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
@@ -117,14 +126,26 @@ type diskArgs struct {
 
 // The set of arguments for constructing a Disk resource.
 type DiskArgs struct {
+	// When backed by a blob, the name of the VHD blob without extension.
+	DiskBlobName pulumi.StringPtrInput
+	// The size of the disk in GibiBytes.
+	DiskSizeGiB pulumi.IntPtrInput
+	// The storage type for the disk (i.e. Standard, Premium).
+	DiskType pulumi.StringPtrInput
+	// When backed by a blob, the URI of underlying blob.
+	DiskUri pulumi.StringPtrInput
+	// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+	HostCaching pulumi.StringPtrInput
 	// The name of the lab.
 	LabName pulumi.StringInput
+	// The resource ID of the VM to which this disk is leased.
+	LeasedByLabVmId pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
+	// When backed by managed disk, this is the ID of the compute disk resource.
+	ManagedDiskId pulumi.StringPtrInput
 	// The name of the disk.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties DiskPropertiesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.

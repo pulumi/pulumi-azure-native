@@ -90,6 +90,24 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class RosettaNetProcessConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The RosettaNet process configuration activity settings.
+        /// </summary>
+        [Input("activitySettings", required: true)]
+        public Input<Inputs.RosettaNetPipActivitySettingsArgs> ActivitySettings { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account RosettaNet ProcessConfiguration properties.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The RosettaNet initiator role settings.
+        /// </summary>
+        [Input("initiatorRoleSettings", required: true)]
+        public Input<Inputs.RosettaNetPipRoleSettingsArgs> InitiatorRoleSettings { get; set; } = null!;
+
+        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -101,6 +119,18 @@ namespace Pulumi.AzureRM.Logic.V20160601
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
+
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
+
         /// <summary>
         /// The integration account RosettaNet ProcessConfiguration name.
         /// </summary>
@@ -108,16 +138,34 @@ namespace Pulumi.AzureRM.Logic.V20160601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The integration account RosettaNet process configuration properties.
+        /// The integration account RosettaNet process code.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.IntegrationAccountRosettaNetProcessConfigurationPropertiesArgs> Properties { get; set; } = null!;
+        [Input("processCode", required: true)]
+        public Input<string> ProcessCode { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account RosettaNet process name.
+        /// </summary>
+        [Input("processName", required: true)]
+        public Input<string> ProcessName { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account RosettaNet process version.
+        /// </summary>
+        [Input("processVersion", required: true)]
+        public Input<string> ProcessVersion { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The RosettaNet responder role settings.
+        /// </summary>
+        [Input("responderRoleSettings", required: true)]
+        public Input<Inputs.RosettaNetPipRoleSettingsArgs> ResponderRoleSettings { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

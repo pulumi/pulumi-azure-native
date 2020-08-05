@@ -43,7 +43,7 @@ export class ApiOperation extends pulumi.CustomResource {
     /**
      * Properties of the Operation Contract.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.OperationContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.OperationContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -65,6 +65,12 @@ export class ApiOperation extends pulumi.CustomResource {
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
+            if (!args || args.displayName === undefined) {
+                throw new Error("Missing required property 'displayName'");
+            }
+            if (!args || args.method === undefined) {
+                throw new Error("Missing required property 'method'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -74,11 +80,22 @@ export class ApiOperation extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.urlTemplate === undefined) {
+                throw new Error("Missing required property 'urlTemplate'");
+            }
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["method"] = args ? args.method : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["policies"] = args ? args.policies : undefined;
+            inputs["request"] = args ? args.request : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["responses"] = args ? args.responses : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["templateParameters"] = args ? args.templateParameters : undefined;
+            inputs["urlTemplate"] = args ? args.urlTemplate : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,19 +118,47 @@ export interface ApiOperationArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
+     * Description of the operation. May include HTML formatting tags.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Operation Name.
+     */
+    readonly displayName: pulumi.Input<string>;
+    /**
+     * A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+     */
+    readonly method: pulumi.Input<string>;
+    /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Operation Contract.
+     * Operation Policies
      */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.OperationContractProperties>;
+    readonly policies?: pulumi.Input<string>;
+    /**
+     * An entity containing request details.
+     */
+    readonly request?: pulumi.Input<inputs.apimanagement.v20191201.RequestContract>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Array of Operation responses.
+     */
+    readonly responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20191201.ResponseContract>[]>;
+    /**
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Collection of URL template parameters.
+     */
+    readonly templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20191201.ParameterContract>[]>;
+    /**
+     * Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+     */
+    readonly urlTemplate: pulumi.Input<string>;
 }

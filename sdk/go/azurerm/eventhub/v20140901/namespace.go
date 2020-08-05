@@ -99,34 +99,54 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
+	// The time the Namespace was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// Specifies whether this instance is enabled.
+	Enabled *bool `pulumi:"enabled"`
 	// Namespace location.
 	Location string `pulumi:"location"`
 	// The Namespace name
 	Name string `pulumi:"name"`
-	// Properties of the Namespace supplied for create or update Namespace operation
-	Properties *NamespaceProperties `pulumi:"properties"`
+	// Provisioning state of the Namespace.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint *string `pulumi:"serviceBusEndpoint"`
 	// SKU parameters supplied to the create Namespace operation
 	Sku *Sku `pulumi:"sku"`
+	// State of the Namespace.
+	Status *string `pulumi:"status"`
 	// Namespace tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The time the Namespace was updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
+	// The time the Namespace was created.
+	CreatedAt pulumi.StringPtrInput
+	// Specifies whether this instance is enabled.
+	Enabled pulumi.BoolPtrInput
 	// Namespace location.
 	Location pulumi.StringInput
 	// The Namespace name
 	Name pulumi.StringInput
-	// Properties of the Namespace supplied for create or update Namespace operation
-	Properties NamespacePropertiesPtrInput
+	// Provisioning state of the Namespace.
+	ProvisioningState pulumi.StringPtrInput
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Endpoint you can use to perform Service Bus operations.
+	ServiceBusEndpoint pulumi.StringPtrInput
 	// SKU parameters supplied to the create Namespace operation
 	Sku SkuPtrInput
+	// State of the Namespace.
+	Status pulumi.StringPtrInput
 	// Namespace tags.
 	Tags pulumi.StringMapInput
+	// The time the Namespace was updated.
+	UpdatedAt pulumi.StringPtrInput
 }
 
 func (NamespaceArgs) ElementType() reflect.Type {

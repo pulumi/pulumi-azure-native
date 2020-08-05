@@ -51,7 +51,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * The properties of the zone.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20160401.ZonePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160401.ZonePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -85,10 +85,12 @@ export class Zone extends pulumi.CustomResource {
             }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maxNumberOfRecordSets"] = args ? args.maxNumberOfRecordSets : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["numberOfRecordSets"] = args ? args.numberOfRecordSets : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,13 +117,17 @@ export interface ZoneArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+     */
+    readonly maxNumberOfRecordSets?: pulumi.Input<number>;
+    /**
      * The name of the DNS zone (without a terminating dot).
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the zone.
+     * The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20160401.ZoneProperties>;
+    readonly numberOfRecordSets?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -77,6 +77,18 @@ namespace Pulumi.AzureRM.Network.V20200401
 
     public sealed class VirtualHubRouteTableV2Args : Pulumi.ResourceArgs
     {
+        [Input("attachedConnections")]
+        private InputList<string>? _attachedConnections;
+
+        /// <summary>
+        /// List of all connections attached to this route table v2.
+        /// </summary>
+        public InputList<string> AttachedConnections
+        {
+            get => _attachedConnections ?? (_attachedConnections = new InputList<string>());
+            set => _attachedConnections = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -90,16 +102,22 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual hub route table v2.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualHubRouteTableV2PropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The resource group name of the VirtualHub.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("routes")]
+        private InputList<Inputs.VirtualHubRouteV2Args>? _routes;
+
+        /// <summary>
+        /// List of all routes.
+        /// </summary>
+        public InputList<Inputs.VirtualHubRouteV2Args> Routes
+        {
+            get => _routes ?? (_routes = new InputList<Inputs.VirtualHubRouteV2Args>());
+            set => _routes = value;
+        }
 
         /// <summary>
         /// The name of the VirtualHub.

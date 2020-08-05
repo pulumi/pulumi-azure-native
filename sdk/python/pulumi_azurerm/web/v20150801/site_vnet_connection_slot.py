@@ -31,49 +31,45 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, id=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, slot=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, kind=None, location=None, name=None, resource_group_name=None, resync_required=None, routes=None, slot=None, tags=None, type=None, vnet_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
         VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cert_blob: A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+                           Point-To-Site VPN connection.
+        :param pulumi.Input[str] cert_thumbprint: The client certificate thumbprint
+        :param pulumi.Input[str] dns_servers: Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] name: The name of the Virtual Network
         :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[bool] resync_required: Flag to determine if a resync is required
+        :param pulumi.Input[list] routes: The routes that this virtual network connection uses.
         :param pulumi.Input[str] slot: The name of the slot for this web app.
         :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
+        :param pulumi.Input[str] vnet_resource_id: The vnet resource id
 
-        The **properties** object supports the following:
+        The **routes** object supports the following:
 
-          * `cert_blob` (`pulumi.Input[str]`) - A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-                        Point-To-Site VPN connection.
-          * `cert_thumbprint` (`pulumi.Input[str]`) - The client certificate thumbprint
-          * `dns_servers` (`pulumi.Input[str]`) - Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-          * `resync_required` (`pulumi.Input[bool]`) - Flag to determine if a resync is required
-          * `routes` (`pulumi.Input[list]`) - The routes that this virtual network connection uses.
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `kind` (`pulumi.Input[str]`) - Kind of resource
-            * `location` (`pulumi.Input[str]`) - Resource Location
-            * `name` (`pulumi.Input[str]`) - Resource Name
-            * `properties` (`pulumi.Input[dict]`)
-              * `end_address` (`pulumi.Input[str]`) - The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-              * `name` (`pulumi.Input[str]`) - The name of this route. This is only returned by the server and does not need to be set by the client.
-              * `route_type` (`pulumi.Input[str]`) - The type of route this is:
-                            DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-                            INHERITED - Routes inherited from the real Virtual Network routes
-                            STATIC - Static route set on the web app only
-                            
-                            These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-                            with new INHERITED routes.
-              * `start_address` (`pulumi.Input[str]`) - The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-
-            * `tags` (`pulumi.Input[dict]`) - Resource tags
-            * `type` (`pulumi.Input[str]`) - Resource type
-
-          * `vnet_resource_id` (`pulumi.Input[str]`) - The vnet resource id
+          * `end_address` (`pulumi.Input[str]`) - The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `kind` (`pulumi.Input[str]`) - Kind of resource
+          * `location` (`pulumi.Input[str]`) - Resource Location
+          * `name` (`pulumi.Input[str]`) - Resource Name
+          * `route_type` (`pulumi.Input[str]`) - The type of route this is:
+                        DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+                        INHERITED - Routes inherited from the real Virtual Network routes
+                        STATIC - Static route set on the web app only
+                        
+                        These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+                        with new INHERITED routes.
+          * `start_address` (`pulumi.Input[str]`) - The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+          * `tags` (`pulumi.Input[dict]`) - Resource tags
+          * `type` (`pulumi.Input[str]`) - Resource type
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -92,6 +88,9 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['cert_blob'] = cert_blob
+            __props__['cert_thumbprint'] = cert_thumbprint
+            __props__['dns_servers'] = dns_servers
             __props__['id'] = id
             __props__['kind'] = kind
             if location is None:
@@ -100,15 +99,18 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['resync_required'] = resync_required
+            __props__['routes'] = routes
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['type'] = type
+            __props__['vnet_resource_id'] = vnet_resource_id
+            __props__['properties'] = None
         super(SiteVNETConnectionSlot, __self__).__init__(
             'azurerm:web/v20150801:SiteVNETConnectionSlot',
             resource_name,

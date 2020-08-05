@@ -27,14 +27,14 @@ type AccessControlRecord struct {
 // NewAccessControlRecord registers a new resource with the given unique name, arguments, and options.
 func NewAccessControlRecord(ctx *pulumi.Context,
 	name string, args *AccessControlRecordArgs, opts ...pulumi.ResourceOption) (*AccessControlRecord, error) {
+	if args == nil || args.InitiatorName == nil {
+		return nil, errors.New("missing required argument 'InitiatorName'")
+	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -90,28 +90,28 @@ func (AccessControlRecordState) ElementType() reflect.Type {
 }
 
 type accessControlRecordArgs struct {
+	// The iSCSI initiator name (IQN).
+	InitiatorName string `pulumi:"initiatorName"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The name of the access control record.
 	Name string `pulumi:"name"`
-	// The properties of access control record.
-	Properties AccessControlRecordProperties `pulumi:"properties"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a AccessControlRecord resource.
 type AccessControlRecordArgs struct {
+	// The iSCSI initiator name (IQN).
+	InitiatorName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrInput
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The name of the access control record.
 	Name pulumi.StringInput
-	// The properties of access control record.
-	Properties AccessControlRecordPropertiesInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 }

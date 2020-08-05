@@ -31,17 +31,41 @@ class Machine(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, client_public_key=None, extensions=None, identity=None, location=None, location_data=None, name=None, os_profile=None, resource_group_name=None, tags=None, vm_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a hybrid machine.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
+        :param pulumi.Input[list] extensions: Machine Extensions information
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[dict] location_data: Metadata pertaining to the geographic location of the resource.
         :param pulumi.Input[str] name: The name of the hybrid machine.
-        :param pulumi.Input[dict] properties: Hybrid Compute Machine properties
+        :param pulumi.Input[dict] os_profile: Specifies the operating system settings for the hybrid machine.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[str] vm_id: Specifies the hybrid machine unique ID.
+
+        The **extensions** object supports the following:
+
+          * `name` (`pulumi.Input[str]`) - The machine extension name.
+          * `status` (`pulumi.Input[dict]`) - Instance view status.
+            * `code` (`pulumi.Input[str]`) - The status code.
+            * `display_status` (`pulumi.Input[str]`) - The short localizable label for the status.
+            * `level` (`pulumi.Input[str]`) - The level code.
+            * `message` (`pulumi.Input[str]`) - The detailed status message, including for alerts and error messages.
+            * `time` (`pulumi.Input[str]`) - The time of the status.
+
+          * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
+          * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
+
+        The **location_data** object supports the following:
+
+          * `city` (`pulumi.Input[str]`) - The city or locality where the resource is located.
+          * `country_or_region` (`pulumi.Input[str]`) - The country or region where the resource is located
+          * `district` (`pulumi.Input[str]`) - The district, state, or province where the resource is located.
+          * `name` (`pulumi.Input[str]`) - A canonical name for the geographic or physical location.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,18 +84,23 @@ class Machine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['client_public_key'] = client_public_key
+            __props__['extensions'] = extensions
             __props__['identity'] = identity
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['location_data'] = location_data
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['os_profile'] = os_profile
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['vm_id'] = vm_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(Machine, __self__).__init__(
             'azurerm:hybridcompute/v20191212:Machine',

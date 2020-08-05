@@ -44,7 +44,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.network.v20160601.VirtualNetworkPeeringPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160601.VirtualNetworkPeeringPropertiesFormatResponse>;
 
     /**
      * Create a VirtualNetworkPeering resource with the given unique name, arguments, and options.
@@ -68,12 +68,19 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             if (!args || args.virtualNetworkName === undefined) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
+            inputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
+            inputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
+            inputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peeringState"] = args ? args.peeringState : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
+            inputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -91,6 +98,18 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
  */
 export interface VirtualNetworkPeeringArgs {
     /**
+     * Gets or sets whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed
+     */
+    readonly allowForwardedTraffic?: pulumi.Input<boolean>;
+    /**
+     * Gets or sets if gatewayLinks can be used in remote virtual network’s link to this virtual network
+     */
+    readonly allowGatewayTransit?: pulumi.Input<boolean>;
+    /**
+     * Gets or sets whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space
+     */
+    readonly allowVirtualNetworkAccess?: pulumi.Input<boolean>;
+    /**
      * A unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: pulumi.Input<string>;
@@ -102,11 +121,26 @@ export interface VirtualNetworkPeeringArgs {
      * The name of the peering.
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.network.v20160601.VirtualNetworkPeeringPropertiesFormat>;
+    /**
+     * Gets the status of the virtual network peering
+     */
+    readonly peeringState?: pulumi.Input<string>;
+    /**
+     * Gets provisioning state of the resource
+     */
+    readonly provisioningState?: pulumi.Input<string>;
+    /**
+     * Gets or sets the reference of the remote virtual network
+     */
+    readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.v20160601.SubResource>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets if remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only 1 peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+     */
+    readonly useRemoteGateways?: pulumi.Input<boolean>;
     /**
      * The name of the virtual network.
      */

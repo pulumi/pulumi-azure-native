@@ -43,7 +43,7 @@ export class ComputePolicy extends pulumi.CustomResource {
     /**
      * The compute policy properties.
      */
-    public readonly properties!: pulumi.Output<outputs.datalakeanalytics.v20161101.ComputePolicyPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datalakeanalytics.v20161101.ComputePolicyPropertiesResponse>;
     /**
      * The resource type.
      */
@@ -68,16 +68,23 @@ export class ComputePolicy extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.objectId === undefined) {
+                throw new Error("Missing required property 'objectId'");
+            }
+            if (!args || args.objectType === undefined) {
+                throw new Error("Missing required property 'objectType'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["maxDegreeOfParallelismPerJob"] = args ? args.maxDegreeOfParallelismPerJob : undefined;
+            inputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["objectId"] = args ? args.objectId : undefined;
+            inputs["objectType"] = args ? args.objectType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,13 +107,25 @@ export interface ComputePolicyArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
+     */
+    readonly maxDegreeOfParallelismPerJob?: pulumi.Input<number>;
+    /**
+     * The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
+     */
+    readonly minPriorityPerJob?: pulumi.Input<number>;
+    /**
      * The name of the compute policy to create or update.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The compute policy properties to use when creating a new compute policy.
+     * The AAD object identifier for the entity to create a policy for.
      */
-    readonly properties: pulumi.Input<inputs.datalakeanalytics.v20161101.CreateOrUpdateComputePolicyProperties>;
+    readonly objectId: pulumi.Input<string>;
+    /**
+     * The type of AAD object the object identifier refers to.
+     */
+    readonly objectType: pulumi.Input<string>;
     /**
      * The name of the Azure resource group.
      */

@@ -78,10 +78,58 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Determines the type of application which send the create user request. Default is legacy portal.
+        /// </summary>
+        [Input("appType")]
+        public Input<string>? AppType { get; set; }
+
+        /// <summary>
+        /// Determines the type of confirmation e-mail that will be sent to the newly created user.
+        /// </summary>
+        [Input("confirmation")]
+        public Input<string>? Confirmation { get; set; }
+
+        /// <summary>
+        /// Email address. Must not be empty and must be unique within the service instance.
+        /// </summary>
+        [Input("email", required: true)]
+        public Input<string> Email { get; set; } = null!;
+
+        /// <summary>
+        /// First name.
+        /// </summary>
+        [Input("firstName", required: true)]
+        public Input<string> FirstName { get; set; } = null!;
+
+        [Input("identities")]
+        private InputList<Inputs.UserIdentityContractArgs>? _identities;
+
+        /// <summary>
+        /// Collection of user identities.
+        /// </summary>
+        public InputList<Inputs.UserIdentityContractArgs> Identities
+        {
+            get => _identities ?? (_identities = new InputList<Inputs.UserIdentityContractArgs>());
+            set => _identities = value;
+        }
+
+        /// <summary>
+        /// Last name.
+        /// </summary>
+        [Input("lastName", required: true)]
+        public Input<string> LastName { get; set; } = null!;
+
+        /// <summary>
         /// User identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Optional note about a user set by the administrator.
+        /// </summary>
+        [Input("note")]
+        public Input<string>? Note { get; set; }
 
         /// <summary>
         /// Send an Email notification to the User.
@@ -90,10 +138,10 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<bool>? Notify { get; set; }
 
         /// <summary>
-        /// User entity create contract properties.
+        /// User Password. If no value is provided, a default password is generated.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.UserCreateParameterPropertiesArgs>? Properties { get; set; }
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -106,6 +154,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         public UserArgs()
         {

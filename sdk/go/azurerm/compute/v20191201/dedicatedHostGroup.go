@@ -37,6 +37,9 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PlatformFaultDomainCount == nil {
+		return nil, errors.New("missing required argument 'PlatformFaultDomainCount'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -103,8 +106,8 @@ type dedicatedHostGroupArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the dedicated host group.
 	Name string `pulumi:"name"`
-	// Dedicated Host Group Properties.
-	Properties *DedicatedHostGroupProperties `pulumi:"properties"`
+	// Number of fault domains that the host group can span.
+	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -119,8 +122,8 @@ type DedicatedHostGroupArgs struct {
 	Location pulumi.StringInput
 	// The name of the dedicated host group.
 	Name pulumi.StringInput
-	// Dedicated Host Group Properties.
-	Properties DedicatedHostGroupPropertiesPtrInput
+	// Number of fault domains that the host group can span.
+	PlatformFaultDomainCount pulumi.IntInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

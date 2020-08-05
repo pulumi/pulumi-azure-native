@@ -31,6 +31,9 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.Options == nil {
+		return nil, errors.New("missing required argument 'Options'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -83,10 +86,12 @@ func (ContentKeyPolicyState) ElementType() reflect.Type {
 type contentKeyPolicyArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
+	// A description for the Policy.
+	Description *string `pulumi:"description"`
 	// The Content Key Policy name.
 	Name string `pulumi:"name"`
-	// The properties of the Content Key Policy.
-	Properties *ContentKeyPolicyProperties `pulumi:"properties"`
+	// The Key Policy options.
+	Options []ContentKeyPolicyOption `pulumi:"options"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -95,10 +100,12 @@ type contentKeyPolicyArgs struct {
 type ContentKeyPolicyArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
+	// A description for the Policy.
+	Description pulumi.StringPtrInput
 	// The Content Key Policy name.
 	Name pulumi.StringInput
-	// The properties of the Content Key Policy.
-	Properties ContentKeyPolicyPropertiesPtrInput
+	// The Key Policy options.
+	Options ContentKeyPolicyOptionArrayInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 }

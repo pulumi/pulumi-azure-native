@@ -96,6 +96,24 @@ namespace Pulumi.AzureRM.Authorization.V20190601
     public sealed class PolicyAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// This message will be part of response in case of policy violation.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The display name of the policy assignment.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+        /// </summary>
+        [Input("enforcementMode")]
+        public Input<string>? EnforcementMode { get; set; }
+
+        /// <summary>
         /// The managed identity associated with the policy assignment.
         /// </summary>
         [Input("identity")]
@@ -107,20 +125,56 @@ namespace Pulumi.AzureRM.Authorization.V20190601
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("metadata")]
+        private InputMap<object>? _metadata;
+
+        /// <summary>
+        /// The policy assignment metadata.
+        /// </summary>
+        public InputMap<object> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<object>());
+            set => _metadata = value;
+        }
+
         /// <summary>
         /// The name of the policy assignment.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Properties for the policy assignment.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PolicyAssignmentPropertiesArgs>? Properties { get; set; }
+        [Input("notScopes")]
+        private InputList<string>? _notScopes;
 
         /// <summary>
-        /// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        /// The policy's excluded scopes.
+        /// </summary>
+        public InputList<string> NotScopes
+        {
+            get => _notScopes ?? (_notScopes = new InputList<string>());
+            set => _notScopes = value;
+        }
+
+        [Input("parameters")]
+        private InputMap<object>? _parameters;
+
+        /// <summary>
+        /// Required if a parameter is used in policy rule.
+        /// </summary>
+        public InputMap<object> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<object>());
+            set => _parameters = value;
+        }
+
+        /// <summary>
+        /// The ID of the policy definition or policy set definition being assigned.
+        /// </summary>
+        [Input("policyDefinitionId")]
+        public Input<string>? PolicyDefinitionId { get; set; }
+
+        /// <summary>
+        /// The scope for the policy assignment.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

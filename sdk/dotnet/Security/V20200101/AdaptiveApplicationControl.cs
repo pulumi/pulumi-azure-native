@@ -87,16 +87,28 @@ namespace Pulumi.AzureRM.Security.V20200101
         public Input<string> AscLocation { get; set; } = null!;
 
         /// <summary>
+        /// The application control policy enforcement/protection mode of the VM/server group
+        /// </summary>
+        [Input("enforcementMode")]
+        public Input<string>? EnforcementMode { get; set; }
+
+        /// <summary>
         /// Name of an application control VM/server group
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("pathRecommendations")]
+        public Input<Inputs.PathRecommendationsArgs>? PathRecommendations { get; set; }
+
         /// <summary>
-        /// Represents a VM/server group and set of rules to be allowed running on a machine
+        /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AppWhitelistingGroupDataArgs> Properties { get; set; } = null!;
+        [Input("protectionMode")]
+        public Input<Inputs.ProtectionModeArgs>? ProtectionMode { get; set; }
+
+        [Input("vmRecommendations")]
+        public Input<Inputs.VmRecommendationsArgs>? VmRecommendations { get; set; }
 
         public AdaptiveApplicationControlArgs()
         {

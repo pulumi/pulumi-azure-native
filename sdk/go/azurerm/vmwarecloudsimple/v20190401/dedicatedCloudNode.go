@@ -34,11 +34,26 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 	if args == nil || args.Referer == nil {
 		return nil, errors.New("missing required argument 'Referer'")
 	}
+	if args == nil || args.AvailabilityZoneId == nil {
+		return nil, errors.New("missing required argument 'AvailabilityZoneId'")
+	}
+	if args == nil || args.Id == nil {
+		return nil, errors.New("missing required argument 'Id'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
+	}
+	if args == nil || args.NodesCount == nil {
+		return nil, errors.New("missing required argument 'NodesCount'")
+	}
+	if args == nil || args.PlacementGroupId == nil {
+		return nil, errors.New("missing required argument 'PlacementGroupId'")
+	}
+	if args == nil || args.PurchaseId == nil {
+		return nil, errors.New("missing required argument 'PurchaseId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -104,12 +119,20 @@ func (DedicatedCloudNodeState) ElementType() reflect.Type {
 type dedicatedCloudNodeArgs struct {
 	// referer url
 	Referer string `pulumi:"Referer"`
+	// Availability Zone id, e.g. "az1"
+	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+	// SKU's id
+	Id string `pulumi:"id"`
 	// Azure region
 	Location string `pulumi:"location"`
 	// dedicated cloud node name
 	Name string `pulumi:"name"`
-	// Dedicated Cloud Nodes properties
-	Properties *DedicatedCloudNodeProperties `pulumi:"properties"`
+	// count of nodes to create
+	NodesCount int `pulumi:"nodesCount"`
+	// Placement Group id, e.g. "n1"
+	PlacementGroupId string `pulumi:"placementGroupId"`
+	// purchase id
+	PurchaseId string `pulumi:"purchaseId"`
 	// The name of the resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Dedicated Cloud Nodes SKU
@@ -122,12 +145,20 @@ type dedicatedCloudNodeArgs struct {
 type DedicatedCloudNodeArgs struct {
 	// referer url
 	Referer pulumi.StringInput
+	// Availability Zone id, e.g. "az1"
+	AvailabilityZoneId pulumi.StringInput
+	// SKU's id
+	Id pulumi.StringInput
 	// Azure region
 	Location pulumi.StringInput
 	// dedicated cloud node name
 	Name pulumi.StringInput
-	// Dedicated Cloud Nodes properties
-	Properties DedicatedCloudNodePropertiesPtrInput
+	// count of nodes to create
+	NodesCount pulumi.IntInput
+	// Placement Group id, e.g. "n1"
+	PlacementGroupId pulumi.StringInput
+	// purchase id
+	PurchaseId pulumi.StringInput
 	// The name of the resource group
 	ResourceGroupName pulumi.StringInput
 	// Dedicated Cloud Nodes SKU

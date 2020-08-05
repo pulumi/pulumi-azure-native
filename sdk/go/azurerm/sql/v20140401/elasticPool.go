@@ -102,34 +102,54 @@ func (ElasticPoolState) ElementType() reflect.Type {
 }
 
 type elasticPoolArgs struct {
+	// The maximum DTU any one database can consume.
+	DatabaseDtuMax *int `pulumi:"databaseDtuMax"`
+	// The minimum DTU all databases are guaranteed.
+	DatabaseDtuMin *int `pulumi:"databaseDtuMin"`
+	// The total shared DTU for the database elastic pool.
+	Dtu *int `pulumi:"dtu"`
+	// The edition of the elastic pool.
+	Edition *string `pulumi:"edition"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The name of the elastic pool to be operated on (updated or created).
 	Name string `pulumi:"name"`
-	// The properties representing the resource.
-	Properties *ElasticPoolProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
+	// Gets storage limit for the database elastic pool in MB.
+	StorageMB *int `pulumi:"storageMB"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a ElasticPool resource.
 type ElasticPoolArgs struct {
+	// The maximum DTU any one database can consume.
+	DatabaseDtuMax pulumi.IntPtrInput
+	// The minimum DTU all databases are guaranteed.
+	DatabaseDtuMin pulumi.IntPtrInput
+	// The total shared DTU for the database elastic pool.
+	Dtu pulumi.IntPtrInput
+	// The edition of the elastic pool.
+	Edition pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
 	// The name of the elastic pool to be operated on (updated or created).
 	Name pulumi.StringInput
-	// The properties representing the resource.
-	Properties ElasticPoolPropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput
+	// Gets storage limit for the database elastic pool in MB.
+	StorageMB pulumi.IntPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (ElasticPoolArgs) ElementType() reflect.Type {

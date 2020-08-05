@@ -23,6 +23,9 @@ type ExpressRouteConnection struct {
 // NewExpressRouteConnection registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteConnection(ctx *pulumi.Context,
 	name string, args *ExpressRouteConnectionArgs, opts ...pulumi.ResourceOption) (*ExpressRouteConnection, error) {
+	if args == nil || args.ExpressRouteCircuitPeering == nil {
+		return nil, errors.New("missing required argument 'ExpressRouteCircuitPeering'")
+	}
 	if args == nil || args.ExpressRouteGatewayName == nil {
 		return nil, errors.New("missing required argument 'ExpressRouteGatewayName'")
 	}
@@ -75,30 +78,42 @@ func (ExpressRouteConnectionState) ElementType() reflect.Type {
 }
 
 type expressRouteConnectionArgs struct {
+	// Authorization key to establish the connection.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// The ExpressRoute circuit peering.
+	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringId `pulumi:"expressRouteCircuitPeering"`
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName string `pulumi:"expressRouteGatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the connection subresource.
 	Name string `pulumi:"name"`
-	// Properties of the express route connection.
-	Properties *ExpressRouteConnectionProperties `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The routing weight associated to the connection.
+	RoutingWeight *int `pulumi:"routingWeight"`
 }
 
 // The set of arguments for constructing a ExpressRouteConnection resource.
 type ExpressRouteConnectionArgs struct {
+	// Authorization key to establish the connection.
+	AuthorizationKey pulumi.StringPtrInput
+	// The ExpressRoute circuit peering.
+	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdInput
 	// The name of the ExpressRoute gateway.
 	ExpressRouteGatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the connection subresource.
 	Name pulumi.StringInput
-	// Properties of the express route connection.
-	Properties ExpressRouteConnectionPropertiesPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The routing weight associated to the connection.
+	RoutingWeight pulumi.IntPtrInput
 }
 
 func (ExpressRouteConnectionArgs) ElementType() reflect.Type {

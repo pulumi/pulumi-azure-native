@@ -92,6 +92,15 @@ namespace Pulumi.AzureRM.Web.V20150801
 
     public sealed class SiteRelayServiceConnectionSlotArgs : Pulumi.ResourceArgs
     {
+        [Input("biztalkUri")]
+        public Input<string>? BiztalkUri { get; set; }
+
+        [Input("entityConnectionString")]
+        public Input<string>? EntityConnectionString { get; set; }
+
+        [Input("hostname")]
+        public Input<string>? Hostname { get; set; }
+
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -110,20 +119,23 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        /// <summary>
-        /// The name by which the Hybrid Connection is identified
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.RelayServiceConnectionEntityPropertiesArgs>? Properties { get; set; }
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        [Input("resourceConnectionString")]
+        public Input<string>? ResourceConnectionString { get; set; }
 
         /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("resourceType")]
+        public Input<string>? ResourceType { get; set; }
 
         /// <summary>
         /// The name of the slot for the web app.

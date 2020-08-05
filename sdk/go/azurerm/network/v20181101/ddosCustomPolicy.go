@@ -102,8 +102,8 @@ type ddosCustomPolicyArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the DDoS custom policy.
 	Name string `pulumi:"name"`
-	// Properties of the DDoS custom policy.
-	Properties *DdosCustomPolicyPropertiesFormat `pulumi:"properties"`
+	// The protocol-specific DDoS policy customization parameters.
+	ProtocolCustomSettings []ProtocolCustomSettingsFormat `pulumi:"protocolCustomSettings"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -118,8 +118,8 @@ type DdosCustomPolicyArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the DDoS custom policy.
 	Name pulumi.StringInput
-	// Properties of the DDoS custom policy.
-	Properties DdosCustomPolicyPropertiesFormatPtrInput
+	// The protocol-specific DDoS policy customization parameters.
+	ProtocolCustomSettings ProtocolCustomSettingsFormatArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

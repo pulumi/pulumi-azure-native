@@ -84,10 +84,28 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
     public sealed class ExportArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Has the definition for the export.
+        /// </summary>
+        [Input("definition", required: true)]
+        public Input<Inputs.ExportDefinitionArgs> Definition { get; set; } = null!;
+
+        /// <summary>
+        /// Has delivery information for the export.
+        /// </summary>
+        [Input("deliveryInfo", required: true)]
+        public Input<Inputs.ExportDeliveryInfoArgs> DeliveryInfo { get; set; } = null!;
+
+        /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         /// </summary>
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
+
+        /// <summary>
+        /// The format of the export being delivered. Currently only 'Csv' is supported.
+        /// </summary>
+        [Input("format")]
+        public Input<string>? Format { get; set; }
 
         /// <summary>
         /// Export Name.
@@ -96,10 +114,16 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the export.
+        /// If requested, has the most recent execution history for the export.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ExportPropertiesArgs>? Properties { get; set; }
+        [Input("runHistory")]
+        public Input<Inputs.ExportExecutionListResultArgs>? RunHistory { get; set; }
+
+        /// <summary>
+        /// Has schedule information for the export.
+        /// </summary>
+        [Input("schedule")]
+        public Input<Inputs.ExportScheduleArgs>? Schedule { get; set; }
 
         /// <summary>
         /// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.

@@ -90,22 +90,40 @@ namespace Pulumi.AzureRM.Media.V20180701
         public Input<string> AssetName { get; set; } = null!;
 
         /// <summary>
+        /// The first quality.
+        /// </summary>
+        [Input("firstQuality")]
+        public Input<Inputs.FirstQualityArgs>? FirstQuality { get; set; }
+
+        /// <summary>
         /// The Asset Filter name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Media Filter properties.
+        /// The presentation time range.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.MediaFilterPropertiesArgs>? Properties { get; set; }
+        [Input("presentationTimeRange")]
+        public Input<Inputs.PresentationTimeRangeArgs>? PresentationTimeRange { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tracks")]
+        private InputList<Inputs.FilterTrackSelectionArgs>? _tracks;
+
+        /// <summary>
+        /// The tracks selection conditions.
+        /// </summary>
+        public InputList<Inputs.FilterTrackSelectionArgs> Tracks
+        {
+            get => _tracks ?? (_tracks = new InputList<Inputs.FilterTrackSelectionArgs>());
+            set => _tracks = value;
+        }
 
         public AssetFilterArgs()
         {

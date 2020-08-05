@@ -34,10 +34,22 @@ namespace Pulumi.AzureRM.Network.V20190801.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the virtual network gateway ip configuration.
+        /// The private IP address allocation method.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualNetworkGatewayIPConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("privateIPAllocationMethod")]
+        public Input<string>? PrivateIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// The reference of the public IP resource.
+        /// </summary>
+        [Input("publicIPAddress")]
+        public Input<Inputs.SubResourceArgs>? PublicIPAddress { get; set; }
+
+        /// <summary>
+        /// The reference of the subnet resource.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubResourceArgs>? Subnet { get; set; }
 
         public VirtualNetworkGatewayIPConfigurationArgs()
         {

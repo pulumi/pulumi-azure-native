@@ -85,10 +85,10 @@ type privateDnsZoneGroupArgs struct {
 	Id *string `pulumi:"id"`
 	// The name of the private dns zone group.
 	Name string `pulumi:"name"`
+	// A collection of private dns zone configurations of the private dns zone group.
+	PrivateDnsZoneConfigs []PrivateDnsZoneConfig `pulumi:"privateDnsZoneConfigs"`
 	// The name of the private endpoint.
 	PrivateEndpointName string `pulumi:"privateEndpointName"`
-	// Properties of the private dns zone group.
-	Properties *PrivateDnsZoneGroupPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -99,10 +99,10 @@ type PrivateDnsZoneGroupArgs struct {
 	Id pulumi.StringPtrInput
 	// The name of the private dns zone group.
 	Name pulumi.StringInput
+	// A collection of private dns zone configurations of the private dns zone group.
+	PrivateDnsZoneConfigs PrivateDnsZoneConfigArrayInput
 	// The name of the private endpoint.
 	PrivateEndpointName pulumi.StringInput
-	// Properties of the private dns zone group.
-	Properties PrivateDnsZoneGroupPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

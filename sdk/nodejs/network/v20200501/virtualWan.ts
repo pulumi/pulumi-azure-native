@@ -51,7 +51,7 @@ export class VirtualWan extends pulumi.CustomResource {
     /**
      * Properties of the virtual WAN.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200501.VirtualWanPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.VirtualWanPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -59,7 +59,7 @@ export class VirtualWan extends pulumi.CustomResource {
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a VirtualWan resource with the given unique name, arguments, and options.
@@ -83,14 +83,18 @@ export class VirtualWan extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
+            inputs["allowVnetToVnetTraffic"] = args ? args.allowVnetToVnetTraffic : undefined;
+            inputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["office365LocalBreakoutCategory"] = args ? args.office365LocalBreakoutCategory : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -108,6 +112,18 @@ export class VirtualWan extends pulumi.CustomResource {
  */
 export interface VirtualWanArgs {
     /**
+     * True if branch to branch traffic is allowed.
+     */
+    readonly allowBranchToBranchTraffic?: pulumi.Input<boolean>;
+    /**
+     * True if Vnet to Vnet traffic is allowed.
+     */
+    readonly allowVnetToVnetTraffic?: pulumi.Input<boolean>;
+    /**
+     * Vpn encryption to be disabled or not.
+     */
+    readonly disableVpnEncryption?: pulumi.Input<boolean>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -120,9 +136,9 @@ export interface VirtualWanArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the virtual WAN.
+     * The office local breakout category.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20200501.VirtualWanProperties>;
+    readonly office365LocalBreakoutCategory?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualWan.
      */
@@ -131,4 +147,8 @@ export interface VirtualWanArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of the VirtualWAN.
+     */
+    readonly type?: pulumi.Input<string>;
 }

@@ -96,38 +96,86 @@ func (ApplicationGatewayState) ElementType() reflect.Type {
 }
 
 type applicationGatewayArgs struct {
+	// Gets or sets backend address pool of application gateway resource
+	BackendAddressPools []ApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
+	// Gets or sets backend http settings of application gateway resource
+	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettings `pulumi:"backendHttpSettingsCollection"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// Gets or sets frontend IP addresses of application gateway resource
+	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfiguration `pulumi:"frontendIPConfigurations"`
+	// Gets or sets frontend ports of application gateway resource
+	FrontendPorts []ApplicationGatewayFrontendPort `pulumi:"frontendPorts"`
+	// Gets or sets subnets of application gateway resource
+	GatewayIPConfigurations []ApplicationGatewayIPConfiguration `pulumi:"gatewayIPConfigurations"`
+	// Gets or sets HTTP listeners of application gateway resource
+	HttpListeners []ApplicationGatewayHttpListener `pulumi:"httpListeners"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the ApplicationGateway.
 	Name string `pulumi:"name"`
-	// Properties of Application Gateway
-	Properties *ApplicationGatewayPropertiesFormat `pulumi:"properties"`
+	// Gets or sets probes of application gateway resource
+	Probes []ApplicationGatewayProbe `pulumi:"probes"`
+	// Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Gets or sets request routing rules of application gateway resource
+	RequestRoutingRules []ApplicationGatewayRequestRoutingRule `pulumi:"requestRoutingRules"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets resource GUID property of the ApplicationGateway resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Gets or sets sku of application gateway resource
+	Sku *ApplicationGatewaySku `pulumi:"sku"`
+	// Gets or sets ssl certificates of application gateway resource
+	SslCertificates []ApplicationGatewaySslCertificate `pulumi:"sslCertificates"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Gets or sets URL path map of application gateway resource
+	UrlPathMaps []ApplicationGatewayUrlPathMap `pulumi:"urlPathMaps"`
 }
 
 // The set of arguments for constructing a ApplicationGateway resource.
 type ApplicationGatewayArgs struct {
+	// Gets or sets backend address pool of application gateway resource
+	BackendAddressPools ApplicationGatewayBackendAddressPoolArrayInput
+	// Gets or sets backend http settings of application gateway resource
+	BackendHttpSettingsCollection ApplicationGatewayBackendHttpSettingsArrayInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
+	// Gets or sets frontend IP addresses of application gateway resource
+	FrontendIPConfigurations ApplicationGatewayFrontendIPConfigurationArrayInput
+	// Gets or sets frontend ports of application gateway resource
+	FrontendPorts ApplicationGatewayFrontendPortArrayInput
+	// Gets or sets subnets of application gateway resource
+	GatewayIPConfigurations ApplicationGatewayIPConfigurationArrayInput
+	// Gets or sets HTTP listeners of application gateway resource
+	HttpListeners ApplicationGatewayHttpListenerArrayInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the ApplicationGateway.
 	Name pulumi.StringInput
-	// Properties of Application Gateway
-	Properties ApplicationGatewayPropertiesFormatPtrInput
+	// Gets or sets probes of application gateway resource
+	Probes ApplicationGatewayProbeArrayInput
+	// Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
+	// Gets or sets request routing rules of application gateway resource
+	RequestRoutingRules ApplicationGatewayRequestRoutingRuleArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets resource GUID property of the ApplicationGateway resource
+	ResourceGuid pulumi.StringPtrInput
+	// Gets or sets sku of application gateway resource
+	Sku ApplicationGatewaySkuPtrInput
+	// Gets or sets ssl certificates of application gateway resource
+	SslCertificates ApplicationGatewaySslCertificateArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Gets or sets URL path map of application gateway resource
+	UrlPathMaps ApplicationGatewayUrlPathMapArrayInput
 }
 
 func (ApplicationGatewayArgs) ElementType() reflect.Type {

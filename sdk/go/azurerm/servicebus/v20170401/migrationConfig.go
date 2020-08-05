@@ -31,8 +31,14 @@ func NewMigrationConfig(ctx *pulumi.Context,
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
+	if args == nil || args.PostMigrationName == nil {
+		return nil, errors.New("missing required argument 'PostMigrationName'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TargetNamespace == nil {
+		return nil, errors.New("missing required argument 'TargetNamespace'")
 	}
 	if args == nil {
 		args = &MigrationConfigArgs{}
@@ -85,10 +91,12 @@ type migrationConfigArgs struct {
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties required to the Create Migration Configuration
-	Properties *MigrationConfigPropertiesProperties `pulumi:"properties"`
+	// Name to access Standard Namespace after migration
+	PostMigrationName string `pulumi:"postMigrationName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
+	TargetNamespace string `pulumi:"targetNamespace"`
 }
 
 // The set of arguments for constructing a MigrationConfig resource.
@@ -97,10 +105,12 @@ type MigrationConfigArgs struct {
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// Properties required to the Create Migration Configuration
-	Properties MigrationConfigPropertiesPropertiesPtrInput
+	// Name to access Standard Namespace after migration
+	PostMigrationName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Existing premium Namespace ARM Id name which has no entities, will be used for migration
+	TargetNamespace pulumi.StringInput
 }
 
 func (MigrationConfigArgs) ElementType() reflect.Type {

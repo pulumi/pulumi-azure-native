@@ -29,6 +29,9 @@ type Webhook struct {
 // NewWebhook registers a new resource with the given unique name, arguments, and options.
 func NewWebhook(ctx *pulumi.Context,
 	name string, args *WebhookArgs, opts ...pulumi.ResourceOption) (*Webhook, error) {
+	if args == nil || args.Actions == nil {
+		return nil, errors.New("missing required argument 'Actions'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -40,6 +43,9 @@ func NewWebhook(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServiceUri == nil {
+		return nil, errors.New("missing required argument 'ServiceUri'")
 	}
 	if args == nil {
 		args = &WebhookArgs{}
@@ -96,32 +102,48 @@ func (WebhookState) ElementType() reflect.Type {
 }
 
 type webhookArgs struct {
+	// The list of actions that trigger the webhook to post notifications.
+	Actions []string `pulumi:"actions"`
+	// Custom headers that will be added to the webhook notifications.
+	CustomHeaders map[string]string `pulumi:"customHeaders"`
 	// The location of the webhook. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the webhook.
 	Name string `pulumi:"name"`
-	// The properties that the webhook will be created with.
-	Properties *WebhookPropertiesCreateParameters `pulumi:"properties"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+	Scope *string `pulumi:"scope"`
+	// The service URI for the webhook to post notifications.
+	ServiceUri string `pulumi:"serviceUri"`
+	// The status of the webhook at the time the operation was called.
+	Status *string `pulumi:"status"`
 	// The tags for the webhook.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Webhook resource.
 type WebhookArgs struct {
+	// The list of actions that trigger the webhook to post notifications.
+	Actions pulumi.StringArrayInput
+	// Custom headers that will be added to the webhook notifications.
+	CustomHeaders pulumi.StringMapInput
 	// The location of the webhook. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
 	// The name of the webhook.
 	Name pulumi.StringInput
-	// The properties that the webhook will be created with.
-	Properties WebhookPropertiesCreateParametersPtrInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
+	// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+	Scope pulumi.StringPtrInput
+	// The service URI for the webhook to post notifications.
+	ServiceUri pulumi.StringInput
+	// The status of the webhook at the time the operation was called.
+	Status pulumi.StringPtrInput
 	// The tags for the webhook.
 	Tags pulumi.StringMapInput
 }

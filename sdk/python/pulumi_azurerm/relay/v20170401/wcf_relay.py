@@ -30,7 +30,7 @@ class WCFRelay(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, namespace_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, namespace_name=None, relay_type=None, requires_client_authorization=None, requires_transport_security=None, resource_group_name=None, user_metadata=None, __props__=None, __name__=None, __opts__=None):
         """
         Description of the WCF relay resource.
 
@@ -38,15 +38,11 @@ class WCFRelay(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The relay name.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[dict] properties: Properties of the WCF relay.
+        :param pulumi.Input[str] relay_type: WCF relay type.
+        :param pulumi.Input[bool] requires_client_authorization: Returns true if client authorization is needed for this relay; otherwise, false.
+        :param pulumi.Input[bool] requires_transport_security: Returns true if transport security is needed for this relay; otherwise, false.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-
-        The **properties** object supports the following:
-
-          * `relay_type` (`pulumi.Input[str]`) - WCF relay type.
-          * `requires_client_authorization` (`pulumi.Input[bool]`) - Returns true if client authorization is needed for this relay; otherwise, false.
-          * `requires_transport_security` (`pulumi.Input[bool]`) - Returns true if transport security is needed for this relay; otherwise, false.
-          * `user_metadata` (`pulumi.Input[str]`) - The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
+        :param pulumi.Input[str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,10 +67,14 @@ class WCFRelay(pulumi.CustomResource):
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            __props__['properties'] = properties
+            __props__['relay_type'] = relay_type
+            __props__['requires_client_authorization'] = requires_client_authorization
+            __props__['requires_transport_security'] = requires_transport_security
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['user_metadata'] = user_metadata
+            __props__['properties'] = None
             __props__['type'] = None
         super(WCFRelay, __self__).__init__(
             'azurerm:relay/v20170401:WCFRelay',

@@ -78,28 +78,70 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
     public sealed class RegisteredServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Registered Server Agent Version
+        /// </summary>
+        [Input("agentVersion")]
+        public Input<string>? AgentVersion { get; set; }
+
+        /// <summary>
+        /// Registered Server clusterId
+        /// </summary>
+        [Input("clusterId")]
+        public Input<string>? ClusterId { get; set; }
+
+        /// <summary>
+        /// Registered Server clusterName
+        /// </summary>
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// Friendly Name
+        /// </summary>
+        [Input("friendlyName")]
+        public Input<string>? FriendlyName { get; set; }
+
+        /// <summary>
+        /// Registered Server last heart beat
+        /// </summary>
+        [Input("lastHeartBeat")]
+        public Input<string>? LastHeartBeat { get; set; }
+
+        /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// GUID identifying the on-premises server.
+        /// Registered Server serverId
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The parameters used to create the storage sync service.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RegisteredServerCreateParametersPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Registered Server Certificate
+        /// </summary>
+        [Input("serverCertificate")]
+        public Input<string>? ServerCertificate { get; set; }
+
+        /// <summary>
+        /// Registered Server OS Version
+        /// </summary>
+        [Input("serverOSVersion")]
+        public Input<string>? ServerOSVersion { get; set; }
+
+        /// <summary>
+        /// Registered Server serverRole
+        /// </summary>
+        [Input("serverRole")]
+        public Input<string>? ServerRole { get; set; }
 
         /// <summary>
         /// Name of Storage Sync Service resource.

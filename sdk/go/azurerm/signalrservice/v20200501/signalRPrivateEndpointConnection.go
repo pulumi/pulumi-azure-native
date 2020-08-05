@@ -83,8 +83,10 @@ func (SignalRPrivateEndpointConnectionState) ElementType() reflect.Type {
 type signalRPrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection associated with the SignalR resource.
 	Name string `pulumi:"name"`
-	// Properties of the private endpoint connection
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// Private endpoint associated with the private endpoint connection
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// Connection state
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SignalR resource.
@@ -95,8 +97,10 @@ type signalRPrivateEndpointConnectionArgs struct {
 type SignalRPrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection associated with the SignalR resource.
 	Name pulumi.StringInput
-	// Properties of the private endpoint connection
-	Properties PrivateEndpointConnectionPropertiesPtrInput
+	// Private endpoint associated with the private endpoint connection
+	PrivateEndpoint PrivateEndpointPtrInput
+	// Connection state
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the SignalR resource.

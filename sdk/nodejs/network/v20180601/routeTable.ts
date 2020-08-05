@@ -51,7 +51,7 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * Properties of the route table.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180601.RouteTablePropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180601.RouteTablePropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,16 @@ export class RouteTable extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["disableBgpRoutePropagation"] = args ? args.disableBgpRoutePropagation : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +108,10 @@ export class RouteTable extends pulumi.CustomResource {
  */
 export interface RouteTableArgs {
     /**
+     * Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
+     */
+    readonly disableBgpRoutePropagation?: pulumi.Input<boolean>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
@@ -121,13 +128,17 @@ export interface RouteTableArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the route table.
+     * The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20180601.RouteTablePropertiesFormat>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Collection of routes contained within a route table.
+     */
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20180601.Route>[]>;
     /**
      * Resource tags.
      */

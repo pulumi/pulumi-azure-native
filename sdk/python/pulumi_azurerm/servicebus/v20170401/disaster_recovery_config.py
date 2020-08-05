@@ -27,21 +27,17 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, name=None, namespace_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, alternate_name=None, name=None, namespace_name=None, partner_namespace=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] alternate_name: Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         :param pulumi.Input[str] name: The Disaster Recovery configuration name
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[dict] properties: Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+        :param pulumi.Input[str] partner_namespace: ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-
-        The **properties** object supports the following:
-
-          * `alternate_name` (`pulumi.Input[str]`) - Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-          * `partner_namespace` (`pulumi.Input[str]`) - ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,16 +56,18 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['alternate_name'] = alternate_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            __props__['properties'] = properties
+            __props__['partner_namespace'] = partner_namespace
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(DisasterRecoveryConfig, __self__).__init__(
             'azurerm:servicebus/v20170401:DisasterRecoveryConfig',

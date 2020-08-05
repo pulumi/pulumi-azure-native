@@ -31,14 +31,20 @@ func NewJobDefinition(ctx *pulumi.Context,
 	if args == nil || args.DataServiceName == nil {
 		return nil, errors.New("missing required argument 'DataServiceName'")
 	}
+	if args == nil || args.DataSinkId == nil {
+		return nil, errors.New("missing required argument 'DataSinkId'")
+	}
+	if args == nil || args.DataSourceId == nil {
+		return nil, errors.New("missing required argument 'DataSourceId'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.State == nil {
+		return nil, errors.New("missing required argument 'State'")
 	}
 	if args == nil {
 		args = &JobDefinitionArgs{}
@@ -87,30 +93,62 @@ func (JobDefinitionState) ElementType() reflect.Type {
 }
 
 type jobDefinitionArgs struct {
+	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+	CustomerSecrets []CustomerSecret `pulumi:"customerSecrets"`
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	DataManagerName string `pulumi:"dataManagerName"`
+	// A generic json used differently by each data service type.
+	DataServiceInput map[string]interface{} `pulumi:"dataServiceInput"`
 	// The data service type of the job definition.
 	DataServiceName string `pulumi:"dataServiceName"`
+	// Data Sink Id associated to the job definition.
+	DataSinkId string `pulumi:"dataSinkId"`
+	// Data Source Id associated to the job definition.
+	DataSourceId string `pulumi:"dataSourceId"`
+	// Last modified time of the job definition.
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The job definition name to be created or updated.
 	Name string `pulumi:"name"`
-	// JobDefinition properties.
-	Properties JobDefinitionProperties `pulumi:"properties"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// This is the preferred geo location for the job to run.
+	RunLocation *string `pulumi:"runLocation"`
+	// Schedule for running the job definition
+	Schedules []Schedule `pulumi:"schedules"`
+	// State of the job definition.
+	State string `pulumi:"state"`
+	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+	UserConfirmation *string `pulumi:"userConfirmation"`
 }
 
 // The set of arguments for constructing a JobDefinition resource.
 type JobDefinitionArgs struct {
+	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+	CustomerSecrets CustomerSecretArrayInput
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	DataManagerName pulumi.StringInput
+	// A generic json used differently by each data service type.
+	DataServiceInput pulumi.MapInput
 	// The data service type of the job definition.
 	DataServiceName pulumi.StringInput
+	// Data Sink Id associated to the job definition.
+	DataSinkId pulumi.StringInput
+	// Data Source Id associated to the job definition.
+	DataSourceId pulumi.StringInput
+	// Last modified time of the job definition.
+	LastModifiedTime pulumi.StringPtrInput
 	// The job definition name to be created or updated.
 	Name pulumi.StringInput
-	// JobDefinition properties.
-	Properties JobDefinitionPropertiesInput
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
+	// This is the preferred geo location for the job to run.
+	RunLocation pulumi.StringPtrInput
+	// Schedule for running the job definition
+	Schedules ScheduleArrayInput
+	// State of the job definition.
+	State pulumi.StringInput
+	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+	UserConfirmation pulumi.StringPtrInput
 }
 
 func (JobDefinitionArgs) ElementType() reflect.Type {

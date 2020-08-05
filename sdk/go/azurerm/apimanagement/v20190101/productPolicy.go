@@ -37,6 +37,9 @@ func NewProductPolicy(ctx *pulumi.Context,
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
 	}
+	if args == nil || args.Value == nil {
+		return nil, errors.New("missing required argument 'Value'")
+	}
 	if args == nil {
 		args = &ProductPolicyArgs{}
 	}
@@ -84,30 +87,34 @@ func (ProductPolicyState) ElementType() reflect.Type {
 }
 
 type productPolicyArgs struct {
+	// Format of the policyContent.
+	Format *string `pulumi:"format"`
 	// The identifier of the Policy.
 	Name string `pulumi:"name"`
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId string `pulumi:"productId"`
-	// Properties of the Policy.
-	Properties *PolicyContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Contents of the Policy as defined by the format.
+	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a ProductPolicy resource.
 type ProductPolicyArgs struct {
+	// Format of the policyContent.
+	Format pulumi.StringPtrInput
 	// The identifier of the Policy.
 	Name pulumi.StringInput
 	// Product identifier. Must be unique in the current API Management service instance.
 	ProductId pulumi.StringInput
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Contents of the Policy as defined by the format.
+	Value pulumi.StringInput
 }
 
 func (ProductPolicyArgs) ElementType() reflect.Type {

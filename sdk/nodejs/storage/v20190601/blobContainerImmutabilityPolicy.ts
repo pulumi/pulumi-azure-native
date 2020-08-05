@@ -47,7 +47,7 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**
      * The properties of an ImmutabilityPolicy of a blob container.
      */
-    public readonly properties!: pulumi.Output<outputs.storage.v20190601.ImmutabilityPolicyPropertyResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190601.ImmutabilityPolicyPropertyResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -75,18 +75,17 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["allowProtectedAppendWrites"] = args ? args.allowProtectedAppendWrites : undefined;
             inputs["containerName"] = args ? args.containerName : undefined;
+            inputs["immutabilityPeriodSinceCreationInDays"] = args ? args.immutabilityPeriodSinceCreationInDays : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,17 +108,21 @@ export interface BlobContainerImmutabilityPolicyArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+     */
+    readonly allowProtectedAppendWrites?: pulumi.Input<boolean>;
+    /**
      * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
     readonly containerName: pulumi.Input<string>;
     /**
+     * The immutability period for the blobs in the container since the policy creation, in days.
+     */
+    readonly immutabilityPeriodSinceCreationInDays?: pulumi.Input<number>;
+    /**
      * The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of an ImmutabilityPolicy of a blob container.
-     */
-    readonly properties: pulumi.Input<inputs.storage.v20190601.ImmutabilityPolicyProperty>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

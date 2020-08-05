@@ -110,12 +110,16 @@ func (PublicIPPrefixState) ElementType() reflect.Type {
 type publicIPPrefixArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// The list of tags associated with the public IP prefix.
+	IpTags []IpTag `pulumi:"ipTags"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the public IP prefix.
 	Name string `pulumi:"name"`
-	// Public IP prefix properties.
-	Properties *PublicIPPrefixPropertiesFormat `pulumi:"properties"`
+	// The Length of the Public IP Prefix.
+	PrefixLength *int `pulumi:"prefixLength"`
+	// The public IP address version.
+	PublicIPAddressVersion *string `pulumi:"publicIPAddressVersion"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The public IP prefix SKU.
@@ -130,12 +134,16 @@ type publicIPPrefixArgs struct {
 type PublicIPPrefixArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// The list of tags associated with the public IP prefix.
+	IpTags IpTagArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the public IP prefix.
 	Name pulumi.StringInput
-	// Public IP prefix properties.
-	Properties PublicIPPrefixPropertiesFormatPtrInput
+	// The Length of the Public IP Prefix.
+	PrefixLength pulumi.IntPtrInput
+	// The public IP address version.
+	PublicIPAddressVersion pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The public IP prefix SKU.

@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.Network.V20181101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the DDoS protection plan.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DdosProtectionPlanPropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]

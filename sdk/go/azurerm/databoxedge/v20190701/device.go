@@ -105,14 +105,20 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
+	// The status of the Data Box Edge/Gateway device.
+	DataBoxEdgeDeviceStatus *string `pulumi:"dataBoxEdgeDeviceStatus"`
+	// The Description of the Data Box Edge/Gateway device.
+	Description *string `pulumi:"description"`
 	// The etag for the devices.
 	Etag *string `pulumi:"etag"`
+	// The Data Box Edge/Gateway device name.
+	FriendlyName *string `pulumi:"friendlyName"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
 	Location string `pulumi:"location"`
+	// The description of the Data Box Edge/Gateway device model.
+	ModelDescription *string `pulumi:"modelDescription"`
 	// The device name.
 	Name string `pulumi:"name"`
-	// The properties of the Data Box Edge/Gateway device.
-	Properties *DataBoxEdgeDeviceProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU type.
@@ -123,14 +129,20 @@ type deviceArgs struct {
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
+	// The status of the Data Box Edge/Gateway device.
+	DataBoxEdgeDeviceStatus pulumi.StringPtrInput
+	// The Description of the Data Box Edge/Gateway device.
+	Description pulumi.StringPtrInput
 	// The etag for the devices.
 	Etag pulumi.StringPtrInput
+	// The Data Box Edge/Gateway device name.
+	FriendlyName pulumi.StringPtrInput
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
 	Location pulumi.StringInput
+	// The description of the Data Box Edge/Gateway device model.
+	ModelDescription pulumi.StringPtrInput
 	// The device name.
 	Name pulumi.StringInput
-	// The properties of the Data Box Edge/Gateway device.
-	Properties DataBoxEdgeDevicePropertiesPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The SKU type.

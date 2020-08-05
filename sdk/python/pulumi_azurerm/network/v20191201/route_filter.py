@@ -127,7 +127,7 @@ class RouteFilter(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, resource_group_name=None, rules=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Route Filter Resource.
 
@@ -136,21 +136,20 @@ class RouteFilter(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the route filter.
-        :param pulumi.Input[dict] properties: Properties of the route filter.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] rules: Collection of RouteFilterRules contained within a route filter.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **rules** object supports the following:
 
-          * `rules` (`pulumi.Input[list]`) - Collection of RouteFilterRules contained within a route filter.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `location` (`pulumi.Input[str]`) - Resource location.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the route filter rule.
-              * `access` (`pulumi.Input[str]`) - The access type of the rule.
-              * `communities` (`pulumi.Input[list]`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the route filter rule resource.
-              * `route_filter_rule_type` (`pulumi.Input[str]`) - The rule type of the rule.
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `location` (`pulumi.Input[str]`) - Resource location.
+          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `properties` (`pulumi.Input[dict]`) - Properties of the route filter rule.
+            * `access` (`pulumi.Input[str]`) - The access type of the rule.
+            * `communities` (`pulumi.Input[list]`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the route filter rule resource.
+            * `route_filter_rule_type` (`pulumi.Input[str]`) - The rule type of the rule.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -176,12 +175,13 @@ class RouteFilter(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['rules'] = rules
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(RouteFilter, __self__).__init__(
             'azurerm:network/v20191201:RouteFilter',

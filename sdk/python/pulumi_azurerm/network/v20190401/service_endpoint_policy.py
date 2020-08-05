@@ -386,7 +386,7 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, etag=None, id=None, location=None, name=None, resource_group_name=None, service_endpoint_policy_definitions=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Service End point policy resource.
 
@@ -396,20 +396,18 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the service endpoint policy.
-        :param pulumi.Input[dict] properties: Properties of the service end point policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **service_endpoint_policy_definitions** object supports the following:
 
-          * `service_endpoint_policy_definitions` (`pulumi.Input[list]`) - A collection of service endpoint policy definitions of the service endpoint policy.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the service endpoint policy definition.
-              * `description` (`pulumi.Input[str]`) - A description for this rule. Restricted to 140 chars.
-              * `service` (`pulumi.Input[str]`) - Service endpoint name.
-              * `service_resources` (`pulumi.Input[list]`) - A list of service resources.
+          * `description` (`pulumi.Input[str]`) - A description for this rule. Restricted to 140 chars.
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `service` (`pulumi.Input[str]`) - Service endpoint name.
+          * `service_resources` (`pulumi.Input[list]`) - A list of service resources.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -434,11 +432,12 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['service_endpoint_policy_definitions'] = service_endpoint_policy_definitions
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(ServiceEndpointPolicy, __self__).__init__(
             'azurerm:network/v20190401:ServiceEndpointPolicy',

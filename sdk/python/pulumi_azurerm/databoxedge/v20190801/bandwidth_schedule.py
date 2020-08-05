@@ -26,23 +26,19 @@ class BandwidthSchedule(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, device_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, days=None, device_name=None, name=None, rate_in_mbps=None, resource_group_name=None, start=None, stop=None, __props__=None, __name__=None, __opts__=None):
         """
         The bandwidth schedule details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] days: The days of the week when this schedule is applicable.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] name: The bandwidth schedule name which needs to be added/updated.
-        :param pulumi.Input[dict] properties: The properties of the bandwidth schedule.
+        :param pulumi.Input[float] rate_in_mbps: The bandwidth rate in Mbps.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-
-        The **properties** object supports the following:
-
-          * `days` (`pulumi.Input[list]`) - The days of the week when this schedule is applicable.
-          * `rate_in_mbps` (`pulumi.Input[float]`) - The bandwidth rate in Mbps.
-          * `start` (`pulumi.Input[str]`) - The start time of the schedule in UTC.
-          * `stop` (`pulumi.Input[str]`) - The stop time of the schedule in UTC.
+        :param pulumi.Input[str] start: The start time of the schedule in UTC.
+        :param pulumi.Input[str] stop: The stop time of the schedule in UTC.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,18 +57,28 @@ class BandwidthSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if days is None:
+                raise TypeError("Missing required property 'days'")
+            __props__['days'] = days
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if rate_in_mbps is None:
+                raise TypeError("Missing required property 'rate_in_mbps'")
+            __props__['rate_in_mbps'] = rate_in_mbps
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if start is None:
+                raise TypeError("Missing required property 'start'")
+            __props__['start'] = start
+            if stop is None:
+                raise TypeError("Missing required property 'stop'")
+            __props__['stop'] = stop
+            __props__['properties'] = None
             __props__['type'] = None
         super(BandwidthSchedule, __self__).__init__(
             'azurerm:databoxedge/v20190801:BandwidthSchedule',

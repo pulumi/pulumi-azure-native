@@ -51,7 +51,7 @@ export class VirtualHub extends pulumi.CustomResource {
     /**
      * Parameters for VirtualHub
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20181001.VirtualHubPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181001.VirtualHubPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -83,13 +83,21 @@ export class VirtualHub extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            inputs["expressRouteGateway"] = args ? args.expressRouteGateway : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["p2SVpnGateway"] = args ? args.p2SVpnGateway : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routeTable"] = args ? args.routeTable : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkConnections"] = args ? args.virtualNetworkConnections : undefined;
+            inputs["virtualWan"] = args ? args.virtualWan : undefined;
+            inputs["vpnGateway"] = args ? args.vpnGateway : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,6 +116,14 @@ export class VirtualHub extends pulumi.CustomResource {
  */
 export interface VirtualHubArgs {
     /**
+     * Address-prefix for this VirtualHub.
+     */
+    readonly addressPrefix?: pulumi.Input<string>;
+    /**
+     * The expressRouteGateway associated with this VirtualHub
+     */
+    readonly expressRouteGateway?: pulumi.Input<inputs.network.v20181001.SubResource>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -120,15 +136,35 @@ export interface VirtualHubArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Parameters for VirtualHub
+     * The P2SVpnGateway associated with this VirtualHub
      */
-    readonly properties?: pulumi.Input<inputs.network.v20181001.VirtualHubProperties>;
+    readonly p2SVpnGateway?: pulumi.Input<inputs.network.v20181001.SubResource>;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualHub.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The routeTable associated with this virtual hub.
+     */
+    readonly routeTable?: pulumi.Input<inputs.network.v20181001.VirtualHubRouteTable>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * list of all vnet connections with this VirtualHub.
+     */
+    readonly virtualNetworkConnections?: pulumi.Input<pulumi.Input<inputs.network.v20181001.HubVirtualNetworkConnection>[]>;
+    /**
+     * The VirtualWAN to which the VirtualHub belongs
+     */
+    readonly virtualWan?: pulumi.Input<inputs.network.v20181001.SubResource>;
+    /**
+     * The VpnGateway associated with this VirtualHub
+     */
+    readonly vpnGateway?: pulumi.Input<inputs.network.v20181001.SubResource>;
 }

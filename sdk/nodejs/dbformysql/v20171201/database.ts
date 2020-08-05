@@ -43,7 +43,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The properties of a database.
      */
-    public readonly properties!: pulumi.Output<outputs.dbformysql.v20171201.DatabasePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.dbformysql.v20171201.DatabasePropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -71,10 +71,12 @@ export class Database extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
+            inputs["charset"] = args ? args.charset : undefined;
+            inputs["collation"] = args ? args.collation : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,13 +95,17 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseArgs {
     /**
+     * The charset of the database.
+     */
+    readonly charset?: pulumi.Input<string>;
+    /**
+     * The collation of the database.
+     */
+    readonly collation?: pulumi.Input<string>;
+    /**
      * The name of the database.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of a database.
-     */
-    readonly properties?: pulumi.Input<inputs.dbformysql.v20171201.DatabaseProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

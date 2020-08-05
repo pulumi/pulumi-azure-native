@@ -47,7 +47,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**
      * The properties of the attached database configuration.
      */
-    public readonly properties!: pulumi.Output<outputs.kusto.v20200215.AttachedDatabaseConfigurationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.kusto.v20200215.AttachedDatabaseConfigurationPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -69,6 +69,15 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             if (!args || args.clusterName === undefined) {
                 throw new Error("Missing required property 'clusterName'");
             }
+            if (!args || args.clusterResourceId === undefined) {
+                throw new Error("Missing required property 'clusterResourceId'");
+            }
+            if (!args || args.databaseName === undefined) {
+                throw new Error("Missing required property 'databaseName'");
+            }
+            if (!args || args.defaultPrincipalsModificationKind === undefined) {
+                throw new Error("Missing required property 'defaultPrincipalsModificationKind'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -76,10 +85,13 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["clusterResourceId"] = args ? args.clusterResourceId : undefined;
+            inputs["databaseName"] = args ? args.databaseName : undefined;
+            inputs["defaultPrincipalsModificationKind"] = args ? args.defaultPrincipalsModificationKind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +114,18 @@ export interface AttachedDatabaseConfigurationArgs {
      */
     readonly clusterName: pulumi.Input<string>;
     /**
+     * The resource id of the cluster where the databases you would like to attach reside.
+     */
+    readonly clusterResourceId: pulumi.Input<string>;
+    /**
+     * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+     */
+    readonly databaseName: pulumi.Input<string>;
+    /**
+     * The default principals modification kind
+     */
+    readonly defaultPrincipalsModificationKind: pulumi.Input<string>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -109,10 +133,6 @@ export interface AttachedDatabaseConfigurationArgs {
      * The name of the attached database configuration.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the attached database configuration.
-     */
-    readonly properties?: pulumi.Input<inputs.kusto.v20200215.AttachedDatabaseConfigurationProperties>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */

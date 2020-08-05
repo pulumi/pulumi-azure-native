@@ -96,13 +96,16 @@ func (DiskEncryptionSetState) ElementType() reflect.Type {
 }
 
 type diskEncryptionSetArgs struct {
+	// The key vault key which is currently used by this disk encryption set.
+	ActiveKey *KeyVaultAndKeyReference `pulumi:"activeKey"`
+	// The type of key used to encrypt the data of the disk.
+	EncryptionType *string `pulumi:"encryptionType"`
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 	Identity *EncryptionSetIdentity `pulumi:"identity"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	Name       string                   `pulumi:"name"`
-	Properties *EncryptionSetProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -111,13 +114,16 @@ type diskEncryptionSetArgs struct {
 
 // The set of arguments for constructing a DiskEncryptionSet resource.
 type DiskEncryptionSetArgs struct {
+	// The key vault key which is currently used by this disk encryption set.
+	ActiveKey KeyVaultAndKeyReferencePtrInput
+	// The type of key used to encrypt the data of the disk.
+	EncryptionType pulumi.StringPtrInput
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 	Identity EncryptionSetIdentityPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-	Name       pulumi.StringInput
-	Properties EncryptionSetPropertiesPtrInput
+	Name pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

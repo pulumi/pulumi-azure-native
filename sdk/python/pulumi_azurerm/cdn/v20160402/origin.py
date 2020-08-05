@@ -19,22 +19,19 @@ class Origin(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, endpoint_name=None, name=None, profile_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, endpoint_name=None, host_name=None, http_port=None, https_port=None, name=None, profile_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint within the CDN profile.
+        :param pulumi.Input[str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+        :param pulumi.Input[float] http_port: The value of the HTTP port. Must be between 1 and 65535.
+        :param pulumi.Input[float] https_port: The value of the HTTPS port. Must be between 1 and 65535.
         :param pulumi.Input[str] name: Name of the origin, an arbitrary value but it needs to be unique under endpoint
         :param pulumi.Input[str] profile_name: Name of the CDN profile within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
-
-        The **properties** object supports the following:
-
-          * `host_name` (`pulumi.Input[str]`) - The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-          * `http_port` (`pulumi.Input[float]`) - The value of the HTTP port. Must be between 1 and 65535.
-          * `https_port` (`pulumi.Input[float]`) - The value of the HTTPS port. Must be between 1 and 65535.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,16 +53,21 @@ class Origin(pulumi.CustomResource):
             if endpoint_name is None:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
+            if host_name is None:
+                raise TypeError("Missing required property 'host_name'")
+            __props__['host_name'] = host_name
+            __props__['http_port'] = http_port
+            __props__['https_port'] = https_port
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if profile_name is None:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Origin, __self__).__init__(
             'azurerm:cdn/v20160402:Origin',

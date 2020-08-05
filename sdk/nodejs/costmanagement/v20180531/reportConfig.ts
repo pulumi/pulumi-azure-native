@@ -43,7 +43,7 @@ export class ReportConfig extends pulumi.CustomResource {
     /**
      * The properties of the report config.
      */
-    public readonly properties!: pulumi.Output<outputs.costmanagement.v20180531.ReportConfigPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.costmanagement.v20180531.ReportConfigPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -66,11 +66,21 @@ export class ReportConfig extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ReportConfigArgs | undefined;
+            if (!args || args.definition === undefined) {
+                throw new Error("Missing required property 'definition'");
+            }
+            if (!args || args.deliveryInfo === undefined) {
+                throw new Error("Missing required property 'deliveryInfo'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            inputs["definition"] = args ? args.definition : undefined;
+            inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
+            inputs["format"] = args ? args.format : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["schedule"] = args ? args.schedule : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -90,11 +100,23 @@ export class ReportConfig extends pulumi.CustomResource {
  */
 export interface ReportConfigArgs {
     /**
+     * Has definition for the report config.
+     */
+    readonly definition: pulumi.Input<inputs.costmanagement.v20180531.ReportConfigDefinition>;
+    /**
+     * Has delivery information for the report config.
+     */
+    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.v20180531.ReportConfigDeliveryInfo>;
+    /**
+     * The format of the report being delivered.
+     */
+    readonly format?: pulumi.Input<string>;
+    /**
      * Report Config Name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the report config.
+     * Has schedule information for the report config.
      */
-    readonly properties?: pulumi.Input<inputs.costmanagement.v20180531.ReportConfigProperties>;
+    readonly schedule?: pulumi.Input<inputs.costmanagement.v20180531.ReportConfigSchedule>;
 }

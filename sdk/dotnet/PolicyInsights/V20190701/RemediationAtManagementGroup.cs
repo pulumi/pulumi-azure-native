@@ -78,6 +78,12 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
     public sealed class RemediationAtManagementGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The filters that will be applied to determine which resources to remediate.
+        /// </summary>
+        [Input("filters")]
+        public Input<Inputs.RemediationFiltersArgs>? Filters { get; set; }
+
+        /// <summary>
         /// Management group ID.
         /// </summary>
         [Input("managementGroupId", required: true)]
@@ -96,10 +102,22 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties for the remediation.
+        /// The resource ID of the policy assignment that should be remediated.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RemediationPropertiesArgs>? Properties { get; set; }
+        [Input("policyAssignmentId")]
+        public Input<string>? PolicyAssignmentId { get; set; }
+
+        /// <summary>
+        /// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// </summary>
+        [Input("policyDefinitionReferenceId")]
+        public Input<string>? PolicyDefinitionReferenceId { get; set; }
+
+        /// <summary>
+        /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+        /// </summary>
+        [Input("resourceDiscoveryMode")]
+        public Input<string>? ResourceDiscoveryMode { get; set; }
 
         public RemediationAtManagementGroupArgs()
         {

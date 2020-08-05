@@ -96,10 +96,22 @@ namespace Pulumi.AzureRM.Compute.V20190701
     public sealed class DedicatedHostArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+        /// </summary>
+        [Input("autoReplaceOnFailure")]
+        public Input<bool>? AutoReplaceOnFailure { get; set; }
+
+        /// <summary>
         /// The name of the dedicated host group.
         /// </summary>
         [Input("hostGroupName", required: true)]
         public Input<string> HostGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
+        /// </summary>
+        [Input("licenseType")]
+        public Input<string>? LicenseType { get; set; }
 
         /// <summary>
         /// Resource location
@@ -114,10 +126,10 @@ namespace Pulumi.AzureRM.Compute.V20190701
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the dedicated host.
+        /// Fault domain of the dedicated host within a dedicated host group.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DedicatedHostPropertiesArgs>? Properties { get; set; }
+        [Input("platformFaultDomain")]
+        public Input<int>? PlatformFaultDomain { get; set; }
 
         /// <summary>
         /// The name of the resource group.

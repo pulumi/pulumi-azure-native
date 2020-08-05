@@ -57,27 +57,23 @@ class Certificate(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, host_names=None, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, password=None, pfx_blob=None, resource_group_name=None, server_farm_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         SSL certificate for an app.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] host_names: Host names the certificate applies to.
+        :param pulumi.Input[str] key_vault_id: Key Vault Csm resource Id.
+        :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the certificate.
-        :param pulumi.Input[dict] properties: Certificate resource specific properties
+        :param pulumi.Input[str] password: Certificate password.
+        :param pulumi.Input[str] pfx_blob: Pfx blob.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `host_names` (`pulumi.Input[list]`) - Host names the certificate applies to.
-          * `key_vault_id` (`pulumi.Input[str]`) - Key Vault Csm resource Id.
-          * `key_vault_secret_name` (`pulumi.Input[str]`) - Key Vault secret name.
-          * `password` (`pulumi.Input[str]`) - Certificate password.
-          * `pfx_blob` (`pulumi.Input[str]`) - Pfx blob.
-          * `server_farm_id` (`pulumi.Input[str]`) - Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,6 +92,9 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['host_names'] = host_names
+            __props__['key_vault_id'] = key_vault_id
+            __props__['key_vault_secret_name'] = key_vault_secret_name
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -103,11 +102,16 @@ class Certificate(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if password is None:
+                raise TypeError("Missing required property 'password'")
+            __props__['password'] = password
+            __props__['pfx_blob'] = pfx_blob
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['server_farm_id'] = server_farm_id
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Certificate, __self__).__init__(
             'azurerm:web/v20181101:Certificate',

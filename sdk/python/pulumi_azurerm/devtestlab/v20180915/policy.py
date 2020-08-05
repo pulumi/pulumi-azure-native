@@ -39,28 +39,24 @@ class Policy(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, lab_name=None, location=None, name=None, policy_set_name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, lab_name=None, location=None, name=None, policy_set_name=None, resource_group_name=None, status=None, tags=None, threshold=None, __props__=None, __name__=None, __opts__=None):
         """
         A Policy.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the policy.
+        :param pulumi.Input[str] evaluator_type: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+        :param pulumi.Input[str] fact_data: The fact data of the policy.
+        :param pulumi.Input[str] fact_name: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the policy.
         :param pulumi.Input[str] policy_set_name: The name of the policy set.
-        :param pulumi.Input[dict] properties: The properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] status: The status of the policy.
         :param pulumi.Input[dict] tags: The tags of the resource.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - The description of the policy.
-          * `evaluator_type` (`pulumi.Input[str]`) - The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
-          * `fact_data` (`pulumi.Input[str]`) - The fact data of the policy.
-          * `fact_name` (`pulumi.Input[str]`) - The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
-          * `status` (`pulumi.Input[str]`) - The status of the policy.
-          * `threshold` (`pulumi.Input[str]`) - The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+        :param pulumi.Input[str] threshold: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,6 +75,10 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['evaluator_type'] = evaluator_type
+            __props__['fact_data'] = fact_data
+            __props__['fact_name'] = fact_name
             if lab_name is None:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
@@ -89,13 +89,13 @@ class Policy(pulumi.CustomResource):
             if policy_set_name is None:
                 raise TypeError("Missing required property 'policy_set_name'")
             __props__['policy_set_name'] = policy_set_name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['status'] = status
             __props__['tags'] = tags
+            __props__['threshold'] = threshold
+            __props__['properties'] = None
             __props__['type'] = None
         super(Policy, __self__).__init__(
             'azurerm:devtestlab/v20180915:Policy',

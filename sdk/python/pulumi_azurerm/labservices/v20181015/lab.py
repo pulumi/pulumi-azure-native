@@ -48,7 +48,7 @@ class Lab(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, lab_account_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, lab_account_name=None, location=None, max_users_in_lab=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, usage_quota=None, user_access_mode=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a lab.
 
@@ -56,18 +56,14 @@ class Lab(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lab_account_name: The name of the lab Account.
         :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[float] max_users_in_lab: Maximum number of users allowed in the lab.
         :param pulumi.Input[str] name: The name of the lab.
-        :param pulumi.Input[dict] properties: The properties of the resource.
+        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: The tags of the resource.
-
-        The **properties** object supports the following:
-
-          * `max_users_in_lab` (`pulumi.Input[float]`) - Maximum number of users allowed in the lab.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
-          * `usage_quota` (`pulumi.Input[str]`) - Maximum duration a user can use an environment for in the lab.
-          * `user_access_mode` (`pulumi.Input[str]`) - Lab user access mode (open to all vs. restricted to those listed on the lab).
+        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
+        :param pulumi.Input[str] usage_quota: Maximum duration a user can use an environment for in the lab.
+        :param pulumi.Input[str] user_access_mode: Lab user access mode (open to all vs. restricted to those listed on the lab).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,14 +86,19 @@ class Lab(pulumi.CustomResource):
                 raise TypeError("Missing required property 'lab_account_name'")
             __props__['lab_account_name'] = lab_account_name
             __props__['location'] = location
+            __props__['max_users_in_lab'] = max_users_in_lab
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['unique_identifier'] = unique_identifier
+            __props__['usage_quota'] = usage_quota
+            __props__['user_access_mode'] = user_access_mode
+            __props__['properties'] = None
             __props__['type'] = None
         super(Lab, __self__).__init__(
             'azurerm:labservices/v20181015:Lab',

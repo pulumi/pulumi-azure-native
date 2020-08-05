@@ -51,7 +51,7 @@ export class Workbook extends pulumi.CustomResource {
     /**
      * Metadata describing a web test for an Azure resource.
      */
-    public readonly properties!: pulumi.Output<outputs.insights.v20150501.WorkbookPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20150501.WorkbookPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -74,18 +74,40 @@ export class Workbook extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WorkbookArgs | undefined;
+            if (!args || args.category === undefined) {
+                throw new Error("Missing required property 'category'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.serializedData === undefined) {
+                throw new Error("Missing required property 'serializedData'");
+            }
+            if (!args || args.sharedTypeKind === undefined) {
+                throw new Error("Missing required property 'sharedTypeKind'");
+            }
+            if (!args || args.userId === undefined) {
+                throw new Error("Missing required property 'userId'");
+            }
+            if (!args || args.workbookId === undefined) {
+                throw new Error("Missing required property 'workbookId'");
+            }
+            inputs["category"] = args ? args.category : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serializedData"] = args ? args.serializedData : undefined;
+            inputs["sharedTypeKind"] = args ? args.sharedTypeKind : undefined;
+            inputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["userId"] = args ? args.userId : undefined;
+            inputs["version"] = args ? args.version : undefined;
+            inputs["workbookId"] = args ? args.workbookId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,6 +126,10 @@ export class Workbook extends pulumi.CustomResource {
  */
 export interface WorkbookArgs {
     /**
+     * Workbook category, as defined by the user at creation time.
+     */
+    readonly category: pulumi.Input<string>;
+    /**
      * The kind of workbook. Choices are user and shared.
      */
     readonly kind?: pulumi.Input<string>;
@@ -116,15 +142,35 @@ export interface WorkbookArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Metadata describing a web test for an Azure resource.
-     */
-    readonly properties?: pulumi.Input<inputs.insights.v20150501.WorkbookProperties>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Configuration of this particular workbook. Configuration data is a string containing valid JSON
+     */
+    readonly serializedData: pulumi.Input<string>;
+    /**
+     * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+     */
+    readonly sharedTypeKind: pulumi.Input<string>;
+    /**
+     * Optional resourceId for a source resource.
+     */
+    readonly sourceResourceId?: pulumi.Input<string>;
+    /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Unique user id of the specific user that owns this workbook.
+     */
+    readonly userId: pulumi.Input<string>;
+    /**
+     * This instance's version of the data model. This can change as new features are added that can be marked workbook.
+     */
+    readonly version?: pulumi.Input<string>;
+    /**
+     * Internally assigned unique id of the workbook definition.
+     */
+    readonly workbookId: pulumi.Input<string>;
 }

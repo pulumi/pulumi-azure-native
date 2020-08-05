@@ -66,44 +66,49 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, build_timeout_in_minutes=None, customize=None, distribute=None, identity=None, location=None, name=None, resource_group_name=None, source=None, tags=None, vm_profile=None, __props__=None, __name__=None, __opts__=None):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] build_timeout_in_minutes: Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        :param pulumi.Input[list] customize: Specifies the properties used to describe the customization steps of the image, like Image source etc
+        :param pulumi.Input[list] distribute: The distribution targets where the image output needs to go to.
         :param pulumi.Input[dict] identity: The identity of the image template, if configured.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the image Template
-        :param pulumi.Input[dict] properties: The properties of the image template
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] source: Specifies the properties used to describe the source image.
         :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[dict] vm_profile: Describes how virtual machine is set up to build images
+
+        The **customize** object supports the following:
+
+          * `name` (`pulumi.Input[str]`) - Friendly Name to provide context on what this customization step does
+          * `type` (`pulumi.Input[str]`) - The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+
+        The **distribute** object supports the following:
+
+          * `artifact_tags` (`pulumi.Input[dict]`) - Tags that will be applied to the artifact once it has been created/updated by the distributor.
+          * `run_output_name` (`pulumi.Input[str]`) - The name to be used for the associated RunOutput.
+          * `type` (`pulumi.Input[str]`) - Type of distribution.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of identity used for the image template. The type 'None' will remove any identities from the image template.
           * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
-        The **properties** object supports the following:
+        The **source** object supports the following:
 
-          * `build_timeout_in_minutes` (`pulumi.Input[float]`) - Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
-          * `customize` (`pulumi.Input[list]`) - Specifies the properties used to describe the customization steps of the image, like Image source etc
-            * `name` (`pulumi.Input[str]`) - Friendly Name to provide context on what this customization step does
-            * `type` (`pulumi.Input[str]`) - The type of customization tool you want to use on the Image. For example, "Shell" can be shell customizer
+          * `type` (`pulumi.Input[str]`) - Specifies the type of source image you want to start with.
 
-          * `distribute` (`pulumi.Input[list]`) - The distribution targets where the image output needs to go to.
-            * `artifact_tags` (`pulumi.Input[dict]`) - Tags that will be applied to the artifact once it has been created/updated by the distributor.
-            * `run_output_name` (`pulumi.Input[str]`) - The name to be used for the associated RunOutput.
-            * `type` (`pulumi.Input[str]`) - Type of distribution.
+        The **vm_profile** object supports the following:
 
-          * `source` (`pulumi.Input[dict]`) - Specifies the properties used to describe the source image.
-            * `type` (`pulumi.Input[str]`) - Specifies the type of source image you want to start with.
-
-          * `vm_profile` (`pulumi.Input[dict]`) - Describes how virtual machine is set up to build images
-            * `os_disk_size_gb` (`pulumi.Input[float]`) - Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
-            * `vm_size` (`pulumi.Input[str]`) - Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
-            * `vnet_config` (`pulumi.Input[dict]`) - Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
-              * `subnet_id` (`pulumi.Input[str]`) - Resource id of a pre-existing subnet.
+          * `os_disk_size_gb` (`pulumi.Input[float]`) - Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
+          * `vm_size` (`pulumi.Input[str]`) - Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
+          * `vnet_config` (`pulumi.Input[dict]`) - Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
+            * `subnet_id` (`pulumi.Input[str]`) - Resource id of a pre-existing subnet.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -122,6 +127,11 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['build_timeout_in_minutes'] = build_timeout_in_minutes
+            __props__['customize'] = customize
+            if distribute is None:
+                raise TypeError("Missing required property 'distribute'")
+            __props__['distribute'] = distribute
             if identity is None:
                 raise TypeError("Missing required property 'identity'")
             __props__['identity'] = identity
@@ -131,11 +141,15 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if source is None:
+                raise TypeError("Missing required property 'source'")
+            __props__['source'] = source
             __props__['tags'] = tags
+            __props__['vm_profile'] = vm_profile
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualMachineImageTemplate, __self__).__init__(
             'azurerm:virtualmachineimages/v20200214:VirtualMachineImageTemplate',

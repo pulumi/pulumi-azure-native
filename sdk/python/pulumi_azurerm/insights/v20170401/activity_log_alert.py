@@ -43,33 +43,33 @@ class ActivityLogAlert(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, actions=None, condition=None, description=None, enabled=None, location=None, name=None, resource_group_name=None, scopes=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An activity log alert resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] actions: The actions that will activate when the condition is met.
+        :param pulumi.Input[dict] condition: The condition that will cause this alert to activate.
+        :param pulumi.Input[str] description: A description of this activity log alert.
+        :param pulumi.Input[bool] enabled: Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the activity log alert.
-        :param pulumi.Input[dict] properties: The activity log alert properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] scopes: A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
         :param pulumi.Input[dict] tags: Resource tags
 
-        The **properties** object supports the following:
+        The **actions** object supports the following:
 
-          * `actions` (`pulumi.Input[dict]`) - The actions that will activate when the condition is met.
-            * `action_groups` (`pulumi.Input[list]`) - The list of activity log alerts.
-              * `action_group_id` (`pulumi.Input[str]`) - The resourceId of the action group. This cannot be null or empty.
-              * `webhook_properties` (`pulumi.Input[dict]`) - the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+          * `action_groups` (`pulumi.Input[list]`) - The list of activity log alerts.
+            * `action_group_id` (`pulumi.Input[str]`) - The resourceId of the action group. This cannot be null or empty.
+            * `webhook_properties` (`pulumi.Input[dict]`) - the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
 
-          * `condition` (`pulumi.Input[dict]`) - The condition that will cause this alert to activate.
-            * `all_of` (`pulumi.Input[list]`) - The list of activity log alert conditions.
-              * `equals` (`pulumi.Input[str]`) - The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-              * `field` (`pulumi.Input[str]`) - The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
+        The **condition** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - A description of this activity log alert.
-          * `enabled` (`pulumi.Input[bool]`) - Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
-          * `scopes` (`pulumi.Input[list]`) - A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+          * `all_of` (`pulumi.Input[list]`) - The list of activity log alert conditions.
+            * `equals` (`pulumi.Input[str]`) - The field value will be compared to this value (case-insensitive) to determine if the condition is met.
+            * `field` (`pulumi.Input[str]`) - The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,17 +88,28 @@ class ActivityLogAlert(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if actions is None:
+                raise TypeError("Missing required property 'actions'")
+            __props__['actions'] = actions
+            if condition is None:
+                raise TypeError("Missing required property 'condition'")
+            __props__['condition'] = condition
+            __props__['description'] = description
+            __props__['enabled'] = enabled
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if scopes is None:
+                raise TypeError("Missing required property 'scopes'")
+            __props__['scopes'] = scopes
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(ActivityLogAlert, __self__).__init__(
             'azurerm:insights/v20170401:ActivityLogAlert',

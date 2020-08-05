@@ -78,6 +78,24 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class ViewArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// View definition.
+        /// </summary>
+        [Input("definition", required: true)]
+        public Input<string> Definition { get; set; } = null!;
+
+        [Input("displayName")]
+        private InputMap<string>? _displayName;
+
+        /// <summary>
+        /// Localized display name for the view.
+        /// </summary>
+        public InputMap<string> DisplayName
+        {
+            get => _displayName ?? (_displayName = new InputMap<string>());
+            set => _displayName = value;
+        }
+
+        /// <summary>
         /// The name of the hub.
         /// </summary>
         [Input("hubName", required: true)]
@@ -90,16 +108,16 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The view in Customer 360 web application.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ViewDefinitionArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// the user ID.
+        /// </summary>
+        [Input("userId")]
+        public Input<string>? UserId { get; set; }
 
         public ViewArgs()
         {

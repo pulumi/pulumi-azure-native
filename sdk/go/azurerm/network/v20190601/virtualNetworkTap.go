@@ -96,6 +96,12 @@ func (VirtualNetworkTapState) ElementType() reflect.Type {
 }
 
 type virtualNetworkTapArgs struct {
+	// The reference to the private IP address on the internal Load Balancer that will receive the tap.
+	DestinationLoadBalancerFrontEndIPConfiguration *FrontendIPConfiguration `pulumi:"destinationLoadBalancerFrontEndIPConfiguration"`
+	// The reference to the private IP Address of the collector nic that will receive the tap.
+	DestinationNetworkInterfaceIPConfiguration *NetworkInterfaceIPConfiguration `pulumi:"destinationNetworkInterfaceIPConfiguration"`
+	// The VXLAN destination port that will receive the tapped traffic.
+	DestinationPort *int `pulumi:"destinationPort"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
@@ -104,8 +110,6 @@ type virtualNetworkTapArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the virtual network tap.
 	Name string `pulumi:"name"`
-	// Virtual Network Tap Properties.
-	Properties *VirtualNetworkTapPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -114,6 +118,12 @@ type virtualNetworkTapArgs struct {
 
 // The set of arguments for constructing a VirtualNetworkTap resource.
 type VirtualNetworkTapArgs struct {
+	// The reference to the private IP address on the internal Load Balancer that will receive the tap.
+	DestinationLoadBalancerFrontEndIPConfiguration FrontendIPConfigurationPtrInput
+	// The reference to the private IP Address of the collector nic that will receive the tap.
+	DestinationNetworkInterfaceIPConfiguration NetworkInterfaceIPConfigurationPtrInput
+	// The VXLAN destination port that will receive the tapped traffic.
+	DestinationPort pulumi.IntPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource ID.
@@ -122,8 +132,6 @@ type VirtualNetworkTapArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the virtual network tap.
 	Name pulumi.StringInput
-	// Virtual Network Tap Properties.
-	Properties VirtualNetworkTapPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

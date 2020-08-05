@@ -40,35 +40,35 @@ class PolicySetDefinition(pulumi.CustomResource):
     """
     The type of the resource (Microsoft.Authorization/policySetDefinitions).
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, metadata=None, name=None, parameters=None, policy_definition_groups=None, policy_definitions=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
         """
         The policy set definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The policy set definition description.
+        :param pulumi.Input[str] display_name: The display name of the policy set definition.
+        :param pulumi.Input[dict] metadata: The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[str] name: The name of the policy set definition to create.
-        :param pulumi.Input[dict] properties: The policy definition properties.
+        :param pulumi.Input[dict] parameters: The policy set definition parameters that can be used in policy definition references.
+        :param pulumi.Input[list] policy_definition_groups: The metadata describing groups of policy definition references within the policy set definition.
+        :param pulumi.Input[list] policy_definitions: An array of policy definition references.
+        :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
 
-        The **properties** object supports the following:
+        The **policy_definition_groups** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - The policy set definition description.
-          * `display_name` (`pulumi.Input[str]`) - The display name of the policy set definition.
-          * `metadata` (`pulumi.Input[dict]`) - The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-          * `parameters` (`pulumi.Input[dict]`) - The policy set definition parameters that can be used in policy definition references.
-          * `policy_definition_groups` (`pulumi.Input[list]`) - The metadata describing groups of policy definition references within the policy set definition.
-            * `additional_metadata_id` (`pulumi.Input[str]`) - A resource ID of a resource that contains additional metadata about the group.
-            * `category` (`pulumi.Input[str]`) - The group's category.
-            * `description` (`pulumi.Input[str]`) - The group's description.
-            * `display_name` (`pulumi.Input[str]`) - The group's display name.
-            * `name` (`pulumi.Input[str]`) - The name of the group.
+          * `additional_metadata_id` (`pulumi.Input[str]`) - A resource ID of a resource that contains additional metadata about the group.
+          * `category` (`pulumi.Input[str]`) - The group's category.
+          * `description` (`pulumi.Input[str]`) - The group's description.
+          * `display_name` (`pulumi.Input[str]`) - The group's display name.
+          * `name` (`pulumi.Input[str]`) - The name of the group.
 
-          * `policy_definitions` (`pulumi.Input[list]`) - An array of policy definition references.
-            * `group_names` (`pulumi.Input[list]`) - The name of the groups that this policy definition reference belongs to.
-            * `parameters` (`pulumi.Input[dict]`) - The parameter values for the referenced policy rule. The keys are the parameter names.
-            * `policy_definition_id` (`pulumi.Input[str]`) - The ID of the policy definition or policy set definition.
-            * `policy_definition_reference_id` (`pulumi.Input[str]`) - A unique id (within the policy set definition) for this policy definition reference.
+        The **policy_definitions** object supports the following:
 
-          * `policy_type` (`pulumi.Input[str]`) - The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+          * `group_names` (`pulumi.Input[list]`) - The name of the groups that this policy definition reference belongs to.
+          * `parameters` (`pulumi.Input[dict]`) - The parameter values for the referenced policy rule. The keys are the parameter names.
+          * `policy_definition_id` (`pulumi.Input[str]`) - The ID of the policy definition or policy set definition.
+          * `policy_definition_reference_id` (`pulumi.Input[str]`) - A unique id (within the policy set definition) for this policy definition reference.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,10 +87,19 @@ class PolicySetDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['display_name'] = display_name
+            __props__['metadata'] = metadata
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['parameters'] = parameters
+            __props__['policy_definition_groups'] = policy_definition_groups
+            if policy_definitions is None:
+                raise TypeError("Missing required property 'policy_definitions'")
+            __props__['policy_definitions'] = policy_definitions
+            __props__['policy_type'] = policy_type
+            __props__['properties'] = None
             __props__['type'] = None
         super(PolicySetDefinition, __self__).__init__(
             'azurerm:authorization/v20190901:PolicySetDefinition',

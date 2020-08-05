@@ -32,21 +32,17 @@ class FirewallRule(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, server_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, end_ip_address=None, name=None, resource_group_name=None, server_name=None, start_ip_address=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a server firewall rule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] end_ip_address: The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
         :param pulumi.Input[str] name: The name of the firewall rule.
-        :param pulumi.Input[dict] properties: The properties representing the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-
-        The **properties** object supports the following:
-
-          * `end_ip_address` (`pulumi.Input[str]`) - The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
-          * `start_ip_address` (`pulumi.Input[str]`) - The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        :param pulumi.Input[str] start_ip_address: The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,18 +61,24 @@ class FirewallRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if end_ip_address is None:
+                raise TypeError("Missing required property 'end_ip_address'")
+            __props__['end_ip_address'] = end_ip_address
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if server_name is None:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
+            if start_ip_address is None:
+                raise TypeError("Missing required property 'start_ip_address'")
+            __props__['start_ip_address'] = start_ip_address
             __props__['kind'] = None
             __props__['location'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(FirewallRule, __self__).__init__(
             'azurerm:sql/v20140401:FirewallRule',

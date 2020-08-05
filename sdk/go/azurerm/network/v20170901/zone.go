@@ -105,8 +105,6 @@ type zoneArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the DNS zone (without a terminating dot).
 	Name string `pulumi:"name"`
-	// The properties of the zone.
-	Properties *ZoneProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -121,8 +119,6 @@ type ZoneArgs struct {
 	Location pulumi.StringInput
 	// The name of the DNS zone (without a terminating dot).
 	Name pulumi.StringInput
-	// The properties of the zone.
-	Properties ZonePropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

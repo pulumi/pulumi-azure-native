@@ -83,11 +83,65 @@ namespace Pulumi.AzureRM.Network.V20180901
 
     public sealed class RecordSetArgs : Pulumi.ResourceArgs
     {
+        [Input("aRecords")]
+        private InputList<Inputs.ARecordArgs>? _aRecords;
+
+        /// <summary>
+        /// The list of A records in the record set.
+        /// </summary>
+        public InputList<Inputs.ARecordArgs> ARecords
+        {
+            get => _aRecords ?? (_aRecords = new InputList<Inputs.ARecordArgs>());
+            set => _aRecords = value;
+        }
+
+        [Input("aaaaRecords")]
+        private InputList<Inputs.AaaaRecordArgs>? _aaaaRecords;
+
+        /// <summary>
+        /// The list of AAAA records in the record set.
+        /// </summary>
+        public InputList<Inputs.AaaaRecordArgs> AaaaRecords
+        {
+            get => _aaaaRecords ?? (_aaaaRecords = new InputList<Inputs.AaaaRecordArgs>());
+            set => _aaaaRecords = value;
+        }
+
+        /// <summary>
+        /// The CNAME record in the record set.
+        /// </summary>
+        [Input("cnameRecord")]
+        public Input<Inputs.CnameRecordArgs>? CnameRecord { get; set; }
+
         /// <summary>
         /// The ETag of the record set.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
+
+        /// <summary>
+        /// The metadata attached to the record set.
+        /// </summary>
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
+
+        [Input("mxRecords")]
+        private InputList<Inputs.MxRecordArgs>? _mxRecords;
+
+        /// <summary>
+        /// The list of MX records in the record set.
+        /// </summary>
+        public InputList<Inputs.MxRecordArgs> MxRecords
+        {
+            get => _mxRecords ?? (_mxRecords = new InputList<Inputs.MxRecordArgs>());
+            set => _mxRecords = value;
+        }
 
         /// <summary>
         /// The name of the record set, relative to the name of the zone.
@@ -101,11 +155,17 @@ namespace Pulumi.AzureRM.Network.V20180901
         [Input("privateZoneName", required: true)]
         public Input<string> PrivateZoneName { get; set; } = null!;
 
+        [Input("ptrRecords")]
+        private InputList<Inputs.PtrRecordArgs>? _ptrRecords;
+
         /// <summary>
-        /// The properties of the record set.
+        /// The list of PTR records in the record set.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RecordSetPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.PtrRecordArgs> PtrRecords
+        {
+            get => _ptrRecords ?? (_ptrRecords = new InputList<Inputs.PtrRecordArgs>());
+            set => _ptrRecords = value;
+        }
 
         /// <summary>
         /// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
@@ -118,6 +178,42 @@ namespace Pulumi.AzureRM.Network.V20180901
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The SOA record in the record set.
+        /// </summary>
+        [Input("soaRecord")]
+        public Input<Inputs.SoaRecordArgs>? SoaRecord { get; set; }
+
+        [Input("srvRecords")]
+        private InputList<Inputs.SrvRecordArgs>? _srvRecords;
+
+        /// <summary>
+        /// The list of SRV records in the record set.
+        /// </summary>
+        public InputList<Inputs.SrvRecordArgs> SrvRecords
+        {
+            get => _srvRecords ?? (_srvRecords = new InputList<Inputs.SrvRecordArgs>());
+            set => _srvRecords = value;
+        }
+
+        /// <summary>
+        /// The TTL (time-to-live) of the records in the record set.
+        /// </summary>
+        [Input("ttl")]
+        public Input<int>? Ttl { get; set; }
+
+        [Input("txtRecords")]
+        private InputList<Inputs.TxtRecordArgs>? _txtRecords;
+
+        /// <summary>
+        /// The list of TXT records in the record set.
+        /// </summary>
+        public InputList<Inputs.TxtRecordArgs> TxtRecords
+        {
+            get => _txtRecords ?? (_txtRecords = new InputList<Inputs.TxtRecordArgs>());
+            set => _txtRecords = value;
+        }
 
         public RecordSetArgs()
         {

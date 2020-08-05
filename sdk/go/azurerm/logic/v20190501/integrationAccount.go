@@ -96,32 +96,36 @@ func (IntegrationAccountState) ElementType() reflect.Type {
 }
 
 type integrationAccountArgs struct {
+	// The integration service environment.
+	IntegrationServiceEnvironment *IntegrationServiceEnvironmentType `pulumi:"integrationServiceEnvironment"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The integration account name.
 	Name string `pulumi:"name"`
-	// The integration account properties.
-	Properties *IntegrationAccountProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku.
 	Sku *IntegrationAccountSku `pulumi:"sku"`
+	// The workflow state.
+	State *string `pulumi:"state"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IntegrationAccount resource.
 type IntegrationAccountArgs struct {
+	// The integration service environment.
+	IntegrationServiceEnvironment IntegrationServiceEnvironmentTypePtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The integration account name.
 	Name pulumi.StringInput
-	// The integration account properties.
-	Properties IntegrationAccountPropertiesPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The sku.
 	Sku IntegrationAccountSkuPtrInput
+	// The workflow state.
+	State pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 }

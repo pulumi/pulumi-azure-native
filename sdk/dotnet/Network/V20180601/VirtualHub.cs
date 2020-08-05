@@ -96,6 +96,24 @@ namespace Pulumi.AzureRM.Network.V20180601
     public sealed class VirtualHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Address-prefix for this VirtualHub.
+        /// </summary>
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
+
+        [Input("hubVirtualNetworkConnections")]
+        private InputList<Inputs.HubVirtualNetworkConnectionArgs>? _hubVirtualNetworkConnections;
+
+        /// <summary>
+        /// list of all vnet connections with this VirtualHub.
+        /// </summary>
+        public InputList<Inputs.HubVirtualNetworkConnectionArgs> HubVirtualNetworkConnections
+        {
+            get => _hubVirtualNetworkConnections ?? (_hubVirtualNetworkConnections = new InputList<Inputs.HubVirtualNetworkConnectionArgs>());
+            set => _hubVirtualNetworkConnections = value;
+        }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -114,10 +132,10 @@ namespace Pulumi.AzureRM.Network.V20180601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Parameters for VirtualHub
+        /// The provisioning state of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualHubPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualHub.
@@ -136,6 +154,12 @@ namespace Pulumi.AzureRM.Network.V20180601
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The VirtualWAN to which the VirtualHub belongs
+        /// </summary>
+        [Input("virtualWan")]
+        public Input<Inputs.SubResourceArgs>? VirtualWan { get; set; }
 
         public VirtualHubArgs()
         {

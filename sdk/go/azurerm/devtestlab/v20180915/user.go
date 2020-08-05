@@ -93,32 +93,36 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
+	// The identity of the user.
+	Identity *UserIdentity `pulumi:"identity"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the user profile.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *UserProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The secret store of the user.
+	SecretStore *UserSecretStore `pulumi:"secretStore"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
+	// The identity of the user.
+	Identity UserIdentityPtrInput
 	// The name of the lab.
 	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the user profile.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties UserPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The secret store of the user.
+	SecretStore UserSecretStorePtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 }

@@ -84,22 +84,40 @@ namespace Pulumi.AzureRM.Storage.V20190601
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Required. Destination account name.
+        /// </summary>
+        [Input("destinationAccount", required: true)]
+        public Input<string> DestinationAccount { get; set; } = null!;
+
+        /// <summary>
         /// The ID of object replication policy or 'default' if the policy ID is unknown.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Returns the Storage Account Object Replication Policy.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ObjectReplicationPolicyPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("rules")]
+        private InputList<Inputs.ObjectReplicationPolicyRuleArgs>? _rules;
+
+        /// <summary>
+        /// The storage account object replication rules.
+        /// </summary>
+        public InputList<Inputs.ObjectReplicationPolicyRuleArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.ObjectReplicationPolicyRuleArgs>());
+            set => _rules = value;
+        }
+
+        /// <summary>
+        /// Required. Source account name.
+        /// </summary>
+        [Input("sourceAccount", required: true)]
+        public Input<string> SourceAccount { get; set; } = null!;
 
         public ObjectReplicationPolicyArgs()
         {

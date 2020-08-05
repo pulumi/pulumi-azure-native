@@ -96,8 +96,6 @@ type applicationPackageArgs struct {
 	ApplicationName string `pulumi:"applicationName"`
 	// The version of the application.
 	Name string `pulumi:"name"`
-	// The properties associated with the Application Package.
-	Properties *ApplicationPackageProperties `pulumi:"properties"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -110,8 +108,6 @@ type ApplicationPackageArgs struct {
 	ApplicationName pulumi.StringInput
 	// The version of the application.
 	Name pulumi.StringInput
-	// The properties associated with the Application Package.
-	Properties ApplicationPackagePropertiesPtrInput
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName pulumi.StringInput
 }

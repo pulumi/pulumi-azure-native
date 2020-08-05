@@ -25,6 +25,21 @@ type Kpi struct {
 // NewKpi registers a new resource with the given unique name, arguments, and options.
 func NewKpi(ctx *pulumi.Context,
 	name string, args *KpiArgs, opts ...pulumi.ResourceOption) (*Kpi, error) {
+	if args == nil || args.CalculationWindow == nil {
+		return nil, errors.New("missing required argument 'CalculationWindow'")
+	}
+	if args == nil || args.EntityType == nil {
+		return nil, errors.New("missing required argument 'EntityType'")
+	}
+	if args == nil || args.EntityTypeName == nil {
+		return nil, errors.New("missing required argument 'EntityTypeName'")
+	}
+	if args == nil || args.Expression == nil {
+		return nil, errors.New("missing required argument 'Expression'")
+	}
+	if args == nil || args.Function == nil {
+		return nil, errors.New("missing required argument 'Function'")
+	}
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
 	}
@@ -81,26 +96,78 @@ func (KpiState) ElementType() reflect.Type {
 }
 
 type kpiArgs struct {
+	// The aliases.
+	Aliases []KpiAlias `pulumi:"aliases"`
+	// The calculation window.
+	CalculationWindow string `pulumi:"calculationWindow"`
+	// Name of calculation window field.
+	CalculationWindowFieldName *string `pulumi:"calculationWindowFieldName"`
+	// Localized description for the KPI.
+	Description map[string]string `pulumi:"description"`
+	// Localized display name for the KPI.
+	DisplayName map[string]string `pulumi:"displayName"`
+	// The mapping entity type.
+	EntityType string `pulumi:"entityType"`
+	// The mapping entity name.
+	EntityTypeName string `pulumi:"entityTypeName"`
+	// The computation expression for the KPI.
+	Expression string `pulumi:"expression"`
+	// The KPI extracts.
+	Extracts []KpiExtract `pulumi:"extracts"`
+	// The filter expression for the KPI.
+	Filter *string `pulumi:"filter"`
+	// The computation function for the KPI.
+	Function string `pulumi:"function"`
+	// the group by properties for the KPI.
+	GroupBy []string `pulumi:"groupBy"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
 	// The name of the KPI.
 	Name string `pulumi:"name"`
-	// Defines the KPI Threshold limits.
-	Properties *KpiDefinition `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The KPI thresholds.
+	ThresHolds *KpiThresholds `pulumi:"thresHolds"`
+	// The unit of measurement for the KPI.
+	Unit *string `pulumi:"unit"`
 }
 
 // The set of arguments for constructing a Kpi resource.
 type KpiArgs struct {
+	// The aliases.
+	Aliases KpiAliasArrayInput
+	// The calculation window.
+	CalculationWindow pulumi.StringInput
+	// Name of calculation window field.
+	CalculationWindowFieldName pulumi.StringPtrInput
+	// Localized description for the KPI.
+	Description pulumi.StringMapInput
+	// Localized display name for the KPI.
+	DisplayName pulumi.StringMapInput
+	// The mapping entity type.
+	EntityType pulumi.StringInput
+	// The mapping entity name.
+	EntityTypeName pulumi.StringInput
+	// The computation expression for the KPI.
+	Expression pulumi.StringInput
+	// The KPI extracts.
+	Extracts KpiExtractArrayInput
+	// The filter expression for the KPI.
+	Filter pulumi.StringPtrInput
+	// The computation function for the KPI.
+	Function pulumi.StringInput
+	// the group by properties for the KPI.
+	GroupBy pulumi.StringArrayInput
 	// The name of the hub.
 	HubName pulumi.StringInput
 	// The name of the KPI.
 	Name pulumi.StringInput
-	// Defines the KPI Threshold limits.
-	Properties KpiDefinitionPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The KPI thresholds.
+	ThresHolds KpiThresholdsPtrInput
+	// The unit of measurement for the KPI.
+	Unit pulumi.StringPtrInput
 }
 
 func (KpiArgs) ElementType() reflect.Type {

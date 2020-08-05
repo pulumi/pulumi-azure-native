@@ -43,7 +43,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * Cache properties details.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.CacheContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.CacheContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -62,6 +62,9 @@ export class Cache extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as CacheArgs | undefined;
+            if (!args || args.connectionString === undefined) {
+                throw new Error("Missing required property 'connectionString'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,10 +74,13 @@ export class Cache extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["connectionString"] = args ? args.connectionString : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,17 +99,25 @@ export class Cache extends pulumi.CustomResource {
  */
 export interface CacheArgs {
     /**
+     * Runtime connection string to cache
+     */
+    readonly connectionString: pulumi.Input<string>;
+    /**
+     * Cache description
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Cache properties details.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20190101.CacheContractProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Original uri of entity in external system cache points to
+     */
+    readonly resourceId?: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */

@@ -96,22 +96,34 @@ namespace Pulumi.AzureRM.EventHub.V20170401
     public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
+        /// </summary>
+        [Input("isAutoInflateEnabled")]
+        public Input<bool>? IsAutoInflateEnabled { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether Kafka is enabled for eventhub namespace.
+        /// </summary>
+        [Input("kafkaEnabled")]
+        public Input<bool>? KafkaEnabled { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+        /// </summary>
+        [Input("maximumThroughputUnits")]
+        public Input<int>? MaximumThroughputUnits { get; set; }
+
+        /// <summary>
         /// The Namespace name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Namespace properties supplied for create namespace operation.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.EHNamespacePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.

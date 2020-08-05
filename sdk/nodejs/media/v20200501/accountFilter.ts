@@ -43,7 +43,7 @@ export class AccountFilter extends pulumi.CustomResource {
     /**
      * The Media Filter properties.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20200501.MediaFilterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20200501.MediaFilterPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -72,9 +72,12 @@ export class AccountFilter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["firstQuality"] = args ? args.firstQuality : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["presentationTimeRange"] = args ? args.presentationTimeRange : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tracks"] = args ? args.tracks : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,15 +100,23 @@ export interface AccountFilterArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The first quality.
+     */
+    readonly firstQuality?: pulumi.Input<inputs.media.v20200501.FirstQuality>;
+    /**
      * The Account Filter name
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The Media Filter properties.
+     * The presentation time range.
      */
-    readonly properties?: pulumi.Input<inputs.media.v20200501.MediaFilterProperties>;
+    readonly presentationTimeRange?: pulumi.Input<inputs.media.v20200501.PresentationTimeRange>;
     /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The tracks selection conditions.
+     */
+    readonly tracks?: pulumi.Input<pulumi.Input<inputs.media.v20200501.FilterTrackSelection>[]>;
 }

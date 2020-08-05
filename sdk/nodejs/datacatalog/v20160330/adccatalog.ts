@@ -51,7 +51,7 @@ export class ADCCatalog extends pulumi.CustomResource {
     /**
      * Azure Data Catalog properties.
      */
-    public readonly properties!: pulumi.Output<outputs.datacatalog.v20160330.ADCCatalogPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datacatalog.v20160330.ADCCatalogPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -80,12 +80,18 @@ export class ADCCatalog extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["admins"] = args ? args.admins : undefined;
+            inputs["enableAutomaticUnitAdjustment"] = args ? args.enableAutomaticUnitAdjustment : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
+            inputs["successfullyProvisioned"] = args ? args.successfullyProvisioned : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["units"] = args ? args.units : undefined;
+            inputs["users"] = args ? args.users : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,6 +110,14 @@ export class ADCCatalog extends pulumi.CustomResource {
  */
 export interface ADCCatalogArgs {
     /**
+     * Azure data catalog admin list.
+     */
+    readonly admins?: pulumi.Input<pulumi.Input<inputs.datacatalog.v20160330.Principals>[]>;
+    /**
+     * Automatic unit adjustment enabled or not.
+     */
+    readonly enableAutomaticUnitAdjustment?: pulumi.Input<boolean>;
+    /**
      * Resource etag
      */
     readonly etag?: pulumi.Input<string>;
@@ -116,15 +130,27 @@ export interface ADCCatalogArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Azure Data Catalog properties.
-     */
-    readonly properties?: pulumi.Input<inputs.datacatalog.v20160330.ADCCatalogProperties>;
-    /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Azure data catalog SKU.
+     */
+    readonly sku?: pulumi.Input<string>;
+    /**
+     * Azure data catalog provision status.
+     */
+    readonly successfullyProvisioned?: pulumi.Input<boolean>;
+    /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Azure data catalog units.
+     */
+    readonly units?: pulumi.Input<number>;
+    /**
+     * Azure data catalog user list.
+     */
+    readonly users?: pulumi.Input<pulumi.Input<inputs.datacatalog.v20160330.Principals>[]>;
 }

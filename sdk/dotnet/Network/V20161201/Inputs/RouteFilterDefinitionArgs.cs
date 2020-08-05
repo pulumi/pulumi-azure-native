@@ -27,11 +27,17 @@ namespace Pulumi.AzureRM.Network.V20161201.Inputs
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
+        [Input("rules")]
+        private InputList<Inputs.RouteFilterRuleArgs>? _rules;
+
         /// <summary>
-        /// Route Filter Resource
+        /// Collection of RouteFilterRules contained within a route filter.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RouteFilterPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.RouteFilterRuleArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.RouteFilterRuleArgs>());
+            set => _rules = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -102,36 +102,68 @@ func (AzureFirewallState) ElementType() reflect.Type {
 }
 
 type azureFirewallArgs struct {
+	// The additional properties used to further config this azure firewall.
+	AdditionalProperties *AzureFirewallAdditionalProperties `pulumi:"additionalProperties"`
+	// Collection of application rule collections used by Azure Firewall.
+	ApplicationRuleCollections []AzureFirewallApplicationRuleCollection `pulumi:"applicationRuleCollections"`
+	// The firewallPolicy associated with this azure firewall.
+	FirewallPolicy *SubResource `pulumi:"firewallPolicy"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// IP configuration of the Azure Firewall resource.
+	IpConfigurations []AzureFirewallIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the Azure Firewall.
 	Name string `pulumi:"name"`
-	// Properties of the azure firewall.
-	Properties *AzureFirewallPropertiesFormat `pulumi:"properties"`
+	// Collection of NAT rule collections used by Azure Firewall.
+	NatRuleCollections []AzureFirewallNatRuleCollection `pulumi:"natRuleCollections"`
+	// Collection of network rule collections used by Azure Firewall.
+	NetworkRuleCollections []AzureFirewallNetworkRuleCollection `pulumi:"networkRuleCollections"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Azure Firewall Resource SKU.
+	Sku *AzureFirewallSku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode *string `pulumi:"threatIntelMode"`
+	// The virtualHub to which the firewall belongs.
+	VirtualHub *SubResource `pulumi:"virtualHub"`
 	// A list of availability zones denoting where the resource needs to come from.
 	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a AzureFirewall resource.
 type AzureFirewallArgs struct {
+	// The additional properties used to further config this azure firewall.
+	AdditionalProperties AzureFirewallAdditionalPropertiesPtrInput
+	// Collection of application rule collections used by Azure Firewall.
+	ApplicationRuleCollections AzureFirewallApplicationRuleCollectionArrayInput
+	// The firewallPolicy associated with this azure firewall.
+	FirewallPolicy SubResourcePtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// IP configuration of the Azure Firewall resource.
+	IpConfigurations AzureFirewallIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the Azure Firewall.
 	Name pulumi.StringInput
-	// Properties of the azure firewall.
-	Properties AzureFirewallPropertiesFormatPtrInput
+	// Collection of NAT rule collections used by Azure Firewall.
+	NatRuleCollections AzureFirewallNatRuleCollectionArrayInput
+	// Collection of network rule collections used by Azure Firewall.
+	NetworkRuleCollections AzureFirewallNetworkRuleCollectionArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The Azure Firewall Resource SKU.
+	Sku AzureFirewallSkuPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode pulumi.StringPtrInput
+	// The virtualHub to which the firewall belongs.
+	VirtualHub SubResourcePtrInput
 	// A list of availability zones denoting where the resource needs to come from.
 	Zones pulumi.StringArrayInput
 }

@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20170601.Inputs
     public sealed class ApplicationGatewayAuthenticationCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Certificate public data.
+        /// </summary>
+        [Input("data")]
+        public Input<string>? Data { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -34,10 +40,10 @@ namespace Pulumi.AzureRM.Network.V20170601.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Authentication certificates properties of an application gateway.
+        /// Provisioning state of the authentication certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayAuthenticationCertificatePropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Type of the resource.

@@ -28,8 +28,14 @@ func NewAssessment(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.ResourceDetails == nil {
+		return nil, errors.New("missing required argument 'ResourceDetails'")
+	}
 	if args == nil || args.ResourceId == nil {
 		return nil, errors.New("missing required argument 'ResourceId'")
+	}
+	if args == nil || args.Status == nil {
+		return nil, errors.New("missing required argument 'Status'")
 	}
 	if args == nil {
 		args = &AssessmentArgs{}
@@ -78,22 +84,42 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
+	// Additional data regarding the assessment
+	AdditionalData map[string]string `pulumi:"additionalData"`
+	// Links relevant to the assessment
+	Links *AssessmentLinks `pulumi:"links"`
+	// Describes properties of an assessment metadata.
+	Metadata *SecurityAssessmentMetadataProperties `pulumi:"metadata"`
 	// The Assessment Key - Unique key for the assessment type
 	Name string `pulumi:"name"`
-	// Describes properties of an assessment.
-	Properties *SecurityAssessmentProperties `pulumi:"properties"`
+	// Data regarding 3rd party partner integration
+	PartnersData *SecurityAssessmentPartnerData `pulumi:"partnersData"`
+	// Details of the resource that was assessed
+	ResourceDetails ResourceDetails `pulumi:"resourceDetails"`
 	// The identifier of the resource.
 	ResourceId string `pulumi:"resourceId"`
+	// The result of the assessment
+	Status AssessmentStatus `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
+	// Additional data regarding the assessment
+	AdditionalData pulumi.StringMapInput
+	// Links relevant to the assessment
+	Links AssessmentLinksPtrInput
+	// Describes properties of an assessment metadata.
+	Metadata SecurityAssessmentMetadataPropertiesPtrInput
 	// The Assessment Key - Unique key for the assessment type
 	Name pulumi.StringInput
-	// Describes properties of an assessment.
-	Properties SecurityAssessmentPropertiesPtrInput
+	// Data regarding 3rd party partner integration
+	PartnersData SecurityAssessmentPartnerDataPtrInput
+	// Details of the resource that was assessed
+	ResourceDetails ResourceDetailsInput
 	// The identifier of the resource.
 	ResourceId pulumi.StringInput
+	// The result of the assessment
+	Status AssessmentStatusInput
 }
 
 func (AssessmentArgs) ElementType() reflect.Type {

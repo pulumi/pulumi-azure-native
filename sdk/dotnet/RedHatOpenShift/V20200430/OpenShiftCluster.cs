@@ -90,10 +90,46 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
     public sealed class OpenShiftClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The cluster API server profile.
+        /// </summary>
+        [Input("apiserverProfile")]
+        public Input<Inputs.APIServerProfileArgs>? ApiserverProfile { get; set; }
+
+        /// <summary>
+        /// The cluster profile.
+        /// </summary>
+        [Input("clusterProfile")]
+        public Input<Inputs.ClusterProfileArgs>? ClusterProfile { get; set; }
+
+        /// <summary>
+        /// The console profile.
+        /// </summary>
+        [Input("consoleProfile")]
+        public Input<Inputs.ConsoleProfileArgs>? ConsoleProfile { get; set; }
+
+        [Input("ingressProfiles")]
+        private InputList<Inputs.IngressProfileArgs>? _ingressProfiles;
+
+        /// <summary>
+        /// The cluster ingress profiles.
+        /// </summary>
+        public InputList<Inputs.IngressProfileArgs> IngressProfiles
+        {
+            get => _ingressProfiles ?? (_ingressProfiles = new InputList<Inputs.IngressProfileArgs>());
+            set => _ingressProfiles = value;
+        }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The cluster master profile.
+        /// </summary>
+        [Input("masterProfile")]
+        public Input<Inputs.MasterProfileArgs>? MasterProfile { get; set; }
 
         /// <summary>
         /// The name of the OpenShift cluster resource.
@@ -102,16 +138,28 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The cluster properties.
+        /// The cluster network profile.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OpenShiftClusterPropertiesArgs>? Properties { get; set; }
+        [Input("networkProfile")]
+        public Input<Inputs.NetworkProfileArgs>? NetworkProfile { get; set; }
+
+        /// <summary>
+        /// The cluster provisioning state (immutable).
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The cluster service principal profile.
+        /// </summary>
+        [Input("servicePrincipalProfile")]
+        public Input<Inputs.ServicePrincipalProfileArgs>? ServicePrincipalProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -123,6 +171,18 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("workerProfiles")]
+        private InputList<Inputs.WorkerProfileArgs>? _workerProfiles;
+
+        /// <summary>
+        /// The cluster worker profiles.
+        /// </summary>
+        public InputList<Inputs.WorkerProfileArgs> WorkerProfiles
+        {
+            get => _workerProfiles ?? (_workerProfiles = new InputList<Inputs.WorkerProfileArgs>());
+            set => _workerProfiles = value;
         }
 
         public OpenShiftClusterArgs()

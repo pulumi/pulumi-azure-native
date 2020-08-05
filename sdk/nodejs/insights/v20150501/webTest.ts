@@ -51,7 +51,7 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * Metadata describing a web test for an Azure resource.
      */
-    public readonly properties!: pulumi.Output<outputs.insights.v20150501.WebTestPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20150501.WebTestPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -74,6 +74,12 @@ export class WebTest extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WebTestArgs | undefined;
+            if (!args || args.Locations === undefined) {
+                throw new Error("Missing required property 'Locations'");
+            }
+            if (!args || args.SyntheticMonitorId === undefined) {
+                throw new Error("Missing required property 'SyntheticMonitorId'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -83,12 +89,24 @@ export class WebTest extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.webTestKind === undefined) {
+                throw new Error("Missing required property 'webTestKind'");
+            }
+            inputs["Configuration"] = args ? args.Configuration : undefined;
+            inputs["Description"] = args ? args.Description : undefined;
+            inputs["Enabled"] = args ? args.Enabled : undefined;
+            inputs["Frequency"] = args ? args.Frequency : undefined;
+            inputs["Locations"] = args ? args.Locations : undefined;
+            inputs["RetryEnabled"] = args ? args.RetryEnabled : undefined;
+            inputs["SyntheticMonitorId"] = args ? args.SyntheticMonitorId : undefined;
+            inputs["Timeout"] = args ? args.Timeout : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["webTestKind"] = args ? args.webTestKind : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +125,38 @@ export class WebTest extends pulumi.CustomResource {
  */
 export interface WebTestArgs {
     /**
+     * An XML configuration specification for a WebTest.
+     */
+    readonly Configuration?: pulumi.Input<inputs.insights.v20150501.WebTestPropertiesProperties>;
+    /**
+     * Purpose/user defined descriptive test for this WebTest.
+     */
+    readonly Description?: pulumi.Input<string>;
+    /**
+     * Is the test actively being monitored.
+     */
+    readonly Enabled?: pulumi.Input<boolean>;
+    /**
+     * Interval in seconds between test runs for this WebTest. Default value is 300.
+     */
+    readonly Frequency?: pulumi.Input<number>;
+    /**
+     * A list of where to physically run the tests from to give global coverage for accessibility of your application.
+     */
+    readonly Locations: pulumi.Input<pulumi.Input<inputs.insights.v20150501.WebTestGeolocation>[]>;
+    /**
+     * Allow for retries should this WebTest fail.
+     */
+    readonly RetryEnabled?: pulumi.Input<boolean>;
+    /**
+     * Unique ID of this WebTest. This is typically the same value as the Name field.
+     */
+    readonly SyntheticMonitorId: pulumi.Input<string>;
+    /**
+     * Seconds until this WebTest will timeout and fail. Default value is 30.
+     */
+    readonly Timeout?: pulumi.Input<number>;
+    /**
      * The kind of web test that this web test watches. Choices are ping and multistep.
      */
     readonly kind?: pulumi.Input<string>;
@@ -115,13 +165,9 @@ export interface WebTestArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the Application Insights webtest resource.
+     * User defined name if this WebTest.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Metadata describing a web test for an Azure resource.
-     */
-    readonly properties?: pulumi.Input<inputs.insights.v20150501.WebTestProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,4 +176,8 @@ export interface WebTestArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The kind of web test this is, valid choices are ping and multistep.
+     */
+    readonly webTestKind: pulumi.Input<string>;
 }

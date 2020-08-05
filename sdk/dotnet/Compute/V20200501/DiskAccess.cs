@@ -98,9 +98,6 @@ namespace Pulumi.AzureRM.Compute.V20200501
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.DiskAccessPropertiesArgs>? Properties { get; set; }
-
         /// <summary>
         /// The name of the resource group.
         /// </summary>

@@ -96,12 +96,6 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Identifier resource specific properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IdentifierPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -112,6 +106,12 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// </summary>
         [Input("slot", required: true)]
         public Input<string> Slot { get; set; } = null!;
+
+        /// <summary>
+        /// String representation of the identity.
+        /// </summary>
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public WebAppDomainOwnershipIdentifierSlotArgs()
         {

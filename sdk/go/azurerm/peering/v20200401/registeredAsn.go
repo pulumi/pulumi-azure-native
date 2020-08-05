@@ -81,24 +81,24 @@ func (RegisteredAsnState) ElementType() reflect.Type {
 }
 
 type registeredAsnArgs struct {
+	// The customer's ASN from which traffic originates.
+	Asn *int `pulumi:"asn"`
 	// The name of the ASN.
 	Name string `pulumi:"name"`
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
-	// The properties that define a registered ASN.
-	Properties *PeeringRegisteredAsnProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a RegisteredAsn resource.
 type RegisteredAsnArgs struct {
+	// The customer's ASN from which traffic originates.
+	Asn pulumi.IntPtrInput
 	// The name of the ASN.
 	Name pulumi.StringInput
 	// The name of the peering.
 	PeeringName pulumi.StringInput
-	// The properties that define a registered ASN.
-	Properties PeeringRegisteredAsnPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

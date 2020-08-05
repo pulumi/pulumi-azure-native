@@ -28,10 +28,28 @@ namespace Pulumi.AzureRM.Network.V20200301.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the application gateway frontend IP configuration.
+        /// PrivateIPAddress of the network interface IP Configuration.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayFrontendIPConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("privateIPAddress")]
+        public Input<string>? PrivateIPAddress { get; set; }
+
+        /// <summary>
+        /// The private IP address allocation method.
+        /// </summary>
+        [Input("privateIPAllocationMethod")]
+        public Input<string>? PrivateIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// Reference to the PublicIP resource.
+        /// </summary>
+        [Input("publicIPAddress")]
+        public Input<Inputs.SubResourceArgs>? PublicIPAddress { get; set; }
+
+        /// <summary>
+        /// Reference to the subnet resource.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubResourceArgs>? Subnet { get; set; }
 
         public ApplicationGatewayFrontendIPConfigurationArgs()
         {

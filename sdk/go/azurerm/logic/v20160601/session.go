@@ -35,9 +35,6 @@ func NewSession(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -96,14 +93,14 @@ func (SessionState) ElementType() reflect.Type {
 }
 
 type sessionArgs struct {
+	// The session content.
+	Content *Object `pulumi:"content"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The integration account session name.
 	Name string `pulumi:"name"`
-	// The integration account session properties.
-	Properties IntegrationAccountSessionProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -112,14 +109,14 @@ type sessionArgs struct {
 
 // The set of arguments for constructing a Session resource.
 type SessionArgs struct {
+	// The session content.
+	Content ObjectPtrInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The integration account session name.
 	Name pulumi.StringInput
-	// The integration account session properties.
-	Properties IntegrationAccountSessionPropertiesInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

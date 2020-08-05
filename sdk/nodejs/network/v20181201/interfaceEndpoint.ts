@@ -51,7 +51,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
     /**
      * Properties of the interface endpoint.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20181201.InterfaceEndpointPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181201.InterfaceEndpointPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,16 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["endpointService"] = args ? args.endpointService : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["fqdn"] = args ? args.fqdn : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,9 +108,17 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
  */
 export interface InterfaceEndpointArgs {
     /**
+     * A reference to the service being brought into the virtual network.
+     */
+    readonly endpointService?: pulumi.Input<inputs.network.v20181201.EndpointService>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
+    /**
+     * A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+     */
+    readonly fqdn?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
@@ -121,13 +132,13 @@ export interface InterfaceEndpointArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the interface endpoint.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20181201.InterfaceEndpointProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ID of the subnet from which the private IP will be allocated.
+     */
+    readonly subnet?: pulumi.Input<inputs.network.v20181201.Subnet>;
     /**
      * Resource tags.
      */

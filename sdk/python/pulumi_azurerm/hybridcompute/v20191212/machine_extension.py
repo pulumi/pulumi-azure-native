@@ -30,17 +30,24 @@ class MachineExtension(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, force_update_tag=None, instance_view=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a Machine Extension.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
+        :param pulumi.Input[dict] instance_view: The machine extension instance view.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The name of the machine extension.
-        :param pulumi.Input[dict] properties: Describes Machine Extension Properties.
+        :param pulumi.Input[dict] protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        :param pulumi.Input[str] publisher: The name of the extension handler publisher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] settings: Json formatted public settings for the extension.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -59,18 +66,25 @@ class MachineExtension(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
+            __props__['force_update_tag'] = force_update_tag
+            __props__['instance_view'] = instance_view
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['protected_settings'] = protected_settings
+            __props__['publisher'] = publisher
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['settings'] = settings
             __props__['tags'] = tags
-            __props__['type'] = None
+            __props__['type'] = type
+            __props__['type_handler_version'] = type_handler_version
+            __props__['properties'] = None
         super(MachineExtension, __self__).__init__(
             'azurerm:hybridcompute/v20191212:MachineExtension',
             resource_name,

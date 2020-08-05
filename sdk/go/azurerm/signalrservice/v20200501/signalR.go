@@ -102,38 +102,66 @@ func (SignalRState) ElementType() reflect.Type {
 }
 
 type signalRArgs struct {
+	// Cross-Origin Resource Sharing (CORS) settings.
+	Cors *SignalRCorsSettings `pulumi:"cors"`
+	// List of SignalR featureFlags. e.g. ServiceMode.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features []SignalRFeature `pulumi:"features"`
+	// Prefix for the hostName of the SignalR service. Retained for future use.
+	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+	HostNamePrefix *string `pulumi:"hostNamePrefix"`
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind *string `pulumi:"kind"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
 	Location *string `pulumi:"location"`
 	// The name of the SignalR resource.
 	Name string `pulumi:"name"`
-	// Settings used to provision or configure the resource
-	Properties *SignalRProperties `pulumi:"properties"`
+	// Network ACLs
+	NetworkACLs *SignalRNetworkACLs `pulumi:"networkACLs"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The billing information of the resource.(e.g. Free, Standard)
 	Sku *ResourceSku `pulumi:"sku"`
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Upstream settings when the Azure SignalR is in server-less mode.
+	Upstream *ServerlessUpstreamSettings `pulumi:"upstream"`
 }
 
 // The set of arguments for constructing a SignalR resource.
 type SignalRArgs struct {
+	// Cross-Origin Resource Sharing (CORS) settings.
+	Cors SignalRCorsSettingsPtrInput
+	// List of SignalR featureFlags. e.g. ServiceMode.
+	//
+	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+	// And the response will only include featureFlags that are explicitly set.
+	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
+	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+	Features SignalRFeatureArrayInput
+	// Prefix for the hostName of the SignalR service. Retained for future use.
+	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+	HostNamePrefix pulumi.StringPtrInput
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind pulumi.StringPtrInput
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
 	Location pulumi.StringPtrInput
 	// The name of the SignalR resource.
 	Name pulumi.StringInput
-	// Settings used to provision or configure the resource
-	Properties SignalRPropertiesPtrInput
+	// Network ACLs
+	NetworkACLs SignalRNetworkACLsPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The billing information of the resource.(e.g. Free, Standard)
 	Sku ResourceSkuPtrInput
 	// Tags of the service which is a list of key value pairs that describe the resource.
 	Tags pulumi.StringMapInput
+	// Upstream settings when the Azure SignalR is in server-less mode.
+	Upstream ServerlessUpstreamSettingsPtrInput
 }
 
 func (SignalRArgs) ElementType() reflect.Type {

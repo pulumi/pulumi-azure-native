@@ -43,7 +43,7 @@ export class RegisteredPrefix extends pulumi.CustomResource {
     /**
      * The properties that define a registered prefix.
      */
-    public readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringRegisteredPrefixPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringRegisteredPrefixPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -73,8 +73,9 @@ export class RegisteredPrefix extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["peeringName"] = args ? args.peeringName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["prefix"] = args ? args.prefix : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,9 +102,9 @@ export interface RegisteredPrefixArgs {
      */
     readonly peeringName: pulumi.Input<string>;
     /**
-     * The properties that define a registered prefix.
+     * The customer's prefix from which traffic originates.
      */
-    readonly properties?: pulumi.Input<inputs.peering.v20200401.PeeringRegisteredPrefixProperties>;
+    readonly prefix?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

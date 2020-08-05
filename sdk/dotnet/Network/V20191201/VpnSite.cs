@@ -96,10 +96,40 @@ namespace Pulumi.AzureRM.Network.V20191201
     public sealed class VpnSiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AddressSpace that contains an array of IP address ranges.
+        /// </summary>
+        [Input("addressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? AddressSpace { get; set; }
+
+        /// <summary>
+        /// The set of bgp properties.
+        /// </summary>
+        [Input("bgpProperties")]
+        public Input<Inputs.BgpSettingsArgs>? BgpProperties { get; set; }
+
+        /// <summary>
+        /// The device properties.
+        /// </summary>
+        [Input("deviceProperties")]
+        public Input<Inputs.DevicePropertiesArgs>? DeviceProperties { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The ip-address for the vpn-site.
+        /// </summary>
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
+
+        /// <summary>
+        /// IsSecuritySite flag.
+        /// </summary>
+        [Input("isSecuritySite")]
+        public Input<bool>? IsSecuritySite { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -114,16 +144,16 @@ namespace Pulumi.AzureRM.Network.V20191201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the VPN site.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VpnSitePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The resource group name of the VpnSite.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The key for vpn-site that can be used for connections.
+        /// </summary>
+        [Input("siteKey")]
+        public Input<string>? SiteKey { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -135,6 +165,24 @@ namespace Pulumi.AzureRM.Network.V20191201
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        /// <summary>
+        /// The VirtualWAN to which the vpnSite belongs.
+        /// </summary>
+        [Input("virtualWan")]
+        public Input<Inputs.SubResourceArgs>? VirtualWan { get; set; }
+
+        [Input("vpnSiteLinks")]
+        private InputList<Inputs.VpnSiteLinkArgs>? _vpnSiteLinks;
+
+        /// <summary>
+        /// List of all vpn site links.
+        /// </summary>
+        public InputList<Inputs.VpnSiteLinkArgs> VpnSiteLinks
+        {
+            get => _vpnSiteLinks ?? (_vpnSiteLinks = new InputList<Inputs.VpnSiteLinkArgs>());
+            set => _vpnSiteLinks = value;
         }
 
         public VpnSiteArgs()

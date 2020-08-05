@@ -28,14 +28,17 @@ func NewDataStore(ctx *pulumi.Context,
 	if args == nil || args.DataManagerName == nil {
 		return nil, errors.New("missing required argument 'DataManagerName'")
 	}
+	if args == nil || args.DataStoreTypeId == nil {
+		return nil, errors.New("missing required argument 'DataStoreTypeId'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.State == nil {
+		return nil, errors.New("missing required argument 'State'")
 	}
 	if args == nil {
 		args = &DataStoreArgs{}
@@ -84,26 +87,42 @@ func (DataStoreState) ElementType() reflect.Type {
 }
 
 type dataStoreArgs struct {
+	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+	CustomerSecrets []CustomerSecret `pulumi:"customerSecrets"`
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	DataManagerName string `pulumi:"dataManagerName"`
+	// The arm id of the data store type.
+	DataStoreTypeId string `pulumi:"dataStoreTypeId"`
+	// A generic json used differently by each data source type.
+	ExtendedProperties map[string]interface{} `pulumi:"extendedProperties"`
 	// The data store/repository name to be created or updated.
 	Name string `pulumi:"name"`
-	// DataStore properties.
-	Properties DataStoreProperties `pulumi:"properties"`
+	// Arm Id for the manager resource to which the data source is associated. This is optional.
+	RepositoryId *string `pulumi:"repositoryId"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// State of the data source.
+	State string `pulumi:"state"`
 }
 
 // The set of arguments for constructing a DataStore resource.
 type DataStoreArgs struct {
+	// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+	CustomerSecrets CustomerSecretArrayInput
 	// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	DataManagerName pulumi.StringInput
+	// The arm id of the data store type.
+	DataStoreTypeId pulumi.StringInput
+	// A generic json used differently by each data source type.
+	ExtendedProperties pulumi.MapInput
 	// The data store/repository name to be created or updated.
 	Name pulumi.StringInput
-	// DataStore properties.
-	Properties DataStorePropertiesInput
+	// Arm Id for the manager resource to which the data source is associated. This is optional.
+	RepositoryId pulumi.StringPtrInput
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
+	// State of the data source.
+	State pulumi.StringInput
 }
 
 func (DataStoreArgs) ElementType() reflect.Type {

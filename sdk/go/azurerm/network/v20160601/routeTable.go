@@ -104,10 +104,12 @@ type routeTableArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the route table.
 	Name string `pulumi:"name"`
-	// Route Table resource
-	Properties *RouteTablePropertiesFormat `pulumi:"properties"`
+	// Gets provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets Routes in a Route Table
+	Routes []RouteType `pulumi:"routes"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -122,10 +124,12 @@ type RouteTableArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the route table.
 	Name pulumi.StringInput
-	// Route Table resource
-	Properties RouteTablePropertiesFormatPtrInput
+	// Gets provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets Routes in a Route Table
+	Routes RouteTypeArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

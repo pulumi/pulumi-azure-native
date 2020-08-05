@@ -83,53 +83,52 @@ class Domain(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auth_code=None, auto_renew=None, consent=None, contact_admin=None, contact_billing=None, contact_registrant=None, contact_tech=None, dns_type=None, dns_zone_id=None, kind=None, location=None, name=None, privacy=None, resource_group_name=None, tags=None, target_dns_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Information about a domain.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_renew: <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
+        :param pulumi.Input[dict] consent: Legal agreement consent.
+        :param pulumi.Input[dict] contact_admin: Administrative contact.
+        :param pulumi.Input[dict] contact_billing: Billing contact.
+        :param pulumi.Input[dict] contact_registrant: Registrant contact.
+        :param pulumi.Input[dict] contact_tech: Technical contact.
+        :param pulumi.Input[str] dns_type: Current DNS type
+        :param pulumi.Input[str] dns_zone_id: Azure DNS Zone to use
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the domain.
-        :param pulumi.Input[dict] properties: Domain resource specific properties
+        :param pulumi.Input[bool] privacy: <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[str] target_dns_type: Target DNS type (would be used for migration)
 
-        The **properties** object supports the following:
+        The **consent** object supports the following:
 
-          * `auth_code` (`pulumi.Input[str]`)
-          * `auto_renew` (`pulumi.Input[bool]`) - <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
-          * `consent` (`pulumi.Input[dict]`) - Legal agreement consent.
-            * `agreed_at` (`pulumi.Input[str]`) - Timestamp when the agreements were accepted.
-            * `agreed_by` (`pulumi.Input[str]`) - Client IP address.
-            * `agreement_keys` (`pulumi.Input[list]`) - List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
+          * `agreed_at` (`pulumi.Input[str]`) - Timestamp when the agreements were accepted.
+          * `agreed_by` (`pulumi.Input[str]`) - Client IP address.
+          * `agreement_keys` (`pulumi.Input[list]`) - List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under <code>TopLevelDomain</code> resource.
 
-          * `contact_admin` (`pulumi.Input[dict]`) - Administrative contact.
-            * `address_mailing` (`pulumi.Input[dict]`) - Mailing address.
-              * `address1` (`pulumi.Input[str]`) - First line of an Address.
-              * `address2` (`pulumi.Input[str]`) - The second line of the Address. Optional.
-              * `city` (`pulumi.Input[str]`) - The city for the address.
-              * `country` (`pulumi.Input[str]`) - The country for the address.
-              * `postal_code` (`pulumi.Input[str]`) - The postal code for the address.
-              * `state` (`pulumi.Input[str]`) - The state or province for the address.
+        The **contact_admin** object supports the following:
 
-            * `email` (`pulumi.Input[str]`) - Email address.
-            * `fax` (`pulumi.Input[str]`) - Fax number.
-            * `job_title` (`pulumi.Input[str]`) - Job title.
-            * `name_first` (`pulumi.Input[str]`) - First name.
-            * `name_last` (`pulumi.Input[str]`) - Last name.
-            * `name_middle` (`pulumi.Input[str]`) - Middle name.
-            * `organization` (`pulumi.Input[str]`) - Organization contact belongs to.
-            * `phone` (`pulumi.Input[str]`) - Phone number.
+          * `address_mailing` (`pulumi.Input[dict]`) - Mailing address.
+            * `address1` (`pulumi.Input[str]`) - First line of an Address.
+            * `address2` (`pulumi.Input[str]`) - The second line of the Address. Optional.
+            * `city` (`pulumi.Input[str]`) - The city for the address.
+            * `country` (`pulumi.Input[str]`) - The country for the address.
+            * `postal_code` (`pulumi.Input[str]`) - The postal code for the address.
+            * `state` (`pulumi.Input[str]`) - The state or province for the address.
 
-          * `contact_billing` (`pulumi.Input[dict]`) - Billing contact.
-          * `contact_registrant` (`pulumi.Input[dict]`) - Registrant contact.
-          * `contact_tech` (`pulumi.Input[dict]`) - Technical contact.
-          * `dns_type` (`pulumi.Input[str]`) - Current DNS type
-          * `dns_zone_id` (`pulumi.Input[str]`) - Azure DNS Zone to use
-          * `privacy` (`pulumi.Input[bool]`) - <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
-          * `target_dns_type` (`pulumi.Input[str]`) - Target DNS type (would be used for migration)
+          * `email` (`pulumi.Input[str]`) - Email address.
+          * `fax` (`pulumi.Input[str]`) - Fax number.
+          * `job_title` (`pulumi.Input[str]`) - Job title.
+          * `name_first` (`pulumi.Input[str]`) - First name.
+          * `name_last` (`pulumi.Input[str]`) - Last name.
+          * `name_middle` (`pulumi.Input[str]`) - Middle name.
+          * `organization` (`pulumi.Input[str]`) - Organization contact belongs to.
+          * `phone` (`pulumi.Input[str]`) - Phone number.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -148,6 +147,25 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auth_code'] = auth_code
+            __props__['auto_renew'] = auto_renew
+            if consent is None:
+                raise TypeError("Missing required property 'consent'")
+            __props__['consent'] = consent
+            if contact_admin is None:
+                raise TypeError("Missing required property 'contact_admin'")
+            __props__['contact_admin'] = contact_admin
+            if contact_billing is None:
+                raise TypeError("Missing required property 'contact_billing'")
+            __props__['contact_billing'] = contact_billing
+            if contact_registrant is None:
+                raise TypeError("Missing required property 'contact_registrant'")
+            __props__['contact_registrant'] = contact_registrant
+            if contact_tech is None:
+                raise TypeError("Missing required property 'contact_tech'")
+            __props__['contact_tech'] = contact_tech
+            __props__['dns_type'] = dns_type
+            __props__['dns_zone_id'] = dns_zone_id
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -155,11 +173,13 @@ class Domain(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['privacy'] = privacy
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['target_dns_type'] = target_dns_type
+            __props__['properties'] = None
             __props__['type'] = None
         super(Domain, __self__).__init__(
             'azurerm:domainregistration/v20180201:Domain',

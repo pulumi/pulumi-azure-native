@@ -28,10 +28,10 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the subnet.
+        /// The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServiceDelegationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         public DelegationArgs()
         {

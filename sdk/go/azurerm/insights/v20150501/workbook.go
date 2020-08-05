@@ -31,11 +31,26 @@ type Workbook struct {
 // NewWorkbook registers a new resource with the given unique name, arguments, and options.
 func NewWorkbook(ctx *pulumi.Context,
 	name string, args *WorkbookArgs, opts ...pulumi.ResourceOption) (*Workbook, error) {
+	if args == nil || args.Category == nil {
+		return nil, errors.New("missing required argument 'Category'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SerializedData == nil {
+		return nil, errors.New("missing required argument 'SerializedData'")
+	}
+	if args == nil || args.SharedTypeKind == nil {
+		return nil, errors.New("missing required argument 'SharedTypeKind'")
+	}
+	if args == nil || args.UserId == nil {
+		return nil, errors.New("missing required argument 'UserId'")
+	}
+	if args == nil || args.WorkbookId == nil {
+		return nil, errors.New("missing required argument 'WorkbookId'")
 	}
 	if args == nil {
 		args = &WorkbookArgs{}
@@ -96,34 +111,58 @@ func (WorkbookState) ElementType() reflect.Type {
 }
 
 type workbookArgs struct {
+	// Workbook category, as defined by the user at creation time.
+	Category string `pulumi:"category"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the Application Insights component resource.
 	Name string `pulumi:"name"`
-	// Metadata describing a web test for an Azure resource.
-	Properties *WorkbookProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
+	SerializedData string `pulumi:"serializedData"`
+	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+	SharedTypeKind string `pulumi:"sharedTypeKind"`
+	// Optional resourceId for a source resource.
+	SourceResourceId *string `pulumi:"sourceResourceId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Unique user id of the specific user that owns this workbook.
+	UserId string `pulumi:"userId"`
+	// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+	Version *string `pulumi:"version"`
+	// Internally assigned unique id of the workbook definition.
+	WorkbookId string `pulumi:"workbookId"`
 }
 
 // The set of arguments for constructing a Workbook resource.
 type WorkbookArgs struct {
+	// Workbook category, as defined by the user at creation time.
+	Category pulumi.StringInput
 	// The kind of workbook. Choices are user and shared.
 	Kind pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the Application Insights component resource.
 	Name pulumi.StringInput
-	// Metadata describing a web test for an Azure resource.
-	Properties WorkbookPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Configuration of this particular workbook. Configuration data is a string containing valid JSON
+	SerializedData pulumi.StringInput
+	// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+	SharedTypeKind pulumi.StringInput
+	// Optional resourceId for a source resource.
+	SourceResourceId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Unique user id of the specific user that owns this workbook.
+	UserId pulumi.StringInput
+	// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+	Version pulumi.StringPtrInput
+	// Internally assigned unique id of the workbook definition.
+	WorkbookId pulumi.StringInput
 }
 
 func (WorkbookArgs) ElementType() reflect.Type {

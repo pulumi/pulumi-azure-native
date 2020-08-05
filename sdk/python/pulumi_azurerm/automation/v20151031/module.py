@@ -55,28 +55,27 @@ class Module(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, content_link=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the module type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[dict] content_link: Gets or sets the module content link.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
         :param pulumi.Input[str] name: The name of module.
-        :param pulumi.Input[dict] properties: Gets or sets the module create properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[dict] tags: Gets or sets the tags attached to the resource.
 
-        The **properties** object supports the following:
+        The **content_link** object supports the following:
 
-          * `content_link` (`pulumi.Input[dict]`) - Gets or sets the module content link.
-            * `content_hash` (`pulumi.Input[dict]`) - Gets or sets the hash.
-              * `algorithm` (`pulumi.Input[str]`) - Gets or sets the content hash algorithm used to hash the content.
-              * `value` (`pulumi.Input[str]`) - Gets or sets expected hash value of the content.
+          * `content_hash` (`pulumi.Input[dict]`) - Gets or sets the hash.
+            * `algorithm` (`pulumi.Input[str]`) - Gets or sets the content hash algorithm used to hash the content.
+            * `value` (`pulumi.Input[str]`) - Gets or sets expected hash value of the content.
 
-            * `uri` (`pulumi.Input[str]`) - Gets or sets the uri of the runbook content.
-            * `version` (`pulumi.Input[str]`) - Gets or sets the version of the content.
+          * `uri` (`pulumi.Input[str]`) - Gets or sets the uri of the runbook content.
+          * `version` (`pulumi.Input[str]`) - Gets or sets the version of the content.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -98,18 +97,19 @@ class Module(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            if content_link is None:
+                raise TypeError("Missing required property 'content_link'")
+            __props__['content_link'] = content_link
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(Module, __self__).__init__(
             'azurerm:automation/v20151031:Module',

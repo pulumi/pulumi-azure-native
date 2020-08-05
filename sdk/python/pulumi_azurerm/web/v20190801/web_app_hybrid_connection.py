@@ -35,29 +35,24 @@ class WebAppHybridConnection(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, namespace_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, hostname=None, kind=None, name=None, namespace_name=None, port=None, relay_arm_uri=None, resource_group_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, __props__=None, __name__=None, __opts__=None):
         """
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] hostname: The hostname of the endpoint.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: The relay name for this hybrid connection.
+        :param pulumi.Input[str] name: The name of the Service Bus relay.
         :param pulumi.Input[str] namespace_name: The namespace for this hybrid connection.
-        :param pulumi.Input[dict] properties: HybridConnection resource specific properties
+        :param pulumi.Input[float] port: The port of the endpoint.
+        :param pulumi.Input[str] relay_arm_uri: The ARM URI to the Service Bus relay.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-
-        The **properties** object supports the following:
-
-          * `hostname` (`pulumi.Input[str]`) - The hostname of the endpoint.
-          * `port` (`pulumi.Input[float]`) - The port of the endpoint.
-          * `relay_arm_uri` (`pulumi.Input[str]`) - The ARM URI to the Service Bus relay.
-          * `relay_name` (`pulumi.Input[str]`) - The name of the Service Bus relay.
-          * `send_key_name` (`pulumi.Input[str]`) - The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
-          * `send_key_value` (`pulumi.Input[str]`) - The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
-            normally, use the POST /listKeys API instead.
-          * `service_bus_namespace` (`pulumi.Input[str]`) - The name of the Service Bus namespace.
-          * `service_bus_suffix` (`pulumi.Input[str]`) - The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+        :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+        :param pulumi.Input[str] send_key_value: The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+               normally, use the POST /listKeys API instead.
+        :param pulumi.Input[str] service_bus_namespace: The name of the Service Bus namespace.
+        :param pulumi.Input[str] service_bus_suffix: The suffix for the service bus endpoint. By default this is .servicebus.windows.net
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,6 +71,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['hostname'] = hostname
             __props__['kind'] = kind
             if name is None:
                 raise TypeError("Missing required property 'name'")
@@ -83,10 +79,16 @@ class WebAppHybridConnection(pulumi.CustomResource):
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            __props__['properties'] = properties
+            __props__['port'] = port
+            __props__['relay_arm_uri'] = relay_arm_uri
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['send_key_name'] = send_key_name
+            __props__['send_key_value'] = send_key_value
+            __props__['service_bus_namespace'] = service_bus_namespace
+            __props__['service_bus_suffix'] = service_bus_suffix
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppHybridConnection, __self__).__init__(
             'azurerm:web/v20190801:WebAppHybridConnection',

@@ -40,37 +40,38 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
             * `name` (`str`) - The name of the StaticRoute that is unique within a VnetRoute.
             * `next_hop_ip_address` (`str`) - The ip address of the next hop.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_hub_to_remote_vnet_transit=None, allow_remote_vnet_to_use_hub_vnet_gateways=None, enable_internet_security=None, id=None, name=None, remote_virtual_network=None, resource_group_name=None, routing_configuration=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
         """
         HubVirtualNetworkConnection Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_hub_to_remote_vnet_transit: Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+        :param pulumi.Input[bool] allow_remote_vnet_to_use_hub_vnet_gateways: Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+        :param pulumi.Input[bool] enable_internet_security: Enable internet security.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the HubVirtualNetworkConnection.
-        :param pulumi.Input[dict] properties: Properties of the hub virtual network connection.
+        :param pulumi.Input[dict] remote_virtual_network: Reference to the remote virtual network.
         :param pulumi.Input[str] resource_group_name: The resource group name of the HubVirtualNetworkConnection.
+        :param pulumi.Input[dict] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
 
-        The **properties** object supports the following:
+        The **remote_virtual_network** object supports the following:
 
-          * `allow_hub_to_remote_vnet_transit` (`pulumi.Input[bool]`) - Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
-          * `allow_remote_vnet_to_use_hub_vnet_gateways` (`pulumi.Input[bool]`) - Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
-          * `enable_internet_security` (`pulumi.Input[bool]`) - Enable internet security.
-          * `remote_virtual_network` (`pulumi.Input[dict]`) - Reference to the remote virtual network.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
 
-          * `routing_configuration` (`pulumi.Input[dict]`) - The Routing Configuration indicating the associated and propagated route tables on this connection.
-            * `associated_route_table` (`pulumi.Input[dict]`) - The resource id RouteTable associated with this RoutingConfiguration.
-            * `propagated_route_tables` (`pulumi.Input[dict]`) - The list of RouteTables to advertise the routes to.
-              * `ids` (`pulumi.Input[list]`) - The list of resource ids of all the RouteTables.
-              * `labels` (`pulumi.Input[list]`) - The list of labels.
+        The **routing_configuration** object supports the following:
 
-            * `vnet_routes` (`pulumi.Input[dict]`) - List of routes that control routing from VirtualHub into a virtual network connection.
-              * `static_routes` (`pulumi.Input[list]`) - List of all Static Routes.
-                * `address_prefixes` (`pulumi.Input[list]`) - List of all address prefixes.
-                * `name` (`pulumi.Input[str]`) - The name of the StaticRoute that is unique within a VnetRoute.
-                * `next_hop_ip_address` (`pulumi.Input[str]`) - The ip address of the next hop.
+          * `associated_route_table` (`pulumi.Input[dict]`) - The resource id RouteTable associated with this RoutingConfiguration.
+          * `propagated_route_tables` (`pulumi.Input[dict]`) - The list of RouteTables to advertise the routes to.
+            * `ids` (`pulumi.Input[list]`) - The list of resource ids of all the RouteTables.
+            * `labels` (`pulumi.Input[list]`) - The list of labels.
+
+          * `vnet_routes` (`pulumi.Input[dict]`) - List of routes that control routing from VirtualHub into a virtual network connection.
+            * `static_routes` (`pulumi.Input[list]`) - List of all Static Routes.
+              * `address_prefixes` (`pulumi.Input[list]`) - List of all address prefixes.
+              * `name` (`pulumi.Input[str]`) - The name of the StaticRoute that is unique within a VnetRoute.
+              * `next_hop_ip_address` (`pulumi.Input[str]`) - The ip address of the next hop.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,18 +90,23 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['allow_hub_to_remote_vnet_transit'] = allow_hub_to_remote_vnet_transit
+            __props__['allow_remote_vnet_to_use_hub_vnet_gateways'] = allow_remote_vnet_to_use_hub_vnet_gateways
+            __props__['enable_internet_security'] = enable_internet_security
             __props__['id'] = id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['remote_virtual_network'] = remote_virtual_network
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['routing_configuration'] = routing_configuration
             if virtual_hub_name is None:
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['etag'] = None
+            __props__['properties'] = None
         super(HubVirtualNetworkConnection, __self__).__init__(
             'azurerm:network/v20200501:HubVirtualNetworkConnection',
             resource_name,

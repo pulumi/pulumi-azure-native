@@ -51,7 +51,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * The properties of a configuration store.
      */
-    public readonly properties!: pulumi.Output<outputs.appconfiguration.v20200601.ConfigurationStorePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.appconfiguration.v20200601.ConfigurationStorePropertiesResponse>;
     /**
      * The sku of the configuration store.
      */
@@ -90,13 +90,15 @@ export class ConfigurationStore extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,6 +117,10 @@ export class ConfigurationStore extends pulumi.CustomResource {
  */
 export interface ConfigurationStoreArgs {
     /**
+     * The encryption settings of the configuration store.
+     */
+    readonly encryption?: pulumi.Input<inputs.appconfiguration.v20200601.EncryptionProperties>;
+    /**
      * The managed identity information, if configured.
      */
     readonly identity?: pulumi.Input<inputs.appconfiguration.v20200601.ResourceIdentity>;
@@ -127,9 +133,9 @@ export interface ConfigurationStoreArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of a configuration store.
+     * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */
-    readonly properties?: pulumi.Input<inputs.appconfiguration.v20200601.ConfigurationStoreProperties>;
+    readonly publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

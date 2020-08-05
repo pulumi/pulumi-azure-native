@@ -93,12 +93,12 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// Active Directories
+	ActiveDirectories []ActiveDirectory `pulumi:"activeDirectories"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the NetApp account
 	Name string `pulumi:"name"`
-	// NetApp Account properties
-	Properties *AccountProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -107,12 +107,12 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// Active Directories
+	ActiveDirectories ActiveDirectoryArrayInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the NetApp account
 	Name pulumi.StringInput
-	// NetApp Account properties
-	Properties AccountPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

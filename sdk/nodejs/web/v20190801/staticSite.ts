@@ -51,7 +51,7 @@ export class StaticSite extends pulumi.CustomResource {
     /**
      * Core resource properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20190801.StaticSiteResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.StaticSiteResponse>;
     /**
      * Description of a SKU for a scalable resource.
      */
@@ -87,13 +87,17 @@ export class StaticSite extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["branch"] = args ? args.branch : undefined;
+            inputs["buildProperties"] = args ? args.buildProperties : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["repositoryToken"] = args ? args.repositoryToken : undefined;
+            inputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,6 +116,14 @@ export class StaticSite extends pulumi.CustomResource {
  */
 export interface StaticSiteArgs {
     /**
+     * The target branch in the repository.
+     */
+    readonly branch?: pulumi.Input<string>;
+    /**
+     * Build properties to configure on the repository.
+     */
+    readonly buildProperties?: pulumi.Input<inputs.web.v20190801.StaticSiteBuildProperties>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -124,9 +136,13 @@ export interface StaticSiteArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Core resource properties
+     * A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
      */
-    readonly properties?: pulumi.Input<inputs.web.v20190801.StaticSiteDefinition>;
+    readonly repositoryToken?: pulumi.Input<string>;
+    /**
+     * URL for the repository of the static site.
+     */
+    readonly repositoryUrl?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

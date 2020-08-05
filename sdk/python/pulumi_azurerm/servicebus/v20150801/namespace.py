@@ -44,24 +44,20 @@ class Namespace(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, create_acs_namespace=None, enabled=None, location=None, name=None, resource_group_name=None, sku=None, status=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Description of a namespace resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] create_acs_namespace: Indicates whether to create an ACS namespace.
+        :param pulumi.Input[bool] enabled: Specifies whether this instance is enabled.
         :param pulumi.Input[str] location: Namespace location.
         :param pulumi.Input[str] name: The namespace name.
-        :param pulumi.Input[dict] properties: Properties of the namespace.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[dict] sku: SKU of the namespace.
+        :param pulumi.Input[str] status: State of the namespace.
         :param pulumi.Input[dict] tags: Namespace tags.
-
-        The **properties** object supports the following:
-
-          * `create_acs_namespace` (`pulumi.Input[bool]`) - Indicates whether to create an ACS namespace.
-          * `enabled` (`pulumi.Input[bool]`) - Specifies whether this instance is enabled.
-          * `status` (`pulumi.Input[str]`) - State of the namespace.
 
         The **sku** object supports the following:
 
@@ -86,18 +82,21 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['create_acs_namespace'] = create_acs_namespace
+            __props__['enabled'] = enabled
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
+            __props__['status'] = status
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Namespace, __self__).__init__(
             'azurerm:servicebus/v20150801:Namespace',

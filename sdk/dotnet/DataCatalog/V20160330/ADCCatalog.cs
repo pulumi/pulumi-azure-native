@@ -95,6 +95,24 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
 
     public sealed class ADCCatalogArgs : Pulumi.ResourceArgs
     {
+        [Input("admins")]
+        private InputList<Inputs.PrincipalsArgs>? _admins;
+
+        /// <summary>
+        /// Azure data catalog admin list.
+        /// </summary>
+        public InputList<Inputs.PrincipalsArgs> Admins
+        {
+            get => _admins ?? (_admins = new InputList<Inputs.PrincipalsArgs>());
+            set => _admins = value;
+        }
+
+        /// <summary>
+        /// Automatic unit adjustment enabled or not.
+        /// </summary>
+        [Input("enableAutomaticUnitAdjustment")]
+        public Input<bool>? EnableAutomaticUnitAdjustment { get; set; }
+
         /// <summary>
         /// Resource etag
         /// </summary>
@@ -114,16 +132,22 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Azure Data Catalog properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ADCCatalogPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Azure data catalog SKU.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// Azure data catalog provision status.
+        /// </summary>
+        [Input("successfullyProvisioned")]
+        public Input<bool>? SuccessfullyProvisioned { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -135,6 +159,24 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        /// <summary>
+        /// Azure data catalog units.
+        /// </summary>
+        [Input("units")]
+        public Input<int>? Units { get; set; }
+
+        [Input("users")]
+        private InputList<Inputs.PrincipalsArgs>? _users;
+
+        /// <summary>
+        /// Azure data catalog user list.
+        /// </summary>
+        public InputList<Inputs.PrincipalsArgs> Users
+        {
+            get => _users ?? (_users = new InputList<Inputs.PrincipalsArgs>());
+            set => _users = value;
         }
 
         public ADCCatalogArgs()

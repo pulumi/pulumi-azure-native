@@ -96,38 +96,74 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 }
 
 type networkInterfaceArgs struct {
+	// The DNS settings in network interface.
+	DnsSettings *NetworkInterfaceDnsSettings `pulumi:"dnsSettings"`
+	// If the network interface is accelerated networking enabled.
+	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
+	// Indicates whether IP forwarding is enabled on this network interface.
+	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// A list of IPConfigurations of the network interface.
+	IpConfigurations []NetworkInterfaceIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// The MAC address of the network interface.
+	MacAddress *string `pulumi:"macAddress"`
 	// The name of the network interface.
 	Name string `pulumi:"name"`
-	// Properties of the network interface.
-	Properties *NetworkInterfacePropertiesFormat `pulumi:"properties"`
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
+	// Whether this is a primary network interface on a virtual machine.
+	Primary *bool `pulumi:"primary"`
+	// The provisioning state of the network interface resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The resource GUID property of the network interface resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// A list of TapConfigurations of the network interface.
+	TapConfigurations []NetworkInterfaceTapConfigurationType `pulumi:"tapConfigurations"`
 }
 
 // The set of arguments for constructing a NetworkInterface resource.
 type NetworkInterfaceArgs struct {
+	// The DNS settings in network interface.
+	DnsSettings NetworkInterfaceDnsSettingsPtrInput
+	// If the network interface is accelerated networking enabled.
+	EnableAcceleratedNetworking pulumi.BoolPtrInput
+	// Indicates whether IP forwarding is enabled on this network interface.
+	EnableIPForwarding pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// A list of IPConfigurations of the network interface.
+	IpConfigurations NetworkInterfaceIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// The MAC address of the network interface.
+	MacAddress pulumi.StringPtrInput
 	// The name of the network interface.
 	Name pulumi.StringInput
-	// Properties of the network interface.
-	Properties NetworkInterfacePropertiesFormatPtrInput
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
+	// Whether this is a primary network interface on a virtual machine.
+	Primary pulumi.BoolPtrInput
+	// The provisioning state of the network interface resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The resource GUID property of the network interface resource.
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// A list of TapConfigurations of the network interface.
+	TapConfigurations NetworkInterfaceTapConfigurationTypeArrayInput
 }
 
 func (NetworkInterfaceArgs) ElementType() reflect.Type {

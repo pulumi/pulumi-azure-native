@@ -40,6 +40,12 @@ func NewFlowLog(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.StorageId == nil {
+		return nil, errors.New("missing required argument 'StorageId'")
+	}
+	if args == nil || args.TargetResourceId == nil {
+		return nil, errors.New("missing required argument 'TargetResourceId'")
+	}
 	if args == nil {
 		args = &FlowLogArgs{}
 	}
@@ -99,6 +105,12 @@ func (FlowLogState) ElementType() reflect.Type {
 }
 
 type flowLogArgs struct {
+	// Flag to enable/disable flow logging.
+	Enabled *bool `pulumi:"enabled"`
+	// Parameters that define the configuration of traffic analytics.
+	FlowAnalyticsConfiguration *TrafficAnalyticsProperties `pulumi:"flowAnalyticsConfiguration"`
+	// Parameters that define the flow log format.
+	Format *FlowLogFormatParameters `pulumi:"format"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -107,16 +119,26 @@ type flowLogArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the network watcher.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
-	// Properties of the flow log.
-	Properties *FlowLogPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Parameters that define the retention policy for flow log.
+	RetentionPolicy *RetentionPolicyParameters `pulumi:"retentionPolicy"`
+	// ID of the storage account which is used to store the flow log.
+	StorageId string `pulumi:"storageId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// ID of network security group to which flow log will be applied.
+	TargetResourceId string `pulumi:"targetResourceId"`
 }
 
 // The set of arguments for constructing a FlowLog resource.
 type FlowLogArgs struct {
+	// Flag to enable/disable flow logging.
+	Enabled pulumi.BoolPtrInput
+	// Parameters that define the configuration of traffic analytics.
+	FlowAnalyticsConfiguration TrafficAnalyticsPropertiesPtrInput
+	// Parameters that define the flow log format.
+	Format FlowLogFormatParametersPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
@@ -125,12 +147,16 @@ type FlowLogArgs struct {
 	Name pulumi.StringInput
 	// The name of the network watcher.
 	NetworkWatcherName pulumi.StringInput
-	// Properties of the flow log.
-	Properties FlowLogPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Parameters that define the retention policy for flow log.
+	RetentionPolicy RetentionPolicyParametersPtrInput
+	// ID of the storage account which is used to store the flow log.
+	StorageId pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// ID of network security group to which flow log will be applied.
+	TargetResourceId pulumi.StringInput
 }
 
 func (FlowLogArgs) ElementType() reflect.Type {

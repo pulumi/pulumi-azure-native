@@ -96,6 +96,24 @@ namespace Pulumi.AzureRM.Network.V20170801
     public sealed class VirtualNetworkGatewayConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authorizationKey.
+        /// </summary>
+        [Input("authorizationKey")]
+        public Input<string>? AuthorizationKey { get; set; }
+
+        /// <summary>
+        /// Gateway connection type. Possible values are: 'IPsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
+        /// </summary>
+        [Input("connectionType", required: true)]
+        public Input<string> ConnectionType { get; set; } = null!;
+
+        /// <summary>
+        /// EnableBgp flag
+        /// </summary>
+        [Input("enableBgp")]
+        public Input<bool>? EnableBgp { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -106,6 +124,24 @@ namespace Pulumi.AzureRM.Network.V20170801
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ipsecPolicies")]
+        private InputList<Inputs.IpsecPolicyArgs>? _ipsecPolicies;
+
+        /// <summary>
+        /// The IPSec Policies to be considered by this connection.
+        /// </summary>
+        public InputList<Inputs.IpsecPolicyArgs> IpsecPolicies
+        {
+            get => _ipsecPolicies ?? (_ipsecPolicies = new InputList<Inputs.IpsecPolicyArgs>());
+            set => _ipsecPolicies = value;
+        }
+
+        /// <summary>
+        /// The reference to local network gateway resource.
+        /// </summary>
+        [Input("localNetworkGateway2")]
+        public Input<Inputs.LocalNetworkGatewayArgs>? LocalNetworkGateway2 { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -120,16 +156,34 @@ namespace Pulumi.AzureRM.Network.V20170801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual network gateway connection.
+        /// The reference to peerings resource.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VirtualNetworkGatewayConnectionPropertiesFormatArgs> Properties { get; set; } = null!;
+        [Input("peer")]
+        public Input<Inputs.SubResourceArgs>? Peer { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the VirtualNetworkGatewayConnection resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
+
+        /// <summary>
+        /// The routing weight.
+        /// </summary>
+        [Input("routingWeight")]
+        public Input<int>? RoutingWeight { get; set; }
+
+        /// <summary>
+        /// The IPSec shared key.
+        /// </summary>
+        [Input("sharedKey")]
+        public Input<string>? SharedKey { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -142,6 +196,24 @@ namespace Pulumi.AzureRM.Network.V20170801
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Enable policy-based traffic selectors.
+        /// </summary>
+        [Input("usePolicyBasedTrafficSelectors")]
+        public Input<bool>? UsePolicyBasedTrafficSelectors { get; set; }
+
+        /// <summary>
+        /// The reference to virtual network gateway resource.
+        /// </summary>
+        [Input("virtualNetworkGateway1", required: true)]
+        public Input<Inputs.VirtualNetworkGatewayArgs> VirtualNetworkGateway1 { get; set; } = null!;
+
+        /// <summary>
+        /// The reference to virtual network gateway resource.
+        /// </summary>
+        [Input("virtualNetworkGateway2")]
+        public Input<Inputs.VirtualNetworkGatewayArgs>? VirtualNetworkGateway2 { get; set; }
 
         public VirtualNetworkGatewayConnectionArgs()
         {

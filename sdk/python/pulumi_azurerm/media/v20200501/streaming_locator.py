@@ -44,32 +44,30 @@ class StreamingLocator(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, alternative_media_id=None, asset_name=None, content_keys=None, default_content_key_policy_name=None, end_time=None, filters=None, name=None, resource_group_name=None, start_time=None, streaming_locator_id=None, streaming_policy_name=None, __props__=None, __name__=None, __opts__=None):
         """
         A Streaming Locator resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
+        :param pulumi.Input[str] alternative_media_id: Alternative Media ID of this Streaming Locator
+        :param pulumi.Input[str] asset_name: Asset Name
+        :param pulumi.Input[list] content_keys: The ContentKeys used by this Streaming Locator.
+        :param pulumi.Input[str] default_content_key_policy_name: Name of the default ContentKeyPolicy used by this Streaming Locator.
+        :param pulumi.Input[str] end_time: The end time of the Streaming Locator.
+        :param pulumi.Input[list] filters: A list of asset or account filters which apply to this streaming locator
         :param pulumi.Input[str] name: The Streaming Locator name.
-        :param pulumi.Input[dict] properties: Properties of the Streaming Locator.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] start_time: The start time of the Streaming Locator.
+        :param pulumi.Input[str] streaming_locator_id: The StreamingLocatorId of the Streaming Locator.
+        :param pulumi.Input[str] streaming_policy_name: Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
 
-        The **properties** object supports the following:
+        The **content_keys** object supports the following:
 
-          * `alternative_media_id` (`pulumi.Input[str]`) - Alternative Media ID of this Streaming Locator
-          * `asset_name` (`pulumi.Input[str]`) - Asset Name
-          * `content_keys` (`pulumi.Input[list]`) - The ContentKeys used by this Streaming Locator.
-            * `id` (`pulumi.Input[str]`) - ID of Content Key
-            * `label_reference_in_streaming_policy` (`pulumi.Input[str]`) - Label of Content Key as specified in the Streaming Policy
-            * `value` (`pulumi.Input[str]`) - Value of Content Key
-
-          * `default_content_key_policy_name` (`pulumi.Input[str]`) - Name of the default ContentKeyPolicy used by this Streaming Locator.
-          * `end_time` (`pulumi.Input[str]`) - The end time of the Streaming Locator.
-          * `filters` (`pulumi.Input[list]`) - A list of asset or account filters which apply to this streaming locator
-          * `start_time` (`pulumi.Input[str]`) - The start time of the Streaming Locator.
-          * `streaming_locator_id` (`pulumi.Input[str]`) - The StreamingLocatorId of the Streaming Locator.
-          * `streaming_policy_name` (`pulumi.Input[str]`) - Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+          * `id` (`pulumi.Input[str]`) - ID of Content Key
+          * `label_reference_in_streaming_policy` (`pulumi.Input[str]`) - Label of Content Key as specified in the Streaming Policy
+          * `value` (`pulumi.Input[str]`) - Value of Content Key
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,13 +89,26 @@ class StreamingLocator(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['alternative_media_id'] = alternative_media_id
+            if asset_name is None:
+                raise TypeError("Missing required property 'asset_name'")
+            __props__['asset_name'] = asset_name
+            __props__['content_keys'] = content_keys
+            __props__['default_content_key_policy_name'] = default_content_key_policy_name
+            __props__['end_time'] = end_time
+            __props__['filters'] = filters
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['start_time'] = start_time
+            __props__['streaming_locator_id'] = streaming_locator_id
+            if streaming_policy_name is None:
+                raise TypeError("Missing required property 'streaming_policy_name'")
+            __props__['streaming_policy_name'] = streaming_policy_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(StreamingLocator, __self__).__init__(
             'azurerm:media/v20200501:StreamingLocator',

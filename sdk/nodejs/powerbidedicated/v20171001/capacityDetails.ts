@@ -47,7 +47,7 @@ export class CapacityDetails extends pulumi.CustomResource {
     /**
      * Properties of the provision operation request.
      */
-    public readonly properties!: pulumi.Output<outputs.powerbidedicated.v20171001.DedicatedCapacityPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.powerbidedicated.v20171001.DedicatedCapacityPropertiesResponse>;
     /**
      * The SKU of the PowerBI Dedicated resource.
      */
@@ -86,12 +86,13 @@ export class CapacityDetails extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["administration"] = args ? args.administration : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +111,10 @@ export class CapacityDetails extends pulumi.CustomResource {
  */
 export interface CapacityDetailsArgs {
     /**
+     * A collection of Dedicated capacity administrators
+     */
+    readonly administration?: pulumi.Input<inputs.powerbidedicated.v20171001.DedicatedCapacityAdministrators>;
+    /**
      * Location of the PowerBI Dedicated resource.
      */
     readonly location: pulumi.Input<string>;
@@ -117,10 +122,6 @@ export interface CapacityDetailsArgs {
      * The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the provision operation request.
-     */
-    readonly properties?: pulumi.Input<inputs.powerbidedicated.v20171001.DedicatedCapacityProperties>;
     /**
      * The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
      */

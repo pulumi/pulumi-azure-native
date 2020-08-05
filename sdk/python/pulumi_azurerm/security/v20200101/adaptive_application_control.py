@@ -39,26 +39,22 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, asc_location=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, asc_location=None, enforcement_mode=None, name=None, path_recommendations=None, protection_mode=None, vm_recommendations=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a AdaptiveApplicationControl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
+        :param pulumi.Input[str] enforcement_mode: The application control policy enforcement/protection mode of the VM/server group
         :param pulumi.Input[str] name: Name of an application control VM/server group
-        :param pulumi.Input[dict] properties: Represents a VM/server group and set of rules to be allowed running on a machine
+        :param pulumi.Input[dict] protection_mode: The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
 
-        The **properties** object supports the following:
+        The **protection_mode** object supports the following:
 
-          * `enforcement_mode` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
-          * `path_recommendations` (`pulumi.Input[dict]`)
-          * `protection_mode` (`pulumi.Input[dict]`) - The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
-            * `exe` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
-            * `executable` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
-            * `msi` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
-            * `script` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
-
-          * `vm_recommendations` (`pulumi.Input[dict]`)
+          * `exe` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
+          * `executable` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
+          * `msi` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
+          * `script` (`pulumi.Input[str]`) - The application control policy enforcement/protection mode of the VM/server group
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,13 +76,15 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
             if asc_location is None:
                 raise TypeError("Missing required property 'asc_location'")
             __props__['asc_location'] = asc_location
+            __props__['enforcement_mode'] = enforcement_mode
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['path_recommendations'] = path_recommendations
+            __props__['protection_mode'] = protection_mode
+            __props__['vm_recommendations'] = vm_recommendations
             __props__['location'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(AdaptiveApplicationControl, __self__).__init__(
             'azurerm:security/v20200101:AdaptiveApplicationControl',

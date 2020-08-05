@@ -44,7 +44,7 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
     /**
      * Represents a VM/server group and set of rules to be allowed running on a machine
      */
-    public readonly properties!: pulumi.Output<outputs.security.v20200101.AppWhitelistingGroupDataResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20200101.AppWhitelistingGroupDataResponse>;
     /**
      * Resource type
      */
@@ -69,13 +69,14 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             inputs["ascLocation"] = args ? args.ascLocation : undefined;
+            inputs["enforcementMode"] = args ? args.enforcementMode : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["pathRecommendations"] = args ? args.pathRecommendations : undefined;
+            inputs["protectionMode"] = args ? args.protectionMode : undefined;
+            inputs["vmRecommendations"] = args ? args.vmRecommendations : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,11 +99,17 @@ export interface AdaptiveApplicationControlArgs {
      */
     readonly ascLocation: pulumi.Input<string>;
     /**
+     * The application control policy enforcement/protection mode of the VM/server group
+     */
+    readonly enforcementMode?: pulumi.Input<string>;
+    /**
      * Name of an application control VM/server group
      */
     readonly name: pulumi.Input<string>;
+    readonly pathRecommendations?: pulumi.Input<inputs.security.v20200101.PathRecommendations>;
     /**
-     * Represents a VM/server group and set of rules to be allowed running on a machine
+     * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
      */
-    readonly properties: pulumi.Input<inputs.security.v20200101.AppWhitelistingGroupData>;
+    readonly protectionMode?: pulumi.Input<inputs.security.v20200101.ProtectionMode>;
+    readonly vmRecommendations?: pulumi.Input<inputs.security.v20200101.VmRecommendations>;
 }

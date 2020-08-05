@@ -95,6 +95,57 @@ namespace Pulumi.AzureRM.DomainRegistration.V20180201
 
     public sealed class DomainArgs : Pulumi.ResourceArgs
     {
+        [Input("authCode")]
+        public Input<string>? AuthCode { get; set; }
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the domain should be automatically renewed; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Input("autoRenew")]
+        public Input<bool>? AutoRenew { get; set; }
+
+        /// <summary>
+        /// Legal agreement consent.
+        /// </summary>
+        [Input("consent", required: true)]
+        public Input<Inputs.DomainPurchaseConsentArgs> Consent { get; set; } = null!;
+
+        /// <summary>
+        /// Administrative contact.
+        /// </summary>
+        [Input("contactAdmin", required: true)]
+        public Input<Inputs.ContactArgs> ContactAdmin { get; set; } = null!;
+
+        /// <summary>
+        /// Billing contact.
+        /// </summary>
+        [Input("contactBilling", required: true)]
+        public Input<Inputs.ContactArgs> ContactBilling { get; set; } = null!;
+
+        /// <summary>
+        /// Registrant contact.
+        /// </summary>
+        [Input("contactRegistrant", required: true)]
+        public Input<Inputs.ContactArgs> ContactRegistrant { get; set; } = null!;
+
+        /// <summary>
+        /// Technical contact.
+        /// </summary>
+        [Input("contactTech", required: true)]
+        public Input<Inputs.ContactArgs> ContactTech { get; set; } = null!;
+
+        /// <summary>
+        /// Current DNS type
+        /// </summary>
+        [Input("dnsType")]
+        public Input<string>? DnsType { get; set; }
+
+        /// <summary>
+        /// Azure DNS Zone to use
+        /// </summary>
+        [Input("dnsZoneId")]
+        public Input<string>? DnsZoneId { get; set; }
+
         /// <summary>
         /// Kind of resource.
         /// </summary>
@@ -114,10 +165,10 @@ namespace Pulumi.AzureRM.DomainRegistration.V20180201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Domain resource specific properties
+        /// &lt;code&gt;true&lt;/code&gt; if domain privacy is enabled for this domain; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DomainPropertiesArgs>? Properties { get; set; }
+        [Input("privacy")]
+        public Input<bool>? Privacy { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
@@ -136,6 +187,12 @@ namespace Pulumi.AzureRM.DomainRegistration.V20180201
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Target DNS type (would be used for migration)
+        /// </summary>
+        [Input("targetDnsType")]
+        public Input<string>? TargetDnsType { get; set; }
 
         public DomainArgs()
         {

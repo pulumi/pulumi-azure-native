@@ -63,47 +63,49 @@ class AwaitableListSiteBackupStatusSecretsResult(ListSiteBackupStatusSecretsResu
             type=self.type)
 
 
-def list_site_backup_status_secrets(id=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, type=None, opts=None):
+def list_site_backup_status_secrets(backup_schedule=None, databases=None, enabled=None, id=None, kind=None, location=None, name=None, resource_group_name=None, storage_account_url=None, tags=None, type=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param dict backup_schedule: Schedule for the backup if it is executed periodically
+    :param list databases: Databases included in the backup
+    :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
     :param str id: Resource Id
     :param str kind: Kind of resource
     :param str location: Resource Location
     :param str name: Id of backup
     :param str resource_group_name: Name of resource group
+    :param str storage_account_url: SAS URL to the container
     :param dict tags: Resource tags
     :param str type: Resource type
 
-    The **properties** object supports the following:
+    The **backup_schedule** object supports the following:
 
-      * `backup_schedule` (`dict`) - Schedule for the backup if it is executed periodically
-        * `frequency_interval` (`float`) - How often should be the backup executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-        * `frequency_unit` (`str`) - How often should be the backup executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-        * `keep_at_least_one_backup` (`bool`) - True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-        * `last_execution_time` (`str`) - The last time when this schedule was triggered
-        * `retention_period_in_days` (`float`) - After how many days backups should be deleted
-        * `start_time` (`str`) - When the schedule should start working
+      * `frequency_interval` (`float`) - How often should be the backup executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+      * `frequency_unit` (`str`) - How often should be the backup executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+      * `keep_at_least_one_backup` (`bool`) - True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+      * `last_execution_time` (`str`) - The last time when this schedule was triggered
+      * `retention_period_in_days` (`float`) - After how many days backups should be deleted
+      * `start_time` (`str`) - When the schedule should start working
 
-      * `databases` (`list`) - Databases included in the backup
-        * `connection_string` (`str`) - Contains a connection string to a database which is being backed up/restored. If the restore should happen to a new database, the database name inside is the new one.
-        * `connection_string_name` (`str`) - Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-                      This is used during restore with overwrite connection strings options.
-        * `database_type` (`str`) - SqlAzure / MySql
-        * `name` (`str`)
+    The **databases** object supports the following:
 
-      * `enabled` (`bool`) - True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
-      * `name` (`str`) - Name of the backup
-      * `storage_account_url` (`str`) - SAS URL to the container
-      * `type` (`str`) - Type of the backup
+      * `connection_string` (`str`) - Contains a connection string to a database which is being backed up/restored. If the restore should happen to a new database, the database name inside is the new one.
+      * `connection_string_name` (`str`) - Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+                    This is used during restore with overwrite connection strings options.
+      * `database_type` (`str`) - SqlAzure / MySql
+      * `name` (`str`)
     """
     __args__ = dict()
+    __args__['backupSchedule'] = backup_schedule
+    __args__['databases'] = databases
+    __args__['enabled'] = enabled
     __args__['id'] = id
     __args__['kind'] = kind
     __args__['location'] = location
     __args__['name'] = name
-    __args__['properties'] = properties
     __args__['resourceGroupName'] = resource_group_name
+    __args__['storageAccountUrl'] = storage_account_url
     __args__['tags'] = tags
     __args__['type'] = type
     if opts is None:

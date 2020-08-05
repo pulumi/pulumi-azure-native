@@ -49,24 +49,20 @@ class WebAppVnetConnection(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cert_blob=None, dns_servers=None, is_swift=None, kind=None, name=None, resource_group_name=None, vnet_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Virtual Network information contract.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cert_blob: A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+               Point-To-Site VPN connection.
+        :param pulumi.Input[str] dns_servers: DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+        :param pulumi.Input[bool] is_swift: Flag that is used to denote if this is VNET injection
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: Name of an existing Virtual Network.
-        :param pulumi.Input[dict] properties: VnetInfo resource specific properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-
-        The **properties** object supports the following:
-
-          * `cert_blob` (`pulumi.Input[str]`) - A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
-            Point-To-Site VPN connection.
-          * `dns_servers` (`pulumi.Input[str]`) - DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
-          * `is_swift` (`pulumi.Input[bool]`) - Flag that is used to denote if this is VNET injection
-          * `vnet_resource_id` (`pulumi.Input[str]`) - The Virtual Network's resource ID.
+        :param pulumi.Input[str] vnet_resource_id: The Virtual Network's resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,14 +81,18 @@ class WebAppVnetConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['cert_blob'] = cert_blob
+            __props__['dns_servers'] = dns_servers
+            __props__['is_swift'] = is_swift
             __props__['kind'] = kind
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['vnet_resource_id'] = vnet_resource_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppVnetConnection, __self__).__init__(
             'azurerm:web/v20190801:WebAppVnetConnection',

@@ -47,7 +47,7 @@ export class DedicatedCloudService extends pulumi.CustomResource {
     /**
      * The properties of Dedicated Node Service
      */
-    public readonly properties!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.DedicatedCloudServicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.DedicatedCloudServicePropertiesResponse>;
     /**
      * The list of tags
      */
@@ -70,6 +70,9 @@ export class DedicatedCloudService extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DedicatedCloudServiceArgs | undefined;
+            if (!args || args.gatewaySubnet === undefined) {
+                throw new Error("Missing required property 'gatewaySubnet'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -79,11 +82,12 @@ export class DedicatedCloudService extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["gatewaySubnet"] = args ? args.gatewaySubnet : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +106,10 @@ export class DedicatedCloudService extends pulumi.CustomResource {
  */
 export interface DedicatedCloudServiceArgs {
     /**
+     * gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+     */
+    readonly gatewaySubnet: pulumi.Input<string>;
+    /**
      * Azure region
      */
     readonly location: pulumi.Input<string>;
@@ -109,10 +117,6 @@ export interface DedicatedCloudServiceArgs {
      * dedicated cloud Service name
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of Dedicated Node Service
-     */
-    readonly properties?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.DedicatedCloudServiceProperties>;
     /**
      * The name of the resource group
      */

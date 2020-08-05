@@ -90,6 +90,30 @@ namespace Pulumi.AzureRM.Insights.V20170401
     public sealed class ActivityLogAlertArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The actions that will activate when the condition is met.
+        /// </summary>
+        [Input("actions", required: true)]
+        public Input<Inputs.ActivityLogAlertActionListArgs> Actions { get; set; } = null!;
+
+        /// <summary>
+        /// The condition that will cause this alert to activate.
+        /// </summary>
+        [Input("condition", required: true)]
+        public Input<Inputs.ActivityLogAlertAllOfConditionArgs> Condition { get; set; } = null!;
+
+        /// <summary>
+        /// A description of this activity log alert.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
@@ -102,16 +126,22 @@ namespace Pulumi.AzureRM.Insights.V20170401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The activity log alert properties of the resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ActivityLogAlertDefinitionArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("scopes", required: true)]
+        private InputList<string>? _scopes;
+
+        /// <summary>
+        /// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+        /// </summary>
+        public InputList<string> Scopes
+        {
+            get => _scopes ?? (_scopes = new InputList<string>());
+            set => _scopes = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

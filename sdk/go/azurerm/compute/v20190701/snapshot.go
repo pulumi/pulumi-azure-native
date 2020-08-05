@@ -33,6 +33,9 @@ type Snapshot struct {
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
 func NewSnapshot(ctx *pulumi.Context,
 	name string, args *SnapshotArgs, opts ...pulumi.ResourceOption) (*Snapshot, error) {
+	if args == nil || args.CreationData == nil {
+		return nil, errors.New("missing required argument 'CreationData'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -105,12 +108,24 @@ func (SnapshotState) ElementType() reflect.Type {
 }
 
 type snapshotArgs struct {
+	// Disk source information. CreationData information cannot be changed after the disk has been created.
+	CreationData CreationData `pulumi:"creationData"`
+	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+	DiskSizeGB *int `pulumi:"diskSizeGB"`
+	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+	Encryption *Encryption `pulumi:"encryption"`
+	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+	EncryptionSettingsCollection *EncryptionSettingsCollection `pulumi:"encryptionSettingsCollection"`
+	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+	HyperVGeneration *string `pulumi:"hyperVGeneration"`
+	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+	Incremental *bool `pulumi:"incremental"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
 	Name string `pulumi:"name"`
-	// Snapshot resource properties.
-	Properties *SnapshotProperties `pulumi:"properties"`
+	// The Operating System type.
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
@@ -121,12 +136,24 @@ type snapshotArgs struct {
 
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
+	// Disk source information. CreationData information cannot be changed after the disk has been created.
+	CreationData CreationDataInput
+	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+	DiskSizeGB pulumi.IntPtrInput
+	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+	Encryption EncryptionPtrInput
+	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+	EncryptionSettingsCollection EncryptionSettingsCollectionPtrInput
+	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+	HyperVGeneration pulumi.StringPtrInput
+	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+	Incremental pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
 	Name pulumi.StringInput
-	// Snapshot resource properties.
-	Properties SnapshotPropertiesPtrInput
+	// The Operating System type.
+	OsType pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.

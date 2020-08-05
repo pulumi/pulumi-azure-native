@@ -99,14 +99,22 @@ func (VirtualWanState) ElementType() reflect.Type {
 }
 
 type virtualWanArgs struct {
+	// True if branch to branch traffic is allowed.
+	AllowBranchToBranchTraffic *bool `pulumi:"allowBranchToBranchTraffic"`
+	// True if Vnet to Vnet traffic is allowed.
+	AllowVnetToVnetTraffic *bool `pulumi:"allowVnetToVnetTraffic"`
+	// Vpn encryption to be disabled or not.
+	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The name of the VirtualWAN being created or updated.
 	Name string `pulumi:"name"`
-	// Properties of the virtual WAN.
-	Properties *VirtualWanProperties `pulumi:"properties"`
+	// The office local breakout category.
+	Office365LocalBreakoutCategory *string `pulumi:"office365LocalBreakoutCategory"`
+	// The provisioning state of the virtual WAN resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name of the VirtualWan.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -115,14 +123,22 @@ type virtualWanArgs struct {
 
 // The set of arguments for constructing a VirtualWan resource.
 type VirtualWanArgs struct {
+	// True if branch to branch traffic is allowed.
+	AllowBranchToBranchTraffic pulumi.BoolPtrInput
+	// True if Vnet to Vnet traffic is allowed.
+	AllowVnetToVnetTraffic pulumi.BoolPtrInput
+	// Vpn encryption to be disabled or not.
+	DisableVpnEncryption pulumi.BoolPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
 	// The name of the VirtualWAN being created or updated.
 	Name pulumi.StringInput
-	// Properties of the virtual WAN.
-	Properties VirtualWanPropertiesPtrInput
+	// The office local breakout category.
+	Office365LocalBreakoutCategory pulumi.StringPtrInput
+	// The provisioning state of the virtual WAN resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The resource group name of the VirtualWan.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

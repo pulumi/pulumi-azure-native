@@ -37,6 +37,9 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PlatformFaultDomainCount == nil {
+		return nil, errors.New("missing required argument 'PlatformFaultDomainCount'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -103,10 +106,12 @@ type dedicatedHostGroupArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the dedicated host group.
 	Name string `pulumi:"name"`
-	// Dedicated Host Group Properties.
-	Properties *DedicatedHostGroupProperties `pulumi:"properties"`
+	// Number of fault domains that the host group can span.
+	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
+	SupportAutomaticPlacement *bool `pulumi:"supportAutomaticPlacement"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
@@ -119,10 +124,12 @@ type DedicatedHostGroupArgs struct {
 	Location pulumi.StringInput
 	// The name of the dedicated host group.
 	Name pulumi.StringInput
-	// Dedicated Host Group Properties.
-	Properties DedicatedHostGroupPropertiesPtrInput
+	// Number of fault domains that the host group can span.
+	PlatformFaultDomainCount pulumi.IntInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
+	SupportAutomaticPlacement pulumi.BoolPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.

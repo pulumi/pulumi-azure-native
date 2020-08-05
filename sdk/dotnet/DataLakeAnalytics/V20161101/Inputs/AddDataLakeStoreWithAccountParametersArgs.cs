@@ -22,10 +22,10 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Data Lake Store account properties to use when adding a new Data Lake Store account.
+        /// The optional suffix for the Data Lake Store account.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AddDataLakeStorePropertiesArgs>? Properties { get; set; }
+        [Input("suffix")]
+        public Input<string>? Suffix { get; set; }
 
         public AddDataLakeStoreWithAccountParametersArgs()
         {

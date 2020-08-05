@@ -105,10 +105,10 @@ type routeFilterArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the route filter.
 	Name string `pulumi:"name"`
-	// Route Filter Resource
-	Properties *RouteFilterPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Collection of RouteFilterRules contained within a route filter.
+	Rules []RouteFilterRuleType `pulumi:"rules"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -121,10 +121,10 @@ type RouteFilterArgs struct {
 	Location pulumi.StringInput
 	// The name of the route filter.
 	Name pulumi.StringInput
-	// Route Filter Resource
-	Properties RouteFilterPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Collection of RouteFilterRules contained within a route filter.
+	Rules RouteFilterRuleTypeArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

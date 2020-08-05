@@ -43,7 +43,7 @@ export class Topic extends pulumi.CustomResource {
     /**
      * Properties of topic resource.
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20170401.SBTopicPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20170401.SBTopicPropertiesResponse>;
     /**
      * Resource type
      */
@@ -71,10 +71,20 @@ export class Topic extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            inputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
+            inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
+            inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
+            inputs["enableExpress"] = args ? args.enableExpress : undefined;
+            inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
+            inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,6 +103,34 @@ export class Topic extends pulumi.CustomResource {
  */
 export interface TopicArgs {
     /**
+     * ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+     */
+    readonly autoDeleteOnIdle?: pulumi.Input<string>;
+    /**
+     * ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+     */
+    readonly defaultMessageTimeToLive?: pulumi.Input<string>;
+    /**
+     * ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+     */
+    readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
+    /**
+     * Value that indicates whether server-side batched operations are enabled.
+     */
+    readonly enableBatchedOperations?: pulumi.Input<boolean>;
+    /**
+     * Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+     */
+    readonly enableExpress?: pulumi.Input<boolean>;
+    /**
+     * Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+     */
+    readonly enablePartitioning?: pulumi.Input<boolean>;
+    /**
+     * Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
+     */
+    readonly maxSizeInMegabytes?: pulumi.Input<number>;
+    /**
      * The topic name.
      */
     readonly name: pulumi.Input<string>;
@@ -101,11 +139,19 @@ export interface TopicArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties of topic resource.
+     * Value indicating if this topic requires duplicate detection.
      */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20170401.SBTopicProperties>;
+    readonly requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Enumerates the possible values for the status of a messaging entity.
+     */
+    readonly status?: pulumi.Input<string>;
+    /**
+     * Value that indicates whether the topic supports ordering.
+     */
+    readonly supportOrdering?: pulumi.Input<boolean>;
 }

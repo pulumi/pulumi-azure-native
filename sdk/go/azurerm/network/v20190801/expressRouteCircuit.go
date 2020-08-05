@@ -102,16 +102,40 @@ func (ExpressRouteCircuitState) ElementType() reflect.Type {
 }
 
 type expressRouteCircuitArgs struct {
+	// Allow classic operations.
+	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
+	// The list of authorizations.
+	Authorizations []ExpressRouteCircuitAuthorizationType `pulumi:"authorizations"`
+	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+	BandwidthInGbps *float64 `pulumi:"bandwidthInGbps"`
+	// The CircuitProvisioningState state of the resource.
+	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
+	// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+	ExpressRoutePort *SubResource `pulumi:"expressRoutePort"`
+	// The GatewayManager Etag.
+	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
+	// Flag denoting Global reach status.
+	GlobalReachEnabled *bool `pulumi:"globalReachEnabled"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the circuit.
 	Name string `pulumi:"name"`
-	// Properties of the express route circuit.
-	Properties *ExpressRouteCircuitPropertiesFormat `pulumi:"properties"`
+	// The list of peerings.
+	Peerings []ExpressRouteCircuitPeeringType `pulumi:"peerings"`
+	// The provisioning state of the express route circuit resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The ServiceKey.
+	ServiceKey *string `pulumi:"serviceKey"`
+	// The ServiceProviderNotes.
+	ServiceProviderNotes *string `pulumi:"serviceProviderNotes"`
+	// The ServiceProviderProperties.
+	ServiceProviderProperties *ExpressRouteCircuitServiceProviderProperties `pulumi:"serviceProviderProperties"`
+	// The ServiceProviderProvisioningState state of the resource.
+	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
 	// The SKU.
 	Sku *ExpressRouteCircuitSku `pulumi:"sku"`
 	// Resource tags.
@@ -120,16 +144,40 @@ type expressRouteCircuitArgs struct {
 
 // The set of arguments for constructing a ExpressRouteCircuit resource.
 type ExpressRouteCircuitArgs struct {
+	// Allow classic operations.
+	AllowClassicOperations pulumi.BoolPtrInput
+	// The list of authorizations.
+	Authorizations ExpressRouteCircuitAuthorizationTypeArrayInput
+	// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+	BandwidthInGbps pulumi.Float64PtrInput
+	// The CircuitProvisioningState state of the resource.
+	CircuitProvisioningState pulumi.StringPtrInput
+	// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+	ExpressRoutePort SubResourcePtrInput
+	// The GatewayManager Etag.
+	GatewayManagerEtag pulumi.StringPtrInput
+	// Flag denoting Global reach status.
+	GlobalReachEnabled pulumi.BoolPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the circuit.
 	Name pulumi.StringInput
-	// Properties of the express route circuit.
-	Properties ExpressRouteCircuitPropertiesFormatPtrInput
+	// The list of peerings.
+	Peerings ExpressRouteCircuitPeeringTypeArrayInput
+	// The provisioning state of the express route circuit resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The ServiceKey.
+	ServiceKey pulumi.StringPtrInput
+	// The ServiceProviderNotes.
+	ServiceProviderNotes pulumi.StringPtrInput
+	// The ServiceProviderProperties.
+	ServiceProviderProperties ExpressRouteCircuitServiceProviderPropertiesPtrInput
+	// The ServiceProviderProvisioningState state of the resource.
+	ServiceProviderProvisioningState pulumi.StringPtrInput
 	// The SKU.
 	Sku ExpressRouteCircuitSkuPtrInput
 	// Resource tags.

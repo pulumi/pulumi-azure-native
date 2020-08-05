@@ -77,6 +77,30 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 
     public sealed class IdentityProviderArgs : Pulumi.ResourceArgs
     {
+        [Input("allowedTenants")]
+        private InputList<string>? _allowedTenants;
+
+        /// <summary>
+        /// List of Allowed Tenants when configuring Azure Active Directory login.
+        /// </summary>
+        public InputList<string> AllowedTenants
+        {
+            get => _allowedTenants ?? (_allowedTenants = new InputList<string>());
+            set => _allowedTenants = value;
+        }
+
+        /// <summary>
+        /// Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+        /// </summary>
+        [Input("clientId", required: true)]
+        public Input<string> ClientId { get; set; } = null!;
+
+        /// <summary>
+        /// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
+        /// </summary>
+        [Input("clientSecret", required: true)]
+        public Input<string> ClientSecret { get; set; } = null!;
+
         /// <summary>
         /// Identity Provider Type identifier.
         /// </summary>
@@ -84,10 +108,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Identity Provider contract properties.
+        /// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IdentityProviderContractPropertiesArgs>? Properties { get; set; }
+        [Input("passwordResetPolicyName")]
+        public Input<string>? PasswordResetPolicyName { get; set; }
+
+        /// <summary>
+        /// Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+        /// </summary>
+        [Input("profileEditingPolicyName")]
+        public Input<string>? ProfileEditingPolicyName { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -100,6 +130,24 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Signin Policy Name. Only applies to AAD B2C Identity Provider.
+        /// </summary>
+        [Input("signinPolicyName")]
+        public Input<string>? SigninPolicyName { get; set; }
+
+        /// <summary>
+        /// Signup Policy Name. Only applies to AAD B2C Identity Provider.
+        /// </summary>
+        [Input("signupPolicyName")]
+        public Input<string>? SignupPolicyName { get; set; }
+
+        /// <summary>
+        /// Identity Provider Type identifier.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public IdentityProviderArgs()
         {

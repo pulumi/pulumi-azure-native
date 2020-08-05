@@ -102,52 +102,6 @@ func (o UserAssignedIdentityTypeOutput) Type() pulumi.StringOutput {
 }
 
 // The properties associated with the user assigned identity.
-type UserAssignedIdentityProperties struct {
-}
-
-// UserAssignedIdentityPropertiesInput is an input type that accepts UserAssignedIdentityPropertiesArgs and UserAssignedIdentityPropertiesOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityPropertiesInput` via:
-//
-//          UserAssignedIdentityPropertiesArgs{...}
-type UserAssignedIdentityPropertiesInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityPropertiesOutput() UserAssignedIdentityPropertiesOutput
-	ToUserAssignedIdentityPropertiesOutputWithContext(context.Context) UserAssignedIdentityPropertiesOutput
-}
-
-// The properties associated with the user assigned identity.
-type UserAssignedIdentityPropertiesArgs struct {
-}
-
-func (UserAssignedIdentityPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityProperties)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityPropertiesArgs) ToUserAssignedIdentityPropertiesOutput() UserAssignedIdentityPropertiesOutput {
-	return i.ToUserAssignedIdentityPropertiesOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityPropertiesArgs) ToUserAssignedIdentityPropertiesOutputWithContext(ctx context.Context) UserAssignedIdentityPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityPropertiesOutput)
-}
-
-// The properties associated with the user assigned identity.
-type UserAssignedIdentityPropertiesOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityProperties)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityPropertiesOutput) ToUserAssignedIdentityPropertiesOutput() UserAssignedIdentityPropertiesOutput {
-	return o
-}
-
-func (o UserAssignedIdentityPropertiesOutput) ToUserAssignedIdentityPropertiesOutputWithContext(ctx context.Context) UserAssignedIdentityPropertiesOutput {
-	return o
-}
-
-// The properties associated with the user assigned identity.
 type UserAssignedIdentityPropertiesResponse struct {
 	// The id of the app associated with the identity. This is a random generated UUID by MSI.
 	ClientId string `pulumi:"clientId"`
@@ -321,7 +275,6 @@ func (o UserAssignedIdentityPropertiesResponsePtrOutput) TenantId() pulumi.Strin
 
 func init() {
 	pulumi.RegisterOutputType(UserAssignedIdentityTypeOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityPropertiesOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityPropertiesResponsePtrOutput{})
 }

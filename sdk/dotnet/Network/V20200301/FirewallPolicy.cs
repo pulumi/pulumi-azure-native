@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.Network.V20200301
     public sealed class FirewallPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The parent firewall policy from which rules are inherited.
+        /// </summary>
+        [Input("basePolicy")]
+        public Input<Inputs.SubResourceArgs>? BasePolicy { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -114,12 +120,6 @@ namespace Pulumi.AzureRM.Network.V20200301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the firewall policy.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FirewallPolicyPropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -136,6 +136,12 @@ namespace Pulumi.AzureRM.Network.V20200301
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The operation mode for Threat Intelligence.
+        /// </summary>
+        [Input("threatIntelMode")]
+        public Input<string>? ThreatIntelMode { get; set; }
 
         public FirewallPolicyArgs()
         {

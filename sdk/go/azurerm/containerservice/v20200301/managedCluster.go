@@ -105,38 +105,98 @@ func (ManagedClusterState) ElementType() reflect.Type {
 }
 
 type managedClusterArgs struct {
+	// Profile of Azure Active Directory configuration.
+	AadProfile *ManagedClusterAADProfile `pulumi:"aadProfile"`
+	// Profile of managed cluster add-on.
+	AddonProfiles map[string]ManagedClusterAddonProfile `pulumi:"addonProfiles"`
+	// Properties of the agent pool.
+	AgentPoolProfiles []ManagedClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
+	// Access profile for managed cluster API server.
+	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfile `pulumi:"apiServerAccessProfile"`
+	// Parameters to be applied to the cluster-autoscaler when enabled
+	AutoScalerProfile *ManagedClusterPropertiesProperties `pulumi:"autoScalerProfile"`
+	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
+	// DNS prefix specified when creating the managed cluster.
+	DnsPrefix *string `pulumi:"dnsPrefix"`
+	// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
+	// Whether to enable Kubernetes Role-Based Access Control.
+	EnableRBAC *bool `pulumi:"enableRBAC"`
 	// The identity of the managed cluster, if configured.
 	Identity *ManagedClusterIdentity `pulumi:"identity"`
+	// Identities associated with the cluster.
+	IdentityProfile map[string]map[string]interface{} `pulumi:"identityProfile"`
+	// Version of Kubernetes specified when creating the managed cluster.
+	KubernetesVersion *string `pulumi:"kubernetesVersion"`
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile *ContainerServiceLinuxProfile `pulumi:"linuxProfile"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the managed cluster resource.
 	Name string `pulumi:"name"`
-	// Properties of a managed cluster.
-	Properties *ManagedClusterProperties `pulumi:"properties"`
+	// Profile of network configuration.
+	NetworkProfile *ContainerServiceNetworkProfile `pulumi:"networkProfile"`
+	// Name of the resource group containing agent pool nodes.
+	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+	ServicePrincipalProfile *ManagedClusterServicePrincipalProfile `pulumi:"servicePrincipalProfile"`
 	// The managed cluster SKU.
 	Sku *ManagedClusterSKU `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Profile for Windows VMs in the container service cluster.
+	WindowsProfile *ManagedClusterWindowsProfile `pulumi:"windowsProfile"`
 }
 
 // The set of arguments for constructing a ManagedCluster resource.
 type ManagedClusterArgs struct {
+	// Profile of Azure Active Directory configuration.
+	AadProfile ManagedClusterAADProfilePtrInput
+	// Profile of managed cluster add-on.
+	AddonProfiles ManagedClusterAddonProfileMapInput
+	// Properties of the agent pool.
+	AgentPoolProfiles ManagedClusterAgentPoolProfileArrayInput
+	// Access profile for managed cluster API server.
+	ApiServerAccessProfile ManagedClusterAPIServerAccessProfilePtrInput
+	// Parameters to be applied to the cluster-autoscaler when enabled
+	AutoScalerProfile ManagedClusterPropertiesPropertiesPtrInput
+	// ResourceId of the disk encryption set to use for enabling encryption at rest.
+	DiskEncryptionSetID pulumi.StringPtrInput
+	// DNS prefix specified when creating the managed cluster.
+	DnsPrefix pulumi.StringPtrInput
+	// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+	EnablePodSecurityPolicy pulumi.BoolPtrInput
+	// Whether to enable Kubernetes Role-Based Access Control.
+	EnableRBAC pulumi.BoolPtrInput
 	// The identity of the managed cluster, if configured.
 	Identity ManagedClusterIdentityPtrInput
+	// Identities associated with the cluster.
+	IdentityProfile pulumi.MapMapInput
+	// Version of Kubernetes specified when creating the managed cluster.
+	KubernetesVersion pulumi.StringPtrInput
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile ContainerServiceLinuxProfilePtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the managed cluster resource.
 	Name pulumi.StringInput
-	// Properties of a managed cluster.
-	Properties ManagedClusterPropertiesPtrInput
+	// Profile of network configuration.
+	NetworkProfile ContainerServiceNetworkProfilePtrInput
+	// Name of the resource group containing agent pool nodes.
+	NodeResourceGroup pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+	ServicePrincipalProfile ManagedClusterServicePrincipalProfilePtrInput
 	// The managed cluster SKU.
 	Sku ManagedClusterSKUPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Profile for Windows VMs in the container service cluster.
+	WindowsProfile ManagedClusterWindowsProfilePtrInput
 }
 
 func (ManagedClusterArgs) ElementType() reflect.Type {

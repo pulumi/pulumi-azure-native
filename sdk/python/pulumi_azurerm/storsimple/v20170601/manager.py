@@ -40,27 +40,28 @@ class Manager(pulumi.CustomResource):
     """
     The resource type.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cis_intrinsic_settings=None, etag=None, location=None, name=None, provisioning_state=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The StorSimple Manager.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] cis_intrinsic_settings: Represents the type of StorSimple Manager.
         :param pulumi.Input[str] etag: The etag of the manager.
         :param pulumi.Input[str] location: The geo location of the resource.
         :param pulumi.Input[str] name: The manager name
-        :param pulumi.Input[dict] properties: The properties of the StorSimple Manager.
+        :param pulumi.Input[str] provisioning_state: Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
         :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[dict] sku: Specifies the Sku.
         :param pulumi.Input[dict] tags: The tags attached to the resource.
 
-        The **properties** object supports the following:
+        The **cis_intrinsic_settings** object supports the following:
 
-          * `cis_intrinsic_settings` (`pulumi.Input[dict]`) - Represents the type of StorSimple Manager.
-            * `type` (`pulumi.Input[str]`) - The type of StorSimple Manager.
+          * `type` (`pulumi.Input[str]`) - The type of StorSimple Manager.
 
-          * `provisioning_state` (`pulumi.Input[str]`) - Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
-          * `sku` (`pulumi.Input[dict]`) - Specifies the Sku.
-            * `name` (`pulumi.Input[str]`) - Refers to the sku name which should be "Standard"
+        The **sku** object supports the following:
+
+          * `name` (`pulumi.Input[str]`) - Refers to the sku name which should be "Standard"
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,6 +80,7 @@ class Manager(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['cis_intrinsic_settings'] = cis_intrinsic_settings
             __props__['etag'] = etag
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -86,11 +88,13 @@ class Manager(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Manager, __self__).__init__(
             'azurerm:storsimple/v20170601:Manager',

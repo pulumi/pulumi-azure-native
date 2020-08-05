@@ -30,27 +30,23 @@ class FileShare(pulumi.CustomResource):
     """
     The type.
     """
-    def __init__(__self__, resource_name, opts=None, device_name=None, file_server_name=None, manager_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admin_user=None, data_policy=None, description=None, device_name=None, file_server_name=None, manager_name=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, resource_group_name=None, share_status=None, __props__=None, __name__=None, __opts__=None):
         """
         The File Share.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] admin_user: The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
+        :param pulumi.Input[str] data_policy: The data policy
+        :param pulumi.Input[str] description: Description for file share
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] file_server_name: The file server name.
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input[str] monitoring_status: The monitoring status
         :param pulumi.Input[str] name: The file share name.
-        :param pulumi.Input[dict] properties: The properties.
+        :param pulumi.Input[float] provisioned_capacity_in_bytes: The total provisioned capacity in Bytes
         :param pulumi.Input[str] resource_group_name: The resource group name
-
-        The **properties** object supports the following:
-
-          * `admin_user` (`pulumi.Input[str]`) - The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
-          * `data_policy` (`pulumi.Input[str]`) - The data policy
-          * `description` (`pulumi.Input[str]`) - Description for file share
-          * `monitoring_status` (`pulumi.Input[str]`) - The monitoring status
-          * `provisioned_capacity_in_bytes` (`pulumi.Input[float]`) - The total provisioned capacity in Bytes
-          * `share_status` (`pulumi.Input[str]`) - The Share Status
+        :param pulumi.Input[str] share_status: The Share Status
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,6 +65,13 @@ class FileShare(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if admin_user is None:
+                raise TypeError("Missing required property 'admin_user'")
+            __props__['admin_user'] = admin_user
+            if data_policy is None:
+                raise TypeError("Missing required property 'data_policy'")
+            __props__['data_policy'] = data_policy
+            __props__['description'] = description
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
@@ -78,15 +81,22 @@ class FileShare(pulumi.CustomResource):
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
+            if monitoring_status is None:
+                raise TypeError("Missing required property 'monitoring_status'")
+            __props__['monitoring_status'] = monitoring_status
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if provisioned_capacity_in_bytes is None:
+                raise TypeError("Missing required property 'provisioned_capacity_in_bytes'")
+            __props__['provisioned_capacity_in_bytes'] = provisioned_capacity_in_bytes
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if share_status is None:
+                raise TypeError("Missing required property 'share_status'")
+            __props__['share_status'] = share_status
+            __props__['properties'] = None
             __props__['type'] = None
         super(FileShare, __self__).__init__(
             'azurerm:storsimple/v20161001:FileShare',

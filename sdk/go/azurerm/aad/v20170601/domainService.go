@@ -96,32 +96,52 @@ func (DomainServiceState) ElementType() reflect.Type {
 }
 
 type domainServiceArgs struct {
+	// The name of the Azure domain that the user would like to deploy Domain Services to.
+	DomainName *string `pulumi:"domainName"`
+	// DomainSecurity Settings
+	DomainSecuritySettings *DomainSecuritySettings `pulumi:"domainSecuritySettings"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
+	// Enabled or Disabled flag to turn on Group-based filtered sync
+	FilteredSync *string `pulumi:"filteredSync"`
+	// Secure LDAP Settings
+	LdapsSettings *LdapsSettings `pulumi:"ldapsSettings"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the domain service.
 	Name string `pulumi:"name"`
-	// Domain service properties
-	Properties *DomainServiceProperties `pulumi:"properties"`
+	// Notification Settings
+	NotificationSettings *NotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+	SubnetId *string `pulumi:"subnetId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainService resource.
 type DomainServiceArgs struct {
+	// The name of the Azure domain that the user would like to deploy Domain Services to.
+	DomainName pulumi.StringPtrInput
+	// DomainSecurity Settings
+	DomainSecuritySettings DomainSecuritySettingsPtrInput
 	// Resource etag
 	Etag pulumi.StringPtrInput
+	// Enabled or Disabled flag to turn on Group-based filtered sync
+	FilteredSync pulumi.StringPtrInput
+	// Secure LDAP Settings
+	LdapsSettings LdapsSettingsPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the domain service.
 	Name pulumi.StringInput
-	// Domain service properties
-	Properties DomainServicePropertiesPtrInput
+	// Notification Settings
+	NotificationSettings NotificationSettingsPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+	SubnetId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

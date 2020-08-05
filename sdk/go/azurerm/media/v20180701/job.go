@@ -28,8 +28,14 @@ func NewJob(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.Input == nil {
+		return nil, errors.New("missing required argument 'Input'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
+	}
+	if args == nil || args.Outputs == nil {
+		return nil, errors.New("missing required argument 'Outputs'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -86,10 +92,18 @@ func (JobState) ElementType() reflect.Type {
 type jobArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
+	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+	CorrelationData map[string]string `pulumi:"correlationData"`
+	// Optional customer supplied description of the Job.
+	Description *string `pulumi:"description"`
+	// The inputs for the Job.
+	Input JobInput `pulumi:"input"`
 	// The Job name.
 	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties *JobProperties `pulumi:"properties"`
+	// The outputs for the Job.
+	Outputs []JobOutput `pulumi:"outputs"`
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+	Priority *string `pulumi:"priority"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Transform name.
@@ -100,10 +114,18 @@ type jobArgs struct {
 type JobArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
+	// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+	CorrelationData pulumi.StringMapInput
+	// Optional customer supplied description of the Job.
+	Description pulumi.StringPtrInput
+	// The inputs for the Job.
+	Input JobInputInput
 	// The Job name.
 	Name pulumi.StringInput
-	// The resource properties.
-	Properties JobPropertiesPtrInput
+	// The outputs for the Job.
+	Outputs JobOutputArrayInput
+	// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+	Priority pulumi.StringPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The Transform name.

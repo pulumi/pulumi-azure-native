@@ -102,16 +102,28 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Cluster.
+        /// Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ClusterBasePropertiesArgs>? Properties { get; set; }
+        [Input("nodeSetup")]
+        public Input<Inputs.NodeSetupArgs>? NodeSetup { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+        /// </summary>
+        [Input("scaleSettings")]
+        public Input<Inputs.ScaleSettingsArgs>? ScaleSettings { get; set; }
+
+        /// <summary>
+        /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.ResourceIdArgs>? Subnet { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -124,6 +136,30 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Settings for user account that gets created on each on the nodes of a cluster.
+        /// </summary>
+        [Input("userAccountSettings", required: true)]
+        public Input<Inputs.UserAccountSettingsArgs> UserAccountSettings { get; set; } = null!;
+
+        /// <summary>
+        /// Settings for OS image.
+        /// </summary>
+        [Input("virtualMachineConfiguration")]
+        public Input<Inputs.VirtualMachineConfigurationArgs>? VirtualMachineConfiguration { get; set; }
+
+        /// <summary>
+        /// Default is dedicated.
+        /// </summary>
+        [Input("vmPriority")]
+        public Input<string>? VmPriority { get; set; }
+
+        /// <summary>
+        /// All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        /// </summary>
+        [Input("vmSize", required: true)]
+        public Input<string> VmSize { get; set; } = null!;
 
         public ClusterArgs()
         {

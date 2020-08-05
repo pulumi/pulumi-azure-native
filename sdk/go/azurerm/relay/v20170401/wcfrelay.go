@@ -85,10 +85,16 @@ type wcfrelayArgs struct {
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties of the WCF relay.
-	Properties *WcfRelayProperties `pulumi:"properties"`
+	// WCF relay type.
+	RelayType *string `pulumi:"relayType"`
+	// Returns true if client authorization is needed for this relay; otherwise, false.
+	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
+	// Returns true if transport security is needed for this relay; otherwise, false.
+	RequiresTransportSecurity *bool `pulumi:"requiresTransportSecurity"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
+	UserMetadata *string `pulumi:"userMetadata"`
 }
 
 // The set of arguments for constructing a WCFRelay resource.
@@ -97,10 +103,16 @@ type WCFRelayArgs struct {
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// Properties of the WCF relay.
-	Properties WcfRelayPropertiesPtrInput
+	// WCF relay type.
+	RelayType pulumi.StringPtrInput
+	// Returns true if client authorization is needed for this relay; otherwise, false.
+	RequiresClientAuthorization pulumi.BoolPtrInput
+	// Returns true if transport security is needed for this relay; otherwise, false.
+	RequiresTransportSecurity pulumi.BoolPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
+	UserMetadata pulumi.StringPtrInput
 }
 
 func (WCFRelayArgs) ElementType() reflect.Type {

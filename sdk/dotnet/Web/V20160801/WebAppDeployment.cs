@@ -84,28 +84,76 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class WebAppDeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// True if deployment is currently active, false if completed and null if not started.
+        /// </summary>
+        [Input("active")]
+        public Input<bool>? Active { get; set; }
+
+        /// <summary>
+        /// Who authored the deployment.
+        /// </summary>
+        [Input("author")]
+        public Input<string>? Author { get; set; }
+
+        /// <summary>
+        /// Author email.
+        /// </summary>
+        [Input("authorEmail")]
+        public Input<string>? AuthorEmail { get; set; }
+
+        /// <summary>
+        /// Who performed the deployment.
+        /// </summary>
+        [Input("deployer")]
+        public Input<string>? Deployer { get; set; }
+
+        /// <summary>
+        /// Details on deployment.
+        /// </summary>
+        [Input("details")]
+        public Input<string>? Details { get; set; }
+
+        /// <summary>
+        /// End time.
+        /// </summary>
+        [Input("endTime")]
+        public Input<string>? EndTime { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// ID of an existing deployment.
+        /// Details about deployment status.
+        /// </summary>
+        [Input("message")]
+        public Input<string>? Message { get; set; }
+
+        /// <summary>
+        /// Identifier for deployment.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Deployment resource specific properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DeploymentPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Start time.
+        /// </summary>
+        [Input("startTime")]
+        public Input<string>? StartTime { get; set; }
+
+        /// <summary>
+        /// Deployment status.
+        /// </summary>
+        [Input("status")]
+        public Input<int>? Status { get; set; }
 
         public WebAppDeploymentArgs()
         {

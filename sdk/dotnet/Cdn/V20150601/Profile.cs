@@ -98,14 +98,17 @@ namespace Pulumi.AzureRM.Cdn.V20150601
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.ProfilePropertiesCreateParametersArgs>? Properties { get; set; }
-
         /// <summary>
         /// Name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Profile SKU
+        /// </summary>
+        [Input("sku", required: true)]
+        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

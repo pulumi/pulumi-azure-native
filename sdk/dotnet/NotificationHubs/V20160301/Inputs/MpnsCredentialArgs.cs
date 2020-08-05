@@ -16,10 +16,22 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301.Inputs
     public sealed class MpnsCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Properties of NotificationHub MpnsCredential.
+        /// The certificate key for this credential.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.MpnsCredentialPropertiesArgs>? Properties { get; set; }
+        [Input("certificateKey")]
+        public Input<string>? CertificateKey { get; set; }
+
+        /// <summary>
+        /// The MPNS certificate.
+        /// </summary>
+        [Input("mpnsCertificate")]
+        public Input<string>? MpnsCertificate { get; set; }
+
+        /// <summary>
+        /// The MPNS certificate Thumbprint
+        /// </summary>
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
 
         public MpnsCredentialArgs()
         {

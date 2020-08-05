@@ -45,37 +45,37 @@ class Bookmark(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, name=None, properties=None, resource_group_name=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, created=None, created_by=None, display_name=None, etag=None, incident_info=None, labels=None, name=None, notes=None, query=None, query_result=None, resource_group_name=None, updated=None, updated_by=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a bookmark in Azure Security Insights.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] created: The time the bookmark was created
+        :param pulumi.Input[dict] created_by: Describes a user that created the bookmark
+        :param pulumi.Input[str] display_name: The display name of the bookmark
         :param pulumi.Input[str] etag: Etag of the azure resource
+        :param pulumi.Input[dict] incident_info: Describes an incident that relates to bookmark
+        :param pulumi.Input[list] labels: List of labels relevant to this bookmark
         :param pulumi.Input[str] name: Bookmark ID
-        :param pulumi.Input[dict] properties: Bookmark properties
+        :param pulumi.Input[str] notes: The notes of the bookmark
+        :param pulumi.Input[str] query: The query of the bookmark.
+        :param pulumi.Input[str] query_result: The query result of the bookmark.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] updated: The last time the bookmark was updated
+        :param pulumi.Input[dict] updated_by: Describes a user that updated the bookmark
         :param pulumi.Input[str] workspace_name: The name of the workspace.
 
-        The **properties** object supports the following:
+        The **created_by** object supports the following:
 
-          * `created` (`pulumi.Input[str]`) - The time the bookmark was created
-          * `created_by` (`pulumi.Input[dict]`) - Describes a user that created the bookmark
-            * `object_id` (`pulumi.Input[str]`) - The object id of the user.
+          * `object_id` (`pulumi.Input[str]`) - The object id of the user.
 
-          * `display_name` (`pulumi.Input[str]`) - The display name of the bookmark
-          * `incident_info` (`pulumi.Input[dict]`) - Describes an incident that relates to bookmark
-            * `incident_id` (`pulumi.Input[str]`) - Incident Id
-            * `relation_name` (`pulumi.Input[str]`) - Relation Name
-            * `severity` (`pulumi.Input[str]`) - The severity of the incident
-            * `title` (`pulumi.Input[str]`) - The title of the incident
+        The **incident_info** object supports the following:
 
-          * `labels` (`pulumi.Input[list]`) - List of labels relevant to this bookmark
-          * `notes` (`pulumi.Input[str]`) - The notes of the bookmark
-          * `query` (`pulumi.Input[str]`) - The query of the bookmark.
-          * `query_result` (`pulumi.Input[str]`) - The query result of the bookmark.
-          * `updated` (`pulumi.Input[str]`) - The last time the bookmark was updated
-          * `updated_by` (`pulumi.Input[dict]`) - Describes a user that updated the bookmark
+          * `incident_id` (`pulumi.Input[str]`) - Incident Id
+          * `relation_name` (`pulumi.Input[str]`) - Relation Name
+          * `severity` (`pulumi.Input[str]`) - The severity of the incident
+          * `title` (`pulumi.Input[str]`) - The title of the incident
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -94,17 +94,31 @@ class Bookmark(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['created'] = created
+            __props__['created_by'] = created_by
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
             __props__['etag'] = etag
+            __props__['incident_info'] = incident_info
+            __props__['labels'] = labels
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['notes'] = notes
+            if query is None:
+                raise TypeError("Missing required property 'query'")
+            __props__['query'] = query
+            __props__['query_result'] = query_result
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['updated'] = updated
+            __props__['updated_by'] = updated_by
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Bookmark, __self__).__init__(
             'azurerm:operationalinsights/v20200101:Bookmark',

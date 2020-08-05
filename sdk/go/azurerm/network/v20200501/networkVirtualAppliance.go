@@ -102,6 +102,12 @@ func (NetworkVirtualApplianceState) ElementType() reflect.Type {
 }
 
 type networkVirtualApplianceArgs struct {
+	// BootStrapConfigurationBlobs storage URLs.
+	BootStrapConfigurationBlobs []string `pulumi:"bootStrapConfigurationBlobs"`
+	// CloudInitConfiguration string in plain text.
+	CloudInitConfiguration *string `pulumi:"cloudInitConfiguration"`
+	// CloudInitConfigurationBlob storage URLs.
+	CloudInitConfigurationBlobs []string `pulumi:"cloudInitConfigurationBlobs"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The service principal that has read access to cloud-init and config blob.
@@ -110,16 +116,26 @@ type networkVirtualApplianceArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of Network Virtual Appliance.
 	Name string `pulumi:"name"`
-	// Properties of the Network Virtual Appliance.
-	Properties *NetworkVirtualAppliancePropertiesFormat `pulumi:"properties"`
+	// Network Virtual Appliance SKU.
+	NvaSku *VirtualApplianceSkuProperties `pulumi:"nvaSku"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// VirtualAppliance ASN.
+	VirtualApplianceAsn *int `pulumi:"virtualApplianceAsn"`
+	// The Virtual Hub where Network Virtual Appliance is being deployed.
+	VirtualHub *SubResource `pulumi:"virtualHub"`
 }
 
 // The set of arguments for constructing a NetworkVirtualAppliance resource.
 type NetworkVirtualApplianceArgs struct {
+	// BootStrapConfigurationBlobs storage URLs.
+	BootStrapConfigurationBlobs pulumi.StringArrayInput
+	// CloudInitConfiguration string in plain text.
+	CloudInitConfiguration pulumi.StringPtrInput
+	// CloudInitConfigurationBlob storage URLs.
+	CloudInitConfigurationBlobs pulumi.StringArrayInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The service principal that has read access to cloud-init and config blob.
@@ -128,12 +144,16 @@ type NetworkVirtualApplianceArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of Network Virtual Appliance.
 	Name pulumi.StringInput
-	// Properties of the Network Virtual Appliance.
-	Properties NetworkVirtualAppliancePropertiesFormatPtrInput
+	// Network Virtual Appliance SKU.
+	NvaSku VirtualApplianceSkuPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// VirtualAppliance ASN.
+	VirtualApplianceAsn pulumi.IntPtrInput
+	// The Virtual Hub where Network Virtual Appliance is being deployed.
+	VirtualHub SubResourcePtrInput
 }
 
 func (NetworkVirtualApplianceArgs) ElementType() reflect.Type {

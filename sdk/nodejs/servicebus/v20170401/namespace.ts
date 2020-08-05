@@ -47,7 +47,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Properties of the namespace.
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20170401.SBNamespacePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20170401.SBNamespacePropertiesResponse>;
     /**
      * Properties of Sku
      */
@@ -85,10 +85,10 @@ export class Namespace extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,10 +114,6 @@ export interface NamespaceArgs {
      * The namespace name.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the namespace.
-     */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20170401.SBNamespaceProperties>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

@@ -32,24 +32,20 @@ class EventHub(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, namespace_name=None, properties=None, resource_group_name=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, message_retention_in_days=None, name=None, namespace_name=None, partition_count=None, resource_group_name=None, status=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Single item in List or Get Event Hub operation
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the resource.
+        :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub.
         :param pulumi.Input[str] name: The Event Hub name
         :param pulumi.Input[str] namespace_name: The Namespace name
-        :param pulumi.Input[dict] properties: Properties supplied to the Create Or Update Event Hub operation.
+        :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
+        :param pulumi.Input[str] status: Enumerates the possible values for the status of the Event Hub.
         :param pulumi.Input[str] type: ARM type of the Namespace.
-
-        The **properties** object supports the following:
-
-          * `message_retention_in_days` (`pulumi.Input[float]`) - Number of days to retain the events for this Event Hub.
-          * `partition_count` (`pulumi.Input[float]`) - Number of partitions created for the Event Hub.
-          * `status` (`pulumi.Input[str]`) - Enumerates the possible values for the status of the Event Hub.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,17 +67,20 @@ class EventHub(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['message_retention_in_days'] = message_retention_in_days
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            __props__['properties'] = properties
+            __props__['partition_count'] = partition_count
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['status'] = status
             __props__['type'] = type
+            __props__['properties'] = None
         super(EventHub, __self__).__init__(
             'azurerm:eventhub/v20150801:EventHub',
             resource_name,

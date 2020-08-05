@@ -47,7 +47,7 @@ export class JitRequest extends pulumi.CustomResource {
     /**
      * The JIT request properties.
      */
-    public readonly properties!: pulumi.Output<outputs.solutions.v20190701.JitRequestPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.solutions.v20190701.JitRequestPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -70,17 +70,29 @@ export class JitRequest extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as JitRequestArgs | undefined;
+            if (!args || args.applicationResourceId === undefined) {
+                throw new Error("Missing required property 'applicationResourceId'");
+            }
+            if (!args || args.jitAuthorizationPolicies === undefined) {
+                throw new Error("Missing required property 'jitAuthorizationPolicies'");
+            }
+            if (!args || args.jitSchedulingPolicy === undefined) {
+                throw new Error("Missing required property 'jitSchedulingPolicy'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["applicationResourceId"] = args ? args.applicationResourceId : undefined;
+            inputs["jitAuthorizationPolicies"] = args ? args.jitAuthorizationPolicies : undefined;
+            inputs["jitSchedulingPolicy"] = args ? args.jitSchedulingPolicy : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,6 +111,18 @@ export class JitRequest extends pulumi.CustomResource {
  */
 export interface JitRequestArgs {
     /**
+     * The parent application id.
+     */
+    readonly applicationResourceId: pulumi.Input<string>;
+    /**
+     * The JIT authorization policies.
+     */
+    readonly jitAuthorizationPolicies: pulumi.Input<pulumi.Input<inputs.solutions.v20190701.JitAuthorizationPolicies>[]>;
+    /**
+     * The JIT request properties.
+     */
+    readonly jitSchedulingPolicy: pulumi.Input<inputs.solutions.v20190701.JitSchedulingPolicy>;
+    /**
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
@@ -106,10 +130,6 @@ export interface JitRequestArgs {
      * The name of the JIT request.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The JIT request properties.
-     */
-    readonly properties?: pulumi.Input<inputs.solutions.v20190701.JitRequestProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -47,7 +47,7 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
     /**
      * The integration account RosettaNet process configuration properties.
      */
-    public readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountRosettaNetProcessConfigurationPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -70,24 +70,47 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as RosettaNetProcessConfigurationArgs | undefined;
+            if (!args || args.activitySettings === undefined) {
+                throw new Error("Missing required property 'activitySettings'");
+            }
+            if (!args || args.initiatorRoleSettings === undefined) {
+                throw new Error("Missing required property 'initiatorRoleSettings'");
+            }
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.processCode === undefined) {
+                throw new Error("Missing required property 'processCode'");
+            }
+            if (!args || args.processName === undefined) {
+                throw new Error("Missing required property 'processName'");
+            }
+            if (!args || args.processVersion === undefined) {
+                throw new Error("Missing required property 'processVersion'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.responderRoleSettings === undefined) {
+                throw new Error("Missing required property 'responderRoleSettings'");
+            }
+            inputs["activitySettings"] = args ? args.activitySettings : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["initiatorRoleSettings"] = args ? args.initiatorRoleSettings : undefined;
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["processCode"] = args ? args.processCode : undefined;
+            inputs["processName"] = args ? args.processName : undefined;
+            inputs["processVersion"] = args ? args.processVersion : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["responderRoleSettings"] = args ? args.responderRoleSettings : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +129,18 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
  */
 export interface RosettaNetProcessConfigurationArgs {
     /**
+     * The RosettaNet process configuration activity settings.
+     */
+    readonly activitySettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipActivitySettings>;
+    /**
+     * The integration account RosettaNet ProcessConfiguration properties.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The RosettaNet initiator role settings.
+     */
+    readonly initiatorRoleSettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipRoleSettings>;
+    /**
      * The integration account name.
      */
     readonly integrationAccountName: pulumi.Input<string>;
@@ -114,17 +149,33 @@ export interface RosettaNetProcessConfigurationArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The integration account RosettaNet ProcessConfiguration name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The integration account RosettaNet process configuration properties.
+     * The integration account RosettaNet process code.
      */
-    readonly properties: pulumi.Input<inputs.logic.v20160601.IntegrationAccountRosettaNetProcessConfigurationProperties>;
+    readonly processCode: pulumi.Input<string>;
+    /**
+     * The integration account RosettaNet process name.
+     */
+    readonly processName: pulumi.Input<string>;
+    /**
+     * The integration account RosettaNet process version.
+     */
+    readonly processVersion: pulumi.Input<string>;
     /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The RosettaNet responder role settings.
+     */
+    readonly responderRoleSettings: pulumi.Input<inputs.logic.v20160601.RosettaNetPipRoleSettings>;
     /**
      * The resource tags.
      */

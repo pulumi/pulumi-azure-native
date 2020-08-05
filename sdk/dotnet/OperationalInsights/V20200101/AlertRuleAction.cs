@@ -90,16 +90,16 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+        /// </summary>
+        [Input("logicAppResourceId", required: true)]
+        public Input<string> LogicAppResourceId { get; set; } = null!;
+
+        /// <summary>
         /// Action ID
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Action properties for put request
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ActionRequestPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
@@ -112,6 +112,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// </summary>
         [Input("ruleId", required: true)]
         public Input<string> RuleId { get; set; } = null!;
+
+        /// <summary>
+        /// Logic App Callback URL for this specific workflow.
+        /// </summary>
+        [Input("triggerUri")]
+        public Input<string>? TriggerUri { get; set; }
 
         /// <summary>
         /// The name of the workspace.

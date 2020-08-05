@@ -90,6 +90,24 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class GalleryImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether this gallery image is enabled.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<bool>? IsEnabled { get; set; }
+
+        /// <summary>
+        /// Indicates whether this gallery has been overridden for this lab account
+        /// </summary>
+        [Input("isOverride")]
+        public Input<bool>? IsOverride { get; set; }
+
+        /// <summary>
+        /// Indicates if the plan has been authorized for programmatic deployment.
+        /// </summary>
+        [Input("isPlanAuthorized")]
+        public Input<bool>? IsPlanAuthorized { get; set; }
+
+        /// <summary>
         /// The name of the lab Account.
         /// </summary>
         [Input("labAccountName", required: true)]
@@ -108,10 +126,10 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The gallery image properties
+        /// The provisioning status of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.GalleryImagePropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -130,6 +148,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
 
         public GalleryImageArgs()
         {

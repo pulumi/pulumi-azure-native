@@ -89,6 +89,18 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
 
+        [Input("machines", required: true)]
+        private InputList<string>? _machines;
+
+        /// <summary>
+        /// List of machine names that are part of this group.
+        /// </summary>
+        public InputList<string> Machines
+        {
+            get => _machines ?? (_machines = new InputList<string>());
+            set => _machines = value;
+        }
+
         /// <summary>
         /// Unique name of a group within a project.
         /// </summary>
@@ -100,12 +112,6 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the group.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.GroupPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Resource Group that project is part of.

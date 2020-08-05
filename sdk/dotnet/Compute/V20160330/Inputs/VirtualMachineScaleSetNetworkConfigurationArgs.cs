@@ -21,6 +21,18 @@ namespace Pulumi.AzureRM.Compute.V20160330.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("ipConfigurations", required: true)]
+        private InputList<Inputs.VirtualMachineScaleSetIPConfigurationArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// The virtual machine scale set IP Configuration.
+        /// </summary>
+        public InputList<Inputs.VirtualMachineScaleSetIPConfigurationArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.VirtualMachineScaleSetIPConfigurationArgs>());
+            set => _ipConfigurations = value;
+        }
+
         /// <summary>
         /// The network configuration name.
         /// </summary>
@@ -28,10 +40,10 @@ namespace Pulumi.AzureRM.Compute.V20160330.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Describes a virtual machine scale set network profile's IP configuration.
+        /// Whether this is a primary NIC on a virtual machine.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualMachineScaleSetNetworkConfigurationPropertiesArgs>? Properties { get; set; }
+        [Input("primary")]
+        public Input<bool>? Primary { get; set; }
 
         public VirtualMachineScaleSetNetworkConfigurationArgs()
         {

@@ -103,14 +103,20 @@ type availabilitySetArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the availability set.
 	Name string `pulumi:"name"`
-	// The instance view of a resource.
-	Properties *AvailabilitySetProperties `pulumi:"properties"`
+	// Fault Domain count.
+	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
+	// Update Domain count.
+	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
+	// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+	ProximityPlacementGroup *SubResource `pulumi:"proximityPlacementGroup"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sku of the availability set
 	Sku *Sku `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// A list of references to all virtual machines in the availability set.
+	VirtualMachines []SubResource `pulumi:"virtualMachines"`
 }
 
 // The set of arguments for constructing a AvailabilitySet resource.
@@ -119,14 +125,20 @@ type AvailabilitySetArgs struct {
 	Location pulumi.StringInput
 	// The name of the availability set.
 	Name pulumi.StringInput
-	// The instance view of a resource.
-	Properties AvailabilitySetPropertiesPtrInput
+	// Fault Domain count.
+	PlatformFaultDomainCount pulumi.IntPtrInput
+	// Update Domain count.
+	PlatformUpdateDomainCount pulumi.IntPtrInput
+	// Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+	ProximityPlacementGroup SubResourcePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Sku of the availability set
 	Sku SkuPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// A list of references to all virtual machines in the availability set.
+	VirtualMachines SubResourceArrayInput
 }
 
 func (AvailabilitySetArgs) ElementType() reflect.Type {

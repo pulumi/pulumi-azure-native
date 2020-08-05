@@ -84,22 +84,82 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Alternative Media ID of this Streaming Locator
+        /// </summary>
+        [Input("alternativeMediaId")]
+        public Input<string>? AlternativeMediaId { get; set; }
+
+        /// <summary>
+        /// Asset Name
+        /// </summary>
+        [Input("assetName", required: true)]
+        public Input<string> AssetName { get; set; } = null!;
+
+        [Input("contentKeys")]
+        private InputList<Inputs.StreamingLocatorContentKeyArgs>? _contentKeys;
+
+        /// <summary>
+        /// The ContentKeys used by this Streaming Locator.
+        /// </summary>
+        public InputList<Inputs.StreamingLocatorContentKeyArgs> ContentKeys
+        {
+            get => _contentKeys ?? (_contentKeys = new InputList<Inputs.StreamingLocatorContentKeyArgs>());
+            set => _contentKeys = value;
+        }
+
+        /// <summary>
+        /// Name of the default ContentKeyPolicy used by this Streaming Locator.
+        /// </summary>
+        [Input("defaultContentKeyPolicyName")]
+        public Input<string>? DefaultContentKeyPolicyName { get; set; }
+
+        /// <summary>
+        /// The end time of the Streaming Locator.
+        /// </summary>
+        [Input("endTime")]
+        public Input<string>? EndTime { get; set; }
+
+        [Input("filters")]
+        private InputList<string>? _filters;
+
+        /// <summary>
+        /// A list of asset or account filters which apply to this streaming locator
+        /// </summary>
+        public InputList<string> Filters
+        {
+            get => _filters ?? (_filters = new InputList<string>());
+            set => _filters = value;
+        }
+
+        /// <summary>
         /// The Streaming Locator name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Streaming Locator.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.StreamingLocatorPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The start time of the Streaming Locator.
+        /// </summary>
+        [Input("startTime")]
+        public Input<string>? StartTime { get; set; }
+
+        /// <summary>
+        /// The StreamingLocatorId of the Streaming Locator.
+        /// </summary>
+        [Input("streamingLocatorId")]
+        public Input<string>? StreamingLocatorId { get; set; }
+
+        /// <summary>
+        /// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+        /// </summary>
+        [Input("streamingPolicyName", required: true)]
+        public Input<string> StreamingPolicyName { get; set; } = null!;
 
         public StreamingLocatorArgs()
         {

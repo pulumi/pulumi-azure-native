@@ -47,7 +47,7 @@ export class Session extends pulumi.CustomResource {
     /**
      * The integration account session properties.
      */
-    public readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountSessionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountSessionPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -76,18 +76,16 @@ export class Session extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["content"] = args ? args.content : undefined;
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +104,10 @@ export class Session extends pulumi.CustomResource {
  */
 export interface SessionArgs {
     /**
+     * The session content.
+     */
+    readonly content?: pulumi.Input<inputs.logic.v20160601.Object>;
+    /**
      * The integration account name.
      */
     readonly integrationAccountName: pulumi.Input<string>;
@@ -117,10 +119,6 @@ export interface SessionArgs {
      * The integration account session name.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The integration account session properties.
-     */
-    readonly properties: pulumi.Input<inputs.logic.v20160601.IntegrationAccountSessionProperties>;
     /**
      * The resource group name.
      */

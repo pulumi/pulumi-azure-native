@@ -47,7 +47,7 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
     /**
      * HostNameBinding resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20181101.HostNameBindingResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20181101.HostNameBindingResponseProperties>;
     /**
      * Resource type.
      */
@@ -72,10 +72,18 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["azureResourceName"] = args ? args.azureResourceName : undefined;
+            inputs["azureResourceType"] = args ? args.azureResourceType : undefined;
+            inputs["customHostNameDnsRecordType"] = args ? args.customHostNameDnsRecordType : undefined;
+            inputs["domainId"] = args ? args.domainId : undefined;
+            inputs["hostNameType"] = args ? args.hostNameType : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["siteName"] = args ? args.siteName : undefined;
+            inputs["sslState"] = args ? args.sslState : undefined;
+            inputs["thumbprint"] = args ? args.thumbprint : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -94,6 +102,26 @@ export class WebAppHostNameBinding extends pulumi.CustomResource {
  */
 export interface WebAppHostNameBindingArgs {
     /**
+     * Azure resource name.
+     */
+    readonly azureResourceName?: pulumi.Input<string>;
+    /**
+     * Azure resource type.
+     */
+    readonly azureResourceType?: pulumi.Input<string>;
+    /**
+     * Custom DNS record type.
+     */
+    readonly customHostNameDnsRecordType?: pulumi.Input<string>;
+    /**
+     * Fully qualified ARM domain resource URI.
+     */
+    readonly domainId?: pulumi.Input<string>;
+    /**
+     * Hostname type.
+     */
+    readonly hostNameType?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -102,11 +130,19 @@ export interface WebAppHostNameBindingArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * HostNameBinding resource specific properties
-     */
-    readonly properties?: pulumi.Input<inputs.web.v20181101.HostNameBindingProperties>;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * App Service app name.
+     */
+    readonly siteName?: pulumi.Input<string>;
+    /**
+     * SSL type
+     */
+    readonly sslState?: pulumi.Input<string>;
+    /**
+     * SSL certificate thumbprint
+     */
+    readonly thumbprint?: pulumi.Input<string>;
 }

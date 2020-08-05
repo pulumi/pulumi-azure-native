@@ -90,16 +90,22 @@ namespace Pulumi.AzureRM.Relay.V20170401
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the HybridConnection.
+        /// Returns true if client authorization is needed for this hybrid connection; otherwise, false.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.HybridConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("requiresClientAuthorization")]
+        public Input<bool>? RequiresClientAuthorization { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+        /// </summary>
+        [Input("userMetadata")]
+        public Input<string>? UserMetadata { get; set; }
 
         public HybridConnectionArgs()
         {

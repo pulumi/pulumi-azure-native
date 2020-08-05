@@ -16,16 +16,22 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515.Inputs
     public sealed class ApplicableScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+        /// </summary>
+        [Input("labVmsShutdown")]
+        public Input<Inputs.ScheduleArgs>? LabVmsShutdown { get; set; }
+
+        /// <summary>
+        /// The auto-startup schedule, if one has been set at the lab or lab resource level.
+        /// </summary>
+        [Input("labVmsStartup")]
+        public Input<Inputs.ScheduleArgs>? LabVmsStartup { get; set; }
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ApplicableSchedulePropertiesArgs> Properties { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

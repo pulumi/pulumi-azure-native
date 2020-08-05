@@ -43,38 +43,38 @@ class VpnConnection(pulumi.CustomResource):
       * `routing_weight` (`float`) - routing weight for vpn connection.
       * `shared_key` (`str`) - SharedKey for the vpn connection.
     """
-    def __init__(__self__, resource_name, opts=None, gateway_name=None, id=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, connection_status=None, enable_bgp=None, gateway_name=None, id=None, ipsec_policies=None, name=None, provisioning_state=None, remote_vpn_site=None, resource_group_name=None, routing_weight=None, shared_key=None, __props__=None, __name__=None, __opts__=None):
         """
         VpnConnection Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_status: The connection status.
+        :param pulumi.Input[bool] enable_bgp: EnableBgp flag
         :param pulumi.Input[str] gateway_name: The name of the gateway.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[list] ipsec_policies: The IPSec Policies to be considered by this connection.
         :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input[dict] properties: Parameters for VpnConnection
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
+        :param pulumi.Input[dict] remote_vpn_site: Id of the connected vpn site.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
+        :param pulumi.Input[float] routing_weight: routing weight for vpn connection.
+        :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
 
-        The **properties** object supports the following:
+        The **ipsec_policies** object supports the following:
 
-          * `connection_status` (`pulumi.Input[str]`) - The connection status.
-          * `enable_bgp` (`pulumi.Input[bool]`) - EnableBgp flag
-          * `ipsec_policies` (`pulumi.Input[list]`) - The IPSec Policies to be considered by this connection.
-            * `dh_group` (`pulumi.Input[str]`) - The DH Groups used in IKE Phase 1 for initial SA.
-            * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
-            * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
-            * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
-            * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
-            * `pfs_group` (`pulumi.Input[str]`) - The Pfs Groups used in IKE Phase 2 for new child SA.
-            * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-            * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+          * `dh_group` (`pulumi.Input[str]`) - The DH Groups used in IKE Phase 1 for initial SA.
+          * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
+          * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
+          * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
+          * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
+          * `pfs_group` (`pulumi.Input[str]`) - The Pfs Groups used in IKE Phase 2 for new child SA.
+          * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+          * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
 
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-          * `remote_vpn_site` (`pulumi.Input[dict]`) - Id of the connected vpn site.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
+        The **remote_vpn_site** object supports the following:
 
-          * `routing_weight` (`pulumi.Input[float]`) - routing weight for vpn connection.
-          * `shared_key` (`pulumi.Input[str]`) - SharedKey for the vpn connection.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,18 +93,25 @@ class VpnConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['connection_status'] = connection_status
+            __props__['enable_bgp'] = enable_bgp
             if gateway_name is None:
                 raise TypeError("Missing required property 'gateway_name'")
             __props__['gateway_name'] = gateway_name
             __props__['id'] = id
+            __props__['ipsec_policies'] = ipsec_policies
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
+            __props__['remote_vpn_site'] = remote_vpn_site
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['routing_weight'] = routing_weight
+            __props__['shared_key'] = shared_key
             __props__['etag'] = None
+            __props__['properties'] = None
         super(VpnConnection, __self__).__init__(
             'azurerm:network/v20180601:VpnConnection',
             resource_name,

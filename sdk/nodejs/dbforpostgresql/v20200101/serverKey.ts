@@ -47,7 +47,7 @@ export class ServerKey extends pulumi.CustomResource {
     /**
      * Properties of the ServerKey Resource.
      */
-    public readonly properties!: pulumi.Output<outputs.dbforpostgresql.v20200101.ServerKeyPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.dbforpostgresql.v20200101.ServerKeyPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -72,14 +72,19 @@ export class ServerKey extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.serverKeyType === undefined) {
+                throw new Error("Missing required property 'serverKeyType'");
+            }
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverKeyType"] = args ? args.serverKeyType : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["uri"] = args ? args.uri : undefined;
             inputs["kind"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,15 +107,19 @@ export interface ServerKeyArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the ServerKey Resource.
-     */
-    readonly properties?: pulumi.Input<inputs.dbforpostgresql.v20200101.ServerKeyProperties>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The key type like 'AzureKeyVault'.
+     */
+    readonly serverKeyType: pulumi.Input<string>;
+    /**
      * The name of the server.
      */
     readonly serverName: pulumi.Input<string>;
+    /**
+     * The URI of the key.
+     */
+    readonly uri?: pulumi.Input<string>;
 }

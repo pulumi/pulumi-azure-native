@@ -30,21 +30,17 @@ class Container(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, device_name=None, name=None, properties=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, data_format=None, device_name=None, name=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a container on the  Data Box Edge/Gateway device.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_format: DataFormat for Container
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] name: The container name.
-        :param pulumi.Input[dict] properties: The container properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] storage_account_name: The Storage Account Name
-
-        The **properties** object supports the following:
-
-          * `data_format` (`pulumi.Input[str]`) - DataFormat for Container
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,21 +59,22 @@ class Container(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if data_format is None:
+                raise TypeError("Missing required property 'data_format'")
+            __props__['data_format'] = data_format
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if storage_account_name is None:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Container, __self__).__init__(
             'azurerm:databoxedge/v20190801:Container',

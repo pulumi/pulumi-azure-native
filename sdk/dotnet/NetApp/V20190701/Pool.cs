@@ -108,16 +108,22 @@ namespace Pulumi.AzureRM.NetApp.V20190701
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Capacity pool properties
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PoolPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The service level of the file system
+        /// </summary>
+        [Input("serviceLevel", required: true)]
+        public Input<string> ServiceLevel { get; set; } = null!;
+
+        /// <summary>
+        /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        /// </summary>
+        [Input("size", required: true)]
+        public Input<int> Size { get; set; } = null!;
 
         /// <summary>
         /// Resource tags

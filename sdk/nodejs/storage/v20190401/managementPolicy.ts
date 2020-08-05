@@ -43,7 +43,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
     /**
      * Returns the Storage Account Data Policies Rules.
      */
-    public readonly properties!: pulumi.Output<outputs.storage.v20190401.ManagementPolicyPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190401.ManagementPolicyPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -68,13 +68,17 @@ export class ManagementPolicy extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.policy === undefined) {
+                throw new Error("Missing required property 'policy'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["policy"] = args ? args.policy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,9 +105,9 @@ export interface ManagementPolicyArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Returns the Storage Account Data Policies Rules.
+     * The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
      */
-    readonly properties?: pulumi.Input<inputs.storage.v20190401.ManagementPolicyProperties>;
+    readonly policy: pulumi.Input<inputs.storage.v20190401.ManagementPolicySchema>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

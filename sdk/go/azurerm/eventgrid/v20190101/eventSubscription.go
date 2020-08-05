@@ -78,20 +78,36 @@ func (EventSubscriptionState) ElementType() reflect.Type {
 }
 
 type eventSubscriptionArgs struct {
+	// The DeadLetter destination of the event subscription.
+	DeadLetterDestination *DeadLetterDestination `pulumi:"deadLetterDestination"`
+	// Information about the destination where events have to be delivered for the event subscription.
+	Destination *EventSubscriptionDestination `pulumi:"destination"`
+	// Information about the filter for the event subscription.
+	Filter *EventSubscriptionFilter `pulumi:"filter"`
+	// List of user defined labels.
+	Labels []string `pulumi:"labels"`
 	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
 	Name string `pulumi:"name"`
-	// Properties of the event subscription
-	Properties *EventSubscriptionProperties `pulumi:"properties"`
+	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+	RetryPolicy *RetryPolicy `pulumi:"retryPolicy"`
 	// The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
 	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a EventSubscription resource.
 type EventSubscriptionArgs struct {
+	// The DeadLetter destination of the event subscription.
+	DeadLetterDestination DeadLetterDestinationPtrInput
+	// Information about the destination where events have to be delivered for the event subscription.
+	Destination EventSubscriptionDestinationPtrInput
+	// Information about the filter for the event subscription.
+	Filter EventSubscriptionFilterPtrInput
+	// List of user defined labels.
+	Labels pulumi.StringArrayInput
 	// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
 	Name pulumi.StringInput
-	// Properties of the event subscription
-	Properties EventSubscriptionPropertiesPtrInput
+	// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
+	RetryPolicy RetryPolicyPtrInput
 	// The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
 	Scope pulumi.StringInput
 }

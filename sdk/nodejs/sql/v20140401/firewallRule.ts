@@ -51,7 +51,7 @@ export class FirewallRule extends pulumi.CustomResource {
     /**
      * The properties representing the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.sql.v20140401.FirewallRulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.sql.v20140401.FirewallRulePropertiesResponse>;
     /**
      * Resource type.
      */
@@ -70,6 +70,9 @@ export class FirewallRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as FirewallRuleArgs | undefined;
+            if (!args || args.endIpAddress === undefined) {
+                throw new Error("Missing required property 'endIpAddress'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -79,12 +82,17 @@ export class FirewallRule extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
+            if (!args || args.startIpAddress === undefined) {
+                throw new Error("Missing required property 'startIpAddress'");
+            }
+            inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,13 +111,13 @@ export class FirewallRule extends pulumi.CustomResource {
  */
 export interface FirewallRuleArgs {
     /**
+     * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+     */
+    readonly endIpAddress: pulumi.Input<string>;
+    /**
      * The name of the firewall rule.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties representing the resource.
-     */
-    readonly properties?: pulumi.Input<inputs.sql.v20140401.FirewallRuleProperties>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -118,4 +126,8 @@ export interface FirewallRuleArgs {
      * The name of the server.
      */
     readonly serverName: pulumi.Input<string>;
+    /**
+     * The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+     */
+    readonly startIpAddress: pulumi.Input<string>;
 }

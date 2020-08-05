@@ -47,7 +47,7 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
     /**
      * Properties of the virtual hub route table v2.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20191101.VirtualHubRouteTableV2PropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.VirtualHubRouteTableV2PropertiesResponse>;
 
     /**
      * Create a VirtualHubRouteTableV2 resource with the given unique name, arguments, and options.
@@ -71,12 +71,14 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
             if (!args || args.virtualHubName === undefined) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
+            inputs["attachedConnections"] = args ? args.attachedConnections : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routes"] = args ? args.routes : undefined;
             inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -94,6 +96,10 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
  */
 export interface VirtualHubRouteTableV2Args {
     /**
+     * List of all connections attached to this route table v2.
+     */
+    readonly attachedConnections?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -102,13 +108,13 @@ export interface VirtualHubRouteTableV2Args {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the virtual hub route table v2.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20191101.VirtualHubRouteTableV2Properties>;
-    /**
      * The resource group name of the VirtualHub.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * List of all routes.
+     */
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20191101.VirtualHubRouteV2>[]>;
     /**
      * The name of the VirtualHub.
      */

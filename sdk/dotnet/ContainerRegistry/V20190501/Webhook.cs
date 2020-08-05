@@ -89,6 +89,30 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
 
     public sealed class WebhookArgs : Pulumi.ResourceArgs
     {
+        [Input("actions", required: true)]
+        private InputList<string>? _actions;
+
+        /// <summary>
+        /// The list of actions that trigger the webhook to post notifications.
+        /// </summary>
+        public InputList<string> Actions
+        {
+            get => _actions ?? (_actions = new InputList<string>());
+            set => _actions = value;
+        }
+
+        [Input("customHeaders")]
+        private InputMap<string>? _customHeaders;
+
+        /// <summary>
+        /// Custom headers that will be added to the webhook notifications.
+        /// </summary>
+        public InputMap<string> CustomHeaders
+        {
+            get => _customHeaders ?? (_customHeaders = new InputMap<string>());
+            set => _customHeaders = value;
+        }
+
         /// <summary>
         /// The location of the webhook. This cannot be changed after the resource is created.
         /// </summary>
@@ -102,12 +126,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties that the webhook will be created with.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.WebhookPropertiesCreateParametersArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the container registry.
         /// </summary>
         [Input("registryName", required: true)]
@@ -118,6 +136,24 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+        /// </summary>
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        /// <summary>
+        /// The service URI for the webhook to post notifications.
+        /// </summary>
+        [Input("serviceUri", required: true)]
+        public Input<string> ServiceUri { get; set; } = null!;
+
+        /// <summary>
+        /// The status of the webhook at the time the operation was called.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

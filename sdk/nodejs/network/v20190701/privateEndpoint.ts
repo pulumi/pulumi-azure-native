@@ -51,7 +51,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     /**
      * Properties of the private endpoint.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190701.PrivateEndpointPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190701.PrivateEndpointPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -83,10 +83,14 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["manualPrivateLinkServiceConnections"] = args ? args.manualPrivateLinkServiceConnections : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privateLinkServiceConnections"] = args ? args.privateLinkServiceConnections : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -117,17 +121,29 @@ export interface PrivateEndpointArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+     */
+    readonly manualPrivateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190701.PrivateLinkServiceConnection>[]>;
+    /**
      * The name of the private endpoint.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the private endpoint.
+     * A grouping of information about the connection to the remote resource.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190701.PrivateEndpointProperties>;
+    readonly privateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.v20190701.PrivateLinkServiceConnection>[]>;
+    /**
+     * The provisioning state of the private endpoint resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ID of the subnet from which the private IP will be allocated.
+     */
+    readonly subnet?: pulumi.Input<inputs.network.v20190701.Subnet>;
     /**
      * Resource tags.
      */

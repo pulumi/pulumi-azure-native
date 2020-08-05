@@ -96,14 +96,14 @@ func (NetworkProfileState) ElementType() reflect.Type {
 }
 
 type networkProfileArgs struct {
+	// List of chid container network interface configurations.
+	ContainerNetworkInterfaceConfigurations []ContainerNetworkInterfaceConfiguration `pulumi:"containerNetworkInterfaceConfigurations"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the network profile.
 	Name string `pulumi:"name"`
-	// Network profile properties.
-	Properties *NetworkProfilePropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -112,14 +112,14 @@ type networkProfileArgs struct {
 
 // The set of arguments for constructing a NetworkProfile resource.
 type NetworkProfileArgs struct {
+	// List of chid container network interface configurations.
+	ContainerNetworkInterfaceConfigurations ContainerNetworkInterfaceConfigurationArrayInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the network profile.
 	Name pulumi.StringInput
-	// Network profile properties.
-	Properties NetworkProfilePropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

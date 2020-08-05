@@ -47,7 +47,7 @@ export class StreamingJob extends pulumi.CustomResource {
     /**
      * The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
      */
-    public readonly properties!: pulumi.Output<outputs.streamanalytics.v20160301.StreamingJobPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.streamanalytics.v20160301.StreamingJobPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -76,11 +76,24 @@ export class StreamingJob extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
+            inputs["dataLocale"] = args ? args.dataLocale : undefined;
+            inputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
+            inputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
+            inputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
+            inputs["functions"] = args ? args.functions : undefined;
+            inputs["inputs"] = args ? args.inputs : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
+            inputs["outputStartMode"] = args ? args.outputStartMode : undefined;
+            inputs["outputStartTime"] = args ? args.outputStartTime : undefined;
+            inputs["outputs"] = args ? args.outputs : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["transformation"] = args ? args.transformation : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,6 +112,34 @@ export class StreamingJob extends pulumi.CustomResource {
  */
 export interface StreamingJobArgs {
     /**
+     * Controls certain runtime behaviors of the streaming job.
+     */
+    readonly compatibilityLevel?: pulumi.Input<string>;
+    /**
+     * The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
+     */
+    readonly dataLocale?: pulumi.Input<string>;
+    /**
+     * The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
+     */
+    readonly eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
+    /**
+     * The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
+     */
+    readonly eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
+    /**
+     * Indicates the policy to apply to events that arrive out of order in the input event stream.
+     */
+    readonly eventsOutOfOrderPolicy?: pulumi.Input<string>;
+    /**
+     * A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
+     */
+    readonly functions?: pulumi.Input<pulumi.Input<inputs.streamanalytics.v20160301.Function>[]>;
+    /**
+     * A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
+     */
+    readonly inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.v20160301.Input>[]>;
+    /**
      * Resource location. Required on PUT (CreateOrReplace) requests.
      */
     readonly location?: pulumi.Input<string>;
@@ -107,15 +148,35 @@ export interface StreamingJobArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
+     * Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
      */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.v20160301.StreamingJobProperties>;
+    readonly outputErrorPolicy?: pulumi.Input<string>;
+    /**
+     * This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
+     */
+    readonly outputStartMode?: pulumi.Input<string>;
+    /**
+     * Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
+     */
+    readonly outputStartTime?: pulumi.Input<string>;
+    /**
+     * A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
+     */
+    readonly outputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.v20160301.Output>[]>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
+     */
+    readonly sku?: pulumi.Input<inputs.streamanalytics.v20160301.Sku>;
+    /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
+     */
+    readonly transformation?: pulumi.Input<inputs.streamanalytics.v20160301.Transformation>;
 }

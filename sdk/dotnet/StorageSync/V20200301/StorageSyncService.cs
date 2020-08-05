@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
     public sealed class StorageSyncServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Incoming Traffic Policy
+        /// </summary>
+        [Input("incomingTrafficPolicy")]
+        public Input<string>? IncomingTrafficPolicy { get; set; }
+
+        /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         /// </summary>
         [Input("location", required: true)]
@@ -100,12 +106,6 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The parameters used to create the storage sync service.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.StorageSyncServiceCreateParametersPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

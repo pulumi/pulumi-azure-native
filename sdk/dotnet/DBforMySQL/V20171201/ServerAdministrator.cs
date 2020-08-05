@@ -78,22 +78,40 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
     public sealed class ServerAdministratorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The type of administrator.
+        /// </summary>
+        [Input("administratorType", required: true)]
+        public Input<string> AdministratorType { get; set; } = null!;
+
+        /// <summary>
+        /// The server administrator login account name.
+        /// </summary>
+        [Input("login", required: true)]
+        public Input<string> Login { get; set; } = null!;
+
+        /// <summary>
         /// The name of the server.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the server AAD administrator.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServerAdministratorPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The server administrator Sid (Secure ID).
+        /// </summary>
+        [Input("sid", required: true)]
+        public Input<string> Sid { get; set; } = null!;
+
+        /// <summary>
+        /// The server Active Directory Administrator tenant id.
+        /// </summary>
+        [Input("tenantId", required: true)]
+        public Input<string> TenantId { get; set; } = null!;
 
         public ServerAdministratorArgs()
         {

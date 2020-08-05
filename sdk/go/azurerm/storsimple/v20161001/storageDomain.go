@@ -25,17 +25,20 @@ type StorageDomain struct {
 // NewStorageDomain registers a new resource with the given unique name, arguments, and options.
 func NewStorageDomain(ctx *pulumi.Context,
 	name string, args *StorageDomainArgs, opts ...pulumi.ResourceOption) (*StorageDomain, error) {
+	if args == nil || args.EncryptionStatus == nil {
+		return nil, errors.New("missing required argument 'EncryptionStatus'")
+	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StorageAccountCredentialIds == nil {
+		return nil, errors.New("missing required argument 'StorageAccountCredentialIds'")
 	}
 	if args == nil {
 		args = &StorageDomainArgs{}
@@ -84,26 +87,34 @@ func (StorageDomainState) ElementType() reflect.Type {
 }
 
 type storageDomainArgs struct {
+	// The encryption key used to encrypt the data. This is a user secret.
+	EncryptionKey *AsymmetricEncryptedSecret `pulumi:"encryptionKey"`
+	// The encryption status "Enabled | Disabled".
+	EncryptionStatus string `pulumi:"encryptionStatus"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The storage domain name.
 	Name string `pulumi:"name"`
-	// The properties.
-	Properties StorageDomainProperties `pulumi:"properties"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The storage account credentials.
+	StorageAccountCredentialIds []string `pulumi:"storageAccountCredentialIds"`
 }
 
 // The set of arguments for constructing a StorageDomain resource.
 type StorageDomainArgs struct {
+	// The encryption key used to encrypt the data. This is a user secret.
+	EncryptionKey AsymmetricEncryptedSecretPtrInput
+	// The encryption status "Enabled | Disabled".
+	EncryptionStatus pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The storage domain name.
 	Name pulumi.StringInput
-	// The properties.
-	Properties StorageDomainPropertiesInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// The storage account credentials.
+	StorageAccountCredentialIds pulumi.StringArrayInput
 }
 
 func (StorageDomainArgs) ElementType() reflect.Type {

@@ -89,6 +89,30 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
 
     public sealed class VirtualNetworkArgs : Pulumi.ResourceArgs
     {
+        [Input("allowedSubnets")]
+        private InputList<Inputs.SubnetArgs>? _allowedSubnets;
+
+        /// <summary>
+        /// The allowed subnets of the virtual network.
+        /// </summary>
+        public InputList<Inputs.SubnetArgs> AllowedSubnets
+        {
+            get => _allowedSubnets ?? (_allowedSubnets = new InputList<Inputs.SubnetArgs>());
+            set => _allowedSubnets = value;
+        }
+
+        /// <summary>
+        /// The description of the virtual network.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The Microsoft.Network resource identifier of the virtual network.
+        /// </summary>
+        [Input("externalProviderResourceId")]
+        public Input<string>? ExternalProviderResourceId { get; set; }
+
         /// <summary>
         /// The name of the lab.
         /// </summary>
@@ -108,16 +132,22 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualNetworkPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("subnetOverrides")]
+        private InputList<Inputs.SubnetOverrideArgs>? _subnetOverrides;
+
+        /// <summary>
+        /// The subnet overrides of the virtual network.
+        /// </summary>
+        public InputList<Inputs.SubnetOverrideArgs> SubnetOverrides
+        {
+            get => _subnetOverrides ?? (_subnetOverrides = new InputList<Inputs.SubnetOverrideArgs>());
+            set => _subnetOverrides = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

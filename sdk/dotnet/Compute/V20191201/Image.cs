@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.Compute.V20191201
     public sealed class ImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets the HyperVGenerationType of the VirtualMachine created from the image
+        /// </summary>
+        [Input("hyperVGeneration")]
+        public Input<string>? HyperVGeneration { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
@@ -102,16 +108,22 @@ namespace Pulumi.AzureRM.Compute.V20191201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Describes the properties of an Image.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ImagePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The source virtual machine from which Image is created.
+        /// </summary>
+        [Input("sourceVirtualMachine")]
+        public Input<Inputs.SubResourceArgs>? SourceVirtualMachine { get; set; }
+
+        /// <summary>
+        /// Specifies the storage settings for the virtual machine disks.
+        /// </summary>
+        [Input("storageProfile")]
+        public Input<Inputs.ImageStorageProfileArgs>? StorageProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

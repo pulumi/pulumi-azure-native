@@ -28,10 +28,16 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the azure firewall IP configuration.
+        /// Reference to the PublicIP resource. This field is a mandatory input if subnet is not null.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AzureFirewallIPConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("publicIPAddress")]
+        public Input<Inputs.SubResourceArgs>? PublicIPAddress { get; set; }
+
+        /// <summary>
+        /// Reference to the subnet resource. This resource must be named 'AzureFirewallSubnet' or 'AzureFirewallManagementSubnet'.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubResourceArgs>? Subnet { get; set; }
 
         public AzureFirewallIPConfigurationArgs()
         {

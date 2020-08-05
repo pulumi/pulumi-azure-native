@@ -55,7 +55,7 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
     /**
      * Properties of the Network Virtual Appliance.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200401.NetworkVirtualAppliancePropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.NetworkVirtualAppliancePropertiesFormatResponse>;
     /**
      * Network Virtual Appliance SKU.
      */
@@ -88,15 +88,19 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["bootStrapConfigurationBlob"] = args ? args.bootStrapConfigurationBlob : undefined;
+            inputs["cloudInitConfigurationBlob"] = args ? args.cloudInitConfigurationBlob : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualApplianceAsn"] = args ? args.virtualApplianceAsn : undefined;
+            inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,6 +119,14 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
  */
 export interface NetworkVirtualApplianceArgs {
     /**
+     * BootStrapConfigurationBlob storage URLs.
+     */
+    readonly bootStrapConfigurationBlob?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * CloudInitConfigurationBlob storage URLs.
+     */
+    readonly cloudInitConfigurationBlob?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -131,10 +143,6 @@ export interface NetworkVirtualApplianceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Network Virtual Appliance.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20200401.NetworkVirtualAppliancePropertiesFormat>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -146,4 +154,12 @@ export interface NetworkVirtualApplianceArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * VirtualAppliance ASN.
+     */
+    readonly virtualApplianceAsn?: pulumi.Input<number>;
+    /**
+     * The Virtual Hub where Network Virtual Appliance is being deployed.
+     */
+    readonly virtualHub?: pulumi.Input<inputs.network.v20200401.SubResource>;
 }

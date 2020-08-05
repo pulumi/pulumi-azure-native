@@ -54,36 +54,32 @@ class Queue(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, namespace_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, entity_availability_status=None, is_anonymous_accessible=None, location=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, status=None, support_ordering=None, __props__=None, __name__=None, __opts__=None):
         """
         Description of queue Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auto_delete_on_idle: the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+        :param pulumi.Input[bool] dead_lettering_on_message_expiration: A value that indicates whether this queue has dead letter support when a message expires.
+        :param pulumi.Input[str] default_message_time_to_live: The default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        :param pulumi.Input[str] duplicate_detection_history_time_window: TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        :param pulumi.Input[bool] enable_batched_operations: A value that indicates whether server-side batched operations are enabled.
+        :param pulumi.Input[bool] enable_express: A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
+        :param pulumi.Input[bool] enable_partitioning: A value that indicates whether the queue is to be partitioned across multiple message brokers.
+        :param pulumi.Input[str] entity_availability_status: Entity availability status for the queue.
+        :param pulumi.Input[bool] is_anonymous_accessible: A value that indicates whether the message is accessible anonymously.
         :param pulumi.Input[str] location: location of the resource.
+        :param pulumi.Input[str] lock_duration: The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
+        :param pulumi.Input[float] max_delivery_count: The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
+        :param pulumi.Input[float] max_size_in_megabytes: The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
         :param pulumi.Input[str] name: The queue name.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[dict] properties: The Queue Properties definition.
+        :param pulumi.Input[bool] requires_duplicate_detection: A value indicating if this queue requires duplicate detection.
+        :param pulumi.Input[bool] requires_session: A value that indicates whether the queue supports the concept of sessions.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-
-        The **properties** object supports the following:
-
-          * `auto_delete_on_idle` (`pulumi.Input[str]`) - the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
-          * `dead_lettering_on_message_expiration` (`pulumi.Input[bool]`) - A value that indicates whether this queue has dead letter support when a message expires.
-          * `default_message_time_to_live` (`pulumi.Input[str]`) - The default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-          * `duplicate_detection_history_time_window` (`pulumi.Input[str]`) - TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-          * `enable_batched_operations` (`pulumi.Input[bool]`) - A value that indicates whether server-side batched operations are enabled.
-          * `enable_express` (`pulumi.Input[bool]`) - A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
-          * `enable_partitioning` (`pulumi.Input[bool]`) - A value that indicates whether the queue is to be partitioned across multiple message brokers.
-          * `entity_availability_status` (`pulumi.Input[str]`) - Entity availability status for the queue.
-          * `is_anonymous_accessible` (`pulumi.Input[bool]`) - A value that indicates whether the message is accessible anonymously.
-          * `lock_duration` (`pulumi.Input[str]`) - The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
-          * `max_delivery_count` (`pulumi.Input[float]`) - The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
-          * `max_size_in_megabytes` (`pulumi.Input[float]`) - The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
-          * `requires_duplicate_detection` (`pulumi.Input[bool]`) - A value indicating if this queue requires duplicate detection.
-          * `requires_session` (`pulumi.Input[bool]`) - A value that indicates whether the queue supports the concept of sessions.
-          * `status` (`pulumi.Input[str]`) - Enumerates the possible values for the status of a messaging entity.
-          * `support_ordering` (`pulumi.Input[bool]`) - A value that indicates whether the queue supports ordering.
+        :param pulumi.Input[str] status: Enumerates the possible values for the status of a messaging entity.
+        :param pulumi.Input[bool] support_ordering: A value that indicates whether the queue supports ordering.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,19 +98,35 @@ class Queue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auto_delete_on_idle'] = auto_delete_on_idle
+            __props__['dead_lettering_on_message_expiration'] = dead_lettering_on_message_expiration
+            __props__['default_message_time_to_live'] = default_message_time_to_live
+            __props__['duplicate_detection_history_time_window'] = duplicate_detection_history_time_window
+            __props__['enable_batched_operations'] = enable_batched_operations
+            __props__['enable_express'] = enable_express
+            __props__['enable_partitioning'] = enable_partitioning
+            __props__['entity_availability_status'] = entity_availability_status
+            __props__['is_anonymous_accessible'] = is_anonymous_accessible
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['lock_duration'] = lock_duration
+            __props__['max_delivery_count'] = max_delivery_count
+            __props__['max_size_in_megabytes'] = max_size_in_megabytes
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            __props__['properties'] = properties
+            __props__['requires_duplicate_detection'] = requires_duplicate_detection
+            __props__['requires_session'] = requires_session
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['status'] = status
+            __props__['support_ordering'] = support_ordering
+            __props__['properties'] = None
             __props__['type'] = None
         super(Queue, __self__).__init__(
             'azurerm:servicebus/v20140901:Queue',

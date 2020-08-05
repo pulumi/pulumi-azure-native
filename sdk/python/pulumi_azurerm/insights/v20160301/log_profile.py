@@ -38,27 +38,25 @@ class LogProfile(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, categories=None, location=None, locations=None, name=None, retention_policy=None, service_bus_rule_id=None, storage_account_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The log profile resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] categories: the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[list] locations: List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
         :param pulumi.Input[str] name: The name of the log profile.
-        :param pulumi.Input[dict] properties: The log profile properties of the resource.
+        :param pulumi.Input[dict] retention_policy: the retention policy for the events in the log.
+        :param pulumi.Input[str] service_bus_rule_id: The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+        :param pulumi.Input[str] storage_account_id: the resource id of the storage account to which you would like to send the Activity Log.
         :param pulumi.Input[dict] tags: Resource tags
 
-        The **properties** object supports the following:
+        The **retention_policy** object supports the following:
 
-          * `categories` (`pulumi.Input[list]`) - the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
-          * `locations` (`pulumi.Input[list]`) - List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-          * `retention_policy` (`pulumi.Input[dict]`) - the retention policy for the events in the log.
-            * `days` (`pulumi.Input[float]`) - the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-            * `enabled` (`pulumi.Input[bool]`) - a value indicating whether the retention policy is enabled.
-
-          * `service_bus_rule_id` (`pulumi.Input[str]`) - The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-          * `storage_account_id` (`pulumi.Input[str]`) - the resource id of the storage account to which you would like to send the Activity Log.
+          * `days` (`pulumi.Input[float]`) - the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+          * `enabled` (`pulumi.Input[bool]`) - a value indicating whether the retention policy is enabled.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,16 +75,25 @@ class LogProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if categories is None:
+                raise TypeError("Missing required property 'categories'")
+            __props__['categories'] = categories
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            if locations is None:
+                raise TypeError("Missing required property 'locations'")
+            __props__['locations'] = locations
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if retention_policy is None:
+                raise TypeError("Missing required property 'retention_policy'")
+            __props__['retention_policy'] = retention_policy
+            __props__['service_bus_rule_id'] = service_bus_rule_id
+            __props__['storage_account_id'] = storage_account_id
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(LogProfile, __self__).__init__(
             'azurerm:insights/v20160301:LogProfile',

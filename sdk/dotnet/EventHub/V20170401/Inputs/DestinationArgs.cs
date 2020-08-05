@@ -16,16 +16,28 @@ namespace Pulumi.AzureRM.EventHub.V20170401.Inputs
     public sealed class DestinationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+        /// </summary>
+        [Input("archiveNameFormat")]
+        public Input<string>? ArchiveNameFormat { get; set; }
+
+        /// <summary>
+        /// Blob container Name
+        /// </summary>
+        [Input("blobContainer")]
+        public Input<string>? BlobContainer { get; set; }
+
+        /// <summary>
         /// Name for capture destination
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties describing the storage account, blob container and archive name format for capture destination
+        /// Resource id of the storage account to be used to create the blobs
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DestinationPropertiesArgs>? Properties { get; set; }
+        [Input("storageAccountResourceId")]
+        public Input<string>? StorageAccountResourceId { get; set; }
 
         public DestinationArgs()
         {

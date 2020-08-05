@@ -31,9 +31,6 @@ func NewUser(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -86,24 +83,28 @@ func (UserState) ElementType() reflect.Type {
 type userArgs struct {
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
+	// The password details.
+	EncryptedPassword *AsymmetricEncryptedSecret `pulumi:"encryptedPassword"`
 	// The user name.
 	Name string `pulumi:"name"`
-	// The storage account credential properties.
-	Properties UserProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// List of shares that the user has rights on. This field should not be specified during user creation.
+	ShareAccessRights []ShareAccessRight `pulumi:"shareAccessRights"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
 	// The device name.
 	DeviceName pulumi.StringInput
+	// The password details.
+	EncryptedPassword AsymmetricEncryptedSecretPtrInput
 	// The user name.
 	Name pulumi.StringInput
-	// The storage account credential properties.
-	Properties UserPropertiesInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// List of shares that the user has rights on. This field should not be specified during user creation.
+	ShareAccessRights ShareAccessRightArrayInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

@@ -43,7 +43,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**
      * Returns the Storage Account Object Replication Policy.
      */
-    public readonly properties!: pulumi.Output<outputs.storage.v20190601.ObjectReplicationPolicyPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190601.ObjectReplicationPolicyPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -65,16 +65,25 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.destinationAccount === undefined) {
+                throw new Error("Missing required property 'destinationAccount'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.sourceAccount === undefined) {
+                throw new Error("Missing required property 'sourceAccount'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["destinationAccount"] = args ? args.destinationAccount : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rules"] = args ? args.rules : undefined;
+            inputs["sourceAccount"] = args ? args.sourceAccount : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,15 +106,23 @@ export interface ObjectReplicationPolicyArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * Required. Destination account name.
+     */
+    readonly destinationAccount: pulumi.Input<string>;
+    /**
      * The ID of object replication policy or 'default' if the policy ID is unknown.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Returns the Storage Account Object Replication Policy.
-     */
-    readonly properties?: pulumi.Input<inputs.storage.v20190601.ObjectReplicationPolicyProperties>;
-    /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The storage account object replication rules.
+     */
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.storage.v20190601.ObjectReplicationPolicyRule>[]>;
+    /**
+     * Required. Source account name.
+     */
+    readonly sourceAccount: pulumi.Input<string>;
 }

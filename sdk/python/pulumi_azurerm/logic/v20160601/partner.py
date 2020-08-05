@@ -40,29 +40,27 @@ class Partner(pulumi.CustomResource):
     """
     Gets the resource type.
     """
-    def __init__(__self__, resource_name, opts=None, integration_account_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content=None, integration_account_name=None, location=None, metadata=None, name=None, partner_type=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The integration account partner.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] content: The partner content.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[dict] metadata: The metadata.
         :param pulumi.Input[str] name: The integration account partner name.
-        :param pulumi.Input[dict] properties: The integration account partner properties.
+        :param pulumi.Input[str] partner_type: The partner type.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[dict] tags: The resource tags.
 
-        The **properties** object supports the following:
+        The **content** object supports the following:
 
-          * `content` (`pulumi.Input[dict]`) - The partner content.
-            * `b2b` (`pulumi.Input[dict]`) - The B2B partner content.
-              * `business_identities` (`pulumi.Input[list]`) - The list of partner business identities.
-                * `qualifier` (`pulumi.Input[str]`) - The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
-                * `value` (`pulumi.Input[str]`) - The user defined business identity value.
-
-          * `metadata` (`pulumi.Input[dict]`) - The metadata.
-          * `partner_type` (`pulumi.Input[str]`) - The partner type.
+          * `b2b` (`pulumi.Input[dict]`) - The B2B partner content.
+            * `business_identities` (`pulumi.Input[list]`) - The list of partner business identities.
+              * `qualifier` (`pulumi.Input[str]`) - The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
+              * `value` (`pulumi.Input[str]`) - The user defined business identity value.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,20 +79,25 @@ class Partner(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if content is None:
+                raise TypeError("Missing required property 'content'")
+            __props__['content'] = content
             if integration_account_name is None:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
+            __props__['metadata'] = metadata
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if partner_type is None:
+                raise TypeError("Missing required property 'partner_type'")
+            __props__['partner_type'] = partner_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Partner, __self__).__init__(
             'azurerm:logic/v20160601:Partner',

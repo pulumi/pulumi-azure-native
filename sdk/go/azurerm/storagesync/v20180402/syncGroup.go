@@ -85,8 +85,6 @@ type syncGroupArgs struct {
 	Location *string `pulumi:"location"`
 	// Name of Sync Group resource.
 	Name string `pulumi:"name"`
-	// The parameters used to create the sync group
-	Properties *SyncGroupCreateParametersProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of Storage Sync Service resource.
@@ -101,8 +99,6 @@ type SyncGroupArgs struct {
 	Location pulumi.StringPtrInput
 	// Name of Sync Group resource.
 	Name pulumi.StringInput
-	// The parameters used to create the sync group
-	Properties SyncGroupCreateParametersPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Name of Storage Sync Service resource.

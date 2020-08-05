@@ -51,7 +51,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
     /**
      * Properties for the database account.
      */
-    public readonly properties!: pulumi.Output<outputs.documentdb.v20151106.DatabaseAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.v20151106.DatabaseAccountPropertiesResponse>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -74,21 +74,35 @@ export class DatabaseAccount extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DatabaseAccountArgs | undefined;
+            if (!args || args.databaseAccountOfferType === undefined) {
+                throw new Error("Missing required property 'databaseAccountOfferType'");
+            }
+            if (!args || args.locations === undefined) {
+                throw new Error("Missing required property 'locations'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["capabilities"] = args ? args.capabilities : undefined;
+            inputs["connectorOffer"] = args ? args.connectorOffer : undefined;
+            inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
+            inputs["databaseAccountOfferType"] = args ? args.databaseAccountOfferType : undefined;
+            inputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
+            inputs["enableCassandraConnector"] = args ? args.enableCassandraConnector : undefined;
+            inputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
+            inputs["ipRangeFilter"] = args ? args.ipRangeFilter : undefined;
+            inputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["locations"] = args ? args.locations : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +121,42 @@ export class DatabaseAccount extends pulumi.CustomResource {
  */
 export interface DatabaseAccountArgs {
     /**
+     * List of Cosmos DB capabilities for the account
+     */
+    readonly capabilities?: pulumi.Input<pulumi.Input<inputs.documentdb.v20151106.Capability>[]>;
+    /**
+     * The cassandra connector offer type for the Cosmos DB database C* account.
+     */
+    readonly connectorOffer?: pulumi.Input<string>;
+    /**
+     * The consistency policy for the Cosmos DB account.
+     */
+    readonly consistencyPolicy?: pulumi.Input<inputs.documentdb.v20151106.ConsistencyPolicy>;
+    /**
+     * The offer type for the database
+     */
+    readonly databaseAccountOfferType: pulumi.Input<string>;
+    /**
+     * Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+     */
+    readonly enableAutomaticFailover?: pulumi.Input<boolean>;
+    /**
+     * Enables the cassandra connector on the Cosmos DB C* account
+     */
+    readonly enableCassandraConnector?: pulumi.Input<boolean>;
+    /**
+     * Enables the account to write in multiple locations
+     */
+    readonly enableMultipleWriteLocations?: pulumi.Input<boolean>;
+    /**
+     * Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+     */
+    readonly ipRangeFilter?: pulumi.Input<string>;
+    /**
+     * Flag to indicate whether to enable/disable Virtual Network ACL rules.
+     */
+    readonly isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
+    /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
     readonly kind?: pulumi.Input<string>;
@@ -115,13 +165,13 @@ export interface DatabaseAccountArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * An array that contains the georeplication locations enabled for the Cosmos DB account.
+     */
+    readonly locations: pulumi.Input<pulumi.Input<inputs.documentdb.v20151106.Location>[]>;
+    /**
      * Cosmos DB database account name.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties to create and update Azure Cosmos DB database accounts.
-     */
-    readonly properties: pulumi.Input<inputs.documentdb.v20151106.DatabaseAccountCreateUpdateProperties>;
     /**
      * Name of an Azure resource group.
      */
@@ -130,4 +180,8 @@ export interface DatabaseAccountArgs {
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
     readonly tags?: pulumi.Input<inputs.documentdb.v20151106.Tags>;
+    /**
+     * List of Virtual Network ACL rules configured for the Cosmos DB account.
+     */
+    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.documentdb.v20151106.VirtualNetworkRule>[]>;
 }

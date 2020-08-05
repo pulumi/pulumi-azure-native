@@ -81,34 +81,42 @@ func (ServiceEndpointPolicyDefinitionState) ElementType() reflect.Type {
 }
 
 type serviceEndpointPolicyDefinitionArgs struct {
+	// A description for this rule. Restricted to 140 chars.
+	Description *string `pulumi:"description"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the service endpoint policy definition name.
 	Name string `pulumi:"name"`
-	// Properties of the service endpoint policy definition
-	Properties *ServiceEndpointPolicyDefinitionPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// service endpoint name.
+	Service *string `pulumi:"service"`
 	// The name of the service endpoint policy.
 	ServiceEndpointPolicyName string `pulumi:"serviceEndpointPolicyName"`
+	// A list of service resources.
+	ServiceResources []string `pulumi:"serviceResources"`
 }
 
 // The set of arguments for constructing a ServiceEndpointPolicyDefinition resource.
 type ServiceEndpointPolicyDefinitionArgs struct {
+	// A description for this rule. Restricted to 140 chars.
+	Description pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the service endpoint policy definition name.
 	Name pulumi.StringInput
-	// Properties of the service endpoint policy definition
-	Properties ServiceEndpointPolicyDefinitionPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// service endpoint name.
+	Service pulumi.StringPtrInput
 	// The name of the service endpoint policy.
 	ServiceEndpointPolicyName pulumi.StringInput
+	// A list of service resources.
+	ServiceResources pulumi.StringArrayInput
 }
 
 func (ServiceEndpointPolicyDefinitionArgs) ElementType() reflect.Type {

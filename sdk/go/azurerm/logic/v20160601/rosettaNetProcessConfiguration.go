@@ -29,17 +29,32 @@ type RosettaNetProcessConfiguration struct {
 // NewRosettaNetProcessConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	name string, args *RosettaNetProcessConfigurationArgs, opts ...pulumi.ResourceOption) (*RosettaNetProcessConfiguration, error) {
+	if args == nil || args.ActivitySettings == nil {
+		return nil, errors.New("missing required argument 'ActivitySettings'")
+	}
+	if args == nil || args.InitiatorRoleSettings == nil {
+		return nil, errors.New("missing required argument 'InitiatorRoleSettings'")
+	}
 	if args == nil || args.IntegrationAccountName == nil {
 		return nil, errors.New("missing required argument 'IntegrationAccountName'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.ProcessCode == nil {
+		return nil, errors.New("missing required argument 'ProcessCode'")
+	}
+	if args == nil || args.ProcessName == nil {
+		return nil, errors.New("missing required argument 'ProcessName'")
+	}
+	if args == nil || args.ProcessVersion == nil {
+		return nil, errors.New("missing required argument 'ProcessVersion'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ResponderRoleSettings == nil {
+		return nil, errors.New("missing required argument 'ResponderRoleSettings'")
 	}
 	if args == nil {
 		args = &RosettaNetProcessConfigurationArgs{}
@@ -96,32 +111,60 @@ func (RosettaNetProcessConfigurationState) ElementType() reflect.Type {
 }
 
 type rosettaNetProcessConfigurationArgs struct {
+	// The RosettaNet process configuration activity settings.
+	ActivitySettings RosettaNetPipActivitySettings `pulumi:"activitySettings"`
+	// The integration account RosettaNet ProcessConfiguration properties.
+	Description *string `pulumi:"description"`
+	// The RosettaNet initiator role settings.
+	InitiatorRoleSettings RosettaNetPipRoleSettings `pulumi:"initiatorRoleSettings"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata map[string]string `pulumi:"metadata"`
 	// The integration account RosettaNet ProcessConfiguration name.
 	Name string `pulumi:"name"`
-	// The integration account RosettaNet process configuration properties.
-	Properties IntegrationAccountRosettaNetProcessConfigurationProperties `pulumi:"properties"`
+	// The integration account RosettaNet process code.
+	ProcessCode string `pulumi:"processCode"`
+	// The integration account RosettaNet process name.
+	ProcessName string `pulumi:"processName"`
+	// The integration account RosettaNet process version.
+	ProcessVersion string `pulumi:"processVersion"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The RosettaNet responder role settings.
+	ResponderRoleSettings RosettaNetPipRoleSettings `pulumi:"responderRoleSettings"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RosettaNetProcessConfiguration resource.
 type RosettaNetProcessConfigurationArgs struct {
+	// The RosettaNet process configuration activity settings.
+	ActivitySettings RosettaNetPipActivitySettingsInput
+	// The integration account RosettaNet ProcessConfiguration properties.
+	Description pulumi.StringPtrInput
+	// The RosettaNet initiator role settings.
+	InitiatorRoleSettings RosettaNetPipRoleSettingsInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.StringMapInput
 	// The integration account RosettaNet ProcessConfiguration name.
 	Name pulumi.StringInput
-	// The integration account RosettaNet process configuration properties.
-	Properties IntegrationAccountRosettaNetProcessConfigurationPropertiesInput
+	// The integration account RosettaNet process code.
+	ProcessCode pulumi.StringInput
+	// The integration account RosettaNet process name.
+	ProcessName pulumi.StringInput
+	// The integration account RosettaNet process version.
+	ProcessVersion pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// The RosettaNet responder role settings.
+	ResponderRoleSettings RosettaNetPipRoleSettingsInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 }

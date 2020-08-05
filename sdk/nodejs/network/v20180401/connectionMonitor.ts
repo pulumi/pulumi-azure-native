@@ -48,7 +48,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * Describes the properties of a connection monitor.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180401.ConnectionMonitorResultPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180401.ConnectionMonitorResultPropertiesResponse>;
     /**
      * Connection monitor tags.
      */
@@ -71,25 +71,32 @@ export class ConnectionMonitor extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ConnectionMonitorArgs | undefined;
+            if (!args || args.destination === undefined) {
+                throw new Error("Missing required property 'destination'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.networkWatcherName === undefined) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.source === undefined) {
+                throw new Error("Missing required property 'source'");
+            }
+            inputs["autoStart"] = args ? args.autoStart : undefined;
+            inputs["destination"] = args ? args.destination : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["monitoringIntervalInSeconds"] = args ? args.monitoringIntervalInSeconds : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,9 +115,21 @@ export class ConnectionMonitor extends pulumi.CustomResource {
  */
 export interface ConnectionMonitorArgs {
     /**
+     * Determines if the connection monitor will start automatically once created.
+     */
+    readonly autoStart?: pulumi.Input<boolean>;
+    /**
+     * Describes the destination of connection monitor.
+     */
+    readonly destination: pulumi.Input<inputs.network.v20180401.ConnectionMonitorDestination>;
+    /**
      * Connection monitor location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Monitoring interval in seconds.
+     */
+    readonly monitoringIntervalInSeconds?: pulumi.Input<number>;
     /**
      * The name of the connection monitor.
      */
@@ -120,13 +139,13 @@ export interface ConnectionMonitorArgs {
      */
     readonly networkWatcherName: pulumi.Input<string>;
     /**
-     * Parameters that define the operation to create a connection monitor.
-     */
-    readonly properties: pulumi.Input<inputs.network.v20180401.ConnectionMonitorParameters>;
-    /**
      * The name of the resource group containing Network Watcher.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Describes the source of connection monitor.
+     */
+    readonly source: pulumi.Input<inputs.network.v20180401.ConnectionMonitorSource>;
     /**
      * Connection monitor tags.
      */

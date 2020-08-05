@@ -47,7 +47,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.LabVirtualMachinePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.LabVirtualMachinePropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -76,18 +76,45 @@ export class VirtualMachine extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["allowClaim"] = args ? args.allowClaim : undefined;
+            inputs["applicableSchedule"] = args ? args.applicableSchedule : undefined;
+            inputs["artifactDeploymentStatus"] = args ? args.artifactDeploymentStatus : undefined;
+            inputs["artifacts"] = args ? args.artifacts : undefined;
+            inputs["computeVm"] = args ? args.computeVm : undefined;
+            inputs["createdByUser"] = args ? args.createdByUser : undefined;
+            inputs["createdByUserId"] = args ? args.createdByUserId : undefined;
+            inputs["createdDate"] = args ? args.createdDate : undefined;
+            inputs["customImageId"] = args ? args.customImageId : undefined;
+            inputs["disallowPublicIpAddress"] = args ? args.disallowPublicIpAddress : undefined;
+            inputs["environmentId"] = args ? args.environmentId : undefined;
+            inputs["expirationDate"] = args ? args.expirationDate : undefined;
+            inputs["fqdn"] = args ? args.fqdn : undefined;
+            inputs["galleryImageReference"] = args ? args.galleryImageReference : undefined;
+            inputs["isAuthenticationWithSshKey"] = args ? args.isAuthenticationWithSshKey : undefined;
             inputs["labName"] = args ? args.labName : undefined;
+            inputs["labSubnetName"] = args ? args.labSubnetName : undefined;
+            inputs["labVirtualNetworkId"] = args ? args.labVirtualNetworkId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkInterface"] = args ? args.networkInterface : undefined;
+            inputs["notes"] = args ? args.notes : undefined;
+            inputs["osType"] = args ? args.osType : undefined;
+            inputs["ownerObjectId"] = args ? args.ownerObjectId : undefined;
+            inputs["ownerUserPrincipalName"] = args ? args.ownerUserPrincipalName : undefined;
+            inputs["password"] = args ? args.password : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["size"] = args ? args.size : undefined;
+            inputs["sshKey"] = args ? args.sshKey : undefined;
+            inputs["storageType"] = args ? args.storageType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["userName"] = args ? args.userName : undefined;
+            inputs["virtualMachineCreationSource"] = args ? args.virtualMachineCreationSource : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,9 +133,77 @@ export class VirtualMachine extends pulumi.CustomResource {
  */
 export interface VirtualMachineArgs {
     /**
+     * Indicates whether another user can take ownership of the virtual machine
+     */
+    readonly allowClaim?: pulumi.Input<boolean>;
+    /**
+     * The applicable schedule for the virtual machine.
+     */
+    readonly applicableSchedule?: pulumi.Input<inputs.devtestlab.v20160515.ApplicableSchedule>;
+    /**
+     * The artifact deployment status for the virtual machine.
+     */
+    readonly artifactDeploymentStatus?: pulumi.Input<inputs.devtestlab.v20160515.ArtifactDeploymentStatusProperties>;
+    /**
+     * The artifacts to be installed on the virtual machine.
+     */
+    readonly artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.ArtifactInstallProperties>[]>;
+    /**
+     * The compute virtual machine properties.
+     */
+    readonly computeVm?: pulumi.Input<inputs.devtestlab.v20160515.ComputeVmProperties>;
+    /**
+     * The email address of creator of the virtual machine.
+     */
+    readonly createdByUser?: pulumi.Input<string>;
+    /**
+     * The object identifier of the creator of the virtual machine.
+     */
+    readonly createdByUserId?: pulumi.Input<string>;
+    /**
+     * The creation date of the virtual machine.
+     */
+    readonly createdDate?: pulumi.Input<string>;
+    /**
+     * The custom image identifier of the virtual machine.
+     */
+    readonly customImageId?: pulumi.Input<string>;
+    /**
+     * Indicates whether the virtual machine is to be created without a public IP address.
+     */
+    readonly disallowPublicIpAddress?: pulumi.Input<boolean>;
+    /**
+     * The resource ID of the environment that contains this virtual machine, if any.
+     */
+    readonly environmentId?: pulumi.Input<string>;
+    /**
+     * The expiration date for VM.
+     */
+    readonly expirationDate?: pulumi.Input<string>;
+    /**
+     * The fully-qualified domain name of the virtual machine.
+     */
+    readonly fqdn?: pulumi.Input<string>;
+    /**
+     * The Microsoft Azure Marketplace image reference of the virtual machine.
+     */
+    readonly galleryImageReference?: pulumi.Input<inputs.devtestlab.v20160515.GalleryImageReference>;
+    /**
+     * Indicates whether this virtual machine uses an SSH key for authentication.
+     */
+    readonly isAuthenticationWithSshKey?: pulumi.Input<boolean>;
+    /**
      * The name of the lab.
      */
     readonly labName: pulumi.Input<string>;
+    /**
+     * The lab subnet name of the virtual machine.
+     */
+    readonly labSubnetName?: pulumi.Input<string>;
+    /**
+     * The lab virtual network identifier of the virtual machine.
+     */
+    readonly labVirtualNetworkId?: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
@@ -118,15 +213,63 @@ export interface VirtualMachineArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the resource.
+     * The network interface properties.
      */
-    readonly properties: pulumi.Input<inputs.devtestlab.v20160515.LabVirtualMachineProperties>;
+    readonly networkInterface?: pulumi.Input<inputs.devtestlab.v20160515.NetworkInterfaceProperties>;
+    /**
+     * The notes of the virtual machine.
+     */
+    readonly notes?: pulumi.Input<string>;
+    /**
+     * The OS type of the virtual machine.
+     */
+    readonly osType?: pulumi.Input<string>;
+    /**
+     * The object identifier of the owner of the virtual machine.
+     */
+    readonly ownerObjectId?: pulumi.Input<string>;
+    /**
+     * The user principal name of the virtual machine owner.
+     */
+    readonly ownerUserPrincipalName?: pulumi.Input<string>;
+    /**
+     * The password of the virtual machine administrator.
+     */
+    readonly password?: pulumi.Input<string>;
+    /**
+     * The provisioning status of the resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The size of the virtual machine.
+     */
+    readonly size?: pulumi.Input<string>;
+    /**
+     * The SSH key of the virtual machine administrator.
+     */
+    readonly sshKey?: pulumi.Input<string>;
+    /**
+     * Storage type to use for virtual machine (i.e. Standard, Premium).
+     */
+    readonly storageType?: pulumi.Input<string>;
+    /**
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
+    /**
+     * The user name of the virtual machine.
+     */
+    readonly userName?: pulumi.Input<string>;
+    /**
+     * Tells source of creation of lab virtual machine. Output property only.
+     */
+    readonly virtualMachineCreationSource?: pulumi.Input<string>;
 }

@@ -31,7 +31,7 @@ class CloudEndpoint(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, storage_sync_service_name=None, sync_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, storage_account_resource_id=None, storage_account_share_name=None, storage_account_tenant_id=None, storage_sync_service_name=None, sync_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Cloud Endpoint object.
 
@@ -39,17 +39,13 @@ class CloudEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         :param pulumi.Input[str] name: Name of Cloud Endpoint object.
-        :param pulumi.Input[dict] properties: The parameters used to create the storage sync service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] storage_account_resource_id: Storage Account Resource Id
+        :param pulumi.Input[str] storage_account_share_name: Storage Account Share name
+        :param pulumi.Input[str] storage_account_tenant_id: Storage Account Tenant Id
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[str] sync_group_name: Name of Sync Group resource.
         :param pulumi.Input[dict] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
-
-        The **properties** object supports the following:
-
-          * `storage_account_resource_id` (`pulumi.Input[str]`) - Storage Account Resource Id
-          * `storage_account_share_name` (`pulumi.Input[str]`) - Storage Account Share name
-          * `storage_account_tenant_id` (`pulumi.Input[str]`) - Storage Account Tenant Id
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -72,10 +68,12 @@ class CloudEndpoint(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['storage_account_resource_id'] = storage_account_resource_id
+            __props__['storage_account_share_name'] = storage_account_share_name
+            __props__['storage_account_tenant_id'] = storage_account_tenant_id
             if storage_sync_service_name is None:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
@@ -83,6 +81,7 @@ class CloudEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__['sync_group_name'] = sync_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(CloudEndpoint, __self__).__init__(
             'azurerm:storagesync/v20180402:CloudEndpoint',

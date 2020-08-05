@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20160601.Inputs
     public sealed class PublicIPAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets FQDN of the DNS record associated with the public IP address
+        /// </summary>
+        [Input("dnsSettings")]
+        public Input<Inputs.PublicIPAddressDnsSettingsArgs>? DnsSettings { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
@@ -28,16 +34,43 @@ namespace Pulumi.AzureRM.Network.V20160601.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// Gets or sets the idle timeout of the public IP address
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
+
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// PublicIpAddress properties
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PublicIPAddressPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Gets or sets PublicIP address version (IPv4/IPv6)
+        /// </summary>
+        [Input("publicIPAddressVersion")]
+        public Input<string>? PublicIPAddressVersion { get; set; }
+
+        /// <summary>
+        /// Gets or sets PublicIP allocation method (Static/Dynamic)
+        /// </summary>
+        [Input("publicIPAllocationMethod")]
+        public Input<string>? PublicIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// Gets or sets resource guid property of the PublicIP resource
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

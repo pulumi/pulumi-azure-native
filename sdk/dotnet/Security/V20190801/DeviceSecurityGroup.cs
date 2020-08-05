@@ -77,6 +77,30 @@ namespace Pulumi.AzureRM.Security.V20190801
 
     public sealed class DeviceSecurityGroupArgs : Pulumi.ResourceArgs
     {
+        [Input("allowlistRules")]
+        private InputList<Inputs.AllowlistCustomAlertRuleArgs>? _allowlistRules;
+
+        /// <summary>
+        /// The allow-list custom alert rules.
+        /// </summary>
+        public InputList<Inputs.AllowlistCustomAlertRuleArgs> AllowlistRules
+        {
+            get => _allowlistRules ?? (_allowlistRules = new InputList<Inputs.AllowlistCustomAlertRuleArgs>());
+            set => _allowlistRules = value;
+        }
+
+        [Input("denylistRules")]
+        private InputList<Inputs.DenylistCustomAlertRuleArgs>? _denylistRules;
+
+        /// <summary>
+        /// The deny-list custom alert rules.
+        /// </summary>
+        public InputList<Inputs.DenylistCustomAlertRuleArgs> DenylistRules
+        {
+            get => _denylistRules ?? (_denylistRules = new InputList<Inputs.DenylistCustomAlertRuleArgs>());
+            set => _denylistRules = value;
+        }
+
         /// <summary>
         /// The name of the device security group. Note that the name of the device security group is case insensitive.
         /// </summary>
@@ -84,16 +108,34 @@ namespace Pulumi.AzureRM.Security.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Device Security group data
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DeviceSecurityGroupPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The identifier of the resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
+
+        [Input("thresholdRules")]
+        private InputList<Inputs.ThresholdCustomAlertRuleArgs>? _thresholdRules;
+
+        /// <summary>
+        /// The list of custom alert threshold rules.
+        /// </summary>
+        public InputList<Inputs.ThresholdCustomAlertRuleArgs> ThresholdRules
+        {
+            get => _thresholdRules ?? (_thresholdRules = new InputList<Inputs.ThresholdCustomAlertRuleArgs>());
+            set => _thresholdRules = value;
+        }
+
+        [Input("timeWindowRules")]
+        private InputList<Inputs.TimeWindowCustomAlertRuleArgs>? _timeWindowRules;
+
+        /// <summary>
+        /// The list of custom alert time-window rules.
+        /// </summary>
+        public InputList<Inputs.TimeWindowCustomAlertRuleArgs> TimeWindowRules
+        {
+            get => _timeWindowRules ?? (_timeWindowRules = new InputList<Inputs.TimeWindowCustomAlertRuleArgs>());
+            set => _timeWindowRules = value;
+        }
 
         public DeviceSecurityGroupArgs()
         {

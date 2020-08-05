@@ -107,6 +107,30 @@ namespace Pulumi.AzureRM.Network.V20200401
 
     public sealed class NetworkVirtualApplianceArgs : Pulumi.ResourceArgs
     {
+        [Input("bootStrapConfigurationBlob")]
+        private InputList<string>? _bootStrapConfigurationBlob;
+
+        /// <summary>
+        /// BootStrapConfigurationBlob storage URLs.
+        /// </summary>
+        public InputList<string> BootStrapConfigurationBlob
+        {
+            get => _bootStrapConfigurationBlob ?? (_bootStrapConfigurationBlob = new InputList<string>());
+            set => _bootStrapConfigurationBlob = value;
+        }
+
+        [Input("cloudInitConfigurationBlob")]
+        private InputList<string>? _cloudInitConfigurationBlob;
+
+        /// <summary>
+        /// CloudInitConfigurationBlob storage URLs.
+        /// </summary>
+        public InputList<string> CloudInitConfigurationBlob
+        {
+            get => _cloudInitConfigurationBlob ?? (_cloudInitConfigurationBlob = new InputList<string>());
+            set => _cloudInitConfigurationBlob = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -132,12 +156,6 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Network Virtual Appliance.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkVirtualAppliancePropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -160,6 +178,18 @@ namespace Pulumi.AzureRM.Network.V20200401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// VirtualAppliance ASN.
+        /// </summary>
+        [Input("virtualApplianceAsn")]
+        public Input<int>? VirtualApplianceAsn { get; set; }
+
+        /// <summary>
+        /// The Virtual Hub where Network Virtual Appliance is being deployed.
+        /// </summary>
+        [Input("virtualHub")]
+        public Input<Inputs.SubResourceArgs>? VirtualHub { get; set; }
 
         public NetworkVirtualApplianceArgs()
         {

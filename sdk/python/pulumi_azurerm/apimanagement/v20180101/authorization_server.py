@@ -41,38 +41,36 @@ class AuthorizationServer(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authorization_endpoint=None, authorization_methods=None, bearer_token_sending_methods=None, client_authentication_method=None, client_id=None, client_registration_endpoint=None, client_secret=None, default_scope=None, description=None, display_name=None, grant_types=None, name=None, resource_group_name=None, resource_owner_password=None, resource_owner_username=None, service_name=None, support_state=None, token_body_parameters=None, token_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
         External OAuth authorization server settings.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authorization_endpoint: OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
+        :param pulumi.Input[list] authorization_methods: HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
+        :param pulumi.Input[list] bearer_token_sending_methods: Specifies the mechanism by which access token is passed to the API. 
+        :param pulumi.Input[list] client_authentication_method: Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
+        :param pulumi.Input[str] client_id: Client or app id registered with this authorization server.
+        :param pulumi.Input[str] client_registration_endpoint: Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
+        :param pulumi.Input[str] client_secret: Client or app secret registered with this authorization server.
+        :param pulumi.Input[str] default_scope: Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
+        :param pulumi.Input[str] description: Description of the authorization server. Can contain HTML formatting tags.
+        :param pulumi.Input[str] display_name: User-friendly authorization server name.
+        :param pulumi.Input[list] grant_types: Form of an authorization grant, which the client uses to request the access token.
         :param pulumi.Input[str] name: Identifier of the authorization server.
-        :param pulumi.Input[dict] properties: Properties of the External OAuth authorization server Contract.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_owner_password: Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
+        :param pulumi.Input[str] resource_owner_username: Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[bool] support_state: If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
+        :param pulumi.Input[list] token_body_parameters: Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
+        :param pulumi.Input[str] token_endpoint: OAuth token endpoint. Contains absolute URI to entity being referenced.
 
-        The **properties** object supports the following:
+        The **token_body_parameters** object supports the following:
 
-          * `authorization_endpoint` (`pulumi.Input[str]`) - OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
-          * `authorization_methods` (`pulumi.Input[list]`) - HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
-          * `bearer_token_sending_methods` (`pulumi.Input[list]`) - Specifies the mechanism by which access token is passed to the API. 
-          * `client_authentication_method` (`pulumi.Input[list]`) - Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
-          * `client_id` (`pulumi.Input[str]`) - Client or app id registered with this authorization server.
-          * `client_registration_endpoint` (`pulumi.Input[str]`) - Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
-          * `client_secret` (`pulumi.Input[str]`) - Client or app secret registered with this authorization server.
-          * `default_scope` (`pulumi.Input[str]`) - Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
-          * `description` (`pulumi.Input[str]`) - Description of the authorization server. Can contain HTML formatting tags.
-          * `display_name` (`pulumi.Input[str]`) - User-friendly authorization server name.
-          * `grant_types` (`pulumi.Input[list]`) - Form of an authorization grant, which the client uses to request the access token.
-          * `resource_owner_password` (`pulumi.Input[str]`) - Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
-          * `resource_owner_username` (`pulumi.Input[str]`) - Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
-          * `support_state` (`pulumi.Input[bool]`) - If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
-          * `token_body_parameters` (`pulumi.Input[list]`) - Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
-            * `name` (`pulumi.Input[str]`) - body parameter name.
-            * `value` (`pulumi.Input[str]`) - body parameter value.
-
-          * `token_endpoint` (`pulumi.Input[str]`) - OAuth token endpoint. Contains absolute URI to entity being referenced.
+          * `name` (`pulumi.Input[str]`) - body parameter name.
+          * `value` (`pulumi.Input[str]`) - body parameter value.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,16 +89,42 @@ class AuthorizationServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if authorization_endpoint is None:
+                raise TypeError("Missing required property 'authorization_endpoint'")
+            __props__['authorization_endpoint'] = authorization_endpoint
+            __props__['authorization_methods'] = authorization_methods
+            __props__['bearer_token_sending_methods'] = bearer_token_sending_methods
+            __props__['client_authentication_method'] = client_authentication_method
+            if client_id is None:
+                raise TypeError("Missing required property 'client_id'")
+            __props__['client_id'] = client_id
+            if client_registration_endpoint is None:
+                raise TypeError("Missing required property 'client_registration_endpoint'")
+            __props__['client_registration_endpoint'] = client_registration_endpoint
+            __props__['client_secret'] = client_secret
+            __props__['default_scope'] = default_scope
+            __props__['description'] = description
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
+            if grant_types is None:
+                raise TypeError("Missing required property 'grant_types'")
+            __props__['grant_types'] = grant_types
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['resource_owner_password'] = resource_owner_password
+            __props__['resource_owner_username'] = resource_owner_username
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['support_state'] = support_state
+            __props__['token_body_parameters'] = token_body_parameters
+            __props__['token_endpoint'] = token_endpoint
+            __props__['properties'] = None
             __props__['type'] = None
         super(AuthorizationServer, __self__).__init__(
             'azurerm:apimanagement/v20180101:AuthorizationServer',

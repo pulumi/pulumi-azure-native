@@ -29,24 +29,23 @@ class Transform(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, description=None, name=None, outputs=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
+        :param pulumi.Input[str] description: An optional verbose description of the Transform.
         :param pulumi.Input[str] name: The Transform name.
-        :param pulumi.Input[dict] properties: The resource properties.
+        :param pulumi.Input[list] outputs: An array of one or more TransformOutputs that the Transform should generate.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
 
-        The **properties** object supports the following:
+        The **outputs** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - An optional verbose description of the Transform.
-          * `outputs` (`pulumi.Input[list]`) - An array of one or more TransformOutputs that the Transform should generate.
-            * `on_error` (`pulumi.Input[str]`) - A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
-            * `preset` (`pulumi.Input[dict]`) - Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-            * `relative_priority` (`pulumi.Input[str]`) - Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+          * `on_error` (`pulumi.Input[str]`) - A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
+          * `preset` (`pulumi.Input[dict]`) - Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+          * `relative_priority` (`pulumi.Input[str]`) - Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,13 +67,17 @@ class Transform(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['description'] = description
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if outputs is None:
+                raise TypeError("Missing required property 'outputs'")
+            __props__['outputs'] = outputs
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Transform, __self__).__init__(
             'azurerm:media/v20180701:Transform',

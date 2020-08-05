@@ -51,7 +51,7 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
     /**
      * Properties of the service end point policy.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200401.ServiceEndpointPolicyPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.ServiceEndpointPolicyPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -83,10 +83,11 @@ export class ServiceEndpointPolicy extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceEndpointPolicyDefinitions"] = args ? args.serviceEndpointPolicyDefinitions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -117,13 +118,13 @@ export interface ServiceEndpointPolicyArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the service end point policy.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20200401.ServiceEndpointPolicyPropertiesFormat>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A collection of service endpoint policy definitions of the service endpoint policy.
+     */
+    readonly serviceEndpointPolicyDefinitions?: pulumi.Input<pulumi.Input<inputs.network.v20200401.ServiceEndpointPolicyDefinition>[]>;
     /**
      * Resource tags.
      */

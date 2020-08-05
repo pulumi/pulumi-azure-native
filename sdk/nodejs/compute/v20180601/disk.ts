@@ -51,7 +51,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * Disk resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20180601.DiskPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20180601.DiskPropertiesResponse>;
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
      */
@@ -82,6 +82,9 @@ export class Disk extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DiskArgs | undefined;
+            if (!args || args.creationData === undefined) {
+                throw new Error("Missing required property 'creationData'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -91,14 +94,20 @@ export class Disk extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["creationData"] = args ? args.creationData : undefined;
+            inputs["diskIOPSReadWrite"] = args ? args.diskIOPSReadWrite : undefined;
+            inputs["diskMBpsReadWrite"] = args ? args.diskMBpsReadWrite : undefined;
+            inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
+            inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["managedBy"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -117,6 +126,26 @@ export class Disk extends pulumi.CustomResource {
  */
 export interface DiskArgs {
     /**
+     * Disk source information. CreationData information cannot be changed after the disk has been created.
+     */
+    readonly creationData: pulumi.Input<inputs.compute.v20180601.CreationData>;
+    /**
+     * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
+     */
+    readonly diskIOPSReadWrite?: pulumi.Input<number>;
+    /**
+     * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
+     */
+    readonly diskMBpsReadWrite?: pulumi.Input<number>;
+    /**
+     * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+     */
+    readonly diskSizeGB?: pulumi.Input<number>;
+    /**
+     * Encryption settings for disk or snapshot
+     */
+    readonly encryptionSettings?: pulumi.Input<inputs.compute.v20180601.EncryptionSettings>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -125,9 +154,9 @@ export interface DiskArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Disk resource properties.
+     * The Operating System type.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20180601.DiskProperties>;
+    readonly osType?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

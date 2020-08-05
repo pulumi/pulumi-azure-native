@@ -84,24 +84,28 @@ func (WebAppPublicCertificateState) ElementType() reflect.Type {
 }
 
 type webAppPublicCertificateArgs struct {
+	// Public Certificate byte array
+	Blob *string `pulumi:"blob"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Public certificate name.
 	Name string `pulumi:"name"`
-	// PublicCertificate resource specific properties
-	Properties *PublicCertificateProperties `pulumi:"properties"`
+	// Public Certificate Location
+	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WebAppPublicCertificate resource.
 type WebAppPublicCertificateArgs struct {
+	// Public Certificate byte array
+	Blob pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Public certificate name.
 	Name pulumi.StringInput
-	// PublicCertificate resource specific properties
-	Properties PublicCertificatePropertiesPtrInput
+	// Public Certificate Location
+	PublicCertificateLocation pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 }

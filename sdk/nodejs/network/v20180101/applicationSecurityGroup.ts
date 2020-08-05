@@ -51,7 +51,7 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
     /**
      * Properties of the application security group.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180101.ApplicationSecurityGroupPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180101.ApplicationSecurityGroupPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -83,10 +83,10 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -116,10 +116,6 @@ export interface ApplicationSecurityGroupArgs {
      * The name of the application security group.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the application security group.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20180101.ApplicationSecurityGroupPropertiesFormat>;
     /**
      * The name of the resource group.
      */

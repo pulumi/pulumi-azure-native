@@ -44,32 +44,33 @@ class ScheduledQueryRule(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, action=None, description=None, enabled=None, location=None, name=None, resource_group_name=None, schedule=None, source=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The Log Search Rule resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] action: Action needs to be taken on rule execution.
+        :param pulumi.Input[str] description: The description of the Log Search rule.
+        :param pulumi.Input[str] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the rule.
-        :param pulumi.Input[dict] properties: The rule properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] schedule: Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        :param pulumi.Input[dict] source: Data Source against which rule will Query Data
         :param pulumi.Input[dict] tags: Resource tags
 
-        The **properties** object supports the following:
+        The **schedule** object supports the following:
 
-          * `action` (`pulumi.Input[dict]`) - Action needs to be taken on rule execution.
-          * `description` (`pulumi.Input[str]`) - The description of the Log Search rule.
-          * `enabled` (`pulumi.Input[str]`) - The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-          * `schedule` (`pulumi.Input[dict]`) - Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-            * `frequency_in_minutes` (`pulumi.Input[float]`) - frequency (in minutes) at which rule condition should be evaluated.
-            * `time_window_in_minutes` (`pulumi.Input[float]`) - Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+          * `frequency_in_minutes` (`pulumi.Input[float]`) - frequency (in minutes) at which rule condition should be evaluated.
+          * `time_window_in_minutes` (`pulumi.Input[float]`) - Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
 
-          * `source` (`pulumi.Input[dict]`) - Data Source against which rule will Query Data
-            * `authorized_resources` (`pulumi.Input[list]`) - List of  Resource referred into query
-            * `data_source_id` (`pulumi.Input[str]`) - The resource uri over which log search query is to be run.
-            * `query` (`pulumi.Input[str]`) - Log search query. Required for action type - AlertingAction
-            * `query_type` (`pulumi.Input[str]`) - Set value to 'ResultCount' .
+        The **source** object supports the following:
+
+          * `authorized_resources` (`pulumi.Input[list]`) - List of  Resource referred into query
+          * `data_source_id` (`pulumi.Input[str]`) - The resource uri over which log search query is to be run.
+          * `query` (`pulumi.Input[str]`) - Log search query. Required for action type - AlertingAction
+          * `query_type` (`pulumi.Input[str]`) - Set value to 'ResultCount' .
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,19 +89,26 @@ class ScheduledQueryRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if action is None:
+                raise TypeError("Missing required property 'action'")
+            __props__['action'] = action
+            __props__['description'] = description
+            __props__['enabled'] = enabled
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['schedule'] = schedule
+            if source is None:
+                raise TypeError("Missing required property 'source'")
+            __props__['source'] = source
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(ScheduledQueryRule, __self__).__init__(
             'azurerm:insights/v20180416:ScheduledQueryRule',

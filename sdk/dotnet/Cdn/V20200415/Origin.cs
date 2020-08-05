@@ -90,10 +90,34 @@ namespace Pulumi.AzureRM.Cdn.V20200415
     public sealed class OriginArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Origin is enabled for load balancing or not
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
         /// </summary>
         [Input("endpointName", required: true)]
         public Input<string> EndpointName { get; set; } = null!;
+
+        /// <summary>
+        /// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
+        /// The value of the HTTP port. Must be between 1 and 65535.
+        /// </summary>
+        [Input("httpPort")]
+        public Input<int>? HttpPort { get; set; }
+
+        /// <summary>
+        /// The value of the HTTPS port. Must be between 1 and 65535.
+        /// </summary>
+        [Input("httpsPort")]
+        public Input<int>? HttpsPort { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -108,16 +132,46 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+        /// </summary>
+        [Input("originHostHeader")]
+        public Input<string>? OriginHostHeader { get; set; }
+
+        /// <summary>
+        /// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+        /// </summary>
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
+        /// <summary>
+        /// The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
+        /// </summary>
+        [Input("privateLinkAlias")]
+        public Input<string>? PrivateLinkAlias { get; set; }
+
+        /// <summary>
+        /// A custom message to be included in the approval request to connect to the Private Link.
+        /// </summary>
+        [Input("privateLinkApprovalMessage")]
+        public Input<string>? PrivateLinkApprovalMessage { get; set; }
+
+        /// <summary>
+        /// The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
+        /// </summary>
+        [Input("privateLinkLocation")]
+        public Input<string>? PrivateLinkLocation { get; set; }
+
+        /// <summary>
+        /// The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
+        /// </summary>
+        [Input("privateLinkResourceId")]
+        public Input<string>? PrivateLinkResourceId { get; set; }
+
+        /// <summary>
         /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
-
-        /// <summary>
-        /// The JSON object that contains the properties of the origin.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OriginPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
@@ -136,6 +190,12 @@ namespace Pulumi.AzureRM.Cdn.V20200415
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+        /// </summary>
+        [Input("weight")]
+        public Input<int>? Weight { get; set; }
 
         public OriginArgs()
         {

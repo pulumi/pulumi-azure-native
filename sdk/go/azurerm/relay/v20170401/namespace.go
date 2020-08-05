@@ -103,8 +103,6 @@ type namespaceArgs struct {
 	Location string `pulumi:"location"`
 	// The namespace name
 	Name string `pulumi:"name"`
-	// Description of Relay namespace
-	Properties *RelayNamespaceProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU of the namespace.
@@ -119,8 +117,6 @@ type NamespaceArgs struct {
 	Location pulumi.StringInput
 	// The namespace name
 	Name pulumi.StringInput
-	// Description of Relay namespace
-	Properties RelayNamespacePropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// SKU of the namespace.

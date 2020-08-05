@@ -93,6 +93,24 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class CertificateCsrArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Actual CSR string created
+        /// </summary>
+        [Input("csrString")]
+        public Input<string>? CsrString { get; set; }
+
+        /// <summary>
+        /// Distinguished name of certificate to be created
+        /// </summary>
+        [Input("distinguishedName")]
+        public Input<string>? DistinguishedName { get; set; }
+
+        /// <summary>
+        /// Hosting environment
+        /// </summary>
+        [Input("hostingEnvironment")]
+        public Input<string>? HostingEnvironment { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
@@ -116,8 +134,23 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.CsrPropertiesArgs>? Properties { get; set; }
+        /// <summary>
+        /// PFX password
+        /// </summary>
+        [Input("password")]
+        public Input<string>? Password { get; set; }
+
+        /// <summary>
+        /// PFX certificate of created certificate
+        /// </summary>
+        [Input("pfxBlob")]
+        public Input<string>? PfxBlob { get; set; }
+
+        /// <summary>
+        /// Hash of the certificates public key
+        /// </summary>
+        [Input("publicKeyHash")]
+        public Input<string>? PublicKeyHash { get; set; }
 
         /// <summary>
         /// Name of the resource group

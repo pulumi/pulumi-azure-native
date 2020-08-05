@@ -102,10 +102,10 @@ namespace Pulumi.AzureRM.DomainRegistration.V20180201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// DomainOwnershipIdentifier resource specific properties
+        /// Ownership Id.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DomainOwnershipIdentifierPropertiesArgs>? Properties { get; set; }
+        [Input("ownershipId")]
+        public Input<string>? OwnershipId { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

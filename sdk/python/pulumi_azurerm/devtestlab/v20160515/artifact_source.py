@@ -41,31 +41,27 @@ class ArtifactSource(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, lab_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, arm_template_folder_path=None, branch_ref=None, display_name=None, folder_path=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, security_token=None, source_type=None, status=None, tags=None, unique_identifier=None, uri=None, __props__=None, __name__=None, __opts__=None):
         """
         Properties of an artifact source.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arm_template_folder_path: The folder containing Azure Resource Manager templates.
+        :param pulumi.Input[str] branch_ref: The artifact source's branch reference.
+        :param pulumi.Input[str] display_name: The artifact source's display name.
+        :param pulumi.Input[str] folder_path: The folder containing artifacts.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the artifact source.
-        :param pulumi.Input[dict] properties: The properties of the resource.
+        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] security_token: The security token to authenticate to the artifact source.
+        :param pulumi.Input[str] source_type: The artifact source's type.
+        :param pulumi.Input[str] status: Indicates if the artifact source is enabled (values: Enabled, Disabled).
         :param pulumi.Input[dict] tags: The tags of the resource.
-
-        The **properties** object supports the following:
-
-          * `arm_template_folder_path` (`pulumi.Input[str]`) - The folder containing Azure Resource Manager templates.
-          * `branch_ref` (`pulumi.Input[str]`) - The artifact source's branch reference.
-          * `display_name` (`pulumi.Input[str]`) - The artifact source's display name.
-          * `folder_path` (`pulumi.Input[str]`) - The folder containing artifacts.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `security_token` (`pulumi.Input[str]`) - The security token to authenticate to the artifact source.
-          * `source_type` (`pulumi.Input[str]`) - The artifact source's type.
-          * `status` (`pulumi.Input[str]`) - Indicates if the artifact source is enabled (values: Enabled, Disabled).
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
-          * `uri` (`pulumi.Input[str]`) - The artifact source's URI.
+        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
+        :param pulumi.Input[str] uri: The artifact source's URI.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,6 +80,10 @@ class ArtifactSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['arm_template_folder_path'] = arm_template_folder_path
+            __props__['branch_ref'] = branch_ref
+            __props__['display_name'] = display_name
+            __props__['folder_path'] = folder_path
             if lab_name is None:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
@@ -91,13 +91,17 @@ class ArtifactSource(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['security_token'] = security_token
+            __props__['source_type'] = source_type
+            __props__['status'] = status
             __props__['tags'] = tags
+            __props__['unique_identifier'] = unique_identifier
+            __props__['uri'] = uri
+            __props__['properties'] = None
             __props__['type'] = None
         super(ArtifactSource, __self__).__init__(
             'azurerm:devtestlab/v20160515:ArtifactSource',

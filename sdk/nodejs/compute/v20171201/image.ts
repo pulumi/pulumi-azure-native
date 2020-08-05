@@ -47,7 +47,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * Describes the properties of an Image.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20171201.ImagePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20171201.ImagePropertiesResponse>;
     /**
      * Resource tags
      */
@@ -81,9 +81,11 @@ export class Image extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sourceVirtualMachine"] = args ? args.sourceVirtualMachine : undefined;
+            inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,13 +112,17 @@ export interface ImageArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes the properties of an Image.
-     */
-    readonly properties?: pulumi.Input<inputs.compute.v20171201.ImageProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The source virtual machine from which Image is created.
+     */
+    readonly sourceVirtualMachine?: pulumi.Input<inputs.compute.v20171201.SubResource>;
+    /**
+     * Specifies the storage settings for the virtual machine disks.
+     */
+    readonly storageProfile?: pulumi.Input<inputs.compute.v20171201.ImageStorageProfile>;
     /**
      * Resource tags
      */

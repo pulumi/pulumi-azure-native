@@ -85,8 +85,10 @@ type prefixArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the peering service.
 	PeeringServiceName string `pulumi:"peeringServiceName"`
-	// Gets or sets the peering prefix properties.
-	Properties *PeeringServicePrefixProperties `pulumi:"properties"`
+	// The peering service prefix key
+	PeeringServicePrefixKey *string `pulumi:"peeringServicePrefixKey"`
+	// The prefix from which your traffic originates.
+	Prefix *string `pulumi:"prefix"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -97,8 +99,10 @@ type PrefixArgs struct {
 	Name pulumi.StringInput
 	// The name of the peering service.
 	PeeringServiceName pulumi.StringInput
-	// Gets or sets the peering prefix properties.
-	Properties PeeringServicePrefixPropertiesPtrInput
+	// The peering service prefix key
+	PeeringServicePrefixKey pulumi.StringPtrInput
+	// The prefix from which your traffic originates.
+	Prefix pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

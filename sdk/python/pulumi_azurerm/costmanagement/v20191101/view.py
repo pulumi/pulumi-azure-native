@@ -75,65 +75,67 @@ class View(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, accumulated=None, chart=None, dataset=None, display_name=None, e_tag=None, kpis=None, metric=None, name=None, pivots=None, scope=None, time_period=None, timeframe=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         States and configurations of Cost Analysis.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] accumulated: Show costs accumulated over time.
+        :param pulumi.Input[str] chart: Chart type of the main view in Cost Analysis. Required.
+        :param pulumi.Input[dict] dataset: Has definition for data in this report config.
+        :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        :param pulumi.Input[list] kpis: List of KPIs to show in Cost Analysis UI.
+        :param pulumi.Input[str] metric: Metric to use when displaying costs.
         :param pulumi.Input[str] name: View name
-        :param pulumi.Input[dict] properties: The properties of the view.
+        :param pulumi.Input[list] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
+        :param pulumi.Input[str] scope: Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        :param pulumi.Input[dict] time_period: Has time period for pulling data for the report.
+        :param pulumi.Input[str] timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+        :param pulumi.Input[str] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
 
-        The **properties** object supports the following:
+        The **dataset** object supports the following:
 
-          * `accumulated` (`pulumi.Input[str]`) - Show costs accumulated over time.
-          * `chart` (`pulumi.Input[str]`) - Chart type of the main view in Cost Analysis. Required.
-          * `display_name` (`pulumi.Input[str]`) - User input name of the view. Required.
-          * `kpis` (`pulumi.Input[list]`) - List of KPIs to show in Cost Analysis UI.
-            * `enabled` (`pulumi.Input[bool]`) - show the KPI in the UI?
-            * `id` (`pulumi.Input[str]`) - ID of resource related to metric (budget).
-            * `type` (`pulumi.Input[str]`) - KPI type (Forecast, Budget).
+          * `aggregation` (`pulumi.Input[dict]`) - Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+          * `configuration` (`pulumi.Input[dict]`) - Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+            * `columns` (`pulumi.Input[list]`) - Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 
-          * `metric` (`pulumi.Input[str]`) - Metric to use when displaying costs.
-          * `pivots` (`pulumi.Input[list]`) - Configuration of 3 sub-views in the Cost Analysis UI.
-            * `name` (`pulumi.Input[str]`) - Data field to show in view.
-            * `type` (`pulumi.Input[str]`) - Data type to show in view.
+          * `filter` (`pulumi.Input[dict]`) - Has filter expression to use in the report.
+            * `and` (`pulumi.Input[list]`) - The logical "AND" expression. Must have at least 2 items.
+            * `dimension` (`pulumi.Input[dict]`) - Has comparison expression for a dimension
+              * `name` (`pulumi.Input[str]`) - The name of the column to use in comparison.
+              * `operator` (`pulumi.Input[str]`) - The operator to use for comparison.
+              * `values` (`pulumi.Input[list]`) - Array of values to use for comparison
 
-          * `query` (`pulumi.Input[dict]`) - Query body configuration. Required.
-            * `dataset` (`pulumi.Input[dict]`) - Has definition for data in this report config.
-              * `aggregation` (`pulumi.Input[dict]`) - Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-              * `configuration` (`pulumi.Input[dict]`) - Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-                * `columns` (`pulumi.Input[list]`) - Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+            * `not` (`pulumi.Input[dict]`) - The logical "NOT" expression.
+            * `or` (`pulumi.Input[list]`) - The logical "OR" expression. Must have at least 2 items.
+            * `tag` (`pulumi.Input[dict]`) - Has comparison expression for a tag
 
-              * `filter` (`pulumi.Input[dict]`) - Has filter expression to use in the report.
-                * `and` (`pulumi.Input[list]`) - The logical "AND" expression. Must have at least 2 items.
-                * `dimension` (`pulumi.Input[dict]`) - Has comparison expression for a dimension
-                  * `name` (`pulumi.Input[str]`) - The name of the column to use in comparison.
-                  * `operator` (`pulumi.Input[str]`) - The operator to use for comparison.
-                  * `values` (`pulumi.Input[list]`) - Array of values to use for comparison
+          * `granularity` (`pulumi.Input[str]`) - The granularity of rows in the report.
+          * `grouping` (`pulumi.Input[list]`) - Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+            * `name` (`pulumi.Input[str]`) - The name of the column to group. This version supports subscription lowest possible grain.
+            * `type` (`pulumi.Input[str]`) - Has type of the column to group.
 
-                * `not` (`pulumi.Input[dict]`) - The logical "NOT" expression.
-                * `or` (`pulumi.Input[list]`) - The logical "OR" expression. Must have at least 2 items.
-                * `tag` (`pulumi.Input[dict]`) - Has comparison expression for a tag
+          * `sorting` (`pulumi.Input[list]`) - Array of order by expression to use in the report.
+            * `direction` (`pulumi.Input[str]`) - Direction of sort.
+            * `name` (`pulumi.Input[str]`) - The name of the column to sort.
 
-              * `granularity` (`pulumi.Input[str]`) - The granularity of rows in the report.
-              * `grouping` (`pulumi.Input[list]`) - Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-                * `name` (`pulumi.Input[str]`) - The name of the column to group. This version supports subscription lowest possible grain.
-                * `type` (`pulumi.Input[str]`) - Has type of the column to group.
+        The **kpis** object supports the following:
 
-              * `sorting` (`pulumi.Input[list]`) - Array of order by expression to use in the report.
-                * `direction` (`pulumi.Input[str]`) - Direction of sort.
-                * `name` (`pulumi.Input[str]`) - The name of the column to sort.
+          * `enabled` (`pulumi.Input[bool]`) - show the KPI in the UI?
+          * `id` (`pulumi.Input[str]`) - ID of resource related to metric (budget).
+          * `type` (`pulumi.Input[str]`) - KPI type (Forecast, Budget).
 
-            * `time_period` (`pulumi.Input[dict]`) - Has time period for pulling data for the report.
-              * `from` (`pulumi.Input[str]`) - The start date to pull data from.
-              * `to` (`pulumi.Input[str]`) - The end date to pull data to.
+        The **pivots** object supports the following:
 
-            * `timeframe` (`pulumi.Input[str]`) - The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-            * `type` (`pulumi.Input[str]`) - The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
+          * `name` (`pulumi.Input[str]`) - Data field to show in view.
+          * `type` (`pulumi.Input[str]`) - Data type to show in view.
 
-          * `scope` (`pulumi.Input[str]`) - Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        The **time_period** object supports the following:
+
+          * `from` (`pulumi.Input[str]`) - The start date to pull data from.
+          * `to` (`pulumi.Input[str]`) - The end date to pull data to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -152,12 +154,26 @@ class View(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['accumulated'] = accumulated
+            __props__['chart'] = chart
+            __props__['dataset'] = dataset
+            __props__['display_name'] = display_name
             __props__['e_tag'] = e_tag
+            __props__['kpis'] = kpis
+            __props__['metric'] = metric
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
-            __props__['type'] = None
+            __props__['pivots'] = pivots
+            __props__['scope'] = scope
+            __props__['time_period'] = time_period
+            if timeframe is None:
+                raise TypeError("Missing required property 'timeframe'")
+            __props__['timeframe'] = timeframe
+            if type is None:
+                raise TypeError("Missing required property 'type'")
+            __props__['type'] = type
+            __props__['properties'] = None
         super(View, __self__).__init__(
             'azurerm:costmanagement/v20191101:View',
             resource_name,

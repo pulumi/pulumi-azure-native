@@ -102,14 +102,16 @@ func (FactoryState) ElementType() reflect.Type {
 }
 
 type factoryArgs struct {
+	// List of parameters for factory.
+	GlobalParameters *GlobalParameterDefinitionSpecification `pulumi:"globalParameters"`
 	// Managed service identity of the factory.
 	Identity *FactoryIdentity `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The factory name.
 	Name string `pulumi:"name"`
-	// Properties of the factory.
-	Properties *FactoryProperties `pulumi:"properties"`
+	// Git repo information of the factory.
+	RepoConfiguration *FactoryRepoConfiguration `pulumi:"repoConfiguration"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -118,14 +120,16 @@ type factoryArgs struct {
 
 // The set of arguments for constructing a Factory resource.
 type FactoryArgs struct {
+	// List of parameters for factory.
+	GlobalParameters GlobalParameterDefinitionSpecificationPtrInput
 	// Managed service identity of the factory.
 	Identity FactoryIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The factory name.
 	Name pulumi.StringInput
-	// Properties of the factory.
-	Properties FactoryPropertiesPtrInput
+	// Git repo information of the factory.
+	RepoConfiguration FactoryRepoConfigurationPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

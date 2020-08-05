@@ -101,9 +101,6 @@ namespace Pulumi.AzureRM.DevSpaces.V20190401
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties", required: true)]
-        public Input<Inputs.ControllerPropertiesArgs> Properties { get; set; } = null!;
-
         /// <summary>
         /// Resource group to which the resource belongs.
         /// </summary>
@@ -127,6 +124,18 @@ namespace Pulumi.AzureRM.DevSpaces.V20190401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Credentials of the target container host (base64).
+        /// </summary>
+        [Input("targetContainerHostCredentialsBase64", required: true)]
+        public Input<string> TargetContainerHostCredentialsBase64 { get; set; } = null!;
+
+        /// <summary>
+        /// Resource ID of the target container host
+        /// </summary>
+        [Input("targetContainerHostResourceId", required: true)]
+        public Input<string> TargetContainerHostResourceId { get; set; } = null!;
 
         public ControllerArgs()
         {

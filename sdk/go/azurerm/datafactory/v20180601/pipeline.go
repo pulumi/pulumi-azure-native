@@ -33,9 +33,6 @@ func NewPipeline(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -90,26 +87,54 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
+	// List of activities in pipeline.
+	Activities []Activity `pulumi:"activities"`
+	// List of tags that can be used for describing the Pipeline.
+	Annotations []map[string]interface{} `pulumi:"annotations"`
+	// The max number of concurrent runs for the pipeline.
+	Concurrency *int `pulumi:"concurrency"`
+	// The description of the pipeline.
+	Description *string `pulumi:"description"`
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
+	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+	Folder *PipelineProperties `pulumi:"folder"`
 	// The pipeline name.
 	Name string `pulumi:"name"`
-	// Properties of the pipeline.
-	Properties PipelineDefinition `pulumi:"properties"`
+	// List of parameters for pipeline.
+	Parameters *ParameterDefinitionSpecification `pulumi:"parameters"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Dimensions emitted by Pipeline.
+	RunDimensions map[string]map[string]interface{} `pulumi:"runDimensions"`
+	// List of variables for pipeline.
+	Variables *VariableDefinitionSpecification `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
+	// List of activities in pipeline.
+	Activities ActivityArrayInput
+	// List of tags that can be used for describing the Pipeline.
+	Annotations pulumi.MapArrayInput
+	// The max number of concurrent runs for the pipeline.
+	Concurrency pulumi.IntPtrInput
+	// The description of the pipeline.
+	Description pulumi.StringPtrInput
 	// The factory name.
 	FactoryName pulumi.StringInput
+	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+	Folder PipelinePropertiesPtrInput
 	// The pipeline name.
 	Name pulumi.StringInput
-	// Properties of the pipeline.
-	Properties PipelineDefinitionInput
+	// List of parameters for pipeline.
+	Parameters ParameterDefinitionSpecificationPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// Dimensions emitted by Pipeline.
+	RunDimensions pulumi.MapMapInput
+	// List of variables for pipeline.
+	Variables VariableDefinitionSpecificationPtrInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {

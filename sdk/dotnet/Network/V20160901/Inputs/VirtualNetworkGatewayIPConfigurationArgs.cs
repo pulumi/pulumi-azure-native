@@ -34,10 +34,22 @@ namespace Pulumi.AzureRM.Network.V20160901.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of VirtualNetworkGatewayIPConfiguration
+        /// The private IP allocation method. Possible values are: 'Static' and 'Dynamic'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualNetworkGatewayIPConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("privateIPAllocationMethod")]
+        public Input<string>? PrivateIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// The reference of the public IP resource.
+        /// </summary>
+        [Input("publicIPAddress", required: true)]
+        public Input<Inputs.SubResourceArgs> PublicIPAddress { get; set; } = null!;
+
+        /// <summary>
+        /// The reference of the subnet resource.
+        /// </summary>
+        [Input("subnet", required: true)]
+        public Input<Inputs.SubResourceArgs> Subnet { get; set; } = null!;
 
         public VirtualNetworkGatewayIPConfigurationArgs()
         {

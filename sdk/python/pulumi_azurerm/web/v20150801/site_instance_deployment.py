@@ -31,32 +31,28 @@ class SiteInstanceDeployment(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, instance_id=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, active=None, author=None, author_email=None, deployer=None, details=None, end_time=None, instance_id=None, kind=None, location=None, message=None, name=None, resource_group_name=None, start_time=None, status=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents user credentials used for publishing activity
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] active: Active
+        :param pulumi.Input[str] author: Author
+        :param pulumi.Input[str] author_email: AuthorEmail
+        :param pulumi.Input[str] deployer: Deployer
+        :param pulumi.Input[str] details: Detail
+        :param pulumi.Input[str] end_time: EndTime
         :param pulumi.Input[str] instance_id: Id of web app instance
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
+        :param pulumi.Input[str] message: Message
         :param pulumi.Input[str] name: Resource Id
         :param pulumi.Input[str] resource_group_name: Name of resource group
+        :param pulumi.Input[str] start_time: StartTime
+        :param pulumi.Input[float] status: Status
         :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `active` (`pulumi.Input[bool]`) - Active
-          * `author` (`pulumi.Input[str]`) - Author
-          * `author_email` (`pulumi.Input[str]`) - AuthorEmail
-          * `deployer` (`pulumi.Input[str]`) - Deployer
-          * `details` (`pulumi.Input[str]`) - Detail
-          * `end_time` (`pulumi.Input[str]`) - EndTime
-          * `id` (`pulumi.Input[str]`) - Id
-          * `message` (`pulumi.Input[str]`) - Message
-          * `start_time` (`pulumi.Input[str]`) - StartTime
-          * `status` (`pulumi.Input[float]`) - Status
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,6 +71,12 @@ class SiteInstanceDeployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['active'] = active
+            __props__['author'] = author
+            __props__['author_email'] = author_email
+            __props__['deployer'] = deployer
+            __props__['details'] = details
+            __props__['end_time'] = end_time
             if instance_id is None:
                 raise TypeError("Missing required property 'instance_id'")
             __props__['instance_id'] = instance_id
@@ -82,15 +84,18 @@ class SiteInstanceDeployment(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['message'] = message
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['start_time'] = start_time
+            __props__['status'] = status
             __props__['tags'] = tags
             __props__['type'] = type
+            __props__['properties'] = None
         super(SiteInstanceDeployment, __self__).__init__(
             'azurerm:web/v20150801:SiteInstanceDeployment',
             resource_name,

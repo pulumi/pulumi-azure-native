@@ -43,7 +43,7 @@ export class TrustedIdProvider extends pulumi.CustomResource {
     /**
      * The trusted identity provider properties.
      */
-    public readonly properties!: pulumi.Output<outputs.datalakestore.v20161101.TrustedIdProviderPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datalakestore.v20161101.TrustedIdProviderPropertiesResponse>;
     /**
      * The resource type.
      */
@@ -65,19 +65,20 @@ export class TrustedIdProvider extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.idProvider === undefined) {
+                throw new Error("Missing required property 'idProvider'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["idProvider"] = args ? args.idProvider : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,13 +101,13 @@ export interface TrustedIdProviderArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The URL of this trusted identity provider.
+     */
+    readonly idProvider: pulumi.Input<string>;
+    /**
      * The name of the trusted identity provider. This is used for differentiation of providers in the account.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The trusted identity provider properties to use when creating a new trusted identity provider.
-     */
-    readonly properties: pulumi.Input<inputs.datalakestore.v20161101.CreateOrUpdateTrustedIdProviderProperties>;
     /**
      * The name of the Azure resource group.
      */

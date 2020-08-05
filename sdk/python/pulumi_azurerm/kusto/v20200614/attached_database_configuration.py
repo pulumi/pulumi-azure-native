@@ -31,23 +31,19 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, cluster_name=None, location=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cluster_name=None, cluster_resource_id=None, database_name=None, default_principals_modification_kind=None, location=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Class representing an attached database configuration.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
+        :param pulumi.Input[str] cluster_resource_id: The resource id of the cluster where the databases you would like to attach reside.
+        :param pulumi.Input[str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        :param pulumi.Input[str] default_principals_modification_kind: The default principals modification kind
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the attached database configuration.
-        :param pulumi.Input[dict] properties: The properties of the attached database configuration.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
-
-        The **properties** object supports the following:
-
-          * `cluster_resource_id` (`pulumi.Input[str]`) - The resource id of the cluster where the databases you would like to attach reside.
-          * `database_name` (`pulumi.Input[str]`) - The name of the database which you would like to attach, use * if you want to follow all current and future databases.
-          * `default_principals_modification_kind` (`pulumi.Input[str]`) - The default principals modification kind
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,14 +65,23 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             if cluster_name is None:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
+            if cluster_resource_id is None:
+                raise TypeError("Missing required property 'cluster_resource_id'")
+            __props__['cluster_resource_id'] = cluster_resource_id
+            if database_name is None:
+                raise TypeError("Missing required property 'database_name'")
+            __props__['database_name'] = database_name
+            if default_principals_modification_kind is None:
+                raise TypeError("Missing required property 'default_principals_modification_kind'")
+            __props__['default_principals_modification_kind'] = default_principals_modification_kind
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(AttachedDatabaseConfiguration, __self__).__init__(
             'azurerm:kusto/v20200614:AttachedDatabaseConfiguration',

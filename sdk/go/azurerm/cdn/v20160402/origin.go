@@ -27,6 +27,9 @@ func NewOrigin(ctx *pulumi.Context,
 	if args == nil || args.EndpointName == nil {
 		return nil, errors.New("missing required argument 'EndpointName'")
 	}
+	if args == nil || args.HostName == nil {
+		return nil, errors.New("missing required argument 'HostName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -83,11 +86,16 @@ func (OriginState) ElementType() reflect.Type {
 type originArgs struct {
 	// Name of the endpoint within the CDN profile.
 	EndpointName string `pulumi:"endpointName"`
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+	HostName string `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort *int `pulumi:"httpPort"`
+	// The value of the HTTPS port. Must be between 1 and 65535.
+	HttpsPort *int `pulumi:"httpsPort"`
 	// Name of the origin, an arbitrary value but it needs to be unique under endpoint
 	Name string `pulumi:"name"`
 	// Name of the CDN profile within the resource group.
-	ProfileName string                      `pulumi:"profileName"`
-	Properties  *OriginPropertiesParameters `pulumi:"properties"`
+	ProfileName string `pulumi:"profileName"`
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -96,11 +104,16 @@ type originArgs struct {
 type OriginArgs struct {
 	// Name of the endpoint within the CDN profile.
 	EndpointName pulumi.StringInput
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+	HostName pulumi.StringInput
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort pulumi.IntPtrInput
+	// The value of the HTTPS port. Must be between 1 and 65535.
+	HttpsPort pulumi.IntPtrInput
 	// Name of the origin, an arbitrary value but it needs to be unique under endpoint
 	Name pulumi.StringInput
 	// Name of the CDN profile within the resource group.
 	ProfileName pulumi.StringInput
-	Properties  OriginPropertiesParametersPtrInput
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 }

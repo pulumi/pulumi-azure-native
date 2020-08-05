@@ -51,7 +51,7 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     /**
      * Properties of the web application firewall policy.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20191101.WebApplicationFirewallPolicyPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.WebApplicationFirewallPolicyPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -74,19 +74,25 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WebApplicationFirewallPolicyArgs | undefined;
+            if (!args || args.managedRules === undefined) {
+                throw new Error("Missing required property 'managedRules'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["customRules"] = args ? args.customRules : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedRules"] = args ? args.managedRules : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["policySettings"] = args ? args.policySettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +111,10 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
  */
 export interface WebApplicationFirewallPolicyArgs {
     /**
+     * The custom rules inside the policy.
+     */
+    readonly customRules?: pulumi.Input<pulumi.Input<inputs.network.v20191101.WebApplicationFirewallCustomRule>[]>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -113,13 +123,17 @@ export interface WebApplicationFirewallPolicyArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * Describes the managedRules structure.
+     */
+    readonly managedRules: pulumi.Input<inputs.network.v20191101.ManagedRulesDefinition>;
+    /**
      * The name of the policy.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the web application firewall policy.
+     * The PolicySettings for policy.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20191101.WebApplicationFirewallPolicyPropertiesFormat>;
+    readonly policySettings?: pulumi.Input<inputs.network.v20191101.PolicySettings>;
     /**
      * The name of the resource group.
      */

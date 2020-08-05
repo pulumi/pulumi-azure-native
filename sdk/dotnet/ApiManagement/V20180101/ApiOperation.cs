@@ -84,16 +84,40 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
+        /// Description of the operation. May include HTML formatting tags.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Operation Name.
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
+        /// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+        /// </summary>
+        [Input("method", required: true)]
+        public Input<string> Method { get; set; } = null!;
+
+        /// <summary>
         /// Operation identifier within an API. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Operation Contract.
+        /// Operation Policies
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OperationContractPropertiesArgs>? Properties { get; set; }
+        [Input("policies")]
+        public Input<string>? Policies { get; set; }
+
+        /// <summary>
+        /// An entity containing request details.
+        /// </summary>
+        [Input("request")]
+        public Input<Inputs.RequestContractArgs>? Request { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -101,11 +125,41 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        [Input("responses")]
+        private InputList<Inputs.ResponseContractArgs>? _responses;
+
+        /// <summary>
+        /// Array of Operation responses.
+        /// </summary>
+        public InputList<Inputs.ResponseContractArgs> Responses
+        {
+            get => _responses ?? (_responses = new InputList<Inputs.ResponseContractArgs>());
+            set => _responses = value;
+        }
+
         /// <summary>
         /// The name of the API Management service.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        [Input("templateParameters")]
+        private InputList<Inputs.ParameterContractArgs>? _templateParameters;
+
+        /// <summary>
+        /// Collection of URL template parameters.
+        /// </summary>
+        public InputList<Inputs.ParameterContractArgs> TemplateParameters
+        {
+            get => _templateParameters ?? (_templateParameters = new InputList<Inputs.ParameterContractArgs>());
+            set => _templateParameters = value;
+        }
+
+        /// <summary>
+        /// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+        /// </summary>
+        [Input("urlTemplate", required: true)]
+        public Input<string> UrlTemplate { get; set; } = null!;
 
         public ApiOperationArgs()
         {

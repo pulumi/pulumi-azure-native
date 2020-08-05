@@ -47,7 +47,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**
      * The properties of the alert rule.
      */
-    public readonly properties!: pulumi.Output<outputs.alertsmanagement.v20190601.AlertRulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.alertsmanagement.v20190601.AlertRulePropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -70,17 +70,43 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SmartDetectorAlertRuleArgs | undefined;
+            if (!args || args.actionGroups === undefined) {
+                throw new Error("Missing required property 'actionGroups'");
+            }
+            if (!args || args.detector === undefined) {
+                throw new Error("Missing required property 'detector'");
+            }
+            if (!args || args.frequency === undefined) {
+                throw new Error("Missing required property 'frequency'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.scope === undefined) {
+                throw new Error("Missing required property 'scope'");
+            }
+            if (!args || args.severity === undefined) {
+                throw new Error("Missing required property 'severity'");
+            }
+            if (!args || args.state === undefined) {
+                throw new Error("Missing required property 'state'");
+            }
+            inputs["actionGroups"] = args ? args.actionGroups : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["detector"] = args ? args.detector : undefined;
+            inputs["frequency"] = args ? args.frequency : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scope"] = args ? args.scope : undefined;
+            inputs["severity"] = args ? args.severity : undefined;
+            inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["throttling"] = args ? args.throttling : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,6 +125,22 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
  */
 export interface SmartDetectorAlertRuleArgs {
     /**
+     * The alert rule actions.
+     */
+    readonly actionGroups: pulumi.Input<inputs.alertsmanagement.v20190601.ActionGroupsInformation>;
+    /**
+     * The alert rule description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The alert rule's detector.
+     */
+    readonly detector: pulumi.Input<inputs.alertsmanagement.v20190601.Detector>;
+    /**
+     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+     */
+    readonly frequency: pulumi.Input<string>;
+    /**
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -107,15 +149,27 @@ export interface SmartDetectorAlertRuleArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the alert rule.
-     */
-    readonly properties?: pulumi.Input<inputs.alertsmanagement.v20190601.AlertRuleProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The alert rule resources scope.
+     */
+    readonly scope: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The alert rule severity.
+     */
+    readonly severity: pulumi.Input<string>;
+    /**
+     * The alert rule state.
+     */
+    readonly state: pulumi.Input<string>;
+    /**
      * The resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The alert rule throttling information.
+     */
+    readonly throttling?: pulumi.Input<inputs.alertsmanagement.v20190601.ThrottlingInformation>;
 }

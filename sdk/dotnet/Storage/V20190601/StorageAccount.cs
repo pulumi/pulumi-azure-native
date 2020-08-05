@@ -108,10 +108,52 @@ namespace Pulumi.AzureRM.Storage.V20190601
     public sealed class StorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        /// </summary>
+        [Input("accessTier")]
+        public Input<string>? AccessTier { get; set; }
+
+        /// <summary>
+        /// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        /// </summary>
+        [Input("allowBlobPublicAccess")]
+        public Input<bool>? AllowBlobPublicAccess { get; set; }
+
+        /// <summary>
+        /// Provides the identity based authentication settings for Azure Files.
+        /// </summary>
+        [Input("azureFilesIdentityBasedAuthentication")]
+        public Input<Inputs.AzureFilesIdentityBasedAuthenticationArgs>? AzureFilesIdentityBasedAuthentication { get; set; }
+
+        /// <summary>
+        /// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+        /// </summary>
+        [Input("customDomain")]
+        public Input<Inputs.CustomDomainArgs>? CustomDomain { get; set; }
+
+        /// <summary>
+        /// Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
+        /// </summary>
+        [Input("enableHttpsTrafficOnly")]
+        public Input<bool>? EnableHttpsTrafficOnly { get; set; }
+
+        /// <summary>
+        /// Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Account HierarchicalNamespace enabled if sets to true.
+        /// </summary>
+        [Input("isHnsEnabled")]
+        public Input<bool>? IsHnsEnabled { get; set; }
 
         /// <summary>
         /// Required. Indicates the type of storage account.
@@ -120,10 +162,22 @@ namespace Pulumi.AzureRM.Storage.V20190601
         public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
+        /// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+        /// </summary>
+        [Input("largeFileSharesState")]
+        public Input<string>? LargeFileSharesState { get; set; }
+
+        /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -132,16 +186,22 @@ namespace Pulumi.AzureRM.Storage.V20190601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The parameters used to create the storage account.
+        /// Network rule set
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.StorageAccountPropertiesCreateParametersArgs>? Properties { get; set; }
+        [Input("networkRuleSet")]
+        public Input<Inputs.NetworkRuleSetArgs>? NetworkRuleSet { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Maintains information about the network routing choice opted by the user for data transfer
+        /// </summary>
+        [Input("routingPreference")]
+        public Input<Inputs.RoutingPreferenceArgs>? RoutingPreference { get; set; }
 
         /// <summary>
         /// Required. Gets or sets the SKU name.

@@ -46,7 +46,7 @@ class Service(pulumi.CustomResource):
     """
     Azure resource type.
     """
-    def __init__(__self__, resource_name, opts=None, application_name=None, cluster_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_name=None, cluster_name=None, correlation_scheme=None, default_move_cost=None, location=None, name=None, partition_description=None, placement_constraints=None, resource_group_name=None, service_kind=None, service_load_metrics=None, service_package_activation_mode=None, service_placement_policies=None, service_type_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The service resource.
 
@@ -54,25 +54,23 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the application resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
+        :param pulumi.Input[dict] correlation_scheme: A list that describes the correlation of the service with other services.
+        :param pulumi.Input[str] default_move_cost: Specifies the move cost for the service.
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
         :param pulumi.Input[str] name: The name of the service resource in the format of {applicationName}~{serviceName}.
-        :param pulumi.Input[dict] properties: The service resource properties.
+        :param pulumi.Input[dict] partition_description: Describes how the service is partitioned.
+        :param pulumi.Input[str] placement_constraints: The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_kind: The kind of service (Stateless or Stateful).
+        :param pulumi.Input[dict] service_load_metrics: The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+        :param pulumi.Input[str] service_package_activation_mode: The activation Mode of the service package
+        :param pulumi.Input[dict] service_placement_policies: A list that describes the correlation of the service with other services.
+        :param pulumi.Input[str] service_type_name: The name of the service type
         :param pulumi.Input[dict] tags: Azure resource tags.
 
-        The **properties** object supports the following:
+        The **partition_description** object supports the following:
 
-          * `correlation_scheme` (`pulumi.Input[dict]`) - A list that describes the correlation of the service with other services.
-          * `default_move_cost` (`pulumi.Input[str]`) - Specifies the move cost for the service.
-          * `partition_description` (`pulumi.Input[dict]`) - Describes how the service is partitioned.
-            * `partition_scheme` (`pulumi.Input[str]`) - Specifies how the service is partitioned.
-
-          * `placement_constraints` (`pulumi.Input[str]`) - The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
-          * `service_kind` (`pulumi.Input[str]`) - The kind of service (Stateless or Stateful).
-          * `service_load_metrics` (`pulumi.Input[dict]`) - The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-          * `service_package_activation_mode` (`pulumi.Input[str]`) - The activation Mode of the service package
-          * `service_placement_policies` (`pulumi.Input[dict]`) - A list that describes the correlation of the service with other services.
-          * `service_type_name` (`pulumi.Input[str]`) - The name of the service type
+          * `partition_scheme` (`pulumi.Input[str]`) - Specifies how the service is partitioned.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -97,16 +95,27 @@ class Service(pulumi.CustomResource):
             if cluster_name is None:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
+            __props__['correlation_scheme'] = correlation_scheme
+            __props__['default_move_cost'] = default_move_cost
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['partition_description'] = partition_description
+            __props__['placement_constraints'] = placement_constraints
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if service_kind is None:
+                raise TypeError("Missing required property 'service_kind'")
+            __props__['service_kind'] = service_kind
+            __props__['service_load_metrics'] = service_load_metrics
+            __props__['service_package_activation_mode'] = service_package_activation_mode
+            __props__['service_placement_policies'] = service_placement_policies
+            __props__['service_type_name'] = service_type_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(Service, __self__).__init__(
             'azurerm:servicefabric/v20190301:Service',

@@ -58,29 +58,27 @@ class PublicIPPrefix(pulumi.CustomResource):
     """
     A list of availability zones denoting the IP allocated for the resource needs to come from.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, ip_tags=None, location=None, name=None, prefix_length=None, public_ip_address_version=None, resource_group_name=None, sku=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Public IP prefix resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[list] ip_tags: The list of tags associated with the public IP prefix.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the public IP prefix.
-        :param pulumi.Input[dict] properties: Public IP prefix properties.
+        :param pulumi.Input[float] prefix_length: The Length of the Public IP Prefix.
+        :param pulumi.Input[str] public_ip_address_version: The public IP address version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] sku: The public IP prefix SKU.
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[list] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
 
-        The **properties** object supports the following:
+        The **ip_tags** object supports the following:
 
-          * `ip_tags` (`pulumi.Input[list]`) - The list of tags associated with the public IP prefix.
-            * `ip_tag_type` (`pulumi.Input[str]`) - The IP tag type. Example: FirstPartyUsage.
-            * `tag` (`pulumi.Input[str]`) - The value of the IP tag associated with the public IP. Example: SQL.
-
-          * `prefix_length` (`pulumi.Input[float]`) - The Length of the Public IP Prefix.
-          * `public_ip_address_version` (`pulumi.Input[str]`) - The public IP address version.
+          * `ip_tag_type` (`pulumi.Input[str]`) - The IP tag type. Example: FirstPartyUsage.
+          * `tag` (`pulumi.Input[str]`) - The value of the IP tag associated with the public IP. Example: SQL.
 
         The **sku** object supports the following:
 
@@ -104,11 +102,13 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
+            __props__['ip_tags'] = ip_tags
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['prefix_length'] = prefix_length
+            __props__['public_ip_address_version'] = public_ip_address_version
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -116,6 +116,7 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['zones'] = zones
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(PublicIPPrefix, __self__).__init__(
             'azurerm:network/v20190901:PublicIPPrefix',

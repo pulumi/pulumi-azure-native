@@ -35,9 +35,6 @@ func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -98,12 +95,16 @@ func (IntegrationAccountCertificateState) ElementType() reflect.Type {
 type integrationAccountCertificateArgs struct {
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
+	// The key details in the key vault.
+	Key *KeyVaultKeyReference `pulumi:"key"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The integration account certificate name.
 	Name string `pulumi:"name"`
-	// The integration account certificate properties.
-	Properties IntegrationAccountCertificateProperties `pulumi:"properties"`
+	// The public certificate.
+	PublicCertificate *string `pulumi:"publicCertificate"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -114,12 +115,16 @@ type integrationAccountCertificateArgs struct {
 type IntegrationAccountCertificateArgs struct {
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
+	// The key details in the key vault.
+	Key KeyVaultKeyReferencePtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.MapInput
 	// The integration account certificate name.
 	Name pulumi.StringInput
-	// The integration account certificate properties.
-	Properties IntegrationAccountCertificatePropertiesInput
+	// The public certificate.
+	PublicCertificate pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

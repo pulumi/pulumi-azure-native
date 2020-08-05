@@ -102,10 +102,78 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class WebAppSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to enable client affinity; &lt;code&gt;false&lt;/code&gt; to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        [Input("clientAffinityEnabled")]
+        public Input<bool>? ClientAffinityEnabled { get; set; }
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to enable client certificate authentication (TLS mutual authentication); otherwise, &lt;code&gt;false&lt;/code&gt;. Default is &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Input("clientCertEnabled")]
+        public Input<bool>? ClientCertEnabled { get; set; }
+
+        /// <summary>
+        /// If specified during app creation, the app is cloned from a source app.
+        /// </summary>
+        [Input("cloningInfo")]
+        public Input<Inputs.CloningInfoArgs>? CloningInfo { get; set; }
+
+        /// <summary>
+        /// Size of the function container.
+        /// </summary>
+        [Input("containerSize")]
+        public Input<int>? ContainerSize { get; set; }
+
+        /// <summary>
+        /// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+        /// </summary>
+        [Input("dailyMemoryTimeQuota")]
+        public Input<int>? DailyMemoryTimeQuota { get; set; }
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the app is enabled; otherwise, &lt;code&gt;false&lt;/code&gt;. Setting this value to false disables the app (takes the app offline).
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// If true, web app hostname is force registered with DNS.
         /// </summary>
         [Input("forceDnsRegistration")]
         public Input<bool>? ForceDnsRegistration { get; set; }
+
+        [Input("hostNameSslStates")]
+        private InputList<Inputs.HostNameSslStateArgs>? _hostNameSslStates;
+
+        /// <summary>
+        /// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+        /// </summary>
+        public InputList<Inputs.HostNameSslStateArgs> HostNameSslStates
+        {
+            get => _hostNameSslStates ?? (_hostNameSslStates = new InputList<Inputs.HostNameSslStateArgs>());
+            set => _hostNameSslStates = value;
+        }
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to disable the public hostnames of the app; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        ///  If &lt;code&gt;true&lt;/code&gt;, the app is only accessible via API management process.
+        /// </summary>
+        [Input("hostNamesDisabled")]
+        public Input<bool>? HostNamesDisabled { get; set; }
+
+        /// <summary>
+        /// App Service Environment to use for the app.
+        /// </summary>
+        [Input("hostingEnvironmentProfile")]
+        public Input<Inputs.HostingEnvironmentProfileArgs>? HostingEnvironmentProfile { get; set; }
+
+        /// <summary>
+        /// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+        /// http requests
+        /// </summary>
+        [Input("httpsOnly")]
+        public Input<bool>? HttpsOnly { get; set; }
 
         /// <summary>
         /// Managed service identity.
@@ -132,16 +200,34 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Site resource specific properties
+        /// &lt;code&gt;true&lt;/code&gt; if reserved; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SitePropertiesArgs>? Properties { get; set; }
+        [Input("reserved")]
+        public Input<bool>? Reserved { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to stop SCM (KUDU) site when the app is stopped; otherwise, &lt;code&gt;false&lt;/code&gt;. The default is &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Input("scmSiteAlsoStopped")]
+        public Input<bool>? ScmSiteAlsoStopped { get; set; }
+
+        /// <summary>
+        /// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        /// </summary>
+        [Input("serverFarmId")]
+        public Input<string>? ServerFarmId { get; set; }
+
+        /// <summary>
+        /// Configuration of the app.
+        /// </summary>
+        [Input("siteConfig")]
+        public Input<Inputs.SiteConfigArgs>? SiteConfig { get; set; }
 
         /// <summary>
         /// If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
@@ -155,6 +241,12 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         [Input("skipDnsRegistration")]
         public Input<bool>? SkipDnsRegistration { get; set; }
+
+        /// <summary>
+        /// If specified during app creation, the app is created from a previous snapshot.
+        /// </summary>
+        [Input("snapshotInfo")]
+        public Input<Inputs.SnapshotRecoveryRequestArgs>? SnapshotInfo { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

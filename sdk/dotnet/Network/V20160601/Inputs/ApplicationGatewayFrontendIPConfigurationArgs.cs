@@ -34,10 +34,34 @@ namespace Pulumi.AzureRM.Network.V20160601.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of Frontend IP configuration of application gateway
+        /// PrivateIPAddress of the Network Interface IP Configuration
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayFrontendIPConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("privateIPAddress")]
+        public Input<string>? PrivateIPAddress { get; set; }
+
+        /// <summary>
+        /// PrivateIP allocation method (Static/Dynamic)
+        /// </summary>
+        [Input("privateIPAllocationMethod")]
+        public Input<string>? PrivateIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Reference of the PublicIP resource
+        /// </summary>
+        [Input("publicIPAddress")]
+        public Input<Inputs.SubResourceArgs>? PublicIPAddress { get; set; }
+
+        /// <summary>
+        /// Reference of the subnet resource
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubResourceArgs>? Subnet { get; set; }
 
         public ApplicationGatewayFrontendIPConfigurationArgs()
         {

@@ -108,6 +108,18 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// A list that describes the correlation of the service with other services.
+        /// </summary>
+        [Input("correlationScheme")]
+        public Input<Inputs.CorrelationSchemeListArgs>? CorrelationScheme { get; set; }
+
+        /// <summary>
+        /// Specifies the move cost for the service.
+        /// </summary>
+        [Input("defaultMoveCost")]
+        public Input<string>? DefaultMoveCost { get; set; }
+
+        /// <summary>
         /// It will be deprecated in New API, resource location depends on the parent resource.
         /// </summary>
         [Input("location")]
@@ -120,16 +132,58 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The service resource properties.
+        /// Describes how the service is partitioned.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServiceResourcePropertiesArgs>? Properties { get; set; }
+        [Input("partitionDescription")]
+        public Input<Inputs.PartitionSchemeDescriptionArgs>? PartitionDescription { get; set; }
+
+        /// <summary>
+        /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+        /// </summary>
+        [Input("placementConstraints")]
+        public Input<string>? PlacementConstraints { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
+        /// </summary>
+        [Input("serviceDnsName")]
+        public Input<string>? ServiceDnsName { get; set; }
+
+        /// <summary>
+        /// The kind of service (Stateless or Stateful).
+        /// </summary>
+        [Input("serviceKind", required: true)]
+        public Input<string> ServiceKind { get; set; } = null!;
+
+        /// <summary>
+        /// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+        /// </summary>
+        [Input("serviceLoadMetrics")]
+        public Input<Inputs.ServiceLoadMetricsListArgs>? ServiceLoadMetrics { get; set; }
+
+        /// <summary>
+        /// The activation Mode of the service package
+        /// </summary>
+        [Input("servicePackageActivationMode")]
+        public Input<string>? ServicePackageActivationMode { get; set; }
+
+        /// <summary>
+        /// A list that describes the correlation of the service with other services.
+        /// </summary>
+        [Input("servicePlacementPolicies")]
+        public Input<Inputs.ServicePlacementPoliciesListArgs>? ServicePlacementPolicies { get; set; }
+
+        /// <summary>
+        /// The name of the service type
+        /// </summary>
+        [Input("serviceTypeName")]
+        public Input<string>? ServiceTypeName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

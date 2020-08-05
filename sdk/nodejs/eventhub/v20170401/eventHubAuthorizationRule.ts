@@ -43,7 +43,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**
      * Properties supplied to create or update AuthorizationRule
      */
-    public readonly properties!: pulumi.Output<outputs.eventhub.v20170401.AuthorizationRuleResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20170401.AuthorizationRuleResponseProperties>;
     /**
      * Resource type.
      */
@@ -74,11 +74,15 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.rights === undefined) {
+                throw new Error("Missing required property 'rights'");
+            }
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rights"] = args ? args.rights : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,11 +113,11 @@ export interface EventHubAuthorizationRuleArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties supplied to create or update AuthorizationRule
-     */
-    readonly properties?: pulumi.Input<inputs.eventhub.v20170401.AuthorizationRuleProperties>;
-    /**
      * Name of the resource group within the azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The rights associated with the rule.
+     */
+    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
 }

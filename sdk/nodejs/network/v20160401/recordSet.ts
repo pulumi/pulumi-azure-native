@@ -47,7 +47,7 @@ export class RecordSet extends pulumi.CustomResource {
     /**
      * The properties of the record set.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20160401.RecordSetPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160401.RecordSetPropertiesResponse>;
     /**
      * The type of the record set.
      */
@@ -78,14 +78,25 @@ export class RecordSet extends pulumi.CustomResource {
             if (!args || args.zoneName === undefined) {
                 throw new Error("Missing required property 'zoneName'");
             }
+            inputs["ARecords"] = args ? args.ARecords : undefined;
+            inputs["TTL"] = args ? args.TTL : undefined;
+            inputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
+            inputs["cnameRecord"] = args ? args.cnameRecord : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
+            inputs["mxRecords"] = args ? args.mxRecords : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nsRecords"] = args ? args.nsRecords : undefined;
+            inputs["ptrRecords"] = args ? args.ptrRecords : undefined;
             inputs["recordType"] = args ? args.recordType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["soaRecord"] = args ? args.soaRecord : undefined;
+            inputs["srvRecords"] = args ? args.srvRecords : undefined;
+            inputs["txtRecords"] = args ? args.txtRecords : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -103,6 +114,22 @@ export class RecordSet extends pulumi.CustomResource {
  */
 export interface RecordSetArgs {
     /**
+     * The list of A records in the record set.
+     */
+    readonly ARecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.ARecord>[]>;
+    /**
+     * The TTL (time-to-live) of the records in the record set.
+     */
+    readonly TTL?: pulumi.Input<number>;
+    /**
+     * The list of AAAA records in the record set.
+     */
+    readonly aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.AaaaRecord>[]>;
+    /**
+     * The CNAME record in the  record set.
+     */
+    readonly cnameRecord?: pulumi.Input<inputs.network.v20160401.CnameRecord>;
+    /**
      * The etag of the record set.
      */
     readonly etag?: pulumi.Input<string>;
@@ -111,13 +138,25 @@ export interface RecordSetArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * The metadata attached to the record set.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The list of MX records in the record set.
+     */
+    readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.MxRecord>[]>;
+    /**
      * The name of the record set, relative to the name of the zone.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the record set.
+     * The list of NS records in the record set.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20160401.RecordSetProperties>;
+    readonly nsRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.NsRecord>[]>;
+    /**
+     * The list of PTR records in the record set.
+     */
+    readonly ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.PtrRecord>[]>;
     /**
      * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
      */
@@ -126,6 +165,18 @@ export interface RecordSetArgs {
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The SOA record in the record set.
+     */
+    readonly soaRecord?: pulumi.Input<inputs.network.v20160401.SoaRecord>;
+    /**
+     * The list of SRV records in the record set.
+     */
+    readonly srvRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.SrvRecord>[]>;
+    /**
+     * The list of TXT records in the record set.
+     */
+    readonly txtRecords?: pulumi.Input<pulumi.Input<inputs.network.v20160401.TxtRecord>[]>;
     /**
      * The type of the record set.
      */

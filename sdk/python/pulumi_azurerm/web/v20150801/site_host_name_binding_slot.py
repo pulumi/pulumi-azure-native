@@ -31,30 +31,26 @@ class SiteHostNameBindingSlot(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, id=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, slot=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, id=None, kind=None, location=None, name=None, resource_group_name=None, site_name=None, slot=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         A host name binding object
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] azure_resource_name: Azure resource name
+        :param pulumi.Input[str] azure_resource_type: Azure resource type
+        :param pulumi.Input[str] custom_host_name_dns_record_type: Custom DNS record type
+        :param pulumi.Input[str] domain_id: Fully qualified ARM domain resource URI
+        :param pulumi.Input[str] host_name_type: Host name type
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] name: Name of host
         :param pulumi.Input[str] resource_group_name: Name of resource group
+        :param pulumi.Input[str] site_name: Web app name
         :param pulumi.Input[str] slot: Name of web app slot. If not specified then will default to production slot.
         :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `azure_resource_name` (`pulumi.Input[str]`) - Azure resource name
-          * `azure_resource_type` (`pulumi.Input[str]`) - Azure resource type
-          * `custom_host_name_dns_record_type` (`pulumi.Input[str]`) - Custom DNS record type
-          * `domain_id` (`pulumi.Input[str]`) - Fully qualified ARM domain resource URI
-          * `host_name_type` (`pulumi.Input[str]`) - Host name type
-          * `name` (`pulumi.Input[str]`) - Hostname
-          * `site_name` (`pulumi.Input[str]`) - Web app name
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,6 +69,11 @@ class SiteHostNameBindingSlot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['azure_resource_name'] = azure_resource_name
+            __props__['azure_resource_type'] = azure_resource_type
+            __props__['custom_host_name_dns_record_type'] = custom_host_name_dns_record_type
+            __props__['domain_id'] = domain_id
+            __props__['host_name_type'] = host_name_type
             __props__['id'] = id
             __props__['kind'] = kind
             if location is None:
@@ -81,15 +82,16 @@ class SiteHostNameBindingSlot(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['site_name'] = site_name
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['type'] = type
+            __props__['properties'] = None
         super(SiteHostNameBindingSlot, __self__).__init__(
             'azurerm:web/v20150801:SiteHostNameBindingSlot',
             resource_name,

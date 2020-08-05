@@ -43,7 +43,7 @@ export class Share extends pulumi.CustomResource {
     /**
      * The share properties.
      */
-    public readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.SharePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.SharePropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -62,22 +62,37 @@ export class Share extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ShareArgs | undefined;
+            if (!args || args.accessProtocol === undefined) {
+                throw new Error("Missing required property 'accessProtocol'");
+            }
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
+            }
+            if (!args || args.monitoringStatus === undefined) {
+                throw new Error("Missing required property 'monitoringStatus'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.shareStatus === undefined) {
+                throw new Error("Missing required property 'shareStatus'");
+            }
+            inputs["accessProtocol"] = args ? args.accessProtocol : undefined;
+            inputs["azureContainerInfo"] = args ? args.azureContainerInfo : undefined;
+            inputs["clientAccessRights"] = args ? args.clientAccessRights : undefined;
+            inputs["dataPolicy"] = args ? args.dataPolicy : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
+            inputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["refreshDetails"] = args ? args.refreshDetails : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["shareStatus"] = args ? args.shareStatus : undefined;
+            inputs["userAccessRights"] = args ? args.userAccessRights : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,19 +111,51 @@ export class Share extends pulumi.CustomResource {
  */
 export interface ShareArgs {
     /**
+     * Access protocol to be used by the share.
+     */
+    readonly accessProtocol: pulumi.Input<string>;
+    /**
+     * Azure container mapping for the share.
+     */
+    readonly azureContainerInfo?: pulumi.Input<inputs.databoxedge.v20190801.AzureContainerInfo>;
+    /**
+     * List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+     */
+    readonly clientAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190801.ClientAccessRight>[]>;
+    /**
+     * Data policy of the share.
+     */
+    readonly dataPolicy?: pulumi.Input<string>;
+    /**
+     * Description for the share.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The device name.
      */
     readonly deviceName: pulumi.Input<string>;
+    /**
+     * Current monitoring status of the share.
+     */
+    readonly monitoringStatus: pulumi.Input<string>;
     /**
      * The share name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The share properties.
+     * Details of the refresh job on this share.
      */
-    readonly properties: pulumi.Input<inputs.databoxedge.v20190801.ShareProperties>;
+    readonly refreshDetails?: pulumi.Input<inputs.databoxedge.v20190801.RefreshDetails>;
     /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Current status of the share.
+     */
+    readonly shareStatus: pulumi.Input<string>;
+    /**
+     * Mapping of users and corresponding access rights on the share (required for SMB protocol).
+     */
+    readonly userAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190801.UserAccessRight>[]>;
 }

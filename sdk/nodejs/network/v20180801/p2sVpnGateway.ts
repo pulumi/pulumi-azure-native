@@ -51,7 +51,7 @@ export class P2sVpnGateway extends pulumi.CustomResource {
     /**
      * Parameters for P2SVpnGateway
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180801.P2SVpnGatewayPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180801.P2SVpnGatewayPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -86,10 +86,15 @@ export class P2sVpnGateway extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["p2SVpnServerConfiguration"] = args ? args.p2SVpnServerConfiguration : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualHub"] = args ? args.virtualHub : undefined;
+            inputs["vpnClientAddressPool"] = args ? args.vpnClientAddressPool : undefined;
+            inputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -120,9 +125,13 @@ export interface P2sVpnGatewayArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Parameters for P2SVpnGateway
+     * The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20180801.P2SVpnGatewayProperties>;
+    readonly p2SVpnServerConfiguration?: pulumi.Input<inputs.network.v20180801.SubResource>;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name of the P2SVpnGateway.
      */
@@ -131,4 +140,16 @@ export interface P2sVpnGatewayArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The VirtualHub to which the gateway belongs
+     */
+    readonly virtualHub?: pulumi.Input<inputs.network.v20180801.SubResource>;
+    /**
+     * The reference of the address space resource which represents Address space for P2S VpnClient.
+     */
+    readonly vpnClientAddressPool?: pulumi.Input<inputs.network.v20180801.AddressSpace>;
+    /**
+     * The scale unit for this p2s vpn gateway.
+     */
+    readonly vpnGatewayScaleUnit?: pulumi.Input<number>;
 }

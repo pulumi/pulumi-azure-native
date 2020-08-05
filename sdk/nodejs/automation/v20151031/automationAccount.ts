@@ -51,7 +51,7 @@ export class AutomationAccount extends pulumi.CustomResource {
     /**
      * Gets or sets the automation account properties.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.AutomationAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.AutomationAccountPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -82,10 +82,11 @@ export class AutomationAccount extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,13 +113,13 @@ export interface AutomationAccountArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Gets or sets account create or update properties.
-     */
-    readonly properties?: pulumi.Input<inputs.automation.v20151031.AutomationAccountCreateOrUpdateProperties>;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets account SKU.
+     */
+    readonly sku?: pulumi.Input<inputs.automation.v20151031.Sku>;
     /**
      * Gets or sets the tags attached to the resource.
      */

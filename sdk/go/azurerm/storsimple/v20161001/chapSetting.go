@@ -34,8 +34,8 @@ func NewChapSetting(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.Password == nil {
+		return nil, errors.New("missing required argument 'Password'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -93,8 +93,8 @@ type chapSettingArgs struct {
 	ManagerName string `pulumi:"managerName"`
 	// The chap user name.
 	Name string `pulumi:"name"`
-	// Chap properties
-	Properties ChapProperties `pulumi:"properties"`
+	// The chap password.
+	Password AsymmetricEncryptedSecret `pulumi:"password"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -107,8 +107,8 @@ type ChapSettingArgs struct {
 	ManagerName pulumi.StringInput
 	// The chap user name.
 	Name pulumi.StringInput
-	// Chap properties
-	Properties ChapPropertiesInput
+	// The chap password.
+	Password AsymmetricEncryptedSecretInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 }

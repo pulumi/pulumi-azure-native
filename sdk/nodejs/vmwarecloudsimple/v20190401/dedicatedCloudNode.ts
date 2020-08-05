@@ -47,7 +47,7 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
     /**
      * Dedicated Cloud Nodes properties
      */
-    public readonly properties!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.DedicatedCloudNodePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.DedicatedCloudNodePropertiesResponse>;
     /**
      * Dedicated Cloud Nodes SKU
      */
@@ -77,22 +77,42 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             if (!args || args.Referer === undefined) {
                 throw new Error("Missing required property 'Referer'");
             }
+            if (!args || args.availabilityZoneId === undefined) {
+                throw new Error("Missing required property 'availabilityZoneId'");
+            }
+            if (!args || args.id === undefined) {
+                throw new Error("Missing required property 'id'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.nodesCount === undefined) {
+                throw new Error("Missing required property 'nodesCount'");
+            }
+            if (!args || args.placementGroupId === undefined) {
+                throw new Error("Missing required property 'placementGroupId'");
+            }
+            if (!args || args.purchaseId === undefined) {
+                throw new Error("Missing required property 'purchaseId'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["Referer"] = args ? args.Referer : undefined;
+            inputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
+            inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nodesCount"] = args ? args.nodesCount : undefined;
+            inputs["placementGroupId"] = args ? args.placementGroupId : undefined;
+            inputs["purchaseId"] = args ? args.purchaseId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,6 +135,14 @@ export interface DedicatedCloudNodeArgs {
      */
     readonly Referer: pulumi.Input<string>;
     /**
+     * Availability Zone id, e.g. "az1"
+     */
+    readonly availabilityZoneId: pulumi.Input<string>;
+    /**
+     * SKU's id
+     */
+    readonly id: pulumi.Input<string>;
+    /**
      * Azure region
      */
     readonly location: pulumi.Input<string>;
@@ -123,9 +151,17 @@ export interface DedicatedCloudNodeArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Dedicated Cloud Nodes properties
+     * count of nodes to create
      */
-    readonly properties?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.DedicatedCloudNodeProperties>;
+    readonly nodesCount: pulumi.Input<number>;
+    /**
+     * Placement Group id, e.g. "n1"
+     */
+    readonly placementGroupId: pulumi.Input<string>;
+    /**
+     * purchase id
+     */
+    readonly purchaseId: pulumi.Input<string>;
     /**
      * The name of the resource group
      */

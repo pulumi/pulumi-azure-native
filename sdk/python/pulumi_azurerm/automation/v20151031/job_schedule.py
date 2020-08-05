@@ -30,7 +30,7 @@ class JobSchedule(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, parameters=None, resource_group_name=None, run_on=None, runbook=None, schedule=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the job schedule.
 
@@ -38,18 +38,19 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] name: The job schedule name.
-        :param pulumi.Input[dict] properties: Gets or sets the list of job schedule properties.
+        :param pulumi.Input[dict] parameters: Gets or sets a list of job properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] run_on: Gets or sets the hybrid worker group that the scheduled job should run on.
+        :param pulumi.Input[dict] runbook: Gets or sets the runbook.
+        :param pulumi.Input[dict] schedule: Gets or sets the schedule.
 
-        The **properties** object supports the following:
+        The **runbook** object supports the following:
 
-          * `parameters` (`pulumi.Input[dict]`) - Gets or sets a list of job properties.
-          * `run_on` (`pulumi.Input[str]`) - Gets or sets the hybrid worker group that the scheduled job should run on.
-          * `runbook` (`pulumi.Input[dict]`) - Gets or sets the runbook.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the name of the runbook.
+          * `name` (`pulumi.Input[str]`) - Gets or sets the name of the runbook.
 
-          * `schedule` (`pulumi.Input[dict]`) - Gets or sets the schedule.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the name of the Schedule.
+        The **schedule** object supports the following:
+
+          * `name` (`pulumi.Input[str]`) - Gets or sets the name of the Schedule.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,12 +75,18 @@ class JobSchedule(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['parameters'] = parameters
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['run_on'] = run_on
+            if runbook is None:
+                raise TypeError("Missing required property 'runbook'")
+            __props__['runbook'] = runbook
+            if schedule is None:
+                raise TypeError("Missing required property 'schedule'")
+            __props__['schedule'] = schedule
+            __props__['properties'] = None
             __props__['type'] = None
         super(JobSchedule, __self__).__init__(
             'azurerm:automation/v20151031:JobSchedule',

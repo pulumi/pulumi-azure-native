@@ -90,6 +90,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class CustomImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The author of the custom image.
+        /// </summary>
+        [Input("author")]
+        public Input<string>? Author { get; set; }
+
+        /// <summary>
+        /// The description of the custom image.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -102,16 +114,22 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The Managed Image Id backing the custom image.
+        /// </summary>
+        [Input("managedImageId")]
+        public Input<string>? ManagedImageId { get; set; }
+
+        /// <summary>
         /// The name of the custom image.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.CustomImagePropertiesArgs> Properties { get; set; } = null!;
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -130,6 +148,24 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
+
+        /// <summary>
+        /// The VHD from which the image is to be created.
+        /// </summary>
+        [Input("vhd")]
+        public Input<Inputs.CustomImagePropertiesCustomArgs>? Vhd { get; set; }
+
+        /// <summary>
+        /// The virtual machine from which the image is to be created.
+        /// </summary>
+        [Input("vm")]
+        public Input<Inputs.CustomImagePropertiesFromVmArgs>? Vm { get; set; }
 
         public CustomImageArgs()
         {

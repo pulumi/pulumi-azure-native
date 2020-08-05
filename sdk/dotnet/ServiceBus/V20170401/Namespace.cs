@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the namespace.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SBNamespacePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]

@@ -95,82 +95,84 @@ class VpnGateway(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, bgp_settings=None, connections=None, id=None, location=None, name=None, resource_group_name=None, tags=None, virtual_hub=None, vpn_gateway_scale_unit=None, __props__=None, __name__=None, __opts__=None):
         """
         VpnGateway Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] bgp_settings: Local network gateway's BGP speaker settings.
+        :param pulumi.Input[list] connections: List of all vpn connections to the gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the gateway.
-        :param pulumi.Input[dict] properties: Properties of the VPN gateway.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnGateway.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[dict] virtual_hub: The VirtualHub to which the gateway belongs.
+        :param pulumi.Input[float] vpn_gateway_scale_unit: The scale unit for this vpn gateway.
 
-        The **properties** object supports the following:
+        The **bgp_settings** object supports the following:
 
-          * `bgp_settings` (`pulumi.Input[dict]`) - Local network gateway's BGP speaker settings.
-            * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
-            * `bgp_peering_address` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier of this BGP speaker.
-            * `peer_weight` (`pulumi.Input[float]`) - The weight added to routes learned from this BGP speaker.
+          * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
+          * `bgp_peering_address` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier of this BGP speaker.
+          * `peer_weight` (`pulumi.Input[float]`) - The weight added to routes learned from this BGP speaker.
 
-          * `connections` (`pulumi.Input[list]`) - List of all vpn connections to the gateway.
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the VPN connection.
-              * `connection_bandwidth` (`pulumi.Input[float]`) - Expected bandwidth in MBPS.
-              * `connection_status` (`pulumi.Input[str]`) - The connection status.
-              * `egress_bytes_transferred` (`pulumi.Input[float]`) - Egress bytes transferred.
-              * `enable_bgp` (`pulumi.Input[bool]`) - EnableBgp flag.
-              * `enable_internet_security` (`pulumi.Input[bool]`) - Enable internet security.
-              * `enable_rate_limiting` (`pulumi.Input[bool]`) - EnableBgp flag.
-              * `ingress_bytes_transferred` (`pulumi.Input[float]`) - Ingress bytes transferred.
-              * `ipsec_policies` (`pulumi.Input[list]`) - The IPSec Policies to be considered by this connection.
-                * `dh_group` (`pulumi.Input[str]`) - The DH Group used in IKE Phase 1 for initial SA.
-                * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
-                * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
-                * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
-                * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
-                * `pfs_group` (`pulumi.Input[str]`) - The Pfs Group used in IKE Phase 2 for new child SA.
-                * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-                * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+        The **connections** object supports the following:
 
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the VPN connection resource.
-              * `remote_vpn_site` (`pulumi.Input[dict]`) - Id of the connected vpn site.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `properties` (`pulumi.Input[dict]`) - Properties of the VPN connection.
+            * `connection_bandwidth` (`pulumi.Input[float]`) - Expected bandwidth in MBPS.
+            * `connection_status` (`pulumi.Input[str]`) - The connection status.
+            * `egress_bytes_transferred` (`pulumi.Input[float]`) - Egress bytes transferred.
+            * `enable_bgp` (`pulumi.Input[bool]`) - EnableBgp flag.
+            * `enable_internet_security` (`pulumi.Input[bool]`) - Enable internet security.
+            * `enable_rate_limiting` (`pulumi.Input[bool]`) - EnableBgp flag.
+            * `ingress_bytes_transferred` (`pulumi.Input[float]`) - Ingress bytes transferred.
+            * `ipsec_policies` (`pulumi.Input[list]`) - The IPSec Policies to be considered by this connection.
+              * `dh_group` (`pulumi.Input[str]`) - The DH Group used in IKE Phase 1 for initial SA.
+              * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
+              * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
+              * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
+              * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
+              * `pfs_group` (`pulumi.Input[str]`) - The Pfs Group used in IKE Phase 2 for new child SA.
+              * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+              * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
 
-              * `routing_weight` (`pulumi.Input[float]`) - Routing weight for vpn connection.
-              * `shared_key` (`pulumi.Input[str]`) - SharedKey for the vpn connection.
-              * `use_local_azure_ip_address` (`pulumi.Input[bool]`) - Use local azure ip to initiate connection.
-              * `use_policy_based_traffic_selectors` (`pulumi.Input[bool]`) - Enable policy-based traffic selectors.
-              * `vpn_connection_protocol_type` (`pulumi.Input[str]`) - Connection protocol used for this connection.
-              * `vpn_link_connections` (`pulumi.Input[list]`) - List of all vpn site link connections to the gateway.
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
-                * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`pulumi.Input[dict]`) - Properties of the VPN site link connection.
-                  * `connection_bandwidth` (`pulumi.Input[float]`) - Expected bandwidth in MBPS.
-                  * `connection_status` (`pulumi.Input[str]`) - The connection status.
-                  * `egress_bytes_transferred` (`pulumi.Input[float]`) - Egress bytes transferred.
-                  * `enable_bgp` (`pulumi.Input[bool]`) - EnableBgp flag.
-                  * `enable_rate_limiting` (`pulumi.Input[bool]`) - EnableBgp flag.
-                  * `ingress_bytes_transferred` (`pulumi.Input[float]`) - Ingress bytes transferred.
-                  * `ipsec_policies` (`pulumi.Input[list]`) - The IPSec Policies to be considered by this connection.
-                  * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the VPN site link connection resource.
-                  * `routing_weight` (`pulumi.Input[float]`) - Routing weight for vpn connection.
-                  * `shared_key` (`pulumi.Input[str]`) - SharedKey for the vpn connection.
-                  * `use_local_azure_ip_address` (`pulumi.Input[bool]`) - Use local azure ip to initiate connection.
-                  * `use_policy_based_traffic_selectors` (`pulumi.Input[bool]`) - Enable policy-based traffic selectors.
-                  * `vpn_connection_protocol_type` (`pulumi.Input[str]`) - Connection protocol used for this connection.
-                  * `vpn_site_link` (`pulumi.Input[dict]`) - Id of the connected vpn site link.
+            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the VPN connection resource.
+            * `remote_vpn_site` (`pulumi.Input[dict]`) - Id of the connected vpn site.
+              * `id` (`pulumi.Input[str]`) - Resource ID.
 
-                * `type` (`pulumi.Input[str]`) - Resource type.
+            * `routing_weight` (`pulumi.Input[float]`) - Routing weight for vpn connection.
+            * `shared_key` (`pulumi.Input[str]`) - SharedKey for the vpn connection.
+            * `use_local_azure_ip_address` (`pulumi.Input[bool]`) - Use local azure ip to initiate connection.
+            * `use_policy_based_traffic_selectors` (`pulumi.Input[bool]`) - Enable policy-based traffic selectors.
+            * `vpn_connection_protocol_type` (`pulumi.Input[str]`) - Connection protocol used for this connection.
+            * `vpn_link_connections` (`pulumi.Input[list]`) - List of all vpn site link connections to the gateway.
+              * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+              * `id` (`pulumi.Input[str]`) - Resource ID.
+              * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+              * `properties` (`pulumi.Input[dict]`) - Properties of the VPN site link connection.
+                * `connection_bandwidth` (`pulumi.Input[float]`) - Expected bandwidth in MBPS.
+                * `connection_status` (`pulumi.Input[str]`) - The connection status.
+                * `egress_bytes_transferred` (`pulumi.Input[float]`) - Egress bytes transferred.
+                * `enable_bgp` (`pulumi.Input[bool]`) - EnableBgp flag.
+                * `enable_rate_limiting` (`pulumi.Input[bool]`) - EnableBgp flag.
+                * `ingress_bytes_transferred` (`pulumi.Input[float]`) - Ingress bytes transferred.
+                * `ipsec_policies` (`pulumi.Input[list]`) - The IPSec Policies to be considered by this connection.
+                * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the VPN site link connection resource.
+                * `routing_weight` (`pulumi.Input[float]`) - Routing weight for vpn connection.
+                * `shared_key` (`pulumi.Input[str]`) - SharedKey for the vpn connection.
+                * `use_local_azure_ip_address` (`pulumi.Input[bool]`) - Use local azure ip to initiate connection.
+                * `use_policy_based_traffic_selectors` (`pulumi.Input[bool]`) - Enable policy-based traffic selectors.
+                * `vpn_connection_protocol_type` (`pulumi.Input[str]`) - Connection protocol used for this connection.
+                * `vpn_site_link` (`pulumi.Input[dict]`) - Id of the connected vpn site link.
 
-          * `virtual_hub` (`pulumi.Input[dict]`) - The VirtualHub to which the gateway belongs.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
+              * `type` (`pulumi.Input[str]`) - Resource type.
 
-          * `vpn_gateway_scale_unit` (`pulumi.Input[float]`) - The scale unit for this vpn gateway.
+        The **virtual_hub** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -189,6 +191,8 @@ class VpnGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['bgp_settings'] = bgp_settings
+            __props__['connections'] = connections
             __props__['id'] = id
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -196,12 +200,14 @@ class VpnGateway(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['virtual_hub'] = virtual_hub
+            __props__['vpn_gateway_scale_unit'] = vpn_gateway_scale_unit
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(VpnGateway, __self__).__init__(
             'azurerm:network/v20190901:VpnGateway',

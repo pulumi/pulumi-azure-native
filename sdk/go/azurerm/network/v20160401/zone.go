@@ -103,10 +103,12 @@ type zoneArgs struct {
 	Etag *string `pulumi:"etag"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordSets *int `pulumi:"maxNumberOfRecordSets"`
 	// The name of the DNS zone (without a terminating dot).
 	Name string `pulumi:"name"`
-	// The properties of the zone.
-	Properties *ZoneProperties `pulumi:"properties"`
+	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -119,10 +121,12 @@ type ZoneArgs struct {
 	Etag pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
+	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	MaxNumberOfRecordSets pulumi.IntPtrInput
 	// The name of the DNS zone (without a terminating dot).
 	Name pulumi.StringInput
-	// The properties of the zone.
-	Properties ZonePropertiesPtrInput
+	// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+	NumberOfRecordSets pulumi.IntPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

@@ -34,14 +34,13 @@ class HybridUseBenefit(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, scope=None, sku=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, scope=None, sku=None, __props__=None, __name__=None, __opts__=None):
         """
         Response on GET of a hybrid use benefit
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: This is a unique identifier for a plan. Should be a guid.
-        :param pulumi.Input[dict] properties: Property bag for a hybrid use benefit response
         :param pulumi.Input[str] scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
         :param pulumi.Input[dict] sku: Hybrid use benefit SKU
 
@@ -69,7 +68,6 @@ class HybridUseBenefit(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
@@ -77,6 +75,7 @@ class HybridUseBenefit(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(HybridUseBenefit, __self__).__init__(
             'azurerm:softwareplan/v20191201:HybridUseBenefit',

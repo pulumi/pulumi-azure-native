@@ -31,6 +31,12 @@ func NewCluster(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.UserAccountSettings == nil {
+		return nil, errors.New("missing required argument 'UserAccountSettings'")
+	}
+	if args == nil || args.VmSize == nil {
+		return nil, errors.New("missing required argument 'VmSize'")
+	}
 	if args == nil || args.WorkspaceName == nil {
 		return nil, errors.New("missing required argument 'WorkspaceName'")
 	}
@@ -83,10 +89,22 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name string `pulumi:"name"`
-	// The properties of the Cluster.
-	Properties *ClusterBaseProperties `pulumi:"properties"`
+	// Setup to be performed on each compute node in the cluster.
+	NodeSetup *NodeSetup `pulumi:"nodeSetup"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Scale settings for the cluster. Batch AI service supports manual and auto scale clusters.
+	ScaleSettings *ScaleSettings `pulumi:"scaleSettings"`
+	// Existing virtual network subnet to put the cluster nodes in. Note, if a File Server mount configured in node setup, the File Server's subnet will be used automatically.
+	Subnet *ResourceId `pulumi:"subnet"`
+	// Settings for an administrator user account that will be created on each compute node in the cluster.
+	UserAccountSettings UserAccountSettings `pulumi:"userAccountSettings"`
+	// OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
+	VirtualMachineConfiguration *VirtualMachineConfiguration `pulumi:"virtualMachineConfiguration"`
+	// VM priority. Allowed values are: dedicated (default) and lowpriority.
+	VmPriority *string `pulumi:"vmPriority"`
+	// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+	VmSize string `pulumi:"vmSize"`
 	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
@@ -95,10 +113,22 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name pulumi.StringInput
-	// The properties of the Cluster.
-	Properties ClusterBasePropertiesPtrInput
+	// Setup to be performed on each compute node in the cluster.
+	NodeSetup NodeSetupPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// Scale settings for the cluster. Batch AI service supports manual and auto scale clusters.
+	ScaleSettings ScaleSettingsPtrInput
+	// Existing virtual network subnet to put the cluster nodes in. Note, if a File Server mount configured in node setup, the File Server's subnet will be used automatically.
+	Subnet ResourceIdPtrInput
+	// Settings for an administrator user account that will be created on each compute node in the cluster.
+	UserAccountSettings UserAccountSettingsInput
+	// OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
+	VirtualMachineConfiguration VirtualMachineConfigurationPtrInput
+	// VM priority. Allowed values are: dedicated (default) and lowpriority.
+	VmPriority pulumi.StringPtrInput
+	// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+	VmSize pulumi.StringInput
 	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	WorkspaceName pulumi.StringInput
 }

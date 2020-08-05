@@ -47,7 +47,7 @@ export class SecurityRule extends pulumi.CustomResource {
     /**
      * Properties of the security rule.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200501.SecurityRulePropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.SecurityRulePropertiesFormatResponse>;
 
     /**
      * Create a SecurityRule resource with the given unique name, arguments, and options.
@@ -62,21 +62,45 @@ export class SecurityRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SecurityRuleArgs | undefined;
+            if (!args || args.access === undefined) {
+                throw new Error("Missing required property 'access'");
+            }
+            if (!args || args.direction === undefined) {
+                throw new Error("Missing required property 'direction'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.networkSecurityGroupName === undefined) {
                 throw new Error("Missing required property 'networkSecurityGroupName'");
             }
+            if (!args || args.protocol === undefined) {
+                throw new Error("Missing required property 'protocol'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["access"] = args ? args.access : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["destinationAddressPrefix"] = args ? args.destinationAddressPrefix : undefined;
+            inputs["destinationAddressPrefixes"] = args ? args.destinationAddressPrefixes : undefined;
+            inputs["destinationApplicationSecurityGroups"] = args ? args.destinationApplicationSecurityGroups : undefined;
+            inputs["destinationPortRange"] = args ? args.destinationPortRange : undefined;
+            inputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
+            inputs["direction"] = args ? args.direction : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["priority"] = args ? args.priority : undefined;
+            inputs["protocol"] = args ? args.protocol : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sourceAddressPrefix"] = args ? args.sourceAddressPrefix : undefined;
+            inputs["sourceAddressPrefixes"] = args ? args.sourceAddressPrefixes : undefined;
+            inputs["sourceApplicationSecurityGroups"] = args ? args.sourceApplicationSecurityGroups : undefined;
+            inputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
+            inputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -94,6 +118,38 @@ export class SecurityRule extends pulumi.CustomResource {
  */
 export interface SecurityRuleArgs {
     /**
+     * The network traffic is allowed or denied.
+     */
+    readonly access: pulumi.Input<string>;
+    /**
+     * A description for this rule. Restricted to 140 chars.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+     */
+    readonly destinationAddressPrefix?: pulumi.Input<string>;
+    /**
+     * The destination address prefixes. CIDR or destination IP ranges.
+     */
+    readonly destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The application security group specified as destination.
+     */
+    readonly destinationApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.v20200501.ApplicationSecurityGroup>[]>;
+    /**
+     * The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+     */
+    readonly destinationPortRange?: pulumi.Input<string>;
+    /**
+     * The destination port ranges.
+     */
+    readonly destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+     */
+    readonly direction: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -106,11 +162,35 @@ export interface SecurityRuleArgs {
      */
     readonly networkSecurityGroupName: pulumi.Input<string>;
     /**
-     * Properties of the security rule.
+     * The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20200501.SecurityRulePropertiesFormat>;
+    readonly priority?: pulumi.Input<number>;
+    /**
+     * Network protocol this rule applies to.
+     */
+    readonly protocol: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+     */
+    readonly sourceAddressPrefix?: pulumi.Input<string>;
+    /**
+     * The CIDR or source IP ranges.
+     */
+    readonly sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The application security group specified as source.
+     */
+    readonly sourceApplicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.v20200501.ApplicationSecurityGroup>[]>;
+    /**
+     * The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+     */
+    readonly sourcePortRange?: pulumi.Input<string>;
+    /**
+     * The source port ranges.
+     */
+    readonly sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }

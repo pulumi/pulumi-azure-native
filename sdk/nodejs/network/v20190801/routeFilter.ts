@@ -51,7 +51,7 @@ export class RouteFilter extends pulumi.CustomResource {
     /**
      * Properties of the route filter.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190801.RouteFilterPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190801.RouteFilterPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -84,12 +84,15 @@ export class RouteFilter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipv6Peerings"] = args ? args.ipv6Peerings : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peerings"] = args ? args.peerings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rules"] = args ? args.rules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,6 +115,10 @@ export interface RouteFilterArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * A collection of references to express route circuit ipv6 peerings.
+     */
+    readonly ipv6Peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190801.ExpressRouteCircuitPeering>[]>;
+    /**
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
@@ -120,13 +127,17 @@ export interface RouteFilterArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the route filter.
+     * A collection of references to express route circuit peerings.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190801.RouteFilterPropertiesFormat>;
+    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190801.ExpressRouteCircuitPeering>[]>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Collection of RouteFilterRules contained within a route filter.
+     */
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20190801.RouteFilterRule>[]>;
     /**
      * Resource tags.
      */

@@ -84,6 +84,18 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
     public sealed class SavedSearchArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The category of the saved search. This helps the user to find a saved search faster. 
+        /// </summary>
+        [Input("category", required: true)]
+        public Input<string> Category { get; set; } = null!;
+
+        /// <summary>
+        /// Saved search display name.
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
         /// The ETag of the saved search.
         /// </summary>
         [Input("eTag")]
@@ -96,16 +108,34 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the saved search.
+        /// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.SavedSearchPropertiesArgs> Properties { get; set; } = null!;
+        [Input("query", required: true)]
+        public Input<string> Query { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags attached to the saved search.
+        /// </summary>
+        public InputList<Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.TagArgs>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// The version number of the query language. The current version is 2 and is the default.
+        /// </summary>
+        [Input("version")]
+        public Input<int>? Version { get; set; }
 
         /// <summary>
         /// The Log Analytics Workspace name.

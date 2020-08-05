@@ -28,6 +28,9 @@ func NewApiIssue(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
+	if args == nil || args.Description == nil {
+		return nil, errors.New("missing required argument 'Description'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -36,6 +39,12 @@ func NewApiIssue(ctx *pulumi.Context,
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.Title == nil {
+		return nil, errors.New("missing required argument 'Title'")
+	}
+	if args == nil || args.UserId == nil {
+		return nil, errors.New("missing required argument 'UserId'")
 	}
 	if args == nil {
 		args = &ApiIssueArgs{}
@@ -84,30 +93,46 @@ func (ApiIssueState) ElementType() reflect.Type {
 }
 
 type apiIssueArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
+	// A resource identifier for the API the issue was created for.
 	ApiId string `pulumi:"apiId"`
+	// Date and time when the issue was created.
+	CreatedDate *string `pulumi:"createdDate"`
+	// Text describing the issue.
+	Description string `pulumi:"description"`
 	// Issue identifier. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// Properties of the Issue.
-	Properties *IssueContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Status of the issue.
+	State *string `pulumi:"state"`
+	// The issue title.
+	Title string `pulumi:"title"`
+	// A resource identifier for the user created the issue.
+	UserId string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a ApiIssue resource.
 type ApiIssueArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
+	// A resource identifier for the API the issue was created for.
 	ApiId pulumi.StringInput
+	// Date and time when the issue was created.
+	CreatedDate pulumi.StringPtrInput
+	// Text describing the issue.
+	Description pulumi.StringInput
 	// Issue identifier. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// Properties of the Issue.
-	Properties IssueContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Status of the issue.
+	State pulumi.StringPtrInput
+	// The issue title.
+	Title pulumi.StringInput
+	// A resource identifier for the user created the issue.
+	UserId pulumi.StringInput
 }
 
 func (ApiIssueArgs) ElementType() reflect.Type {

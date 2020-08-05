@@ -123,16 +123,22 @@ type virtualMachineScaleSetArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the VM scale set to create or update.
 	Name string `pulumi:"name"`
+	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+	Overprovision *bool `pulumi:"overprovision"`
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 	Plan *Plan `pulumi:"plan"`
-	// Describes the properties of a Virtual Machine Scale Set.
-	Properties *VirtualMachineScaleSetProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The virtual machine scale set sku.
 	Sku *Sku `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// The upgrade policy.
+	UpgradePolicy *UpgradePolicy `pulumi:"upgradePolicy"`
+	// The virtual machine profile.
+	VirtualMachineProfile *VirtualMachineScaleSetVMProfile `pulumi:"virtualMachineProfile"`
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
 	Zones []string `pulumi:"zones"`
 }
@@ -145,16 +151,22 @@ type VirtualMachineScaleSetArgs struct {
 	Location pulumi.StringInput
 	// The name of the VM scale set to create or update.
 	Name pulumi.StringInput
+	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+	Overprovision pulumi.BoolPtrInput
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 	Plan PlanPtrInput
-	// Describes the properties of a Virtual Machine Scale Set.
-	Properties VirtualMachineScaleSetPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+	SinglePlacementGroup pulumi.BoolPtrInput
 	// The virtual machine scale set sku.
 	Sku SkuPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// The upgrade policy.
+	UpgradePolicy UpgradePolicyPtrInput
+	// The virtual machine profile.
+	VirtualMachineProfile VirtualMachineScaleSetVMProfilePtrInput
 	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
 	Zones pulumi.StringArrayInput
 }

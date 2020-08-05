@@ -78,16 +78,22 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Base 64 encoded certificate using the application/x-pkcs12 representation.
+        /// </summary>
+        [Input("data", required: true)]
+        public Input<string> Data { get; set; } = null!;
+
+        /// <summary>
         /// Identifier of the certificate entity. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Certificate create or update properties details.
+        /// Password for the Certificate
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CertificateCreateOrUpdatePropertiesArgs>? Properties { get; set; }
+        [Input("password", required: true)]
+        public Input<string> Password { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

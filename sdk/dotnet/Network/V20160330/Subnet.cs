@@ -75,6 +75,12 @@ namespace Pulumi.AzureRM.Network.V20160330
     public sealed class SubnetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets Address prefix for the subnet.
+        /// </summary>
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
@@ -86,20 +92,47 @@ namespace Pulumi.AzureRM.Network.V20160330
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("ipConfigurations")]
+        private InputList<Inputs.IPConfigurationArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// Gets array of references to the network interface IP configurations using subnet
+        /// </summary>
+        public InputList<Inputs.IPConfigurationArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.IPConfigurationArgs>());
+            set => _ipConfigurations = value;
+        }
+
         /// <summary>
         /// The name of the subnet.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.SubnetPropertiesFormatArgs>? Properties { get; set; }
+        /// <summary>
+        /// Gets or sets the reference of the NetworkSecurityGroup resource
+        /// </summary>
+        [Input("networkSecurityGroup")]
+        public Input<Inputs.NetworkSecurityGroupArgs>? NetworkSecurityGroup { get; set; }
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the reference of the RouteTable resource
+        /// </summary>
+        [Input("routeTable")]
+        public Input<Inputs.RouteTableArgs>? RouteTable { get; set; }
 
         /// <summary>
         /// The name of the virtual network.

@@ -89,11 +89,47 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
 
     public sealed class ContainerServiceArgs : Pulumi.ResourceArgs
     {
+        [Input("agentPoolProfiles")]
+        private InputList<Inputs.ContainerServiceAgentPoolProfileArgs>? _agentPoolProfiles;
+
+        /// <summary>
+        /// Properties of the agent pool.
+        /// </summary>
+        public InputList<Inputs.ContainerServiceAgentPoolProfileArgs> AgentPoolProfiles
+        {
+            get => _agentPoolProfiles ?? (_agentPoolProfiles = new InputList<Inputs.ContainerServiceAgentPoolProfileArgs>());
+            set => _agentPoolProfiles = value;
+        }
+
+        /// <summary>
+        /// Properties to configure a custom container service cluster.
+        /// </summary>
+        [Input("customProfile")]
+        public Input<Inputs.ContainerServiceCustomProfileArgs>? CustomProfile { get; set; }
+
+        /// <summary>
+        /// Profile for diagnostics in the container service cluster.
+        /// </summary>
+        [Input("diagnosticsProfile")]
+        public Input<Inputs.ContainerServiceDiagnosticsProfileArgs>? DiagnosticsProfile { get; set; }
+
+        /// <summary>
+        /// Profile for Linux VMs in the container service cluster.
+        /// </summary>
+        [Input("linuxProfile", required: true)]
+        public Input<Inputs.ContainerServiceLinuxProfileArgs> LinuxProfile { get; set; } = null!;
+
         /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Profile for the container service master.
+        /// </summary>
+        [Input("masterProfile", required: true)]
+        public Input<Inputs.ContainerServiceMasterProfileArgs> MasterProfile { get; set; } = null!;
 
         /// <summary>
         /// The name of the container service in the specified subscription and resource group.
@@ -102,16 +138,22 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the container service.
+        /// Profile for the container service orchestrator.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ContainerServicePropertiesArgs>? Properties { get; set; }
+        [Input("orchestratorProfile", required: true)]
+        public Input<Inputs.ContainerServiceOrchestratorProfileArgs> OrchestratorProfile { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+        /// </summary>
+        [Input("servicePrincipalProfile")]
+        public Input<Inputs.ContainerServiceServicePrincipalProfileArgs>? ServicePrincipalProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -124,6 +166,12 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Profile for Windows VMs in the container service cluster.
+        /// </summary>
+        [Input("windowsProfile")]
+        public Input<Inputs.ContainerServiceWindowsProfileArgs>? WindowsProfile { get; set; }
 
         public ContainerServiceArgs()
         {

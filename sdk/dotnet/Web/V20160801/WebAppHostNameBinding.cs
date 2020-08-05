@@ -84,6 +84,36 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class WebAppHostNameBindingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Azure resource name.
+        /// </summary>
+        [Input("azureResourceName")]
+        public Input<string>? AzureResourceName { get; set; }
+
+        /// <summary>
+        /// Azure resource type.
+        /// </summary>
+        [Input("azureResourceType")]
+        public Input<string>? AzureResourceType { get; set; }
+
+        /// <summary>
+        /// Custom DNS record type.
+        /// </summary>
+        [Input("customHostNameDnsRecordType")]
+        public Input<string>? CustomHostNameDnsRecordType { get; set; }
+
+        /// <summary>
+        /// Fully qualified ARM domain resource URI.
+        /// </summary>
+        [Input("domainId")]
+        public Input<string>? DomainId { get; set; }
+
+        /// <summary>
+        /// Hostname type.
+        /// </summary>
+        [Input("hostNameType")]
+        public Input<string>? HostNameType { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
@@ -96,16 +126,28 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// HostNameBinding resource specific properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.HostNameBindingPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// App Service app name.
+        /// </summary>
+        [Input("siteName")]
+        public Input<string>? SiteName { get; set; }
+
+        /// <summary>
+        /// SSL type
+        /// </summary>
+        [Input("sslState")]
+        public Input<string>? SslState { get; set; }
+
+        /// <summary>
+        /// SSL certificate thumbprint
+        /// </summary>
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
 
         public WebAppHostNameBindingArgs()
         {

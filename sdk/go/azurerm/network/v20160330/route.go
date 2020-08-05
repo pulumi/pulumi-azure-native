@@ -28,6 +28,9 @@ func NewRoute(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.NextHopType == nil {
+		return nil, errors.New("missing required argument 'NextHopType'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -81,14 +84,20 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
+	// Gets or sets the destination CIDR to which the route applies.
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// The name of the route.
 	Name string `pulumi:"name"`
-	// Route resource
-	Properties *RoutePropertiesFormat `pulumi:"properties"`
+	// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+	NextHopIpAddress *string `pulumi:"nextHopIpAddress"`
+	// Gets or sets the type of Azure hop the packet should be sent to.
+	NextHopType string `pulumi:"nextHopType"`
+	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the route table.
@@ -97,14 +106,20 @@ type routeArgs struct {
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
+	// Gets or sets the destination CIDR to which the route applies.
+	AddressPrefix pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// The name of the route.
 	Name pulumi.StringInput
-	// Route resource
-	Properties RoutePropertiesFormatPtrInput
+	// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+	NextHopIpAddress pulumi.StringPtrInput
+	// Gets or sets the type of Azure hop the packet should be sent to.
+	NextHopType pulumi.StringInput
+	// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the route table.

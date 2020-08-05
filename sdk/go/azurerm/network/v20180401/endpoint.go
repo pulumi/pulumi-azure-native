@@ -84,38 +84,78 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
+	// List of custom headers.
+	CustomHeaders []EndpointPropertiesProperties `pulumi:"customHeaders"`
+	// Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+	EndpointLocation *string `pulumi:"endpointLocation"`
+	// The monitoring status of the endpoint.
+	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
+	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+	EndpointStatus *string `pulumi:"endpointStatus"`
 	// The type of the Traffic Manager endpoint to be created or updated.
 	EndpointType string `pulumi:"endpointType"`
+	// The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+	GeoMapping []string `pulumi:"geoMapping"`
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
 	Id *string `pulumi:"id"`
+	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpoints *int `pulumi:"minChildEndpoints"`
 	// The name of the Traffic Manager endpoint to be created or updated.
 	Name string `pulumi:"name"`
+	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+	Priority *int `pulumi:"priority"`
 	// The name of the Traffic Manager profile.
 	ProfileName string `pulumi:"profileName"`
-	// The properties of the Traffic Manager endpoint.
-	Properties *EndpointProperties `pulumi:"properties"`
 	// The name of the resource group containing the Traffic Manager endpoint to be created or updated.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+	Subnets []EndpointPropertiesProperties `pulumi:"subnets"`
+	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+	Target *string `pulumi:"target"`
+	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+	TargetResourceId *string `pulumi:"targetResourceId"`
 	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type *string `pulumi:"type"`
+	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+	Weight *int `pulumi:"weight"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
+	// List of custom headers.
+	CustomHeaders EndpointPropertiesPropertiesArrayInput
+	// Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+	EndpointLocation pulumi.StringPtrInput
+	// The monitoring status of the endpoint.
+	EndpointMonitorStatus pulumi.StringPtrInput
+	// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+	EndpointStatus pulumi.StringPtrInput
 	// The type of the Traffic Manager endpoint to be created or updated.
 	EndpointType pulumi.StringInput
+	// The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+	GeoMapping pulumi.StringArrayInput
 	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
 	Id pulumi.StringPtrInput
+	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+	MinChildEndpoints pulumi.IntPtrInput
 	// The name of the Traffic Manager endpoint to be created or updated.
 	Name pulumi.StringInput
+	// The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+	Priority pulumi.IntPtrInput
 	// The name of the Traffic Manager profile.
 	ProfileName pulumi.StringInput
-	// The properties of the Traffic Manager endpoint.
-	Properties EndpointPropertiesPtrInput
 	// The name of the resource group containing the Traffic Manager endpoint to be created or updated.
 	ResourceGroupName pulumi.StringInput
+	// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+	Subnets EndpointPropertiesPropertiesArrayInput
+	// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+	Target pulumi.StringPtrInput
+	// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+	TargetResourceId pulumi.StringPtrInput
 	// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
 	Type pulumi.StringPtrInput
+	// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+	Weight pulumi.IntPtrInput
 }
 
 func (EndpointArgs) ElementType() reflect.Type {

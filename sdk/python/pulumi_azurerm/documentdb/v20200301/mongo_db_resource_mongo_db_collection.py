@@ -32,7 +32,7 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
     """
     The type of Azure resource.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, location=None, name=None, options=None, resource=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An Azure Cosmos DB MongoDB collection.
 
@@ -42,26 +42,27 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
         :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input[str] name: Cosmos DB collection name.
-        :param pulumi.Input[dict] properties: Properties to create and update Azure Cosmos DB MongoDB collection.
+        :param pulumi.Input[dict] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        :param pulumi.Input[dict] resource: The standard JSON format of a MongoDB collection
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[dict] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 
-        The **properties** object supports the following:
+        The **options** object supports the following:
 
-          * `options` (`pulumi.Input[dict]`) - A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-            * `throughput` (`pulumi.Input[str]`) - Request Units per second. For example, "throughput": "10000".
+          * `throughput` (`pulumi.Input[str]`) - Request Units per second. For example, "throughput": "10000".
 
-          * `resource` (`pulumi.Input[dict]`) - The standard JSON format of a MongoDB collection
-            * `id` (`pulumi.Input[str]`) - Name of the Cosmos DB MongoDB collection
-            * `indexes` (`pulumi.Input[list]`) - List of index keys
-              * `key` (`pulumi.Input[dict]`) - Cosmos DB MongoDB collection index keys
-                * `keys` (`pulumi.Input[list]`) - List of keys for each MongoDB collection in the Azure Cosmos DB service
+        The **resource** object supports the following:
 
-              * `options` (`pulumi.Input[dict]`) - Cosmos DB MongoDB collection index key options
-                * `expire_after_seconds` (`pulumi.Input[float]`) - Expire after seconds
-                * `unique` (`pulumi.Input[bool]`) - Is unique or not
+          * `id` (`pulumi.Input[str]`) - Name of the Cosmos DB MongoDB collection
+          * `indexes` (`pulumi.Input[list]`) - List of index keys
+            * `key` (`pulumi.Input[dict]`) - Cosmos DB MongoDB collection index keys
+              * `keys` (`pulumi.Input[list]`) - List of keys for each MongoDB collection in the Azure Cosmos DB service
 
-            * `shard_key` (`pulumi.Input[dict]`) - A key-value pair of shard keys to be applied for the request.
+            * `options` (`pulumi.Input[dict]`) - Cosmos DB MongoDB collection index key options
+              * `expire_after_seconds` (`pulumi.Input[float]`) - Expire after seconds
+              * `unique` (`pulumi.Input[bool]`) - Is unique or not
+
+          * `shard_key` (`pulumi.Input[dict]`) - A key-value pair of shard keys to be applied for the request.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,13 +91,17 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if options is None:
+                raise TypeError("Missing required property 'options'")
+            __props__['options'] = options
+            if resource is None:
+                raise TypeError("Missing required property 'resource'")
+            __props__['resource'] = resource
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(MongoDBResourceMongoDBCollection, __self__).__init__(
             'azurerm:documentdb/v20200301:MongoDBResourceMongoDBCollection',

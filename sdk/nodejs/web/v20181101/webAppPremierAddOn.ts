@@ -51,7 +51,7 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
     /**
      * PremierAddOn resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20181101.PremierAddOnResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20181101.PremierAddOnResponseProperties>;
     /**
      * Resource tags.
      */
@@ -85,10 +85,15 @@ export class WebAppPremierAddOn extends pulumi.CustomResource {
             }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["marketplaceOffer"] = args ? args.marketplaceOffer : undefined;
+            inputs["marketplacePublisher"] = args ? args.marketplacePublisher : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["product"] = args ? args.product : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vendor"] = args ? args.vendor : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,19 +120,35 @@ export interface WebAppPremierAddOnArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * Premier add on Marketplace offer.
+     */
+    readonly marketplaceOffer?: pulumi.Input<string>;
+    /**
+     * Premier add on Marketplace publisher.
+     */
+    readonly marketplacePublisher?: pulumi.Input<string>;
+    /**
      * Add-on name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * PremierAddOn resource specific properties
+     * Premier add on Product.
      */
-    readonly properties?: pulumi.Input<inputs.web.v20181101.PremierAddOnProperties>;
+    readonly product?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Premier add on SKU.
+     */
+    readonly sku?: pulumi.Input<string>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Premier add on Vendor.
+     */
+    readonly vendor?: pulumi.Input<string>;
 }

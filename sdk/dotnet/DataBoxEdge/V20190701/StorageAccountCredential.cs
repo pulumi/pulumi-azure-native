@@ -78,6 +78,36 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
     public sealed class StorageAccountCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Encrypted storage key.
+        /// </summary>
+        [Input("accountKey")]
+        public Input<Inputs.AsymmetricEncryptedSecretArgs>? AccountKey { get; set; }
+
+        /// <summary>
+        /// Type of storage accessed on the storage account.
+        /// </summary>
+        [Input("accountType", required: true)]
+        public Input<string> AccountType { get; set; } = null!;
+
+        /// <summary>
+        /// Alias for the storage account.
+        /// </summary>
+        [Input("alias", required: true)]
+        public Input<string> Alias { get; set; } = null!;
+
+        /// <summary>
+        /// Blob end point for private clouds.
+        /// </summary>
+        [Input("blobDomainName")]
+        public Input<string>? BlobDomainName { get; set; }
+
+        /// <summary>
+        /// Connection string for the storage account. Use this string if username and account key are not specified.
+        /// </summary>
+        [Input("connectionString")]
+        public Input<string>? ConnectionString { get; set; }
+
+        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
@@ -90,16 +120,28 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The storage account credential properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.StorageAccountCredentialPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Signifies whether SSL needs to be enabled or not.
+        /// </summary>
+        [Input("sslStatus", required: true)]
+        public Input<string> SslStatus { get; set; } = null!;
+
+        /// <summary>
+        /// Id of the storage account.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// Username for the storage account.
+        /// </summary>
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public StorageAccountCredentialArgs()
         {

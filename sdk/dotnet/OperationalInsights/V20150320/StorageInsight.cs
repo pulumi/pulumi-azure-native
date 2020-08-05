@@ -89,6 +89,18 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
 
     public sealed class StorageInsightArgs : Pulumi.ResourceArgs
     {
+        [Input("containers")]
+        private InputList<string>? _containers;
+
+        /// <summary>
+        /// The names of the blob containers that the workspace should read
+        /// </summary>
+        public InputList<string> Containers
+        {
+            get => _containers ?? (_containers = new InputList<string>());
+            set => _containers = value;
+        }
+
         /// <summary>
         /// The ETag of the storage insight.
         /// </summary>
@@ -102,16 +114,28 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Storage insight properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.StorageInsightPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The Resource Group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The storage account connection details
+        /// </summary>
+        [Input("storageAccount", required: true)]
+        public Input<Inputs.StorageAccountArgs> StorageAccount { get; set; } = null!;
+
+        [Input("tables")]
+        private InputList<string>? _tables;
+
+        /// <summary>
+        /// The names of the Azure tables that the workspace should read
+        /// </summary>
+        public InputList<string> Tables
+        {
+            get => _tables ?? (_tables = new InputList<string>());
+            set => _tables = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

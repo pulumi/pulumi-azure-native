@@ -96,6 +96,48 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The default owner group for all new folders and files created in the Data Lake Store account.
+        /// </summary>
+        [Input("defaultGroup")]
+        public Input<string>? DefaultGroup { get; set; }
+
+        /// <summary>
+        /// The Key Vault encryption configuration.
+        /// </summary>
+        [Input("encryptionConfig")]
+        public Input<Inputs.EncryptionConfigArgs>? EncryptionConfig { get; set; }
+
+        /// <summary>
+        /// The current state of encryption for this Data Lake Store account.
+        /// </summary>
+        [Input("encryptionState")]
+        public Input<string>? EncryptionState { get; set; }
+
+        /// <summary>
+        /// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+        /// </summary>
+        [Input("firewallAllowAzureIps")]
+        public Input<string>? FirewallAllowAzureIps { get; set; }
+
+        [Input("firewallRules")]
+        private InputList<Inputs.CreateFirewallRuleWithAccountParametersArgs>? _firewallRules;
+
+        /// <summary>
+        /// The list of firewall rules associated with this Data Lake Store account.
+        /// </summary>
+        public InputList<Inputs.CreateFirewallRuleWithAccountParametersArgs> FirewallRules
+        {
+            get => _firewallRules ?? (_firewallRules = new InputList<Inputs.CreateFirewallRuleWithAccountParametersArgs>());
+            set => _firewallRules = value;
+        }
+
+        /// <summary>
+        /// The current state of the IP address firewall for this Data Lake Store account.
+        /// </summary>
+        [Input("firewallState")]
+        public Input<string>? FirewallState { get; set; }
+
+        /// <summary>
         /// The Key Vault encryption identity, if any.
         /// </summary>
         [Input("identity")]
@@ -114,10 +156,10 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Data Lake Store account properties to use for creating.
+        /// The commitment tier to use for next month.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CreateDataLakeStoreAccountPropertiesArgs>? Properties { get; set; }
+        [Input("newTier")]
+        public Input<string>? NewTier { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group.
@@ -135,6 +177,36 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        /// <summary>
+        /// The current state of the trusted identity provider feature for this Data Lake Store account.
+        /// </summary>
+        [Input("trustedIdProviderState")]
+        public Input<string>? TrustedIdProviderState { get; set; }
+
+        [Input("trustedIdProviders")]
+        private InputList<Inputs.CreateTrustedIdProviderWithAccountParametersArgs>? _trustedIdProviders;
+
+        /// <summary>
+        /// The list of trusted identity providers associated with this Data Lake Store account.
+        /// </summary>
+        public InputList<Inputs.CreateTrustedIdProviderWithAccountParametersArgs> TrustedIdProviders
+        {
+            get => _trustedIdProviders ?? (_trustedIdProviders = new InputList<Inputs.CreateTrustedIdProviderWithAccountParametersArgs>());
+            set => _trustedIdProviders = value;
+        }
+
+        [Input("virtualNetworkRules")]
+        private InputList<Inputs.CreateVirtualNetworkRuleWithAccountParametersArgs>? _virtualNetworkRules;
+
+        /// <summary>
+        /// The list of virtual network rules associated with this Data Lake Store account.
+        /// </summary>
+        public InputList<Inputs.CreateVirtualNetworkRuleWithAccountParametersArgs> VirtualNetworkRules
+        {
+            get => _virtualNetworkRules ?? (_virtualNetworkRules = new InputList<Inputs.CreateVirtualNetworkRuleWithAccountParametersArgs>());
+            set => _virtualNetworkRules = value;
         }
 
         public AccountArgs()

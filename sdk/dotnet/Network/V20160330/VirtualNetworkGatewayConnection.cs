@@ -96,6 +96,36 @@ namespace Pulumi.AzureRM.Network.V20160330
     public sealed class VirtualNetworkGatewayConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authorizationKey.
+        /// </summary>
+        [Input("authorizationKey")]
+        public Input<string>? AuthorizationKey { get; set; }
+
+        /// <summary>
+        /// Virtual network Gateway connection status
+        /// </summary>
+        [Input("connectionStatus")]
+        public Input<string>? ConnectionStatus { get; set; }
+
+        /// <summary>
+        /// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+        /// </summary>
+        [Input("connectionType")]
+        public Input<string>? ConnectionType { get; set; }
+
+        /// <summary>
+        /// The Egress Bytes Transferred in this connection
+        /// </summary>
+        [Input("egressBytesTransferred")]
+        public Input<int>? EgressBytesTransferred { get; set; }
+
+        /// <summary>
+        /// EnableBgp Flag
+        /// </summary>
+        [Input("enableBgp")]
+        public Input<bool>? EnableBgp { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
@@ -106,6 +136,18 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The Ingress Bytes Transferred in this connection
+        /// </summary>
+        [Input("ingressBytesTransferred")]
+        public Input<int>? IngressBytesTransferred { get; set; }
+
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        [Input("localNetworkGateway2")]
+        public Input<Inputs.LocalNetworkGatewayArgs>? LocalNetworkGateway2 { get; set; }
 
         /// <summary>
         /// Resource location
@@ -120,16 +162,40 @@ namespace Pulumi.AzureRM.Network.V20160330
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// VirtualNetworkGatewayConnection properties
+        /// The reference to peerings resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualNetworkGatewayConnectionPropertiesFormatArgs>? Properties { get; set; }
+        [Input("peer")]
+        public Input<Inputs.SubResourceArgs>? Peer { get; set; }
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets resource GUID property of the VirtualNetworkGatewayConnection resource
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
+
+        /// <summary>
+        /// The Routing weight.
+        /// </summary>
+        [Input("routingWeight")]
+        public Input<int>? RoutingWeight { get; set; }
+
+        /// <summary>
+        /// The IPsec share key.
+        /// </summary>
+        [Input("sharedKey")]
+        public Input<string>? SharedKey { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -142,6 +208,18 @@ namespace Pulumi.AzureRM.Network.V20160330
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        [Input("virtualNetworkGateway1")]
+        public Input<Inputs.VirtualNetworkGatewayArgs>? VirtualNetworkGateway1 { get; set; }
+
+        /// <summary>
+        /// A common class for general resource information
+        /// </summary>
+        [Input("virtualNetworkGateway2")]
+        public Input<Inputs.VirtualNetworkGatewayArgs>? VirtualNetworkGateway2 { get; set; }
 
         public VirtualNetworkGatewayConnectionArgs()
         {

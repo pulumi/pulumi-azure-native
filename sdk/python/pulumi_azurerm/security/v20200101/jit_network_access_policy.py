@@ -27,7 +27,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, asc_location=None, kind=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, asc_location=None, kind=None, name=None, requests=None, resource_group_name=None, virtual_machines=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a JitNetworkAccessPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -36,34 +36,35 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[list] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
 
-        The **properties** object supports the following:
+        The **requests** object supports the following:
 
-          * `requests` (`pulumi.Input[list]`)
-            * `justification` (`pulumi.Input[str]`) - The justification for making the initiate request
-            * `requestor` (`pulumi.Input[str]`) - The identity of the person who made the request
-            * `start_time_utc` (`pulumi.Input[str]`) - The start time of the request in UTC
-            * `virtual_machines` (`pulumi.Input[list]`)
-              * `id` (`pulumi.Input[str]`) - Resource ID of the virtual machine that is linked to this policy
-              * `ports` (`pulumi.Input[list]`) - The ports that were opened for the virtual machine
-                * `allowed_source_address_prefix` (`pulumi.Input[str]`) - Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
-                * `allowed_source_address_prefixes` (`pulumi.Input[list]`) - Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
-                * `end_time_utc` (`pulumi.Input[str]`) - The date & time at which the request ends in UTC
-                * `mapped_port` (`pulumi.Input[float]`) - The port which is mapped to this port's `number` in the Azure Firewall, if applicable
-                * `number` (`pulumi.Input[float]`)
-                * `status` (`pulumi.Input[str]`) - The status of the port
-                * `status_reason` (`pulumi.Input[str]`) - A description of why the `status` has its value
-
-          * `virtual_machines` (`pulumi.Input[list]`) - Configurations for Microsoft.Compute/virtualMachines resource type.
+          * `justification` (`pulumi.Input[str]`) - The justification for making the initiate request
+          * `requestor` (`pulumi.Input[str]`) - The identity of the person who made the request
+          * `start_time_utc` (`pulumi.Input[str]`) - The start time of the request in UTC
+          * `virtual_machines` (`pulumi.Input[list]`)
             * `id` (`pulumi.Input[str]`) - Resource ID of the virtual machine that is linked to this policy
-            * `ports` (`pulumi.Input[list]`) - Port configurations for the virtual machine
+            * `ports` (`pulumi.Input[list]`) - The ports that were opened for the virtual machine
               * `allowed_source_address_prefix` (`pulumi.Input[str]`) - Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
               * `allowed_source_address_prefixes` (`pulumi.Input[list]`) - Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
-              * `max_request_access_duration` (`pulumi.Input[str]`) - Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
+              * `end_time_utc` (`pulumi.Input[str]`) - The date & time at which the request ends in UTC
+              * `mapped_port` (`pulumi.Input[float]`) - The port which is mapped to this port's `number` in the Azure Firewall, if applicable
               * `number` (`pulumi.Input[float]`)
-              * `protocol` (`pulumi.Input[str]`)
+              * `status` (`pulumi.Input[str]`) - The status of the port
+              * `status_reason` (`pulumi.Input[str]`) - A description of why the `status` has its value
 
-            * `public_ip_address` (`pulumi.Input[str]`) - Public IP address of the Azure Firewall that is linked to this policy, if applicable
+        The **virtual_machines** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID of the virtual machine that is linked to this policy
+          * `ports` (`pulumi.Input[list]`) - Port configurations for the virtual machine
+            * `allowed_source_address_prefix` (`pulumi.Input[str]`) - Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+            * `allowed_source_address_prefixes` (`pulumi.Input[list]`) - Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+            * `max_request_access_duration` (`pulumi.Input[str]`) - Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
+            * `number` (`pulumi.Input[float]`)
+            * `protocol` (`pulumi.Input[str]`)
+
+          * `public_ip_address` (`pulumi.Input[str]`) - Public IP address of the Azure Firewall that is linked to this policy, if applicable
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,13 +90,15 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['requests'] = requests
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if virtual_machines is None:
+                raise TypeError("Missing required property 'virtual_machines'")
+            __props__['virtual_machines'] = virtual_machines
             __props__['location'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(JitNetworkAccessPolicy, __self__).__init__(
             'azurerm:security/v20200101:JitNetworkAccessPolicy',

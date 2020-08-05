@@ -51,7 +51,7 @@ export class SignalR extends pulumi.CustomResource {
     /**
      * Settings used to provision or configure the resource
      */
-    public readonly properties!: pulumi.Output<outputs.signalrservice.v20200501.SignalRPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.signalrservice.v20200501.SignalRPropertiesResponse>;
     /**
      * The billing information of the resource.(e.g. Free, Standard)
      */
@@ -84,13 +84,18 @@ export class SignalR extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["cors"] = args ? args.cors : undefined;
+            inputs["features"] = args ? args.features : undefined;
+            inputs["hostNamePrefix"] = args ? args.hostNamePrefix : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkACLs"] = args ? args.networkACLs : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["upstream"] = args ? args.upstream : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,6 +114,24 @@ export class SignalR extends pulumi.CustomResource {
  */
 export interface SignalRArgs {
     /**
+     * Cross-Origin Resource Sharing (CORS) settings.
+     */
+    readonly cors?: pulumi.Input<inputs.signalrservice.v20200501.SignalRCorsSettings>;
+    /**
+     * List of SignalR featureFlags. e.g. ServiceMode.
+     * 
+     * FeatureFlags that are not included in the parameters for the update operation will not be modified.
+     * And the response will only include featureFlags that are explicitly set. 
+     * When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+     * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+     */
+    readonly features?: pulumi.Input<pulumi.Input<inputs.signalrservice.v20200501.SignalRFeature>[]>;
+    /**
+     * Prefix for the hostName of the SignalR service. Retained for future use.
+     * The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+     */
+    readonly hostNamePrefix?: pulumi.Input<string>;
+    /**
      * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
      */
     readonly kind?: pulumi.Input<string>;
@@ -121,9 +144,9 @@ export interface SignalRArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Settings used to provision or configure the resource
+     * Network ACLs
      */
-    readonly properties?: pulumi.Input<inputs.signalrservice.v20200501.SignalRProperties>;
+    readonly networkACLs?: pulumi.Input<inputs.signalrservice.v20200501.SignalRNetworkACLs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -136,4 +159,8 @@ export interface SignalRArgs {
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Upstream settings when the Azure SignalR is in server-less mode.
+     */
+    readonly upstream?: pulumi.Input<inputs.signalrservice.v20200501.ServerlessUpstreamSettings>;
 }

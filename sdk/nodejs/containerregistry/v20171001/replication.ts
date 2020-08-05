@@ -47,7 +47,7 @@ export class Replication extends pulumi.CustomResource {
     /**
      * The properties of the replication.
      */
-    public readonly properties!: pulumi.Output<outputs.containerregistry.v20171001.ReplicationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.containerregistry.v20171001.ReplicationPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -84,10 +84,10 @@ export class Replication extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -113,10 +113,6 @@ export interface ReplicationArgs {
      * The name of the replication.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the replication.
-     */
-    readonly properties?: pulumi.Input<inputs.containerregistry.v20171001.ReplicationProperties>;
     /**
      * The name of the container registry.
      */

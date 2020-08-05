@@ -49,47 +49,6 @@ func (i AppServiceCertificateArgs) ToAppServiceCertificateOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOutput)
 }
 
-func (i AppServiceCertificateArgs) ToAppServiceCertificatePtrOutput() AppServiceCertificatePtrOutput {
-	return i.ToAppServiceCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i AppServiceCertificateArgs) ToAppServiceCertificatePtrOutputWithContext(ctx context.Context) AppServiceCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOutput).ToAppServiceCertificatePtrOutputWithContext(ctx)
-}
-
-// AppServiceCertificatePtrInput is an input type that accepts AppServiceCertificateArgs, AppServiceCertificatePtr and AppServiceCertificatePtrOutput values.
-// You can construct a concrete instance of `AppServiceCertificatePtrInput` via:
-//
-//          AppServiceCertificateArgs{...}
-//
-//  or:
-//
-//          nil
-type AppServiceCertificatePtrInput interface {
-	pulumi.Input
-
-	ToAppServiceCertificatePtrOutput() AppServiceCertificatePtrOutput
-	ToAppServiceCertificatePtrOutputWithContext(context.Context) AppServiceCertificatePtrOutput
-}
-
-type appServiceCertificatePtrType AppServiceCertificateArgs
-
-func AppServiceCertificatePtr(v *AppServiceCertificateArgs) AppServiceCertificatePtrInput {
-	return (*appServiceCertificatePtrType)(v)
-}
-
-func (*appServiceCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceCertificate)(nil)).Elem()
-}
-
-func (i *appServiceCertificatePtrType) ToAppServiceCertificatePtrOutput() AppServiceCertificatePtrOutput {
-	return i.ToAppServiceCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *appServiceCertificatePtrType) ToAppServiceCertificatePtrOutputWithContext(ctx context.Context) AppServiceCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificatePtrOutput)
-}
-
 // AppServiceCertificateMapInput is an input type that accepts AppServiceCertificateMap and AppServiceCertificateMapOutput values.
 // You can construct a concrete instance of `AppServiceCertificateMapInput` via:
 //
@@ -130,16 +89,6 @@ func (o AppServiceCertificateOutput) ToAppServiceCertificateOutputWithContext(ct
 	return o
 }
 
-func (o AppServiceCertificateOutput) ToAppServiceCertificatePtrOutput() AppServiceCertificatePtrOutput {
-	return o.ToAppServiceCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o AppServiceCertificateOutput) ToAppServiceCertificatePtrOutputWithContext(ctx context.Context) AppServiceCertificatePtrOutput {
-	return o.ApplyT(func(v AppServiceCertificate) *AppServiceCertificate {
-		return &v
-	}).(AppServiceCertificatePtrOutput)
-}
-
 // Key Vault resource Id.
 func (o AppServiceCertificateOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceCertificate) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
@@ -148,44 +97,6 @@ func (o AppServiceCertificateOutput) KeyVaultId() pulumi.StringPtrOutput {
 // Key Vault secret name.
 func (o AppServiceCertificateOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceCertificate) *string { return v.KeyVaultSecretName }).(pulumi.StringPtrOutput)
-}
-
-type AppServiceCertificatePtrOutput struct{ *pulumi.OutputState }
-
-func (AppServiceCertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceCertificate)(nil)).Elem()
-}
-
-func (o AppServiceCertificatePtrOutput) ToAppServiceCertificatePtrOutput() AppServiceCertificatePtrOutput {
-	return o
-}
-
-func (o AppServiceCertificatePtrOutput) ToAppServiceCertificatePtrOutputWithContext(ctx context.Context) AppServiceCertificatePtrOutput {
-	return o
-}
-
-func (o AppServiceCertificatePtrOutput) Elem() AppServiceCertificateOutput {
-	return o.ApplyT(func(v *AppServiceCertificate) AppServiceCertificate { return *v }).(AppServiceCertificateOutput)
-}
-
-// Key Vault resource Id.
-func (o AppServiceCertificatePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Key Vault secret name.
-func (o AppServiceCertificatePtrOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultSecretName
-	}).(pulumi.StringPtrOutput)
 }
 
 type AppServiceCertificateMapOutput struct{ *pulumi.OutputState }
@@ -408,254 +319,6 @@ func (o AppServiceCertificateOrderCertificateTypeOutput) Tags() pulumi.StringMap
 // Resource type.
 func (o AppServiceCertificateOrderCertificateTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceCertificateOrderCertificateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// AppServiceCertificateOrder resource specific properties
-type AppServiceCertificateOrderProperties struct {
-	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
-	AutoRenew *bool `pulumi:"autoRenew"`
-	// State of the Key Vault secret.
-	Certificates map[string]AppServiceCertificate `pulumi:"certificates"`
-	// Last CSR that was created for this order.
-	Csr *string `pulumi:"csr"`
-	// Certificate distinguished name.
-	DistinguishedName *string `pulumi:"distinguishedName"`
-	// Certificate key size.
-	KeySize *int `pulumi:"keySize"`
-	// Certificate product type.
-	ProductType string `pulumi:"productType"`
-	// Duration in years (must be between 1 and 3).
-	ValidityInYears *int `pulumi:"validityInYears"`
-}
-
-// AppServiceCertificateOrderPropertiesInput is an input type that accepts AppServiceCertificateOrderPropertiesArgs and AppServiceCertificateOrderPropertiesOutput values.
-// You can construct a concrete instance of `AppServiceCertificateOrderPropertiesInput` via:
-//
-//          AppServiceCertificateOrderPropertiesArgs{...}
-type AppServiceCertificateOrderPropertiesInput interface {
-	pulumi.Input
-
-	ToAppServiceCertificateOrderPropertiesOutput() AppServiceCertificateOrderPropertiesOutput
-	ToAppServiceCertificateOrderPropertiesOutputWithContext(context.Context) AppServiceCertificateOrderPropertiesOutput
-}
-
-// AppServiceCertificateOrder resource specific properties
-type AppServiceCertificateOrderPropertiesArgs struct {
-	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
-	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
-	// State of the Key Vault secret.
-	Certificates AppServiceCertificateMapInput `pulumi:"certificates"`
-	// Last CSR that was created for this order.
-	Csr pulumi.StringPtrInput `pulumi:"csr"`
-	// Certificate distinguished name.
-	DistinguishedName pulumi.StringPtrInput `pulumi:"distinguishedName"`
-	// Certificate key size.
-	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
-	// Certificate product type.
-	ProductType pulumi.StringInput `pulumi:"productType"`
-	// Duration in years (must be between 1 and 3).
-	ValidityInYears pulumi.IntPtrInput `pulumi:"validityInYears"`
-}
-
-func (AppServiceCertificateOrderPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateOrderProperties)(nil)).Elem()
-}
-
-func (i AppServiceCertificateOrderPropertiesArgs) ToAppServiceCertificateOrderPropertiesOutput() AppServiceCertificateOrderPropertiesOutput {
-	return i.ToAppServiceCertificateOrderPropertiesOutputWithContext(context.Background())
-}
-
-func (i AppServiceCertificateOrderPropertiesArgs) ToAppServiceCertificateOrderPropertiesOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderPropertiesOutput)
-}
-
-func (i AppServiceCertificateOrderPropertiesArgs) ToAppServiceCertificateOrderPropertiesPtrOutput() AppServiceCertificateOrderPropertiesPtrOutput {
-	return i.ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i AppServiceCertificateOrderPropertiesArgs) ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderPropertiesOutput).ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(ctx)
-}
-
-// AppServiceCertificateOrderPropertiesPtrInput is an input type that accepts AppServiceCertificateOrderPropertiesArgs, AppServiceCertificateOrderPropertiesPtr and AppServiceCertificateOrderPropertiesPtrOutput values.
-// You can construct a concrete instance of `AppServiceCertificateOrderPropertiesPtrInput` via:
-//
-//          AppServiceCertificateOrderPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type AppServiceCertificateOrderPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToAppServiceCertificateOrderPropertiesPtrOutput() AppServiceCertificateOrderPropertiesPtrOutput
-	ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(context.Context) AppServiceCertificateOrderPropertiesPtrOutput
-}
-
-type appServiceCertificateOrderPropertiesPtrType AppServiceCertificateOrderPropertiesArgs
-
-func AppServiceCertificateOrderPropertiesPtr(v *AppServiceCertificateOrderPropertiesArgs) AppServiceCertificateOrderPropertiesPtrInput {
-	return (*appServiceCertificateOrderPropertiesPtrType)(v)
-}
-
-func (*appServiceCertificateOrderPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceCertificateOrderProperties)(nil)).Elem()
-}
-
-func (i *appServiceCertificateOrderPropertiesPtrType) ToAppServiceCertificateOrderPropertiesPtrOutput() AppServiceCertificateOrderPropertiesPtrOutput {
-	return i.ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *appServiceCertificateOrderPropertiesPtrType) ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderPropertiesPtrOutput)
-}
-
-// AppServiceCertificateOrder resource specific properties
-type AppServiceCertificateOrderPropertiesOutput struct{ *pulumi.OutputState }
-
-func (AppServiceCertificateOrderPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateOrderProperties)(nil)).Elem()
-}
-
-func (o AppServiceCertificateOrderPropertiesOutput) ToAppServiceCertificateOrderPropertiesOutput() AppServiceCertificateOrderPropertiesOutput {
-	return o
-}
-
-func (o AppServiceCertificateOrderPropertiesOutput) ToAppServiceCertificateOrderPropertiesOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesOutput {
-	return o
-}
-
-func (o AppServiceCertificateOrderPropertiesOutput) ToAppServiceCertificateOrderPropertiesPtrOutput() AppServiceCertificateOrderPropertiesPtrOutput {
-	return o.ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o AppServiceCertificateOrderPropertiesOutput) ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *AppServiceCertificateOrderProperties {
-		return &v
-	}).(AppServiceCertificateOrderPropertiesPtrOutput)
-}
-
-// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
-func (o AppServiceCertificateOrderPropertiesOutput) AutoRenew() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *bool { return v.AutoRenew }).(pulumi.BoolPtrOutput)
-}
-
-// State of the Key Vault secret.
-func (o AppServiceCertificateOrderPropertiesOutput) Certificates() AppServiceCertificateMapOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) map[string]AppServiceCertificate { return v.Certificates }).(AppServiceCertificateMapOutput)
-}
-
-// Last CSR that was created for this order.
-func (o AppServiceCertificateOrderPropertiesOutput) Csr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *string { return v.Csr }).(pulumi.StringPtrOutput)
-}
-
-// Certificate distinguished name.
-func (o AppServiceCertificateOrderPropertiesOutput) DistinguishedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *string { return v.DistinguishedName }).(pulumi.StringPtrOutput)
-}
-
-// Certificate key size.
-func (o AppServiceCertificateOrderPropertiesOutput) KeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
-}
-
-// Certificate product type.
-func (o AppServiceCertificateOrderPropertiesOutput) ProductType() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) string { return v.ProductType }).(pulumi.StringOutput)
-}
-
-// Duration in years (must be between 1 and 3).
-func (o AppServiceCertificateOrderPropertiesOutput) ValidityInYears() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *int { return v.ValidityInYears }).(pulumi.IntPtrOutput)
-}
-
-type AppServiceCertificateOrderPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (AppServiceCertificateOrderPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceCertificateOrderProperties)(nil)).Elem()
-}
-
-func (o AppServiceCertificateOrderPropertiesPtrOutput) ToAppServiceCertificateOrderPropertiesPtrOutput() AppServiceCertificateOrderPropertiesPtrOutput {
-	return o
-}
-
-func (o AppServiceCertificateOrderPropertiesPtrOutput) ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesPtrOutput {
-	return o
-}
-
-func (o AppServiceCertificateOrderPropertiesPtrOutput) Elem() AppServiceCertificateOrderPropertiesOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) AppServiceCertificateOrderProperties { return *v }).(AppServiceCertificateOrderPropertiesOutput)
-}
-
-// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) AutoRenew() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AutoRenew
-	}).(pulumi.BoolPtrOutput)
-}
-
-// State of the Key Vault secret.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) Certificates() AppServiceCertificateMapOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) map[string]AppServiceCertificate {
-		if v == nil {
-			return nil
-		}
-		return v.Certificates
-	}).(AppServiceCertificateMapOutput)
-}
-
-// Last CSR that was created for this order.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) Csr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Csr
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate distinguished name.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) DistinguishedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DistinguishedName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate key size.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.KeySize
-	}).(pulumi.IntPtrOutput)
-}
-
-// Certificate product type.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) ProductType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProductType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Duration in years (must be between 1 and 3).
-func (o AppServiceCertificateOrderPropertiesPtrOutput) ValidityInYears() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ValidityInYears
-	}).(pulumi.IntPtrOutput)
 }
 
 // AppServiceCertificateOrder resource specific properties
@@ -1693,12 +1356,9 @@ func (o CertificateDetailsResponsePtrOutput) Version() pulumi.IntPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(AppServiceCertificateOutput{})
-	pulumi.RegisterOutputType(AppServiceCertificatePtrOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateMapOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderTypeOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderCertificateTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceCertificateOrderPropertiesOutput{})
-	pulumi.RegisterOutputType(AppServiceCertificateOrderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateResponseOutput{})

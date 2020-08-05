@@ -25,17 +25,23 @@ type StorageAccountCredential struct {
 // NewStorageAccountCredential registers a new resource with the given unique name, arguments, and options.
 func NewStorageAccountCredential(ctx *pulumi.Context,
 	name string, args *StorageAccountCredentialArgs, opts ...pulumi.ResourceOption) (*StorageAccountCredential, error) {
+	if args == nil || args.AccountType == nil {
+		return nil, errors.New("missing required argument 'AccountType'")
+	}
+	if args == nil || args.Alias == nil {
+		return nil, errors.New("missing required argument 'Alias'")
+	}
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SslStatus == nil {
+		return nil, errors.New("missing required argument 'SslStatus'")
 	}
 	if args == nil {
 		args = &StorageAccountCredentialArgs{}
@@ -84,26 +90,50 @@ func (StorageAccountCredentialState) ElementType() reflect.Type {
 }
 
 type storageAccountCredentialArgs struct {
+	// Encrypted storage key.
+	AccountKey *AsymmetricEncryptedSecret `pulumi:"accountKey"`
+	// Type of storage accessed on the storage account.
+	AccountType string `pulumi:"accountType"`
+	// Alias for the storage account.
+	Alias string `pulumi:"alias"`
+	// Blob end point for private clouds.
+	BlobDomainName *string `pulumi:"blobDomainName"`
+	// Connection string for the storage account. Use this string if username and account key are not specified.
+	ConnectionString *string `pulumi:"connectionString"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The storage account credential name.
 	Name string `pulumi:"name"`
-	// The storage account credential properties.
-	Properties StorageAccountCredentialProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Signifies whether SSL needs to be enabled or not.
+	SslStatus string `pulumi:"sslStatus"`
+	// Username for the storage account.
+	UserName *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a StorageAccountCredential resource.
 type StorageAccountCredentialArgs struct {
+	// Encrypted storage key.
+	AccountKey AsymmetricEncryptedSecretPtrInput
+	// Type of storage accessed on the storage account.
+	AccountType pulumi.StringInput
+	// Alias for the storage account.
+	Alias pulumi.StringInput
+	// Blob end point for private clouds.
+	BlobDomainName pulumi.StringPtrInput
+	// Connection string for the storage account. Use this string if username and account key are not specified.
+	ConnectionString pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
 	// The storage account credential name.
 	Name pulumi.StringInput
-	// The storage account credential properties.
-	Properties StorageAccountCredentialPropertiesInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// Signifies whether SSL needs to be enabled or not.
+	SslStatus pulumi.StringInput
+	// Username for the storage account.
+	UserName pulumi.StringPtrInput
 }
 
 func (StorageAccountCredentialArgs) ElementType() reflect.Type {

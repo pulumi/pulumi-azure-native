@@ -47,7 +47,7 @@ export class Topic extends pulumi.CustomResource {
     /**
      * The Topic Properties definition.
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20140901.TopicPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20140901.TopicPropertiesResponse>;
     /**
      * Resource type
      */
@@ -78,11 +78,25 @@ export class Topic extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            inputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
+            inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
+            inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
+            inputs["enableExpress"] = args ? args.enableExpress : undefined;
+            inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
+            inputs["entityAvailabilityStatus"] = args ? args.entityAvailabilityStatus : undefined;
+            inputs["filteringMessagesBeforePublishing"] = args ? args.filteringMessagesBeforePublishing : undefined;
+            inputs["isAnonymousAccessible"] = args ? args.isAnonymousAccessible : undefined;
+            inputs["isExpress"] = args ? args.isExpress : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,9 +115,50 @@ export class Topic extends pulumi.CustomResource {
  */
 export interface TopicArgs {
     /**
+     * TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+     */
+    readonly autoDeleteOnIdle?: pulumi.Input<string>;
+    /**
+     * Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+     */
+    readonly defaultMessageTimeToLive?: pulumi.Input<string>;
+    /**
+     * TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+     */
+    readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
+    /**
+     * Value that indicates whether server-side batched operations are enabled.
+     */
+    readonly enableBatchedOperations?: pulumi.Input<boolean>;
+    /**
+     * Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+     */
+    readonly enableExpress?: pulumi.Input<boolean>;
+    /**
+     * Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+     */
+    readonly enablePartitioning?: pulumi.Input<boolean>;
+    /**
+     * Entity availability status for the topic.
+     */
+    readonly entityAvailabilityStatus?: pulumi.Input<string>;
+    /**
+     * Whether messages should be filtered before publishing.
+     */
+    readonly filteringMessagesBeforePublishing?: pulumi.Input<boolean>;
+    /**
+     * Value that indicates whether the message is accessible anonymously.
+     */
+    readonly isAnonymousAccessible?: pulumi.Input<boolean>;
+    readonly isExpress?: pulumi.Input<boolean>;
+    /**
      * Location of the resource.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
+     */
+    readonly maxSizeInMegabytes?: pulumi.Input<number>;
     /**
      * The topic name.
      */
@@ -113,11 +168,19 @@ export interface TopicArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * The Topic Properties definition.
+     * Value indicating if this topic requires duplicate detection.
      */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20140901.TopicProperties>;
+    readonly requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Enumerates the possible values for the status of a messaging entity.
+     */
+    readonly status?: pulumi.Input<string>;
+    /**
+     * Value that indicates whether the topic supports ordering.
+     */
+    readonly supportOrdering?: pulumi.Input<boolean>;
 }

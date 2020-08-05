@@ -93,12 +93,16 @@ func (BatchAccountState) ElementType() reflect.Type {
 }
 
 type batchAccountArgs struct {
+	// The properties related to auto storage account.
+	AutoStorage *AutoStorageBaseProperties `pulumi:"autoStorage"`
+	// A reference to the Azure key vault associated with the Batch account.
+	KeyVaultReference *KeyVaultReference `pulumi:"keyVaultReference"`
 	// The region in which to create the account.
 	Location string `pulumi:"location"`
 	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
 	Name string `pulumi:"name"`
-	// The properties of the Batch account.
-	Properties *BatchAccountBaseProperties `pulumi:"properties"`
+	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
 	// The name of the resource group that contains the new Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The user specified tags associated with the account.
@@ -107,12 +111,16 @@ type batchAccountArgs struct {
 
 // The set of arguments for constructing a BatchAccount resource.
 type BatchAccountArgs struct {
+	// The properties related to auto storage account.
+	AutoStorage AutoStorageBasePropertiesPtrInput
+	// A reference to the Azure key vault associated with the Batch account.
+	KeyVaultReference KeyVaultReferencePtrInput
 	// The region in which to create the account.
 	Location pulumi.StringInput
 	// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
 	Name pulumi.StringInput
-	// The properties of the Batch account.
-	Properties BatchAccountBasePropertiesPtrInput
+	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+	PoolAllocationMode pulumi.StringPtrInput
 	// The name of the resource group that contains the new Batch account.
 	ResourceGroupName pulumi.StringInput
 	// The user specified tags associated with the account.

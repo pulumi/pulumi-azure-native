@@ -34,10 +34,10 @@ namespace Pulumi.AzureRM.Network.V20160901.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of SSL certificates of application gateway
+        /// The certificate public data.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VpnClientRootCertificatePropertiesFormatArgs> Properties { get; set; } = null!;
+        [Input("publicCertData", required: true)]
+        public Input<string> PublicCertData { get; set; } = null!;
 
         public VpnClientRootCertificateArgs()
         {

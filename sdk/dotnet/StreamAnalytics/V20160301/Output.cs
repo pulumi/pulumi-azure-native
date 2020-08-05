@@ -78,6 +78,12 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     public sealed class OutputArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        /// </summary>
+        [Input("datasource")]
+        public Input<Inputs.OutputDataSourceArgs>? Datasource { get; set; }
+
+        /// <summary>
         /// The name of the streaming job.
         /// </summary>
         [Input("jobName", required: true)]
@@ -90,16 +96,16 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OutputPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+        /// </summary>
+        [Input("serialization")]
+        public Input<Inputs.SerializationArgs>? Serialization { get; set; }
 
         public OutputArgs()
         {

@@ -37,6 +37,9 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.OpenShiftVersion == nil {
+		return nil, errors.New("missing required argument 'OpenShiftVersion'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -99,32 +102,52 @@ func (OpenShiftManagedClusterState) ElementType() reflect.Type {
 }
 
 type openShiftManagedClusterArgs struct {
+	// Configuration of OpenShift cluster VMs.
+	AgentPoolProfiles []OpenShiftManagedClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
+	// Configures OpenShift authentication.
+	AuthProfile *OpenShiftManagedClusterAuthProfile `pulumi:"authProfile"`
 	// Resource location
 	Location string `pulumi:"location"`
+	// Configuration for OpenShift master VMs.
+	MasterPoolProfile *OpenShiftManagedClusterMasterPoolProfile `pulumi:"masterPoolProfile"`
 	// The name of the OpenShift managed cluster resource.
 	Name string `pulumi:"name"`
+	// Configuration for OpenShift networking.
+	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
+	// Version of OpenShift specified when creating the cluster.
+	OpenShiftVersion string `pulumi:"openShiftVersion"`
 	// Define the resource plan as required by ARM for billing purposes
 	Plan *PurchasePlan `pulumi:"plan"`
-	// Properties of a OpenShift managed cluster.
-	Properties *OpenShiftManagedClusterProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Configuration for OpenShift router(s).
+	RouterProfiles []OpenShiftRouterProfile `pulumi:"routerProfiles"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a OpenShiftManagedCluster resource.
 type OpenShiftManagedClusterArgs struct {
+	// Configuration of OpenShift cluster VMs.
+	AgentPoolProfiles OpenShiftManagedClusterAgentPoolProfileArrayInput
+	// Configures OpenShift authentication.
+	AuthProfile OpenShiftManagedClusterAuthProfilePtrInput
 	// Resource location
 	Location pulumi.StringInput
+	// Configuration for OpenShift master VMs.
+	MasterPoolProfile OpenShiftManagedClusterMasterPoolProfilePtrInput
 	// The name of the OpenShift managed cluster resource.
 	Name pulumi.StringInput
+	// Configuration for OpenShift networking.
+	NetworkProfile NetworkProfilePtrInput
+	// Version of OpenShift specified when creating the cluster.
+	OpenShiftVersion pulumi.StringInput
 	// Define the resource plan as required by ARM for billing purposes
 	Plan PurchasePlanPtrInput
-	// Properties of a OpenShift managed cluster.
-	Properties OpenShiftManagedClusterPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Configuration for OpenShift router(s).
+	RouterProfiles OpenShiftRouterProfileArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

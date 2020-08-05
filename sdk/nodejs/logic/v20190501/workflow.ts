@@ -47,7 +47,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * The workflow properties.
      */
-    public readonly properties!: pulumi.Output<outputs.logic.v20190501.WorkflowPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20190501.WorkflowPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -76,11 +76,18 @@ export class Workflow extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accessControl"] = args ? args.accessControl : undefined;
+            inputs["definition"] = args ? args.definition : undefined;
+            inputs["endpointsConfiguration"] = args ? args.endpointsConfiguration : undefined;
+            inputs["integrationAccount"] = args ? args.integrationAccount : undefined;
+            inputs["integrationServiceEnvironment"] = args ? args.integrationServiceEnvironment : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,6 +106,26 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowArgs {
     /**
+     * The access control configuration.
+     */
+    readonly accessControl?: pulumi.Input<inputs.logic.v20190501.FlowAccessControlConfiguration>;
+    /**
+     * The definition.
+     */
+    readonly definition?: pulumi.Input<inputs.logic.v20190501.Object>;
+    /**
+     * The endpoints configuration.
+     */
+    readonly endpointsConfiguration?: pulumi.Input<inputs.logic.v20190501.FlowEndpointsConfiguration>;
+    /**
+     * The integration account.
+     */
+    readonly integrationAccount?: pulumi.Input<inputs.logic.v20190501.ResourceReference>;
+    /**
+     * The integration service environment.
+     */
+    readonly integrationServiceEnvironment?: pulumi.Input<inputs.logic.v20190501.ResourceReference>;
+    /**
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -107,13 +134,17 @@ export interface WorkflowArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The workflow properties.
+     * The parameters.
      */
-    readonly properties?: pulumi.Input<inputs.logic.v20190501.WorkflowProperties>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.v20190501.WorkflowParameter>}>;
     /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The state.
+     */
+    readonly state?: pulumi.Input<string>;
     /**
      * The resource tags.
      */

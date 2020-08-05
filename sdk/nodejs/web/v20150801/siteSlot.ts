@@ -48,7 +48,7 @@ export class SiteSlot extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.web.v20150801.SiteResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.SiteResponseProperties>;
     /**
      * Resource tags
      */
@@ -80,18 +80,32 @@ export class SiteSlot extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
+            inputs["clientCertEnabled"] = args ? args.clientCertEnabled : undefined;
+            inputs["cloningInfo"] = args ? args.cloningInfo : undefined;
+            inputs["containerSize"] = args ? args.containerSize : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
             inputs["forceDnsRegistration"] = args ? args.forceDnsRegistration : undefined;
+            inputs["gatewaySiteName"] = args ? args.gatewaySiteName : undefined;
+            inputs["hostNameSslStates"] = args ? args.hostNameSslStates : undefined;
+            inputs["hostNamesDisabled"] = args ? args.hostNamesDisabled : undefined;
+            inputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maxNumberOfWorkers"] = args ? args.maxNumberOfWorkers : undefined;
+            inputs["microService"] = args ? args.microService : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scmSiteAlsoStopped"] = args ? args.scmSiteAlsoStopped : undefined;
+            inputs["serverFarmId"] = args ? args.serverFarmId : undefined;
+            inputs["siteConfig"] = args ? args.siteConfig : undefined;
             inputs["skipCustomDomainVerification"] = args ? args.skipCustomDomainVerification : undefined;
             inputs["skipDnsRegistration"] = args ? args.skipDnsRegistration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttlInSeconds"] = args ? args.ttlInSeconds : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -109,9 +123,47 @@ export class SiteSlot extends pulumi.CustomResource {
  */
 export interface SiteSlotArgs {
     /**
+     * Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
+     */
+    readonly clientAffinityEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies if the client certificate is enabled for the web app
+     */
+    readonly clientCertEnabled?: pulumi.Input<boolean>;
+    /**
+     * This is only valid for web app creation. If specified, web app is cloned from 
+     *             a source web app
+     */
+    readonly cloningInfo?: pulumi.Input<inputs.web.v20150801.CloningInfo>;
+    /**
+     * Size of a function container
+     */
+    readonly containerSize?: pulumi.Input<number>;
+    /**
+     * True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
+     */
+    readonly enabled?: pulumi.Input<boolean>;
+    /**
      * If true, web app hostname is force registered with DNS
      */
     readonly forceDnsRegistration?: pulumi.Input<string>;
+    /**
+     * Name of gateway app associated with web app
+     */
+    readonly gatewaySiteName?: pulumi.Input<string>;
+    /**
+     * Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
+     */
+    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20150801.HostNameSslState>[]>;
+    /**
+     * Specifies if the public hostnames are disabled the web app.
+     *             If set to true the app is only accessible via API Management process
+     */
+    readonly hostNamesDisabled?: pulumi.Input<boolean>;
+    /**
+     * Specification for the hosting environment (App Service Environment) to use for the web app
+     */
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfile>;
     /**
      * Resource Id
      */
@@ -125,14 +177,28 @@ export interface SiteSlotArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * Maximum number of workers
+     *             This only applies to function container
+     */
+    readonly maxNumberOfWorkers?: pulumi.Input<number>;
+    readonly microService?: pulumi.Input<string>;
+    /**
      * Name of web app slot. If not specified then will default to production slot.
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.v20150801.SiteProperties>;
     /**
      * Name of the resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
+     */
+    readonly scmSiteAlsoStopped?: pulumi.Input<boolean>;
+    readonly serverFarmId?: pulumi.Input<string>;
+    /**
+     * Configuration of web app
+     */
+    readonly siteConfig?: pulumi.Input<inputs.web.v20150801.SiteConfig>;
     /**
      * If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
      */

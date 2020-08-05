@@ -65,30 +65,28 @@ class StaticSite(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, branch=None, build_properties=None, kind=None, location=None, name=None, repository_token=None, repository_url=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Static Site ARM resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] branch: The target branch in the repository.
+        :param pulumi.Input[dict] build_properties: Build properties to configure on the repository.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the static site to create or update.
-        :param pulumi.Input[dict] properties: Core resource properties
+        :param pulumi.Input[str] repository_token: A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
+        :param pulumi.Input[str] repository_url: URL for the repository of the static site.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[dict] sku: Description of a SKU for a scalable resource.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **build_properties** object supports the following:
 
-          * `branch` (`pulumi.Input[str]`) - The target branch in the repository.
-          * `build_properties` (`pulumi.Input[dict]`) - Build properties to configure on the repository.
-            * `api_location` (`pulumi.Input[str]`) - The path to the api code within the repository.
-            * `app_artifact_location` (`pulumi.Input[str]`) - The path of the app artifacts after building.
-            * `app_location` (`pulumi.Input[str]`) - The path to the app code within the repository.
-
-          * `repository_token` (`pulumi.Input[str]`) - A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
-          * `repository_url` (`pulumi.Input[str]`) - URL for the repository of the static site.
+          * `api_location` (`pulumi.Input[str]`) - The path to the api code within the repository.
+          * `app_artifact_location` (`pulumi.Input[str]`) - The path of the app artifacts after building.
+          * `app_location` (`pulumi.Input[str]`) - The path to the app code within the repository.
 
         The **sku** object supports the following:
 
@@ -127,6 +125,8 @@ class StaticSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['branch'] = branch
+            __props__['build_properties'] = build_properties
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -134,12 +134,14 @@ class StaticSite(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['repository_token'] = repository_token
+            __props__['repository_url'] = repository_url
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(StaticSite, __self__).__init__(
             'azurerm:web/v20190801:StaticSite',

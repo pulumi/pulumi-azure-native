@@ -25,14 +25,14 @@ type ManagementLockAtResourceLevel struct {
 // NewManagementLockAtResourceLevel registers a new resource with the given unique name, arguments, and options.
 func NewManagementLockAtResourceLevel(ctx *pulumi.Context,
 	name string, args *ManagementLockAtResourceLevelArgs, opts ...pulumi.ResourceOption) (*ManagementLockAtResourceLevel, error) {
+	if args == nil || args.Level == nil {
+		return nil, errors.New("missing required argument 'Level'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ParentResourcePath == nil {
 		return nil, errors.New("missing required argument 'ParentResourcePath'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -93,12 +93,16 @@ func (ManagementLockAtResourceLevelState) ElementType() reflect.Type {
 }
 
 type managementLockAtResourceLevelArgs struct {
+	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+	Level string `pulumi:"level"`
 	// The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
 	Name string `pulumi:"name"`
+	// Notes about the lock. Maximum of 512 characters.
+	Notes *string `pulumi:"notes"`
+	// The owners of the lock.
+	Owners []ManagementLockOwner `pulumi:"owners"`
 	// The parent resource identity.
 	ParentResourcePath string `pulumi:"parentResourcePath"`
-	// The properties of the lock.
-	Properties ManagementLockProperties `pulumi:"properties"`
 	// The name of the resource group containing the resource to lock.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the resource to lock.
@@ -111,12 +115,16 @@ type managementLockAtResourceLevelArgs struct {
 
 // The set of arguments for constructing a ManagementLockAtResourceLevel resource.
 type ManagementLockAtResourceLevelArgs struct {
+	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+	Level pulumi.StringInput
 	// The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
 	Name pulumi.StringInput
+	// Notes about the lock. Maximum of 512 characters.
+	Notes pulumi.StringPtrInput
+	// The owners of the lock.
+	Owners ManagementLockOwnerArrayInput
 	// The parent resource identity.
 	ParentResourcePath pulumi.StringInput
-	// The properties of the lock.
-	Properties ManagementLockPropertiesInput
 	// The name of the resource group containing the resource to lock.
 	ResourceGroupName pulumi.StringInput
 	// The name of the resource to lock.

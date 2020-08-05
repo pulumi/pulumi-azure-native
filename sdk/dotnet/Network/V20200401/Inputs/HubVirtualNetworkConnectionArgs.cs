@@ -16,6 +16,24 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
     public sealed class HubVirtualNetworkConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// VirtualHub to RemoteVnet transit to enabled or not.
+        /// </summary>
+        [Input("allowHubToRemoteVnetTransit")]
+        public Input<bool>? AllowHubToRemoteVnetTransit { get; set; }
+
+        /// <summary>
+        /// Allow RemoteVnet to use Virtual Hub's gateways.
+        /// </summary>
+        [Input("allowRemoteVnetToUseHubVnetGateways")]
+        public Input<bool>? AllowRemoteVnetToUseHubVnetGateways { get; set; }
+
+        /// <summary>
+        /// Enable internet security.
+        /// </summary>
+        [Input("enableInternetSecurity")]
+        public Input<bool>? EnableInternetSecurity { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -28,10 +46,16 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the hub virtual network connection.
+        /// Reference to the remote virtual network.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.HubVirtualNetworkConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("remoteVirtualNetwork")]
+        public Input<Inputs.SubResourceArgs>? RemoteVirtualNetwork { get; set; }
+
+        /// <summary>
+        /// The Routing Configuration indicating the associated and propagated route tables on this connection.
+        /// </summary>
+        [Input("routingConfiguration")]
+        public Input<Inputs.RoutingConfigurationArgs>? RoutingConfiguration { get; set; }
 
         public HubVirtualNetworkConnectionArgs()
         {

@@ -93,6 +93,66 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
     public sealed class DomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If true then domain will renewed automatically
+        /// </summary>
+        [Input("autoRenew")]
+        public Input<bool>? AutoRenew { get; set; }
+
+        /// <summary>
+        /// Legal agreement consent
+        /// </summary>
+        [Input("consent")]
+        public Input<Inputs.DomainPurchaseConsentArgs>? Consent { get; set; }
+
+        /// <summary>
+        /// Admin contact information
+        /// </summary>
+        [Input("contactAdmin")]
+        public Input<Inputs.ContactArgs>? ContactAdmin { get; set; }
+
+        /// <summary>
+        /// Billing contact information
+        /// </summary>
+        [Input("contactBilling")]
+        public Input<Inputs.ContactArgs>? ContactBilling { get; set; }
+
+        /// <summary>
+        /// Registrant contact information
+        /// </summary>
+        [Input("contactRegistrant")]
+        public Input<Inputs.ContactArgs>? ContactRegistrant { get; set; }
+
+        /// <summary>
+        /// Technical contact information
+        /// </summary>
+        [Input("contactTech")]
+        public Input<Inputs.ContactArgs>? ContactTech { get; set; }
+
+        /// <summary>
+        /// Domain creation timestamp
+        /// </summary>
+        [Input("createdTime")]
+        public Input<string>? CreatedTime { get; set; }
+
+        [Input("domainNotRenewableReasons")]
+        private InputList<string>? _domainNotRenewableReasons;
+
+        /// <summary>
+        /// Reasons why domain is not renewable
+        /// </summary>
+        public InputList<string> DomainNotRenewableReasons
+        {
+            get => _domainNotRenewableReasons ?? (_domainNotRenewableReasons = new InputList<string>());
+            set => _domainNotRenewableReasons = value;
+        }
+
+        /// <summary>
+        /// Domain expiration timestamp
+        /// </summary>
+        [Input("expirationTime")]
+        public Input<string>? ExpirationTime { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
@@ -105,10 +165,28 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
         public Input<string>? Kind { get; set; }
 
         /// <summary>
+        /// Timestamp when the domain was renewed last time
+        /// </summary>
+        [Input("lastRenewedTime")]
+        public Input<string>? LastRenewedTime { get; set; }
+
+        /// <summary>
         /// Resource Location
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        [Input("managedHostNames")]
+        private InputList<Inputs.HostNameArgs>? _managedHostNames;
+
+        /// <summary>
+        /// All hostnames derived from the domain and assigned to Azure resources
+        /// </summary>
+        public InputList<Inputs.HostNameArgs> ManagedHostNames
+        {
+            get => _managedHostNames ?? (_managedHostNames = new InputList<Inputs.HostNameArgs>());
+            set => _managedHostNames = value;
+        }
 
         /// <summary>
         /// Name of the domain
@@ -116,8 +194,41 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.DomainPropertiesArgs>? Properties { get; set; }
+        [Input("nameServers")]
+        private InputList<string>? _nameServers;
+
+        /// <summary>
+        /// Name servers
+        /// </summary>
+        public InputList<string> NameServers
+        {
+            get => _nameServers ?? (_nameServers = new InputList<string>());
+            set => _nameServers = value;
+        }
+
+        /// <summary>
+        /// If true then domain privacy is enabled for this domain
+        /// </summary>
+        [Input("privacy")]
+        public Input<bool>? Privacy { get; set; }
+
+        /// <summary>
+        /// Domain provisioning state
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
+        /// </summary>
+        [Input("readyForDnsRecordManagement")]
+        public Input<bool>? ReadyForDnsRecordManagement { get; set; }
+
+        /// <summary>
+        /// Domain registration status
+        /// </summary>
+        [Input("registrationStatus")]
+        public Input<string>? RegistrationStatus { get; set; }
 
         /// <summary>
         /// &amp;gt;Name of the resource group

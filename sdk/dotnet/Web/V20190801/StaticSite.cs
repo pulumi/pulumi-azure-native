@@ -102,6 +102,18 @@ namespace Pulumi.AzureRM.Web.V20190801
     public sealed class StaticSiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The target branch in the repository.
+        /// </summary>
+        [Input("branch")]
+        public Input<string>? Branch { get; set; }
+
+        /// <summary>
+        /// Build properties to configure on the repository.
+        /// </summary>
+        [Input("buildProperties")]
+        public Input<Inputs.StaticSiteBuildPropertiesArgs>? BuildProperties { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
@@ -120,10 +132,16 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Core resource properties
+        /// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.StaticSiteDefinitionArgs>? Properties { get; set; }
+        [Input("repositoryToken")]
+        public Input<string>? RepositoryToken { get; set; }
+
+        /// <summary>
+        /// URL for the repository of the static site.
+        /// </summary>
+        [Input("repositoryUrl")]
+        public Input<string>? RepositoryUrl { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

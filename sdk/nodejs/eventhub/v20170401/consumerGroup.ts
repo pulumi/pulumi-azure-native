@@ -43,7 +43,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
     /**
      * Single item in List or Get Consumer group operation
      */
-    public readonly properties!: pulumi.Output<outputs.eventhub.v20170401.ConsumerGroupResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20170401.ConsumerGroupResponseProperties>;
     /**
      * Resource type.
      */
@@ -77,8 +77,9 @@ export class ConsumerGroup extends pulumi.CustomResource {
             inputs["eventHubName"] = args ? args.eventHubName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["userMetadata"] = args ? args.userMetadata : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,11 +110,11 @@ export interface ConsumerGroupArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Single item in List or Get Consumer group operation
-     */
-    readonly properties?: pulumi.Input<inputs.eventhub.v20170401.ConsumerGroupProperties>;
-    /**
      * Name of the resource group within the azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+     */
+    readonly userMetadata?: pulumi.Input<string>;
 }

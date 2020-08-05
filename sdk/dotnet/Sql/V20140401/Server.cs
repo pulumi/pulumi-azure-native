@@ -96,6 +96,18 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public sealed class ServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+        /// </summary>
+        [Input("administratorLogin")]
+        public Input<string>? AdministratorLogin { get; set; }
+
+        /// <summary>
+        /// The administrator login password (required for server creation).
+        /// </summary>
+        [Input("administratorLoginPassword")]
+        public Input<string>? AdministratorLoginPassword { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location", required: true)]
@@ -106,12 +118,6 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Represents the properties of the resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServerPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -130,6 +136,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The version of the server.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public ServerArgs()
         {

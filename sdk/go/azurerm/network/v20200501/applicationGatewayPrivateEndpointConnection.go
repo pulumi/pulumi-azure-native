@@ -93,8 +93,8 @@ type applicationGatewayPrivateEndpointConnectionArgs struct {
 	Id *string `pulumi:"id"`
 	// The name of the application gateway private endpoint connection.
 	Name string `pulumi:"name"`
-	// Properties of the application gateway private endpoint connection.
-	Properties *ApplicationGatewayPrivateEndpointConnectionProperties `pulumi:"properties"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -107,8 +107,8 @@ type ApplicationGatewayPrivateEndpointConnectionArgs struct {
 	Id pulumi.StringPtrInput
 	// The name of the application gateway private endpoint connection.
 	Name pulumi.StringInput
-	// Properties of the application gateway private endpoint connection.
-	Properties ApplicationGatewayPrivateEndpointConnectionPropertiesPtrInput
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

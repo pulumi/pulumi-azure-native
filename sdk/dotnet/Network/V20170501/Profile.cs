@@ -90,10 +90,34 @@ namespace Pulumi.AzureRM.Network.V20170501
     public sealed class ProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The DNS settings of the Traffic Manager profile.
+        /// </summary>
+        [Input("dnsConfig")]
+        public Input<Inputs.DnsConfigArgs>? DnsConfig { get; set; }
+
+        [Input("endpoints")]
+        private InputList<Inputs.EndpointArgs>? _endpoints;
+
+        /// <summary>
+        /// The list of endpoints in the Traffic Manager profile.
+        /// </summary>
+        public InputList<Inputs.EndpointArgs> Endpoints
+        {
+            get => _endpoints ?? (_endpoints = new InputList<Inputs.EndpointArgs>());
+            set => _endpoints = value;
+        }
+
+        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The endpoint monitoring settings of the Traffic Manager profile.
+        /// </summary>
+        [Input("monitorConfig")]
+        public Input<Inputs.MonitorConfigArgs>? MonitorConfig { get; set; }
 
         /// <summary>
         /// The name of the Traffic Manager profile.
@@ -102,10 +126,10 @@ namespace Pulumi.AzureRM.Network.V20170501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Traffic Manager profile.
+        /// The status of the Traffic Manager profile.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ProfilePropertiesArgs>? Properties { get; set; }
+        [Input("profileStatus")]
+        public Input<string>? ProfileStatus { get; set; }
 
         /// <summary>
         /// The name of the resource group containing the Traffic Manager profile.
@@ -124,6 +148,12 @@ namespace Pulumi.AzureRM.Network.V20170501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The traffic routing method of the Traffic Manager profile.
+        /// </summary>
+        [Input("trafficRoutingMethod")]
+        public Input<string>? TrafficRoutingMethod { get; set; }
 
         public ProfileArgs()
         {

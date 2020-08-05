@@ -15,15 +15,35 @@ export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSe
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20181101:listWebAppBackupStatusSecretsSlot", {
+        "backupName": args.backupName,
+        "backupSchedule": args.backupSchedule,
+        "databases": args.databases,
+        "enabled": args.enabled,
         "kind": args.kind,
         "name": args.name,
-        "properties": args.properties,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
+        "storageAccountUrl": args.storageAccountUrl,
     }, opts);
 }
 
 export interface ListWebAppBackupStatusSecretsSlotArgs {
+    /**
+     * Name of the backup.
+     */
+    readonly backupName?: string;
+    /**
+     * Schedule for the backup if it is executed periodically.
+     */
+    readonly backupSchedule?: inputs.web.v20181101.BackupSchedule;
+    /**
+     * Databases included in the backup.
+     */
+    readonly databases?: inputs.web.v20181101.DatabaseBackupSetting[];
+    /**
+     * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+     */
+    readonly enabled?: boolean;
     /**
      * Kind of resource.
      */
@@ -33,10 +53,6 @@ export interface ListWebAppBackupStatusSecretsSlotArgs {
      */
     readonly name: string;
     /**
-     * BackupRequest resource specific properties
-     */
-    readonly properties?: inputs.web.v20181101.BackupRequestProperties;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
@@ -44,6 +60,10 @@ export interface ListWebAppBackupStatusSecretsSlotArgs {
      * Name of web app slot. If not specified then will default to production slot.
      */
     readonly slot: string;
+    /**
+     * SAS URL to the container.
+     */
+    readonly storageAccountUrl: string;
 }
 
 /**

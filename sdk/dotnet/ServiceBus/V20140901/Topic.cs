@@ -84,10 +84,73 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public sealed class TopicArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        /// </summary>
+        [Input("autoDeleteOnIdle")]
+        public Input<string>? AutoDeleteOnIdle { get; set; }
+
+        /// <summary>
+        /// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        /// </summary>
+        [Input("defaultMessageTimeToLive")]
+        public Input<string>? DefaultMessageTimeToLive { get; set; }
+
+        /// <summary>
+        /// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        /// </summary>
+        [Input("duplicateDetectionHistoryTimeWindow")]
+        public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether server-side batched operations are enabled.
+        /// </summary>
+        [Input("enableBatchedOperations")]
+        public Input<bool>? EnableBatchedOperations { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+        /// </summary>
+        [Input("enableExpress")]
+        public Input<bool>? EnableExpress { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+        /// </summary>
+        [Input("enablePartitioning")]
+        public Input<bool>? EnablePartitioning { get; set; }
+
+        /// <summary>
+        /// Entity availability status for the topic.
+        /// </summary>
+        [Input("entityAvailabilityStatus")]
+        public Input<string>? EntityAvailabilityStatus { get; set; }
+
+        /// <summary>
+        /// Whether messages should be filtered before publishing.
+        /// </summary>
+        [Input("filteringMessagesBeforePublishing")]
+        public Input<bool>? FilteringMessagesBeforePublishing { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether the message is accessible anonymously.
+        /// </summary>
+        [Input("isAnonymousAccessible")]
+        public Input<bool>? IsAnonymousAccessible { get; set; }
+
+        [Input("isExpress")]
+        public Input<bool>? IsExpress { get; set; }
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
+        /// </summary>
+        [Input("maxSizeInMegabytes")]
+        public Input<int>? MaxSizeInMegabytes { get; set; }
 
         /// <summary>
         /// The topic name.
@@ -102,16 +165,28 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The Topic Properties definition.
+        /// Value indicating if this topic requires duplicate detection.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.TopicPropertiesArgs>? Properties { get; set; }
+        [Input("requiresDuplicateDetection")]
+        public Input<bool>? RequiresDuplicateDetection { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Enumerates the possible values for the status of a messaging entity.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether the topic supports ordering.
+        /// </summary>
+        [Input("supportOrdering")]
+        public Input<bool>? SupportOrdering { get; set; }
 
         public TopicArgs()
         {

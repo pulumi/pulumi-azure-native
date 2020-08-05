@@ -47,7 +47,7 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
     /**
      * Properties of the application gateway private endpoint connection.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200501.ApplicationGatewayPrivateEndpointConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.ApplicationGatewayPrivateEndpointConnectionPropertiesResponse>;
     /**
      * Type of the resource.
      */
@@ -78,9 +78,10 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
             inputs["applicationGatewayName"] = args ? args.applicationGatewayName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -111,9 +112,9 @@ export interface ApplicationGatewayPrivateEndpointConnectionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the application gateway private endpoint connection.
+     * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20200501.ApplicationGatewayPrivateEndpointConnectionProperties>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.network.v20200501.PrivateLinkServiceConnectionState>;
     /**
      * The name of the resource group.
      */

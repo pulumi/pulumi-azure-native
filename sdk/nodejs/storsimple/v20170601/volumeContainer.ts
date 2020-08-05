@@ -47,7 +47,7 @@ export class VolumeContainer extends pulumi.CustomResource {
     /**
      * The volume container properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20170601.VolumeContainerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.VolumeContainerPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -75,18 +75,22 @@ export class VolumeContainer extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.storageAccountCredentialId === undefined) {
+                throw new Error("Missing required property 'storageAccountCredentialId'");
+            }
+            inputs["bandWidthRateInMbps"] = args ? args.bandWidthRateInMbps : undefined;
+            inputs["bandwidthSettingId"] = args ? args.bandwidthSettingId : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
+            inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,9 +109,21 @@ export class VolumeContainer extends pulumi.CustomResource {
  */
 export interface VolumeContainerArgs {
     /**
+     * The bandwidth-rate set on the volume container.
+     */
+    readonly bandWidthRateInMbps?: pulumi.Input<number>;
+    /**
+     * The ID of the bandwidth setting associated with the volume container.
+     */
+    readonly bandwidthSettingId?: pulumi.Input<string>;
+    /**
      * The device name
      */
     readonly deviceName: pulumi.Input<string>;
+    /**
+     * The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+     */
+    readonly encryptionKey?: pulumi.Input<inputs.storsimple.v20170601.AsymmetricEncryptedSecret>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
@@ -121,11 +137,11 @@ export interface VolumeContainerArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The volume container properties.
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.v20170601.VolumeContainerProperties>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The path ID of storage account associated with the volume container.
+     */
+    readonly storageAccountCredentialId: pulumi.Input<string>;
 }

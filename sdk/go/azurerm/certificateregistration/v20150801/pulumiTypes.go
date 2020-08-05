@@ -49,47 +49,6 @@ func (i AppServiceCertificateArgs) ToAppServiceCertificateOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOutput)
 }
 
-func (i AppServiceCertificateArgs) ToAppServiceCertificatePtrOutput() AppServiceCertificatePtrOutput {
-	return i.ToAppServiceCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i AppServiceCertificateArgs) ToAppServiceCertificatePtrOutputWithContext(ctx context.Context) AppServiceCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOutput).ToAppServiceCertificatePtrOutputWithContext(ctx)
-}
-
-// AppServiceCertificatePtrInput is an input type that accepts AppServiceCertificateArgs, AppServiceCertificatePtr and AppServiceCertificatePtrOutput values.
-// You can construct a concrete instance of `AppServiceCertificatePtrInput` via:
-//
-//          AppServiceCertificateArgs{...}
-//
-//  or:
-//
-//          nil
-type AppServiceCertificatePtrInput interface {
-	pulumi.Input
-
-	ToAppServiceCertificatePtrOutput() AppServiceCertificatePtrOutput
-	ToAppServiceCertificatePtrOutputWithContext(context.Context) AppServiceCertificatePtrOutput
-}
-
-type appServiceCertificatePtrType AppServiceCertificateArgs
-
-func AppServiceCertificatePtr(v *AppServiceCertificateArgs) AppServiceCertificatePtrInput {
-	return (*appServiceCertificatePtrType)(v)
-}
-
-func (*appServiceCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceCertificate)(nil)).Elem()
-}
-
-func (i *appServiceCertificatePtrType) ToAppServiceCertificatePtrOutput() AppServiceCertificatePtrOutput {
-	return i.ToAppServiceCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *appServiceCertificatePtrType) ToAppServiceCertificatePtrOutputWithContext(ctx context.Context) AppServiceCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificatePtrOutput)
-}
-
 // AppServiceCertificateMapInput is an input type that accepts AppServiceCertificateMap and AppServiceCertificateMapOutput values.
 // You can construct a concrete instance of `AppServiceCertificateMapInput` via:
 //
@@ -130,16 +89,6 @@ func (o AppServiceCertificateOutput) ToAppServiceCertificateOutputWithContext(ct
 	return o
 }
 
-func (o AppServiceCertificateOutput) ToAppServiceCertificatePtrOutput() AppServiceCertificatePtrOutput {
-	return o.ToAppServiceCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o AppServiceCertificateOutput) ToAppServiceCertificatePtrOutputWithContext(ctx context.Context) AppServiceCertificatePtrOutput {
-	return o.ApplyT(func(v AppServiceCertificate) *AppServiceCertificate {
-		return &v
-	}).(AppServiceCertificatePtrOutput)
-}
-
 // Key Vault resource Id.
 func (o AppServiceCertificateOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceCertificate) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
@@ -148,44 +97,6 @@ func (o AppServiceCertificateOutput) KeyVaultId() pulumi.StringPtrOutput {
 // Key Vault secret name.
 func (o AppServiceCertificateOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppServiceCertificate) *string { return v.KeyVaultSecretName }).(pulumi.StringPtrOutput)
-}
-
-type AppServiceCertificatePtrOutput struct{ *pulumi.OutputState }
-
-func (AppServiceCertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceCertificate)(nil)).Elem()
-}
-
-func (o AppServiceCertificatePtrOutput) ToAppServiceCertificatePtrOutput() AppServiceCertificatePtrOutput {
-	return o
-}
-
-func (o AppServiceCertificatePtrOutput) ToAppServiceCertificatePtrOutputWithContext(ctx context.Context) AppServiceCertificatePtrOutput {
-	return o
-}
-
-func (o AppServiceCertificatePtrOutput) Elem() AppServiceCertificateOutput {
-	return o.ApplyT(func(v *AppServiceCertificate) AppServiceCertificate { return *v }).(AppServiceCertificateOutput)
-}
-
-// Key Vault resource Id.
-func (o AppServiceCertificatePtrOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Key Vault secret name.
-func (o AppServiceCertificatePtrOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultSecretName
-	}).(pulumi.StringPtrOutput)
 }
 
 type AppServiceCertificateMapOutput struct{ *pulumi.OutputState }
@@ -408,254 +319,6 @@ func (o AppServiceCertificateOrderCertificateTypeOutput) Tags() pulumi.StringMap
 // Resource type.
 func (o AppServiceCertificateOrderCertificateTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AppServiceCertificateOrderCertificateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// AppServiceCertificateOrder resource specific properties
-type AppServiceCertificateOrderProperties struct {
-	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
-	AutoRenew *bool `pulumi:"autoRenew"`
-	// State of the Key Vault secret.
-	Certificates map[string]AppServiceCertificate `pulumi:"certificates"`
-	// Last CSR that was created for this order.
-	Csr *string `pulumi:"csr"`
-	// Certificate distinguished name.
-	DistinguishedName *string `pulumi:"distinguishedName"`
-	// Certificate key size.
-	KeySize *int `pulumi:"keySize"`
-	// Certificate product type.
-	ProductType string `pulumi:"productType"`
-	// Duration in years (must be between 1 and 3).
-	ValidityInYears *int `pulumi:"validityInYears"`
-}
-
-// AppServiceCertificateOrderPropertiesInput is an input type that accepts AppServiceCertificateOrderPropertiesArgs and AppServiceCertificateOrderPropertiesOutput values.
-// You can construct a concrete instance of `AppServiceCertificateOrderPropertiesInput` via:
-//
-//          AppServiceCertificateOrderPropertiesArgs{...}
-type AppServiceCertificateOrderPropertiesInput interface {
-	pulumi.Input
-
-	ToAppServiceCertificateOrderPropertiesOutput() AppServiceCertificateOrderPropertiesOutput
-	ToAppServiceCertificateOrderPropertiesOutputWithContext(context.Context) AppServiceCertificateOrderPropertiesOutput
-}
-
-// AppServiceCertificateOrder resource specific properties
-type AppServiceCertificateOrderPropertiesArgs struct {
-	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
-	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
-	// State of the Key Vault secret.
-	Certificates AppServiceCertificateMapInput `pulumi:"certificates"`
-	// Last CSR that was created for this order.
-	Csr pulumi.StringPtrInput `pulumi:"csr"`
-	// Certificate distinguished name.
-	DistinguishedName pulumi.StringPtrInput `pulumi:"distinguishedName"`
-	// Certificate key size.
-	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
-	// Certificate product type.
-	ProductType pulumi.StringInput `pulumi:"productType"`
-	// Duration in years (must be between 1 and 3).
-	ValidityInYears pulumi.IntPtrInput `pulumi:"validityInYears"`
-}
-
-func (AppServiceCertificateOrderPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateOrderProperties)(nil)).Elem()
-}
-
-func (i AppServiceCertificateOrderPropertiesArgs) ToAppServiceCertificateOrderPropertiesOutput() AppServiceCertificateOrderPropertiesOutput {
-	return i.ToAppServiceCertificateOrderPropertiesOutputWithContext(context.Background())
-}
-
-func (i AppServiceCertificateOrderPropertiesArgs) ToAppServiceCertificateOrderPropertiesOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderPropertiesOutput)
-}
-
-func (i AppServiceCertificateOrderPropertiesArgs) ToAppServiceCertificateOrderPropertiesPtrOutput() AppServiceCertificateOrderPropertiesPtrOutput {
-	return i.ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i AppServiceCertificateOrderPropertiesArgs) ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderPropertiesOutput).ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(ctx)
-}
-
-// AppServiceCertificateOrderPropertiesPtrInput is an input type that accepts AppServiceCertificateOrderPropertiesArgs, AppServiceCertificateOrderPropertiesPtr and AppServiceCertificateOrderPropertiesPtrOutput values.
-// You can construct a concrete instance of `AppServiceCertificateOrderPropertiesPtrInput` via:
-//
-//          AppServiceCertificateOrderPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type AppServiceCertificateOrderPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToAppServiceCertificateOrderPropertiesPtrOutput() AppServiceCertificateOrderPropertiesPtrOutput
-	ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(context.Context) AppServiceCertificateOrderPropertiesPtrOutput
-}
-
-type appServiceCertificateOrderPropertiesPtrType AppServiceCertificateOrderPropertiesArgs
-
-func AppServiceCertificateOrderPropertiesPtr(v *AppServiceCertificateOrderPropertiesArgs) AppServiceCertificateOrderPropertiesPtrInput {
-	return (*appServiceCertificateOrderPropertiesPtrType)(v)
-}
-
-func (*appServiceCertificateOrderPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceCertificateOrderProperties)(nil)).Elem()
-}
-
-func (i *appServiceCertificateOrderPropertiesPtrType) ToAppServiceCertificateOrderPropertiesPtrOutput() AppServiceCertificateOrderPropertiesPtrOutput {
-	return i.ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *appServiceCertificateOrderPropertiesPtrType) ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateOrderPropertiesPtrOutput)
-}
-
-// AppServiceCertificateOrder resource specific properties
-type AppServiceCertificateOrderPropertiesOutput struct{ *pulumi.OutputState }
-
-func (AppServiceCertificateOrderPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateOrderProperties)(nil)).Elem()
-}
-
-func (o AppServiceCertificateOrderPropertiesOutput) ToAppServiceCertificateOrderPropertiesOutput() AppServiceCertificateOrderPropertiesOutput {
-	return o
-}
-
-func (o AppServiceCertificateOrderPropertiesOutput) ToAppServiceCertificateOrderPropertiesOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesOutput {
-	return o
-}
-
-func (o AppServiceCertificateOrderPropertiesOutput) ToAppServiceCertificateOrderPropertiesPtrOutput() AppServiceCertificateOrderPropertiesPtrOutput {
-	return o.ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o AppServiceCertificateOrderPropertiesOutput) ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *AppServiceCertificateOrderProperties {
-		return &v
-	}).(AppServiceCertificateOrderPropertiesPtrOutput)
-}
-
-// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
-func (o AppServiceCertificateOrderPropertiesOutput) AutoRenew() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *bool { return v.AutoRenew }).(pulumi.BoolPtrOutput)
-}
-
-// State of the Key Vault secret.
-func (o AppServiceCertificateOrderPropertiesOutput) Certificates() AppServiceCertificateMapOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) map[string]AppServiceCertificate { return v.Certificates }).(AppServiceCertificateMapOutput)
-}
-
-// Last CSR that was created for this order.
-func (o AppServiceCertificateOrderPropertiesOutput) Csr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *string { return v.Csr }).(pulumi.StringPtrOutput)
-}
-
-// Certificate distinguished name.
-func (o AppServiceCertificateOrderPropertiesOutput) DistinguishedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *string { return v.DistinguishedName }).(pulumi.StringPtrOutput)
-}
-
-// Certificate key size.
-func (o AppServiceCertificateOrderPropertiesOutput) KeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
-}
-
-// Certificate product type.
-func (o AppServiceCertificateOrderPropertiesOutput) ProductType() pulumi.StringOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) string { return v.ProductType }).(pulumi.StringOutput)
-}
-
-// Duration in years (must be between 1 and 3).
-func (o AppServiceCertificateOrderPropertiesOutput) ValidityInYears() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppServiceCertificateOrderProperties) *int { return v.ValidityInYears }).(pulumi.IntPtrOutput)
-}
-
-type AppServiceCertificateOrderPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (AppServiceCertificateOrderPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppServiceCertificateOrderProperties)(nil)).Elem()
-}
-
-func (o AppServiceCertificateOrderPropertiesPtrOutput) ToAppServiceCertificateOrderPropertiesPtrOutput() AppServiceCertificateOrderPropertiesPtrOutput {
-	return o
-}
-
-func (o AppServiceCertificateOrderPropertiesPtrOutput) ToAppServiceCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) AppServiceCertificateOrderPropertiesPtrOutput {
-	return o
-}
-
-func (o AppServiceCertificateOrderPropertiesPtrOutput) Elem() AppServiceCertificateOrderPropertiesOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) AppServiceCertificateOrderProperties { return *v }).(AppServiceCertificateOrderPropertiesOutput)
-}
-
-// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) AutoRenew() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AutoRenew
-	}).(pulumi.BoolPtrOutput)
-}
-
-// State of the Key Vault secret.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) Certificates() AppServiceCertificateMapOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) map[string]AppServiceCertificate {
-		if v == nil {
-			return nil
-		}
-		return v.Certificates
-	}).(AppServiceCertificateMapOutput)
-}
-
-// Last CSR that was created for this order.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) Csr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Csr
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate distinguished name.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) DistinguishedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DistinguishedName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate key size.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.KeySize
-	}).(pulumi.IntPtrOutput)
-}
-
-// Certificate product type.
-func (o AppServiceCertificateOrderPropertiesPtrOutput) ProductType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProductType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Duration in years (must be between 1 and 3).
-func (o AppServiceCertificateOrderPropertiesPtrOutput) ValidityInYears() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AppServiceCertificateOrderProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ValidityInYears
-	}).(pulumi.IntPtrOutput)
 }
 
 // AppServiceCertificateOrder resource specific properties
@@ -1363,17 +1026,34 @@ func (o AppServiceCertificateResponseMapOutput) MapIndex(k pulumi.StringInput) A
 type CertificateDetails struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Issuer
+	Issuer *string `pulumi:"issuer"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string                       `pulumi:"name"`
-	Properties *CertificateDetailsProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Valid to
+	NotAfter *string `pulumi:"notAfter"`
+	// Valid from
+	NotBefore *string `pulumi:"notBefore"`
+	// Raw certificate data
+	RawData *string `pulumi:"rawData"`
+	// Serial Number
+	SerialNumber *string `pulumi:"serialNumber"`
+	// Signature Algorithm
+	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
+	// Subject
+	Subject *string `pulumi:"subject"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Thumbprint
+	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Version
+	Version *int `pulumi:"version"`
 }
 
 // CertificateDetailsInput is an input type that accepts CertificateDetailsArgs and CertificateDetailsOutput values.
@@ -1391,17 +1071,34 @@ type CertificateDetailsInput interface {
 type CertificateDetailsArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Issuer
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
 	// Kind of resource
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrInput                `pulumi:"name"`
-	Properties CertificateDetailsPropertiesPtrInput `pulumi:"properties"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Valid to
+	NotAfter pulumi.StringPtrInput `pulumi:"notAfter"`
+	// Valid from
+	NotBefore pulumi.StringPtrInput `pulumi:"notBefore"`
+	// Raw certificate data
+	RawData pulumi.StringPtrInput `pulumi:"rawData"`
+	// Serial Number
+	SerialNumber pulumi.StringPtrInput `pulumi:"serialNumber"`
+	// Signature Algorithm
+	SignatureAlgorithm pulumi.StringPtrInput `pulumi:"signatureAlgorithm"`
+	// Subject
+	Subject pulumi.StringPtrInput `pulumi:"subject"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Thumbprint
+	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// Resource type
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Version
+	Version pulumi.IntPtrInput `pulumi:"version"`
 }
 
 func (CertificateDetailsArgs) ElementType() reflect.Type {
@@ -1487,6 +1184,11 @@ func (o CertificateDetailsOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDetails) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Issuer
+func (o CertificateDetailsOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDetails) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
 // Kind of resource
 func (o CertificateDetailsOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDetails) *string { return v.Kind }).(pulumi.StringPtrOutput)
@@ -1502,8 +1204,34 @@ func (o CertificateDetailsOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDetails) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o CertificateDetailsOutput) Properties() CertificateDetailsPropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateDetails) *CertificateDetailsProperties { return v.Properties }).(CertificateDetailsPropertiesPtrOutput)
+// Valid to
+func (o CertificateDetailsOutput) NotAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDetails) *string { return v.NotAfter }).(pulumi.StringPtrOutput)
+}
+
+// Valid from
+func (o CertificateDetailsOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDetails) *string { return v.NotBefore }).(pulumi.StringPtrOutput)
+}
+
+// Raw certificate data
+func (o CertificateDetailsOutput) RawData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDetails) *string { return v.RawData }).(pulumi.StringPtrOutput)
+}
+
+// Serial Number
+func (o CertificateDetailsOutput) SerialNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDetails) *string { return v.SerialNumber }).(pulumi.StringPtrOutput)
+}
+
+// Signature Algorithm
+func (o CertificateDetailsOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDetails) *string { return v.SignatureAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// Subject
+func (o CertificateDetailsOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDetails) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
 
 // Resource tags
@@ -1511,9 +1239,19 @@ func (o CertificateDetailsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CertificateDetails) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Thumbprint
+func (o CertificateDetailsOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateDetails) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
+}
+
 // Resource type
 func (o CertificateDetailsOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDetails) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Version
+func (o CertificateDetailsOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CertificateDetails) *int { return v.Version }).(pulumi.IntPtrOutput)
 }
 
 type CertificateDetailsPtrOutput struct{ *pulumi.OutputState }
@@ -1541,6 +1279,16 @@ func (o CertificateDetailsPtrOutput) Id() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Issuer
+func (o CertificateDetailsPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Issuer
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1574,13 +1322,64 @@ func (o CertificateDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o CertificateDetailsPtrOutput) Properties() CertificateDetailsPropertiesPtrOutput {
-	return o.ApplyT(func(v *CertificateDetails) *CertificateDetailsProperties {
+// Valid to
+func (o CertificateDetailsPtrOutput) NotAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateDetails) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(CertificateDetailsPropertiesPtrOutput)
+		return v.NotAfter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Valid from
+func (o CertificateDetailsPtrOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotBefore
+	}).(pulumi.StringPtrOutput)
+}
+
+// Raw certificate data
+func (o CertificateDetailsPtrOutput) RawData() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RawData
+	}).(pulumi.StringPtrOutput)
+}
+
+// Serial Number
+func (o CertificateDetailsPtrOutput) SerialNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SerialNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// Signature Algorithm
+func (o CertificateDetailsPtrOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SignatureAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subject
+func (o CertificateDetailsPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subject
+	}).(pulumi.StringPtrOutput)
 }
 
 // Resource tags
@@ -1593,6 +1392,16 @@ func (o CertificateDetailsPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+// Thumbprint
+func (o CertificateDetailsPtrOutput) Thumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Thumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
 // Resource type
 func (o CertificateDetailsPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateDetails) *string {
@@ -1603,282 +1412,9 @@ func (o CertificateDetailsPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type CertificateDetailsProperties struct {
-	// Issuer
-	Issuer *string `pulumi:"issuer"`
-	// Valid to
-	NotAfter *string `pulumi:"notAfter"`
-	// Valid from
-	NotBefore *string `pulumi:"notBefore"`
-	// Raw certificate data
-	RawData *string `pulumi:"rawData"`
-	// Serial Number
-	SerialNumber *string `pulumi:"serialNumber"`
-	// Signature Algorithm
-	SignatureAlgorithm *string `pulumi:"signatureAlgorithm"`
-	// Subject
-	Subject *string `pulumi:"subject"`
-	// Thumbprint
-	Thumbprint *string `pulumi:"thumbprint"`
-	// Version
-	Version *int `pulumi:"version"`
-}
-
-// CertificateDetailsPropertiesInput is an input type that accepts CertificateDetailsPropertiesArgs and CertificateDetailsPropertiesOutput values.
-// You can construct a concrete instance of `CertificateDetailsPropertiesInput` via:
-//
-//          CertificateDetailsPropertiesArgs{...}
-type CertificateDetailsPropertiesInput interface {
-	pulumi.Input
-
-	ToCertificateDetailsPropertiesOutput() CertificateDetailsPropertiesOutput
-	ToCertificateDetailsPropertiesOutputWithContext(context.Context) CertificateDetailsPropertiesOutput
-}
-
-type CertificateDetailsPropertiesArgs struct {
-	// Issuer
-	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
-	// Valid to
-	NotAfter pulumi.StringPtrInput `pulumi:"notAfter"`
-	// Valid from
-	NotBefore pulumi.StringPtrInput `pulumi:"notBefore"`
-	// Raw certificate data
-	RawData pulumi.StringPtrInput `pulumi:"rawData"`
-	// Serial Number
-	SerialNumber pulumi.StringPtrInput `pulumi:"serialNumber"`
-	// Signature Algorithm
-	SignatureAlgorithm pulumi.StringPtrInput `pulumi:"signatureAlgorithm"`
-	// Subject
-	Subject pulumi.StringPtrInput `pulumi:"subject"`
-	// Thumbprint
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
-	// Version
-	Version pulumi.IntPtrInput `pulumi:"version"`
-}
-
-func (CertificateDetailsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateDetailsProperties)(nil)).Elem()
-}
-
-func (i CertificateDetailsPropertiesArgs) ToCertificateDetailsPropertiesOutput() CertificateDetailsPropertiesOutput {
-	return i.ToCertificateDetailsPropertiesOutputWithContext(context.Background())
-}
-
-func (i CertificateDetailsPropertiesArgs) ToCertificateDetailsPropertiesOutputWithContext(ctx context.Context) CertificateDetailsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsPropertiesOutput)
-}
-
-func (i CertificateDetailsPropertiesArgs) ToCertificateDetailsPropertiesPtrOutput() CertificateDetailsPropertiesPtrOutput {
-	return i.ToCertificateDetailsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CertificateDetailsPropertiesArgs) ToCertificateDetailsPropertiesPtrOutputWithContext(ctx context.Context) CertificateDetailsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsPropertiesOutput).ToCertificateDetailsPropertiesPtrOutputWithContext(ctx)
-}
-
-// CertificateDetailsPropertiesPtrInput is an input type that accepts CertificateDetailsPropertiesArgs, CertificateDetailsPropertiesPtr and CertificateDetailsPropertiesPtrOutput values.
-// You can construct a concrete instance of `CertificateDetailsPropertiesPtrInput` via:
-//
-//          CertificateDetailsPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CertificateDetailsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCertificateDetailsPropertiesPtrOutput() CertificateDetailsPropertiesPtrOutput
-	ToCertificateDetailsPropertiesPtrOutputWithContext(context.Context) CertificateDetailsPropertiesPtrOutput
-}
-
-type certificateDetailsPropertiesPtrType CertificateDetailsPropertiesArgs
-
-func CertificateDetailsPropertiesPtr(v *CertificateDetailsPropertiesArgs) CertificateDetailsPropertiesPtrInput {
-	return (*certificateDetailsPropertiesPtrType)(v)
-}
-
-func (*certificateDetailsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateDetailsProperties)(nil)).Elem()
-}
-
-func (i *certificateDetailsPropertiesPtrType) ToCertificateDetailsPropertiesPtrOutput() CertificateDetailsPropertiesPtrOutput {
-	return i.ToCertificateDetailsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *certificateDetailsPropertiesPtrType) ToCertificateDetailsPropertiesPtrOutputWithContext(ctx context.Context) CertificateDetailsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsPropertiesPtrOutput)
-}
-
-type CertificateDetailsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CertificateDetailsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateDetailsProperties)(nil)).Elem()
-}
-
-func (o CertificateDetailsPropertiesOutput) ToCertificateDetailsPropertiesOutput() CertificateDetailsPropertiesOutput {
-	return o
-}
-
-func (o CertificateDetailsPropertiesOutput) ToCertificateDetailsPropertiesOutputWithContext(ctx context.Context) CertificateDetailsPropertiesOutput {
-	return o
-}
-
-func (o CertificateDetailsPropertiesOutput) ToCertificateDetailsPropertiesPtrOutput() CertificateDetailsPropertiesPtrOutput {
-	return o.ToCertificateDetailsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CertificateDetailsPropertiesOutput) ToCertificateDetailsPropertiesPtrOutputWithContext(ctx context.Context) CertificateDetailsPropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateDetailsProperties) *CertificateDetailsProperties {
-		return &v
-	}).(CertificateDetailsPropertiesPtrOutput)
-}
-
-// Issuer
-func (o CertificateDetailsPropertiesOutput) Issuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDetailsProperties) *string { return v.Issuer }).(pulumi.StringPtrOutput)
-}
-
-// Valid to
-func (o CertificateDetailsPropertiesOutput) NotAfter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDetailsProperties) *string { return v.NotAfter }).(pulumi.StringPtrOutput)
-}
-
-// Valid from
-func (o CertificateDetailsPropertiesOutput) NotBefore() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDetailsProperties) *string { return v.NotBefore }).(pulumi.StringPtrOutput)
-}
-
-// Raw certificate data
-func (o CertificateDetailsPropertiesOutput) RawData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDetailsProperties) *string { return v.RawData }).(pulumi.StringPtrOutput)
-}
-
-// Serial Number
-func (o CertificateDetailsPropertiesOutput) SerialNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDetailsProperties) *string { return v.SerialNumber }).(pulumi.StringPtrOutput)
-}
-
-// Signature Algorithm
-func (o CertificateDetailsPropertiesOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDetailsProperties) *string { return v.SignatureAlgorithm }).(pulumi.StringPtrOutput)
-}
-
-// Subject
-func (o CertificateDetailsPropertiesOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDetailsProperties) *string { return v.Subject }).(pulumi.StringPtrOutput)
-}
-
-// Thumbprint
-func (o CertificateDetailsPropertiesOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDetailsProperties) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
 // Version
-func (o CertificateDetailsPropertiesOutput) Version() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CertificateDetailsProperties) *int { return v.Version }).(pulumi.IntPtrOutput)
-}
-
-type CertificateDetailsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CertificateDetailsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateDetailsProperties)(nil)).Elem()
-}
-
-func (o CertificateDetailsPropertiesPtrOutput) ToCertificateDetailsPropertiesPtrOutput() CertificateDetailsPropertiesPtrOutput {
-	return o
-}
-
-func (o CertificateDetailsPropertiesPtrOutput) ToCertificateDetailsPropertiesPtrOutputWithContext(ctx context.Context) CertificateDetailsPropertiesPtrOutput {
-	return o
-}
-
-func (o CertificateDetailsPropertiesPtrOutput) Elem() CertificateDetailsPropertiesOutput {
-	return o.ApplyT(func(v *CertificateDetailsProperties) CertificateDetailsProperties { return *v }).(CertificateDetailsPropertiesOutput)
-}
-
-// Issuer
-func (o CertificateDetailsPropertiesPtrOutput) Issuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Issuer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Valid to
-func (o CertificateDetailsPropertiesPtrOutput) NotAfter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NotAfter
-	}).(pulumi.StringPtrOutput)
-}
-
-// Valid from
-func (o CertificateDetailsPropertiesPtrOutput) NotBefore() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NotBefore
-	}).(pulumi.StringPtrOutput)
-}
-
-// Raw certificate data
-func (o CertificateDetailsPropertiesPtrOutput) RawData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RawData
-	}).(pulumi.StringPtrOutput)
-}
-
-// Serial Number
-func (o CertificateDetailsPropertiesPtrOutput) SerialNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SerialNumber
-	}).(pulumi.StringPtrOutput)
-}
-
-// Signature Algorithm
-func (o CertificateDetailsPropertiesPtrOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SignatureAlgorithm
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subject
-func (o CertificateDetailsPropertiesPtrOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Subject
-	}).(pulumi.StringPtrOutput)
-}
-
-// Thumbprint
-func (o CertificateDetailsPropertiesPtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Version
-func (o CertificateDetailsPropertiesPtrOutput) Version() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsProperties) *int {
+func (o CertificateDetailsPtrOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CertificateDetails) *int {
 		if v == nil {
 			return nil
 		}
@@ -2514,13 +2050,18 @@ func (o CertificateOrderTypeOutput) Type() pulumi.StringPtrOutput {
 type CertificateOrderCertificateType struct {
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Key Vault Csm resource Id
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Key Vault secret name
+	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string                                `pulumi:"name"`
-	Properties *CertificateOrderCertificateProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Status of the Key Vault secret
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -2542,13 +2083,18 @@ type CertificateOrderCertificateTypeInput interface {
 type CertificateOrderCertificateTypeArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key Vault Csm resource Id
+	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
+	// Key Vault secret name
+	KeyVaultSecretName pulumi.StringPtrInput `pulumi:"keyVaultSecretName"`
 	// Kind of resource
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrInput                         `pulumi:"name"`
-	Properties CertificateOrderCertificatePropertiesPtrInput `pulumi:"properties"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Status of the Key Vault secret
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type
@@ -2612,6 +2158,16 @@ func (o CertificateOrderCertificateTypeOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateOrderCertificateType) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Key Vault Csm resource Id
+func (o CertificateOrderCertificateTypeOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateType) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
+}
+
+// Key Vault secret name
+func (o CertificateOrderCertificateTypeOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateType) *string { return v.KeyVaultSecretName }).(pulumi.StringPtrOutput)
+}
+
 // Kind of resource
 func (o CertificateOrderCertificateTypeOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateOrderCertificateType) *string { return v.Kind }).(pulumi.StringPtrOutput)
@@ -2627,8 +2183,9 @@ func (o CertificateOrderCertificateTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateOrderCertificateType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o CertificateOrderCertificateTypeOutput) Properties() CertificateOrderCertificatePropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateType) *CertificateOrderCertificateProperties { return v.Properties }).(CertificateOrderCertificatePropertiesPtrOutput)
+// Status of the Key Vault secret
+func (o CertificateOrderCertificateTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateOrderCertificateType) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // Resource tags
@@ -2659,175 +2216,6 @@ func (o CertificateOrderCertificateTypeMapOutput) MapIndex(k pulumi.StringInput)
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CertificateOrderCertificateType {
 		return vs[0].(map[string]CertificateOrderCertificateType)[vs[1].(string)]
 	}).(CertificateOrderCertificateTypeOutput)
-}
-
-type CertificateOrderCertificateProperties struct {
-	// Key Vault Csm resource Id
-	KeyVaultId *string `pulumi:"keyVaultId"`
-	// Key Vault secret name
-	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
-	// Status of the Key Vault secret
-	ProvisioningState *string `pulumi:"provisioningState"`
-}
-
-// CertificateOrderCertificatePropertiesInput is an input type that accepts CertificateOrderCertificatePropertiesArgs and CertificateOrderCertificatePropertiesOutput values.
-// You can construct a concrete instance of `CertificateOrderCertificatePropertiesInput` via:
-//
-//          CertificateOrderCertificatePropertiesArgs{...}
-type CertificateOrderCertificatePropertiesInput interface {
-	pulumi.Input
-
-	ToCertificateOrderCertificatePropertiesOutput() CertificateOrderCertificatePropertiesOutput
-	ToCertificateOrderCertificatePropertiesOutputWithContext(context.Context) CertificateOrderCertificatePropertiesOutput
-}
-
-type CertificateOrderCertificatePropertiesArgs struct {
-	// Key Vault Csm resource Id
-	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	// Key Vault secret name
-	KeyVaultSecretName pulumi.StringPtrInput `pulumi:"keyVaultSecretName"`
-	// Status of the Key Vault secret
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-}
-
-func (CertificateOrderCertificatePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrderCertificateProperties)(nil)).Elem()
-}
-
-func (i CertificateOrderCertificatePropertiesArgs) ToCertificateOrderCertificatePropertiesOutput() CertificateOrderCertificatePropertiesOutput {
-	return i.ToCertificateOrderCertificatePropertiesOutputWithContext(context.Background())
-}
-
-func (i CertificateOrderCertificatePropertiesArgs) ToCertificateOrderCertificatePropertiesOutputWithContext(ctx context.Context) CertificateOrderCertificatePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderCertificatePropertiesOutput)
-}
-
-func (i CertificateOrderCertificatePropertiesArgs) ToCertificateOrderCertificatePropertiesPtrOutput() CertificateOrderCertificatePropertiesPtrOutput {
-	return i.ToCertificateOrderCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CertificateOrderCertificatePropertiesArgs) ToCertificateOrderCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificateOrderCertificatePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderCertificatePropertiesOutput).ToCertificateOrderCertificatePropertiesPtrOutputWithContext(ctx)
-}
-
-// CertificateOrderCertificatePropertiesPtrInput is an input type that accepts CertificateOrderCertificatePropertiesArgs, CertificateOrderCertificatePropertiesPtr and CertificateOrderCertificatePropertiesPtrOutput values.
-// You can construct a concrete instance of `CertificateOrderCertificatePropertiesPtrInput` via:
-//
-//          CertificateOrderCertificatePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CertificateOrderCertificatePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCertificateOrderCertificatePropertiesPtrOutput() CertificateOrderCertificatePropertiesPtrOutput
-	ToCertificateOrderCertificatePropertiesPtrOutputWithContext(context.Context) CertificateOrderCertificatePropertiesPtrOutput
-}
-
-type certificateOrderCertificatePropertiesPtrType CertificateOrderCertificatePropertiesArgs
-
-func CertificateOrderCertificatePropertiesPtr(v *CertificateOrderCertificatePropertiesArgs) CertificateOrderCertificatePropertiesPtrInput {
-	return (*certificateOrderCertificatePropertiesPtrType)(v)
-}
-
-func (*certificateOrderCertificatePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateOrderCertificateProperties)(nil)).Elem()
-}
-
-func (i *certificateOrderCertificatePropertiesPtrType) ToCertificateOrderCertificatePropertiesPtrOutput() CertificateOrderCertificatePropertiesPtrOutput {
-	return i.ToCertificateOrderCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *certificateOrderCertificatePropertiesPtrType) ToCertificateOrderCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificateOrderCertificatePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderCertificatePropertiesPtrOutput)
-}
-
-type CertificateOrderCertificatePropertiesOutput struct{ *pulumi.OutputState }
-
-func (CertificateOrderCertificatePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrderCertificateProperties)(nil)).Elem()
-}
-
-func (o CertificateOrderCertificatePropertiesOutput) ToCertificateOrderCertificatePropertiesOutput() CertificateOrderCertificatePropertiesOutput {
-	return o
-}
-
-func (o CertificateOrderCertificatePropertiesOutput) ToCertificateOrderCertificatePropertiesOutputWithContext(ctx context.Context) CertificateOrderCertificatePropertiesOutput {
-	return o
-}
-
-func (o CertificateOrderCertificatePropertiesOutput) ToCertificateOrderCertificatePropertiesPtrOutput() CertificateOrderCertificatePropertiesPtrOutput {
-	return o.ToCertificateOrderCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CertificateOrderCertificatePropertiesOutput) ToCertificateOrderCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificateOrderCertificatePropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateProperties) *CertificateOrderCertificateProperties {
-		return &v
-	}).(CertificateOrderCertificatePropertiesPtrOutput)
-}
-
-// Key Vault Csm resource Id
-func (o CertificateOrderCertificatePropertiesOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateProperties) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
-}
-
-// Key Vault secret name
-func (o CertificateOrderCertificatePropertiesOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateProperties) *string { return v.KeyVaultSecretName }).(pulumi.StringPtrOutput)
-}
-
-// Status of the Key Vault secret
-func (o CertificateOrderCertificatePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderCertificateProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-type CertificateOrderCertificatePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CertificateOrderCertificatePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateOrderCertificateProperties)(nil)).Elem()
-}
-
-func (o CertificateOrderCertificatePropertiesPtrOutput) ToCertificateOrderCertificatePropertiesPtrOutput() CertificateOrderCertificatePropertiesPtrOutput {
-	return o
-}
-
-func (o CertificateOrderCertificatePropertiesPtrOutput) ToCertificateOrderCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificateOrderCertificatePropertiesPtrOutput {
-	return o
-}
-
-func (o CertificateOrderCertificatePropertiesPtrOutput) Elem() CertificateOrderCertificatePropertiesOutput {
-	return o.ApplyT(func(v *CertificateOrderCertificateProperties) CertificateOrderCertificateProperties { return *v }).(CertificateOrderCertificatePropertiesOutput)
-}
-
-// Key Vault Csm resource Id
-func (o CertificateOrderCertificatePropertiesPtrOutput) KeyVaultId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderCertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Key Vault secret name
-func (o CertificateOrderCertificatePropertiesPtrOutput) KeyVaultSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderCertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultSecretName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Status of the Key Vault secret
-func (o CertificateOrderCertificatePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderCertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
 }
 
 // Class representing the Key Vault container for certificate purchased through Azure
@@ -3152,422 +2540,6 @@ func (o CertificateOrderCertificateResponsePropertiesPtrOutput) ProvisioningStat
 		}
 		return v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
-}
-
-type CertificateOrderProperties struct {
-	// Auto renew
-	AutoRenew *bool `pulumi:"autoRenew"`
-	// State of the Key Vault secret
-	Certificates map[string]CertificateOrderCertificateType `pulumi:"certificates"`
-	// Last CSR that was created for this order
-	Csr *string `pulumi:"csr"`
-	// Certificate distinguished name
-	DistinguishedName *string `pulumi:"distinguishedName"`
-	// Domain Verification Token
-	DomainVerificationToken *string `pulumi:"domainVerificationToken"`
-	// Certificate expiration time
-	ExpirationTime *string `pulumi:"expirationTime"`
-	// Intermediate certificate
-	Intermediate *CertificateDetails `pulumi:"intermediate"`
-	// Certificate Key Size
-	KeySize *int `pulumi:"keySize"`
-	// Certificate last issuance time
-	LastCertificateIssuanceTime *string `pulumi:"lastCertificateIssuanceTime"`
-	// Certificate product type
-	ProductType *string `pulumi:"productType"`
-	// Status of certificate order
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Root certificate
-	Root *CertificateDetails `pulumi:"root"`
-	// Current serial number of the certificate
-	SerialNumber *string `pulumi:"serialNumber"`
-	// Signed certificate
-	SignedCertificate *CertificateDetails `pulumi:"signedCertificate"`
-	// Current order status
-	Status *string `pulumi:"status"`
-	// Duration in years (must be between 1 and 3)
-	ValidityInYears *int `pulumi:"validityInYears"`
-}
-
-// CertificateOrderPropertiesInput is an input type that accepts CertificateOrderPropertiesArgs and CertificateOrderPropertiesOutput values.
-// You can construct a concrete instance of `CertificateOrderPropertiesInput` via:
-//
-//          CertificateOrderPropertiesArgs{...}
-type CertificateOrderPropertiesInput interface {
-	pulumi.Input
-
-	ToCertificateOrderPropertiesOutput() CertificateOrderPropertiesOutput
-	ToCertificateOrderPropertiesOutputWithContext(context.Context) CertificateOrderPropertiesOutput
-}
-
-type CertificateOrderPropertiesArgs struct {
-	// Auto renew
-	AutoRenew pulumi.BoolPtrInput `pulumi:"autoRenew"`
-	// State of the Key Vault secret
-	Certificates CertificateOrderCertificateTypeMapInput `pulumi:"certificates"`
-	// Last CSR that was created for this order
-	Csr pulumi.StringPtrInput `pulumi:"csr"`
-	// Certificate distinguished name
-	DistinguishedName pulumi.StringPtrInput `pulumi:"distinguishedName"`
-	// Domain Verification Token
-	DomainVerificationToken pulumi.StringPtrInput `pulumi:"domainVerificationToken"`
-	// Certificate expiration time
-	ExpirationTime pulumi.StringPtrInput `pulumi:"expirationTime"`
-	// Intermediate certificate
-	Intermediate CertificateDetailsPtrInput `pulumi:"intermediate"`
-	// Certificate Key Size
-	KeySize pulumi.IntPtrInput `pulumi:"keySize"`
-	// Certificate last issuance time
-	LastCertificateIssuanceTime pulumi.StringPtrInput `pulumi:"lastCertificateIssuanceTime"`
-	// Certificate product type
-	ProductType pulumi.StringPtrInput `pulumi:"productType"`
-	// Status of certificate order
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Root certificate
-	Root CertificateDetailsPtrInput `pulumi:"root"`
-	// Current serial number of the certificate
-	SerialNumber pulumi.StringPtrInput `pulumi:"serialNumber"`
-	// Signed certificate
-	SignedCertificate CertificateDetailsPtrInput `pulumi:"signedCertificate"`
-	// Current order status
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// Duration in years (must be between 1 and 3)
-	ValidityInYears pulumi.IntPtrInput `pulumi:"validityInYears"`
-}
-
-func (CertificateOrderPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrderProperties)(nil)).Elem()
-}
-
-func (i CertificateOrderPropertiesArgs) ToCertificateOrderPropertiesOutput() CertificateOrderPropertiesOutput {
-	return i.ToCertificateOrderPropertiesOutputWithContext(context.Background())
-}
-
-func (i CertificateOrderPropertiesArgs) ToCertificateOrderPropertiesOutputWithContext(ctx context.Context) CertificateOrderPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderPropertiesOutput)
-}
-
-func (i CertificateOrderPropertiesArgs) ToCertificateOrderPropertiesPtrOutput() CertificateOrderPropertiesPtrOutput {
-	return i.ToCertificateOrderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CertificateOrderPropertiesArgs) ToCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) CertificateOrderPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderPropertiesOutput).ToCertificateOrderPropertiesPtrOutputWithContext(ctx)
-}
-
-// CertificateOrderPropertiesPtrInput is an input type that accepts CertificateOrderPropertiesArgs, CertificateOrderPropertiesPtr and CertificateOrderPropertiesPtrOutput values.
-// You can construct a concrete instance of `CertificateOrderPropertiesPtrInput` via:
-//
-//          CertificateOrderPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CertificateOrderPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCertificateOrderPropertiesPtrOutput() CertificateOrderPropertiesPtrOutput
-	ToCertificateOrderPropertiesPtrOutputWithContext(context.Context) CertificateOrderPropertiesPtrOutput
-}
-
-type certificateOrderPropertiesPtrType CertificateOrderPropertiesArgs
-
-func CertificateOrderPropertiesPtr(v *CertificateOrderPropertiesArgs) CertificateOrderPropertiesPtrInput {
-	return (*certificateOrderPropertiesPtrType)(v)
-}
-
-func (*certificateOrderPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateOrderProperties)(nil)).Elem()
-}
-
-func (i *certificateOrderPropertiesPtrType) ToCertificateOrderPropertiesPtrOutput() CertificateOrderPropertiesPtrOutput {
-	return i.ToCertificateOrderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *certificateOrderPropertiesPtrType) ToCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) CertificateOrderPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateOrderPropertiesPtrOutput)
-}
-
-type CertificateOrderPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CertificateOrderPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateOrderProperties)(nil)).Elem()
-}
-
-func (o CertificateOrderPropertiesOutput) ToCertificateOrderPropertiesOutput() CertificateOrderPropertiesOutput {
-	return o
-}
-
-func (o CertificateOrderPropertiesOutput) ToCertificateOrderPropertiesOutputWithContext(ctx context.Context) CertificateOrderPropertiesOutput {
-	return o
-}
-
-func (o CertificateOrderPropertiesOutput) ToCertificateOrderPropertiesPtrOutput() CertificateOrderPropertiesPtrOutput {
-	return o.ToCertificateOrderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CertificateOrderPropertiesOutput) ToCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) CertificateOrderPropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *CertificateOrderProperties {
-		return &v
-	}).(CertificateOrderPropertiesPtrOutput)
-}
-
-// Auto renew
-func (o CertificateOrderPropertiesOutput) AutoRenew() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *bool { return v.AutoRenew }).(pulumi.BoolPtrOutput)
-}
-
-// State of the Key Vault secret
-func (o CertificateOrderPropertiesOutput) Certificates() CertificateOrderCertificateTypeMapOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) map[string]CertificateOrderCertificateType { return v.Certificates }).(CertificateOrderCertificateTypeMapOutput)
-}
-
-// Last CSR that was created for this order
-func (o CertificateOrderPropertiesOutput) Csr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *string { return v.Csr }).(pulumi.StringPtrOutput)
-}
-
-// Certificate distinguished name
-func (o CertificateOrderPropertiesOutput) DistinguishedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *string { return v.DistinguishedName }).(pulumi.StringPtrOutput)
-}
-
-// Domain Verification Token
-func (o CertificateOrderPropertiesOutput) DomainVerificationToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *string { return v.DomainVerificationToken }).(pulumi.StringPtrOutput)
-}
-
-// Certificate expiration time
-func (o CertificateOrderPropertiesOutput) ExpirationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *string { return v.ExpirationTime }).(pulumi.StringPtrOutput)
-}
-
-// Intermediate certificate
-func (o CertificateOrderPropertiesOutput) Intermediate() CertificateDetailsPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *CertificateDetails { return v.Intermediate }).(CertificateDetailsPtrOutput)
-}
-
-// Certificate Key Size
-func (o CertificateOrderPropertiesOutput) KeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *int { return v.KeySize }).(pulumi.IntPtrOutput)
-}
-
-// Certificate last issuance time
-func (o CertificateOrderPropertiesOutput) LastCertificateIssuanceTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *string { return v.LastCertificateIssuanceTime }).(pulumi.StringPtrOutput)
-}
-
-// Certificate product type
-func (o CertificateOrderPropertiesOutput) ProductType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *string { return v.ProductType }).(pulumi.StringPtrOutput)
-}
-
-// Status of certificate order
-func (o CertificateOrderPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// Root certificate
-func (o CertificateOrderPropertiesOutput) Root() CertificateDetailsPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *CertificateDetails { return v.Root }).(CertificateDetailsPtrOutput)
-}
-
-// Current serial number of the certificate
-func (o CertificateOrderPropertiesOutput) SerialNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *string { return v.SerialNumber }).(pulumi.StringPtrOutput)
-}
-
-// Signed certificate
-func (o CertificateOrderPropertiesOutput) SignedCertificate() CertificateDetailsPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *CertificateDetails { return v.SignedCertificate }).(CertificateDetailsPtrOutput)
-}
-
-// Current order status
-func (o CertificateOrderPropertiesOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// Duration in years (must be between 1 and 3)
-func (o CertificateOrderPropertiesOutput) ValidityInYears() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CertificateOrderProperties) *int { return v.ValidityInYears }).(pulumi.IntPtrOutput)
-}
-
-type CertificateOrderPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CertificateOrderPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateOrderProperties)(nil)).Elem()
-}
-
-func (o CertificateOrderPropertiesPtrOutput) ToCertificateOrderPropertiesPtrOutput() CertificateOrderPropertiesPtrOutput {
-	return o
-}
-
-func (o CertificateOrderPropertiesPtrOutput) ToCertificateOrderPropertiesPtrOutputWithContext(ctx context.Context) CertificateOrderPropertiesPtrOutput {
-	return o
-}
-
-func (o CertificateOrderPropertiesPtrOutput) Elem() CertificateOrderPropertiesOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) CertificateOrderProperties { return *v }).(CertificateOrderPropertiesOutput)
-}
-
-// Auto renew
-func (o CertificateOrderPropertiesPtrOutput) AutoRenew() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AutoRenew
-	}).(pulumi.BoolPtrOutput)
-}
-
-// State of the Key Vault secret
-func (o CertificateOrderPropertiesPtrOutput) Certificates() CertificateOrderCertificateTypeMapOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) map[string]CertificateOrderCertificateType {
-		if v == nil {
-			return nil
-		}
-		return v.Certificates
-	}).(CertificateOrderCertificateTypeMapOutput)
-}
-
-// Last CSR that was created for this order
-func (o CertificateOrderPropertiesPtrOutput) Csr() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Csr
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate distinguished name
-func (o CertificateOrderPropertiesPtrOutput) DistinguishedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DistinguishedName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Domain Verification Token
-func (o CertificateOrderPropertiesPtrOutput) DomainVerificationToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DomainVerificationToken
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate expiration time
-func (o CertificateOrderPropertiesPtrOutput) ExpirationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExpirationTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Intermediate certificate
-func (o CertificateOrderPropertiesPtrOutput) Intermediate() CertificateDetailsPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *CertificateDetails {
-		if v == nil {
-			return nil
-		}
-		return v.Intermediate
-	}).(CertificateDetailsPtrOutput)
-}
-
-// Certificate Key Size
-func (o CertificateOrderPropertiesPtrOutput) KeySize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.KeySize
-	}).(pulumi.IntPtrOutput)
-}
-
-// Certificate last issuance time
-func (o CertificateOrderPropertiesPtrOutput) LastCertificateIssuanceTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastCertificateIssuanceTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate product type
-func (o CertificateOrderPropertiesPtrOutput) ProductType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProductType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Status of certificate order
-func (o CertificateOrderPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Root certificate
-func (o CertificateOrderPropertiesPtrOutput) Root() CertificateDetailsPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *CertificateDetails {
-		if v == nil {
-			return nil
-		}
-		return v.Root
-	}).(CertificateDetailsPtrOutput)
-}
-
-// Current serial number of the certificate
-func (o CertificateOrderPropertiesPtrOutput) SerialNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SerialNumber
-	}).(pulumi.StringPtrOutput)
-}
-
-// Signed certificate
-func (o CertificateOrderPropertiesPtrOutput) SignedCertificate() CertificateDetailsPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *CertificateDetails {
-		if v == nil {
-			return nil
-		}
-		return v.SignedCertificate
-	}).(CertificateDetailsPtrOutput)
-}
-
-// Current order status
-func (o CertificateOrderPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// Duration in years (must be between 1 and 3)
-func (o CertificateOrderPropertiesPtrOutput) ValidityInYears() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CertificateOrderProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ValidityInYears
-	}).(pulumi.IntPtrOutput)
 }
 
 type CertificateOrderResponseProperties struct {
@@ -3990,12 +2962,9 @@ func (o CertificateOrderResponsePropertiesPtrOutput) ValidityInYears() pulumi.In
 
 func init() {
 	pulumi.RegisterOutputType(AppServiceCertificateOutput{})
-	pulumi.RegisterOutputType(AppServiceCertificatePtrOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateMapOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderTypeOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderCertificateTypeOutput{})
-	pulumi.RegisterOutputType(AppServiceCertificateOrderPropertiesOutput{})
-	pulumi.RegisterOutputType(AppServiceCertificateOrderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateOrderResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateResponseOutput{})
@@ -4003,8 +2972,6 @@ func init() {
 	pulumi.RegisterOutputType(AppServiceCertificateResponseMapOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsPtrOutput{})
-	pulumi.RegisterOutputType(CertificateDetailsPropertiesOutput{})
-	pulumi.RegisterOutputType(CertificateDetailsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsResponseOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsResponsePropertiesOutput{})
@@ -4012,14 +2979,10 @@ func init() {
 	pulumi.RegisterOutputType(CertificateOrderTypeOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateTypeOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateTypeMapOutput{})
-	pulumi.RegisterOutputType(CertificateOrderCertificatePropertiesOutput{})
-	pulumi.RegisterOutputType(CertificateOrderCertificatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateResponseOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateResponseMapOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificateOrderCertificateResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(CertificateOrderPropertiesOutput{})
-	pulumi.RegisterOutputType(CertificateOrderPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateOrderResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificateOrderResponsePropertiesPtrOutput{})
 }

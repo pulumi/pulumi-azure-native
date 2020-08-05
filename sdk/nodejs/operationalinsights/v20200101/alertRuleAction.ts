@@ -47,7 +47,7 @@ export class AlertRuleAction extends pulumi.CustomResource {
     /**
      * Action properties for get request
      */
-    public readonly properties!: pulumi.Output<outputs.operationalinsights.v20200101.ActionResponsePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.operationalinsights.v20200101.ActionResponsePropertiesResponse>;
     /**
      * Azure resource type
      */
@@ -66,6 +66,9 @@ export class AlertRuleAction extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AlertRuleActionArgs | undefined;
+            if (!args || args.logicAppResourceId === undefined) {
+                throw new Error("Missing required property 'logicAppResourceId'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -79,11 +82,13 @@ export class AlertRuleAction extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["logicAppResourceId"] = args ? args.logicAppResourceId : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["ruleId"] = args ? args.ruleId : undefined;
+            inputs["triggerUri"] = args ? args.triggerUri : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,13 +111,13 @@ export interface AlertRuleActionArgs {
      */
     readonly etag?: pulumi.Input<string>;
     /**
+     * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+     */
+    readonly logicAppResourceId: pulumi.Input<string>;
+    /**
      * Action ID
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Action properties for put request
-     */
-    readonly properties?: pulumi.Input<inputs.operationalinsights.v20200101.ActionRequestProperties>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -121,6 +126,10 @@ export interface AlertRuleActionArgs {
      * Alert rule ID
      */
     readonly ruleId: pulumi.Input<string>;
+    /**
+     * Logic App Callback URL for this specific workflow.
+     */
+    readonly triggerUri?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

@@ -60,46 +60,48 @@ class Domain(pulumi.CustomResource):
     """
     Type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, name=None, private_endpoint_connections=None, public_network_access=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         EventGrid Domain.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        :param pulumi.Input[str] input_schema: This determines the format that Event Grid should expect for incoming events published to the domain.
+        :param pulumi.Input[dict] input_schema_mapping: Information about the InputSchemaMapping which specified the info about mapping event payload.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] name: Name of the domain.
-        :param pulumi.Input[dict] properties: Properties of the domain.
+        :param pulumi.Input[list] private_endpoint_connections: List of private endpoint connections.
+        :param pulumi.Input[str] public_network_access: This determines if traffic is allowed over public network. By default it is enabled. 
+               You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[dict] tags: Tags of the resource.
 
-        The **properties** object supports the following:
+        The **inbound_ip_rules** object supports the following:
 
-          * `inbound_ip_rules` (`pulumi.Input[list]`) - This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
-            * `action` (`pulumi.Input[str]`) - Action to perform based on the match or no match of the IpMask.
-            * `ip_mask` (`pulumi.Input[str]`) - IP Address in CIDR notation e.g., 10.0.0.0/8.
+          * `action` (`pulumi.Input[str]`) - Action to perform based on the match or no match of the IpMask.
+          * `ip_mask` (`pulumi.Input[str]`) - IP Address in CIDR notation e.g., 10.0.0.0/8.
 
-          * `input_schema` (`pulumi.Input[str]`) - This determines the format that Event Grid should expect for incoming events published to the domain.
-          * `input_schema_mapping` (`pulumi.Input[dict]`) - Information about the InputSchemaMapping which specified the info about mapping event payload.
-            * `input_schema_mapping_type` (`pulumi.Input[str]`) - Type of the custom mapping
+        The **input_schema_mapping** object supports the following:
 
-          * `private_endpoint_connections` (`pulumi.Input[list]`) - List of private endpoint connections.
-            * `name` (`pulumi.Input[str]`) - Name of the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the PrivateEndpointConnection.
-              * `group_ids` (`pulumi.Input[list]`) - GroupIds from the private link service resource.
-              * `private_endpoint` (`pulumi.Input[dict]`) - The Private Endpoint resource for this Connection.
-                * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint.
+          * `input_schema_mapping_type` (`pulumi.Input[str]`) - Type of the custom mapping
 
-              * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Details about the state of the connection.
-                * `actions_required` (`pulumi.Input[str]`) - Actions required (if any).
-                * `description` (`pulumi.Input[str]`) - Description of the connection state.
-                * `status` (`pulumi.Input[str]`) - Status of the connection.
+        The **private_endpoint_connections** object supports the following:
 
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Private Endpoint Connection.
+          * `name` (`pulumi.Input[str]`) - Name of the resource.
+          * `properties` (`pulumi.Input[dict]`) - Properties of the PrivateEndpointConnection.
+            * `group_ids` (`pulumi.Input[list]`) - GroupIds from the private link service resource.
+            * `private_endpoint` (`pulumi.Input[dict]`) - The Private Endpoint resource for this Connection.
+              * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint.
 
-            * `type` (`pulumi.Input[str]`) - Type of the resource.
+            * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Details about the state of the connection.
+              * `actions_required` (`pulumi.Input[str]`) - Actions required (if any).
+              * `description` (`pulumi.Input[str]`) - Description of the connection state.
+              * `status` (`pulumi.Input[str]`) - Status of the connection.
 
-          * `public_network_access` (`pulumi.Input[str]`) - This determines if traffic is allowed over public network. By default it is enabled. 
-            You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
+            * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Private Endpoint Connection.
+
+          * `type` (`pulumi.Input[str]`) - Type of the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -118,17 +120,22 @@ class Domain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['inbound_ip_rules'] = inbound_ip_rules
+            __props__['input_schema'] = input_schema
+            __props__['input_schema_mapping'] = input_schema_mapping
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['private_endpoint_connections'] = private_endpoint_connections
+            __props__['public_network_access'] = public_network_access
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Domain, __self__).__init__(
             'azurerm:eventgrid/v20200601:Domain',

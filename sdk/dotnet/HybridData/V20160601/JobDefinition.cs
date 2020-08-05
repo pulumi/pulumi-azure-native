@@ -77,11 +77,35 @@ namespace Pulumi.AzureRM.HybridData.V20160601
 
     public sealed class JobDefinitionArgs : Pulumi.ResourceArgs
     {
+        [Input("customerSecrets")]
+        private InputList<Inputs.CustomerSecretArgs>? _customerSecrets;
+
+        /// <summary>
+        /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        /// </summary>
+        public InputList<Inputs.CustomerSecretArgs> CustomerSecrets
+        {
+            get => _customerSecrets ?? (_customerSecrets = new InputList<Inputs.CustomerSecretArgs>());
+            set => _customerSecrets = value;
+        }
+
         /// <summary>
         /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         /// </summary>
         [Input("dataManagerName", required: true)]
         public Input<string> DataManagerName { get; set; } = null!;
+
+        [Input("dataServiceInput")]
+        private InputMap<object>? _dataServiceInput;
+
+        /// <summary>
+        /// A generic json used differently by each data service type.
+        /// </summary>
+        public InputMap<object> DataServiceInput
+        {
+            get => _dataServiceInput ?? (_dataServiceInput = new InputMap<object>());
+            set => _dataServiceInput = value;
+        }
 
         /// <summary>
         /// The data service type of the job definition.
@@ -90,22 +114,64 @@ namespace Pulumi.AzureRM.HybridData.V20160601
         public Input<string> DataServiceName { get; set; } = null!;
 
         /// <summary>
+        /// Data Sink Id associated to the job definition.
+        /// </summary>
+        [Input("dataSinkId", required: true)]
+        public Input<string> DataSinkId { get; set; } = null!;
+
+        /// <summary>
+        /// Data Source Id associated to the job definition.
+        /// </summary>
+        [Input("dataSourceId", required: true)]
+        public Input<string> DataSourceId { get; set; } = null!;
+
+        /// <summary>
+        /// Last modified time of the job definition.
+        /// </summary>
+        [Input("lastModifiedTime")]
+        public Input<string>? LastModifiedTime { get; set; }
+
+        /// <summary>
         /// The job definition name to be created or updated.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// JobDefinition properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.JobDefinitionPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The Resource Group Name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// This is the preferred geo location for the job to run.
+        /// </summary>
+        [Input("runLocation")]
+        public Input<string>? RunLocation { get; set; }
+
+        [Input("schedules")]
+        private InputList<Inputs.ScheduleArgs>? _schedules;
+
+        /// <summary>
+        /// Schedule for running the job definition
+        /// </summary>
+        public InputList<Inputs.ScheduleArgs> Schedules
+        {
+            get => _schedules ?? (_schedules = new InputList<Inputs.ScheduleArgs>());
+            set => _schedules = value;
+        }
+
+        /// <summary>
+        /// State of the job definition.
+        /// </summary>
+        [Input("state", required: true)]
+        public Input<string> State { get; set; } = null!;
+
+        /// <summary>
+        /// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+        /// </summary>
+        [Input("userConfirmation")]
+        public Input<string>? UserConfirmation { get; set; }
 
         public JobDefinitionArgs()
         {

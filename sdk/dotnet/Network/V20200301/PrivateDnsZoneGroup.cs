@@ -89,17 +89,23 @@ namespace Pulumi.AzureRM.Network.V20200301
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("privateDnsZoneConfigs")]
+        private InputList<Inputs.PrivateDnsZoneConfigArgs>? _privateDnsZoneConfigs;
+
+        /// <summary>
+        /// A collection of private dns zone configurations of the private dns zone group.
+        /// </summary>
+        public InputList<Inputs.PrivateDnsZoneConfigArgs> PrivateDnsZoneConfigs
+        {
+            get => _privateDnsZoneConfigs ?? (_privateDnsZoneConfigs = new InputList<Inputs.PrivateDnsZoneConfigArgs>());
+            set => _privateDnsZoneConfigs = value;
+        }
+
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
         [Input("privateEndpointName", required: true)]
         public Input<string> PrivateEndpointName { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the private dns zone group.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateDnsZoneGroupPropertiesFormatArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

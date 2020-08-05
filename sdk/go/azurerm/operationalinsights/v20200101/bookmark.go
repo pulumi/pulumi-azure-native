@@ -27,8 +27,14 @@ type Bookmark struct {
 // NewBookmark registers a new resource with the given unique name, arguments, and options.
 func NewBookmark(ctx *pulumi.Context,
 	name string, args *BookmarkArgs, opts ...pulumi.ResourceOption) (*Bookmark, error) {
+	if args == nil || args.DisplayName == nil {
+		return nil, errors.New("missing required argument 'DisplayName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
+	}
+	if args == nil || args.Query == nil {
+		return nil, errors.New("missing required argument 'Query'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -87,28 +93,64 @@ func (BookmarkState) ElementType() reflect.Type {
 }
 
 type bookmarkArgs struct {
+	// The time the bookmark was created
+	Created *string `pulumi:"created"`
+	// Describes a user that created the bookmark
+	CreatedBy *UserInfo `pulumi:"createdBy"`
+	// The display name of the bookmark
+	DisplayName string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// Describes an incident that relates to bookmark
+	IncidentInfo *IncidentInfo `pulumi:"incidentInfo"`
+	// List of labels relevant to this bookmark
+	Labels []string `pulumi:"labels"`
 	// Bookmark ID
 	Name string `pulumi:"name"`
-	// Bookmark properties
-	Properties *BookmarkProperties `pulumi:"properties"`
+	// The notes of the bookmark
+	Notes *string `pulumi:"notes"`
+	// The query of the bookmark.
+	Query string `pulumi:"query"`
+	// The query result of the bookmark.
+	QueryResult *string `pulumi:"queryResult"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The last time the bookmark was updated
+	Updated *string `pulumi:"updated"`
+	// Describes a user that updated the bookmark
+	UpdatedBy *UserInfo `pulumi:"updatedBy"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Bookmark resource.
 type BookmarkArgs struct {
+	// The time the bookmark was created
+	Created pulumi.StringPtrInput
+	// Describes a user that created the bookmark
+	CreatedBy UserInfoPtrInput
+	// The display name of the bookmark
+	DisplayName pulumi.StringInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
+	// Describes an incident that relates to bookmark
+	IncidentInfo IncidentInfoPtrInput
+	// List of labels relevant to this bookmark
+	Labels pulumi.StringArrayInput
 	// Bookmark ID
 	Name pulumi.StringInput
-	// Bookmark properties
-	Properties BookmarkPropertiesPtrInput
+	// The notes of the bookmark
+	Notes pulumi.StringPtrInput
+	// The query of the bookmark.
+	Query pulumi.StringInput
+	// The query result of the bookmark.
+	QueryResult pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The last time the bookmark was updated
+	Updated pulumi.StringPtrInput
+	// Describes a user that updated the bookmark
+	UpdatedBy UserInfoPtrInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }

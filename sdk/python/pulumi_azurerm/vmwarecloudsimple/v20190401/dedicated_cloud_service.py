@@ -34,21 +34,17 @@ class DedicatedCloudService(pulumi.CustomResource):
     """
     {resourceProviderNamespace}/{resourceType}
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, gateway_subnet=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Dedicated cloud service model
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] gateway_subnet: gateway Subnet for the account. It will collect the subnet address and always treat it as /28
         :param pulumi.Input[str] location: Azure region
         :param pulumi.Input[str] name: dedicated cloud Service name
-        :param pulumi.Input[dict] properties: The properties of Dedicated Node Service
         :param pulumi.Input[str] resource_group_name: The name of the resource group
         :param pulumi.Input[dict] tags: The list of tags
-
-        The **properties** object supports the following:
-
-          * `gateway_subnet` (`pulumi.Input[str]`) - gateway Subnet for the account. It will collect the subnet address and always treat it as /28
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,17 +63,20 @@ class DedicatedCloudService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if gateway_subnet is None:
+                raise TypeError("Missing required property 'gateway_subnet'")
+            __props__['gateway_subnet'] = gateway_subnet
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(DedicatedCloudService, __self__).__init__(
             'azurerm:vmwarecloudsimple/v20190401:DedicatedCloudService',

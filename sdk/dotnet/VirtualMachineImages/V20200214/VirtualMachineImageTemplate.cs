@@ -96,6 +96,36 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
     public sealed class VirtualMachineImageTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        /// </summary>
+        [Input("buildTimeoutInMinutes")]
+        public Input<int>? BuildTimeoutInMinutes { get; set; }
+
+        [Input("customize")]
+        private InputList<Inputs.ImageTemplateCustomizerArgs>? _customize;
+
+        /// <summary>
+        /// Specifies the properties used to describe the customization steps of the image, like Image source etc
+        /// </summary>
+        public InputList<Inputs.ImageTemplateCustomizerArgs> Customize
+        {
+            get => _customize ?? (_customize = new InputList<Inputs.ImageTemplateCustomizerArgs>());
+            set => _customize = value;
+        }
+
+        [Input("distribute", required: true)]
+        private InputList<Inputs.ImageTemplateDistributorArgs>? _distribute;
+
+        /// <summary>
+        /// The distribution targets where the image output needs to go to.
+        /// </summary>
+        public InputList<Inputs.ImageTemplateDistributorArgs> Distribute
+        {
+            get => _distribute ?? (_distribute = new InputList<Inputs.ImageTemplateDistributorArgs>());
+            set => _distribute = value;
+        }
+
+        /// <summary>
         /// The identity of the image template, if configured.
         /// </summary>
         [Input("identity", required: true)]
@@ -114,16 +144,16 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the image template
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ImageTemplatePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the properties used to describe the source image.
+        /// </summary>
+        [Input("source", required: true)]
+        public Input<Inputs.ImageTemplateSourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -136,6 +166,12 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Describes how virtual machine is set up to build images
+        /// </summary>
+        [Input("vmProfile")]
+        public Input<Inputs.ImageTemplateVmProfileArgs>? VmProfile { get; set; }
 
         public VirtualMachineImageTemplateArgs()
         {

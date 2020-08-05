@@ -96,40 +96,102 @@ func (CertificateOrderState) ElementType() reflect.Type {
 }
 
 type certificateOrderArgs struct {
+	// Auto renew
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// State of the Key Vault secret
+	Certificates map[string]CertificateOrderCertificateType `pulumi:"certificates"`
+	// Last CSR that was created for this order
+	Csr *string `pulumi:"csr"`
+	// Certificate distinguished name
+	DistinguishedName *string `pulumi:"distinguishedName"`
+	// Domain Verification Token
+	DomainVerificationToken *string `pulumi:"domainVerificationToken"`
+	// Certificate expiration time
+	ExpirationTime *string `pulumi:"expirationTime"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Intermediate certificate
+	Intermediate *CertificateDetails `pulumi:"intermediate"`
+	// Certificate Key Size
+	KeySize *int `pulumi:"keySize"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
+	// Certificate last issuance time
+	LastCertificateIssuanceTime *string `pulumi:"lastCertificateIssuanceTime"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       string                      `pulumi:"name"`
-	Properties *CertificateOrderProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Certificate product type
+	ProductType *string `pulumi:"productType"`
+	// Status of certificate order
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Azure resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Root certificate
+	Root *CertificateDetails `pulumi:"root"`
+	// Current serial number of the certificate
+	SerialNumber *string `pulumi:"serialNumber"`
+	// Signed certificate
+	SignedCertificate *CertificateDetails `pulumi:"signedCertificate"`
+	// Current order status
+	Status *string `pulumi:"status"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Duration in years (must be between 1 and 3)
+	ValidityInYears *int `pulumi:"validityInYears"`
 }
 
 // The set of arguments for constructing a CertificateOrder resource.
 type CertificateOrderArgs struct {
+	// Auto renew
+	AutoRenew pulumi.BoolPtrInput
+	// State of the Key Vault secret
+	Certificates CertificateOrderCertificateTypeMapInput
+	// Last CSR that was created for this order
+	Csr pulumi.StringPtrInput
+	// Certificate distinguished name
+	DistinguishedName pulumi.StringPtrInput
+	// Domain Verification Token
+	DomainVerificationToken pulumi.StringPtrInput
+	// Certificate expiration time
+	ExpirationTime pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
+	// Intermediate certificate
+	Intermediate CertificateDetailsPtrInput
+	// Certificate Key Size
+	KeySize pulumi.IntPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
+	// Certificate last issuance time
+	LastCertificateIssuanceTime pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
 	// Resource Name
-	Name       pulumi.StringInput
-	Properties CertificateOrderPropertiesPtrInput
+	Name pulumi.StringInput
+	// Certificate product type
+	ProductType pulumi.StringPtrInput
+	// Status of certificate order
+	ProvisioningState pulumi.StringPtrInput
 	// Azure resource group name
 	ResourceGroupName pulumi.StringInput
+	// Root certificate
+	Root CertificateDetailsPtrInput
+	// Current serial number of the certificate
+	SerialNumber pulumi.StringPtrInput
+	// Signed certificate
+	SignedCertificate CertificateDetailsPtrInput
+	// Current order status
+	Status pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Duration in years (must be between 1 and 3)
+	ValidityInYears pulumi.IntPtrInput
 }
 
 func (CertificateOrderArgs) ElementType() reflect.Type {

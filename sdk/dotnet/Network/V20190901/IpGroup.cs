@@ -101,6 +101,18 @@ namespace Pulumi.AzureRM.Network.V20190901
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("ipAddresses")]
+        private InputList<string>? _ipAddresses;
+
+        /// <summary>
+        /// IpAddresses/IpAddressPrefixes in the IpGroups resource.
+        /// </summary>
+        public InputList<string> IpAddresses
+        {
+            get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
+            set => _ipAddresses = value;
+        }
+
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -112,12 +124,6 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the IpGroups.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IpGroupPropertiesFormatArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

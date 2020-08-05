@@ -43,7 +43,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The properties of a private endpoint connection.
      */
-    public readonly properties!: pulumi.Output<outputs.containerservice.v20200601.PrivateEndpointConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.containerservice.v20200601.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * The resource type.
      */
@@ -65,6 +65,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.privateLinkServiceConnectionState === undefined) {
+                throw new Error("Missing required property 'privateLinkServiceConnectionState'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -72,9 +75,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
+            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,9 +102,13 @@ export interface PrivateEndpointConnectionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of a private endpoint connection.
+     * The resource of private endpoint.
      */
-    readonly properties?: pulumi.Input<inputs.containerservice.v20200601.PrivateEndpointConnectionProperties>;
+    readonly privateEndpoint?: pulumi.Input<inputs.containerservice.v20200601.PrivateEndpoint>;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.containerservice.v20200601.PrivateLinkServiceConnectionState>;
     /**
      * The name of the resource group.
      */

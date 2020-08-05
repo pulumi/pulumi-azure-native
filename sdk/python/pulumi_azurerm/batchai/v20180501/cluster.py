@@ -122,97 +122,101 @@ class Cluster(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, node_setup=None, resource_group_name=None, scale_settings=None, subnet=None, user_account_settings=None, virtual_machine_configuration=None, vm_priority=None, vm_size=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Information about a Cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-        :param pulumi.Input[dict] properties: The properties of the Cluster.
+        :param pulumi.Input[dict] node_setup: Setup to be performed on each compute node in the cluster.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[dict] scale_settings: Scale settings for the cluster. Batch AI service supports manual and auto scale clusters.
+        :param pulumi.Input[dict] subnet: Existing virtual network subnet to put the cluster nodes in. Note, if a File Server mount configured in node setup, the File Server's subnet will be used automatically.
+        :param pulumi.Input[dict] user_account_settings: Settings for an administrator user account that will be created on each compute node in the cluster.
+        :param pulumi.Input[dict] virtual_machine_configuration: OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
+        :param pulumi.Input[str] vm_priority: VM priority. Allowed values are: dedicated (default) and lowpriority.
+        :param pulumi.Input[str] vm_size: The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 
-        The **properties** object supports the following:
+        The **node_setup** object supports the following:
 
-          * `node_setup` (`pulumi.Input[dict]`) - Setup to be performed on each compute node in the cluster.
-            * `mount_volumes` (`pulumi.Input[dict]`) - Mount volumes to be available to setup task and all jobs executing on the cluster. The volumes will be mounted at location specified by $AZ_BATCHAI_MOUNT_ROOT environment variable.
-              * `azure_blob_file_systems` (`pulumi.Input[list]`) - A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
-                * `account_name` (`pulumi.Input[str]`) - Name of the Azure storage account.
-                * `container_name` (`pulumi.Input[str]`) - Name of the Azure Blob Storage container to mount on the cluster.
-                * `credentials` (`pulumi.Input[dict]`) - Information about the Azure storage credentials.
-                  * `account_key` (`pulumi.Input[str]`) - Storage account key. One of accountKey or accountKeySecretReference must be specified.
-                  * `account_key_secret_reference` (`pulumi.Input[dict]`) - Information about KeyVault secret storing the storage account key. One of accountKey or accountKeySecretReference must be specified.
-                    * `secret_url` (`pulumi.Input[str]`) - The URL referencing a secret in the Key Vault.
-                    * `source_vault` (`pulumi.Input[dict]`) - Fully qualified resource identifier of the Key Vault.
-                      * `id` (`pulumi.Input[str]`) - The ID of the resource
+          * `mount_volumes` (`pulumi.Input[dict]`) - Mount volumes to be available to setup task and all jobs executing on the cluster. The volumes will be mounted at location specified by $AZ_BATCHAI_MOUNT_ROOT environment variable.
+            * `azure_blob_file_systems` (`pulumi.Input[list]`) - A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
+              * `account_name` (`pulumi.Input[str]`) - Name of the Azure storage account.
+              * `container_name` (`pulumi.Input[str]`) - Name of the Azure Blob Storage container to mount on the cluster.
+              * `credentials` (`pulumi.Input[dict]`) - Information about the Azure storage credentials.
+                * `account_key` (`pulumi.Input[str]`) - Storage account key. One of accountKey or accountKeySecretReference must be specified.
+                * `account_key_secret_reference` (`pulumi.Input[dict]`) - Information about KeyVault secret storing the storage account key. One of accountKey or accountKeySecretReference must be specified.
+                  * `secret_url` (`pulumi.Input[str]`) - The URL referencing a secret in the Key Vault.
+                  * `source_vault` (`pulumi.Input[dict]`) - Fully qualified resource identifier of the Key Vault.
+                    * `id` (`pulumi.Input[str]`) - The ID of the resource
 
-                * `mount_options` (`pulumi.Input[str]`) - Mount options for mounting blobfuse file system.
-                * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the Azure File container will be mounted. Note that all cluster level containers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level containers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+              * `mount_options` (`pulumi.Input[str]`) - Mount options for mounting blobfuse file system.
+              * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the Azure File container will be mounted. Note that all cluster level containers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level containers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
 
-              * `azure_file_shares` (`pulumi.Input[list]`) - A collection of Azure File Shares that are to be mounted to the cluster nodes.
-                * `account_name` (`pulumi.Input[str]`) - Name of the Azure storage account.
-                * `azure_file_url` (`pulumi.Input[str]`) - URL to access the Azure File.
-                * `credentials` (`pulumi.Input[dict]`) - Information about the Azure storage credentials.
-                * `directory_mode` (`pulumi.Input[str]`) - File mode for directories on the mounted file share. Default value: 0777.
-                * `file_mode` (`pulumi.Input[str]`) - File mode for files on the mounted file share. Default value: 0777.
-                * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the Azure File share will be mounted. Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+            * `azure_file_shares` (`pulumi.Input[list]`) - A collection of Azure File Shares that are to be mounted to the cluster nodes.
+              * `account_name` (`pulumi.Input[str]`) - Name of the Azure storage account.
+              * `azure_file_url` (`pulumi.Input[str]`) - URL to access the Azure File.
+              * `credentials` (`pulumi.Input[dict]`) - Information about the Azure storage credentials.
+              * `directory_mode` (`pulumi.Input[str]`) - File mode for directories on the mounted file share. Default value: 0777.
+              * `file_mode` (`pulumi.Input[str]`) - File mode for files on the mounted file share. Default value: 0777.
+              * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the Azure File share will be mounted. Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
 
-              * `file_servers` (`pulumi.Input[list]`) - A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
-                * `file_server` (`pulumi.Input[dict]`) - Resource ID of the existing File Server to be mounted.
-                * `mount_options` (`pulumi.Input[str]`) - Mount options to be passed to mount command.
-                * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the File Server will be mounted. Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-                * `source_directory` (`pulumi.Input[str]`) - File Server directory that needs to be mounted. If this property is not specified, the entire File Server will be mounted.
+            * `file_servers` (`pulumi.Input[list]`) - A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
+              * `file_server` (`pulumi.Input[dict]`) - Resource ID of the existing File Server to be mounted.
+              * `mount_options` (`pulumi.Input[str]`) - Mount options to be passed to mount command.
+              * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the File Server will be mounted. Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+              * `source_directory` (`pulumi.Input[str]`) - File Server directory that needs to be mounted. If this property is not specified, the entire File Server will be mounted.
 
-              * `unmanaged_file_systems` (`pulumi.Input[list]`) - A collection of unmanaged file systems that are to be mounted to the cluster nodes.
-                * `mount_command` (`pulumi.Input[str]`) - Mount command line. Note, Batch AI will append mount path to the command on its own.
-                * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the unmanaged file system will be mounted. Note that all cluster level unmanaged file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level unmanaged file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+            * `unmanaged_file_systems` (`pulumi.Input[list]`) - A collection of unmanaged file systems that are to be mounted to the cluster nodes.
+              * `mount_command` (`pulumi.Input[str]`) - Mount command line. Note, Batch AI will append mount path to the command on its own.
+              * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the unmanaged file system will be mounted. Note that all cluster level unmanaged file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level unmanaged file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
 
-            * `performance_counters_settings` (`pulumi.Input[dict]`) - Settings for performance counters collecting and uploading.
-              * `app_insights_reference` (`pulumi.Input[dict]`) - Azure Application Insights information for performance counters reporting. If provided, Batch AI will upload node performance counters to the corresponding Azure Application Insights account.
-                * `component` (`pulumi.Input[dict]`) - Azure Application Insights component resource ID.
-                * `instrumentation_key` (`pulumi.Input[str]`) - Value of the Azure Application Insights instrumentation key.
-                * `instrumentation_key_secret_reference` (`pulumi.Input[dict]`) - KeyVault Store and Secret which contains Azure Application Insights instrumentation key. One of instrumentationKey or instrumentationKeySecretReference must be specified.
+          * `performance_counters_settings` (`pulumi.Input[dict]`) - Settings for performance counters collecting and uploading.
+            * `app_insights_reference` (`pulumi.Input[dict]`) - Azure Application Insights information for performance counters reporting. If provided, Batch AI will upload node performance counters to the corresponding Azure Application Insights account.
+              * `component` (`pulumi.Input[dict]`) - Azure Application Insights component resource ID.
+              * `instrumentation_key` (`pulumi.Input[str]`) - Value of the Azure Application Insights instrumentation key.
+              * `instrumentation_key_secret_reference` (`pulumi.Input[dict]`) - KeyVault Store and Secret which contains Azure Application Insights instrumentation key. One of instrumentationKey or instrumentationKeySecretReference must be specified.
 
-            * `setup_task` (`pulumi.Input[dict]`) - Setup task to run on cluster nodes when nodes got created or rebooted. The setup task code needs to be idempotent. Generally the setup task is used to download static data that is required for all jobs that run on the cluster VMs and/or to download/install software.
-              * `command_line` (`pulumi.Input[str]`) - The command line to be executed on each cluster's node after it being allocated or rebooted. The command is executed in a bash subshell as a root.
-              * `environment_variables` (`pulumi.Input[list]`) - A collection of user defined environment variables to be set for setup task.
-                * `name` (`pulumi.Input[str]`) - The name of the environment variable.
-                * `value` (`pulumi.Input[str]`) - The value of the environment variable.
+          * `setup_task` (`pulumi.Input[dict]`) - Setup task to run on cluster nodes when nodes got created or rebooted. The setup task code needs to be idempotent. Generally the setup task is used to download static data that is required for all jobs that run on the cluster VMs and/or to download/install software.
+            * `command_line` (`pulumi.Input[str]`) - The command line to be executed on each cluster's node after it being allocated or rebooted. The command is executed in a bash subshell as a root.
+            * `environment_variables` (`pulumi.Input[list]`) - A collection of user defined environment variables to be set for setup task.
+              * `name` (`pulumi.Input[str]`) - The name of the environment variable.
+              * `value` (`pulumi.Input[str]`) - The value of the environment variable.
 
-              * `secrets` (`pulumi.Input[list]`) - A collection of user defined environment variables with secret values to be set for the setup task. Server will never report values of these variables back.
-                * `name` (`pulumi.Input[str]`) - The name of the environment variable to store the secret value.
-                * `value` (`pulumi.Input[str]`) - The value of the environment variable. This value will never be reported back by Batch AI.
-                * `value_secret_reference` (`pulumi.Input[dict]`) - KeyVault store and secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
+            * `secrets` (`pulumi.Input[list]`) - A collection of user defined environment variables with secret values to be set for the setup task. Server will never report values of these variables back.
+              * `name` (`pulumi.Input[str]`) - The name of the environment variable to store the secret value.
+              * `value` (`pulumi.Input[str]`) - The value of the environment variable. This value will never be reported back by Batch AI.
+              * `value_secret_reference` (`pulumi.Input[dict]`) - KeyVault store and secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
 
-              * `std_out_err_path_prefix` (`pulumi.Input[str]`) - The prefix of a path where the Batch AI service will upload the stdout, stderr and execution log of the setup task.
+            * `std_out_err_path_prefix` (`pulumi.Input[str]`) - The prefix of a path where the Batch AI service will upload the stdout, stderr and execution log of the setup task.
 
-          * `scale_settings` (`pulumi.Input[dict]`) - Scale settings for the cluster. Batch AI service supports manual and auto scale clusters.
-            * `auto_scale` (`pulumi.Input[dict]`) - Auto-scale settings for the cluster.
-              * `initial_node_count` (`pulumi.Input[float]`) - The number of compute nodes to allocate on cluster creation. Note that this value is used only during cluster creation. Default: 0.
-              * `maximum_node_count` (`pulumi.Input[float]`) - The maximum number of compute nodes the cluster can have.
-              * `minimum_node_count` (`pulumi.Input[float]`) - The minimum number of compute nodes the Batch AI service will try to allocate for the cluster. Note, the actual number of nodes can be less than the specified value if the subscription has not enough quota to fulfill the request.
+        The **scale_settings** object supports the following:
 
-            * `manual` (`pulumi.Input[dict]`) - Manual scale settings for the cluster.
-              * `node_deallocation_option` (`pulumi.Input[str]`) - An action to be performed when the cluster size is decreasing. The default value is requeue.
-              * `target_node_count` (`pulumi.Input[float]`) - The desired number of compute nodes in the Cluster. Default is 0.
+          * `auto_scale` (`pulumi.Input[dict]`) - Auto-scale settings for the cluster.
+            * `initial_node_count` (`pulumi.Input[float]`) - The number of compute nodes to allocate on cluster creation. Note that this value is used only during cluster creation. Default: 0.
+            * `maximum_node_count` (`pulumi.Input[float]`) - The maximum number of compute nodes the cluster can have.
+            * `minimum_node_count` (`pulumi.Input[float]`) - The minimum number of compute nodes the Batch AI service will try to allocate for the cluster. Note, the actual number of nodes can be less than the specified value if the subscription has not enough quota to fulfill the request.
 
-          * `subnet` (`pulumi.Input[dict]`) - Existing virtual network subnet to put the cluster nodes in. Note, if a File Server mount configured in node setup, the File Server's subnet will be used automatically.
-          * `user_account_settings` (`pulumi.Input[dict]`) - Settings for an administrator user account that will be created on each compute node in the cluster.
-            * `admin_user_name` (`pulumi.Input[str]`) - Name of the administrator user account which can be used to SSH to nodes.
-            * `admin_user_password` (`pulumi.Input[str]`) - Password of the administrator user account.
-            * `admin_user_ssh_public_key` (`pulumi.Input[str]`) - SSH public key of the administrator user account.
+          * `manual` (`pulumi.Input[dict]`) - Manual scale settings for the cluster.
+            * `node_deallocation_option` (`pulumi.Input[str]`) - An action to be performed when the cluster size is decreasing. The default value is requeue.
+            * `target_node_count` (`pulumi.Input[float]`) - The desired number of compute nodes in the Cluster. Default is 0.
 
-          * `virtual_machine_configuration` (`pulumi.Input[dict]`) - OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
-            * `image_reference` (`pulumi.Input[dict]`) - OS image reference for cluster nodes.
-              * `offer` (`pulumi.Input[str]`) - Offer of the image.
-              * `publisher` (`pulumi.Input[str]`) - Publisher of the image.
-              * `sku` (`pulumi.Input[str]`) - SKU of the image.
-              * `version` (`pulumi.Input[str]`) - Version of the image.
-              * `virtual_machine_image_id` (`pulumi.Input[str]`) - The ARM resource identifier of the virtual machine image for the compute nodes. This is of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}. The virtual machine image must be in the same region and subscription as the cluster. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration. Note, you need to provide publisher, offer and sku of the base OS image of which the custom image has been derived from.
+        The **user_account_settings** object supports the following:
 
-          * `vm_priority` (`pulumi.Input[str]`) - VM priority. Allowed values are: dedicated (default) and lowpriority.
-          * `vm_size` (`pulumi.Input[str]`) - The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+          * `admin_user_name` (`pulumi.Input[str]`) - Name of the administrator user account which can be used to SSH to nodes.
+          * `admin_user_password` (`pulumi.Input[str]`) - Password of the administrator user account.
+          * `admin_user_ssh_public_key` (`pulumi.Input[str]`) - SSH public key of the administrator user account.
+
+        The **virtual_machine_configuration** object supports the following:
+
+          * `image_reference` (`pulumi.Input[dict]`) - OS image reference for cluster nodes.
+            * `offer` (`pulumi.Input[str]`) - Offer of the image.
+            * `publisher` (`pulumi.Input[str]`) - Publisher of the image.
+            * `sku` (`pulumi.Input[str]`) - SKU of the image.
+            * `version` (`pulumi.Input[str]`) - Version of the image.
+            * `virtual_machine_image_id` (`pulumi.Input[str]`) - The ARM resource identifier of the virtual machine image for the compute nodes. This is of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}. The virtual machine image must be in the same region and subscription as the cluster. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration. Note, you need to provide publisher, offer and sku of the base OS image of which the custom image has been derived from.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -234,13 +238,24 @@ class Cluster(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['node_setup'] = node_setup
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['scale_settings'] = scale_settings
+            __props__['subnet'] = subnet
+            if user_account_settings is None:
+                raise TypeError("Missing required property 'user_account_settings'")
+            __props__['user_account_settings'] = user_account_settings
+            __props__['virtual_machine_configuration'] = virtual_machine_configuration
+            __props__['vm_priority'] = vm_priority
+            if vm_size is None:
+                raise TypeError("Missing required property 'vm_size'")
+            __props__['vm_size'] = vm_size
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Cluster, __self__).__init__(
             'azurerm:batchai/v20180501:Cluster',

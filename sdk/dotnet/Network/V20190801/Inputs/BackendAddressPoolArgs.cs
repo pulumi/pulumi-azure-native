@@ -34,10 +34,10 @@ namespace Pulumi.AzureRM.Network.V20190801.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of load balancer backend address pool.
+        /// The provisioning state of the backend address pool resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BackendAddressPoolPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public BackendAddressPoolArgs()
         {

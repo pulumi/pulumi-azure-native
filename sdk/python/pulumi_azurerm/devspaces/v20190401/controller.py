@@ -33,7 +33,7 @@ class Controller(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a Controller resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
@@ -43,11 +43,8 @@ class Controller(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Resource group to which the resource belongs.
         :param pulumi.Input[dict] sku: Model representing SKU for Azure Dev Spaces Controller.
         :param pulumi.Input[dict] tags: Tags for the Azure resource.
-
-        The **properties** object supports the following:
-
-          * `target_container_host_credentials_base64` (`pulumi.Input[str]`) - Credentials of the target container host (base64).
-          * `target_container_host_resource_id` (`pulumi.Input[str]`) - Resource ID of the target container host
+        :param pulumi.Input[str] target_container_host_credentials_base64: Credentials of the target container host (base64).
+        :param pulumi.Input[str] target_container_host_resource_id: Resource ID of the target container host
 
         The **sku** object supports the following:
 
@@ -77,9 +74,6 @@ class Controller(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -87,6 +81,13 @@ class Controller(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            if target_container_host_credentials_base64 is None:
+                raise TypeError("Missing required property 'target_container_host_credentials_base64'")
+            __props__['target_container_host_credentials_base64'] = target_container_host_credentials_base64
+            if target_container_host_resource_id is None:
+                raise TypeError("Missing required property 'target_container_host_resource_id'")
+            __props__['target_container_host_resource_id'] = target_container_host_resource_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(Controller, __self__).__init__(
             'azurerm:devspaces/v20190401:Controller',

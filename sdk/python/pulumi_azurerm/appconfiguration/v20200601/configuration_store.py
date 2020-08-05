@@ -68,33 +68,31 @@ class ConfigurationStore(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, encryption=None, identity=None, location=None, name=None, public_network_access=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] encryption: The encryption settings of the configuration store.
         :param pulumi.Input[dict] identity: The managed identity information, if configured.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
         :param pulumi.Input[str] name: The name of the configuration store.
-        :param pulumi.Input[dict] properties: The properties of a configuration store.
+        :param pulumi.Input[str] public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[dict] sku: The sku of the configuration store.
         :param pulumi.Input[dict] tags: The tags of the resource.
+
+        The **encryption** object supports the following:
+
+          * `key_vault_properties` (`pulumi.Input[dict]`) - Key vault properties.
+            * `identity_client_id` (`pulumi.Input[str]`) - The client id of the identity which will be used to access key vault.
+            * `key_identifier` (`pulumi.Input[str]`) - The URI of the key vault key used to encrypt data.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
           * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-
-        The **properties** object supports the following:
-
-          * `encryption` (`pulumi.Input[dict]`) - The encryption settings of the configuration store.
-            * `key_vault_properties` (`pulumi.Input[dict]`) - Key vault properties.
-              * `identity_client_id` (`pulumi.Input[str]`) - The client id of the identity which will be used to access key vault.
-              * `key_identifier` (`pulumi.Input[str]`) - The URI of the key vault key used to encrypt data.
-
-          * `public_network_access` (`pulumi.Input[str]`) - Control permission for data plane traffic coming from public networks while private endpoint is enabled.
 
         The **sku** object supports the following:
 
@@ -117,6 +115,7 @@ class ConfigurationStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['encryption'] = encryption
             __props__['identity'] = identity
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -124,7 +123,7 @@ class ConfigurationStore(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['public_network_access'] = public_network_access
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -132,6 +131,7 @@ class ConfigurationStore(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(ConfigurationStore, __self__).__init__(
             'azurerm:appconfiguration/v20200601:ConfigurationStore',

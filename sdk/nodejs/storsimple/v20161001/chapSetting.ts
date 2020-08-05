@@ -43,7 +43,7 @@ export class ChapSetting extends pulumi.CustomResource {
     /**
      * Chap properties
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ChapPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ChapPropertiesResponse>;
     /**
      * The type.
      */
@@ -71,8 +71,8 @@ export class ChapSetting extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.password === undefined) {
+                throw new Error("Missing required property 'password'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -80,8 +80,9 @@ export class ChapSetting extends pulumi.CustomResource {
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,9 +113,9 @@ export interface ChapSettingArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Chap properties
+     * The chap password.
      */
-    readonly properties: pulumi.Input<inputs.storsimple.v20161001.ChapProperties>;
+    readonly password: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecret>;
     /**
      * The resource group name
      */

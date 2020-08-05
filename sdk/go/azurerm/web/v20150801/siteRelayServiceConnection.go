@@ -96,17 +96,21 @@ func (SiteRelayServiceConnectionState) ElementType() reflect.Type {
 }
 
 type siteRelayServiceConnectionArgs struct {
+	BiztalkUri             *string `pulumi:"biztalkUri"`
+	EntityConnectionString *string `pulumi:"entityConnectionString"`
+	Hostname               *string `pulumi:"hostname"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
-	Location string `pulumi:"location"`
-	// The name by which the Hybrid Connection is identified
-	Name       string                                  `pulumi:"name"`
-	Properties *RelayServiceConnectionEntityProperties `pulumi:"properties"`
+	Location                 string  `pulumi:"location"`
+	Name                     string  `pulumi:"name"`
+	Port                     *int    `pulumi:"port"`
+	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
 	// The resource group name
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ResourceType      *string `pulumi:"resourceType"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -115,17 +119,21 @@ type siteRelayServiceConnectionArgs struct {
 
 // The set of arguments for constructing a SiteRelayServiceConnection resource.
 type SiteRelayServiceConnectionArgs struct {
+	BiztalkUri             pulumi.StringPtrInput
+	EntityConnectionString pulumi.StringPtrInput
+	Hostname               pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
-	Location pulumi.StringInput
-	// The name by which the Hybrid Connection is identified
-	Name       pulumi.StringInput
-	Properties RelayServiceConnectionEntityPropertiesPtrInput
+	Location                 pulumi.StringInput
+	Name                     pulumi.StringInput
+	Port                     pulumi.IntPtrInput
+	ResourceConnectionString pulumi.StringPtrInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	ResourceType      pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

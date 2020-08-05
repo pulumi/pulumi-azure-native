@@ -48,7 +48,7 @@ export class CertificateCsr extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.web.v20150801.CsrResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.CsrResponseProperties>;
     /**
      * Resource tags
      */
@@ -80,14 +80,20 @@ export class CertificateCsr extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["csrString"] = args ? args.csrString : undefined;
+            inputs["distinguishedName"] = args ? args.distinguishedName : undefined;
+            inputs["hostingEnvironment"] = args ? args.hostingEnvironment : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["password"] = args ? args.password : undefined;
+            inputs["pfxBlob"] = args ? args.pfxBlob : undefined;
+            inputs["publicKeyHash"] = args ? args.publicKeyHash : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,6 +111,18 @@ export class CertificateCsr extends pulumi.CustomResource {
  */
 export interface CertificateCsrArgs {
     /**
+     * Actual CSR string created
+     */
+    readonly csrString?: pulumi.Input<string>;
+    /**
+     * Distinguished name of certificate to be created
+     */
+    readonly distinguishedName?: pulumi.Input<string>;
+    /**
+     * Hosting environment
+     */
+    readonly hostingEnvironment?: pulumi.Input<string>;
+    /**
      * Resource Id
      */
     readonly id?: pulumi.Input<string>;
@@ -120,7 +138,18 @@ export interface CertificateCsrArgs {
      * Resource Name
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.v20150801.CsrProperties>;
+    /**
+     * PFX password
+     */
+    readonly password?: pulumi.Input<string>;
+    /**
+     * PFX certificate of created certificate
+     */
+    readonly pfxBlob?: pulumi.Input<string>;
+    /**
+     * Hash of the certificates public key
+     */
+    readonly publicKeyHash?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */

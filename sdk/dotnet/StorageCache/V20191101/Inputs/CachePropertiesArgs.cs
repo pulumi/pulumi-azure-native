@@ -11,33 +11,15 @@ namespace Pulumi.AzureRM.StorageCache.V20191101.Inputs
 {
 
     /// <summary>
-    /// Properties of the Cache.
+    /// SKU for the Cache.
     /// </summary>
     public sealed class CachePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The size of this Cache, in GB.
+        /// SKU name for this Cache.
         /// </summary>
-        [Input("cacheSizeGB")]
-        public Input<int>? CacheSizeGB { get; set; }
-
-        /// <summary>
-        /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
-        /// Subnet used for the Cache.
-        /// </summary>
-        [Input("subnet")]
-        public Input<string>? Subnet { get; set; }
-
-        /// <summary>
-        /// Upgrade status of the Cache.
-        /// </summary>
-        [Input("upgradeStatus")]
-        public Input<Inputs.CacheUpgradeStatusArgs>? UpgradeStatus { get; set; }
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         public CachePropertiesArgs()
         {

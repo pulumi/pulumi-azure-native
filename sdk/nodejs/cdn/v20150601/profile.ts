@@ -44,7 +44,7 @@ export class Profile extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.cdn.v20150601.ProfilePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20150601.ProfilePropertiesResponse>;
     /**
      * Resource tags
      */
@@ -76,11 +76,15 @@ export class Profile extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.sku === undefined) {
+                throw new Error("Missing required property 'sku'");
+            }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,11 +110,14 @@ export interface ProfileArgs {
      * Name of the CDN profile within the resource group.
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.cdn.v20150601.ProfilePropertiesCreateParameters>;
     /**
      * Name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Profile SKU
+     */
+    readonly sku: pulumi.Input<inputs.cdn.v20150601.Sku>;
     /**
      * Profile tags
      */

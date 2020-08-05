@@ -113,11 +113,29 @@ namespace Pulumi.AzureRM.Network.V20180501
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("registrationVirtualNetworks")]
+        private InputList<Inputs.SubResourceArgs>? _registrationVirtualNetworks;
+
         /// <summary>
-        /// The properties of the zone.
+        /// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ZonePropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.SubResourceArgs> RegistrationVirtualNetworks
+        {
+            get => _registrationVirtualNetworks ?? (_registrationVirtualNetworks = new InputList<Inputs.SubResourceArgs>());
+            set => _registrationVirtualNetworks = value;
+        }
+
+        [Input("resolutionVirtualNetworks")]
+        private InputList<Inputs.SubResourceArgs>? _resolutionVirtualNetworks;
+
+        /// <summary>
+        /// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> ResolutionVirtualNetworks
+        {
+            get => _resolutionVirtualNetworks ?? (_resolutionVirtualNetworks = new InputList<Inputs.SubResourceArgs>());
+            set => _resolutionVirtualNetworks = value;
+        }
 
         /// <summary>
         /// The name of the resource group.
@@ -136,6 +154,12 @@ namespace Pulumi.AzureRM.Network.V20180501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The type of this DNS zone (Public or Private).
+        /// </summary>
+        [Input("zoneType")]
+        public Input<string>? ZoneType { get; set; }
 
         public ZoneArgs()
         {

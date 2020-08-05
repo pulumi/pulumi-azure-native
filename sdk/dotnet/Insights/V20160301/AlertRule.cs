@@ -89,6 +89,36 @@ namespace Pulumi.AzureRM.Insights.V20160301
 
     public sealed class AlertRuleArgs : Pulumi.ResourceArgs
     {
+        [Input("actions")]
+        private InputList<Inputs.RuleActionArgs>? _actions;
+
+        /// <summary>
+        /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        /// </summary>
+        public InputList<Inputs.RuleActionArgs> Actions
+        {
+            get => _actions ?? (_actions = new InputList<Inputs.RuleActionArgs>());
+            set => _actions = value;
+        }
+
+        /// <summary>
+        /// the condition that results in the alert rule being activated.
+        /// </summary>
+        [Input("condition", required: true)]
+        public Input<Inputs.RuleConditionArgs> Condition { get; set; } = null!;
+
+        /// <summary>
+        /// the description of the alert rule that will be included in the alert email.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// the flag that indicates whether the alert rule is enabled.
+        /// </summary>
+        [Input("isEnabled", required: true)]
+        public Input<bool> IsEnabled { get; set; } = null!;
+
         /// <summary>
         /// Resource location
         /// </summary>
@@ -100,12 +130,6 @@ namespace Pulumi.AzureRM.Insights.V20160301
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The alert rule properties of the resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AlertRuleDefinitionArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

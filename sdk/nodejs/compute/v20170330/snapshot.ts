@@ -51,7 +51,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * Disk resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20170330.DiskPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20170330.DiskPropertiesResponse>;
     /**
      * The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
      */
@@ -78,6 +78,9 @@ export class Snapshot extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SnapshotArgs | undefined;
+            if (!args || args.creationData === undefined) {
+                throw new Error("Missing required property 'creationData'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -87,13 +90,17 @@ export class Snapshot extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["creationData"] = args ? args.creationData : undefined;
+            inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
+            inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["managedBy"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,6 +119,18 @@ export class Snapshot extends pulumi.CustomResource {
  */
 export interface SnapshotArgs {
     /**
+     * Disk source information. CreationData information cannot be changed after the disk has been created.
+     */
+    readonly creationData: pulumi.Input<inputs.compute.v20170330.CreationData>;
+    /**
+     * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+     */
+    readonly diskSizeGB?: pulumi.Input<number>;
+    /**
+     * Encryption settings for disk or snapshot
+     */
+    readonly encryptionSettings?: pulumi.Input<inputs.compute.v20170330.EncryptionSettings>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -120,9 +139,9 @@ export interface SnapshotArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Disk resource properties.
+     * The Operating System type.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20170330.DiskProperties>;
+    readonly osType?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

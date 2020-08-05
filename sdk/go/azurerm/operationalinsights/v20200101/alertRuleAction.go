@@ -27,6 +27,9 @@ type AlertRuleAction struct {
 // NewAlertRuleAction registers a new resource with the given unique name, arguments, and options.
 func NewAlertRuleAction(ctx *pulumi.Context,
 	name string, args *AlertRuleActionArgs, opts ...pulumi.ResourceOption) (*AlertRuleAction, error) {
+	if args == nil || args.LogicAppResourceId == nil {
+		return nil, errors.New("missing required argument 'LogicAppResourceId'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -92,14 +95,16 @@ func (AlertRuleActionState) ElementType() reflect.Type {
 type alertRuleActionArgs struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+	LogicAppResourceId string `pulumi:"logicAppResourceId"`
 	// Action ID
 	Name string `pulumi:"name"`
-	// Action properties for put request
-	Properties *ActionRequestProperties `pulumi:"properties"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Alert rule ID
 	RuleId string `pulumi:"ruleId"`
+	// Logic App Callback URL for this specific workflow.
+	TriggerUri *string `pulumi:"triggerUri"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
@@ -108,14 +113,16 @@ type alertRuleActionArgs struct {
 type AlertRuleActionArgs struct {
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
+	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+	LogicAppResourceId pulumi.StringInput
 	// Action ID
 	Name pulumi.StringInput
-	// Action properties for put request
-	Properties ActionRequestPropertiesPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Alert rule ID
 	RuleId pulumi.StringInput
+	// Logic App Callback URL for this specific workflow.
+	TriggerUri pulumi.StringPtrInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }

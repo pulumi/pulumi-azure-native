@@ -43,7 +43,7 @@ export class User extends pulumi.CustomResource {
     /**
      * The storage account credential properties.
      */
-    public readonly properties!: pulumi.Output<outputs.databoxedge.v20190701.UserPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190701.UserPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -68,16 +68,15 @@ export class User extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["deviceName"] = args ? args.deviceName : undefined;
+            inputs["encryptedPassword"] = args ? args.encryptedPassword : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["shareAccessRights"] = args ? args.shareAccessRights : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,15 +99,19 @@ export interface UserArgs {
      */
     readonly deviceName: pulumi.Input<string>;
     /**
+     * The password details.
+     */
+    readonly encryptedPassword?: pulumi.Input<inputs.databoxedge.v20190701.AsymmetricEncryptedSecret>;
+    /**
      * The user name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The storage account credential properties.
-     */
-    readonly properties: pulumi.Input<inputs.databoxedge.v20190701.UserProperties>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * List of shares that the user has rights on. This field should not be specified during user creation.
+     */
+    readonly shareAccessRights?: pulumi.Input<pulumi.Input<inputs.databoxedge.v20190701.ShareAccessRight>[]>;
 }

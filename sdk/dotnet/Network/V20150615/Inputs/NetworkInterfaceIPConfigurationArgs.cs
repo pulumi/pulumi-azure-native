@@ -27,6 +27,30 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("loadBalancerBackendAddressPools")]
+        private InputList<Inputs.BackendAddressPoolArgs>? _loadBalancerBackendAddressPools;
+
+        /// <summary>
+        /// The reference of LoadBalancerBackendAddressPool resource.
+        /// </summary>
+        public InputList<Inputs.BackendAddressPoolArgs> LoadBalancerBackendAddressPools
+        {
+            get => _loadBalancerBackendAddressPools ?? (_loadBalancerBackendAddressPools = new InputList<Inputs.BackendAddressPoolArgs>());
+            set => _loadBalancerBackendAddressPools = value;
+        }
+
+        [Input("loadBalancerInboundNatRules")]
+        private InputList<Inputs.InboundNatRuleArgs>? _loadBalancerInboundNatRules;
+
+        /// <summary>
+        /// A list of references of LoadBalancerInboundNatRules.
+        /// </summary>
+        public InputList<Inputs.InboundNatRuleArgs> LoadBalancerInboundNatRules
+        {
+            get => _loadBalancerInboundNatRules ?? (_loadBalancerInboundNatRules = new InputList<Inputs.InboundNatRuleArgs>());
+            set => _loadBalancerInboundNatRules = value;
+        }
+
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
@@ -34,10 +58,34 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of IP configuration.
+        /// Gets whether this is a primary customer address on the network interface.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkInterfaceIPConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("primary")]
+        public Input<bool>? Primary { get; set; }
+
+        [Input("privateIPAddress")]
+        public Input<string>? PrivateIPAddress { get; set; }
+
+        /// <summary>
+        /// Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
+        /// </summary>
+        [Input("privateIPAllocationMethod")]
+        public Input<string>? PrivateIPAllocationMethod { get; set; }
+
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Public IP address resource.
+        /// </summary>
+        [Input("publicIPAddress")]
+        public Input<Inputs.PublicIPAddressArgs>? PublicIPAddress { get; set; }
+
+        /// <summary>
+        /// Subnet in a virtual network resource.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubnetDefinitionArgs>? Subnet { get; set; }
 
         public NetworkInterfaceIPConfigurationArgs()
         {

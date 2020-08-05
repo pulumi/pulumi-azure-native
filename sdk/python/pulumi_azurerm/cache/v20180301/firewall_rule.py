@@ -24,21 +24,17 @@ class FirewallRule(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, cache_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cache_name=None, end_ip=None, name=None, resource_group_name=None, start_ip=None, __props__=None, __name__=None, __opts__=None):
         """
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name of the Redis cache.
+        :param pulumi.Input[str] end_ip: highest IP address included in the range
         :param pulumi.Input[str] name: The name of the firewall rule.
-        :param pulumi.Input[dict] properties: Properties required to create a firewall rule .
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **properties** object supports the following:
-
-          * `end_ip` (`pulumi.Input[str]`) - highest IP address included in the range
-          * `start_ip` (`pulumi.Input[str]`) - lowest IP address included in the range
+        :param pulumi.Input[str] start_ip: lowest IP address included in the range
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,15 +56,19 @@ class FirewallRule(pulumi.CustomResource):
             if cache_name is None:
                 raise TypeError("Missing required property 'cache_name'")
             __props__['cache_name'] = cache_name
+            if end_ip is None:
+                raise TypeError("Missing required property 'end_ip'")
+            __props__['end_ip'] = end_ip
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if start_ip is None:
+                raise TypeError("Missing required property 'start_ip'")
+            __props__['start_ip'] = start_ip
+            __props__['properties'] = None
             __props__['type'] = None
         super(FirewallRule, __self__).__init__(
             'azurerm:cache/v20180301:FirewallRule',

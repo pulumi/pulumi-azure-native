@@ -84,10 +84,46 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     public sealed class BookmarkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The time the bookmark was created
+        /// </summary>
+        [Input("created")]
+        public Input<string>? Created { get; set; }
+
+        /// <summary>
+        /// Describes a user that created the bookmark
+        /// </summary>
+        [Input("createdBy")]
+        public Input<Inputs.UserInfoArgs>? CreatedBy { get; set; }
+
+        /// <summary>
+        /// The display name of the bookmark
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Describes an incident that relates to bookmark
+        /// </summary>
+        [Input("incidentInfo")]
+        public Input<Inputs.IncidentInfoArgs>? IncidentInfo { get; set; }
+
+        [Input("labels")]
+        private InputList<string>? _labels;
+
+        /// <summary>
+        /// List of labels relevant to this bookmark
+        /// </summary>
+        public InputList<string> Labels
+        {
+            get => _labels ?? (_labels = new InputList<string>());
+            set => _labels = value;
+        }
 
         /// <summary>
         /// Bookmark ID
@@ -96,16 +132,40 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Bookmark properties
+        /// The notes of the bookmark
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BookmarkPropertiesArgs>? Properties { get; set; }
+        [Input("notes")]
+        public Input<string>? Notes { get; set; }
+
+        /// <summary>
+        /// The query of the bookmark.
+        /// </summary>
+        [Input("query", required: true)]
+        public Input<string> Query { get; set; } = null!;
+
+        /// <summary>
+        /// The query result of the bookmark.
+        /// </summary>
+        [Input("queryResult")]
+        public Input<string>? QueryResult { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The last time the bookmark was updated
+        /// </summary>
+        [Input("updated")]
+        public Input<string>? Updated { get; set; }
+
+        /// <summary>
+        /// Describes a user that updated the bookmark
+        /// </summary>
+        [Input("updatedBy")]
+        public Input<Inputs.UserInfoArgs>? UpdatedBy { get; set; }
 
         /// <summary>
         /// The name of the workspace.

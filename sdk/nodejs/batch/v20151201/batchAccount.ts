@@ -47,7 +47,7 @@ export class BatchAccount extends pulumi.CustomResource {
     /**
      * The properties associated with the account.
      */
-    public readonly properties!: pulumi.Output<outputs.batch.v20151201.BatchAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.batch.v20151201.BatchAccountPropertiesResponse>;
     /**
      * The tags of the resource
      */
@@ -79,11 +79,12 @@ export class BatchAccount extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["autoStorage"] = args ? args.autoStorage : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +103,10 @@ export class BatchAccount extends pulumi.CustomResource {
  */
 export interface BatchAccountArgs {
     /**
+     * The properties related to auto storage account.
+     */
+    readonly autoStorage?: pulumi.Input<inputs.batch.v20151201.AutoStorageBaseProperties>;
+    /**
      * The region in which to create the account.
      */
     readonly location: pulumi.Input<string>;
@@ -109,10 +114,6 @@ export interface BatchAccountArgs {
      * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the account.
-     */
-    readonly properties?: pulumi.Input<inputs.batch.v20151201.BatchAccountBaseProperties>;
     /**
      * The name of the resource group that contains the new Batch account.
      */

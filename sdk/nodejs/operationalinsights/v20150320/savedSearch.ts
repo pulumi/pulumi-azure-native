@@ -47,7 +47,7 @@ export class SavedSearch extends pulumi.CustomResource {
     /**
      * The properties of the saved search.
      */
-    public readonly properties!: pulumi.Output<outputs.operationalinsights.v20150320.SavedSearchPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.operationalinsights.v20150320.SavedSearchPropertiesResponse>;
     /**
      * The type of the saved search.
      */
@@ -66,11 +66,17 @@ export class SavedSearch extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as SavedSearchArgs | undefined;
+            if (!args || args.category === undefined) {
+                throw new Error("Missing required property 'category'");
+            }
+            if (!args || args.displayName === undefined) {
+                throw new Error("Missing required property 'displayName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.query === undefined) {
+                throw new Error("Missing required property 'query'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -78,11 +84,16 @@ export class SavedSearch extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["category"] = args ? args.category : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["query"] = args ? args.query : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["version"] = args ? args.version : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,6 +112,14 @@ export class SavedSearch extends pulumi.CustomResource {
  */
 export interface SavedSearchArgs {
     /**
+     * The category of the saved search. This helps the user to find a saved search faster. 
+     */
+    readonly category: pulumi.Input<string>;
+    /**
+     * Saved search display name.
+     */
+    readonly displayName: pulumi.Input<string>;
+    /**
      * The ETag of the saved search.
      */
     readonly eTag?: pulumi.Input<string>;
@@ -109,13 +128,21 @@ export interface SavedSearchArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the saved search.
+     * The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
      */
-    readonly properties: pulumi.Input<inputs.operationalinsights.v20150320.SavedSearchProperties>;
+    readonly query: pulumi.Input<string>;
     /**
      * The Resource Group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The tags attached to the saved search.
+     */
+    readonly tags?: pulumi.Input<pulumi.Input<inputs.operationalinsights.v20150320.Tag>[]>;
+    /**
+     * The version number of the query language. The current version is 2 and is the default.
+     */
+    readonly version?: pulumi.Input<number>;
     /**
      * The Log Analytics Workspace name.
      */

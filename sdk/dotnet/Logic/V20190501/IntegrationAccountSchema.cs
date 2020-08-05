@@ -90,6 +90,30 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class IntegrationAccountSchemaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The content.
+        /// </summary>
+        [Input("content")]
+        public Input<string>? Content { get; set; }
+
+        /// <summary>
+        /// The content type.
+        /// </summary>
+        [Input("contentType")]
+        public Input<string>? ContentType { get; set; }
+
+        /// <summary>
+        /// The document name.
+        /// </summary>
+        [Input("documentName")]
+        public Input<string>? DocumentName { get; set; }
+
+        /// <summary>
+        /// The file name.
+        /// </summary>
+        [Input("fileName")]
+        public Input<string>? FileName { get; set; }
+
+        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -101,6 +125,18 @@ namespace Pulumi.AzureRM.Logic.V20190501
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("metadata")]
+        private InputMap<object>? _metadata;
+
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        public InputMap<object> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<object>());
+            set => _metadata = value;
+        }
+
         /// <summary>
         /// The integration account schema name.
         /// </summary>
@@ -108,16 +144,16 @@ namespace Pulumi.AzureRM.Logic.V20190501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The integration account schema properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.IntegrationAccountSchemaPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The schema type.
+        /// </summary>
+        [Input("schemaType", required: true)]
+        public Input<string> SchemaType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -130,6 +166,12 @@ namespace Pulumi.AzureRM.Logic.V20190501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The target namespace of the schema.
+        /// </summary>
+        [Input("targetNamespace")]
+        public Input<string>? TargetNamespace { get; set; }
 
         public IntegrationAccountSchemaArgs()
         {

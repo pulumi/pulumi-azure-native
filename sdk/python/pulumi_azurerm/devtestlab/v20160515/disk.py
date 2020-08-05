@@ -40,31 +40,27 @@ class Disk(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, lab_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, user_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, disk_blob_name=None, disk_size_gi_b=None, disk_type=None, disk_uri=None, host_caching=None, lab_name=None, leased_by_lab_vm_id=None, location=None, managed_disk_id=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
         A Disk.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] disk_blob_name: When backed by a blob, the name of the VHD blob without extension.
+        :param pulumi.Input[float] disk_size_gi_b: The size of the disk in Gibibytes.
+        :param pulumi.Input[str] disk_type: The storage type for the disk (i.e. Standard, Premium).
+        :param pulumi.Input[str] disk_uri: When backed by a blob, the URI of underlying blob.
+        :param pulumi.Input[str] host_caching: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
         :param pulumi.Input[str] lab_name: The name of the lab.
+        :param pulumi.Input[str] leased_by_lab_vm_id: The resource ID of the VM to which this disk is leased.
         :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[str] managed_disk_id: When backed by managed disk, this is the ID of the compute disk resource.
         :param pulumi.Input[str] name: The name of the disk.
-        :param pulumi.Input[dict] properties: The properties of the resource.
+        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         :param pulumi.Input[str] user_name: The name of the user profile.
-
-        The **properties** object supports the following:
-
-          * `disk_blob_name` (`pulumi.Input[str]`) - When backed by a blob, the name of the VHD blob without extension.
-          * `disk_size_gi_b` (`pulumi.Input[float]`) - The size of the disk in Gibibytes.
-          * `disk_type` (`pulumi.Input[str]`) - The storage type for the disk (i.e. Standard, Premium).
-          * `disk_uri` (`pulumi.Input[str]`) - When backed by a blob, the URI of underlying blob.
-          * `host_caching` (`pulumi.Input[str]`) - The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-          * `leased_by_lab_vm_id` (`pulumi.Input[str]`) - The resource ID of the VM to which this disk is leased.
-          * `managed_disk_id` (`pulumi.Input[str]`) - When backed by managed disk, this is the ID of the compute disk resource.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,23 +79,30 @@ class Disk(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['disk_blob_name'] = disk_blob_name
+            __props__['disk_size_gi_b'] = disk_size_gi_b
+            __props__['disk_type'] = disk_type
+            __props__['disk_uri'] = disk_uri
+            __props__['host_caching'] = host_caching
             if lab_name is None:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
+            __props__['leased_by_lab_vm_id'] = leased_by_lab_vm_id
             __props__['location'] = location
+            __props__['managed_disk_id'] = managed_disk_id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['unique_identifier'] = unique_identifier
             if user_name is None:
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Disk, __self__).__init__(
             'azurerm:devtestlab/v20160515:Disk',

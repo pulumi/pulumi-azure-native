@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.Insights.V20150501
     public sealed class WorkbookArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Workbook category, as defined by the user at creation time.
+        /// </summary>
+        [Input("category", required: true)]
+        public Input<string> Category { get; set; } = null!;
+
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind")]
@@ -114,16 +120,28 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Metadata describing a web test for an Azure resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.WorkbookPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
+        /// </summary>
+        [Input("serializedData", required: true)]
+        public Input<string> SerializedData { get; set; } = null!;
+
+        /// <summary>
+        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// </summary>
+        [Input("sharedTypeKind", required: true)]
+        public Input<string> SharedTypeKind { get; set; } = null!;
+
+        /// <summary>
+        /// Optional resourceId for a source resource.
+        /// </summary>
+        [Input("sourceResourceId")]
+        public Input<string>? SourceResourceId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -136,6 +154,24 @@ namespace Pulumi.AzureRM.Insights.V20150501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Unique user id of the specific user that owns this workbook.
+        /// </summary>
+        [Input("userId", required: true)]
+        public Input<string> UserId { get; set; } = null!;
+
+        /// <summary>
+        /// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// Internally assigned unique id of the workbook definition.
+        /// </summary>
+        [Input("workbookId", required: true)]
+        public Input<string> WorkbookId { get; set; } = null!;
 
         public WorkbookArgs()
         {

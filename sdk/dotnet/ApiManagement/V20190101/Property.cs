@@ -78,16 +78,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class PropertyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
         /// Identifier of the property.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Property entity contract properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PropertyContractPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -96,10 +96,34 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+        /// </summary>
+        [Input("secret")]
+        public Input<bool>? Secret { get; set; }
+
+        /// <summary>
         /// The name of the API Management service.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// Optional tags that when provided can be used to filter the property list.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+        /// </summary>
+        [Input("value", required: true)]
+        public Input<string> Value { get; set; } = null!;
 
         public PropertyArgs()
         {

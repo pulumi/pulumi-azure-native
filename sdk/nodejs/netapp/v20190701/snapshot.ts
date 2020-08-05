@@ -47,11 +47,11 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * Snapshot Properties
      */
-    public readonly properties!: pulumi.Output<outputs.netapp.v20190701.SnapshotPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.netapp.v20190701.SnapshotPropertiesResponse>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<outputs.netapp.v20190701.ResourceTagsResponse | undefined>;
+    public /*out*/ readonly tags!: pulumi.Output<outputs.netapp.v20190701.ResourceTagsResponse | undefined>;
     /**
      * Resource type
      */
@@ -89,13 +89,14 @@ export class Snapshot extends pulumi.CustomResource {
                 throw new Error("Missing required property 'volumeName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["poolName"] = args ? args.poolName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
             inputs["volumeName"] = args ? args.volumeName : undefined;
+            inputs["properties"] = undefined /*out*/;
+            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -118,6 +119,10 @@ export interface SnapshotArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * UUID v4 used to identify the FileSystem
+     */
+    readonly fileSystemId?: pulumi.Input<string>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -130,17 +135,9 @@ export interface SnapshotArgs {
      */
     readonly poolName: pulumi.Input<string>;
     /**
-     * Snapshot Properties
-     */
-    readonly properties?: pulumi.Input<inputs.netapp.v20190701.SnapshotProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * Resource tags
-     */
-    readonly tags?: pulumi.Input<inputs.netapp.v20190701.ResourceTags>;
     /**
      * The name of the volume
      */

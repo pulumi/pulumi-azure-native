@@ -64,7 +64,7 @@ class GalleryImageVersion(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, gallery_image_name=None, gallery_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, gallery_image_name=None, gallery_name=None, location=None, name=None, publishing_profile=None, resource_group_name=None, storage_profile=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Specifies information about the gallery Image Version that you want to create or update.
 
@@ -74,34 +74,35 @@ class GalleryImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition resides.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
-        :param pulumi.Input[dict] properties: Describes the properties of a gallery Image Version.
+        :param pulumi.Input[dict] publishing_profile: The publishing profile of a gallery Image Version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] storage_profile: This is the storage profile of a Gallery Image Version.
         :param pulumi.Input[dict] tags: Resource tags
 
-        The **properties** object supports the following:
+        The **publishing_profile** object supports the following:
 
-          * `publishing_profile` (`pulumi.Input[dict]`) - The publishing profile of a gallery Image Version.
-            * `end_of_life_date` (`pulumi.Input[str]`) - The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
-            * `exclude_from_latest` (`pulumi.Input[bool]`) - If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-            * `replica_count` (`pulumi.Input[float]`) - The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+          * `end_of_life_date` (`pulumi.Input[str]`) - The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+          * `exclude_from_latest` (`pulumi.Input[bool]`) - If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+          * `replica_count` (`pulumi.Input[float]`) - The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+          * `storage_account_type` (`pulumi.Input[str]`) - Specifies the storage account type to be used to store the image. This property is not updatable.
+          * `target_regions` (`pulumi.Input[list]`) - The target regions where the Image Version is going to be replicated to. This property is updatable.
+            * `name` (`pulumi.Input[str]`) - The name of the region.
+            * `regional_replica_count` (`pulumi.Input[float]`) - The number of replicas of the Image Version to be created per region. This property is updatable.
             * `storage_account_type` (`pulumi.Input[str]`) - Specifies the storage account type to be used to store the image. This property is not updatable.
-            * `target_regions` (`pulumi.Input[list]`) - The target regions where the Image Version is going to be replicated to. This property is updatable.
-              * `name` (`pulumi.Input[str]`) - The name of the region.
-              * `regional_replica_count` (`pulumi.Input[float]`) - The number of replicas of the Image Version to be created per region. This property is updatable.
-              * `storage_account_type` (`pulumi.Input[str]`) - Specifies the storage account type to be used to store the image. This property is not updatable.
 
-          * `storage_profile` (`pulumi.Input[dict]`) - This is the storage profile of a Gallery Image Version.
-            * `data_disk_images` (`pulumi.Input[list]`) - A list of data disk images.
-              * `host_caching` (`pulumi.Input[str]`) - The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-              * `lun` (`pulumi.Input[float]`) - This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-              * `source` (`pulumi.Input[dict]`) - The gallery artifact version source.
-                * `id` (`pulumi.Input[str]`) - The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+        The **storage_profile** object supports the following:
 
-            * `os_disk_image` (`pulumi.Input[dict]`) - This is the OS disk image.
-              * `host_caching` (`pulumi.Input[str]`) - The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-              * `source` (`pulumi.Input[dict]`) - The gallery artifact version source.
-
+          * `data_disk_images` (`pulumi.Input[list]`) - A list of data disk images.
+            * `host_caching` (`pulumi.Input[str]`) - The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+            * `lun` (`pulumi.Input[float]`) - This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
             * `source` (`pulumi.Input[dict]`) - The gallery artifact version source.
+              * `id` (`pulumi.Input[str]`) - The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+
+          * `os_disk_image` (`pulumi.Input[dict]`) - This is the OS disk image.
+            * `host_caching` (`pulumi.Input[str]`) - The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+            * `source` (`pulumi.Input[dict]`) - The gallery artifact version source.
+
+          * `source` (`pulumi.Input[dict]`) - The gallery artifact version source.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,11 +133,15 @@ class GalleryImageVersion(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['publishing_profile'] = publishing_profile
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if storage_profile is None:
+                raise TypeError("Missing required property 'storage_profile'")
+            __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(GalleryImageVersion, __self__).__init__(
             'azurerm:compute/v20190701:GalleryImageVersion',

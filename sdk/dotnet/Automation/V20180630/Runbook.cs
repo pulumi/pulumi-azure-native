@@ -102,10 +102,40 @@ namespace Pulumi.AzureRM.Automation.V20180630
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
+        /// Gets or sets the description of the runbook.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the draft runbook properties.
+        /// </summary>
+        [Input("draft")]
+        public Input<Inputs.RunbookDraftArgs>? Draft { get; set; }
+
+        /// <summary>
         /// Gets or sets the location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Gets or sets the activity-level tracing options of the runbook.
+        /// </summary>
+        [Input("logActivityTrace")]
+        public Input<int>? LogActivityTrace { get; set; }
+
+        /// <summary>
+        /// Gets or sets progress log option.
+        /// </summary>
+        [Input("logProgress")]
+        public Input<bool>? LogProgress { get; set; }
+
+        /// <summary>
+        /// Gets or sets verbose log option.
+        /// </summary>
+        [Input("logVerbose")]
+        public Input<bool>? LogVerbose { get; set; }
 
         /// <summary>
         /// The runbook name.
@@ -114,16 +144,22 @@ namespace Pulumi.AzureRM.Automation.V20180630
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets runbook create or update properties.
+        /// Gets or sets the published runbook content link.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.RunbookCreateOrUpdatePropertiesArgs> Properties { get; set; } = null!;
+        [Input("publishContentLink")]
+        public Input<Inputs.ContentLinkArgs>? PublishContentLink { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the type of the runbook.
+        /// </summary>
+        [Input("runbookType", required: true)]
+        public Input<string> RunbookType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

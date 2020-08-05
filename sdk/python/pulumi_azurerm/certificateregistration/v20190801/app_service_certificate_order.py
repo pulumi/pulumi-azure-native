@@ -63,28 +63,24 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_renew=None, certificates=None, csr=None, distinguished_name=None, key_size=None, kind=None, location=None, name=None, product_type=None, resource_group_name=None, tags=None, validity_in_years=None, __props__=None, __name__=None, __opts__=None):
         """
         SSL certificate purchase order.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_renew: <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+        :param pulumi.Input[dict] certificates: State of the Key Vault secret.
+        :param pulumi.Input[str] csr: Last CSR that was created for this order.
+        :param pulumi.Input[str] distinguished_name: Certificate distinguished name.
+        :param pulumi.Input[float] key_size: Certificate key size.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Name of the certificate order.
-        :param pulumi.Input[dict] properties: AppServiceCertificateOrder resource specific properties
+        :param pulumi.Input[str] product_type: Certificate product type.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `auto_renew` (`pulumi.Input[bool]`) - <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
-          * `certificates` (`pulumi.Input[dict]`) - State of the Key Vault secret.
-          * `csr` (`pulumi.Input[str]`) - Last CSR that was created for this order.
-          * `distinguished_name` (`pulumi.Input[str]`) - Certificate distinguished name.
-          * `key_size` (`pulumi.Input[float]`) - Certificate key size.
-          * `product_type` (`pulumi.Input[str]`) - Certificate product type.
-          * `validity_in_years` (`pulumi.Input[float]`) - Duration in years (must be between 1 and 3).
+        :param pulumi.Input[float] validity_in_years: Duration in years (must be between 1 and 3).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,6 +99,11 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auto_renew'] = auto_renew
+            __props__['certificates'] = certificates
+            __props__['csr'] = csr
+            __props__['distinguished_name'] = distinguished_name
+            __props__['key_size'] = key_size
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -110,11 +111,15 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if product_type is None:
+                raise TypeError("Missing required property 'product_type'")
+            __props__['product_type'] = product_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['validity_in_years'] = validity_in_years
+            __props__['properties'] = None
             __props__['type'] = None
         super(AppServiceCertificateOrder, __self__).__init__(
             'azurerm:certificateregistration/v20190801:AppServiceCertificateOrder',

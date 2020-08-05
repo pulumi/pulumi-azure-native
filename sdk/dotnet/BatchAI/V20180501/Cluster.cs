@@ -84,16 +84,52 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Cluster.
+        /// Setup to be performed on each compute node in the cluster.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ClusterBasePropertiesArgs>? Properties { get; set; }
+        [Input("nodeSetup")]
+        public Input<Inputs.NodeSetupArgs>? NodeSetup { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Scale settings for the cluster. Batch AI service supports manual and auto scale clusters.
+        /// </summary>
+        [Input("scaleSettings")]
+        public Input<Inputs.ScaleSettingsArgs>? ScaleSettings { get; set; }
+
+        /// <summary>
+        /// Existing virtual network subnet to put the cluster nodes in. Note, if a File Server mount configured in node setup, the File Server's subnet will be used automatically.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.ResourceIdArgs>? Subnet { get; set; }
+
+        /// <summary>
+        /// Settings for an administrator user account that will be created on each compute node in the cluster.
+        /// </summary>
+        [Input("userAccountSettings", required: true)]
+        public Input<Inputs.UserAccountSettingsArgs> UserAccountSettings { get; set; } = null!;
+
+        /// <summary>
+        /// OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
+        /// </summary>
+        [Input("virtualMachineConfiguration")]
+        public Input<Inputs.VirtualMachineConfigurationArgs>? VirtualMachineConfiguration { get; set; }
+
+        /// <summary>
+        /// VM priority. Allowed values are: dedicated (default) and lowpriority.
+        /// </summary>
+        [Input("vmPriority")]
+        public Input<string>? VmPriority { get; set; }
+
+        /// <summary>
+        /// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        /// </summary>
+        [Input("vmSize", required: true)]
+        public Input<string> VmSize { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.

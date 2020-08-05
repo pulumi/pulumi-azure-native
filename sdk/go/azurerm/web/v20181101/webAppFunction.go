@@ -84,26 +84,58 @@ func (WebAppFunctionState) ElementType() reflect.Type {
 }
 
 type webAppFunctionArgs struct {
+	// Config information.
+	Config map[string]interface{} `pulumi:"config"`
+	// Config URI.
+	Config_href *string `pulumi:"config_href"`
+	// File list.
+	Files map[string]string `pulumi:"files"`
+	// Function App ID.
+	Function_app_id *string `pulumi:"function_app_id"`
+	// Function URI.
+	Href *string `pulumi:"href"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Function name.
 	Name string `pulumi:"name"`
-	// FunctionEnvelope resource specific properties
-	Properties *FunctionEnvelopeProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Script URI.
+	Script_href *string `pulumi:"script_href"`
+	// Script root path URI.
+	Script_root_path_href *string `pulumi:"script_root_path_href"`
+	// Secrets file URI.
+	Secrets_file_href *string `pulumi:"secrets_file_href"`
+	// Test data used when testing via the Azure Portal.
+	Test_data *string `pulumi:"test_data"`
 }
 
 // The set of arguments for constructing a WebAppFunction resource.
 type WebAppFunctionArgs struct {
+	// Config information.
+	Config pulumi.MapInput
+	// Config URI.
+	Config_href pulumi.StringPtrInput
+	// File list.
+	Files pulumi.StringMapInput
+	// Function App ID.
+	Function_app_id pulumi.StringPtrInput
+	// Function URI.
+	Href pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Function name.
 	Name pulumi.StringInput
-	// FunctionEnvelope resource specific properties
-	Properties FunctionEnvelopePropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// Script URI.
+	Script_href pulumi.StringPtrInput
+	// Script root path URI.
+	Script_root_path_href pulumi.StringPtrInput
+	// Secrets file URI.
+	Secrets_file_href pulumi.StringPtrInput
+	// Test data used when testing via the Azure Portal.
+	Test_data pulumi.StringPtrInput
 }
 
 func (WebAppFunctionArgs) ElementType() reflect.Type {

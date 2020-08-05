@@ -27,10 +27,32 @@ class Template extends pulumi.ComponentResource {
 
         const dependsOn: pulumi.Resource[] = [];
 
+        // This is a very rough approximation of flattening. The real converter would have to drive off the schema.
+        function flatten(args: any): any {
+            if (Array.isArray(args) && typeof args !== "string") {
+                return args.map(flatten);
+            }  else if (typeof args === "object") {
+                const result: {[key:string]: any} = {};
+                for (const [key, value] of Object.entries(args)) {
+                    const props = flatten(value);
+                    if (key === "properties") {
+                        for (const [key, value] of Object.entries(props)) {
+                            result[key] = value;
+                        }
+                    } else {
+                        result[key] = props;
+                    }
+                }
+                return result;
+            } else {
+                return args;
+            }
+        }
+
         for (let resource of template.resources) {
             const resourceArgs = {
                 resourceGroupName: args.resourceGroupName,
-                ...resource
+                ...flatten(resource)
             };
             const childOpts = { ...opts, parent: this, dependsOn: [...dependsOn] };
             const version = "v" + resource.apiVersion.replace("-", "").replace("-", "");

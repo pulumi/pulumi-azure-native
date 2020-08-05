@@ -82,8 +82,10 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 
 type privateEndpointConnectionArgs struct {
 	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// Private endpoint which the connection belongs to.
+	PrivateEndpoint *PrivateEndpointProperty `pulumi:"privateEndpoint"`
+	// Connection state of the private endpoint connection.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateProperty `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -93,8 +95,10 @@ type privateEndpointConnectionArgs struct {
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
 	Name pulumi.StringInput
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesPtrInput
+	// Private endpoint which the connection belongs to.
+	PrivateEndpoint PrivateEndpointPropertyPtrInput
+	// Connection state of the private endpoint connection.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

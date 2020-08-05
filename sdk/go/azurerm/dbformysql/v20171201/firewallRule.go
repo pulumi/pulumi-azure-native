@@ -25,17 +25,20 @@ type FirewallRule struct {
 // NewFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewFirewallRule(ctx *pulumi.Context,
 	name string, args *FirewallRuleArgs, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
+	if args == nil || args.EndIpAddress == nil {
+		return nil, errors.New("missing required argument 'EndIpAddress'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ServerName == nil {
 		return nil, errors.New("missing required argument 'ServerName'")
+	}
+	if args == nil || args.StartIpAddress == nil {
+		return nil, errors.New("missing required argument 'StartIpAddress'")
 	}
 	if args == nil {
 		args = &FirewallRuleArgs{}
@@ -84,26 +87,30 @@ func (FirewallRuleState) ElementType() reflect.Type {
 }
 
 type firewallRuleArgs struct {
+	// The end IP address of the server firewall rule. Must be IPv4 format.
+	EndIpAddress string `pulumi:"endIpAddress"`
 	// The name of the server firewall rule.
 	Name string `pulumi:"name"`
-	// The properties of a firewall rule.
-	Properties FirewallRuleProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
+	// The start IP address of the server firewall rule. Must be IPv4 format.
+	StartIpAddress string `pulumi:"startIpAddress"`
 }
 
 // The set of arguments for constructing a FirewallRule resource.
 type FirewallRuleArgs struct {
+	// The end IP address of the server firewall rule. Must be IPv4 format.
+	EndIpAddress pulumi.StringInput
 	// The name of the server firewall rule.
 	Name pulumi.StringInput
-	// The properties of a firewall rule.
-	Properties FirewallRulePropertiesInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput
+	// The start IP address of the server firewall rule. Must be IPv4 format.
+	StartIpAddress pulumi.StringInput
 }
 
 func (FirewallRuleArgs) ElementType() reflect.Type {

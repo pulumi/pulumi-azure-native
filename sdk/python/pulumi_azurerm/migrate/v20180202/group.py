@@ -30,21 +30,17 @@ class Group(pulumi.CustomResource):
     """
     Type of the object = [Microsoft.Migrate/projects/groups].
     """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, name=None, project_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, e_tag=None, machines=None, name=None, project_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         A group created in a Migration project.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
+        :param pulumi.Input[list] machines: List of machine names that are part of this group.
         :param pulumi.Input[str] name: Unique name of a group within a project.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
-        :param pulumi.Input[dict] properties: Properties of the group.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
-
-        The **properties** object supports the following:
-
-          * `machines` (`pulumi.Input[list]`) - List of machine names that are part of this group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,18 +60,19 @@ class Group(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
+            if machines is None:
+                raise TypeError("Missing required property 'machines'")
+            __props__['machines'] = machines
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if project_name is None:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Group, __self__).__init__(
             'azurerm:migrate/v20180202:Group',

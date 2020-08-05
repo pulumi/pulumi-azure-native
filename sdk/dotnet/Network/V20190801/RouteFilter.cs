@@ -101,6 +101,18 @@ namespace Pulumi.AzureRM.Network.V20190801
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("ipv6Peerings")]
+        private InputList<Inputs.ExpressRouteCircuitPeeringArgs>? _ipv6Peerings;
+
+        /// <summary>
+        /// A collection of references to express route circuit ipv6 peerings.
+        /// </summary>
+        public InputList<Inputs.ExpressRouteCircuitPeeringArgs> Ipv6Peerings
+        {
+            get => _ipv6Peerings ?? (_ipv6Peerings = new InputList<Inputs.ExpressRouteCircuitPeeringArgs>());
+            set => _ipv6Peerings = value;
+        }
+
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -113,17 +125,35 @@ namespace Pulumi.AzureRM.Network.V20190801
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("peerings")]
+        private InputList<Inputs.ExpressRouteCircuitPeeringArgs>? _peerings;
+
         /// <summary>
-        /// Properties of the route filter.
+        /// A collection of references to express route circuit peerings.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RouteFilterPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.ExpressRouteCircuitPeeringArgs> Peerings
+        {
+            get => _peerings ?? (_peerings = new InputList<Inputs.ExpressRouteCircuitPeeringArgs>());
+            set => _peerings = value;
+        }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("rules")]
+        private InputList<Inputs.RouteFilterRuleArgs>? _rules;
+
+        /// <summary>
+        /// Collection of RouteFilterRules contained within a route filter.
+        /// </summary>
+        public InputList<Inputs.RouteFilterRuleArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.RouteFilterRuleArgs>());
+            set => _rules = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

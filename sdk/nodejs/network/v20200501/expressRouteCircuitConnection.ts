@@ -47,7 +47,7 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
     /**
      * Properties of the express route circuit connection.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200501.ExpressRouteCircuitConnectionPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.ExpressRouteCircuitConnectionPropertiesFormatResponse>;
     /**
      * Type of the resource.
      */
@@ -78,13 +78,19 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            inputs["circuitConnectionStatus"] = args ? args.circuitConnectionStatus : undefined;
             inputs["circuitName"] = args ? args.circuitName : undefined;
+            inputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipv6CircuitConnectionConfig"] = args ? args.ipv6CircuitConnectionConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["peerExpressRouteCircuitPeering"] = args ? args.peerExpressRouteCircuitPeering : undefined;
             inputs["peeringName"] = args ? args.peeringName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,25 +109,45 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
  */
 export interface ExpressRouteCircuitConnectionArgs {
     /**
+     * /29 IP address space to carve out Customer addresses for tunnels.
+     */
+    readonly addressPrefix?: pulumi.Input<string>;
+    /**
+     * The authorization key.
+     */
+    readonly authorizationKey?: pulumi.Input<string>;
+    /**
+     * Express Route Circuit connection state.
+     */
+    readonly circuitConnectionStatus?: pulumi.Input<string>;
+    /**
      * The name of the express route circuit.
      */
     readonly circuitName: pulumi.Input<string>;
+    /**
+     * Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+     */
+    readonly expressRouteCircuitPeering?: pulumi.Input<inputs.network.v20200501.SubResource>;
     /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * IPv6 Address PrefixProperties of the express route circuit connection.
+     */
+    readonly ipv6CircuitConnectionConfig?: pulumi.Input<inputs.network.v20200501.Ipv6CircuitConnectionConfig>;
+    /**
      * The name of the express route circuit connection.
      */
     readonly name: pulumi.Input<string>;
     /**
+     * Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+     */
+    readonly peerExpressRouteCircuitPeering?: pulumi.Input<inputs.network.v20200501.SubResource>;
+    /**
      * The name of the peering.
      */
     readonly peeringName: pulumi.Input<string>;
-    /**
-     * Properties of the express route circuit connection.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20200501.ExpressRouteCircuitConnectionPropertiesFormat>;
     /**
      * The name of the resource group.
      */

@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
     /// </summary>
     public sealed class BackendAddressPoolArgs : Pulumi.ResourceArgs
     {
+        [Input("backendIPConfigurations")]
+        private InputList<Inputs.NetworkInterfaceIPConfigurationArgs>? _backendIPConfigurations;
+
+        /// <summary>
+        /// Gets collection of references to IPs defined in NICs
+        /// </summary>
+        public InputList<Inputs.NetworkInterfaceIPConfigurationArgs> BackendIPConfigurations
+        {
+            get => _backendIPConfigurations ?? (_backendIPConfigurations = new InputList<Inputs.NetworkInterfaceIPConfigurationArgs>());
+            set => _backendIPConfigurations = value;
+        }
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
@@ -27,6 +39,18 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("loadBalancingRules")]
+        private InputList<Inputs.SubResourceArgs>? _loadBalancingRules;
+
+        /// <summary>
+        /// Gets Load Balancing rules that use this Backend Address Pool
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> LoadBalancingRules
+        {
+            get => _loadBalancingRules ?? (_loadBalancingRules = new InputList<Inputs.SubResourceArgs>());
+            set => _loadBalancingRules = value;
+        }
+
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         /// </summary>
@@ -34,10 +58,16 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of BackendAddressPool
+        /// Gets outbound rules that use this Backend Address Pool
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BackendAddressPoolPropertiesFormatArgs>? Properties { get; set; }
+        [Input("outboundNatRule")]
+        public Input<Inputs.SubResourceArgs>? OutboundNatRule { get; set; }
+
+        /// <summary>
+        /// Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public BackendAddressPoolArgs()
         {

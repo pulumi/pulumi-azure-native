@@ -43,32 +43,33 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, amount=None, category=None, e_tag=None, filters=None, name=None, notifications=None, resource_group_name=None, time_grain=None, time_period=None, __props__=None, __name__=None, __opts__=None):
         """
         A budget resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] amount: The total amount of cost to track with the budget
+        :param pulumi.Input[str] category: The category of the budget, whether the budget tracks cost or usage.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        :param pulumi.Input[dict] filters: May be used to filter budgets by resource group, resource, or meter.
         :param pulumi.Input[str] name: Budget Name.
-        :param pulumi.Input[dict] properties: The properties of the budget.
+        :param pulumi.Input[dict] notifications: Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         :param pulumi.Input[str] resource_group_name: Azure Resource Group Name.
+        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+        :param pulumi.Input[dict] time_period: Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
 
-        The **properties** object supports the following:
+        The **filters** object supports the following:
 
-          * `amount` (`pulumi.Input[float]`) - The total amount of cost to track with the budget
-          * `category` (`pulumi.Input[str]`) - The category of the budget, whether the budget tracks cost or usage.
-          * `filters` (`pulumi.Input[dict]`) - May be used to filter budgets by resource group, resource, or meter.
-            * `meters` (`pulumi.Input[list]`) - The list of filters on meters (GUID), mandatory for budgets of usage category. 
-            * `resource_groups` (`pulumi.Input[list]`) - The list of filters on resource groups, allowed at subscription level only.
-            * `resources` (`pulumi.Input[list]`) - The list of filters on resources.
-            * `tags` (`pulumi.Input[dict]`) - The dictionary of filters on tags.
+          * `meters` (`pulumi.Input[list]`) - The list of filters on meters (GUID), mandatory for budgets of usage category. 
+          * `resource_groups` (`pulumi.Input[list]`) - The list of filters on resource groups, allowed at subscription level only.
+          * `resources` (`pulumi.Input[list]`) - The list of filters on resources.
+          * `tags` (`pulumi.Input[dict]`) - The dictionary of filters on tags.
 
-          * `notifications` (`pulumi.Input[dict]`) - Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-          * `time_grain` (`pulumi.Input[str]`) - The time covered by a budget. Tracking of the amount will be reset based on the time grain.
-          * `time_period` (`pulumi.Input[dict]`) - Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
-            * `end_date` (`pulumi.Input[str]`) - The end date for the budget. If not provided, we default this to 10 years from the start date.
-            * `start_date` (`pulumi.Input[str]`) - The start date for the budget.
+        The **time_period** object supports the following:
+
+          * `end_date` (`pulumi.Input[str]`) - The end date for the budget. If not provided, we default this to 10 years from the start date.
+          * `start_date` (`pulumi.Input[str]`) - The start date for the budget.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,14 +88,28 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if amount is None:
+                raise TypeError("Missing required property 'amount'")
+            __props__['amount'] = amount
+            if category is None:
+                raise TypeError("Missing required property 'category'")
+            __props__['category'] = category
             __props__['e_tag'] = e_tag
+            __props__['filters'] = filters
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['notifications'] = notifications
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if time_grain is None:
+                raise TypeError("Missing required property 'time_grain'")
+            __props__['time_grain'] = time_grain
+            if time_period is None:
+                raise TypeError("Missing required property 'time_period'")
+            __props__['time_period'] = time_period
+            __props__['properties'] = None
             __props__['type'] = None
         super(BudgetByResourceGroupName, __self__).__init__(
             'azurerm:consumption/v20180831:BudgetByResourceGroupName',

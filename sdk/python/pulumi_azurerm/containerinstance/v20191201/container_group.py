@@ -178,138 +178,151 @@ class ContainerGroup(pulumi.CustomResource):
     """
     The resource type.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, containers=None, diagnostics=None, dns_config=None, encryption_properties=None, identity=None, image_registry_credentials=None, init_containers=None, ip_address=None, location=None, name=None, network_profile=None, os_type=None, resource_group_name=None, restart_policy=None, sku=None, tags=None, volumes=None, __props__=None, __name__=None, __opts__=None):
         """
         A container group.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] containers: The containers within the container group.
+        :param pulumi.Input[dict] diagnostics: The diagnostic information for a container group.
+        :param pulumi.Input[dict] dns_config: The DNS config information for a container group.
+        :param pulumi.Input[dict] encryption_properties: The encryption properties for a container group.
         :param pulumi.Input[dict] identity: The identity of the container group, if configured.
+        :param pulumi.Input[list] image_registry_credentials: The image registry credentials by which the container group is created from.
+        :param pulumi.Input[list] init_containers: The init containers for a container group.
+        :param pulumi.Input[dict] ip_address: The IP address type of the container group.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The name of the container group.
-        :param pulumi.Input[dict] properties: The container group properties
+        :param pulumi.Input[dict] network_profile: The network profile information for a container group.
+        :param pulumi.Input[str] os_type: The operating system type required by the containers in the container group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] restart_policy: Restart policy for all containers within the container group. 
+               - `Always` Always restart
+               - `OnFailure` Restart on failure
+               - `Never` Never restart
+        :param pulumi.Input[str] sku: The SKU for a container group.
         :param pulumi.Input[dict] tags: The resource tags.
+        :param pulumi.Input[list] volumes: The list of volumes that can be mounted by containers in this container group.
+
+        The **containers** object supports the following:
+
+          * `command` (`pulumi.Input[list]`) - The commands to execute within the container instance in exec form.
+          * `environment_variables` (`pulumi.Input[list]`) - The environment variables to set in the container instance.
+            * `name` (`pulumi.Input[str]`) - The name of the environment variable.
+            * `secure_value` (`pulumi.Input[str]`) - The value of the secure environment variable.
+            * `value` (`pulumi.Input[str]`) - The value of the environment variable.
+
+          * `image` (`pulumi.Input[str]`) - The name of the image used to create the container instance.
+          * `liveness_probe` (`pulumi.Input[dict]`) - The liveness probe.
+            * `exec` (`pulumi.Input[dict]`) - The execution command to probe
+              * `command` (`pulumi.Input[list]`) - The commands to execute within the container.
+
+            * `failure_threshold` (`pulumi.Input[float]`) - The failure threshold.
+            * `http_get` (`pulumi.Input[dict]`) - The Http Get settings to probe
+              * `path` (`pulumi.Input[str]`) - The path to probe.
+              * `port` (`pulumi.Input[float]`) - The port number to probe.
+              * `scheme` (`pulumi.Input[str]`) - The scheme.
+
+            * `initial_delay_seconds` (`pulumi.Input[float]`) - The initial delay seconds.
+            * `period_seconds` (`pulumi.Input[float]`) - The period seconds.
+            * `success_threshold` (`pulumi.Input[float]`) - The success threshold.
+            * `timeout_seconds` (`pulumi.Input[float]`) - The timeout seconds.
+
+          * `name` (`pulumi.Input[str]`) - The user-provided name of the container instance.
+          * `ports` (`pulumi.Input[list]`) - The exposed ports on the container instance.
+            * `port` (`pulumi.Input[float]`) - The port number exposed within the container group.
+            * `protocol` (`pulumi.Input[str]`) - The protocol associated with the port.
+
+          * `readiness_probe` (`pulumi.Input[dict]`) - The readiness probe.
+          * `resources` (`pulumi.Input[dict]`) - The resource requirements of the container instance.
+            * `limits` (`pulumi.Input[dict]`) - The resource limits of this container instance.
+              * `cpu` (`pulumi.Input[float]`) - The CPU limit of this container instance.
+              * `gpu` (`pulumi.Input[dict]`) - The GPU limit of this container instance.
+                * `count` (`pulumi.Input[float]`) - The count of the GPU resource.
+                * `sku` (`pulumi.Input[str]`) - The SKU of the GPU resource.
+
+              * `memory_in_gb` (`pulumi.Input[float]`) - The memory limit in GB of this container instance.
+
+            * `requests` (`pulumi.Input[dict]`) - The resource requests of this container instance.
+              * `cpu` (`pulumi.Input[float]`) - The CPU request of this container instance.
+              * `gpu` (`pulumi.Input[dict]`) - The GPU request of this container instance.
+              * `memory_in_gb` (`pulumi.Input[float]`) - The memory request in GB of this container instance.
+
+          * `volume_mounts` (`pulumi.Input[list]`) - The volume mounts available to the container instance.
+            * `mount_path` (`pulumi.Input[str]`) - The path within the container where the volume should be mounted. Must not contain colon (:).
+            * `name` (`pulumi.Input[str]`) - The name of the volume mount.
+            * `read_only` (`pulumi.Input[bool]`) - The flag indicating whether the volume mount is read-only.
+
+        The **diagnostics** object supports the following:
+
+          * `log_analytics` (`pulumi.Input[dict]`) - Container group log analytics information.
+            * `log_type` (`pulumi.Input[str]`) - The log type to be used.
+            * `metadata` (`pulumi.Input[dict]`) - Metadata for log analytics.
+            * `workspace_id` (`pulumi.Input[str]`) - The workspace id for log analytics
+            * `workspace_key` (`pulumi.Input[str]`) - The workspace key for log analytics
+
+        The **dns_config** object supports the following:
+
+          * `name_servers` (`pulumi.Input[list]`) - The DNS servers for the container group.
+          * `options` (`pulumi.Input[str]`) - The DNS options for the container group.
+          * `search_domains` (`pulumi.Input[str]`) - The DNS search domains for hostname lookup in the container group.
+
+        The **encryption_properties** object supports the following:
+
+          * `key_name` (`pulumi.Input[str]`) - The encryption key name.
+          * `key_version` (`pulumi.Input[str]`) - The encryption key version.
+          * `vault_base_url` (`pulumi.Input[str]`) - The keyvault base url.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
           * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
-        The **properties** object supports the following:
+        The **image_registry_credentials** object supports the following:
 
-          * `containers` (`pulumi.Input[list]`) - The containers within the container group.
-            * `name` (`pulumi.Input[str]`) - The user-provided name of the container instance.
-            * `properties` (`pulumi.Input[dict]`) - The properties of the container instance.
-              * `command` (`pulumi.Input[list]`) - The commands to execute within the container instance in exec form.
-              * `environment_variables` (`pulumi.Input[list]`) - The environment variables to set in the container instance.
-                * `name` (`pulumi.Input[str]`) - The name of the environment variable.
-                * `secure_value` (`pulumi.Input[str]`) - The value of the secure environment variable.
-                * `value` (`pulumi.Input[str]`) - The value of the environment variable.
+          * `password` (`pulumi.Input[str]`) - The password for the private registry.
+          * `server` (`pulumi.Input[str]`) - The Docker image registry server without a protocol such as "http" and "https".
+          * `username` (`pulumi.Input[str]`) - The username for the private registry.
 
-              * `image` (`pulumi.Input[str]`) - The name of the image used to create the container instance.
-              * `liveness_probe` (`pulumi.Input[dict]`) - The liveness probe.
-                * `exec` (`pulumi.Input[dict]`) - The execution command to probe
-                  * `command` (`pulumi.Input[list]`) - The commands to execute within the container.
+        The **init_containers** object supports the following:
 
-                * `failure_threshold` (`pulumi.Input[float]`) - The failure threshold.
-                * `http_get` (`pulumi.Input[dict]`) - The Http Get settings to probe
-                  * `path` (`pulumi.Input[str]`) - The path to probe.
-                  * `port` (`pulumi.Input[float]`) - The port number to probe.
-                  * `scheme` (`pulumi.Input[str]`) - The scheme.
+          * `command` (`pulumi.Input[list]`) - The command to execute within the init container in exec form.
+          * `environment_variables` (`pulumi.Input[list]`) - The environment variables to set in the init container.
+          * `image` (`pulumi.Input[str]`) - The image of the init container.
+          * `name` (`pulumi.Input[str]`) - The name for the init container.
+          * `volume_mounts` (`pulumi.Input[list]`) - The volume mounts available to the init container.
 
-                * `initial_delay_seconds` (`pulumi.Input[float]`) - The initial delay seconds.
-                * `period_seconds` (`pulumi.Input[float]`) - The period seconds.
-                * `success_threshold` (`pulumi.Input[float]`) - The success threshold.
-                * `timeout_seconds` (`pulumi.Input[float]`) - The timeout seconds.
+        The **ip_address** object supports the following:
 
-              * `ports` (`pulumi.Input[list]`) - The exposed ports on the container instance.
-                * `port` (`pulumi.Input[float]`) - The port number exposed within the container group.
-                * `protocol` (`pulumi.Input[str]`) - The protocol associated with the port.
+          * `dns_name_label` (`pulumi.Input[str]`) - The Dns name label for the IP.
+          * `ip` (`pulumi.Input[str]`) - The IP exposed to the public internet.
+          * `ports` (`pulumi.Input[list]`) - The list of ports exposed on the container group.
+            * `port` (`pulumi.Input[float]`) - The port number.
+            * `protocol` (`pulumi.Input[str]`) - The protocol associated with the port.
 
-              * `readiness_probe` (`pulumi.Input[dict]`) - The readiness probe.
-              * `resources` (`pulumi.Input[dict]`) - The resource requirements of the container instance.
-                * `limits` (`pulumi.Input[dict]`) - The resource limits of this container instance.
-                  * `cpu` (`pulumi.Input[float]`) - The CPU limit of this container instance.
-                  * `gpu` (`pulumi.Input[dict]`) - The GPU limit of this container instance.
-                    * `count` (`pulumi.Input[float]`) - The count of the GPU resource.
-                    * `sku` (`pulumi.Input[str]`) - The SKU of the GPU resource.
+          * `type` (`pulumi.Input[str]`) - Specifies if the IP is exposed to the public internet or private VNET.
 
-                  * `memory_in_gb` (`pulumi.Input[float]`) - The memory limit in GB of this container instance.
+        The **network_profile** object supports the following:
 
-                * `requests` (`pulumi.Input[dict]`) - The resource requests of this container instance.
-                  * `cpu` (`pulumi.Input[float]`) - The CPU request of this container instance.
-                  * `gpu` (`pulumi.Input[dict]`) - The GPU request of this container instance.
-                  * `memory_in_gb` (`pulumi.Input[float]`) - The memory request in GB of this container instance.
+          * `id` (`pulumi.Input[str]`) - The identifier for a network profile.
 
-              * `volume_mounts` (`pulumi.Input[list]`) - The volume mounts available to the container instance.
-                * `mount_path` (`pulumi.Input[str]`) - The path within the container where the volume should be mounted. Must not contain colon (:).
-                * `name` (`pulumi.Input[str]`) - The name of the volume mount.
-                * `read_only` (`pulumi.Input[bool]`) - The flag indicating whether the volume mount is read-only.
+        The **volumes** object supports the following:
 
-          * `diagnostics` (`pulumi.Input[dict]`) - The diagnostic information for a container group.
-            * `log_analytics` (`pulumi.Input[dict]`) - Container group log analytics information.
-              * `log_type` (`pulumi.Input[str]`) - The log type to be used.
-              * `metadata` (`pulumi.Input[dict]`) - Metadata for log analytics.
-              * `workspace_id` (`pulumi.Input[str]`) - The workspace id for log analytics
-              * `workspace_key` (`pulumi.Input[str]`) - The workspace key for log analytics
+          * `azure_file` (`pulumi.Input[dict]`) - The Azure File volume.
+            * `read_only` (`pulumi.Input[bool]`) - The flag indicating whether the Azure File shared mounted as a volume is read-only.
+            * `share_name` (`pulumi.Input[str]`) - The name of the Azure File share to be mounted as a volume.
+            * `storage_account_key` (`pulumi.Input[str]`) - The storage account access key used to access the Azure File share.
+            * `storage_account_name` (`pulumi.Input[str]`) - The name of the storage account that contains the Azure File share.
 
-          * `dns_config` (`pulumi.Input[dict]`) - The DNS config information for a container group.
-            * `name_servers` (`pulumi.Input[list]`) - The DNS servers for the container group.
-            * `options` (`pulumi.Input[str]`) - The DNS options for the container group.
-            * `search_domains` (`pulumi.Input[str]`) - The DNS search domains for hostname lookup in the container group.
+          * `empty_dir` (`pulumi.Input[dict]`) - The empty directory volume.
+          * `git_repo` (`pulumi.Input[dict]`) - The git repo volume.
+            * `directory` (`pulumi.Input[str]`) - Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+            * `repository` (`pulumi.Input[str]`) - Repository URL
+            * `revision` (`pulumi.Input[str]`) - Commit hash for the specified revision.
 
-          * `encryption_properties` (`pulumi.Input[dict]`) - The encryption properties for a container group.
-            * `key_name` (`pulumi.Input[str]`) - The encryption key name.
-            * `key_version` (`pulumi.Input[str]`) - The encryption key version.
-            * `vault_base_url` (`pulumi.Input[str]`) - The keyvault base url.
-
-          * `image_registry_credentials` (`pulumi.Input[list]`) - The image registry credentials by which the container group is created from.
-            * `password` (`pulumi.Input[str]`) - The password for the private registry.
-            * `server` (`pulumi.Input[str]`) - The Docker image registry server without a protocol such as "http" and "https".
-            * `username` (`pulumi.Input[str]`) - The username for the private registry.
-
-          * `init_containers` (`pulumi.Input[list]`) - The init containers for a container group.
-            * `name` (`pulumi.Input[str]`) - The name for the init container.
-            * `properties` (`pulumi.Input[dict]`) - The properties for the init container.
-              * `command` (`pulumi.Input[list]`) - The command to execute within the init container in exec form.
-              * `environment_variables` (`pulumi.Input[list]`) - The environment variables to set in the init container.
-              * `image` (`pulumi.Input[str]`) - The image of the init container.
-              * `volume_mounts` (`pulumi.Input[list]`) - The volume mounts available to the init container.
-
-          * `ip_address` (`pulumi.Input[dict]`) - The IP address type of the container group.
-            * `dns_name_label` (`pulumi.Input[str]`) - The Dns name label for the IP.
-            * `ip` (`pulumi.Input[str]`) - The IP exposed to the public internet.
-            * `ports` (`pulumi.Input[list]`) - The list of ports exposed on the container group.
-              * `port` (`pulumi.Input[float]`) - The port number.
-              * `protocol` (`pulumi.Input[str]`) - The protocol associated with the port.
-
-            * `type` (`pulumi.Input[str]`) - Specifies if the IP is exposed to the public internet or private VNET.
-
-          * `network_profile` (`pulumi.Input[dict]`) - The network profile information for a container group.
-            * `id` (`pulumi.Input[str]`) - The identifier for a network profile.
-
-          * `os_type` (`pulumi.Input[str]`) - The operating system type required by the containers in the container group.
-          * `restart_policy` (`pulumi.Input[str]`) - Restart policy for all containers within the container group. 
-            - `Always` Always restart
-            - `OnFailure` Restart on failure
-            - `Never` Never restart
-          * `sku` (`pulumi.Input[str]`) - The SKU for a container group.
-          * `volumes` (`pulumi.Input[list]`) - The list of volumes that can be mounted by containers in this container group.
-            * `azure_file` (`pulumi.Input[dict]`) - The Azure File volume.
-              * `read_only` (`pulumi.Input[bool]`) - The flag indicating whether the Azure File shared mounted as a volume is read-only.
-              * `share_name` (`pulumi.Input[str]`) - The name of the Azure File share to be mounted as a volume.
-              * `storage_account_key` (`pulumi.Input[str]`) - The storage account access key used to access the Azure File share.
-              * `storage_account_name` (`pulumi.Input[str]`) - The name of the storage account that contains the Azure File share.
-
-            * `empty_dir` (`pulumi.Input[dict]`) - The empty directory volume.
-            * `git_repo` (`pulumi.Input[dict]`) - The git repo volume.
-              * `directory` (`pulumi.Input[str]`) - Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
-              * `repository` (`pulumi.Input[str]`) - Repository URL
-              * `revision` (`pulumi.Input[str]`) - Commit hash for the specified revision.
-
-            * `name` (`pulumi.Input[str]`) - The name of the volume.
-            * `secret` (`pulumi.Input[dict]`) - The secret volume.
+          * `name` (`pulumi.Input[str]`) - The name of the volume.
+          * `secret` (`pulumi.Input[dict]`) - The secret volume.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -328,18 +341,32 @@ class ContainerGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if containers is None:
+                raise TypeError("Missing required property 'containers'")
+            __props__['containers'] = containers
+            __props__['diagnostics'] = diagnostics
+            __props__['dns_config'] = dns_config
+            __props__['encryption_properties'] = encryption_properties
             __props__['identity'] = identity
+            __props__['image_registry_credentials'] = image_registry_credentials
+            __props__['init_containers'] = init_containers
+            __props__['ip_address'] = ip_address
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['network_profile'] = network_profile
+            if os_type is None:
+                raise TypeError("Missing required property 'os_type'")
+            __props__['os_type'] = os_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['restart_policy'] = restart_policy
+            __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['volumes'] = volumes
+            __props__['properties'] = None
             __props__['type'] = None
         super(ContainerGroup, __self__).__init__(
             'azurerm:containerinstance/v20191201:ContainerGroup',

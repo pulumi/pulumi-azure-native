@@ -45,7 +45,7 @@ class User(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, lab_account_name=None, lab_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, lab_account_name=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
         The User registered to a lab
 
@@ -55,14 +55,10 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the user.
-        :param pulumi.Input[dict] properties: These are the properties for the user registered under a lab.
+        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: The tags of the resource.
-
-        The **properties** object supports the following:
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
+        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,11 +87,13 @@ class User(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['unique_identifier'] = unique_identifier
+            __props__['properties'] = None
             __props__['type'] = None
         super(User, __self__).__init__(
             'azurerm:labservices/v20181015:User',

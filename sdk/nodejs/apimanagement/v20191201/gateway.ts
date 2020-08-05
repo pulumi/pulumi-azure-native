@@ -43,7 +43,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * Gateway details.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.GatewayContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.GatewayContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -71,10 +71,12 @@ export class Gateway extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["locationData"] = args ? args.locationData : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,13 +95,17 @@ export class Gateway extends pulumi.CustomResource {
  */
 export interface GatewayArgs {
     /**
+     * Gateway description
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Gateway location.
+     */
+    readonly locationData?: pulumi.Input<inputs.apimanagement.v20191201.ResourceLocationDataContract>;
+    /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Gateway details.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.GatewayContractProperties>;
     /**
      * The name of the resource group.
      */

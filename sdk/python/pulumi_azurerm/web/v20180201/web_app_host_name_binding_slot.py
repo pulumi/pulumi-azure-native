@@ -35,28 +35,24 @@ class WebAppHostNameBindingSlot(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, slot=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, kind=None, name=None, resource_group_name=None, site_name=None, slot=None, ssl_state=None, thumbprint=None, __props__=None, __name__=None, __opts__=None):
         """
         A hostname binding object.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] azure_resource_name: Azure resource name.
+        :param pulumi.Input[str] azure_resource_type: Azure resource type.
+        :param pulumi.Input[str] custom_host_name_dns_record_type: Custom DNS record type.
+        :param pulumi.Input[str] domain_id: Fully qualified ARM domain resource URI.
+        :param pulumi.Input[str] host_name_type: Hostname type.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: Hostname in the hostname binding.
-        :param pulumi.Input[dict] properties: HostNameBinding resource specific properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] site_name: App Service app name.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will create a binding for the production slot.
-
-        The **properties** object supports the following:
-
-          * `azure_resource_name` (`pulumi.Input[str]`) - Azure resource name.
-          * `azure_resource_type` (`pulumi.Input[str]`) - Azure resource type.
-          * `custom_host_name_dns_record_type` (`pulumi.Input[str]`) - Custom DNS record type.
-          * `domain_id` (`pulumi.Input[str]`) - Fully qualified ARM domain resource URI.
-          * `host_name_type` (`pulumi.Input[str]`) - Hostname type.
-          * `site_name` (`pulumi.Input[str]`) - App Service app name.
-          * `ssl_state` (`pulumi.Input[str]`) - SSL type
-          * `thumbprint` (`pulumi.Input[str]`) - SSL certificate thumbprint
+        :param pulumi.Input[str] ssl_state: SSL type
+        :param pulumi.Input[str] thumbprint: SSL certificate thumbprint
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,17 +71,25 @@ class WebAppHostNameBindingSlot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['azure_resource_name'] = azure_resource_name
+            __props__['azure_resource_type'] = azure_resource_type
+            __props__['custom_host_name_dns_record_type'] = custom_host_name_dns_record_type
+            __props__['domain_id'] = domain_id
+            __props__['host_name_type'] = host_name_type
             __props__['kind'] = kind
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['site_name'] = site_name
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
+            __props__['ssl_state'] = ssl_state
+            __props__['thumbprint'] = thumbprint
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppHostNameBindingSlot, __self__).__init__(
             'azurerm:web/v20180201:WebAppHostNameBindingSlot',

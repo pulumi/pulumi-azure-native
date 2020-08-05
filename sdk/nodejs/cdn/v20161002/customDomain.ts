@@ -47,7 +47,7 @@ export class CustomDomain extends pulumi.CustomResource {
     /**
      * The JSON object that contains the properties of the custom domain to create.
      */
-    public readonly properties!: pulumi.Output<outputs.cdn.v20161002.CustomDomainPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20161002.CustomDomainPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -73,6 +73,9 @@ export class CustomDomain extends pulumi.CustomResource {
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
             }
+            if (!args || args.hostName === undefined) {
+                throw new Error("Missing required property 'hostName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -83,11 +86,12 @@ export class CustomDomain extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;
+            inputs["hostName"] = args ? args.hostName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -111,6 +115,10 @@ export interface CustomDomainArgs {
      */
     readonly endpointName: pulumi.Input<string>;
     /**
+     * The host name of the custom domain. Must be a domain name.
+     */
+    readonly hostName: pulumi.Input<string>;
+    /**
      * Name of the custom domain within an endpoint.
      */
     readonly name: pulumi.Input<string>;
@@ -118,10 +126,6 @@ export interface CustomDomainArgs {
      * Name of the CDN profile which is unique within the resource group.
      */
     readonly profileName: pulumi.Input<string>;
-    /**
-     * The JSON object that contains the properties of the custom domain to create.
-     */
-    readonly properties?: pulumi.Input<inputs.cdn.v20161002.CustomDomainPropertiesParameters>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

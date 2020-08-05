@@ -28,23 +28,19 @@ class AlertRuleAction(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, name=None, properties=None, resource_group_name=None, rule_id=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, etag=None, logic_app_resource_id=None, name=None, resource_group_name=None, rule_id=None, trigger_uri=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Action for alert rule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Etag of the azure resource
+        :param pulumi.Input[str] logic_app_resource_id: Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         :param pulumi.Input[str] name: Action ID
-        :param pulumi.Input[dict] properties: Action properties for put request
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] rule_id: Alert rule ID
+        :param pulumi.Input[str] trigger_uri: Logic App Callback URL for this specific workflow.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-
-        The **properties** object supports the following:
-
-          * `logic_app_resource_id` (`pulumi.Input[str]`) - Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-          * `trigger_uri` (`pulumi.Input[str]`) - Logic App Callback URL for this specific workflow.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,19 +60,23 @@ class AlertRuleAction(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
+            if logic_app_resource_id is None:
+                raise TypeError("Missing required property 'logic_app_resource_id'")
+            __props__['logic_app_resource_id'] = logic_app_resource_id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if rule_id is None:
                 raise TypeError("Missing required property 'rule_id'")
             __props__['rule_id'] = rule_id
+            __props__['trigger_uri'] = trigger_uri
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(AlertRuleAction, __self__).__init__(
             'azurerm:operationalinsights/v20200101:AlertRuleAction',

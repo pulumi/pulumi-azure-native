@@ -48,7 +48,7 @@ export class SiteVNETConnection extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.web.v20150801.VnetInfoResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.VnetInfoResponseProperties>;
     /**
      * Resource tags
      */
@@ -80,14 +80,20 @@ export class SiteVNETConnection extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["certBlob"] = args ? args.certBlob : undefined;
+            inputs["certThumbprint"] = args ? args.certThumbprint : undefined;
+            inputs["dnsServers"] = args ? args.dnsServers : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resyncRequired"] = args ? args.resyncRequired : undefined;
+            inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,6 +111,19 @@ export class SiteVNETConnection extends pulumi.CustomResource {
  */
 export interface SiteVNETConnectionArgs {
     /**
+     * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+     *             Point-To-Site VPN connection.
+     */
+    readonly certBlob?: pulumi.Input<string>;
+    /**
+     * The client certificate thumbprint
+     */
+    readonly certThumbprint?: pulumi.Input<string>;
+    /**
+     * Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+     */
+    readonly dnsServers?: pulumi.Input<string>;
+    /**
      * Resource Id
      */
     readonly id?: pulumi.Input<string>;
@@ -120,11 +139,18 @@ export interface SiteVNETConnectionArgs {
      * The name of the Virtual Network
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.v20150801.VnetInfoProperties>;
     /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Flag to determine if a resync is required
+     */
+    readonly resyncRequired?: pulumi.Input<boolean>;
+    /**
+     * The routes that this virtual network connection uses.
+     */
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.web.v20150801.VnetRoute>[]>;
     /**
      * Resource tags
      */
@@ -133,4 +159,8 @@ export interface SiteVNETConnectionArgs {
      * Resource type
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * The vnet resource id
+     */
+    readonly vnetResourceId?: pulumi.Input<string>;
 }

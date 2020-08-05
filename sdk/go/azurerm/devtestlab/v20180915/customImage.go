@@ -35,9 +35,6 @@ func NewCustomImage(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -96,34 +93,66 @@ func (CustomImageState) ElementType() reflect.Type {
 }
 
 type customImageArgs struct {
+	// The author of the custom image.
+	Author *string `pulumi:"author"`
+	// Storage information about the plan related to this custom image
+	CustomImagePlan *CustomImagePropertiesFromPlan `pulumi:"customImagePlan"`
+	// Storage information about the data disks present in the custom image
+	DataDiskStorageInfo []DataDiskStorageTypeInfo `pulumi:"dataDiskStorageInfo"`
+	// The description of the custom image.
+	Description *string `pulumi:"description"`
+	// Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
+	IsPlanAuthorized *bool `pulumi:"isPlanAuthorized"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
+	// The Managed Image Id backing the custom image.
+	ManagedImageId *string `pulumi:"managedImageId"`
+	// The Managed Snapshot Id backing the custom image.
+	ManagedSnapshotId *string `pulumi:"managedSnapshotId"`
 	// The name of the custom image.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties CustomImageProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The VHD from which the image is to be created.
+	Vhd *CustomImagePropertiesCustom `pulumi:"vhd"`
+	// The virtual machine from which the image is to be created.
+	Vm *CustomImagePropertiesFromVm `pulumi:"vm"`
 }
 
 // The set of arguments for constructing a CustomImage resource.
 type CustomImageArgs struct {
+	// The author of the custom image.
+	Author pulumi.StringPtrInput
+	// Storage information about the plan related to this custom image
+	CustomImagePlan CustomImagePropertiesFromPlanPtrInput
+	// Storage information about the data disks present in the custom image
+	DataDiskStorageInfo DataDiskStorageTypeInfoArrayInput
+	// The description of the custom image.
+	Description pulumi.StringPtrInput
+	// Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
+	IsPlanAuthorized pulumi.BoolPtrInput
 	// The name of the lab.
 	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
+	// The Managed Image Id backing the custom image.
+	ManagedImageId pulumi.StringPtrInput
+	// The Managed Snapshot Id backing the custom image.
+	ManagedSnapshotId pulumi.StringPtrInput
 	// The name of the custom image.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties CustomImagePropertiesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The VHD from which the image is to be created.
+	Vhd CustomImagePropertiesCustomPtrInput
+	// The virtual machine from which the image is to be created.
+	Vm CustomImagePropertiesFromVmPtrInput
 }
 
 func (CustomImageArgs) ElementType() reflect.Type {

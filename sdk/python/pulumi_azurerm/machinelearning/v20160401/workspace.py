@@ -38,23 +38,19 @@ class Workspace(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, key_vault_identifier_id=None, location=None, name=None, owner_email=None, resource_group_name=None, tags=None, user_storage_account_id=None, __props__=None, __name__=None, __opts__=None):
         """
         An object that represents a machine learning workspace.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] key_vault_identifier_id: The key vault identifier used for encrypted workspaces.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
         :param pulumi.Input[str] name: The name of the machine learning workspace.
-        :param pulumi.Input[dict] properties: The properties of the machine learning workspace.
+        :param pulumi.Input[str] owner_email: The email id of the owner for this workspace.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the machine learning workspace belongs.
         :param pulumi.Input[dict] tags: The tags of the resource.
-
-        The **properties** object supports the following:
-
-          * `key_vault_identifier_id` (`pulumi.Input[str]`) - The key vault identifier used for encrypted workspaces.
-          * `owner_email` (`pulumi.Input[str]`) - The email id of the owner for this workspace.
-          * `user_storage_account_id` (`pulumi.Input[str]`) - The fully qualified arm id of the storage account associated with this workspace.
+        :param pulumi.Input[str] user_storage_account_id: The fully qualified arm id of the storage account associated with this workspace.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,17 +69,24 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['key_vault_identifier_id'] = key_vault_identifier_id
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if owner_email is None:
+                raise TypeError("Missing required property 'owner_email'")
+            __props__['owner_email'] = owner_email
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            if user_storage_account_id is None:
+                raise TypeError("Missing required property 'user_storage_account_id'")
+            __props__['user_storage_account_id'] = user_storage_account_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(Workspace, __self__).__init__(
             'azurerm:machinelearning/v20160401:Workspace',

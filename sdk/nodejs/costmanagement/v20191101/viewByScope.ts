@@ -47,11 +47,11 @@ export class ViewByScope extends pulumi.CustomResource {
     /**
      * The properties of the view.
      */
-    public readonly properties!: pulumi.Output<outputs.costmanagement.v20191101.ViewPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.costmanagement.v20191101.ViewPropertiesResponse>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a ViewByScope resource with the given unique name, arguments, and options.
@@ -72,11 +72,26 @@ export class ViewByScope extends pulumi.CustomResource {
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
+            if (!args || args.timeframe === undefined) {
+                throw new Error("Missing required property 'timeframe'");
+            }
+            if (!args || args.type === undefined) {
+                throw new Error("Missing required property 'type'");
+            }
+            inputs["accumulated"] = args ? args.accumulated : undefined;
+            inputs["chart"] = args ? args.chart : undefined;
+            inputs["dataset"] = args ? args.dataset : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["kpis"] = args ? args.kpis : undefined;
+            inputs["metric"] = args ? args.metric : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["pivots"] = args ? args.pivots : undefined;
             inputs["scope"] = args ? args.scope : undefined;
-            inputs["type"] = undefined /*out*/;
+            inputs["timePeriod"] = args ? args.timePeriod : undefined;
+            inputs["timeframe"] = args ? args.timeframe : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -94,19 +109,55 @@ export class ViewByScope extends pulumi.CustomResource {
  */
 export interface ViewByScopeArgs {
     /**
+     * Show costs accumulated over time.
+     */
+    readonly accumulated?: pulumi.Input<string>;
+    /**
+     * Chart type of the main view in Cost Analysis. Required.
+     */
+    readonly chart?: pulumi.Input<string>;
+    /**
+     * Has definition for data in this report config.
+     */
+    readonly dataset?: pulumi.Input<inputs.costmanagement.v20191101.ReportConfigDataset>;
+    /**
+     * User input name of the view. Required.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     readonly eTag?: pulumi.Input<string>;
+    /**
+     * List of KPIs to show in Cost Analysis UI.
+     */
+    readonly kpis?: pulumi.Input<pulumi.Input<inputs.costmanagement.v20191101.KpiProperties>[]>;
+    /**
+     * Metric to use when displaying costs.
+     */
+    readonly metric?: pulumi.Input<string>;
     /**
      * View name
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the view.
+     * Configuration of 3 sub-views in the Cost Analysis UI.
      */
-    readonly properties?: pulumi.Input<inputs.costmanagement.v20191101.ViewProperties>;
+    readonly pivots?: pulumi.Input<pulumi.Input<inputs.costmanagement.v20191101.PivotProperties>[]>;
     /**
-     * The scope associated with view operations. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for External Billing Account scope and 'providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for External Subscription scope.
+     * Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
      */
     readonly scope: pulumi.Input<string>;
+    /**
+     * Has time period for pulling data for the report.
+     */
+    readonly timePeriod?: pulumi.Input<inputs.costmanagement.v20191101.ReportConfigTimePeriod>;
+    /**
+     * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+     */
+    readonly timeframe: pulumi.Input<string>;
+    /**
+     * The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
+     */
+    readonly type: pulumi.Input<string>;
 }

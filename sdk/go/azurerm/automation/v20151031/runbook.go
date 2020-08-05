@@ -37,11 +37,11 @@ func NewRunbook(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.RunbookType == nil {
+		return nil, errors.New("missing required argument 'RunbookType'")
 	}
 	if args == nil {
 		args = &RunbookArgs{}
@@ -104,14 +104,26 @@ func (RunbookState) ElementType() reflect.Type {
 type runbookArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets or sets the description of the runbook.
+	Description *string `pulumi:"description"`
+	// Gets or sets the draft runbook properties.
+	Draft *RunbookDraft `pulumi:"draft"`
 	// Gets or sets the location of the resource.
 	Location *string `pulumi:"location"`
+	// Gets or sets the activity-level tracing options of the runbook.
+	LogActivityTrace *int `pulumi:"logActivityTrace"`
+	// Gets or sets progress log option.
+	LogProgress *bool `pulumi:"logProgress"`
+	// Gets or sets verbose log option.
+	LogVerbose *bool `pulumi:"logVerbose"`
 	// The runbook name.
 	Name string `pulumi:"name"`
-	// Gets or sets runbook create or update properties.
-	Properties RunbookCreateOrUpdateProperties `pulumi:"properties"`
+	// Gets or sets the published runbook content link.
+	PublishContentLink *ContentLink `pulumi:"publishContentLink"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets the type of the runbook.
+	RunbookType string `pulumi:"runbookType"`
 	// Gets or sets the tags attached to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -120,14 +132,26 @@ type runbookArgs struct {
 type RunbookArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets or sets the description of the runbook.
+	Description pulumi.StringPtrInput
+	// Gets or sets the draft runbook properties.
+	Draft RunbookDraftPtrInput
 	// Gets or sets the location of the resource.
 	Location pulumi.StringPtrInput
+	// Gets or sets the activity-level tracing options of the runbook.
+	LogActivityTrace pulumi.IntPtrInput
+	// Gets or sets progress log option.
+	LogProgress pulumi.BoolPtrInput
+	// Gets or sets verbose log option.
+	LogVerbose pulumi.BoolPtrInput
 	// The runbook name.
 	Name pulumi.StringInput
-	// Gets or sets runbook create or update properties.
-	Properties RunbookCreateOrUpdatePropertiesInput
+	// Gets or sets the published runbook content link.
+	PublishContentLink ContentLinkPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets the type of the runbook.
+	RunbookType pulumi.StringInput
 	// Gets or sets the tags attached to the resource.
 	Tags pulumi.StringMapInput
 }

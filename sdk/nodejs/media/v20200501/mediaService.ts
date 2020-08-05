@@ -51,7 +51,7 @@ export class MediaService extends pulumi.CustomResource {
     /**
      * The resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20200501.MediaServicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20200501.MediaServicePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -83,12 +83,15 @@ export class MediaService extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
+            inputs["storageAuthentication"] = args ? args.storageAuthentication : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +110,10 @@ export class MediaService extends pulumi.CustomResource {
  */
 export interface MediaServiceArgs {
     /**
+     * The account encryption properties.
+     */
+    readonly encryption?: pulumi.Input<inputs.media.v20200501.AccountEncryption>;
+    /**
      * The Managed Identity for the Media Services account.
      */
     readonly identity?: pulumi.Input<inputs.media.v20200501.MediaServiceIdentity>;
@@ -119,13 +126,14 @@ export interface MediaServiceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The resource properties.
-     */
-    readonly properties?: pulumi.Input<inputs.media.v20200501.MediaServiceProperties>;
-    /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The storage accounts for this resource.
+     */
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20200501.StorageAccount>[]>;
+    readonly storageAuthentication?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

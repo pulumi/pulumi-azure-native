@@ -96,34 +96,54 @@ func (PrivateLinkServiceState) ElementType() reflect.Type {
 }
 
 type privateLinkServiceArgs struct {
+	// The auto-approval list of the private link service.
+	AutoApproval map[string]interface{} `pulumi:"autoApproval"`
+	// Whether the private link service is enabled for proxy protocol or not.
+	EnableProxyProtocol *bool `pulumi:"enableProxyProtocol"`
+	// The list of Fqdn.
+	Fqdns []string `pulumi:"fqdns"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// An array of private link service IP configurations.
+	IpConfigurations []PrivateLinkServiceIpConfiguration `pulumi:"ipConfigurations"`
+	// An array of references to the load balancer IP configurations.
+	LoadBalancerFrontendIpConfigurations []FrontendIPConfiguration `pulumi:"loadBalancerFrontendIpConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the private link service.
 	Name string `pulumi:"name"`
-	// Properties of the private link service.
-	Properties *PrivateLinkServiceProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The visibility list of the private link service.
+	Visibility map[string]interface{} `pulumi:"visibility"`
 }
 
 // The set of arguments for constructing a PrivateLinkService resource.
 type PrivateLinkServiceArgs struct {
+	// The auto-approval list of the private link service.
+	AutoApproval pulumi.MapInput
+	// Whether the private link service is enabled for proxy protocol or not.
+	EnableProxyProtocol pulumi.BoolPtrInput
+	// The list of Fqdn.
+	Fqdns pulumi.StringArrayInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// An array of private link service IP configurations.
+	IpConfigurations PrivateLinkServiceIpConfigurationArrayInput
+	// An array of references to the load balancer IP configurations.
+	LoadBalancerFrontendIpConfigurations FrontendIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the private link service.
 	Name pulumi.StringInput
-	// Properties of the private link service.
-	Properties PrivateLinkServicePropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The visibility list of the private link service.
+	Visibility pulumi.MapInput
 }
 
 func (PrivateLinkServiceArgs) ElementType() reflect.Type {

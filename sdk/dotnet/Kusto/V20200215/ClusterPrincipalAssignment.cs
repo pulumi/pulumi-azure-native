@@ -90,16 +90,34 @@ namespace Pulumi.AzureRM.Kusto.V20200215
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The cluster principal.
+        /// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ClusterPrincipalPropertiesArgs>? Properties { get; set; }
+        [Input("principalId", required: true)]
+        public Input<string> PrincipalId { get; set; } = null!;
+
+        /// <summary>
+        /// Principal type.
+        /// </summary>
+        [Input("principalType", required: true)]
+        public Input<string> PrincipalType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Cluster principal role.
+        /// </summary>
+        [Input("role", required: true)]
+        public Input<string> Role { get; set; } = null!;
+
+        /// <summary>
+        /// The tenant id of the principal
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
 
         public ClusterPrincipalAssignmentArgs()
         {

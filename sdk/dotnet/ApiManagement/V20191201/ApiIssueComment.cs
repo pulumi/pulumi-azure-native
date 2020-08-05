@@ -84,6 +84,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
+        /// Date and time when the comment was created.
+        /// </summary>
+        [Input("createdDate")]
+        public Input<string>? CreatedDate { get; set; }
+
+        /// <summary>
         /// Issue identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("issueId", required: true)]
@@ -96,12 +102,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Issue Comment.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IssueCommentContractPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -112,6 +112,18 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Comment text.
+        /// </summary>
+        [Input("text", required: true)]
+        public Input<string> Text { get; set; } = null!;
+
+        /// <summary>
+        /// A resource identifier for the user who left the comment.
+        /// </summary>
+        [Input("userId", required: true)]
+        public Input<string> UserId { get; set; } = null!;
 
         public ApiIssueCommentArgs()
         {

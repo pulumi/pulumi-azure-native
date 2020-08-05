@@ -108,10 +108,10 @@ namespace Pulumi.AzureRM.Compute.V20190301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Dedicated Host Group Properties.
+        /// Number of fault domains that the host group can span.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DedicatedHostGroupPropertiesArgs>? Properties { get; set; }
+        [Input("platformFaultDomainCount", required: true)]
+        public Input<int> PlatformFaultDomainCount { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

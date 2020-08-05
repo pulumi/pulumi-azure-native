@@ -96,34 +96,46 @@ func (VirtualRouterState) ElementType() reflect.Type {
 }
 
 type virtualRouterArgs struct {
+	// The Gateway on which VirtualRouter is hosted.
+	HostedGateway *SubResource `pulumi:"hostedGateway"`
+	// The Subnet on which VirtualRouter is hosted.
+	HostedSubnet *SubResource `pulumi:"hostedSubnet"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the Virtual Router.
 	Name string `pulumi:"name"`
-	// Properties of the Virtual Router.
-	Properties *VirtualRouterPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// VirtualRouter ASN.
+	VirtualRouterAsn *int `pulumi:"virtualRouterAsn"`
+	// VirtualRouter IPs.
+	VirtualRouterIps []string `pulumi:"virtualRouterIps"`
 }
 
 // The set of arguments for constructing a VirtualRouter resource.
 type VirtualRouterArgs struct {
+	// The Gateway on which VirtualRouter is hosted.
+	HostedGateway SubResourcePtrInput
+	// The Subnet on which VirtualRouter is hosted.
+	HostedSubnet SubResourcePtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the Virtual Router.
 	Name pulumi.StringInput
-	// Properties of the Virtual Router.
-	Properties VirtualRouterPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// VirtualRouter ASN.
+	VirtualRouterAsn pulumi.IntPtrInput
+	// VirtualRouter IPs.
+	VirtualRouterIps pulumi.StringArrayInput
 }
 
 func (VirtualRouterArgs) ElementType() reflect.Type {

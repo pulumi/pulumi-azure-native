@@ -47,7 +47,7 @@ export class PatchSchedule extends pulumi.CustomResource {
     /**
      * List of patch schedules for a Redis cache.
      */
-    public readonly properties!: pulumi.Output<outputs.cache.v20170201.ScheduleEntriesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cache.v20170201.ScheduleEntriesResponse>;
     /**
      * Resource type.
      */
@@ -69,16 +69,17 @@ export class PatchSchedule extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.scheduleEntries === undefined) {
+                throw new Error("Missing required property 'scheduleEntries'");
+            }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scheduleEntries"] = args ? args.scheduleEntries : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,11 +102,11 @@ export interface PatchScheduleArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * List of patch schedules for a Redis cache.
-     */
-    readonly properties: pulumi.Input<inputs.cache.v20170201.ScheduleEntries>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * List of patch schedules for a Redis cache.
+     */
+    readonly scheduleEntries: pulumi.Input<pulumi.Input<inputs.cache.v20170201.ScheduleEntry>[]>;
 }

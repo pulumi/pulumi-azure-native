@@ -54,26 +54,22 @@ class Device(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, data_box_edge_device_status=None, description=None, etag=None, friendly_name=None, location=None, model_description=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The Data Box Edge/Gateway device.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_box_edge_device_status: The status of the Data Box Edge/Gateway device.
+        :param pulumi.Input[str] description: The Description of the Data Box Edge/Gateway device.
         :param pulumi.Input[str] etag: The etag for the devices.
+        :param pulumi.Input[str] friendly_name: The Data Box Edge/Gateway device name.
         :param pulumi.Input[str] location: The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
+        :param pulumi.Input[str] model_description: The description of the Data Box Edge/Gateway device model.
         :param pulumi.Input[str] name: The device name.
-        :param pulumi.Input[dict] properties: The properties of the Data Box Edge/Gateway device.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[dict] sku: The SKU type.
         :param pulumi.Input[dict] tags: The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
-
-        The **properties** object supports the following:
-
-          * `data_box_edge_device_status` (`pulumi.Input[str]`) - The status of the Data Box Edge/Gateway device.
-          * `description` (`pulumi.Input[str]`) - The Description of the Data Box Edge/Gateway device.
-          * `friendly_name` (`pulumi.Input[str]`) - The Data Box Edge/Gateway device name.
-          * `model_description` (`pulumi.Input[str]`) - The description of the Data Box Edge/Gateway device model.
 
         The **sku** object supports the following:
 
@@ -97,19 +93,23 @@ class Device(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['data_box_edge_device_status'] = data_box_edge_device_status
+            __props__['description'] = description
             __props__['etag'] = etag
+            __props__['friendly_name'] = friendly_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['model_description'] = model_description
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Device, __self__).__init__(
             'azurerm:databoxedge/v20190801:Device',

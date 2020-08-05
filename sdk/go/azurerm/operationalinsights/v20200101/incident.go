@@ -33,6 +33,15 @@ func NewIncident(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Severity == nil {
+		return nil, errors.New("missing required argument 'Severity'")
+	}
+	if args == nil || args.Status == nil {
+		return nil, errors.New("missing required argument 'Status'")
+	}
+	if args == nil || args.Title == nil {
+		return nil, errors.New("missing required argument 'Title'")
+	}
 	if args == nil || args.WorkspaceName == nil {
 		return nil, errors.New("missing required argument 'WorkspaceName'")
 	}
@@ -87,28 +96,68 @@ func (IncidentState) ElementType() reflect.Type {
 }
 
 type incidentArgs struct {
+	// The reason the incident was closed
+	Classification *string `pulumi:"classification"`
+	// Describes the reason the incident was closed
+	ClassificationComment *string `pulumi:"classificationComment"`
+	// The classification reason the incident was closed with
+	ClassificationReason *string `pulumi:"classificationReason"`
+	// The description of the incident
+	Description *string `pulumi:"description"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// The time of the first activity in the incident
+	FirstActivityTimeUtc *string `pulumi:"firstActivityTimeUtc"`
+	// List of labels relevant to this incident
+	Labels []IncidentLabel `pulumi:"labels"`
+	// The time of the last activity in the incident
+	LastActivityTimeUtc *string `pulumi:"lastActivityTimeUtc"`
 	// Incident ID
 	Name string `pulumi:"name"`
-	// Incident properties
-	Properties *IncidentProperties `pulumi:"properties"`
+	// Describes a user that the incident is assigned to
+	Owner *IncidentOwnerInfo `pulumi:"owner"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The severity of the incident
+	Severity string `pulumi:"severity"`
+	// The status of the incident
+	Status string `pulumi:"status"`
+	// The title of the incident
+	Title string `pulumi:"title"`
 	// The name of the workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Incident resource.
 type IncidentArgs struct {
+	// The reason the incident was closed
+	Classification pulumi.StringPtrInput
+	// Describes the reason the incident was closed
+	ClassificationComment pulumi.StringPtrInput
+	// The classification reason the incident was closed with
+	ClassificationReason pulumi.StringPtrInput
+	// The description of the incident
+	Description pulumi.StringPtrInput
 	// Etag of the azure resource
 	Etag pulumi.StringPtrInput
+	// The time of the first activity in the incident
+	FirstActivityTimeUtc pulumi.StringPtrInput
+	// List of labels relevant to this incident
+	Labels IncidentLabelArrayInput
+	// The time of the last activity in the incident
+	LastActivityTimeUtc pulumi.StringPtrInput
 	// Incident ID
 	Name pulumi.StringInput
-	// Incident properties
-	Properties IncidentPropertiesPtrInput
+	// Describes a user that the incident is assigned to
+	Owner IncidentOwnerInfoPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The severity of the incident
+	Severity pulumi.StringInput
+	// The status of the incident
+	Status pulumi.StringInput
+	// The title of the incident
+	Title pulumi.StringInput
 	// The name of the workspace.
 	WorkspaceName pulumi.StringInput
 }

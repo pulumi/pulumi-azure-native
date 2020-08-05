@@ -34,27 +34,25 @@ class StorageAccountCredential(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, manager_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_key=None, end_point=None, kind=None, manager_name=None, name=None, resource_group_name=None, ssl_status=None, __props__=None, __name__=None, __opts__=None):
         """
         The storage account credential.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] access_key: The details of the storage account password.
+        :param pulumi.Input[str] end_point: The storage endpoint
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The storage account credential name.
-        :param pulumi.Input[dict] properties: The storage account credential properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[str] ssl_status: Signifies whether SSL needs to be enabled or not.
 
-        The **properties** object supports the following:
+        The **access_key** object supports the following:
 
-          * `access_key` (`pulumi.Input[dict]`) - The details of the storage account password.
-            * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
-            * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
-            * `value` (`pulumi.Input[str]`) - The value of the secret.
-
-          * `end_point` (`pulumi.Input[str]`) - The storage endpoint
-          * `ssl_status` (`pulumi.Input[str]`) - Signifies whether SSL needs to be enabled or not.
+          * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
+          * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
+          * `value` (`pulumi.Input[str]`) - The value of the secret.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,6 +71,10 @@ class StorageAccountCredential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['access_key'] = access_key
+            if end_point is None:
+                raise TypeError("Missing required property 'end_point'")
+            __props__['end_point'] = end_point
             __props__['kind'] = kind
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
@@ -80,12 +82,13 @@ class StorageAccountCredential(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if ssl_status is None:
+                raise TypeError("Missing required property 'ssl_status'")
+            __props__['ssl_status'] = ssl_status
+            __props__['properties'] = None
             __props__['type'] = None
         super(StorageAccountCredential, __self__).__init__(
             'azurerm:storsimple/v20170601:StorageAccountCredential',

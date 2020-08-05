@@ -35,7 +35,7 @@ class Replication(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, registry_name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, registry_name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An object that represents a replication for a container registry.
 
@@ -43,7 +43,6 @@ class Replication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
         :param pulumi.Input[str] name: The name of the replication.
-        :param pulumi.Input[dict] properties: The properties of the replication.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[dict] tags: The tags of the resource.
@@ -71,7 +70,6 @@ class Replication(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if registry_name is None:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
@@ -79,6 +77,7 @@ class Replication(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Replication, __self__).__init__(
             'azurerm:containerregistry/v20190501:Replication',

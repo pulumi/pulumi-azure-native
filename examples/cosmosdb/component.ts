@@ -98,18 +98,16 @@ export class DatabaseAccount {
             name,
             location: locations[0],
             kind,
-            properties: {
-                consistencyPolicy: args.consisencyPolicy,        
-                locations: locations.map((l, i) => ({
-                    locationName: l,
-                    failoverPriority: i,
-                    isZoneRedundant: false
-                })),
-                databaseAccountOfferType: "Standard",
-                enableAutomaticFailover,
-                capabilities,
-                enableMultipleWriteLocations,
-            }
+            consistencyPolicy: args.consisencyPolicy,        
+            locations: locations.map((l, i) => ({
+                locationName: l,
+                failoverPriority: i,
+                isZoneRedundant: false
+            })),
+            databaseAccountOfferType: "Standard",
+            enableAutomaticFailover,
+            capabilities,
+            enableMultipleWriteLocations,
         });
         this.id = cosmosdbAccount.id;
     }

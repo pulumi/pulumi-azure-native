@@ -35,8 +35,11 @@ func NewDatabaseAccountMongoDBDatabase(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.Options == nil {
+		return nil, errors.New("missing required argument 'Options'")
+	}
+	if args == nil || args.Resource == nil {
+		return nil, errors.New("missing required argument 'Resource'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -100,8 +103,10 @@ type databaseAccountMongoDBDatabaseArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Cosmos DB database name.
 	Name string `pulumi:"name"`
-	// Properties to create and update Azure Cosmos DB MongoDB database.
-	Properties MongoDBDatabaseCreateUpdateProperties `pulumi:"properties"`
+	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+	Options CreateUpdateOptions `pulumi:"options"`
+	// The standard JSON format of a MongoDB database
+	Resource MongoDBDatabaseResource `pulumi:"resource"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -112,8 +117,10 @@ type DatabaseAccountMongoDBDatabaseArgs struct {
 	AccountName pulumi.StringInput
 	// Cosmos DB database name.
 	Name pulumi.StringInput
-	// Properties to create and update Azure Cosmos DB MongoDB database.
-	Properties MongoDBDatabaseCreateUpdatePropertiesInput
+	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+	Options CreateUpdateOptionsInput
+	// The standard JSON format of a MongoDB database
+	Resource MongoDBDatabaseResourceInput
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
 }

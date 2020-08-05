@@ -96,34 +96,46 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
+	// The size of this Cache, in GB.
+	CacheSizeGB *int `pulumi:"cacheSizeGB"`
 	// Region name string.
 	Location *string `pulumi:"location"`
 	// Name of Cache.
 	Name string `pulumi:"name"`
-	// Properties of the Cache.
-	Properties *CacheProperties `pulumi:"properties"`
+	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU for the Cache.
 	Sku *CacheProperties `pulumi:"sku"`
+	// Subnet used for the Cache.
+	Subnet *string `pulumi:"subnet"`
 	// ARM tags as name/value pairs.
 	Tags map[string]interface{} `pulumi:"tags"`
+	// Upgrade status of the Cache.
+	UpgradeStatus *CacheUpgradeStatus `pulumi:"upgradeStatus"`
 }
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
+	// The size of this Cache, in GB.
+	CacheSizeGB pulumi.IntPtrInput
 	// Region name string.
 	Location pulumi.StringPtrInput
 	// Name of Cache.
 	Name pulumi.StringInput
-	// Properties of the Cache.
-	Properties CachePropertiesPtrInput
+	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	ProvisioningState pulumi.StringPtrInput
 	// Target resource group.
 	ResourceGroupName pulumi.StringInput
 	// SKU for the Cache.
 	Sku CachePropertiesPtrInput
+	// Subnet used for the Cache.
+	Subnet pulumi.StringPtrInput
 	// ARM tags as name/value pairs.
 	Tags pulumi.MapInput
+	// Upgrade status of the Cache.
+	UpgradeStatus CacheUpgradeStatusPtrInput
 }
 
 func (CacheArgs) ElementType() reflect.Type {

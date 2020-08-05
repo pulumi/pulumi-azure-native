@@ -83,24 +83,32 @@ func (AccountFilterState) ElementType() reflect.Type {
 type accountFilterArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
+	// The first quality.
+	FirstQuality *FirstQuality `pulumi:"firstQuality"`
 	// The Account Filter name
 	Name string `pulumi:"name"`
-	// The Media Filter properties.
-	Properties *MediaFilterProperties `pulumi:"properties"`
+	// The presentation time range.
+	PresentationTimeRange *PresentationTimeRange `pulumi:"presentationTimeRange"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The tracks selection conditions.
+	Tracks []FilterTrackSelection `pulumi:"tracks"`
 }
 
 // The set of arguments for constructing a AccountFilter resource.
 type AccountFilterArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
+	// The first quality.
+	FirstQuality FirstQualityPtrInput
 	// The Account Filter name
 	Name pulumi.StringInput
-	// The Media Filter properties.
-	Properties MediaFilterPropertiesPtrInput
+	// The presentation time range.
+	PresentationTimeRange PresentationTimeRangePtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The tracks selection conditions.
+	Tracks FilterTrackSelectionArrayInput
 }
 
 func (AccountFilterArgs) ElementType() reflect.Type {

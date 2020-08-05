@@ -48,7 +48,7 @@ export class ServerFarm extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.web.v20150801.ServerFarmWithRichSkuResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.ServerFarmWithRichSkuResponseProperties>;
     /**
      * Describes a sku for a scalable resource
      */
@@ -84,16 +84,22 @@ export class ServerFarm extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["adminSiteName"] = args ? args.adminSiteName : undefined;
             inputs["allowPendingState"] = args ? args.allowPendingState : undefined;
+            inputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maximumNumberOfWorkers"] = args ? args.maximumNumberOfWorkers : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["perSiteScaling"] = args ? args.perSiteScaling : undefined;
+            inputs["reserved"] = args ? args.reserved : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["workerTierName"] = args ? args.workerTierName : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -111,9 +117,17 @@ export class ServerFarm extends pulumi.CustomResource {
  */
 export interface ServerFarmArgs {
     /**
+     * App Service Plan administration site
+     */
+    readonly adminSiteName?: pulumi.Input<string>;
+    /**
      * OBSOLETE: If true, allow pending state for App Service Plan
      */
     readonly allowPendingState?: pulumi.Input<boolean>;
+    /**
+     * Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+     */
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfile>;
     /**
      * Resource Id
      */
@@ -127,10 +141,22 @@ export interface ServerFarmArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * Maximum number of instances that can be assigned to this App Service Plan
+     */
+    readonly maximumNumberOfWorkers?: pulumi.Input<number>;
+    /**
      * Resource Name
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.v20150801.ServerFarmWithRichSkuProperties>;
+    /**
+     * If True apps assigned to this App Service Plan can be scaled independently
+     *             If False apps assigned to this App Service Plan will scale to all instances of the plan
+     */
+    readonly perSiteScaling?: pulumi.Input<boolean>;
+    /**
+     * Enables creation of a Linux App Service Plan
+     */
+    readonly reserved?: pulumi.Input<boolean>;
     /**
      * Name of resource group
      */
@@ -147,4 +173,8 @@ export interface ServerFarmArgs {
      * Resource type
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * Target worker tier assigned to the App Service Plan
+     */
+    readonly workerTierName?: pulumi.Input<string>;
 }

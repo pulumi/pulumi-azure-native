@@ -96,16 +96,22 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// SwiftVirtualNetwork resource specific properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SwiftVirtualNetworkPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+        /// </summary>
+        [Input("subnetResourceId")]
+        public Input<string>? SubnetResourceId { get; set; }
+
+        /// <summary>
+        /// A flag that specifies if the scale unit this Web App is on supports Swift integration.
+        /// </summary>
+        [Input("swiftSupported")]
+        public Input<bool>? SwiftSupported { get; set; }
 
         public WebAppSwiftVirtualNetworkConnectionSlotArgs()
         {

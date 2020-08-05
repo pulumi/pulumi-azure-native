@@ -43,7 +43,7 @@ export class Credential extends pulumi.CustomResource {
     /**
      * Gets or sets the properties of the credential.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.CredentialPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.CredentialPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -68,16 +68,22 @@ export class Credential extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.password === undefined) {
+                throw new Error("Missing required property 'password'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.userName === undefined) {
+                throw new Error("Missing required property 'userName'");
+            }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["userName"] = args ? args.userName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,15 +106,23 @@ export interface CredentialArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
+     * Gets or sets the description of the credential.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The parameters supplied to the create or update credential operation.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Gets or sets the properties of the credential.
+     * Gets or sets the password of the credential.
      */
-    readonly properties: pulumi.Input<inputs.automation.v20151031.CredentialCreateOrUpdateProperties>;
+    readonly password: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets the user name of the credential.
+     */
+    readonly userName: pulumi.Input<string>;
 }

@@ -30,7 +30,7 @@ class ConsumerGroup(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, event_hub_name=None, location=None, name=None, namespace_name=None, properties=None, resource_group_name=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, event_hub_name=None, location=None, name=None, namespace_name=None, resource_group_name=None, type=None, user_metadata=None, __props__=None, __name__=None, __opts__=None):
         """
         Single item in List or Get Consumer group operation
 
@@ -40,13 +40,9 @@ class ConsumerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] name: The consumer group name
         :param pulumi.Input[str] namespace_name: The Namespace name
-        :param pulumi.Input[dict] properties: Properties supplied to the Create Or Update Consumer Group operation.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[str] type: ARM type of the Namespace.
-
-        The **properties** object supports the following:
-
-          * `user_metadata` (`pulumi.Input[str]`) - The user metadata.
+        :param pulumi.Input[str] user_metadata: The user metadata.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,11 +73,12 @@ class ConsumerGroup(pulumi.CustomResource):
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = type
+            __props__['user_metadata'] = user_metadata
+            __props__['properties'] = None
         super(ConsumerGroup, __self__).__init__(
             'azurerm:eventhub/v20150801:ConsumerGroup',
             resource_name,

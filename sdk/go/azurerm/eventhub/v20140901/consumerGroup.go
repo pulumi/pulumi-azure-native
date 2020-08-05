@@ -101,12 +101,12 @@ type consumerGroupArgs struct {
 	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties supplied to the Create Or Update Consumer Group operation.
-	Properties *ConsumerGroupProperties `pulumi:"properties"`
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// ARM type of the Namespace.
 	Type *string `pulumi:"type"`
+	// The user metadata.
+	UserMetadata *string `pulumi:"userMetadata"`
 }
 
 // The set of arguments for constructing a ConsumerGroup resource.
@@ -119,12 +119,12 @@ type ConsumerGroupArgs struct {
 	Name pulumi.StringInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
-	// Properties supplied to the Create Or Update Consumer Group operation.
-	Properties ConsumerGroupPropertiesPtrInput
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// ARM type of the Namespace.
 	Type pulumi.StringPtrInput
+	// The user metadata.
+	UserMetadata pulumi.StringPtrInput
 }
 
 func (ConsumerGroupArgs) ElementType() reflect.Type {

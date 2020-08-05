@@ -114,8 +114,6 @@ type configurationStoreArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the configuration store.
 	Name string `pulumi:"name"`
-	// The properties of a configuration store.
-	Properties *ConfigurationStoreProperties `pulumi:"properties"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku of the configuration store.
@@ -132,8 +130,6 @@ type ConfigurationStoreArgs struct {
 	Location pulumi.StringInput
 	// The name of the configuration store.
 	Name pulumi.StringInput
-	// The properties of a configuration store.
-	Properties ConfigurationStorePropertiesPtrInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The sku of the configuration store.

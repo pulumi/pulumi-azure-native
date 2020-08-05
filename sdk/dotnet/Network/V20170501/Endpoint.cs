@@ -78,10 +78,46 @@ namespace Pulumi.AzureRM.Network.V20170501
     public sealed class EndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+        /// </summary>
+        [Input("endpointLocation")]
+        public Input<string>? EndpointLocation { get; set; }
+
+        /// <summary>
+        /// The monitoring status of the endpoint.
+        /// </summary>
+        [Input("endpointMonitorStatus")]
+        public Input<string>? EndpointMonitorStatus { get; set; }
+
+        /// <summary>
+        /// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+        /// </summary>
+        [Input("endpointStatus")]
+        public Input<string>? EndpointStatus { get; set; }
+
+        /// <summary>
         /// The type of the Traffic Manager endpoint to be created or updated.
         /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;
+
+        [Input("geoMapping")]
+        private InputList<string>? _geoMapping;
+
+        /// <summary>
+        /// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+        /// </summary>
+        public InputList<string> GeoMapping
+        {
+            get => _geoMapping ?? (_geoMapping = new InputList<string>());
+            set => _geoMapping = value;
+        }
+
+        /// <summary>
+        /// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        /// </summary>
+        [Input("minChildEndpoints")]
+        public Input<int>? MinChildEndpoints { get; set; }
 
         /// <summary>
         /// The name of the Traffic Manager endpoint to be created or updated.
@@ -90,22 +126,40 @@ namespace Pulumi.AzureRM.Network.V20170501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+        /// </summary>
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
+        /// <summary>
         /// The name of the Traffic Manager profile.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Traffic Manager endpoint.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.EndpointPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group containing the Traffic Manager endpoint to be created or updated.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+        /// </summary>
+        [Input("target")]
+        public Input<string>? Target { get; set; }
+
+        /// <summary>
+        /// The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+        /// </summary>
+        [Input("targetResourceId")]
+        public Input<string>? TargetResourceId { get; set; }
+
+        /// <summary>
+        /// The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+        /// </summary>
+        [Input("weight")]
+        public Input<int>? Weight { get; set; }
 
         public EndpointArgs()
         {

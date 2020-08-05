@@ -47,7 +47,7 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Core resource properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20190801.RemotePrivateEndpointConnectionResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.RemotePrivateEndpointConnectionResponse>;
     /**
      * Resource type.
      */
@@ -74,8 +74,9 @@ export class WebAppPrivateEndpointConnection extends pulumi.CustomResource {
             }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,9 +100,9 @@ export interface WebAppPrivateEndpointConnectionArgs {
     readonly kind?: pulumi.Input<string>;
     readonly name: pulumi.Input<string>;
     /**
-     * Core resource properties
+     * The state of a private link connection
      */
-    readonly properties?: pulumi.Input<inputs.web.v20190801.PrivateLinkConnectionApprovalRequest>;
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.web.v20190801.PrivateLinkConnectionState>;
     /**
      * Name of the resource group to which the resource belongs.
      */

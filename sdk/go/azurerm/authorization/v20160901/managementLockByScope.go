@@ -25,11 +25,11 @@ type ManagementLockByScope struct {
 // NewManagementLockByScope registers a new resource with the given unique name, arguments, and options.
 func NewManagementLockByScope(ctx *pulumi.Context,
 	name string, args *ManagementLockByScopeArgs, opts ...pulumi.ResourceOption) (*ManagementLockByScope, error) {
+	if args == nil || args.Level == nil {
+		return nil, errors.New("missing required argument 'Level'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
@@ -81,20 +81,28 @@ func (ManagementLockByScopeState) ElementType() reflect.Type {
 }
 
 type managementLockByScopeArgs struct {
+	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+	Level string `pulumi:"level"`
 	// The name of lock.
 	Name string `pulumi:"name"`
-	// The properties of the lock.
-	Properties ManagementLockProperties `pulumi:"properties"`
+	// Notes about the lock. Maximum of 512 characters.
+	Notes *string `pulumi:"notes"`
+	// The owners of the lock.
+	Owners []ManagementLockOwner `pulumi:"owners"`
 	// The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
 	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a ManagementLockByScope resource.
 type ManagementLockByScopeArgs struct {
+	// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+	Level pulumi.StringInput
 	// The name of lock.
 	Name pulumi.StringInput
-	// The properties of the lock.
-	Properties ManagementLockPropertiesInput
+	// Notes about the lock. Maximum of 512 characters.
+	Notes pulumi.StringPtrInput
+	// The owners of the lock.
+	Owners ManagementLockOwnerArrayInput
 	// The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.
 	Scope pulumi.StringInput
 }

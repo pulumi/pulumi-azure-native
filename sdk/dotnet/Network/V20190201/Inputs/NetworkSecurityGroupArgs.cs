@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20190201.Inputs
     /// </summary>
     public sealed class NetworkSecurityGroupArgs : Pulumi.ResourceArgs
     {
+        [Input("defaultSecurityRules")]
+        private InputList<Inputs.SecurityRuleArgs>? _defaultSecurityRules;
+
+        /// <summary>
+        /// The default security rules of network security group.
+        /// </summary>
+        public InputList<Inputs.SecurityRuleArgs> DefaultSecurityRules
+        {
+            get => _defaultSecurityRules ?? (_defaultSecurityRules = new InputList<Inputs.SecurityRuleArgs>());
+            set => _defaultSecurityRules = value;
+        }
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -34,10 +46,28 @@ namespace Pulumi.AzureRM.Network.V20190201.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Properties of the network security group
+        /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkSecurityGroupPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The resource GUID property of the network security group resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
+
+        [Input("securityRules")]
+        private InputList<Inputs.SecurityRuleArgs>? _securityRules;
+
+        /// <summary>
+        /// A collection of security rules of the network security group.
+        /// </summary>
+        public InputList<Inputs.SecurityRuleArgs> SecurityRules
+        {
+            get => _securityRules ?? (_securityRules = new InputList<Inputs.SecurityRuleArgs>());
+            set => _securityRules = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

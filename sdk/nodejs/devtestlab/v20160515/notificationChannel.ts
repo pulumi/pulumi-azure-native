@@ -47,7 +47,7 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.NotificationChannelPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.NotificationChannelPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -76,18 +76,20 @@ export class NotificationChannel extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["events"] = args ? args.events : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["webHookUrl"] = args ? args.webHookUrl : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +108,14 @@ export class NotificationChannel extends pulumi.CustomResource {
  */
 export interface NotificationChannelArgs {
     /**
+     * Description of notification.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The list of event for which this notification is enabled.
+     */
+    readonly events?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.Event>[]>;
+    /**
      * The name of the lab.
      */
     readonly labName: pulumi.Input<string>;
@@ -118,9 +128,9 @@ export interface NotificationChannelArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties: pulumi.Input<inputs.devtestlab.v20160515.NotificationChannelProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -129,4 +139,12 @@ export interface NotificationChannelArgs {
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
+    /**
+     * The webhook URL to send notifications to.
+     */
+    readonly webHookUrl?: pulumi.Input<string>;
 }

@@ -90,6 +90,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class ServiceFabricScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If the schedule will occur once each day of the week, specify the daily recurrence.
+        /// </summary>
+        [Input("dailyRecurrence")]
+        public Input<Inputs.DayDetailsArgs>? DailyRecurrence { get; set; }
+
+        /// <summary>
+        /// If the schedule will occur multiple times a day, specify the hourly recurrence.
+        /// </summary>
+        [Input("hourlyRecurrence")]
+        public Input<Inputs.HourDetailsArgs>? HourlyRecurrence { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -108,10 +120,10 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// Notification settings.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.SchedulePropertiesArgs> Properties { get; set; } = null!;
+        [Input("notificationSettings")]
+        public Input<Inputs.NotificationSettingsArgs>? NotificationSettings { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -124,6 +136,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         [Input("serviceFabricName", required: true)]
         public Input<string> ServiceFabricName { get; set; } = null!;
+
+        /// <summary>
+        /// The status of the schedule (i.e. Enabled, Disabled)
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -138,10 +156,34 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         }
 
         /// <summary>
+        /// The resource ID to which the schedule belongs
+        /// </summary>
+        [Input("targetResourceId")]
+        public Input<string>? TargetResourceId { get; set; }
+
+        /// <summary>
+        /// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        /// </summary>
+        [Input("taskType")]
+        public Input<string>? TaskType { get; set; }
+
+        /// <summary>
+        /// The time zone ID (e.g. Pacific Standard time).
+        /// </summary>
+        [Input("timeZoneId")]
+        public Input<string>? TimeZoneId { get; set; }
+
+        /// <summary>
         /// The name of the user profile.
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
+
+        /// <summary>
+        /// If the schedule will occur only some days of the week, specify the weekly recurrence.
+        /// </summary>
+        [Input("weeklyRecurrence")]
+        public Input<Inputs.WeekDetailsArgs>? WeeklyRecurrence { get; set; }
 
         public ServiceFabricScheduleArgs()
         {

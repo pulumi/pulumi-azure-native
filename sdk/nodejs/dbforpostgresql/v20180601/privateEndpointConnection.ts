@@ -43,7 +43,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.dbforpostgresql.v20180601.PrivateEndpointConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.dbforpostgresql.v20180601.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -72,9 +72,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
+            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -94,9 +96,13 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
 export interface PrivateEndpointConnectionArgs {
     readonly name: pulumi.Input<string>;
     /**
-     * Resource properties.
+     * Private endpoint which the connection belongs to.
      */
-    readonly properties?: pulumi.Input<inputs.dbforpostgresql.v20180601.PrivateEndpointConnectionProperties>;
+    readonly privateEndpoint?: pulumi.Input<inputs.dbforpostgresql.v20180601.PrivateEndpointProperty>;
+    /**
+     * Connection state of the private endpoint connection.
+     */
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.dbforpostgresql.v20180601.PrivateLinkServiceConnectionStateProperty>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

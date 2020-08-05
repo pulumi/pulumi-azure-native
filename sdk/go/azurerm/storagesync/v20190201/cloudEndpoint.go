@@ -84,12 +84,16 @@ func (CloudEndpointState) ElementType() reflect.Type {
 }
 
 type cloudEndpointArgs struct {
+	// Azure file share name
+	AzureFileShareName *string `pulumi:"azureFileShareName"`
 	// Name of Cloud Endpoint object.
 	Name string `pulumi:"name"`
-	// The parameters used to create the cloud endpoint.
-	Properties *CloudEndpointCreateParametersProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Storage Account Resource Id
+	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
+	// Storage Account Tenant Id
+	StorageAccountTenantId *string `pulumi:"storageAccountTenantId"`
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 	// Name of Sync Group resource.
@@ -98,12 +102,16 @@ type cloudEndpointArgs struct {
 
 // The set of arguments for constructing a CloudEndpoint resource.
 type CloudEndpointArgs struct {
+	// Azure file share name
+	AzureFileShareName pulumi.StringPtrInput
 	// Name of Cloud Endpoint object.
 	Name pulumi.StringInput
-	// The parameters used to create the cloud endpoint.
-	Properties CloudEndpointCreateParametersPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Storage Account Resource Id
+	StorageAccountResourceId pulumi.StringPtrInput
+	// Storage Account Tenant Id
+	StorageAccountTenantId pulumi.StringPtrInput
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName pulumi.StringInput
 	// Name of Sync Group resource.

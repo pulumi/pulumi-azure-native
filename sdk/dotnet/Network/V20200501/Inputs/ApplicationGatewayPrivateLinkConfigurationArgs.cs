@@ -21,17 +21,23 @@ namespace Pulumi.AzureRM.Network.V20200501.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("ipConfigurations")]
+        private InputList<Inputs.ApplicationGatewayPrivateLinkIpConfigurationArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// An array of application gateway private link ip configurations.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayPrivateLinkIpConfigurationArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.ApplicationGatewayPrivateLinkIpConfigurationArgs>());
+            set => _ipConfigurations = value;
+        }
+
         /// <summary>
         /// Name of the private link configuration that is unique within an Application Gateway.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Properties of the application gateway private link configuration.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayPrivateLinkConfigurationPropertiesArgs>? Properties { get; set; }
 
         public ApplicationGatewayPrivateLinkConfigurationArgs()
         {

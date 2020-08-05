@@ -114,10 +114,10 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// These are the properties for the user registered under a lab.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.UserPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -136,6 +136,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
 
         public UserArgs()
         {

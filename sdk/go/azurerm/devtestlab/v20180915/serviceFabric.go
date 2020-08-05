@@ -35,9 +35,6 @@ func NewServiceFabric(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -99,14 +96,16 @@ func (ServiceFabricState) ElementType() reflect.Type {
 }
 
 type serviceFabricArgs struct {
+	// The resource id of the environment under which the service fabric resource is present
+	EnvironmentId *string `pulumi:"environmentId"`
+	// The backing service fabric resource's id
+	ExternalServiceFabricId *string `pulumi:"externalServiceFabricId"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the service fabric.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties ServiceFabricProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
@@ -117,14 +116,16 @@ type serviceFabricArgs struct {
 
 // The set of arguments for constructing a ServiceFabric resource.
 type ServiceFabricArgs struct {
+	// The resource id of the environment under which the service fabric resource is present
+	EnvironmentId pulumi.StringPtrInput
+	// The backing service fabric resource's id
+	ExternalServiceFabricId pulumi.StringPtrInput
 	// The name of the lab.
 	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the service fabric.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties ServiceFabricPropertiesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.

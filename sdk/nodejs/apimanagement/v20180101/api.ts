@@ -43,7 +43,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * Api entity contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.ApiContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.ApiContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -65,16 +65,37 @@ export class Api extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.path === undefined) {
+                throw new Error("Missing required property 'path'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["apiRevision"] = args ? args.apiRevision : undefined;
+            inputs["apiRevisionDescription"] = args ? args.apiRevisionDescription : undefined;
+            inputs["apiType"] = args ? args.apiType : undefined;
+            inputs["apiVersion"] = args ? args.apiVersion : undefined;
+            inputs["apiVersionDescription"] = args ? args.apiVersionDescription : undefined;
+            inputs["apiVersionSet"] = args ? args.apiVersionSet : undefined;
+            inputs["apiVersionSetId"] = args ? args.apiVersionSetId : undefined;
+            inputs["authenticationSettings"] = args ? args.authenticationSettings : undefined;
+            inputs["contentFormat"] = args ? args.contentFormat : undefined;
+            inputs["contentValue"] = args ? args.contentValue : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["path"] = args ? args.path : undefined;
+            inputs["protocols"] = args ? args.protocols : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["serviceUrl"] = args ? args.serviceUrl : undefined;
+            inputs["soapApiType"] = args ? args.soapApiType : undefined;
+            inputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
+            inputs["wsdlSelector"] = args ? args.wsdlSelector : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,13 +114,65 @@ export class Api extends pulumi.CustomResource {
  */
 export interface ApiArgs {
     /**
+     * Describes the Revision of the Api. If no value is provided, default revision 1 is created
+     */
+    readonly apiRevision?: pulumi.Input<string>;
+    /**
+     * Description of the Api Revision.
+     */
+    readonly apiRevisionDescription?: pulumi.Input<string>;
+    /**
+     * Type of API.
+     */
+    readonly apiType?: pulumi.Input<string>;
+    /**
+     * Indicates the Version identifier of the API if the API is versioned
+     */
+    readonly apiVersion?: pulumi.Input<string>;
+    /**
+     * Description of the Api Version.
+     */
+    readonly apiVersionDescription?: pulumi.Input<string>;
+    /**
+     * An API Version Set contains the common configuration for a set of API Versions relating 
+     */
+    readonly apiVersionSet?: pulumi.Input<inputs.apimanagement.v20180101.ApiVersionSetContractDetails>;
+    /**
+     * A resource identifier for the related ApiVersionSet.
+     */
+    readonly apiVersionSetId?: pulumi.Input<string>;
+    /**
+     * Collection of authentication settings included into this API.
+     */
+    readonly authenticationSettings?: pulumi.Input<inputs.apimanagement.v20180101.AuthenticationSettingsContract>;
+    /**
+     * Format of the Content in which the API is getting imported.
+     */
+    readonly contentFormat?: pulumi.Input<string>;
+    /**
+     * Content value when Importing an API.
+     */
+    readonly contentValue?: pulumi.Input<string>;
+    /**
+     * Description of the API. May include HTML formatting tags.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * API name.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
      * API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Api entity create of update properties.
+     * Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
      */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20180101.ApiCreateOrUpdateProperties>;
+    readonly path: pulumi.Input<string>;
+    /**
+     * Describes on which protocols the operations in this API can be invoked.
+     */
+    readonly protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group.
      */
@@ -108,4 +181,22 @@ export interface ApiArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Absolute URL of the backend service implementing this API.
+     */
+    readonly serviceUrl?: pulumi.Input<string>;
+    /**
+     * Type of Api to create. 
+     *  * `http` creates a SOAP to REST API 
+     *  * `soap` creates a SOAP pass-through API .
+     */
+    readonly soapApiType?: pulumi.Input<string>;
+    /**
+     * Protocols over which API is made available.
+     */
+    readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.v20180101.SubscriptionKeyParameterNamesContract>;
+    /**
+     * Criteria to limit import of WSDL to a subset of the document.
+     */
+    readonly wsdlSelector?: pulumi.Input<inputs.apimanagement.v20180101.ApiCreateOrUpdatePropertiesProperties>;
 }

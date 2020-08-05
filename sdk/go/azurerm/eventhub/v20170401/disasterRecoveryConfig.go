@@ -81,24 +81,28 @@ func (DisasterRecoveryConfigState) ElementType() reflect.Type {
 }
 
 type disasterRecoveryConfigArgs struct {
+	// Alternate name specified when alias and namespace names are same.
+	AlternateName *string `pulumi:"alternateName"`
 	// The Disaster Recovery configuration name
 	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties *ArmDisasterRecoveryProperties `pulumi:"properties"`
+	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+	PartnerNamespace *string `pulumi:"partnerNamespace"`
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DisasterRecoveryConfig resource.
 type DisasterRecoveryConfigArgs struct {
+	// Alternate name specified when alias and namespace names are same.
+	AlternateName pulumi.StringPtrInput
 	// The Disaster Recovery configuration name
 	Name pulumi.StringInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties ArmDisasterRecoveryPropertiesPtrInput
+	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+	PartnerNamespace pulumi.StringPtrInput
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
 }

@@ -27,17 +27,89 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("inboundNatPools")]
+        private InputList<Inputs.SubResourceArgs>? _inboundNatPools;
+
+        /// <summary>
+        /// Read only. Inbound pools URIs that use this frontend IP.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> InboundNatPools
+        {
+            get => _inboundNatPools ?? (_inboundNatPools = new InputList<Inputs.SubResourceArgs>());
+            set => _inboundNatPools = value;
+        }
+
+        [Input("inboundNatRules")]
+        private InputList<Inputs.SubResourceArgs>? _inboundNatRules;
+
+        /// <summary>
+        /// Read only. Inbound rules URIs that use this frontend IP.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> InboundNatRules
+        {
+            get => _inboundNatRules ?? (_inboundNatRules = new InputList<Inputs.SubResourceArgs>());
+            set => _inboundNatRules = value;
+        }
+
+        [Input("loadBalancingRules")]
+        private InputList<Inputs.SubResourceArgs>? _loadBalancingRules;
+
+        /// <summary>
+        /// Gets load balancing rules URIs that use this frontend IP.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> LoadBalancingRules
+        {
+            get => _loadBalancingRules ?? (_loadBalancingRules = new InputList<Inputs.SubResourceArgs>());
+            set => _loadBalancingRules = value;
+        }
+
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("outboundNatRules")]
+        private InputList<Inputs.SubResourceArgs>? _outboundNatRules;
+
         /// <summary>
-        /// Properties of Frontend IP Configuration of the load balancer.
+        /// Read only. Outbound rules URIs that use this frontend IP.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FrontendIPConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.SubResourceArgs> OutboundNatRules
+        {
+            get => _outboundNatRules ?? (_outboundNatRules = new InputList<Inputs.SubResourceArgs>());
+            set => _outboundNatRules = value;
+        }
+
+        /// <summary>
+        /// The private IP address of the IP configuration.
+        /// </summary>
+        [Input("privateIPAddress")]
+        public Input<string>? PrivateIPAddress { get; set; }
+
+        /// <summary>
+        /// The Private IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+        /// </summary>
+        [Input("privateIPAllocationMethod")]
+        public Input<string>? PrivateIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The reference of the Public IP resource.
+        /// </summary>
+        [Input("publicIPAddress")]
+        public Input<Inputs.PublicIPAddressArgs>? PublicIPAddress { get; set; }
+
+        /// <summary>
+        /// The reference of the subnet resource.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         public FrontendIPConfigurationArgs()
         {

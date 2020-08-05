@@ -41,23 +41,22 @@ class CapacityDetails(pulumi.CustomResource):
     """
     The type of the PowerBI Dedicated resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, administration=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents an instance of a Dedicated Capacity resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] administration: A collection of Dedicated capacity administrators
         :param pulumi.Input[str] location: Location of the PowerBI Dedicated resource.
         :param pulumi.Input[str] name: The name of the Dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
-        :param pulumi.Input[dict] properties: Properties of the provision operation request.
         :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.
         :param pulumi.Input[dict] sku: The SKU of the PowerBI Dedicated resource.
         :param pulumi.Input[dict] tags: Key-value pairs of additional resource provisioning properties.
 
-        The **properties** object supports the following:
+        The **administration** object supports the following:
 
-          * `administration` (`pulumi.Input[dict]`) - A collection of Dedicated capacity administrators
-            * `members` (`pulumi.Input[list]`) - An array of administrator user identities.
+          * `members` (`pulumi.Input[list]`) - An array of administrator user identities.
 
         The **sku** object supports the following:
 
@@ -81,13 +80,13 @@ class CapacityDetails(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['administration'] = administration
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -95,6 +94,7 @@ class CapacityDetails(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(CapacityDetails, __self__).__init__(
             'azurerm:powerbidedicated/v20171001:CapacityDetails',

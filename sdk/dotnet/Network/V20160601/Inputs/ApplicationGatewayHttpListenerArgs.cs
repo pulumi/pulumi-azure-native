@@ -22,6 +22,24 @@ namespace Pulumi.AzureRM.Network.V20160601.Inputs
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// Frontend IP configuration resource of application gateway 
+        /// </summary>
+        [Input("frontendIPConfiguration")]
+        public Input<Inputs.SubResourceArgs>? FrontendIPConfiguration { get; set; }
+
+        /// <summary>
+        /// Frontend port resource of application gateway 
+        /// </summary>
+        [Input("frontendPort")]
+        public Input<Inputs.SubResourceArgs>? FrontendPort { get; set; }
+
+        /// <summary>
+        /// Host name of http listener 
+        /// </summary>
+        [Input("hostName")]
+        public Input<string>? HostName { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
@@ -34,10 +52,28 @@ namespace Pulumi.AzureRM.Network.V20160601.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of Http listener of application gateway
+        /// Protocol
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayHttpListenerPropertiesFormatArgs>? Properties { get; set; }
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// Provisioning state of the http listener resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// RequireServerNameIndication of http listener 
+        /// </summary>
+        [Input("requireServerNameIndication")]
+        public Input<bool>? RequireServerNameIndication { get; set; }
+
+        /// <summary>
+        /// Ssl certificate resource of application gateway 
+        /// </summary>
+        [Input("sslCertificate")]
+        public Input<Inputs.SubResourceArgs>? SslCertificate { get; set; }
 
         public ApplicationGatewayHttpListenerArgs()
         {

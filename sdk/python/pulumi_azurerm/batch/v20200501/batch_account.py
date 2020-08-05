@@ -84,43 +84,45 @@ class BatchAccount(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_storage=None, encryption=None, identity=None, key_vault_reference=None, location=None, name=None, pool_allocation_mode=None, public_network_access=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Contains information about an Azure Batch account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] auto_storage: The properties related to the auto-storage account.
+        :param pulumi.Input[dict] encryption: Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
         :param pulumi.Input[dict] identity: The identity of the Batch account.
+        :param pulumi.Input[dict] key_vault_reference: A reference to the Azure key vault associated with the Batch account.
         :param pulumi.Input[str] location: The region in which to create the account.
         :param pulumi.Input[str] name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-        :param pulumi.Input[dict] properties: The properties of the Batch account.
+        :param pulumi.Input[str] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+        :param pulumi.Input[str] public_network_access: If not specified, the default value is 'enabled'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         :param pulumi.Input[dict] tags: The user-specified tags associated with the account.
+
+        The **auto_storage** object supports the following:
+
+          * `storage_account_id` (`pulumi.Input[str]`) - The resource ID of the storage account to be used for auto-storage account.
+
+        The **encryption** object supports the following:
+
+          * `key_source` (`pulumi.Input[str]`) - Type of the key source.
+          * `key_vault_properties` (`pulumi.Input[dict]`) - Additional details when using Microsoft.KeyVault
+            * `key_identifier` (`pulumi.Input[str]`) - Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
+              
+               The Batch Account has a System Assigned identity
+               The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
+               The KeyVault has soft-delete and purge protection enabled
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of identity used for the Batch account.
 
-        The **properties** object supports the following:
+        The **key_vault_reference** object supports the following:
 
-          * `auto_storage` (`pulumi.Input[dict]`) - The properties related to the auto-storage account.
-            * `storage_account_id` (`pulumi.Input[str]`) - The resource ID of the storage account to be used for auto-storage account.
-
-          * `encryption` (`pulumi.Input[dict]`) - Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
-            * `key_source` (`pulumi.Input[str]`) - Type of the key source.
-            * `key_vault_properties` (`pulumi.Input[dict]`) - Additional details when using Microsoft.KeyVault
-              * `key_identifier` (`pulumi.Input[str]`) - Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053. To be usable the following prerequisites must be met:
-                
-                 The Batch Account has a System Assigned identity
-                 The account identity has been granted Key/Get, Key/Unwrap and Key/Wrap permissions
-                 The KeyVault has soft-delete and purge protection enabled
-
-          * `key_vault_reference` (`pulumi.Input[dict]`) - A reference to the Azure key vault associated with the Batch account.
-            * `id` (`pulumi.Input[str]`) - The resource ID of the Azure key vault associated with the Batch account.
-            * `url` (`pulumi.Input[str]`) - The URL of the Azure key vault associated with the Batch account.
-
-          * `pool_allocation_mode` (`pulumi.Input[str]`) - The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-          * `public_network_access` (`pulumi.Input[str]`) - If not specified, the default value is 'enabled'.
+          * `id` (`pulumi.Input[str]`) - The resource ID of the Azure key vault associated with the Batch account.
+          * `url` (`pulumi.Input[str]`) - The URL of the Azure key vault associated with the Batch account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -139,18 +141,23 @@ class BatchAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auto_storage'] = auto_storage
+            __props__['encryption'] = encryption
             __props__['identity'] = identity
+            __props__['key_vault_reference'] = key_vault_reference
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['pool_allocation_mode'] = pool_allocation_mode
+            __props__['public_network_access'] = public_network_access
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(BatchAccount, __self__).__init__(
             'azurerm:batch/v20200501:BatchAccount',

@@ -87,30 +87,40 @@ func (WebAppVnetConnectionSlotState) ElementType() reflect.Type {
 }
 
 type webAppVnetConnectionSlotArgs struct {
+	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+	// Point-To-Site VPN connection.
+	CertBlob *string `pulumi:"certBlob"`
+	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+	DnsServers *string `pulumi:"dnsServers"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Name of an existing Virtual Network.
 	Name string `pulumi:"name"`
-	// VnetInfo resource specific properties
-	Properties *VnetInfoProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
 	Slot string `pulumi:"slot"`
+	// The Virtual Network's resource ID.
+	VnetResourceId *string `pulumi:"vnetResourceId"`
 }
 
 // The set of arguments for constructing a WebAppVnetConnectionSlot resource.
 type WebAppVnetConnectionSlotArgs struct {
+	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+	// Point-To-Site VPN connection.
+	CertBlob pulumi.StringPtrInput
+	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+	DnsServers pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Name of an existing Virtual Network.
 	Name pulumi.StringInput
-	// VnetInfo resource specific properties
-	Properties VnetInfoPropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
 	Slot pulumi.StringInput
+	// The Virtual Network's resource ID.
+	VnetResourceId pulumi.StringPtrInput
 }
 
 func (WebAppVnetConnectionSlotArgs) ElementType() reflect.Type {

@@ -47,7 +47,7 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     /**
      * Security Solution data
      */
-    public readonly properties!: pulumi.Output<outputs.security.v20190801.IoTSecuritySolutionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20190801.IoTSecuritySolutionPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -70,17 +70,32 @@ export class IotSecuritySolution extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as IotSecuritySolutionArgs | undefined;
+            if (!args || args.displayName === undefined) {
+                throw new Error("Missing required property 'displayName'");
+            }
+            if (!args || args.iotHubs === undefined) {
+                throw new Error("Missing required property 'iotHubs'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["disabledDataSources"] = args ? args.disabledDataSources : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["export"] = args ? args.export : undefined;
+            inputs["iotHubs"] = args ? args.iotHubs : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["recommendationsConfiguration"] = args ? args.recommendationsConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["unmaskedIpLoggingStatus"] = args ? args.unmaskedIpLoggingStatus : undefined;
+            inputs["userDefinedResources"] = args ? args.userDefinedResources : undefined;
+            inputs["workspace"] = args ? args.workspace : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,6 +114,22 @@ export class IotSecuritySolution extends pulumi.CustomResource {
  */
 export interface IotSecuritySolutionArgs {
     /**
+     * Disabled data sources. Disabling these data sources compromises the system.
+     */
+    readonly disabledDataSources?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Resource display name.
+     */
+    readonly displayName: pulumi.Input<string>;
+    /**
+     * List of additional options for exporting to workspace data.
+     */
+    readonly export?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * IoT Hub resource IDs
+     */
+    readonly iotHubs: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -107,15 +138,31 @@ export interface IotSecuritySolutionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Security Solution data
+     * List of the configuration status for each recommendation type.
      */
-    readonly properties?: pulumi.Input<inputs.security.v20190801.IoTSecuritySolutionProperties>;
+    readonly recommendationsConfiguration?: pulumi.Input<inputs.security.v20190801.RecommendationConfigurationList>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Status of the IoT Security solution.
+     */
+    readonly status?: pulumi.Input<string>;
+    /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Unmasked IP address logging status
+     */
+    readonly unmaskedIpLoggingStatus?: pulumi.Input<string>;
+    /**
+     * Properties of the IoT Security solution's user defined resources.
+     */
+    readonly userDefinedResources?: pulumi.Input<inputs.security.v20190801.UserDefinedResourcesProperties>;
+    /**
+     * Workspace resource ID
+     */
+    readonly workspace?: pulumi.Input<string>;
 }

@@ -121,69 +121,53 @@ class SignalR(pulumi.CustomResource):
     """
     The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cors=None, features=None, host_name_prefix=None, kind=None, location=None, name=None, network_ac_ls=None, resource_group_name=None, sku=None, tags=None, upstream=None, __props__=None, __name__=None, __opts__=None):
         """
         A class represent a SignalR service resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] cors: Cross-Origin Resource Sharing (CORS) settings.
+        :param pulumi.Input[list] features: List of SignalR featureFlags. e.g. ServiceMode.
+               
+               FeatureFlags that are not included in the parameters for the update operation will not be modified.
+               And the response will only include featureFlags that are explicitly set. 
+               When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+               But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        :param pulumi.Input[str] host_name_prefix: Prefix for the hostName of the SignalR service. Retained for future use.
+               The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
         :param pulumi.Input[str] kind: The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         :param pulumi.Input[str] location: The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
         :param pulumi.Input[str] name: The name of the SignalR resource.
-        :param pulumi.Input[dict] properties: Settings used to provision or configure the resource
+        :param pulumi.Input[dict] network_ac_ls: Network ACLs
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[dict] sku: The billing information of the resource.(e.g. Free, Standard)
         :param pulumi.Input[dict] tags: Tags of the service which is a list of key value pairs that describe the resource.
+        :param pulumi.Input[dict] upstream: Upstream settings when the Azure SignalR is in server-less mode.
 
-        The **properties** object supports the following:
+        The **cors** object supports the following:
 
-          * `cors` (`pulumi.Input[dict]`) - Cross-Origin Resource Sharing (CORS) settings.
-            * `allowed_origins` (`pulumi.Input[list]`) - Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+          * `allowed_origins` (`pulumi.Input[list]`) - Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
 
-          * `features` (`pulumi.Input[list]`) - List of SignalR featureFlags. e.g. ServiceMode.
-            
-            FeatureFlags that are not included in the parameters for the update operation will not be modified.
-            And the response will only include featureFlags that are explicitly set. 
-            When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
-            But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-            * `flag` (`pulumi.Input[str]`) - FeatureFlags is the supported features of Azure SignalR service.
-              - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-              - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-            * `properties` (`pulumi.Input[dict]`) - Optional properties related to this feature.
-            * `value` (`pulumi.Input[str]`) - Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+        The **features** object supports the following:
 
-          * `host_name_prefix` (`pulumi.Input[str]`) - Prefix for the hostName of the SignalR service. Retained for future use.
-            The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-          * `network_ac_ls` (`pulumi.Input[dict]`) - Network ACLs
-            * `default_action` (`pulumi.Input[str]`) - Default action when no other rule matches
-            * `private_endpoints` (`pulumi.Input[list]`) - ACLs for requests from private endpoints
-              * `allow` (`pulumi.Input[list]`) - Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-              * `deny` (`pulumi.Input[list]`) - Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-              * `name` (`pulumi.Input[str]`) - Name of the private endpoint connection
+          * `flag` (`pulumi.Input[str]`) - FeatureFlags is the supported features of Azure SignalR service.
+            - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
+            - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+          * `properties` (`pulumi.Input[dict]`) - Optional properties related to this feature.
+          * `value` (`pulumi.Input[str]`) - Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
 
-            * `public_network` (`pulumi.Input[dict]`) - ACL for requests from public network
-              * `allow` (`pulumi.Input[list]`) - Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-              * `deny` (`pulumi.Input[list]`) - Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        The **network_ac_ls** object supports the following:
 
-          * `upstream` (`pulumi.Input[dict]`) - Upstream settings when the Azure SignalR is in server-less mode.
-            * `templates` (`pulumi.Input[list]`) - Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
-              * `category_pattern` (`pulumi.Input[str]`) - Gets or sets the matching pattern for category names. If not set, it matches any category.
-                There are 3 kind of patterns supported:
-                    1. "*", it to matches any category name
-                    2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-                    3. The single category name, for example, "connections", it matches the category "connections"
-              * `event_pattern` (`pulumi.Input[str]`) - Gets or sets the matching pattern for event names. If not set, it matches any event.
-                There are 3 kind of patterns supported:
-                    1. "*", it to matches any event name
-                    2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-                    3. The single event name, for example, "connect", it matches "connect"
-              * `hub_pattern` (`pulumi.Input[str]`) - Gets or sets the matching pattern for hub names. If not set, it matches any hub.
-                There are 3 kind of patterns supported:
-                    1. "*", it to matches any hub name
-                    2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-                    3. The single hub name, for example, "hub1", it matches "hub1"
-              * `url_template` (`pulumi.Input[str]`) - Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
-                For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
+          * `default_action` (`pulumi.Input[str]`) - Default action when no other rule matches
+          * `private_endpoints` (`pulumi.Input[list]`) - ACLs for requests from private endpoints
+            * `allow` (`pulumi.Input[list]`) - Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+            * `deny` (`pulumi.Input[list]`) - Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+            * `name` (`pulumi.Input[str]`) - Name of the private endpoint connection
+
+          * `public_network` (`pulumi.Input[dict]`) - ACL for requests from public network
+            * `allow` (`pulumi.Input[list]`) - Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+            * `deny` (`pulumi.Input[list]`) - Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
 
         The **sku** object supports the following:
 
@@ -200,6 +184,27 @@ class SignalR(pulumi.CustomResource):
           * `tier` (`pulumi.Input[str]`) - Optional tier of this particular SKU. 'Standard' or 'Free'. 
             
             `Basic` is deprecated, use `Standard` instead.
+
+        The **upstream** object supports the following:
+
+          * `templates` (`pulumi.Input[list]`) - Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+            * `category_pattern` (`pulumi.Input[str]`) - Gets or sets the matching pattern for category names. If not set, it matches any category.
+              There are 3 kind of patterns supported:
+                  1. "*", it to matches any category name
+                  2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
+                  3. The single category name, for example, "connections", it matches the category "connections"
+            * `event_pattern` (`pulumi.Input[str]`) - Gets or sets the matching pattern for event names. If not set, it matches any event.
+              There are 3 kind of patterns supported:
+                  1. "*", it to matches any event name
+                  2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
+                  3. The single event name, for example, "connect", it matches "connect"
+            * `hub_pattern` (`pulumi.Input[str]`) - Gets or sets the matching pattern for hub names. If not set, it matches any hub.
+              There are 3 kind of patterns supported:
+                  1. "*", it to matches any hub name
+                  2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
+                  3. The single hub name, for example, "hub1", it matches "hub1"
+            * `url_template` (`pulumi.Input[str]`) - Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
+              For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -218,17 +223,22 @@ class SignalR(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['cors'] = cors
+            __props__['features'] = features
+            __props__['host_name_prefix'] = host_name_prefix
             __props__['kind'] = kind
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['network_ac_ls'] = network_ac_ls
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['upstream'] = upstream
+            __props__['properties'] = None
             __props__['type'] = None
         super(SignalR, __self__).__init__(
             'azurerm:signalrservice/v20200501:SignalR',

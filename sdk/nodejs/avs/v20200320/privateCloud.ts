@@ -47,7 +47,7 @@ export class PrivateCloud extends pulumi.CustomResource {
     /**
      * The properties of a private cloud resource
      */
-    public readonly properties!: pulumi.Output<outputs.avs.v20200320.PrivateCloudPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.avs.v20200320.PrivateCloudPropertiesResponse>;
     /**
      * The private cloud SKU
      */
@@ -77,11 +77,14 @@ export class PrivateCloud extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
+            if (!args || args.managementCluster === undefined) {
+                throw new Error("Missing required property 'managementCluster'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.networkBlock === undefined) {
+                throw new Error("Missing required property 'networkBlock'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -89,12 +92,19 @@ export class PrivateCloud extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["circuit"] = args ? args.circuit : undefined;
+            inputs["identitySources"] = args ? args.identitySources : undefined;
+            inputs["internet"] = args ? args.internet : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managementCluster"] = args ? args.managementCluster : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkBlock"] = args ? args.networkBlock : undefined;
+            inputs["nsxtPassword"] = args ? args.nsxtPassword : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -113,17 +123,37 @@ export class PrivateCloud extends pulumi.CustomResource {
  */
 export interface PrivateCloudArgs {
     /**
+     * An ExpressRoute Circuit
+     */
+    readonly circuit?: pulumi.Input<inputs.avs.v20200320.Circuit>;
+    /**
+     * vCenter Single Sign On Identity Sources
+     */
+    readonly identitySources?: pulumi.Input<pulumi.Input<inputs.avs.v20200320.IdentitySource>[]>;
+    /**
+     * Connectivity to internet is enabled or disabled
+     */
+    readonly internet?: pulumi.Input<string>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The default cluster used for management
+     */
+    readonly managementCluster: pulumi.Input<inputs.avs.v20200320.ManagementCluster>;
     /**
      * Name of the private cloud
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of a private cloud resource
+     * The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
      */
-    readonly properties: pulumi.Input<inputs.avs.v20200320.PrivateCloudProperties>;
+    readonly networkBlock: pulumi.Input<string>;
+    /**
+     * Optionally, set the NSX-T Manager password when the private cloud is created
+     */
+    readonly nsxtPassword?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,4 +166,8 @@ export interface PrivateCloudArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Optionally, set the vCenter admin password when the private cloud is created
+     */
+    readonly vcenterPassword?: pulumi.Input<string>;
 }

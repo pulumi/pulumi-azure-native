@@ -47,7 +47,7 @@ export class BandwidthSetting extends pulumi.CustomResource {
     /**
      * The properties of the bandwidth setting.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20170601.BandwidthRateSettingPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.BandwidthRateSettingPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -72,17 +72,18 @@ export class BandwidthSetting extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.schedules === undefined) {
+                throw new Error("Missing required property 'schedules'");
             }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["schedules"] = args ? args.schedules : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -113,11 +114,11 @@ export interface BandwidthSettingArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the bandwidth setting.
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.v20170601.BandwidthRateSettingProperties>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The schedules.
+     */
+    readonly schedules: pulumi.Input<pulumi.Input<inputs.storsimple.v20170601.BandwidthSchedule>[]>;
 }

@@ -43,7 +43,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**
      * Properties required to the Create Or Update Alias(Disaster Recovery configurations)
      */
-    public readonly properties!: pulumi.Output<outputs.eventhub.v20170401.ArmDisasterRecoveryResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20170401.ArmDisasterRecoveryResponseProperties>;
     /**
      * Resource type.
      */
@@ -71,10 +71,12 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["alternateName"] = args ? args.alternateName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["partnerNamespace"] = args ? args.partnerNamespace : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,6 +95,10 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
  */
 export interface DisasterRecoveryConfigArgs {
     /**
+     * Alternate name specified when alias and namespace names are same.
+     */
+    readonly alternateName?: pulumi.Input<string>;
+    /**
      * The Disaster Recovery configuration name
      */
     readonly name: pulumi.Input<string>;
@@ -101,9 +107,9 @@ export interface DisasterRecoveryConfigArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+     * ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
      */
-    readonly properties?: pulumi.Input<inputs.eventhub.v20170401.ArmDisasterRecoveryProperties>;
+    readonly partnerNamespace?: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */

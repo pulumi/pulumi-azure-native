@@ -90,6 +90,18 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class IntegrationAccountMapArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The content.
+        /// </summary>
+        [Input("content")]
+        public Input<string>? Content { get; set; }
+
+        /// <summary>
+        /// The content type.
+        /// </summary>
+        [Input("contentType")]
+        public Input<string>? ContentType { get; set; }
+
+        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -102,16 +114,34 @@ namespace Pulumi.AzureRM.Logic.V20190501
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The map type.
+        /// </summary>
+        [Input("mapType", required: true)]
+        public Input<string> MapType { get; set; } = null!;
+
+        [Input("metadata")]
+        private InputMap<object>? _metadata;
+
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        public InputMap<object> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<object>());
+            set => _metadata = value;
+        }
+
+        /// <summary>
         /// The integration account map name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The integration account map properties.
+        /// The parameters schema of integration account map.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.IntegrationAccountMapPropertiesArgs> Properties { get; set; } = null!;
+        [Input("parametersSchema")]
+        public Input<Inputs.IntegrationAccountMapPropertiesPropertiesArgs>? ParametersSchema { get; set; }
 
         /// <summary>
         /// The resource group name.

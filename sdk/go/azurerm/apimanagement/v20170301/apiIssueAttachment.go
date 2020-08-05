@@ -28,6 +28,12 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
+	if args == nil || args.Content == nil {
+		return nil, errors.New("missing required argument 'Content'")
+	}
+	if args == nil || args.ContentFormat == nil {
+		return nil, errors.New("missing required argument 'ContentFormat'")
+	}
 	if args == nil || args.IssueId == nil {
 		return nil, errors.New("missing required argument 'IssueId'")
 	}
@@ -39,6 +45,9 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.Title == nil {
+		return nil, errors.New("missing required argument 'Title'")
 	}
 	if args == nil {
 		args = &ApiIssueAttachmentArgs{}
@@ -89,32 +98,40 @@ func (ApiIssueAttachmentState) ElementType() reflect.Type {
 type apiIssueAttachmentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
+	// An HTTP link or Base64-encoded binary data.
+	Content string `pulumi:"content"`
+	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+	ContentFormat string `pulumi:"contentFormat"`
 	// Issue identifier. Must be unique in the current API Management service instance.
 	IssueId string `pulumi:"issueId"`
 	// Attachment identifier within an Issue. Must be unique in the current Issue.
 	Name string `pulumi:"name"`
-	// Properties of the Issue Attachment.
-	Properties *IssueAttachmentContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Filename by which the binary data will be saved.
+	Title string `pulumi:"title"`
 }
 
 // The set of arguments for constructing a ApiIssueAttachment resource.
 type ApiIssueAttachmentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId pulumi.StringInput
+	// An HTTP link or Base64-encoded binary data.
+	Content pulumi.StringInput
+	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+	ContentFormat pulumi.StringInput
 	// Issue identifier. Must be unique in the current API Management service instance.
 	IssueId pulumi.StringInput
 	// Attachment identifier within an Issue. Must be unique in the current Issue.
 	Name pulumi.StringInput
-	// Properties of the Issue Attachment.
-	Properties IssueAttachmentContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Filename by which the binary data will be saved.
+	Title pulumi.StringInput
 }
 
 func (ApiIssueAttachmentArgs) ElementType() reflect.Type {

@@ -59,25 +59,21 @@ class DedicatedHost(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, host_group_name=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_replace_on_failure=None, host_group_name=None, license_type=None, location=None, name=None, platform_fault_domain=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Specifies information about the Dedicated host.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_replace_on_failure: Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
         :param pulumi.Input[str] host_group_name: The name of the dedicated host group.
+        :param pulumi.Input[str] license_type: Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the dedicated host .
-        :param pulumi.Input[dict] properties: Properties of the dedicated host.
+        :param pulumi.Input[float] platform_fault_domain: Fault domain of the dedicated host within a dedicated host group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] sku: SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
         :param pulumi.Input[dict] tags: Resource tags
-
-        The **properties** object supports the following:
-
-          * `auto_replace_on_failure` (`pulumi.Input[bool]`) - Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
-          * `license_type` (`pulumi.Input[str]`) - Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
-          * `platform_fault_domain` (`pulumi.Input[float]`) - Fault domain of the dedicated host within a dedicated host group.
 
         The **sku** object supports the following:
 
@@ -102,16 +98,18 @@ class DedicatedHost(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auto_replace_on_failure'] = auto_replace_on_failure
             if host_group_name is None:
                 raise TypeError("Missing required property 'host_group_name'")
             __props__['host_group_name'] = host_group_name
+            __props__['license_type'] = license_type
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['platform_fault_domain'] = platform_fault_domain
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -119,6 +117,7 @@ class DedicatedHost(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(DedicatedHost, __self__).__init__(
             'azurerm:compute/v20191201:DedicatedHost',

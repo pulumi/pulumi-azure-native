@@ -47,7 +47,7 @@ export class User extends pulumi.CustomResource {
     /**
      * These are the properties for the user registered under a lab.
      */
-    public readonly properties!: pulumi.Output<outputs.labservices.v20181015.UserPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.labservices.v20181015.UserPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -86,9 +86,11 @@ export class User extends pulumi.CustomResource {
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -123,9 +125,9 @@ export interface UserArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * These are the properties for the user registered under a lab.
+     * The provisioning status of the resource.
      */
-    readonly properties?: pulumi.Input<inputs.labservices.v20181015.UserProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -134,4 +136,8 @@ export interface UserArgs {
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
 }

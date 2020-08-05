@@ -32,20 +32,16 @@ class ServerCommunicationLink(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, server_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, partner_server=None, resource_group_name=None, server_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Server communication link.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the server communication link.
-        :param pulumi.Input[dict] properties: The properties of resource.
+        :param pulumi.Input[str] partner_server: The name of the partner server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
-
-        The **properties** object supports the following:
-
-          * `partner_server` (`pulumi.Input[str]`) - The name of the partner server.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,7 +63,9 @@ class ServerCommunicationLink(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if partner_server is None:
+                raise TypeError("Missing required property 'partner_server'")
+            __props__['partner_server'] = partner_server
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -76,6 +74,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
             __props__['server_name'] = server_name
             __props__['kind'] = None
             __props__['location'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ServerCommunicationLink, __self__).__init__(
             'azurerm:sql/v20140401:ServerCommunicationLink',

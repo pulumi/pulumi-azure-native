@@ -47,7 +47,7 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * Properties of the pipeline.
      */
-    public readonly properties!: pulumi.Output<outputs.datafactory.v20180601.PipelineResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datafactory.v20180601.PipelineResponse>;
     /**
      * The resource type.
      */
@@ -72,17 +72,22 @@ export class Pipeline extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["activities"] = args ? args.activities : undefined;
+            inputs["annotations"] = args ? args.annotations : undefined;
+            inputs["concurrency"] = args ? args.concurrency : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["factoryName"] = args ? args.factoryName : undefined;
+            inputs["folder"] = args ? args.folder : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["runDimensions"] = args ? args.runDimensions : undefined;
+            inputs["variables"] = args ? args.variables : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,19 +106,47 @@ export class Pipeline extends pulumi.CustomResource {
  */
 export interface PipelineArgs {
     /**
+     * List of activities in pipeline.
+     */
+    readonly activities?: pulumi.Input<pulumi.Input<inputs.datafactory.v20180601.Activity>[]>;
+    /**
+     * List of tags that can be used for describing the Pipeline.
+     */
+    readonly annotations?: pulumi.Input<pulumi.Input<{[key: string]: any}>[]>;
+    /**
+     * The max number of concurrent runs for the pipeline.
+     */
+    readonly concurrency?: pulumi.Input<number>;
+    /**
+     * The description of the pipeline.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The factory name.
      */
     readonly factoryName: pulumi.Input<string>;
+    /**
+     * The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+     */
+    readonly folder?: pulumi.Input<inputs.datafactory.v20180601.PipelineProperties>;
     /**
      * The pipeline name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the pipeline.
+     * List of parameters for pipeline.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.PipelineDefinition>;
+    readonly parameters?: pulumi.Input<inputs.datafactory.v20180601.ParameterDefinitionSpecification>;
     /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Dimensions emitted by Pipeline.
+     */
+    readonly runDimensions?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+    /**
+     * List of variables for pipeline.
+     */
+    readonly variables?: pulumi.Input<inputs.datafactory.v20180601.VariableDefinitionSpecification>;
 }

@@ -51,7 +51,7 @@ export class Watcher extends pulumi.CustomResource {
     /**
      * Gets or sets the watcher properties.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.WatcherPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.WatcherPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -84,12 +84,17 @@ export class Watcher extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["executionFrequencyInSeconds"] = args ? args.executionFrequencyInSeconds : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scriptName"] = args ? args.scriptName : undefined;
+            inputs["scriptParameters"] = args ? args.scriptParameters : undefined;
+            inputs["scriptRunOn"] = args ? args.scriptRunOn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,9 +117,17 @@ export interface WatcherArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
+     * Gets or sets the description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * Gets or sets the etag of the resource.
      */
     readonly etag?: pulumi.Input<string>;
+    /**
+     * Gets or sets the frequency at which the watcher is invoked.
+     */
+    readonly executionFrequencyInSeconds?: pulumi.Input<number>;
     /**
      * The Azure Region where the resource lives
      */
@@ -124,13 +137,21 @@ export interface WatcherArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Gets or sets the watcher properties.
-     */
-    readonly properties?: pulumi.Input<inputs.automation.v20151031.WatcherProperties>;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+     */
+    readonly scriptName?: pulumi.Input<string>;
+    /**
+     * Gets or sets the parameters of the script.
+     */
+    readonly scriptParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Gets or sets the name of the hybrid worker group the watcher will run on.
+     */
+    readonly scriptRunOn?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

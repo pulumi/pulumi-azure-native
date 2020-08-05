@@ -94,10 +94,10 @@ type mediaServiceArgs struct {
 	Location *string `pulumi:"location"`
 	// Name of the Media Service.
 	Name string `pulumi:"name"`
-	// The additional properties of a Media Service resource.
-	Properties *MediaServiceProperties `pulumi:"properties"`
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The storage accounts for this resource.
+	StorageAccounts []StorageAccount `pulumi:"storageAccounts"`
 	// Tags to help categorize the resource in the Azure portal.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -108,10 +108,10 @@ type MediaServiceArgs struct {
 	Location pulumi.StringPtrInput
 	// Name of the Media Service.
 	Name pulumi.StringInput
-	// The additional properties of a Media Service resource.
-	Properties MediaServicePropertiesPtrInput
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The storage accounts for this resource.
+	StorageAccounts StorageAccountArrayInput
 	// Tags to help categorize the resource in the Azure portal.
 	Tags pulumi.StringMapInput
 }

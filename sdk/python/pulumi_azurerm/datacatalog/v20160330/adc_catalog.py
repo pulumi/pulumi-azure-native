@@ -43,30 +43,28 @@ class ADCCatalog(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admins=None, enable_automatic_unit_adjustment=None, etag=None, location=None, name=None, resource_group_name=None, sku=None, successfully_provisioned=None, tags=None, units=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
         Azure Data Catalog.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] admins: Azure data catalog admin list.
+        :param pulumi.Input[bool] enable_automatic_unit_adjustment: Automatic unit adjustment enabled or not.
         :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the data catalog in the specified subscription and resource group.
-        :param pulumi.Input[dict] properties: Azure Data Catalog properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] sku: Azure data catalog SKU.
+        :param pulumi.Input[bool] successfully_provisioned: Azure data catalog provision status.
         :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[float] units: Azure data catalog units.
+        :param pulumi.Input[list] users: Azure data catalog user list.
 
-        The **properties** object supports the following:
+        The **admins** object supports the following:
 
-          * `admins` (`pulumi.Input[list]`) - Azure data catalog admin list.
-            * `object_id` (`pulumi.Input[str]`) - Object Id for the user
-            * `upn` (`pulumi.Input[str]`) - UPN of the user.
-
-          * `enable_automatic_unit_adjustment` (`pulumi.Input[bool]`) - Automatic unit adjustment enabled or not.
-          * `sku` (`pulumi.Input[str]`) - Azure data catalog SKU.
-          * `successfully_provisioned` (`pulumi.Input[bool]`) - Azure data catalog provision status.
-          * `units` (`pulumi.Input[float]`) - Azure data catalog units.
-          * `users` (`pulumi.Input[list]`) - Azure data catalog user list.
+          * `object_id` (`pulumi.Input[str]`) - Object Id for the user
+          * `upn` (`pulumi.Input[str]`) - UPN of the user.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,16 +83,22 @@ class ADCCatalog(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['admins'] = admins
+            __props__['enable_automatic_unit_adjustment'] = enable_automatic_unit_adjustment
             __props__['etag'] = etag
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku'] = sku
+            __props__['successfully_provisioned'] = successfully_provisioned
             __props__['tags'] = tags
+            __props__['units'] = units
+            __props__['users'] = users
+            __props__['properties'] = None
             __props__['type'] = None
         super(ADCCatalog, __self__).__init__(
             'azurerm:datacatalog/v20160330:ADCCatalog',

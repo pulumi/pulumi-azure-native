@@ -51,7 +51,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
     /**
      * PublicIpAddress properties
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20160601.PublicIPAddressPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160601.PublicIPAddressPropertiesFormatResponse>;
     /**
      * Resource tags
      */
@@ -80,13 +80,20 @@ export class PublicIPAddress extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dnsSettings"] = args ? args.dnsSettings : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
+            inputs["ipAddress"] = args ? args.ipAddress : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
+            inputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
+            inputs["publicIPAllocationMethod"] = args ? args.publicIPAllocationMethod : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +112,10 @@ export class PublicIPAddress extends pulumi.CustomResource {
  */
 export interface PublicIPAddressArgs {
     /**
+     * Gets or sets FQDN of the DNS record associated with the public IP address
+     */
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20160601.PublicIPAddressDnsSettings>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: pulumi.Input<string>;
@@ -112,6 +123,11 @@ export interface PublicIPAddressArgs {
      * Resource Id
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * Gets or sets the idle timeout of the public IP address
+     */
+    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    readonly ipAddress?: pulumi.Input<string>;
     /**
      * Resource location
      */
@@ -121,13 +137,25 @@ export interface PublicIPAddressArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * PublicIpAddress properties
+     * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
      */
-    readonly properties?: pulumi.Input<inputs.network.v20160601.PublicIPAddressPropertiesFormat>;
+    readonly provisioningState?: pulumi.Input<string>;
+    /**
+     * Gets or sets PublicIP address version (IPv4/IPv6)
+     */
+    readonly publicIPAddressVersion?: pulumi.Input<string>;
+    /**
+     * Gets or sets PublicIP allocation method (Static/Dynamic)
+     */
+    readonly publicIPAllocationMethod?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets resource guid property of the PublicIP resource
+     */
+    readonly resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags
      */

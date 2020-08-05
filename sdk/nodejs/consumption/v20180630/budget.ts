@@ -47,7 +47,7 @@ export class Budget extends pulumi.CustomResource {
     /**
      * The properties of the budget.
      */
-    public readonly properties!: pulumi.Output<outputs.consumption.v20180630.BudgetPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.consumption.v20180630.BudgetPropertiesResponse>;
     /**
      * Resource type.
      */
@@ -66,12 +66,30 @@ export class Budget extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as BudgetArgs | undefined;
+            if (!args || args.amount === undefined) {
+                throw new Error("Missing required property 'amount'");
+            }
+            if (!args || args.category === undefined) {
+                throw new Error("Missing required property 'category'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.timeGrain === undefined) {
+                throw new Error("Missing required property 'timeGrain'");
+            }
+            if (!args || args.timePeriod === undefined) {
+                throw new Error("Missing required property 'timePeriod'");
+            }
+            inputs["amount"] = args ? args.amount : undefined;
+            inputs["category"] = args ? args.category : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["filters"] = args ? args.filters : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notifications"] = args ? args.notifications : undefined;
+            inputs["timeGrain"] = args ? args.timeGrain : undefined;
+            inputs["timePeriod"] = args ? args.timePeriod : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -90,15 +108,35 @@ export class Budget extends pulumi.CustomResource {
  */
 export interface BudgetArgs {
     /**
+     * The total amount of cost to track with the budget
+     */
+    readonly amount: pulumi.Input<number>;
+    /**
+     * The category of the budget, whether the budget tracks cost or usage.
+     */
+    readonly category: pulumi.Input<string>;
+    /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     readonly eTag?: pulumi.Input<string>;
+    /**
+     * May be used to filter budgets by resource group, resource, or meter.
+     */
+    readonly filters?: pulumi.Input<inputs.consumption.v20180630.Filters>;
     /**
      * Budget Name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the budget.
+     * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */
-    readonly properties?: pulumi.Input<inputs.consumption.v20180630.BudgetProperties>;
+    readonly notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.consumption.v20180630.Notification>}>;
+    /**
+     * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+     */
+    readonly timeGrain: pulumi.Input<string>;
+    /**
+     * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+     */
+    readonly timePeriod: pulumi.Input<inputs.consumption.v20180630.BudgetTimePeriod>;
 }

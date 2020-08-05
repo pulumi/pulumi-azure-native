@@ -47,7 +47,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * Properties of the environment.
      */
-    public readonly properties!: pulumi.Output<outputs.timeseriesinsights.v20171115.EnvironmentResourcePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.timeseriesinsights.v20171115.EnvironmentResourcePropertiesResponse>;
     /**
      * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
      */
@@ -74,14 +74,14 @@ export class Environment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as EnvironmentArgs | undefined;
+            if (!args || args.dataRetentionTime === undefined) {
+                throw new Error("Missing required property 'dataRetentionTime'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -89,12 +89,15 @@ export class Environment extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["dataRetentionTime"] = args ? args.dataRetentionTime : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["partitionKeyProperties"] = args ? args.partitionKeyProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["storageLimitExceededBehavior"] = args ? args.storageLimitExceededBehavior : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -113,6 +116,10 @@ export class Environment extends pulumi.CustomResource {
  */
 export interface EnvironmentArgs {
     /**
+     * ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+     */
+    readonly dataRetentionTime: pulumi.Input<string>;
+    /**
      * The location of the resource.
      */
     readonly location: pulumi.Input<string>;
@@ -121,9 +128,9 @@ export interface EnvironmentArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties used to create an environment.
+     * The list of partition keys according to which the data in the environment will be ordered.
      */
-    readonly properties: pulumi.Input<inputs.timeseriesinsights.v20171115.EnvironmentCreationProperties>;
+    readonly partitionKeyProperties?: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20171115.PartitionKeyProperty>[]>;
     /**
      * Name of an Azure Resource group.
      */
@@ -132,6 +139,10 @@ export interface EnvironmentArgs {
      * The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
      */
     readonly sku: pulumi.Input<inputs.timeseriesinsights.v20171115.Sku>;
+    /**
+     * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+     */
+    readonly storageLimitExceededBehavior?: pulumi.Input<string>;
     /**
      * Key-value pairs of additional properties for the resource.
      */

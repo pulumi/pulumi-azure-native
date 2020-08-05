@@ -43,7 +43,7 @@ export class Link extends pulumi.CustomResource {
     /**
      * The definition of Link.
      */
-    public readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.LinkDefinitionResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.LinkDefinitionResponse>;
     /**
      * Resource type.
      */
@@ -68,13 +68,30 @@ export class Link extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.participantPropertyReferences === undefined) {
+                throw new Error("Missing required property 'participantPropertyReferences'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.sourceInteractionType === undefined) {
+                throw new Error("Missing required property 'sourceInteractionType'");
+            }
+            if (!args || args.targetProfileType === undefined) {
+                throw new Error("Missing required property 'targetProfileType'");
+            }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
+            inputs["mappings"] = args ? args.mappings : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["operationType"] = args ? args.operationType : undefined;
+            inputs["participantPropertyReferences"] = args ? args.participantPropertyReferences : undefined;
+            inputs["referenceOnly"] = args ? args.referenceOnly : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sourceInteractionType"] = args ? args.sourceInteractionType : undefined;
+            inputs["targetProfileType"] = args ? args.targetProfileType : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,19 +110,47 @@ export class Link extends pulumi.CustomResource {
  */
 export interface LinkArgs {
     /**
+     * Localized descriptions for the Link.
+     */
+    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Localized display name for the Link.
+     */
+    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The name of the hub.
      */
     readonly hubName: pulumi.Input<string>;
+    /**
+     * The set of properties mappings between the source and target Types.
+     */
+    readonly mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.TypePropertiesMapping>[]>;
     /**
      * The name of the link.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The definition of Link.
+     * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    readonly properties?: pulumi.Input<inputs.customerinsights.v20170101.LinkDefinition>;
+    readonly operationType?: pulumi.Input<string>;
+    /**
+     * The properties that represent the participating profile.
+     */
+    readonly participantPropertyReferences: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.ParticipantPropertyReference>[]>;
+    /**
+     * Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+     */
+    readonly referenceOnly?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the source Interaction Type.
+     */
+    readonly sourceInteractionType: pulumi.Input<string>;
+    /**
+     * Name of the target Profile Type.
+     */
+    readonly targetProfileType: pulumi.Input<string>;
 }

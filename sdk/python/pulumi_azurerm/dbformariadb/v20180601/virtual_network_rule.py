@@ -25,21 +25,17 @@ class VirtualNetworkRule(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, server_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, ignore_missing_vnet_service_endpoint=None, name=None, resource_group_name=None, server_name=None, virtual_network_subnet_id=None, __props__=None, __name__=None, __opts__=None):
         """
         A virtual network rule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
         :param pulumi.Input[str] name: The name of the virtual network rule.
-        :param pulumi.Input[dict] properties: Resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
-
-        The **properties** object supports the following:
-
-          * `ignore_missing_vnet_service_endpoint` (`pulumi.Input[bool]`) - Create firewall rule before the virtual network has vnet service endpoint enabled.
-          * `virtual_network_subnet_id` (`pulumi.Input[str]`) - The ARM resource id of the virtual network subnet.
+        :param pulumi.Input[str] virtual_network_subnet_id: The ARM resource id of the virtual network subnet.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -58,16 +54,20 @@ class VirtualNetworkRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['ignore_missing_vnet_service_endpoint'] = ignore_missing_vnet_service_endpoint
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if server_name is None:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
+            if virtual_network_subnet_id is None:
+                raise TypeError("Missing required property 'virtual_network_subnet_id'")
+            __props__['virtual_network_subnet_id'] = virtual_network_subnet_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualNetworkRule, __self__).__init__(
             'azurerm:dbformariadb/v20180601:VirtualNetworkRule',

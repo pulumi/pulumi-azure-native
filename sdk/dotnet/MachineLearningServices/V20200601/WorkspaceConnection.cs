@@ -78,22 +78,40 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
     public sealed class WorkspaceConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authorization type of the workspace connection.
+        /// </summary>
+        [Input("authType")]
+        public Input<string>? AuthType { get; set; }
+
+        /// <summary>
+        /// Category of the workspace connection.
+        /// </summary>
+        [Input("category")]
+        public Input<string>? Category { get; set; }
+
+        /// <summary>
         /// Friendly name of the workspace connection
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of workspace connection.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.WorkspaceConnectionPropsArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group in which workspace is located.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Target of the workspace connection.
+        /// </summary>
+        [Input("target")]
+        public Input<string>? Target { get; set; }
+
+        /// <summary>
+        /// Value details of the workspace connection.
+        /// </summary>
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         /// <summary>
         /// Name of Azure Machine Learning workspace.

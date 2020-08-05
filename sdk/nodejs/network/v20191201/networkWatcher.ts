@@ -51,7 +51,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
     /**
      * Properties of the network watcher.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20191201.NetworkWatcherPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191201.NetworkWatcherPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -83,10 +83,10 @@ export class NetworkWatcher extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -116,10 +116,6 @@ export interface NetworkWatcherArgs {
      * The name of the network watcher.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the network watcher.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20191201.NetworkWatcherPropertiesFormat>;
     /**
      * The name of the resource group.
      */

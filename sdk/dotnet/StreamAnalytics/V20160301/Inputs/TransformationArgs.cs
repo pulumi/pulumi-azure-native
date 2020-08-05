@@ -22,10 +22,16 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The properties that are associated with a transformation. Required on PUT (CreateOrReplace) requests.
+        /// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.TransformationPropertiesArgs>? Properties { get; set; }
+        [Input("query")]
+        public Input<string>? Query { get; set; }
+
+        /// <summary>
+        /// Specifies the number of streaming units that the streaming job uses.
+        /// </summary>
+        [Input("streamingUnits")]
+        public Input<int>? StreamingUnits { get; set; }
 
         public TransformationArgs()
         {

@@ -78,10 +78,52 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class SubnetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The address prefix for the subnet.
+        /// </summary>
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
+
+        [Input("addressPrefixes")]
+        private InputList<string>? _addressPrefixes;
+
+        /// <summary>
+        /// List of address prefixes for the subnet.
+        /// </summary>
+        public InputList<string> AddressPrefixes
+        {
+            get => _addressPrefixes ?? (_addressPrefixes = new InputList<string>());
+            set => _addressPrefixes = value;
+        }
+
+        [Input("delegations")]
+        private InputList<Inputs.DelegationArgs>? _delegations;
+
+        /// <summary>
+        /// An array of references to the delegations on the subnet.
+        /// </summary>
+        public InputList<Inputs.DelegationArgs> Delegations
+        {
+            get => _delegations ?? (_delegations = new InputList<Inputs.DelegationArgs>());
+            set => _delegations = value;
+        }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ipAllocations")]
+        private InputList<Inputs.SubResourceArgs>? _ipAllocations;
+
+        /// <summary>
+        /// Array of IpAllocation which reference this subnet.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> IpAllocations
+        {
+            get => _ipAllocations ?? (_ipAllocations = new InputList<Inputs.SubResourceArgs>());
+            set => _ipAllocations = value;
+        }
 
         /// <summary>
         /// The name of the subnet.
@@ -90,16 +132,64 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the subnet.
+        /// Nat gateway associated with this subnet.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SubnetPropertiesFormatArgs>? Properties { get; set; }
+        [Input("natGateway")]
+        public Input<Inputs.SubResourceArgs>? NatGateway { get; set; }
+
+        /// <summary>
+        /// The reference to the NetworkSecurityGroup resource.
+        /// </summary>
+        [Input("networkSecurityGroup")]
+        public Input<Inputs.NetworkSecurityGroupArgs>? NetworkSecurityGroup { get; set; }
+
+        /// <summary>
+        /// Enable or Disable apply network policies on private end point in the subnet.
+        /// </summary>
+        [Input("privateEndpointNetworkPolicies")]
+        public Input<string>? PrivateEndpointNetworkPolicies { get; set; }
+
+        /// <summary>
+        /// Enable or Disable apply network policies on private link service in the subnet.
+        /// </summary>
+        [Input("privateLinkServiceNetworkPolicies")]
+        public Input<string>? PrivateLinkServiceNetworkPolicies { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The reference to the RouteTable resource.
+        /// </summary>
+        [Input("routeTable")]
+        public Input<Inputs.RouteTableArgs>? RouteTable { get; set; }
+
+        [Input("serviceEndpointPolicies")]
+        private InputList<Inputs.ServiceEndpointPolicyArgs>? _serviceEndpointPolicies;
+
+        /// <summary>
+        /// An array of service endpoint policies.
+        /// </summary>
+        public InputList<Inputs.ServiceEndpointPolicyArgs> ServiceEndpointPolicies
+        {
+            get => _serviceEndpointPolicies ?? (_serviceEndpointPolicies = new InputList<Inputs.ServiceEndpointPolicyArgs>());
+            set => _serviceEndpointPolicies = value;
+        }
+
+        [Input("serviceEndpoints")]
+        private InputList<Inputs.ServiceEndpointPropertiesFormatArgs>? _serviceEndpoints;
+
+        /// <summary>
+        /// An array of service endpoints.
+        /// </summary>
+        public InputList<Inputs.ServiceEndpointPropertiesFormatArgs> ServiceEndpoints
+        {
+            get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<Inputs.ServiceEndpointPropertiesFormatArgs>());
+            set => _serviceEndpoints = value;
+        }
 
         /// <summary>
         /// The name of the virtual network.

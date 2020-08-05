@@ -114,12 +114,6 @@ namespace Pulumi.AzureRM.Network.V20180901
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Private DNS zone.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateZonePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]

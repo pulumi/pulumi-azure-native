@@ -120,10 +120,10 @@ namespace Pulumi.AzureRM.Network.V20190701
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the network watcher.
+        /// The provisioning state of the network watcher resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkWatcherPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

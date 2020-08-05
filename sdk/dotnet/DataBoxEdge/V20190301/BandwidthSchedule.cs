@@ -77,6 +77,18 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
 
     public sealed class BandwidthScheduleArgs : Pulumi.ResourceArgs
     {
+        [Input("days", required: true)]
+        private InputList<string>? _days;
+
+        /// <summary>
+        /// The days of the week when this schedule is applicable.
+        /// </summary>
+        public InputList<string> Days
+        {
+            get => _days ?? (_days = new InputList<string>());
+            set => _days = value;
+        }
+
         /// <summary>
         /// The device name.
         /// </summary>
@@ -90,16 +102,28 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the bandwidth schedule.
+        /// The bandwidth rate in Mbps.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.BandwidthSchedulePropertiesArgs> Properties { get; set; } = null!;
+        [Input("rateInMbps", required: true)]
+        public Input<int> RateInMbps { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The start time of the schedule in UTC.
+        /// </summary>
+        [Input("start", required: true)]
+        public Input<string> Start { get; set; } = null!;
+
+        /// <summary>
+        /// The stop time of the schedule in UTC.
+        /// </summary>
+        [Input("stop", required: true)]
+        public Input<string> Stop { get; set; } = null!;
 
         public BandwidthScheduleArgs()
         {

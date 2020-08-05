@@ -47,7 +47,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**
      * SharedAccessAuthorizationRule properties.
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20150801.SharedAccessAuthorizationRulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20150801.SharedAccessAuthorizationRulePropertiesResponse>;
     /**
      * Resource type
      */
@@ -75,15 +75,19 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.rights === undefined) {
+                throw new Error("Missing required property 'rights'");
+            }
             if (!args || args.topicName === undefined) {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rights"] = args ? args.rights : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,13 +118,13 @@ export interface TopicAuthorizationRuleArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * SharedAccessAuthorizationRule properties.
-     */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20150801.SharedAccessAuthorizationRuleProperties>;
-    /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The rights associated with the rule.
+     */
+    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The topic name.
      */

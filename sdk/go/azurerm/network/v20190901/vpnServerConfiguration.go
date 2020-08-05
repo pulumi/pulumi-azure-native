@@ -96,34 +96,70 @@ func (VpnServerConfigurationState) ElementType() reflect.Type {
 }
 
 type vpnServerConfigurationArgs struct {
+	// The set of aad vpn authentication parameters.
+	AadAuthenticationParameters *AadAuthenticationParameters `pulumi:"aadAuthenticationParameters"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the VpnServerConfiguration being created or updated.
 	Name string `pulumi:"name"`
-	// Properties of the P2SVpnServer configuration.
-	Properties *VpnServerConfigurationProperties `pulumi:"properties"`
+	// Radius client root certificate of VpnServerConfiguration.
+	RadiusClientRootCertificates []VpnServerConfigRadiusClientRootCertificate `pulumi:"radiusClientRootCertificates"`
+	// The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+	RadiusServerAddress *string `pulumi:"radiusServerAddress"`
+	// Radius Server root certificate of VpnServerConfiguration.
+	RadiusServerRootCertificates []VpnServerConfigRadiusServerRootCertificate `pulumi:"radiusServerRootCertificates"`
+	// The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+	RadiusServerSecret *string `pulumi:"radiusServerSecret"`
 	// The resource group name of the VpnServerConfiguration.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// VPN authentication types for the VpnServerConfiguration.
+	VpnAuthenticationTypes []string `pulumi:"vpnAuthenticationTypes"`
+	// VpnClientIpsecPolicies for VpnServerConfiguration.
+	VpnClientIpsecPolicies []IpsecPolicy `pulumi:"vpnClientIpsecPolicies"`
+	// VPN client revoked certificate of VpnServerConfiguration.
+	VpnClientRevokedCertificates []VpnServerConfigVpnClientRevokedCertificate `pulumi:"vpnClientRevokedCertificates"`
+	// VPN client root certificate of VpnServerConfiguration.
+	VpnClientRootCertificates []VpnServerConfigVpnClientRootCertificate `pulumi:"vpnClientRootCertificates"`
+	// VPN protocols for the VpnServerConfiguration.
+	VpnProtocols []string `pulumi:"vpnProtocols"`
 }
 
 // The set of arguments for constructing a VpnServerConfiguration resource.
 type VpnServerConfigurationArgs struct {
+	// The set of aad vpn authentication parameters.
+	AadAuthenticationParameters AadAuthenticationParametersPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the VpnServerConfiguration being created or updated.
 	Name pulumi.StringInput
-	// Properties of the P2SVpnServer configuration.
-	Properties VpnServerConfigurationPropertiesPtrInput
+	// Radius client root certificate of VpnServerConfiguration.
+	RadiusClientRootCertificates VpnServerConfigRadiusClientRootCertificateArrayInput
+	// The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+	RadiusServerAddress pulumi.StringPtrInput
+	// Radius Server root certificate of VpnServerConfiguration.
+	RadiusServerRootCertificates VpnServerConfigRadiusServerRootCertificateArrayInput
+	// The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+	RadiusServerSecret pulumi.StringPtrInput
 	// The resource group name of the VpnServerConfiguration.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// VPN authentication types for the VpnServerConfiguration.
+	VpnAuthenticationTypes pulumi.StringArrayInput
+	// VpnClientIpsecPolicies for VpnServerConfiguration.
+	VpnClientIpsecPolicies IpsecPolicyArrayInput
+	// VPN client revoked certificate of VpnServerConfiguration.
+	VpnClientRevokedCertificates VpnServerConfigVpnClientRevokedCertificateArrayInput
+	// VPN client root certificate of VpnServerConfiguration.
+	VpnClientRootCertificates VpnServerConfigVpnClientRootCertificateArrayInput
+	// VPN protocols for the VpnServerConfiguration.
+	VpnProtocols pulumi.StringArrayInput
 }
 
 func (VpnServerConfigurationArgs) ElementType() reflect.Type {

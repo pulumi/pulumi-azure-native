@@ -93,6 +93,25 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class SiteVNETConnectionSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+        ///             Point-To-Site VPN connection.
+        /// </summary>
+        [Input("certBlob")]
+        public Input<string>? CertBlob { get; set; }
+
+        /// <summary>
+        /// The client certificate thumbprint
+        /// </summary>
+        [Input("certThumbprint")]
+        public Input<string>? CertThumbprint { get; set; }
+
+        /// <summary>
+        /// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+        /// </summary>
+        [Input("dnsServers")]
+        public Input<string>? DnsServers { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
@@ -116,14 +135,29 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.VnetInfoPropertiesArgs>? Properties { get; set; }
-
         /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Flag to determine if a resync is required
+        /// </summary>
+        [Input("resyncRequired")]
+        public Input<bool>? ResyncRequired { get; set; }
+
+        [Input("routes")]
+        private InputList<Inputs.VnetRouteArgs>? _routes;
+
+        /// <summary>
+        /// The routes that this virtual network connection uses.
+        /// </summary>
+        public InputList<Inputs.VnetRouteArgs> Routes
+        {
+            get => _routes ?? (_routes = new InputList<Inputs.VnetRouteArgs>());
+            set => _routes = value;
+        }
 
         /// <summary>
         /// The name of the slot for this web app.
@@ -148,6 +182,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// The vnet resource id
+        /// </summary>
+        [Input("vnetResourceId")]
+        public Input<string>? VnetResourceId { get; set; }
 
         public SiteVNETConnectionSlotArgs()
         {

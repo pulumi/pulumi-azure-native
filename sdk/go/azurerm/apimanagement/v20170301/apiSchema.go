@@ -28,6 +28,9 @@ func NewApiSchema(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
+	if args == nil || args.ContentType == nil {
+		return nil, errors.New("missing required argument 'ContentType'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -86,28 +89,32 @@ func (ApiSchemaState) ElementType() reflect.Type {
 type apiSchemaArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
+	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+	ContentType string `pulumi:"contentType"`
 	// Schema identifier within an API. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// Properties of the Schema.
-	Properties *SchemaContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Json escaped string defining the document representing the Schema.
+	Value *string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a ApiSchema resource.
 type ApiSchemaArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId pulumi.StringInput
+	// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+	ContentType pulumi.StringInput
 	// Schema identifier within an API. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// Properties of the Schema.
-	Properties SchemaContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Json escaped string defining the document representing the Schema.
+	Value pulumi.StringPtrInput
 }
 
 func (ApiSchemaArgs) ElementType() reflect.Type {

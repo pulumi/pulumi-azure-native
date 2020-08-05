@@ -43,7 +43,7 @@ export class ApiRelease extends pulumi.CustomResource {
     /**
      * ApiRelease entity contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.ApiReleaseContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.ApiReleaseContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -76,9 +76,10 @@ export class ApiRelease extends pulumi.CustomResource {
             }
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notes"] = args ? args.notes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,7 +98,7 @@ export class ApiRelease extends pulumi.CustomResource {
  */
 export interface ApiReleaseArgs {
     /**
-     * API identifier. Must be unique in the current API Management service instance.
+     * Identifier of the API the release belongs to.
      */
     readonly apiId: pulumi.Input<string>;
     /**
@@ -105,9 +106,9 @@ export interface ApiReleaseArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * ApiRelease entity contract properties.
+     * Release Notes
      */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20190101.ApiReleaseContractProperties>;
+    readonly notes?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

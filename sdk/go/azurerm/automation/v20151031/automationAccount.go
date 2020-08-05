@@ -100,10 +100,10 @@ type automationAccountArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the automation account.
 	Name string `pulumi:"name"`
-	// Gets or sets account create or update properties.
-	Properties *AutomationAccountCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets account SKU.
+	Sku *Sku `pulumi:"sku"`
 	// Gets or sets the tags attached to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -114,10 +114,10 @@ type AutomationAccountArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the automation account.
 	Name pulumi.StringInput
-	// Gets or sets account create or update properties.
-	Properties AutomationAccountCreateOrUpdatePropertiesPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets account SKU.
+	Sku SkuPtrInput
 	// Gets or sets the tags attached to the resource.
 	Tags pulumi.StringMapInput
 }

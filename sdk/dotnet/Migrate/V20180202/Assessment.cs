@@ -84,6 +84,48 @@ namespace Pulumi.AzureRM.Migrate.V20180202
     public sealed class AssessmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// AHUB discount on windows virtual machines.
+        /// </summary>
+        [Input("azureHybridUseBenefit", required: true)]
+        public Input<string> AzureHybridUseBenefit { get; set; } = null!;
+
+        /// <summary>
+        /// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+        /// </summary>
+        [Input("azureLocation", required: true)]
+        public Input<string> AzureLocation { get; set; } = null!;
+
+        /// <summary>
+        /// Offer code according to which cost estimation is done.
+        /// </summary>
+        [Input("azureOfferCode", required: true)]
+        public Input<string> AzureOfferCode { get; set; } = null!;
+
+        /// <summary>
+        /// Pricing tier for Size evaluation.
+        /// </summary>
+        [Input("azurePricingTier", required: true)]
+        public Input<string> AzurePricingTier { get; set; } = null!;
+
+        /// <summary>
+        /// Storage Redundancy type offered by Azure.
+        /// </summary>
+        [Input("azureStorageRedundancy", required: true)]
+        public Input<string> AzureStorageRedundancy { get; set; } = null!;
+
+        /// <summary>
+        /// Currency to report prices in.
+        /// </summary>
+        [Input("currency", required: true)]
+        public Input<string> Currency { get; set; } = null!;
+
+        /// <summary>
+        /// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+        /// </summary>
+        [Input("discountPercentage", required: true)]
+        public Input<double> DiscountPercentage { get; set; } = null!;
+
+        /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
         [Input("eTag")]
@@ -102,22 +144,46 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Percentile of performance data used to recommend Azure size.
+        /// </summary>
+        [Input("percentile", required: true)]
+        public Input<string> Percentile { get; set; } = null!;
+
+        /// <summary>
         /// Name of the Azure Migrate project.
         /// </summary>
         [Input("projectName", required: true)]
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the assessment.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AssessmentPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// Name of the Azure Resource Group that project is part of.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+        /// </summary>
+        [Input("scalingFactor", required: true)]
+        public Input<double> ScalingFactor { get; set; } = null!;
+
+        /// <summary>
+        /// Assessment sizing criterion.
+        /// </summary>
+        [Input("sizingCriterion", required: true)]
+        public Input<string> SizingCriterion { get; set; } = null!;
+
+        /// <summary>
+        /// User configurable setting that describes the status of the assessment.
+        /// </summary>
+        [Input("stage", required: true)]
+        public Input<string> Stage { get; set; } = null!;
+
+        /// <summary>
+        /// Time range of performance data used to recommend a size.
+        /// </summary>
+        [Input("timeRange", required: true)]
+        public Input<string> TimeRange { get; set; } = null!;
 
         public AssessmentArgs()
         {

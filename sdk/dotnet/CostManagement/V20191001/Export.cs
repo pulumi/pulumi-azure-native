@@ -84,16 +84,34 @@ namespace Pulumi.AzureRM.CostManagement.V20191001
     public sealed class ExportArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Has definition for the export.
+        /// </summary>
+        [Input("definition", required: true)]
+        public Input<Inputs.QueryDefinitionArgs> Definition { get; set; } = null!;
+
+        /// <summary>
+        /// Has delivery information for the export.
+        /// </summary>
+        [Input("deliveryInfo", required: true)]
+        public Input<Inputs.ExportDeliveryInfoArgs> DeliveryInfo { get; set; } = null!;
+
+        /// <summary>
+        /// The format of the export being delivered.
+        /// </summary>
+        [Input("format")]
+        public Input<string>? Format { get; set; }
+
+        /// <summary>
         /// Export Name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the export.
+        /// Has schedule information for the export.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ExportPropertiesArgs>? Properties { get; set; }
+        [Input("schedule")]
+        public Input<Inputs.ExportScheduleArgs>? Schedule { get; set; }
 
         /// <summary>
         /// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners, 'providers/Microsoft.CostManagement/ExternalSubscriptions/{externalSubscriptionId}' for linked account and 'providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountId}' for consolidated account

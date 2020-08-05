@@ -99,14 +99,16 @@ func (VirtualWANState) ElementType() reflect.Type {
 }
 
 type virtualWANArgs struct {
+	// Vpn encryption to be disabled or not.
+	DisableVpnEncryption *bool `pulumi:"disableVpnEncryption"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The name of the VirtualWAN being created or updated.
 	Name string `pulumi:"name"`
-	// Parameters for VirtualWAN
-	Properties *VirtualWanProperties `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name of the VirtualWan.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -115,14 +117,16 @@ type virtualWANArgs struct {
 
 // The set of arguments for constructing a VirtualWAN resource.
 type VirtualWANArgs struct {
+	// Vpn encryption to be disabled or not.
+	DisableVpnEncryption pulumi.BoolPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
 	// The name of the VirtualWAN being created or updated.
 	Name pulumi.StringInput
-	// Parameters for VirtualWAN
-	Properties VirtualWanPropertiesPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The resource group name of the VirtualWan.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

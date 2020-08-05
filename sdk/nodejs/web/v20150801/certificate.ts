@@ -48,7 +48,7 @@ export class Certificate extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.web.v20150801.CertificateResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.CertificateResponseProperties>;
     /**
      * Resource tags
      */
@@ -80,14 +80,29 @@ export class Certificate extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["cerBlob"] = args ? args.cerBlob : undefined;
+            inputs["expirationDate"] = args ? args.expirationDate : undefined;
+            inputs["friendlyName"] = args ? args.friendlyName : undefined;
+            inputs["hostNames"] = args ? args.hostNames : undefined;
+            inputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["issueDate"] = args ? args.issueDate : undefined;
+            inputs["issuer"] = args ? args.issuer : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["password"] = args ? args.password : undefined;
+            inputs["pfxBlob"] = args ? args.pfxBlob : undefined;
+            inputs["publicKeyHash"] = args ? args.publicKeyHash : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["selfLink"] = args ? args.selfLink : undefined;
+            inputs["siteName"] = args ? args.siteName : undefined;
+            inputs["subjectName"] = args ? args.subjectName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["thumbprint"] = args ? args.thumbprint : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["valid"] = args ? args.valid : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,9 +120,37 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateArgs {
     /**
+     * Raw bytes of .cer file
+     */
+    readonly cerBlob?: pulumi.Input<string>;
+    /**
+     * Certificate expiration date
+     */
+    readonly expirationDate?: pulumi.Input<string>;
+    /**
+     * Friendly name of the certificate
+     */
+    readonly friendlyName?: pulumi.Input<string>;
+    /**
+     * Host names the certificate applies to
+     */
+    readonly hostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specification for the hosting environment (App Service Environment) to use for the certificate
+     */
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20150801.HostingEnvironmentProfile>;
+    /**
      * Resource Id
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * Certificate issue Date
+     */
+    readonly issueDate?: pulumi.Input<string>;
+    /**
+     * Certificate issuer
+     */
+    readonly issuer?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
@@ -120,17 +163,48 @@ export interface CertificateArgs {
      * Resource Name
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.v20150801.CertificateProperties>;
+    /**
+     * Certificate password
+     */
+    readonly password?: pulumi.Input<string>;
+    /**
+     * Pfx blob
+     */
+    readonly pfxBlob?: pulumi.Input<string>;
+    /**
+     * Public key hash
+     */
+    readonly publicKeyHash?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Self link
+     */
+    readonly selfLink?: pulumi.Input<string>;
+    /**
+     * App name
+     */
+    readonly siteName?: pulumi.Input<string>;
+    /**
+     * Subject name of the certificate
+     */
+    readonly subjectName?: pulumi.Input<string>;
+    /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Certificate thumbprint
+     */
+    readonly thumbprint?: pulumi.Input<string>;
+    /**
      * Resource type
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * Is the certificate valid?
+     */
+    readonly valid?: pulumi.Input<boolean>;
 }

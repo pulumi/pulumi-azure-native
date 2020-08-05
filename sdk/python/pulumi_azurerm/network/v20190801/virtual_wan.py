@@ -43,26 +43,22 @@ class VirtualWan(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, id=None, location=None, name=None, office365_local_breakout_category=None, provisioning_state=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         VirtualWAN Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_branch_to_branch_traffic: True if branch to branch traffic is allowed.
+        :param pulumi.Input[bool] allow_vnet_to_vnet_traffic: True if Vnet to Vnet traffic is allowed.
+        :param pulumi.Input[bool] disable_vpn_encryption: Vpn encryption to be disabled or not.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VirtualWAN being created or updated.
-        :param pulumi.Input[dict] properties: Properties of the virtual WAN.
+        :param pulumi.Input[str] office365_local_breakout_category: The office local breakout category.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the virtual WAN resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `allow_branch_to_branch_traffic` (`pulumi.Input[bool]`) - True if branch to branch traffic is allowed.
-          * `allow_vnet_to_vnet_traffic` (`pulumi.Input[bool]`) - True if Vnet to Vnet traffic is allowed.
-          * `disable_vpn_encryption` (`pulumi.Input[bool]`) - Vpn encryption to be disabled or not.
-          * `office365_local_breakout_category` (`pulumi.Input[str]`) - The office local breakout category.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the virtual WAN resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,6 +77,9 @@ class VirtualWan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['allow_branch_to_branch_traffic'] = allow_branch_to_branch_traffic
+            __props__['allow_vnet_to_vnet_traffic'] = allow_vnet_to_vnet_traffic
+            __props__['disable_vpn_encryption'] = disable_vpn_encryption
             __props__['id'] = id
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -88,12 +87,14 @@ class VirtualWan(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['office365_local_breakout_category'] = office365_local_breakout_category
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualWan, __self__).__init__(
             'azurerm:network/v20190801:VirtualWan',

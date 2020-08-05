@@ -16,6 +16,18 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
     public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The DNS settings in network interface.
+        /// </summary>
+        [Input("dnsSettings")]
+        public Input<Inputs.NetworkInterfaceDnsSettingsArgs>? DnsSettings { get; set; }
+
+        /// <summary>
+        /// Indicates whether IP forwarding is enabled on this network interface.
+        /// </summary>
+        [Input("enableIPForwarding")]
+        public Input<bool>? EnableIPForwarding { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -27,6 +39,18 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("ipConfigurations")]
+        private InputList<Inputs.NetworkInterfaceIPConfigurationArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// A list of IPConfigurations of the network interface.
+        /// </summary>
+        public InputList<Inputs.NetworkInterfaceIPConfigurationArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.NetworkInterfaceIPConfigurationArgs>());
+            set => _ipConfigurations = value;
+        }
+
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -34,10 +58,34 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// NetworkInterface properties. 
+        /// The MAC address of the network interface.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkInterfacePropertiesFormatArgs>? Properties { get; set; }
+        [Input("macAddress")]
+        public Input<string>? MacAddress { get; set; }
+
+        /// <summary>
+        /// The reference of the NetworkSecurityGroup resource.
+        /// </summary>
+        [Input("networkSecurityGroup")]
+        public Input<Inputs.NetworkSecurityGroupArgs>? NetworkSecurityGroup { get; set; }
+
+        /// <summary>
+        /// Gets whether this is a primary network interface on a virtual machine.
+        /// </summary>
+        [Input("primary")]
+        public Input<bool>? Primary { get; set; }
+
+        /// <summary>
+        /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The resource GUID property of the network interface resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -50,6 +98,12 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The reference of a virtual machine.
+        /// </summary>
+        [Input("virtualMachine")]
+        public Input<Inputs.SubResourceArgs>? VirtualMachine { get; set; }
 
         public NetworkInterfaceArgs()
         {

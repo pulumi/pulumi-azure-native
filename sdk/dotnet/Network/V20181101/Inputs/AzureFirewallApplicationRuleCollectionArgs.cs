@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20181101.Inputs
     public sealed class AzureFirewallApplicationRuleCollectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The action type of a rule collection
+        /// </summary>
+        [Input("action")]
+        public Input<Inputs.AzureFirewallRCActionArgs>? Action { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -28,10 +34,28 @@ namespace Pulumi.AzureRM.Network.V20181101.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the application rule collection.
+        /// Priority of the application rule collection resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AzureFirewallApplicationRuleCollectionPropertiesFormatArgs>? Properties { get; set; }
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        [Input("rules")]
+        private InputList<Inputs.AzureFirewallApplicationRuleArgs>? _rules;
+
+        /// <summary>
+        /// Collection of rules used by a application rule collection.
+        /// </summary>
+        public InputList<Inputs.AzureFirewallApplicationRuleArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.AzureFirewallApplicationRuleArgs>());
+            set => _rules = value;
+        }
 
         public AzureFirewallApplicationRuleCollectionArgs()
         {

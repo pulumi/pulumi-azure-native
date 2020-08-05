@@ -97,8 +97,6 @@ type topicArgs struct {
 	Location string `pulumi:"location"`
 	// Name of the topic
 	Name string `pulumi:"name"`
-	// Properties of the topic
-	Properties *TopicProperties `pulumi:"properties"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags of the resource
@@ -111,8 +109,6 @@ type TopicArgs struct {
 	Location pulumi.StringInput
 	// Name of the topic
 	Name pulumi.StringInput
-	// Properties of the topic
-	Properties TopicPropertiesPtrInput
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName pulumi.StringInput
 	// Tags of the resource

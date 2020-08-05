@@ -43,7 +43,7 @@ export class StorageTarget extends pulumi.CustomResource {
     /**
      * StorageTarget properties
      */
-    public readonly properties!: pulumi.Output<outputs.storagecache.v20200301.StorageTargetPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storagecache.v20200301.StorageTargetPropertiesResponse>;
     /**
      * Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
      */
@@ -71,10 +71,20 @@ export class StorageTarget extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.targetBaseType === undefined) {
+                throw new Error("Missing required property 'targetBaseType'");
+            }
             inputs["cacheName"] = args ? args.cacheName : undefined;
+            inputs["clfs"] = args ? args.clfs : undefined;
+            inputs["junctions"] = args ? args.junctions : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nfs3"] = args ? args.nfs3 : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["targetBaseType"] = args ? args.targetBaseType : undefined;
+            inputs["targetType"] = args ? args.targetType : undefined;
+            inputs["unknown"] = args ? args.unknown : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,15 +107,39 @@ export interface StorageTargetArgs {
      */
     readonly cacheName: pulumi.Input<string>;
     /**
+     * Properties when targetType is clfs.
+     */
+    readonly clfs?: pulumi.Input<inputs.storagecache.v20200301.ClfsTarget>;
+    /**
+     * List of Cache namespace junctions to target for namespace associations.
+     */
+    readonly junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.v20200301.NamespaceJunction>[]>;
+    /**
      * Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * StorageTarget properties
+     * Properties when targetType is nfs3.
      */
-    readonly properties?: pulumi.Input<inputs.storagecache.v20200301.StorageTargetProperties>;
+    readonly nfs3?: pulumi.Input<inputs.storagecache.v20200301.Nfs3Target>;
+    /**
+     * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * Target resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Type of the Storage Target.
+     */
+    readonly targetBaseType: pulumi.Input<string>;
+    /**
+     * Type of the Storage Target.
+     */
+    readonly targetType?: pulumi.Input<string>;
+    /**
+     * Properties when targetType is unknown.
+     */
+    readonly unknown?: pulumi.Input<inputs.storagecache.v20200301.UnknownTarget>;
 }

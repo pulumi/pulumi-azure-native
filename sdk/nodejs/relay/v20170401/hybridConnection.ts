@@ -43,7 +43,7 @@ export class HybridConnection extends pulumi.CustomResource {
     /**
      * Properties of the HybridConnection.
      */
-    public readonly properties!: pulumi.Output<outputs.relay.v20170401.HybridConnectionResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.relay.v20170401.HybridConnectionResponseProperties>;
     /**
      * Resource type.
      */
@@ -73,8 +73,10 @@ export class HybridConnection extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["userMetadata"] = args ? args.userMetadata : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,11 +103,15 @@ export interface HybridConnectionArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties of the HybridConnection.
+     * Returns true if client authorization is needed for this hybrid connection; otherwise, false.
      */
-    readonly properties?: pulumi.Input<inputs.relay.v20170401.HybridConnectionProperties>;
+    readonly requiresClientAuthorization?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+     */
+    readonly userMetadata?: pulumi.Input<string>;
 }

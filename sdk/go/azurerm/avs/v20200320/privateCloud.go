@@ -34,11 +34,14 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
+	if args == nil || args.ManagementCluster == nil {
+		return nil, errors.New("missing required argument 'ManagementCluster'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.NetworkBlock == nil {
+		return nil, errors.New("missing required argument 'NetworkBlock'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -105,34 +108,58 @@ func (PrivateCloudState) ElementType() reflect.Type {
 }
 
 type privateCloudArgs struct {
+	// An ExpressRoute Circuit
+	Circuit *Circuit `pulumi:"circuit"`
+	// vCenter Single Sign On Identity Sources
+	IdentitySources []IdentitySource `pulumi:"identitySources"`
+	// Connectivity to internet is enabled or disabled
+	Internet *string `pulumi:"internet"`
 	// Resource location
 	Location string `pulumi:"location"`
+	// The default cluster used for management
+	ManagementCluster ManagementCluster `pulumi:"managementCluster"`
 	// Name of the private cloud
 	Name string `pulumi:"name"`
-	// The properties of a private cloud resource
-	Properties PrivateCloudProperties `pulumi:"properties"`
+	// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+	NetworkBlock string `pulumi:"networkBlock"`
+	// Optionally, set the NSX-T Manager password when the private cloud is created
+	NsxtPassword *string `pulumi:"nsxtPassword"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The private cloud SKU
 	Sku Sku `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Optionally, set the vCenter admin password when the private cloud is created
+	VcenterPassword *string `pulumi:"vcenterPassword"`
 }
 
 // The set of arguments for constructing a PrivateCloud resource.
 type PrivateCloudArgs struct {
+	// An ExpressRoute Circuit
+	Circuit CircuitPtrInput
+	// vCenter Single Sign On Identity Sources
+	IdentitySources IdentitySourceArrayInput
+	// Connectivity to internet is enabled or disabled
+	Internet pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
+	// The default cluster used for management
+	ManagementCluster ManagementClusterInput
 	// Name of the private cloud
 	Name pulumi.StringInput
-	// The properties of a private cloud resource
-	Properties PrivateCloudPropertiesInput
+	// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+	NetworkBlock pulumi.StringInput
+	// Optionally, set the NSX-T Manager password when the private cloud is created
+	NsxtPassword pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The private cloud SKU
 	Sku SkuInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Optionally, set the vCenter admin password when the private cloud is created
+	VcenterPassword pulumi.StringPtrInput
 }
 
 func (PrivateCloudArgs) ElementType() reflect.Type {

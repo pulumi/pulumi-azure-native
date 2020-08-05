@@ -43,7 +43,7 @@ export class RedisFirewallRule extends pulumi.CustomResource {
     /**
      * redis cache firewall rule properties
      */
-    public readonly properties!: pulumi.Output<outputs.cache.v20160401.RedisFirewallRulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cache.v20160401.RedisFirewallRulePropertiesResponse>;
     /**
      * type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
      */
@@ -65,19 +65,24 @@ export class RedisFirewallRule extends pulumi.CustomResource {
             if (!args || args.cacheName === undefined) {
                 throw new Error("Missing required property 'cacheName'");
             }
+            if (!args || args.endIP === undefined) {
+                throw new Error("Missing required property 'endIP'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.startIP === undefined) {
+                throw new Error("Missing required property 'startIP'");
+            }
             inputs["cacheName"] = args ? args.cacheName : undefined;
+            inputs["endIP"] = args ? args.endIP : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["startIP"] = args ? args.startIP : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,15 +105,19 @@ export interface RedisFirewallRuleArgs {
      */
     readonly cacheName: pulumi.Input<string>;
     /**
+     * highest IP address included in the range
+     */
+    readonly endIP: pulumi.Input<string>;
+    /**
      * The name of the firewall rule.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * redis cache firewall rule properties
-     */
-    readonly properties: pulumi.Input<inputs.cache.v20160401.RedisFirewallRuleProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * lowest IP address included in the range
+     */
+    readonly startIP: pulumi.Input<string>;
 }

@@ -55,7 +55,7 @@ export class Factory extends pulumi.CustomResource {
     /**
      * Properties of the factory.
      */
-    public readonly properties!: pulumi.Output<outputs.datafactory.v20180601.FactoryPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datafactory.v20180601.FactoryPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -84,13 +84,15 @@ export class Factory extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["globalParameters"] = args ? args.globalParameters : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["repoConfiguration"] = args ? args.repoConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["eTag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,6 +111,10 @@ export class Factory extends pulumi.CustomResource {
  */
 export interface FactoryArgs {
     /**
+     * List of parameters for factory.
+     */
+    readonly globalParameters?: pulumi.Input<inputs.datafactory.v20180601.GlobalParameterDefinitionSpecification>;
+    /**
      * Managed service identity of the factory.
      */
     readonly identity?: pulumi.Input<inputs.datafactory.v20180601.FactoryIdentity>;
@@ -121,9 +127,9 @@ export interface FactoryArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the factory.
+     * Git repo information of the factory.
      */
-    readonly properties?: pulumi.Input<inputs.datafactory.v20180601.FactoryProperties>;
+    readonly repoConfiguration?: pulumi.Input<inputs.datafactory.v20180601.FactoryRepoConfiguration>;
     /**
      * The resource group name.
      */

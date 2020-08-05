@@ -96,6 +96,18 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
     public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether to create an ACS namespace.
+        /// </summary>
+        [Input("createACSNamespace")]
+        public Input<bool>? CreateACSNamespace { get; set; }
+
+        /// <summary>
+        /// Specifies whether this instance is enabled.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// Namespace location.
         /// </summary>
         [Input("location", required: true)]
@@ -108,12 +120,6 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the namespace.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NamespacePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -124,6 +130,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// State of the namespace.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

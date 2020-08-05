@@ -47,7 +47,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.keyvault.v20180214.PrivateEndpointConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.keyvault.v20180214.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * Tags assigned to the key vault resource.
      */
@@ -80,10 +80,13 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vaultName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
+            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -107,9 +110,17 @@ export interface PrivateEndpointConnectionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Resource properties.
+     * Properties of the private endpoint object.
      */
-    readonly properties?: pulumi.Input<inputs.keyvault.v20180214.PrivateEndpointConnectionProperties>;
+    readonly privateEndpoint?: pulumi.Input<inputs.keyvault.v20180214.PrivateEndpoint>;
+    /**
+     * Approval state of the private link connection.
+     */
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.keyvault.v20180214.PrivateLinkServiceConnectionState>;
+    /**
+     * Provisioning state of the private endpoint connection.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * Name of the resource group that contains the key vault.
      */

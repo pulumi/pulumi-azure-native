@@ -65,16 +65,30 @@ export class Backend extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.protocol === undefined) {
+                throw new Error("Missing required property 'protocol'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.url === undefined) {
+                throw new Error("Missing required property 'url'");
+            }
+            inputs["credentials"] = args ? args.credentials : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["protocol"] = args ? args.protocol : undefined;
+            inputs["proxy"] = args ? args.proxy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["title"] = args ? args.title : undefined;
+            inputs["tls"] = args ? args.tls : undefined;
+            inputs["url"] = args ? args.url : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,19 +107,51 @@ export class Backend extends pulumi.CustomResource {
  */
 export interface BackendArgs {
     /**
+     * Backend Credentials Contract Properties
+     */
+    readonly credentials?: pulumi.Input<inputs.apimanagement.v20191201.BackendCredentialsContract>;
+    /**
+     * Backend Description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * Identifier of the Backend entity. Must be unique in the current API Management service instance.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Backend entity contract properties.
+     * Backend Properties contract
      */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.BackendContractProperties>;
+    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.BackendProperties>;
+    /**
+     * Backend communication protocol.
+     */
+    readonly protocol: pulumi.Input<string>;
+    /**
+     * Backend Proxy Contract Properties
+     */
+    readonly proxy?: pulumi.Input<inputs.apimanagement.v20191201.BackendProxyContract>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+     */
+    readonly resourceId?: pulumi.Input<string>;
+    /**
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Backend Title.
+     */
+    readonly title?: pulumi.Input<string>;
+    /**
+     * Backend TLS Properties
+     */
+    readonly tls?: pulumi.Input<inputs.apimanagement.v20191201.BackendTlsProperties>;
+    /**
+     * Runtime Url of the Backend.
+     */
+    readonly url: pulumi.Input<string>;
 }

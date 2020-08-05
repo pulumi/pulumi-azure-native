@@ -90,30 +90,34 @@ func (HubState) ElementType() reflect.Type {
 }
 
 type hubArgs struct {
+	// Billing settings of the hub.
+	HubBillingInfo *HubBillingInfoFormat `pulumi:"hubBillingInfo"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the Hub.
 	Name string `pulumi:"name"`
-	// Properties of hub.
-	Properties *HubPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+	TenantFeatures *int `pulumi:"tenantFeatures"`
 }
 
 // The set of arguments for constructing a Hub resource.
 type HubArgs struct {
+	// Billing settings of the hub.
+	HubBillingInfo HubBillingInfoFormatPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the Hub.
 	Name pulumi.StringInput
-	// Properties of hub.
-	Properties HubPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+	TenantFeatures pulumi.IntPtrInput
 }
 
 func (HubArgs) ElementType() reflect.Type {

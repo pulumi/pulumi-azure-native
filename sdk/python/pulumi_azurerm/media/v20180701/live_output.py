@@ -34,28 +34,26 @@ class LiveOutput(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, live_event_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, archive_window_length=None, asset_name=None, description=None, hls=None, live_event_name=None, manifest_name=None, name=None, output_snap_time=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The Live Output.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
+        :param pulumi.Input[str] archive_window_length: ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+        :param pulumi.Input[str] asset_name: The asset name.
+        :param pulumi.Input[str] description: The description of the Live Output.
+        :param pulumi.Input[dict] hls: The HLS configuration.
         :param pulumi.Input[str] live_event_name: The name of the Live Event.
+        :param pulumi.Input[str] manifest_name: The manifest file name.  If not provided, the service will generate one automatically.
         :param pulumi.Input[str] name: The name of the Live Output.
-        :param pulumi.Input[dict] properties: The Live Output properties.
+        :param pulumi.Input[float] output_snap_time: The output snapshot time.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
 
-        The **properties** object supports the following:
+        The **hls** object supports the following:
 
-          * `archive_window_length` (`pulumi.Input[str]`) - ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
-          * `asset_name` (`pulumi.Input[str]`) - The asset name.
-          * `description` (`pulumi.Input[str]`) - The description of the Live Output.
-          * `hls` (`pulumi.Input[dict]`) - The HLS configuration.
-            * `fragments_per_ts_segment` (`pulumi.Input[float]`) - The amount of fragments per HTTP Live Streaming (HLS) segment.
-
-          * `manifest_name` (`pulumi.Input[str]`) - The manifest file name.  If not provided, the service will generate one automatically.
-          * `output_snap_time` (`pulumi.Input[float]`) - The output snapshot time.
+          * `fragments_per_ts_segment` (`pulumi.Input[float]`) - The amount of fragments per HTTP Live Streaming (HLS) segment.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,16 +75,26 @@ class LiveOutput(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if archive_window_length is None:
+                raise TypeError("Missing required property 'archive_window_length'")
+            __props__['archive_window_length'] = archive_window_length
+            if asset_name is None:
+                raise TypeError("Missing required property 'asset_name'")
+            __props__['asset_name'] = asset_name
+            __props__['description'] = description
+            __props__['hls'] = hls
             if live_event_name is None:
                 raise TypeError("Missing required property 'live_event_name'")
             __props__['live_event_name'] = live_event_name
+            __props__['manifest_name'] = manifest_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['output_snap_time'] = output_snap_time
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(LiveOutput, __self__).__init__(
             'azurerm:media/v20180701:LiveOutput',

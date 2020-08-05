@@ -39,6 +39,9 @@ func NewHostingEnvironment(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Status == nil {
+		return nil, errors.New("missing required argument 'Status'")
+	}
 	if args == nil {
 		args = &HostingEnvironmentArgs{}
 	}
@@ -96,40 +99,160 @@ func (HostingEnvironmentState) ElementType() reflect.Type {
 }
 
 type hostingEnvironmentArgs struct {
+	// List of comma separated strings describing which VM sizes are allowed for front-ends
+	AllowedMultiSizes *string `pulumi:"allowedMultiSizes"`
+	// List of comma separated strings describing which VM sizes are allowed for workers
+	AllowedWorkerSizes *string `pulumi:"allowedWorkerSizes"`
+	// Api Management Account associated with this Hosting Environment
+	ApiManagementAccountId *string `pulumi:"apiManagementAccountId"`
+	// Custom settings for changing the behavior of the hosting environment
+	ClusterSettings []NameValuePair `pulumi:"clusterSettings"`
+	// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
+	DatabaseEdition *string `pulumi:"databaseEdition"`
+	// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
+	DatabaseServiceObjective *string `pulumi:"databaseServiceObjective"`
+	// DNS suffix of the hostingEnvironment (App Service Environment)
+	DnsSuffix *string `pulumi:"dnsSuffix"`
+	// Current total, used, and available worker capacities
+	EnvironmentCapacities []StampCapacity `pulumi:"environmentCapacities"`
+	// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
+	EnvironmentIsHealthy *bool `pulumi:"environmentIsHealthy"`
+	// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
+	EnvironmentStatus *string `pulumi:"environmentStatus"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
+	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
+	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
+	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
+	// Last deployment action on this hostingEnvironment (App Service Environment)
+	LastAction *string `pulumi:"lastAction"`
+	// Result of the last deployment action on this hostingEnvironment (App Service Environment)
+	LastActionResult *string `pulumi:"lastActionResult"`
 	// Resource Location
 	Location string `pulumi:"location"`
+	// Maximum number of VMs in this hostingEnvironment (App Service Environment)
+	MaximumNumberOfMachines *int `pulumi:"maximumNumberOfMachines"`
+	// Number of front-end instances
+	MultiRoleCount *int `pulumi:"multiRoleCount"`
+	// Front-end VM size, e.g. "Medium", "Large"
+	MultiSize *string `pulumi:"multiSize"`
 	// Resource Name
-	Name       string                        `pulumi:"name"`
-	Properties *HostingEnvironmentProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
+	NetworkAccessControlList []NetworkAccessControlEntry `pulumi:"networkAccessControlList"`
+	// Provisioning state of the hostingEnvironment (App Service Environment)
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Resource group of the hostingEnvironment (App Service Environment)
+	ResourceGroup *string `pulumi:"resourceGroup"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Current status of the hostingEnvironment (App Service Environment)
+	Status string `pulumi:"status"`
+	// Subscription of the hostingEnvironment (App Service Environment)
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+	//             (most likely because NSG blocked the incoming traffic)
+	Suspended *bool `pulumi:"suspended"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Number of upgrade domains of this hostingEnvironment (App Service Environment)
+	UpgradeDomains *int `pulumi:"upgradeDomains"`
+	// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
+	VipMappings []VirtualIPMapping `pulumi:"vipMappings"`
+	// Description of the hostingEnvironment's (App Service Environment) virtual network
+	VirtualNetwork *VirtualNetworkProfile `pulumi:"virtualNetwork"`
+	// Name of the hostingEnvironment's (App Service Environment) virtual network
+	VnetName *string `pulumi:"vnetName"`
+	// Resource group of the hostingEnvironment's (App Service Environment) virtual network
+	VnetResourceGroupName *string `pulumi:"vnetResourceGroupName"`
+	// Subnet of the hostingEnvironment's (App Service Environment) virtual network
+	VnetSubnetName *string `pulumi:"vnetSubnetName"`
+	// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
+	WorkerPools []WorkerPool `pulumi:"workerPools"`
 }
 
 // The set of arguments for constructing a HostingEnvironment resource.
 type HostingEnvironmentArgs struct {
+	// List of comma separated strings describing which VM sizes are allowed for front-ends
+	AllowedMultiSizes pulumi.StringPtrInput
+	// List of comma separated strings describing which VM sizes are allowed for workers
+	AllowedWorkerSizes pulumi.StringPtrInput
+	// Api Management Account associated with this Hosting Environment
+	ApiManagementAccountId pulumi.StringPtrInput
+	// Custom settings for changing the behavior of the hosting environment
+	ClusterSettings NameValuePairArrayInput
+	// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
+	DatabaseEdition pulumi.StringPtrInput
+	// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
+	DatabaseServiceObjective pulumi.StringPtrInput
+	// DNS suffix of the hostingEnvironment (App Service Environment)
+	DnsSuffix pulumi.StringPtrInput
+	// Current total, used, and available worker capacities
+	EnvironmentCapacities StampCapacityArrayInput
+	// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
+	EnvironmentIsHealthy pulumi.BoolPtrInput
+	// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
+	EnvironmentStatus pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
+	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
+	InternalLoadBalancingMode pulumi.StringPtrInput
+	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
+	IpsslAddressCount pulumi.IntPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
+	// Last deployment action on this hostingEnvironment (App Service Environment)
+	LastAction pulumi.StringPtrInput
+	// Result of the last deployment action on this hostingEnvironment (App Service Environment)
+	LastActionResult pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
+	// Maximum number of VMs in this hostingEnvironment (App Service Environment)
+	MaximumNumberOfMachines pulumi.IntPtrInput
+	// Number of front-end instances
+	MultiRoleCount pulumi.IntPtrInput
+	// Front-end VM size, e.g. "Medium", "Large"
+	MultiSize pulumi.StringPtrInput
 	// Resource Name
-	Name       pulumi.StringInput
-	Properties HostingEnvironmentPropertiesPtrInput
+	Name pulumi.StringInput
+	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
+	NetworkAccessControlList NetworkAccessControlEntryArrayInput
+	// Provisioning state of the hostingEnvironment (App Service Environment)
+	ProvisioningState pulumi.StringPtrInput
+	// Resource group of the hostingEnvironment (App Service Environment)
+	ResourceGroup pulumi.StringPtrInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput
+	// Current status of the hostingEnvironment (App Service Environment)
+	Status pulumi.StringInput
+	// Subscription of the hostingEnvironment (App Service Environment)
+	SubscriptionId pulumi.StringPtrInput
+	// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+	//             (most likely because NSG blocked the incoming traffic)
+	Suspended pulumi.BoolPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Number of upgrade domains of this hostingEnvironment (App Service Environment)
+	UpgradeDomains pulumi.IntPtrInput
+	// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
+	VipMappings VirtualIPMappingArrayInput
+	// Description of the hostingEnvironment's (App Service Environment) virtual network
+	VirtualNetwork VirtualNetworkProfilePtrInput
+	// Name of the hostingEnvironment's (App Service Environment) virtual network
+	VnetName pulumi.StringPtrInput
+	// Resource group of the hostingEnvironment's (App Service Environment) virtual network
+	VnetResourceGroupName pulumi.StringPtrInput
+	// Subnet of the hostingEnvironment's (App Service Environment) virtual network
+	VnetSubnetName pulumi.StringPtrInput
+	// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
+	WorkerPools WorkerPoolArrayInput
 }
 
 func (HostingEnvironmentArgs) ElementType() reflect.Type {

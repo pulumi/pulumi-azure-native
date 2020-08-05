@@ -51,7 +51,7 @@ export class IpGroup extends pulumi.CustomResource {
     /**
      * Properties of the IpGroups.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190901.IpGroupPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.IpGroupPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -81,12 +81,13 @@ export class IpGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipAddresses"] = args ? args.ipAddresses : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,6 +110,10 @@ export interface IpGroupArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * IpAddresses/IpAddressPrefixes in the IpGroups resource.
+     */
+    readonly ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -116,10 +121,6 @@ export interface IpGroupArgs {
      * The name of the ipGroups.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the IpGroups.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20190901.IpGroupPropertiesFormat>;
     /**
      * The name of the resource group.
      */

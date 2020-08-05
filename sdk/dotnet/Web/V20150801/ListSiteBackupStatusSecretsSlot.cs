@@ -19,6 +19,30 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class ListSiteBackupStatusSecretsSlotArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Schedule for the backup if it is executed periodically
+        /// </summary>
+        [Input("backupSchedule")]
+        public Inputs.BackupScheduleArgs? BackupSchedule { get; set; }
+
+        [Input("databases")]
+        private List<Inputs.DatabaseBackupSettingArgs>? _databases;
+
+        /// <summary>
+        /// Databases included in the backup
+        /// </summary>
+        public List<Inputs.DatabaseBackupSettingArgs> Databases
+        {
+            get => _databases ?? (_databases = new List<Inputs.DatabaseBackupSettingArgs>());
+            set => _databases = value;
+        }
+
+        /// <summary>
+        /// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
+        /// </summary>
+        [Input("enabled")]
+        public bool? Enabled { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
@@ -42,9 +66,6 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Inputs.BackupRequestPropertiesArgs? Properties { get; set; }
-
         /// <summary>
         /// Name of resource group
         /// </summary>
@@ -56,6 +77,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         [Input("slot", required: true)]
         public string Slot { get; set; } = null!;
+
+        /// <summary>
+        /// SAS URL to the container
+        /// </summary>
+        [Input("storageAccountUrl")]
+        public string? StorageAccountUrl { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -72,8 +99,8 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// <summary>
         /// Resource type
         /// </summary>
-        [Input("type")]
-        public string? Type { get; set; }
+        [Input("type", required: true)]
+        public string Type { get; set; } = null!;
 
         public ListSiteBackupStatusSecretsSlotArgs()
         {

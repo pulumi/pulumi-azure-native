@@ -102,6 +102,12 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
     public sealed class ConfigurationStoreArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The encryption settings of the configuration store.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertiesArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The managed identity information, if configured.
         /// </summary>
         [Input("identity")]
@@ -120,10 +126,10 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of a configuration store.
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ConfigurationStorePropertiesArgs>? Properties { get; set; }
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

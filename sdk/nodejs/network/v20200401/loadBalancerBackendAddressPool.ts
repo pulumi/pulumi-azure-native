@@ -47,7 +47,7 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     /**
      * Properties of load balancer backend address pool.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200401.BackendAddressPoolPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.BackendAddressPoolPropertiesFormatResponse>;
     /**
      * Type of the resource.
      */
@@ -76,11 +76,12 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
+            inputs["loadBalancerBackendAddresses"] = args ? args.loadBalancerBackendAddresses : undefined;
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,6 +104,10 @@ export interface LoadBalancerBackendAddressPoolArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * An array of backend addresses.
+     */
+    readonly loadBalancerBackendAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20200401.LoadBalancerBackendAddress>[]>;
+    /**
      * The name of the load balancer.
      */
     readonly loadBalancerName: pulumi.Input<string>;
@@ -110,10 +115,6 @@ export interface LoadBalancerBackendAddressPoolArgs {
      * The name of the backend address pool.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of load balancer backend address pool.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20200401.BackendAddressPoolPropertiesFormat>;
     /**
      * The name of the resource group.
      */

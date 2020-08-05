@@ -96,10 +96,34 @@ namespace Pulumi.AzureRM.AAD.V20200101
     public sealed class DomainServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The name of the Azure domain that the user would like to deploy Domain Services to.
+        /// </summary>
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
+
+        /// <summary>
+        /// DomainSecurity Settings
+        /// </summary>
+        [Input("domainSecuritySettings")]
+        public Input<Inputs.DomainSecuritySettingsArgs>? DomainSecuritySettings { get; set; }
+
+        /// <summary>
         /// Resource etag
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Enabled or Disabled flag to turn on Group-based filtered sync
+        /// </summary>
+        [Input("filteredSync")]
+        public Input<string>? FilteredSync { get; set; }
+
+        /// <summary>
+        /// Secure LDAP Settings
+        /// </summary>
+        [Input("ldapsSettings")]
+        public Input<Inputs.LdapsSettingsArgs>? LdapsSettings { get; set; }
 
         /// <summary>
         /// Resource location
@@ -114,10 +138,22 @@ namespace Pulumi.AzureRM.AAD.V20200101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Domain service properties
+        /// Notification Settings
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DomainServicePropertiesArgs>? Properties { get; set; }
+        [Input("notificationSettings")]
+        public Input<Inputs.NotificationSettingsArgs>? NotificationSettings { get; set; }
+
+        [Input("replicaSets")]
+        private InputList<Inputs.ReplicaSetArgs>? _replicaSets;
+
+        /// <summary>
+        /// List of ReplicaSets
+        /// </summary>
+        public InputList<Inputs.ReplicaSetArgs> ReplicaSets
+        {
+            get => _replicaSets ?? (_replicaSets = new InputList<Inputs.ReplicaSetArgs>());
+            set => _replicaSets = value;
+        }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

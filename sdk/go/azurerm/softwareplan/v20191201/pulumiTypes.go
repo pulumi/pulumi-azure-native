@@ -102,121 +102,6 @@ func (o HybridUseBenefitTypeOutput) Type() pulumi.StringOutput {
 }
 
 // Hybrid use benefit properties
-type HybridUseBenefitProperties struct {
-}
-
-// HybridUseBenefitPropertiesInput is an input type that accepts HybridUseBenefitPropertiesArgs and HybridUseBenefitPropertiesOutput values.
-// You can construct a concrete instance of `HybridUseBenefitPropertiesInput` via:
-//
-//          HybridUseBenefitPropertiesArgs{...}
-type HybridUseBenefitPropertiesInput interface {
-	pulumi.Input
-
-	ToHybridUseBenefitPropertiesOutput() HybridUseBenefitPropertiesOutput
-	ToHybridUseBenefitPropertiesOutputWithContext(context.Context) HybridUseBenefitPropertiesOutput
-}
-
-// Hybrid use benefit properties
-type HybridUseBenefitPropertiesArgs struct {
-}
-
-func (HybridUseBenefitPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridUseBenefitProperties)(nil)).Elem()
-}
-
-func (i HybridUseBenefitPropertiesArgs) ToHybridUseBenefitPropertiesOutput() HybridUseBenefitPropertiesOutput {
-	return i.ToHybridUseBenefitPropertiesOutputWithContext(context.Background())
-}
-
-func (i HybridUseBenefitPropertiesArgs) ToHybridUseBenefitPropertiesOutputWithContext(ctx context.Context) HybridUseBenefitPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HybridUseBenefitPropertiesOutput)
-}
-
-func (i HybridUseBenefitPropertiesArgs) ToHybridUseBenefitPropertiesPtrOutput() HybridUseBenefitPropertiesPtrOutput {
-	return i.ToHybridUseBenefitPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i HybridUseBenefitPropertiesArgs) ToHybridUseBenefitPropertiesPtrOutputWithContext(ctx context.Context) HybridUseBenefitPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HybridUseBenefitPropertiesOutput).ToHybridUseBenefitPropertiesPtrOutputWithContext(ctx)
-}
-
-// HybridUseBenefitPropertiesPtrInput is an input type that accepts HybridUseBenefitPropertiesArgs, HybridUseBenefitPropertiesPtr and HybridUseBenefitPropertiesPtrOutput values.
-// You can construct a concrete instance of `HybridUseBenefitPropertiesPtrInput` via:
-//
-//          HybridUseBenefitPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type HybridUseBenefitPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToHybridUseBenefitPropertiesPtrOutput() HybridUseBenefitPropertiesPtrOutput
-	ToHybridUseBenefitPropertiesPtrOutputWithContext(context.Context) HybridUseBenefitPropertiesPtrOutput
-}
-
-type hybridUseBenefitPropertiesPtrType HybridUseBenefitPropertiesArgs
-
-func HybridUseBenefitPropertiesPtr(v *HybridUseBenefitPropertiesArgs) HybridUseBenefitPropertiesPtrInput {
-	return (*hybridUseBenefitPropertiesPtrType)(v)
-}
-
-func (*hybridUseBenefitPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HybridUseBenefitProperties)(nil)).Elem()
-}
-
-func (i *hybridUseBenefitPropertiesPtrType) ToHybridUseBenefitPropertiesPtrOutput() HybridUseBenefitPropertiesPtrOutput {
-	return i.ToHybridUseBenefitPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *hybridUseBenefitPropertiesPtrType) ToHybridUseBenefitPropertiesPtrOutputWithContext(ctx context.Context) HybridUseBenefitPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HybridUseBenefitPropertiesPtrOutput)
-}
-
-// Hybrid use benefit properties
-type HybridUseBenefitPropertiesOutput struct{ *pulumi.OutputState }
-
-func (HybridUseBenefitPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridUseBenefitProperties)(nil)).Elem()
-}
-
-func (o HybridUseBenefitPropertiesOutput) ToHybridUseBenefitPropertiesOutput() HybridUseBenefitPropertiesOutput {
-	return o
-}
-
-func (o HybridUseBenefitPropertiesOutput) ToHybridUseBenefitPropertiesOutputWithContext(ctx context.Context) HybridUseBenefitPropertiesOutput {
-	return o
-}
-
-func (o HybridUseBenefitPropertiesOutput) ToHybridUseBenefitPropertiesPtrOutput() HybridUseBenefitPropertiesPtrOutput {
-	return o.ToHybridUseBenefitPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o HybridUseBenefitPropertiesOutput) ToHybridUseBenefitPropertiesPtrOutputWithContext(ctx context.Context) HybridUseBenefitPropertiesPtrOutput {
-	return o.ApplyT(func(v HybridUseBenefitProperties) *HybridUseBenefitProperties {
-		return &v
-	}).(HybridUseBenefitPropertiesPtrOutput)
-}
-
-type HybridUseBenefitPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (HybridUseBenefitPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HybridUseBenefitProperties)(nil)).Elem()
-}
-
-func (o HybridUseBenefitPropertiesPtrOutput) ToHybridUseBenefitPropertiesPtrOutput() HybridUseBenefitPropertiesPtrOutput {
-	return o
-}
-
-func (o HybridUseBenefitPropertiesPtrOutput) ToHybridUseBenefitPropertiesPtrOutputWithContext(ctx context.Context) HybridUseBenefitPropertiesPtrOutput {
-	return o
-}
-
-func (o HybridUseBenefitPropertiesPtrOutput) Elem() HybridUseBenefitPropertiesOutput {
-	return o.ApplyT(func(v *HybridUseBenefitProperties) HybridUseBenefitProperties { return *v }).(HybridUseBenefitPropertiesOutput)
-}
-
-// Hybrid use benefit properties
 type HybridUseBenefitPropertiesResponse struct {
 	// Created date
 	CreatedDate string `pulumi:"createdDate"`
@@ -658,8 +543,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(HybridUseBenefitTypeOutput{})
-	pulumi.RegisterOutputType(HybridUseBenefitPropertiesOutput{})
-	pulumi.RegisterOutputType(HybridUseBenefitPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HybridUseBenefitPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HybridUseBenefitPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

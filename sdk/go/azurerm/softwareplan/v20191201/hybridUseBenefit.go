@@ -95,8 +95,6 @@ func (HybridUseBenefitState) ElementType() reflect.Type {
 type hybridUseBenefitArgs struct {
 	// This is a unique identifier for a plan. Should be a guid.
 	Name string `pulumi:"name"`
-	// Property bag for a hybrid use benefit response
-	Properties *HybridUseBenefitProperties `pulumi:"properties"`
 	// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
 	Scope string `pulumi:"scope"`
 	// Hybrid use benefit SKU
@@ -107,8 +105,6 @@ type hybridUseBenefitArgs struct {
 type HybridUseBenefitArgs struct {
 	// This is a unique identifier for a plan. Should be a guid.
 	Name pulumi.StringInput
-	// Property bag for a hybrid use benefit response
-	Properties HybridUseBenefitPropertiesPtrInput
 	// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
 	Scope pulumi.StringInput
 	// Hybrid use benefit SKU

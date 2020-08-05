@@ -31,11 +31,11 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SubnetId == nil {
+		return nil, errors.New("missing required argument 'SubnetId'")
 	}
 	if args == nil {
 		args = &VirtualNetworkRuleArgs{}
@@ -88,10 +88,10 @@ type virtualNetworkRuleArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the virtual network rule to create or update.
 	Name string `pulumi:"name"`
-	// The virtual network rule properties to use when creating a new virtual network rule.
-	Properties CreateOrUpdateVirtualNetworkRuleProperties `pulumi:"properties"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The resource identifier for the subnet.
+	SubnetId string `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a VirtualNetworkRule resource.
@@ -100,10 +100,10 @@ type VirtualNetworkRuleArgs struct {
 	AccountName pulumi.StringInput
 	// The name of the virtual network rule to create or update.
 	Name pulumi.StringInput
-	// The virtual network rule properties to use when creating a new virtual network rule.
-	Properties CreateOrUpdateVirtualNetworkRulePropertiesInput
 	// The name of the Azure resource group.
 	ResourceGroupName pulumi.StringInput
+	// The resource identifier for the subnet.
+	SubnetId pulumi.StringInput
 }
 
 func (VirtualNetworkRuleArgs) ElementType() reflect.Type {

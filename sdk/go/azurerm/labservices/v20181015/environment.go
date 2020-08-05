@@ -109,12 +109,16 @@ type environmentArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the environment.
 	Name string `pulumi:"name"`
-	// The properties of the Environment resource
-	Properties *EnvironmentProperties `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The set of a VM and the setting id it was created for
+	ResourceSets *ResourceSet `pulumi:"resourceSets"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a Environment resource.
@@ -129,12 +133,16 @@ type EnvironmentArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the environment.
 	Name pulumi.StringInput
-	// The properties of the Environment resource
-	Properties EnvironmentPropertiesPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The set of a VM and the setting id it was created for
+	ResourceSets ResourceSetPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (EnvironmentArgs) ElementType() reflect.Type {

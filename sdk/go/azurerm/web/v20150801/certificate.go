@@ -96,40 +96,98 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
+	// Raw bytes of .cer file
+	CerBlob *string `pulumi:"cerBlob"`
+	// Certificate expiration date
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// Friendly name of the certificate
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Host names the certificate applies to
+	HostNames []string `pulumi:"hostNames"`
+	// Specification for the hosting environment (App Service Environment) to use for the certificate
+	HostingEnvironmentProfile *HostingEnvironmentProfile `pulumi:"hostingEnvironmentProfile"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Certificate issue Date
+	IssueDate *string `pulumi:"issueDate"`
+	// Certificate issuer
+	Issuer *string `pulumi:"issuer"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       string                 `pulumi:"name"`
-	Properties *CertificateProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Certificate password
+	Password *string `pulumi:"password"`
+	// Pfx blob
+	PfxBlob *string `pulumi:"pfxBlob"`
+	// Public key hash
+	PublicKeyHash *string `pulumi:"publicKeyHash"`
 	// Name of the resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Self link
+	SelfLink *string `pulumi:"selfLink"`
+	// App name
+	SiteName *string `pulumi:"siteName"`
+	// Subject name of the certificate
+	SubjectName *string `pulumi:"subjectName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Certificate thumbprint
+	Thumbprint *string `pulumi:"thumbprint"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Is the certificate valid?
+	Valid *bool `pulumi:"valid"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
+	// Raw bytes of .cer file
+	CerBlob pulumi.StringPtrInput
+	// Certificate expiration date
+	ExpirationDate pulumi.StringPtrInput
+	// Friendly name of the certificate
+	FriendlyName pulumi.StringPtrInput
+	// Host names the certificate applies to
+	HostNames pulumi.StringArrayInput
+	// Specification for the hosting environment (App Service Environment) to use for the certificate
+	HostingEnvironmentProfile HostingEnvironmentProfilePtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
+	// Certificate issue Date
+	IssueDate pulumi.StringPtrInput
+	// Certificate issuer
+	Issuer pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
 	// Resource Name
-	Name       pulumi.StringInput
-	Properties CertificatePropertiesPtrInput
+	Name pulumi.StringInput
+	// Certificate password
+	Password pulumi.StringPtrInput
+	// Pfx blob
+	PfxBlob pulumi.StringPtrInput
+	// Public key hash
+	PublicKeyHash pulumi.StringPtrInput
 	// Name of the resource group
 	ResourceGroupName pulumi.StringInput
+	// Self link
+	SelfLink pulumi.StringPtrInput
+	// App name
+	SiteName pulumi.StringPtrInput
+	// Subject name of the certificate
+	SubjectName pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Certificate thumbprint
+	Thumbprint pulumi.StringPtrInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Is the certificate valid?
+	Valid pulumi.BoolPtrInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {

@@ -51,7 +51,7 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * Nat Gateway properties.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200301.NatGatewayPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200301.NatGatewayPropertiesFormatResponse>;
     /**
      * The nat gateway SKU.
      */
@@ -89,14 +89,17 @@ export class NatGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;
+            inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["publicIpAddresses"] = args ? args.publicIpAddresses : undefined;
+            inputs["publicIpPrefixes"] = args ? args.publicIpPrefixes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -119,6 +122,10 @@ export interface NatGatewayArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * The idle timeout of the nat gateway.
+     */
+    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -127,9 +134,13 @@ export interface NatGatewayArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Nat Gateway properties.
+     * An array of public ip addresses associated with the nat gateway resource.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20200301.NatGatewayPropertiesFormat>;
+    readonly publicIpAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20200301.SubResource>[]>;
+    /**
+     * An array of public ip prefixes associated with the nat gateway resource.
+     */
+    readonly publicIpPrefixes?: pulumi.Input<pulumi.Input<inputs.network.v20200301.SubResource>[]>;
     /**
      * The name of the resource group.
      */

@@ -40,23 +40,19 @@ class VirtualWAN(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, disable_vpn_encryption=None, id=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         VirtualWAN Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] disable_vpn_encryption: Vpn encryption to be disabled or not.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VirtualWAN being created or updated.
-        :param pulumi.Input[dict] properties: Parameters for VirtualWAN
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `disable_vpn_encryption` (`pulumi.Input[bool]`) - Vpn encryption to be disabled or not.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,6 +71,7 @@ class VirtualWAN(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['disable_vpn_encryption'] = disable_vpn_encryption
             __props__['id'] = id
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -82,12 +79,13 @@ class VirtualWAN(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualWAN, __self__).__init__(
             'azurerm:network/v20180601:VirtualWAN',

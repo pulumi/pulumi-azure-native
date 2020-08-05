@@ -77,17 +77,42 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 
     public sealed class LoggerArgs : Pulumi.ResourceArgs
     {
+        [Input("credentials", required: true)]
+        private InputMap<string>? _credentials;
+
+        /// <summary>
+        /// The name and SendRule connection string of the event hub for azureEventHub logger.
+        /// Instrumentation key for applicationInsights logger.
+        /// </summary>
+        public InputMap<string> Credentials
+        {
+            get => _credentials ?? (_credentials = new InputMap<string>());
+            set => _credentials = value;
+        }
+
+        /// <summary>
+        /// Logger description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Whether records are buffered in the logger before publishing. Default is assumed to be true.
+        /// </summary>
+        [Input("isBuffered")]
+        public Input<bool>? IsBuffered { get; set; }
+
+        /// <summary>
+        /// Logger type.
+        /// </summary>
+        [Input("loggerType", required: true)]
+        public Input<string> LoggerType { get; set; } = null!;
+
         /// <summary>
         /// Logger identifier. Must be unique in the API Management service instance.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Logger entity contract properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LoggerContractPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

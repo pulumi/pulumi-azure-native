@@ -75,18 +75,42 @@ func (PolicyDefinitionState) ElementType() reflect.Type {
 }
 
 type policyDefinitionArgs struct {
+	// The policy definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy definition.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy definition metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
+	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+	Mode *string `pulumi:"mode"`
 	// The name of the policy definition to create.
 	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties *PolicyDefinitionProperties `pulumi:"properties"`
+	// Required if a parameter is used in policy rule.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The policy rule.
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType *string `pulumi:"policyType"`
 }
 
 // The set of arguments for constructing a PolicyDefinition resource.
 type PolicyDefinitionArgs struct {
+	// The policy definition description.
+	Description pulumi.StringPtrInput
+	// The display name of the policy definition.
+	DisplayName pulumi.StringPtrInput
+	// The policy definition metadata.
+	Metadata pulumi.MapInput
+	// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+	Mode pulumi.StringPtrInput
 	// The name of the policy definition to create.
 	Name pulumi.StringInput
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesPtrInput
+	// Required if a parameter is used in policy rule.
+	Parameters pulumi.MapInput
+	// The policy rule.
+	PolicyRule pulumi.MapInput
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType pulumi.StringPtrInput
 }
 
 func (PolicyDefinitionArgs) ElementType() reflect.Type {

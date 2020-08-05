@@ -102,10 +102,70 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
     public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The flag to indicate whether to allow public access when behind VNet.
+        /// </summary>
+        [Input("allowPublicAccessWhenBehindVnet")]
+        public Input<bool>? AllowPublicAccessWhenBehindVnet { get; set; }
+
+        /// <summary>
+        /// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Input("applicationInsights")]
+        public Input<string>? ApplicationInsights { get; set; }
+
+        /// <summary>
+        /// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Input("containerRegistry")]
+        public Input<string>? ContainerRegistry { get; set; }
+
+        /// <summary>
+        /// The description of this workspace.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Url for the discovery service to identify regional endpoints for machine learning experimentation services
+        /// </summary>
+        [Input("discoveryUrl")]
+        public Input<string>? DiscoveryUrl { get; set; }
+
+        /// <summary>
+        /// The encryption settings of Azure ML workspace.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertyArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// The friendly name for this workspace. This name in mutable
+        /// </summary>
+        [Input("friendlyName")]
+        public Input<string>? FriendlyName { get; set; }
+
+        /// <summary>
+        /// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
+        /// </summary>
+        [Input("hbiWorkspace")]
+        public Input<bool>? HbiWorkspace { get; set; }
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The compute name for image build
+        /// </summary>
+        [Input("imageBuildCompute")]
+        public Input<string>? ImageBuildCompute { get; set; }
+
+        /// <summary>
+        /// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Input("keyVault")]
+        public Input<string>? KeyVault { get; set; }
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -120,22 +180,34 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the machine learning workspace.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.WorkspacePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group in which workspace is located.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("sharedPrivateLinkResources")]
+        private InputList<Inputs.SharedPrivateLinkResourceArgs>? _sharedPrivateLinkResources;
+
+        /// <summary>
+        /// The list of shared private link resources in this workspace.
+        /// </summary>
+        public InputList<Inputs.SharedPrivateLinkResourceArgs> SharedPrivateLinkResources
+        {
+            get => _sharedPrivateLinkResources ?? (_sharedPrivateLinkResources = new InputList<Inputs.SharedPrivateLinkResourceArgs>());
+            set => _sharedPrivateLinkResources = value;
+        }
 
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Input("storageAccount")]
+        public Input<string>? StorageAccount { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

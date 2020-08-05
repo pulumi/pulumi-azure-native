@@ -27,7 +27,7 @@ class CustomerSubscription(pulumi.CustomResource):
     """
     Type of Resource.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, name=None, properties=None, registration_name=None, resource_group=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, etag=None, name=None, registration_name=None, resource_group=None, tenant_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Customer subscription.
 
@@ -35,13 +35,9 @@ class CustomerSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The entity tag used for optimistic concurrency when modifying the resource.
         :param pulumi.Input[str] name: Name of the product.
-        :param pulumi.Input[dict] properties: Customer subscription properties.
         :param pulumi.Input[str] registration_name: Name of the Azure Stack registration.
         :param pulumi.Input[str] resource_group: Name of the resource group.
-
-        The **properties** object supports the following:
-
-          * `tenant_id` (`pulumi.Input[str]`) - Tenant Id.
+        :param pulumi.Input[str] tenant_id: Tenant Id.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,13 +60,14 @@ class CustomerSubscription(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if registration_name is None:
                 raise TypeError("Missing required property 'registration_name'")
             __props__['registration_name'] = registration_name
             if resource_group is None:
                 raise TypeError("Missing required property 'resource_group'")
             __props__['resource_group'] = resource_group
+            __props__['tenant_id'] = tenant_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(CustomerSubscription, __self__).__init__(
             'azurerm:azurestack/v20170601:CustomerSubscription',

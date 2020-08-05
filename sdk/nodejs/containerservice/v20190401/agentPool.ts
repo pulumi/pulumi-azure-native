@@ -43,11 +43,11 @@ export class AgentPool extends pulumi.CustomResource {
     /**
      * Properties of an agent pool.
      */
-    public readonly properties!: pulumi.Output<outputs.containerservice.v20190401.ManagedClusterAgentPoolProfilePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.containerservice.v20190401.ManagedClusterAgentPoolProfilePropertiesResponse>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a AgentPool resource with the given unique name, arguments, and options.
@@ -62,6 +62,9 @@ export class AgentPool extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AgentPoolArgs | undefined;
+            if (!args || args.count === undefined) {
+                throw new Error("Missing required property 'count'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,11 +74,25 @@ export class AgentPool extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
+            if (!args || args.vmSize === undefined) {
+                throw new Error("Missing required property 'vmSize'");
+            }
+            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            inputs["count"] = args ? args.count : undefined;
+            inputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
+            inputs["maxCount"] = args ? args.maxCount : undefined;
+            inputs["maxPods"] = args ? args.maxPods : undefined;
+            inputs["minCount"] = args ? args.minCount : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
+            inputs["osDiskSizeGB"] = args ? args.osDiskSizeGB : undefined;
+            inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["type"] = undefined /*out*/;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["vmSize"] = args ? args.vmSize : undefined;
+            inputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,13 +110,45 @@ export class AgentPool extends pulumi.CustomResource {
  */
 export interface AgentPoolArgs {
     /**
+     * (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+     */
+    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+     */
+    readonly count: pulumi.Input<number>;
+    /**
+     * Whether to enable auto-scaler
+     */
+    readonly enableAutoScaling?: pulumi.Input<boolean>;
+    /**
+     * Maximum number of nodes for auto-scaling
+     */
+    readonly maxCount?: pulumi.Input<number>;
+    /**
+     * Maximum number of pods that can run on a node.
+     */
+    readonly maxPods?: pulumi.Input<number>;
+    /**
+     * Minimum number of nodes for auto-scaling
+     */
+    readonly minCount?: pulumi.Input<number>;
+    /**
      * The name of the agent pool.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of an agent pool.
+     * Version of orchestrator specified when creating the managed cluster.
      */
-    readonly properties?: pulumi.Input<inputs.containerservice.v20190401.ManagedClusterAgentPoolProfileProperties>;
+    readonly orchestratorVersion?: pulumi.Input<string>;
+    /**
+     * OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+     */
+    readonly osDiskSizeGB?: pulumi.Input<number>;
+    /**
+     * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+     */
+    readonly osType?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -108,4 +157,16 @@ export interface AgentPoolArgs {
      * The name of the managed cluster resource.
      */
     readonly resourceName: pulumi.Input<string>;
+    /**
+     * AgentPoolType represents types of an agent pool
+     */
+    readonly type?: pulumi.Input<string>;
+    /**
+     * Size of agent VMs.
+     */
+    readonly vmSize: pulumi.Input<string>;
+    /**
+     * VNet SubnetID specifies the VNet's subnet identifier.
+     */
+    readonly vnetSubnetID?: pulumi.Input<string>;
 }

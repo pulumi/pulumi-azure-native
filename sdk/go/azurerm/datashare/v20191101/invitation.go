@@ -88,12 +88,18 @@ type invitationArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the invitation.
 	Name string `pulumi:"name"`
-	// Properties on the Invitation
-	Properties *InvitationProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share to send the invitation for.
 	ShareName string `pulumi:"shareName"`
+	// The target Azure AD Id. Can't be combined with email.
+	TargetActiveDirectoryId *string `pulumi:"targetActiveDirectoryId"`
+	// The email the invitation is directed to.
+	TargetEmail *string `pulumi:"targetEmail"`
+	// The target user or application Id that invitation is being sent to.
+	// Must be specified along TargetActiveDirectoryId. This enables sending
+	// invitations to specific users or applications in an AD tenant.
+	TargetObjectId *string `pulumi:"targetObjectId"`
 }
 
 // The set of arguments for constructing a Invitation resource.
@@ -102,12 +108,18 @@ type InvitationArgs struct {
 	AccountName pulumi.StringInput
 	// The name of the invitation.
 	Name pulumi.StringInput
-	// Properties on the Invitation
-	Properties InvitationPropertiesPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The name of the share to send the invitation for.
 	ShareName pulumi.StringInput
+	// The target Azure AD Id. Can't be combined with email.
+	TargetActiveDirectoryId pulumi.StringPtrInput
+	// The email the invitation is directed to.
+	TargetEmail pulumi.StringPtrInput
+	// The target user or application Id that invitation is being sent to.
+	// Must be specified along TargetActiveDirectoryId. This enables sending
+	// invitations to specific users or applications in an AD tenant.
+	TargetObjectId pulumi.StringPtrInput
 }
 
 func (InvitationArgs) ElementType() reflect.Type {

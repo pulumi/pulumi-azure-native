@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
     /// </summary>
     public sealed class NetworkSecurityGroupArgs : Pulumi.ResourceArgs
     {
+        [Input("defaultSecurityRules")]
+        private InputList<Inputs.SecurityRuleArgs>? _defaultSecurityRules;
+
+        /// <summary>
+        /// The default security rules of network security group.
+        /// </summary>
+        public InputList<Inputs.SecurityRuleArgs> DefaultSecurityRules
+        {
+            get => _defaultSecurityRules ?? (_defaultSecurityRules = new InputList<Inputs.SecurityRuleArgs>());
+            set => _defaultSecurityRules = value;
+        }
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -33,11 +45,53 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("networkInterfaces")]
+        private InputList<Inputs.NetworkInterfaceArgs>? _networkInterfaces;
+
         /// <summary>
-        /// Network Security Group resource.
+        /// A collection of references to network interfaces.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkSecurityGroupPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.NetworkInterfaceArgs> NetworkInterfaces
+        {
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.NetworkInterfaceArgs>());
+            set => _networkInterfaces = value;
+        }
+
+        /// <summary>
+        /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The resource GUID property of the network security group resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
+
+        [Input("securityRules")]
+        private InputList<Inputs.SecurityRuleArgs>? _securityRules;
+
+        /// <summary>
+        /// A collection of security rules of the network security group.
+        /// </summary>
+        public InputList<Inputs.SecurityRuleArgs> SecurityRules
+        {
+            get => _securityRules ?? (_securityRules = new InputList<Inputs.SecurityRuleArgs>());
+            set => _securityRules = value;
+        }
+
+        [Input("subnets")]
+        private InputList<Inputs.SubnetDefinitionArgs>? _subnets;
+
+        /// <summary>
+        /// A collection of references to subnets.
+        /// </summary>
+        public InputList<Inputs.SubnetDefinitionArgs> Subnets
+        {
+            get => _subnets ?? (_subnets = new InputList<Inputs.SubnetDefinitionArgs>());
+            set => _subnets = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

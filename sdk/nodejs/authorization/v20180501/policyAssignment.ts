@@ -51,7 +51,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * Properties for the policy assignment.
      */
-    public readonly properties!: pulumi.Output<outputs.authorization.v20180501.PolicyAssignmentPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20180501.PolicyAssignmentPropertiesResponse>;
     /**
      * The policy sku. This property is optional, obsolete, and will be ignored.
      */
@@ -80,12 +80,18 @@ export class PolicyAssignment extends pulumi.CustomResource {
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notScopes"] = args ? args.notScopes : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,6 +110,14 @@ export class PolicyAssignment extends pulumi.CustomResource {
  */
 export interface PolicyAssignmentArgs {
     /**
+     * This message will be part of response in case of policy violation.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The display name of the policy assignment.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
      * The managed identity associated with the policy assignment.
      */
     readonly identity?: pulumi.Input<inputs.authorization.v20180501.Identity>;
@@ -112,15 +126,27 @@ export interface PolicyAssignmentArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The policy assignment metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The name of the policy assignment.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties for the policy assignment.
+     * The policy's excluded scopes.
      */
-    readonly properties?: pulumi.Input<inputs.authorization.v20180501.PolicyAssignmentProperties>;
+    readonly notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+     * Required if a parameter is used in policy rule.
+     */
+    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The ID of the policy definition or policy set definition being assigned.
+     */
+    readonly policyDefinitionId?: pulumi.Input<string>;
+    /**
+     * The scope for the policy assignment.
      */
     readonly scope: pulumi.Input<string>;
     /**

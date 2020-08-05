@@ -96,6 +96,30 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public sealed class ElasticPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The maximum DTU any one database can consume.
+        /// </summary>
+        [Input("databaseDtuMax")]
+        public Input<int>? DatabaseDtuMax { get; set; }
+
+        /// <summary>
+        /// The minimum DTU all databases are guaranteed.
+        /// </summary>
+        [Input("databaseDtuMin")]
+        public Input<int>? DatabaseDtuMin { get; set; }
+
+        /// <summary>
+        /// The total shared DTU for the database elastic pool.
+        /// </summary>
+        [Input("dtu")]
+        public Input<int>? Dtu { get; set; }
+
+        /// <summary>
+        /// The edition of the elastic pool.
+        /// </summary>
+        [Input("edition")]
+        public Input<string>? Edition { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location", required: true)]
@@ -106,12 +130,6 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties representing the resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ElasticPoolPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -125,6 +143,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
 
+        /// <summary>
+        /// Gets storage limit for the database elastic pool in MB.
+        /// </summary>
+        [Input("storageMB")]
+        public Input<int>? StorageMB { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -136,6 +160,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public ElasticPoolArgs()
         {

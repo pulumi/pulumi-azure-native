@@ -41,7 +41,7 @@ class PrivateZone(pulumi.CustomResource):
     """
     The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a Private DNS zone.
 
@@ -50,7 +50,6 @@ class PrivateZone(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The ETag of the zone.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[str] name: The name of the Private DNS zone (without a terminating dot).
-        :param pulumi.Input[dict] properties: Properties of the Private DNS zone.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
         """
@@ -76,11 +75,11 @@ class PrivateZone(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(PrivateZone, __self__).__init__(
             'azurerm:network/v20180901:PrivateZone',

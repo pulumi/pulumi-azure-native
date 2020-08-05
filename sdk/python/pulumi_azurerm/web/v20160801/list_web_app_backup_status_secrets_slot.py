@@ -52,43 +52,48 @@ class AwaitableListWebAppBackupStatusSecretsSlotResult(ListWebAppBackupStatusSec
             type=self.type)
 
 
-def list_web_app_backup_status_secrets_slot(kind=None, name=None, properties=None, resource_group_name=None, slot=None, opts=None):
+def list_web_app_backup_status_secrets_slot(backup_request_name=None, backup_schedule=None, databases=None, enabled=None, kind=None, name=None, resource_group_name=None, slot=None, storage_account_url=None, type=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str backup_request_name: Name of the backup.
+    :param dict backup_schedule: Schedule for the backup if it is executed periodically.
+    :param list databases: Databases included in the backup.
+    :param bool enabled: True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
     :param str kind: Kind of resource.
     :param str name: ID of backup.
-    :param dict properties: BackupRequest resource specific properties
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of web app slot. If not specified then will default to production slot.
+    :param str storage_account_url: SAS URL to the container.
+    :param str type: Type of the backup.
 
-    The **properties** object supports the following:
+    The **backup_schedule** object supports the following:
 
-      * `backup_request_name` (`str`) - Name of the backup.
-      * `backup_schedule` (`dict`) - Schedule for the backup if it is executed periodically.
-        * `frequency_interval` (`float`) - How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-        * `frequency_unit` (`str`) - The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-        * `keep_at_least_one_backup` (`bool`) - True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-        * `retention_period_in_days` (`float`) - After how many days backups should be deleted.
-        * `start_time` (`str`) - When the schedule should start working.
+      * `frequency_interval` (`float`) - How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
+      * `frequency_unit` (`str`) - The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+      * `keep_at_least_one_backup` (`bool`) - True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
+      * `retention_period_in_days` (`float`) - After how many days backups should be deleted.
+      * `start_time` (`str`) - When the schedule should start working.
 
-      * `databases` (`list`) - Databases included in the backup.
-        * `connection_string` (`str`) - Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
-        * `connection_string_name` (`str`) - Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-          This is used during restore with overwrite connection strings options.
-        * `database_type` (`str`) - Database type (e.g. SqlAzure / MySql).
-        * `name` (`str`)
+    The **databases** object supports the following:
 
-      * `enabled` (`bool`) - True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
-      * `storage_account_url` (`str`) - SAS URL to the container.
-      * `type` (`str`) - Type of the backup.
+      * `connection_string` (`str`) - Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
+      * `connection_string_name` (`str`) - Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
+        This is used during restore with overwrite connection strings options.
+      * `database_type` (`str`) - Database type (e.g. SqlAzure / MySql).
+      * `name` (`str`)
     """
     __args__ = dict()
+    __args__['backupRequestName'] = backup_request_name
+    __args__['backupSchedule'] = backup_schedule
+    __args__['databases'] = databases
+    __args__['enabled'] = enabled
     __args__['kind'] = kind
     __args__['name'] = name
-    __args__['properties'] = properties
     __args__['resourceGroupName'] = resource_group_name
     __args__['slot'] = slot
+    __args__['storageAccountUrl'] = storage_account_url
+    __args__['type'] = type
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

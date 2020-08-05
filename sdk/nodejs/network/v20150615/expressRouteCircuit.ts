@@ -51,7 +51,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
      * Properties of ExpressRouteCircuit.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20150615.ExpressRouteCircuitPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20150615.ExpressRouteCircuitPropertiesFormatResponse>;
     /**
      * The SKU.
      */
@@ -84,14 +84,22 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["authorizations"] = args ? args.authorizations : undefined;
+            inputs["circuitProvisioningState"] = args ? args.circuitProvisioningState : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peerings"] = args ? args.peerings : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceKey"] = args ? args.serviceKey : undefined;
+            inputs["serviceProviderNotes"] = args ? args.serviceProviderNotes : undefined;
+            inputs["serviceProviderProperties"] = args ? args.serviceProviderProperties : undefined;
+            inputs["serviceProviderProvisioningState"] = args ? args.serviceProviderProvisioningState : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +118,14 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
  */
 export interface ExpressRouteCircuitArgs {
     /**
+     * The list of authorizations.
+     */
+    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20150615.ExpressRouteCircuitAuthorization>[]>;
+    /**
+     * The CircuitProvisioningState state of the resource.
+     */
+    readonly circuitProvisioningState?: pulumi.Input<string>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
@@ -126,13 +142,33 @@ export interface ExpressRouteCircuitArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of ExpressRouteCircuit.
+     * The list of peerings.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20150615.ExpressRouteCircuitPropertiesFormat>;
+    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20150615.ExpressRouteCircuitPeering>[]>;
+    /**
+     * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ServiceKey.
+     */
+    readonly serviceKey?: pulumi.Input<string>;
+    /**
+     * The ServiceProviderNotes.
+     */
+    readonly serviceProviderNotes?: pulumi.Input<string>;
+    /**
+     * The ServiceProviderProperties.
+     */
+    readonly serviceProviderProperties?: pulumi.Input<inputs.network.v20150615.ExpressRouteCircuitServiceProviderProperties>;
+    /**
+     * The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+     */
+    readonly serviceProviderProvisioningState?: pulumi.Input<string>;
     /**
      * The SKU.
      */

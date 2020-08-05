@@ -101,14 +101,31 @@ namespace Pulumi.AzureRM.Security.V20200101
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties", required: true)]
-        public Input<Inputs.JitNetworkAccessPolicyPropertiesArgs> Properties { get; set; } = null!;
+        [Input("requests")]
+        private InputList<Inputs.JitNetworkAccessRequestArgs>? _requests;
+        public InputList<Inputs.JitNetworkAccessRequestArgs> Requests
+        {
+            get => _requests ?? (_requests = new InputList<Inputs.JitNetworkAccessRequestArgs>());
+            set => _requests = value;
+        }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("virtualMachines", required: true)]
+        private InputList<Inputs.JitNetworkAccessPolicyVirtualMachineArgs>? _virtualMachines;
+
+        /// <summary>
+        /// Configurations for Microsoft.Compute/virtualMachines resource type.
+        /// </summary>
+        public InputList<Inputs.JitNetworkAccessPolicyVirtualMachineArgs> VirtualMachines
+        {
+            get => _virtualMachines ?? (_virtualMachines = new InputList<Inputs.JitNetworkAccessPolicyVirtualMachineArgs>());
+            set => _virtualMachines = value;
+        }
 
         public JitNetworkAccessPolicyArgs()
         {

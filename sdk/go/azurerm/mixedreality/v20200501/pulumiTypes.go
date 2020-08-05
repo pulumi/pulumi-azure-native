@@ -11,121 +11,6 @@ import (
 )
 
 // Common Properties shared by Mixed Reality Accounts
-type MixedRealityAccountProperties struct {
-}
-
-// MixedRealityAccountPropertiesInput is an input type that accepts MixedRealityAccountPropertiesArgs and MixedRealityAccountPropertiesOutput values.
-// You can construct a concrete instance of `MixedRealityAccountPropertiesInput` via:
-//
-//          MixedRealityAccountPropertiesArgs{...}
-type MixedRealityAccountPropertiesInput interface {
-	pulumi.Input
-
-	ToMixedRealityAccountPropertiesOutput() MixedRealityAccountPropertiesOutput
-	ToMixedRealityAccountPropertiesOutputWithContext(context.Context) MixedRealityAccountPropertiesOutput
-}
-
-// Common Properties shared by Mixed Reality Accounts
-type MixedRealityAccountPropertiesArgs struct {
-}
-
-func (MixedRealityAccountPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MixedRealityAccountProperties)(nil)).Elem()
-}
-
-func (i MixedRealityAccountPropertiesArgs) ToMixedRealityAccountPropertiesOutput() MixedRealityAccountPropertiesOutput {
-	return i.ToMixedRealityAccountPropertiesOutputWithContext(context.Background())
-}
-
-func (i MixedRealityAccountPropertiesArgs) ToMixedRealityAccountPropertiesOutputWithContext(ctx context.Context) MixedRealityAccountPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MixedRealityAccountPropertiesOutput)
-}
-
-func (i MixedRealityAccountPropertiesArgs) ToMixedRealityAccountPropertiesPtrOutput() MixedRealityAccountPropertiesPtrOutput {
-	return i.ToMixedRealityAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i MixedRealityAccountPropertiesArgs) ToMixedRealityAccountPropertiesPtrOutputWithContext(ctx context.Context) MixedRealityAccountPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MixedRealityAccountPropertiesOutput).ToMixedRealityAccountPropertiesPtrOutputWithContext(ctx)
-}
-
-// MixedRealityAccountPropertiesPtrInput is an input type that accepts MixedRealityAccountPropertiesArgs, MixedRealityAccountPropertiesPtr and MixedRealityAccountPropertiesPtrOutput values.
-// You can construct a concrete instance of `MixedRealityAccountPropertiesPtrInput` via:
-//
-//          MixedRealityAccountPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type MixedRealityAccountPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToMixedRealityAccountPropertiesPtrOutput() MixedRealityAccountPropertiesPtrOutput
-	ToMixedRealityAccountPropertiesPtrOutputWithContext(context.Context) MixedRealityAccountPropertiesPtrOutput
-}
-
-type mixedRealityAccountPropertiesPtrType MixedRealityAccountPropertiesArgs
-
-func MixedRealityAccountPropertiesPtr(v *MixedRealityAccountPropertiesArgs) MixedRealityAccountPropertiesPtrInput {
-	return (*mixedRealityAccountPropertiesPtrType)(v)
-}
-
-func (*mixedRealityAccountPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MixedRealityAccountProperties)(nil)).Elem()
-}
-
-func (i *mixedRealityAccountPropertiesPtrType) ToMixedRealityAccountPropertiesPtrOutput() MixedRealityAccountPropertiesPtrOutput {
-	return i.ToMixedRealityAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *mixedRealityAccountPropertiesPtrType) ToMixedRealityAccountPropertiesPtrOutputWithContext(ctx context.Context) MixedRealityAccountPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MixedRealityAccountPropertiesPtrOutput)
-}
-
-// Common Properties shared by Mixed Reality Accounts
-type MixedRealityAccountPropertiesOutput struct{ *pulumi.OutputState }
-
-func (MixedRealityAccountPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MixedRealityAccountProperties)(nil)).Elem()
-}
-
-func (o MixedRealityAccountPropertiesOutput) ToMixedRealityAccountPropertiesOutput() MixedRealityAccountPropertiesOutput {
-	return o
-}
-
-func (o MixedRealityAccountPropertiesOutput) ToMixedRealityAccountPropertiesOutputWithContext(ctx context.Context) MixedRealityAccountPropertiesOutput {
-	return o
-}
-
-func (o MixedRealityAccountPropertiesOutput) ToMixedRealityAccountPropertiesPtrOutput() MixedRealityAccountPropertiesPtrOutput {
-	return o.ToMixedRealityAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o MixedRealityAccountPropertiesOutput) ToMixedRealityAccountPropertiesPtrOutputWithContext(ctx context.Context) MixedRealityAccountPropertiesPtrOutput {
-	return o.ApplyT(func(v MixedRealityAccountProperties) *MixedRealityAccountProperties {
-		return &v
-	}).(MixedRealityAccountPropertiesPtrOutput)
-}
-
-type MixedRealityAccountPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (MixedRealityAccountPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MixedRealityAccountProperties)(nil)).Elem()
-}
-
-func (o MixedRealityAccountPropertiesPtrOutput) ToMixedRealityAccountPropertiesPtrOutput() MixedRealityAccountPropertiesPtrOutput {
-	return o
-}
-
-func (o MixedRealityAccountPropertiesPtrOutput) ToMixedRealityAccountPropertiesPtrOutputWithContext(ctx context.Context) MixedRealityAccountPropertiesPtrOutput {
-	return o
-}
-
-func (o MixedRealityAccountPropertiesPtrOutput) Elem() MixedRealityAccountPropertiesOutput {
-	return o.ApplyT(func(v *MixedRealityAccountProperties) MixedRealityAccountProperties { return *v }).(MixedRealityAccountPropertiesOutput)
-}
-
-// Common Properties shared by Mixed Reality Accounts
 type MixedRealityAccountPropertiesResponse struct {
 	// Correspond domain name of certain Spatial Anchors Account
 	AccountDomain string `pulumi:"accountDomain"`
@@ -370,8 +255,6 @@ func (o SpatialAnchorsAccountTypeOutput) Type() pulumi.StringOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(MixedRealityAccountPropertiesOutput{})
-	pulumi.RegisterOutputType(MixedRealityAccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MixedRealityAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MixedRealityAccountPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SpatialAnchorsAccountTypeOutput{})

@@ -250,39 +250,39 @@ class PublicIPAddress(pulumi.CustomResource):
     """
     A list of availability zones denoting the IP allocated for the resource needs to come from.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, id=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, dns_settings=None, etag=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_tags=None, location=None, name=None, provisioning_state=None, public_ip_address_version=None, public_ip_allocation_method=None, resource_group_name=None, resource_guid=None, sku=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Public IP address resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] dns_settings: The FQDN of the DNS record associated with the public IP address.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[float] idle_timeout_in_minutes: The idle timeout of the public IP address.
+        :param pulumi.Input[str] ip_address: The IP address associated with the public IP address resource.
+        :param pulumi.Input[list] ip_tags: The list of tags associated with the public IP address.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the public IP address.
-        :param pulumi.Input[dict] properties: Public IP address properties.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param pulumi.Input[str] public_ip_address_version: The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+        :param pulumi.Input[str] public_ip_allocation_method: The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_guid: The resource GUID property of the public IP resource.
         :param pulumi.Input[dict] sku: The public IP address SKU.
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[list] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
 
-        The **properties** object supports the following:
+        The **dns_settings** object supports the following:
 
-          * `dns_settings` (`pulumi.Input[dict]`) - The FQDN of the DNS record associated with the public IP address.
-            * `domain_name_label` (`pulumi.Input[str]`) - Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-            * `fqdn` (`pulumi.Input[str]`) - Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-            * `reverse_fqdn` (`pulumi.Input[str]`) - Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
+          * `domain_name_label` (`pulumi.Input[str]`) - Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+          * `fqdn` (`pulumi.Input[str]`) - Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+          * `reverse_fqdn` (`pulumi.Input[str]`) - Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
 
-          * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - The idle timeout of the public IP address.
-          * `ip_address` (`pulumi.Input[str]`) - The IP address associated with the public IP address resource.
-          * `ip_tags` (`pulumi.Input[list]`) - The list of tags associated with the public IP address.
-            * `ip_tag_type` (`pulumi.Input[str]`) - Gets or sets the ipTag type: Example FirstPartyUsage.
-            * `tag` (`pulumi.Input[str]`) - Gets or sets value of the IpTag associated with the public IP. Example SQL, Storage etc
+        The **ip_tags** object supports the following:
 
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `public_ip_address_version` (`pulumi.Input[str]`) - The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
-          * `public_ip_allocation_method` (`pulumi.Input[str]`) - The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
-          * `resource_guid` (`pulumi.Input[str]`) - The resource GUID property of the public IP resource.
+          * `ip_tag_type` (`pulumi.Input[str]`) - Gets or sets the ipTag type: Example FirstPartyUsage.
+          * `tag` (`pulumi.Input[str]`) - Gets or sets value of the IpTag associated with the public IP. Example SQL, Storage etc
 
         The **sku** object supports the following:
 
@@ -305,19 +305,27 @@ class PublicIPAddress(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['dns_settings'] = dns_settings
             __props__['etag'] = etag
             __props__['id'] = id
+            __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
+            __props__['ip_address'] = ip_address
+            __props__['ip_tags'] = ip_tags
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
+            __props__['public_ip_address_version'] = public_ip_address_version
+            __props__['public_ip_allocation_method'] = public_ip_allocation_method
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['resource_guid'] = resource_guid
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['zones'] = zones
+            __props__['properties'] = None
             __props__['type'] = None
         super(PublicIPAddress, __self__).__init__(
             'azurerm:network/v20180601:PublicIPAddress',

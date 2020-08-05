@@ -78,32 +78,82 @@ func (ExpressRouteCircuitPeeringState) ElementType() reflect.Type {
 }
 
 type expressRouteCircuitPeeringArgs struct {
+	// The Azure ASN.
+	AzureASN *int `pulumi:"azureASN"`
 	// The name of the express route circuit.
 	CircuitName string `pulumi:"circuitName"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource Identifier.
 	Id *string `pulumi:"id"`
+	// The Microsoft peering configuration.
+	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfig `pulumi:"microsoftPeeringConfig"`
 	// The name of the peering.
-	Name       string                                      `pulumi:"name"`
-	Properties *ExpressRouteCircuitPeeringPropertiesFormat `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// The peer ASN.
+	PeerASN *int `pulumi:"peerASN"`
+	// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
+	PeeringType *string `pulumi:"peeringType"`
+	// The primary port.
+	PrimaryAzurePort *string `pulumi:"primaryAzurePort"`
+	// The primary address prefix.
+	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The secondary port.
+	SecondaryAzurePort *string `pulumi:"secondaryAzurePort"`
+	// The secondary address prefix.
+	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
+	// The shared key.
+	SharedKey *string `pulumi:"sharedKey"`
+	// The state of peering. Possible values are: 'Disabled' and 'Enabled'
+	State *string `pulumi:"state"`
+	// Gets peering stats.
+	Stats *ExpressRouteCircuitStats `pulumi:"stats"`
+	// The VLAN ID.
+	VlanId *int `pulumi:"vlanId"`
 }
 
 // The set of arguments for constructing a ExpressRouteCircuitPeering resource.
 type ExpressRouteCircuitPeeringArgs struct {
+	// The Azure ASN.
+	AzureASN pulumi.IntPtrInput
 	// The name of the express route circuit.
 	CircuitName pulumi.StringInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource Identifier.
 	Id pulumi.StringPtrInput
+	// The Microsoft peering configuration.
+	MicrosoftPeeringConfig ExpressRouteCircuitPeeringConfigPtrInput
 	// The name of the peering.
-	Name       pulumi.StringInput
-	Properties ExpressRouteCircuitPeeringPropertiesFormatPtrInput
+	Name pulumi.StringInput
+	// The peer ASN.
+	PeerASN pulumi.IntPtrInput
+	// The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
+	PeeringType pulumi.StringPtrInput
+	// The primary port.
+	PrimaryAzurePort pulumi.StringPtrInput
+	// The primary address prefix.
+	PrimaryPeerAddressPrefix pulumi.StringPtrInput
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The secondary port.
+	SecondaryAzurePort pulumi.StringPtrInput
+	// The secondary address prefix.
+	SecondaryPeerAddressPrefix pulumi.StringPtrInput
+	// The shared key.
+	SharedKey pulumi.StringPtrInput
+	// The state of peering. Possible values are: 'Disabled' and 'Enabled'
+	State pulumi.StringPtrInput
+	// Gets peering stats.
+	Stats ExpressRouteCircuitStatsPtrInput
+	// The VLAN ID.
+	VlanId pulumi.IntPtrInput
 }
 
 func (ExpressRouteCircuitPeeringArgs) ElementType() reflect.Type {

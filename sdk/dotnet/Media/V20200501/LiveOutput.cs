@@ -84,10 +84,40 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+        /// </summary>
+        [Input("archiveWindowLength", required: true)]
+        public Input<string> ArchiveWindowLength { get; set; } = null!;
+
+        /// <summary>
+        /// The asset name.
+        /// </summary>
+        [Input("assetName", required: true)]
+        public Input<string> AssetName { get; set; } = null!;
+
+        /// <summary>
+        /// The description of the Live Output.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The HLS configuration.
+        /// </summary>
+        [Input("hls")]
+        public Input<Inputs.HlsArgs>? Hls { get; set; }
+
+        /// <summary>
         /// The name of the Live Event.
         /// </summary>
         [Input("liveEventName", required: true)]
         public Input<string> LiveEventName { get; set; } = null!;
+
+        /// <summary>
+        /// The manifest file name.  If not provided, the service will generate one automatically.
+        /// </summary>
+        [Input("manifestName")]
+        public Input<string>? ManifestName { get; set; }
 
         /// <summary>
         /// The name of the Live Output.
@@ -96,10 +126,10 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Live Output properties.
+        /// The output snapshot time.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LiveOutputPropertiesArgs>? Properties { get; set; }
+        [Input("outputSnapTime")]
+        public Input<int>? OutputSnapTime { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

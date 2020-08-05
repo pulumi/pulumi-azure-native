@@ -43,7 +43,7 @@ export class Order extends pulumi.CustomResource {
     /**
      * The order properties.
      */
-    public readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.OrderPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.OrderPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -62,15 +62,24 @@ export class Order extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as OrderArgs | undefined;
+            if (!args || args.contactInformation === undefined) {
+                throw new Error("Missing required property 'contactInformation'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.shippingAddress === undefined) {
+                throw new Error("Missing required property 'shippingAddress'");
+            }
+            inputs["contactInformation"] = args ? args.contactInformation : undefined;
+            inputs["currentStatus"] = args ? args.currentStatus : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["shippingAddress"] = args ? args.shippingAddress : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -89,15 +98,23 @@ export class Order extends pulumi.CustomResource {
  */
 export interface OrderArgs {
     /**
+     * The contact details.
+     */
+    readonly contactInformation: pulumi.Input<inputs.databoxedge.v20190801.ContactDetails>;
+    /**
+     * Current status of the order.
+     */
+    readonly currentStatus?: pulumi.Input<inputs.databoxedge.v20190801.OrderStatus>;
+    /**
      * The order details of a device.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The order properties.
-     */
-    readonly properties?: pulumi.Input<inputs.databoxedge.v20190801.OrderProperties>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The shipping address.
+     */
+    readonly shippingAddress: pulumi.Input<inputs.databoxedge.v20190801.Address>;
 }

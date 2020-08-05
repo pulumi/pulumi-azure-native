@@ -90,10 +90,40 @@ namespace Pulumi.AzureRM.Compute.V20190301
     public sealed class GalleryImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The description of this gallery Image Definition resource. This property is updatable.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Describes the disallowed disk types.
+        /// </summary>
+        [Input("disallowed")]
+        public Input<Inputs.DisallowedArgs>? Disallowed { get; set; }
+
+        /// <summary>
+        /// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+        /// </summary>
+        [Input("endOfLifeDate")]
+        public Input<string>? EndOfLifeDate { get; set; }
+
+        /// <summary>
+        /// The Eula agreement for the gallery Image Definition.
+        /// </summary>
+        [Input("eula")]
+        public Input<string>? Eula { get; set; }
+
+        /// <summary>
         /// The name of the Shared Image Gallery in which the Image Definition is to be created.
         /// </summary>
         [Input("galleryName", required: true)]
         public Input<string> GalleryName { get; set; } = null!;
+
+        /// <summary>
+        /// This is the gallery Image Definition identifier.
+        /// </summary>
+        [Input("identifier", required: true)]
+        public Input<Inputs.GalleryImageIdentifierArgs> Identifier { get; set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -108,10 +138,40 @@ namespace Pulumi.AzureRM.Compute.V20190301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a gallery Image Definition.
+        /// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.GalleryImagePropertiesArgs>? Properties { get; set; }
+        [Input("osState", required: true)]
+        public Input<string> OsState { get; set; } = null!;
+
+        /// <summary>
+        /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+        /// </summary>
+        [Input("osType", required: true)]
+        public Input<string> OsType { get; set; } = null!;
+
+        /// <summary>
+        /// The privacy statement uri.
+        /// </summary>
+        [Input("privacyStatementUri")]
+        public Input<string>? PrivacyStatementUri { get; set; }
+
+        /// <summary>
+        /// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        /// </summary>
+        [Input("purchasePlan")]
+        public Input<Inputs.ImagePurchasePlanArgs>? PurchasePlan { get; set; }
+
+        /// <summary>
+        /// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+        /// </summary>
+        [Input("recommended")]
+        public Input<Inputs.RecommendedMachineConfigurationArgs>? Recommended { get; set; }
+
+        /// <summary>
+        /// The release note uri.
+        /// </summary>
+        [Input("releaseNoteUri")]
+        public Input<string>? ReleaseNoteUri { get; set; }
 
         /// <summary>
         /// The name of the resource group.

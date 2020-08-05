@@ -108,10 +108,10 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Azure Stack registration resource
+        /// The token identifying registered Azure Stack
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.RegistrationParameterPropertiesArgs> Properties { get; set; } = null!;
+        [Input("registrationToken", required: true)]
+        public Input<string> RegistrationToken { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group.

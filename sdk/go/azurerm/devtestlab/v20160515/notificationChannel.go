@@ -35,9 +35,6 @@ func NewNotificationChannel(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -96,34 +93,50 @@ func (NotificationChannelState) ElementType() reflect.Type {
 }
 
 type notificationChannelArgs struct {
+	// Description of notification.
+	Description *string `pulumi:"description"`
+	// The list of event for which this notification is enabled.
+	Events []Event `pulumi:"events"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the notificationChannel.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties NotificationChannelProperties `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// The webhook URL to send notifications to.
+	WebHookUrl *string `pulumi:"webHookUrl"`
 }
 
 // The set of arguments for constructing a NotificationChannel resource.
 type NotificationChannelArgs struct {
+	// Description of notification.
+	Description pulumi.StringPtrInput
+	// The list of event for which this notification is enabled.
+	Events EventArrayInput
 	// The name of the lab.
 	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the notificationChannel.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties NotificationChannelPropertiesInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
+	// The webhook URL to send notifications to.
+	WebHookUrl pulumi.StringPtrInput
 }
 
 func (NotificationChannelArgs) ElementType() reflect.Type {

@@ -96,32 +96,48 @@ func (MachineState) ElementType() reflect.Type {
 }
 
 type machineArgs struct {
-	Identity map[string]interface{} `pulumi:"identity"`
+	// Public Key that the client provides to be used during initial resource onboarding
+	ClientPublicKey *string `pulumi:"clientPublicKey"`
+	// Machine Extensions information
+	Extensions []MachineExtensionInstanceView `pulumi:"extensions"`
+	Identity   map[string]interface{}         `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// Metadata pertaining to the geographic location of the resource.
+	LocationData *LocationData `pulumi:"locationData"`
 	// The name of the hybrid machine.
 	Name string `pulumi:"name"`
-	// Hybrid Compute Machine properties
-	Properties map[string]interface{} `pulumi:"properties"`
+	// Specifies the operating system settings for the hybrid machine.
+	OsProfile map[string]interface{} `pulumi:"osProfile"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the hybrid machine unique ID.
+	VmId *string `pulumi:"vmId"`
 }
 
 // The set of arguments for constructing a Machine resource.
 type MachineArgs struct {
-	Identity pulumi.MapInput
+	// Public Key that the client provides to be used during initial resource onboarding
+	ClientPublicKey pulumi.StringPtrInput
+	// Machine Extensions information
+	Extensions MachineExtensionInstanceViewArrayInput
+	Identity   pulumi.MapInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
+	// Metadata pertaining to the geographic location of the resource.
+	LocationData LocationDataPtrInput
 	// The name of the hybrid machine.
 	Name pulumi.StringInput
-	// Hybrid Compute Machine properties
-	Properties pulumi.MapInput
+	// Specifies the operating system settings for the hybrid machine.
+	OsProfile pulumi.MapInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Specifies the hybrid machine unique ID.
+	VmId pulumi.StringPtrInput
 }
 
 func (MachineArgs) ElementType() reflect.Type {

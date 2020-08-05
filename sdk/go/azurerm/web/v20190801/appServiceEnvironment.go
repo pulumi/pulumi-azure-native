@@ -40,6 +40,12 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.VirtualNetwork == nil {
+		return nil, errors.New("missing required argument 'VirtualNetwork'")
+	}
+	if args == nil || args.WorkerPools == nil {
+		return nil, errors.New("missing required argument 'WorkerPools'")
+	}
 	if args == nil {
 		args = &AppServiceEnvironmentArgs{}
 	}
@@ -99,34 +105,114 @@ func (AppServiceEnvironmentState) ElementType() reflect.Type {
 }
 
 type appServiceEnvironmentArgs struct {
+	// API Management Account associated with the App Service Environment.
+	ApiManagementAccountId *string `pulumi:"apiManagementAccountId"`
+	// Custom settings for changing the behavior of the App Service Environment.
+	ClusterSettings []NameValuePair `pulumi:"clusterSettings"`
+	// DNS suffix of the App Service Environment.
+	DnsSuffix *string `pulumi:"dnsSuffix"`
+	// True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+	// (most likely because NSG blocked the incoming traffic).
+	DynamicCacheEnabled *bool `pulumi:"dynamicCacheEnabled"`
+	// Scale factor for front-ends.
+	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
+	// Flag that displays whether an ASE has linux workers or not
+	HasLinuxWorkers *bool `pulumi:"hasLinuxWorkers"`
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
+	// Number of IP SSL addresses reserved for the App Service Environment.
+	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
+	// Number of front-end instances.
+	MultiRoleCount *int `pulumi:"multiRoleCount"`
+	// Front-end VM size, e.g. "Medium", "Large".
+	MultiSize *string `pulumi:"multiSize"`
 	// Name of the App Service Environment.
 	Name string `pulumi:"name"`
-	// Core resource properties
-	Properties *AppServiceEnvironmentDefinition `pulumi:"properties"`
+	// Access control list for controlling traffic to the App Service Environment.
+	NetworkAccessControlList []NetworkAccessControlEntry `pulumi:"networkAccessControlList"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Key Vault ID for ILB App Service Environment default SSL certificate
+	SslCertKeyVaultId *string `pulumi:"sslCertKeyVaultId"`
+	// Key Vault Secret Name for ILB App Service Environment default SSL certificate
+	SslCertKeyVaultSecretName *string `pulumi:"sslCertKeyVaultSecretName"`
+	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+	//  (most likely because NSG blocked the incoming traffic).
+	Suspended *bool `pulumi:"suspended"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// User added ip ranges to whitelist on ASE db
+	UserWhitelistedIpRanges []string `pulumi:"userWhitelistedIpRanges"`
+	// Description of the Virtual Network.
+	VirtualNetwork VirtualNetworkProfile `pulumi:"virtualNetwork"`
+	// Name of the Virtual Network for the App Service Environment.
+	VnetName *string `pulumi:"vnetName"`
+	// Resource group of the Virtual Network.
+	VnetResourceGroupName *string `pulumi:"vnetResourceGroupName"`
+	// Subnet of the Virtual Network.
+	VnetSubnetName *string `pulumi:"vnetSubnetName"`
+	// Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
+	WorkerPools []WorkerPool `pulumi:"workerPools"`
 }
 
 // The set of arguments for constructing a AppServiceEnvironment resource.
 type AppServiceEnvironmentArgs struct {
+	// API Management Account associated with the App Service Environment.
+	ApiManagementAccountId pulumi.StringPtrInput
+	// Custom settings for changing the behavior of the App Service Environment.
+	ClusterSettings NameValuePairArrayInput
+	// DNS suffix of the App Service Environment.
+	DnsSuffix pulumi.StringPtrInput
+	// True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+	// (most likely because NSG blocked the incoming traffic).
+	DynamicCacheEnabled pulumi.BoolPtrInput
+	// Scale factor for front-ends.
+	FrontEndScaleFactor pulumi.IntPtrInput
+	// Flag that displays whether an ASE has linux workers or not
+	HasLinuxWorkers pulumi.BoolPtrInput
+	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+	InternalLoadBalancingMode pulumi.StringPtrInput
+	// Number of IP SSL addresses reserved for the App Service Environment.
+	IpsslAddressCount pulumi.IntPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
+	// Number of front-end instances.
+	MultiRoleCount pulumi.IntPtrInput
+	// Front-end VM size, e.g. "Medium", "Large".
+	MultiSize pulumi.StringPtrInput
 	// Name of the App Service Environment.
 	Name pulumi.StringInput
-	// Core resource properties
-	Properties AppServiceEnvironmentDefinitionPtrInput
+	// Access control list for controlling traffic to the App Service Environment.
+	NetworkAccessControlList NetworkAccessControlEntryArrayInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// Key Vault ID for ILB App Service Environment default SSL certificate
+	SslCertKeyVaultId pulumi.StringPtrInput
+	// Key Vault Secret Name for ILB App Service Environment default SSL certificate
+	SslCertKeyVaultSecretName pulumi.StringPtrInput
+	// <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+	//  (most likely because NSG blocked the incoming traffic).
+	Suspended pulumi.BoolPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// User added ip ranges to whitelist on ASE db
+	UserWhitelistedIpRanges pulumi.StringArrayInput
+	// Description of the Virtual Network.
+	VirtualNetwork VirtualNetworkProfileInput
+	// Name of the Virtual Network for the App Service Environment.
+	VnetName pulumi.StringPtrInput
+	// Resource group of the Virtual Network.
+	VnetResourceGroupName pulumi.StringPtrInput
+	// Subnet of the Virtual Network.
+	VnetSubnetName pulumi.StringPtrInput
+	// Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
+	WorkerPools WorkerPoolArrayInput
 }
 
 func (AppServiceEnvironmentArgs) ElementType() reflect.Type {

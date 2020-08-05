@@ -32,9 +32,6 @@ func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
 		args = &AdaptiveApplicationControlArgs{}
 	}
@@ -88,20 +85,28 @@ func (AdaptiveApplicationControlState) ElementType() reflect.Type {
 type adaptiveApplicationControlArgs struct {
 	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
 	AscLocation string `pulumi:"ascLocation"`
+	// The application control policy enforcement/protection mode of the VM/server group
+	EnforcementMode *string `pulumi:"enforcementMode"`
 	// Name of an application control VM/server group
-	Name string `pulumi:"name"`
-	// Represents a VM/server group and set of rules to be allowed running on a machine
-	Properties AppWhitelistingGroupData `pulumi:"properties"`
+	Name                string               `pulumi:"name"`
+	PathRecommendations *PathRecommendations `pulumi:"pathRecommendations"`
+	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+	ProtectionMode    *ProtectionMode    `pulumi:"protectionMode"`
+	VmRecommendations *VmRecommendations `pulumi:"vmRecommendations"`
 }
 
 // The set of arguments for constructing a AdaptiveApplicationControl resource.
 type AdaptiveApplicationControlArgs struct {
 	// The location where ASC stores the data of the subscription. can be retrieved from Get locations
 	AscLocation pulumi.StringInput
+	// The application control policy enforcement/protection mode of the VM/server group
+	EnforcementMode pulumi.StringPtrInput
 	// Name of an application control VM/server group
-	Name pulumi.StringInput
-	// Represents a VM/server group and set of rules to be allowed running on a machine
-	Properties AppWhitelistingGroupDataInput
+	Name                pulumi.StringInput
+	PathRecommendations PathRecommendationsPtrInput
+	// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+	ProtectionMode    ProtectionModePtrInput
+	VmRecommendations VmRecommendationsPtrInput
 }
 
 func (AdaptiveApplicationControlArgs) ElementType() reflect.Type {

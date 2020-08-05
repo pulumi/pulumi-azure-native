@@ -43,7 +43,7 @@ export class Share extends pulumi.CustomResource {
     /**
      * Properties on the share
      */
-    public readonly properties!: pulumi.Output<outputs.datashare.v20191101.SharePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datashare.v20191101.SharePropertiesResponse>;
     /**
      * Type of the azure resource
      */
@@ -72,9 +72,12 @@ export class Share extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["shareKind"] = args ? args.shareKind : undefined;
+            inputs["terms"] = args ? args.terms : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,15 +100,23 @@ export interface ShareArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * Share description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The name of the share.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties on the share
-     */
-    readonly properties?: pulumi.Input<inputs.datashare.v20191101.ShareProperties>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Share kind.
+     */
+    readonly shareKind?: pulumi.Input<string>;
+    /**
+     * Share terms.
+     */
+    readonly terms?: pulumi.Input<string>;
 }

@@ -15,11 +15,35 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
     /// </summary>
     public sealed class BackendPoolArgs : Pulumi.ResourceArgs
     {
+        [Input("backends")]
+        private InputList<Inputs.BackendArgs>? _backends;
+
+        /// <summary>
+        /// The set of backends for this pool
+        /// </summary>
+        public InputList<Inputs.BackendArgs> Backends
+        {
+            get => _backends ?? (_backends = new InputList<Inputs.BackendArgs>());
+            set => _backends = value;
+        }
+
+        /// <summary>
+        /// L7 health probe settings for a backend pool
+        /// </summary>
+        [Input("healthProbeSettings")]
+        public Input<Inputs.SubResourceArgs>? HealthProbeSettings { get; set; }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Load balancing settings for a backend pool
+        /// </summary>
+        [Input("loadBalancingSettings")]
+        public Input<Inputs.SubResourceArgs>? LoadBalancingSettings { get; set; }
 
         /// <summary>
         /// Resource name.
@@ -28,10 +52,10 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the Front Door Backend Pool
+        /// Resource status.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BackendPoolPropertiesArgs>? Properties { get; set; }
+        [Input("resourceState")]
+        public Input<string>? ResourceState { get; set; }
 
         public BackendPoolArgs()
         {

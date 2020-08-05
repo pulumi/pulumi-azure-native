@@ -90,10 +90,16 @@ namespace Pulumi.AzureRM.Peering.V20200401
         public Input<string> PeeringServiceName { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the peering prefix properties.
+        /// The peering service prefix key
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PeeringServicePrefixPropertiesArgs>? Properties { get; set; }
+        [Input("peeringServicePrefixKey")]
+        public Input<string>? PeeringServicePrefixKey { get; set; }
+
+        /// <summary>
+        /// The prefix from which your traffic originates.
+        /// </summary>
+        [Input("prefix")]
+        public Input<string>? Prefix { get; set; }
 
         /// <summary>
         /// The name of the resource group.

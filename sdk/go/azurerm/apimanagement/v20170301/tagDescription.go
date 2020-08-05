@@ -86,10 +86,14 @@ func (TagDescriptionState) ElementType() reflect.Type {
 type tagDescriptionArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
+	// Description of the Tag.
+	Description *string `pulumi:"description"`
+	// Description of the external resources describing the tag.
+	ExternalDocsDescription *string `pulumi:"externalDocsDescription"`
+	// Absolute URL of external resources describing the tag.
+	ExternalDocsUrl *string `pulumi:"externalDocsUrl"`
 	// Tag identifier. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// Properties supplied to Create TagDescription operation.
-	Properties *TagDescriptionBaseProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -100,10 +104,14 @@ type tagDescriptionArgs struct {
 type TagDescriptionArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId pulumi.StringInput
+	// Description of the Tag.
+	Description pulumi.StringPtrInput
+	// Description of the external resources describing the tag.
+	ExternalDocsDescription pulumi.StringPtrInput
+	// Absolute URL of external resources describing the tag.
+	ExternalDocsUrl pulumi.StringPtrInput
 	// Tag identifier. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// Properties supplied to Create TagDescription operation.
-	Properties TagDescriptionBasePropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

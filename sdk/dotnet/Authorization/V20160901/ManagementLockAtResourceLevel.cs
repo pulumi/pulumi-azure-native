@@ -78,22 +78,40 @@ namespace Pulumi.AzureRM.Authorization.V20160901
     public sealed class ManagementLockAtResourceLevelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        /// </summary>
+        [Input("level", required: true)]
+        public Input<string> Level { get; set; } = null!;
+
+        /// <summary>
         /// The name of lock. The lock name can be a maximum of 260 characters. It cannot contain &lt;, &gt; %, &amp;, :, \, ?, /, or any control characters.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Notes about the lock. Maximum of 512 characters.
+        /// </summary>
+        [Input("notes")]
+        public Input<string>? Notes { get; set; }
+
+        [Input("owners")]
+        private InputList<Inputs.ManagementLockOwnerArgs>? _owners;
+
+        /// <summary>
+        /// The owners of the lock.
+        /// </summary>
+        public InputList<Inputs.ManagementLockOwnerArgs> Owners
+        {
+            get => _owners ?? (_owners = new InputList<Inputs.ManagementLockOwnerArgs>());
+            set => _owners = value;
+        }
+
+        /// <summary>
         /// The parent resource identity.
         /// </summary>
         [Input("parentResourcePath", required: true)]
         public Input<string> ParentResourcePath { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the lock.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ManagementLockPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the resource to lock. 

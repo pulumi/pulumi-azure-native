@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20191101.Inputs
     public sealed class RouteTableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to disable the routes learned by BGP on that route table. True means disable.
+        /// </summary>
+        [Input("disableBgpRoutePropagation")]
+        public Input<bool>? DisableBgpRoutePropagation { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -27,11 +33,17 @@ namespace Pulumi.AzureRM.Network.V20191101.Inputs
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("routes")]
+        private InputList<Inputs.RouteArgs>? _routes;
+
         /// <summary>
-        /// Properties of the route table.
+        /// Collection of routes contained within a route table.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RouteTablePropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.RouteArgs> Routes
+        {
+            get => _routes ?? (_routes = new InputList<Inputs.RouteArgs>());
+            set => _routes = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

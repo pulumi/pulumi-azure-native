@@ -40,7 +40,7 @@ class VirtualNetworkLink(pulumi.CustomResource):
     """
     The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, private_zone_name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, private_zone_name=None, registration_enabled=None, resource_group_name=None, tags=None, virtual_network=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a link to virtual network for a Private DNS zone.
 
@@ -50,15 +50,14 @@ class VirtualNetworkLink(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[str] name: The name of the virtual network link.
         :param pulumi.Input[str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
-        :param pulumi.Input[dict] properties: Properties of the virtual network link to the Private DNS zone.
+        :param pulumi.Input[bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[dict] virtual_network: The reference of the virtual network.
 
-        The **properties** object supports the following:
+        The **virtual_network** object supports the following:
 
-          * `registration_enabled` (`pulumi.Input[bool]`) - Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
-          * `virtual_network` (`pulumi.Input[dict]`) - The reference of the virtual network.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,11 +84,13 @@ class VirtualNetworkLink(pulumi.CustomResource):
             if private_zone_name is None:
                 raise TypeError("Missing required property 'private_zone_name'")
             __props__['private_zone_name'] = private_zone_name
-            __props__['properties'] = properties
+            __props__['registration_enabled'] = registration_enabled
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['virtual_network'] = virtual_network
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualNetworkLink, __self__).__init__(
             'azurerm:network/v20180901:VirtualNetworkLink',

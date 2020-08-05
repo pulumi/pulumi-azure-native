@@ -42,7 +42,7 @@ class Zone(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, registration_virtual_networks=None, resolution_virtual_networks=None, resource_group_name=None, tags=None, zone_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a DNS zone.
 
@@ -51,17 +51,15 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The etag of the zone.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the DNS zone (without a terminating dot).
-        :param pulumi.Input[dict] properties: The properties of the zone.
+        :param pulumi.Input[list] registration_virtual_networks: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+        :param pulumi.Input[list] resolution_virtual_networks: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[str] zone_type: The type of this DNS zone (Public or Private).
 
-        The **properties** object supports the following:
+        The **registration_virtual_networks** object supports the following:
 
-          * `registration_virtual_networks` (`pulumi.Input[list]`) - A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
-            * `id` (`pulumi.Input[str]`) - Resource Id.
-
-          * `resolution_virtual_networks` (`pulumi.Input[list]`) - A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
-          * `zone_type` (`pulumi.Input[str]`) - The type of this DNS zone (Public or Private).
+          * `id` (`pulumi.Input[str]`) - Resource Id.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,11 +85,14 @@ class Zone(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['registration_virtual_networks'] = registration_virtual_networks
+            __props__['resolution_virtual_networks'] = resolution_virtual_networks
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['zone_type'] = zone_type
+            __props__['properties'] = None
             __props__['type'] = None
         super(Zone, __self__).__init__(
             'azurerm:network/v20180501:Zone',

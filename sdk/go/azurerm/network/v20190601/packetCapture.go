@@ -31,11 +31,14 @@ func NewPacketCapture(ctx *pulumi.Context,
 	if args == nil || args.NetworkWatcherName == nil {
 		return nil, errors.New("missing required argument 'NetworkWatcherName'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StorageLocation == nil {
+		return nil, errors.New("missing required argument 'StorageLocation'")
+	}
+	if args == nil || args.Target == nil {
+		return nil, errors.New("missing required argument 'Target'")
 	}
 	if args == nil {
 		args = &PacketCaptureArgs{}
@@ -84,26 +87,46 @@ func (PacketCaptureState) ElementType() reflect.Type {
 }
 
 type packetCaptureArgs struct {
+	// Number of bytes captured per packet, the remaining bytes are truncated.
+	BytesToCapturePerPacket *int `pulumi:"bytesToCapturePerPacket"`
+	// A list of packet capture filters.
+	Filters []PacketCaptureFilter `pulumi:"filters"`
 	// The name of the packet capture session.
 	Name string `pulumi:"name"`
 	// The name of the network watcher.
 	NetworkWatcherName string `pulumi:"networkWatcherName"`
-	// Properties of the packet capture.
-	Properties PacketCaptureParameters `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Describes the storage location for a packet capture session.
+	StorageLocation PacketCaptureStorageLocation `pulumi:"storageLocation"`
+	// The ID of the targeted resource, only VM is currently supported.
+	Target string `pulumi:"target"`
+	// Maximum duration of the capture session in seconds.
+	TimeLimitInSeconds *int `pulumi:"timeLimitInSeconds"`
+	// Maximum size of the capture output.
+	TotalBytesPerSession *int `pulumi:"totalBytesPerSession"`
 }
 
 // The set of arguments for constructing a PacketCapture resource.
 type PacketCaptureArgs struct {
+	// Number of bytes captured per packet, the remaining bytes are truncated.
+	BytesToCapturePerPacket pulumi.IntPtrInput
+	// A list of packet capture filters.
+	Filters PacketCaptureFilterArrayInput
 	// The name of the packet capture session.
 	Name pulumi.StringInput
 	// The name of the network watcher.
 	NetworkWatcherName pulumi.StringInput
-	// Properties of the packet capture.
-	Properties PacketCaptureParametersInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Describes the storage location for a packet capture session.
+	StorageLocation PacketCaptureStorageLocationInput
+	// The ID of the targeted resource, only VM is currently supported.
+	Target pulumi.StringInput
+	// Maximum duration of the capture session in seconds.
+	TimeLimitInSeconds pulumi.IntPtrInput
+	// Maximum size of the capture output.
+	TotalBytesPerSession pulumi.IntPtrInput
 }
 
 func (PacketCaptureArgs) ElementType() reflect.Type {

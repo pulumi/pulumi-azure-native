@@ -32,9 +32,6 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -93,30 +90,58 @@ func (GlobalScheduleState) ElementType() reflect.Type {
 }
 
 type globalScheduleArgs struct {
+	// If the schedule will occur once each day of the week, specify the daily recurrence.
+	DailyRecurrence *DayDetails `pulumi:"dailyRecurrence"`
+	// If the schedule will occur multiple times a day, specify the hourly recurrence.
+	HourlyRecurrence *HourDetails `pulumi:"hourlyRecurrence"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the schedule.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties ScheduleProperties `pulumi:"properties"`
+	// Notification settings.
+	NotificationSettings *NotificationSettings `pulumi:"notificationSettings"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The status of the schedule (i.e. Enabled, Disabled)
+	Status *string `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The resource ID to which the schedule belongs
+	TargetResourceId *string `pulumi:"targetResourceId"`
+	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+	TaskType *string `pulumi:"taskType"`
+	// The time zone ID (e.g. Pacific Standard time).
+	TimeZoneId *string `pulumi:"timeZoneId"`
+	// If the schedule will occur only some days of the week, specify the weekly recurrence.
+	WeeklyRecurrence *WeekDetails `pulumi:"weeklyRecurrence"`
 }
 
 // The set of arguments for constructing a GlobalSchedule resource.
 type GlobalScheduleArgs struct {
+	// If the schedule will occur once each day of the week, specify the daily recurrence.
+	DailyRecurrence DayDetailsPtrInput
+	// If the schedule will occur multiple times a day, specify the hourly recurrence.
+	HourlyRecurrence HourDetailsPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the schedule.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties SchedulePropertiesInput
+	// Notification settings.
+	NotificationSettings NotificationSettingsPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The status of the schedule (i.e. Enabled, Disabled)
+	Status pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The resource ID to which the schedule belongs
+	TargetResourceId pulumi.StringPtrInput
+	// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+	TaskType pulumi.StringPtrInput
+	// The time zone ID (e.g. Pacific Standard time).
+	TimeZoneId pulumi.StringPtrInput
+	// If the schedule will occur only some days of the week, specify the weekly recurrence.
+	WeeklyRecurrence WeekDetailsPtrInput
 }
 
 func (GlobalScheduleArgs) ElementType() reflect.Type {

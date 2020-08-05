@@ -105,14 +105,20 @@ func (StaticSiteState) ElementType() reflect.Type {
 }
 
 type staticSiteArgs struct {
+	// The target branch in the repository.
+	Branch *string `pulumi:"branch"`
+	// Build properties to configure on the repository.
+	BuildProperties *StaticSiteBuildProperties `pulumi:"buildProperties"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
 	// Name of the static site to create or update.
 	Name string `pulumi:"name"`
-	// Core resource properties
-	Properties *StaticSiteDefinition `pulumi:"properties"`
+	// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
+	RepositoryToken *string `pulumi:"repositoryToken"`
+	// URL for the repository of the static site.
+	RepositoryUrl *string `pulumi:"repositoryUrl"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Description of a SKU for a scalable resource.
@@ -123,14 +129,20 @@ type staticSiteArgs struct {
 
 // The set of arguments for constructing a StaticSite resource.
 type StaticSiteArgs struct {
+	// The target branch in the repository.
+	Branch pulumi.StringPtrInput
+	// Build properties to configure on the repository.
+	BuildProperties StaticSiteBuildPropertiesPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
 	// Name of the static site to create or update.
 	Name pulumi.StringInput
-	// Core resource properties
-	Properties StaticSiteDefinitionPtrInput
+	// A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
+	RepositoryToken pulumi.StringPtrInput
+	// URL for the repository of the static site.
+	RepositoryUrl pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Description of a SKU for a scalable resource.

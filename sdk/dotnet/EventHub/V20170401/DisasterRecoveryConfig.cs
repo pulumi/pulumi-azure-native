@@ -78,6 +78,12 @@ namespace Pulumi.AzureRM.EventHub.V20170401
     public sealed class DisasterRecoveryConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Alternate name specified when alias and namespace names are same.
+        /// </summary>
+        [Input("alternateName")]
+        public Input<string>? AlternateName { get; set; }
+
+        /// <summary>
         /// The Disaster Recovery configuration name
         /// </summary>
         [Input("name", required: true)]
@@ -90,10 +96,10 @@ namespace Pulumi.AzureRM.EventHub.V20170401
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+        /// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ArmDisasterRecoveryPropertiesArgs>? Properties { get; set; }
+        [Input("partnerNamespace")]
+        public Input<string>? PartnerNamespace { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.

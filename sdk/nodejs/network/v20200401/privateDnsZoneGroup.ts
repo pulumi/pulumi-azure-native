@@ -47,7 +47,7 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
     /**
      * Properties of the private dns zone group.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200401.PrivateDnsZoneGroupPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.PrivateDnsZoneGroupPropertiesFormatResponse>;
 
     /**
      * Create a PrivateDnsZoneGroup resource with the given unique name, arguments, and options.
@@ -73,10 +73,11 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
             }
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["privateDnsZoneConfigs"] = args ? args.privateDnsZoneConfigs : undefined;
             inputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -102,13 +103,13 @@ export interface PrivateDnsZoneGroupArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
+     * A collection of private dns zone configurations of the private dns zone group.
+     */
+    readonly privateDnsZoneConfigs?: pulumi.Input<pulumi.Input<inputs.network.v20200401.PrivateDnsZoneConfig>[]>;
+    /**
      * The name of the private endpoint.
      */
     readonly privateEndpointName: pulumi.Input<string>;
-    /**
-     * Properties of the private dns zone group.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20200401.PrivateDnsZoneGroupPropertiesFormat>;
     /**
      * The name of the resource group.
      */

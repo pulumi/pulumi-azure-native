@@ -96,6 +96,60 @@ namespace Pulumi.AzureRM.Insights.V20150501
     public sealed class ComponentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Type of application being monitored.
+        /// </summary>
+        [Input("Application_Type", required: true)]
+        public Input<string> Application_Type { get; set; } = null!;
+
+        /// <summary>
+        /// Disable IP masking.
+        /// </summary>
+        [Input("DisableIpMasking")]
+        public Input<bool>? DisableIpMasking { get; set; }
+
+        /// <summary>
+        /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+        /// </summary>
+        [Input("Flow_Type")]
+        public Input<string>? Flow_Type { get; set; }
+
+        /// <summary>
+        /// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+        /// </summary>
+        [Input("HockeyAppId")]
+        public Input<string>? HockeyAppId { get; set; }
+
+        /// <summary>
+        /// Purge data immediately after 30 days.
+        /// </summary>
+        [Input("ImmediatePurgeDataOn30Days")]
+        public Input<bool>? ImmediatePurgeDataOn30Days { get; set; }
+
+        /// <summary>
+        /// Indicates the flow of the ingestion.
+        /// </summary>
+        [Input("IngestionMode")]
+        public Input<string>? IngestionMode { get; set; }
+
+        /// <summary>
+        /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+        /// </summary>
+        [Input("Request_Source")]
+        public Input<string>? Request_Source { get; set; }
+
+        /// <summary>
+        /// Retention period in days.
+        /// </summary>
+        [Input("RetentionInDays")]
+        public Input<int>? RetentionInDays { get; set; }
+
+        /// <summary>
+        /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+        /// </summary>
+        [Input("SamplingPercentage")]
+        public Input<double>? SamplingPercentage { get; set; }
+
+        /// <summary>
         /// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
         /// </summary>
         [Input("kind", required: true)]
@@ -112,12 +166,6 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties that define an Application Insights component resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationInsightsComponentPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

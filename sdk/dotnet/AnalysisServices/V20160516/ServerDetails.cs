@@ -96,6 +96,18 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
     public sealed class ServerDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A collection of AS server administrators
+        /// </summary>
+        [Input("asAdministrators")]
+        public Input<Inputs.ServerAdministratorsArgs>? AsAdministrators { get; set; }
+
+        /// <summary>
+        /// The container URI of backup blob.
+        /// </summary>
+        [Input("backupBlobContainerUri")]
+        public Input<string>? BackupBlobContainerUri { get; set; }
+
+        /// <summary>
         /// Location of the Analysis Services resource.
         /// </summary>
         [Input("location", required: true)]
@@ -106,12 +118,6 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the provision operation request.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AnalysisServicesServerPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.

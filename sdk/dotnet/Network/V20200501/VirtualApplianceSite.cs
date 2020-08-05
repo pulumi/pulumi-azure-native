@@ -84,6 +84,12 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class VirtualApplianceSiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Address Prefix.
+        /// </summary>
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -102,10 +108,10 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> NetworkVirtualApplianceName { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Virtual Appliance Sites.
+        /// Office 365 Policy.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualApplianceSitePropertiesArgs>? Properties { get; set; }
+        [Input("o365Policy")]
+        public Input<Inputs.Office365PolicyPropertiesArgs>? O365Policy { get; set; }
 
         /// <summary>
         /// The name of the resource group.

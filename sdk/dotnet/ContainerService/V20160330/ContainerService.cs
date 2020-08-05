@@ -89,11 +89,41 @@ namespace Pulumi.AzureRM.ContainerService.V20160330
 
     public sealed class ContainerServiceArgs : Pulumi.ResourceArgs
     {
+        [Input("agentPoolProfiles", required: true)]
+        private InputList<Inputs.ContainerServiceAgentPoolProfileArgs>? _agentPoolProfiles;
+
+        /// <summary>
+        /// Properties of the agent pool.
+        /// </summary>
+        public InputList<Inputs.ContainerServiceAgentPoolProfileArgs> AgentPoolProfiles
+        {
+            get => _agentPoolProfiles ?? (_agentPoolProfiles = new InputList<Inputs.ContainerServiceAgentPoolProfileArgs>());
+            set => _agentPoolProfiles = value;
+        }
+
+        /// <summary>
+        /// Properties of the diagnostic agent.
+        /// </summary>
+        [Input("diagnosticsProfile")]
+        public Input<Inputs.ContainerServiceDiagnosticsProfileArgs>? DiagnosticsProfile { get; set; }
+
+        /// <summary>
+        /// Properties of Linux VMs.
+        /// </summary>
+        [Input("linuxProfile", required: true)]
+        public Input<Inputs.ContainerServiceLinuxProfileArgs> LinuxProfile { get; set; } = null!;
+
         /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Properties of master agents.
+        /// </summary>
+        [Input("masterProfile", required: true)]
+        public Input<Inputs.ContainerServiceMasterProfileArgs> MasterProfile { get; set; } = null!;
 
         /// <summary>
         /// The name of the container service in the specified subscription and resource group.
@@ -102,10 +132,10 @@ namespace Pulumi.AzureRM.ContainerService.V20160330
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the container service.
+        /// Properties of the orchestrator.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ContainerServicePropertiesArgs>? Properties { get; set; }
+        [Input("orchestratorProfile")]
+        public Input<Inputs.ContainerServiceOrchestratorProfileArgs>? OrchestratorProfile { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -124,6 +154,12 @@ namespace Pulumi.AzureRM.ContainerService.V20160330
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Properties of Windows VMs.
+        /// </summary>
+        [Input("windowsProfile")]
+        public Input<Inputs.ContainerServiceWindowsProfileArgs>? WindowsProfile { get; set; }
 
         public ContainerServiceArgs()
         {

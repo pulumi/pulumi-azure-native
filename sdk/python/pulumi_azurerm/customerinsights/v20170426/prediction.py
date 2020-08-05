@@ -43,37 +43,34 @@ class Prediction(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, hub_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_analyze=None, description=None, display_name=None, grades=None, hub_name=None, involved_interaction_types=None, involved_kpi_types=None, involved_relationships=None, mappings=None, name=None, negative_outcome_expression=None, positive_outcome_expression=None, primary_profile_type=None, resource_group_name=None, scope_expression=None, score_label=None, __props__=None, __name__=None, __opts__=None):
         """
         The prediction resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_analyze: Whether do auto analyze.
+        :param pulumi.Input[dict] description: Description of the prediction.
+        :param pulumi.Input[dict] display_name: Display name of the prediction.
+        :param pulumi.Input[list] grades: The prediction grades.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[str] name: The name of the Prediction.
-        :param pulumi.Input[dict] properties: The prediction definition.
+        :param pulumi.Input[list] involved_interaction_types: Interaction types involved in the prediction.
+        :param pulumi.Input[list] involved_kpi_types: KPI types involved in the prediction.
+        :param pulumi.Input[list] involved_relationships: Relationships involved in the prediction.
+        :param pulumi.Input[dict] mappings: Definition of the link mapping of prediction.
+        :param pulumi.Input[str] name: Name of the prediction.
+        :param pulumi.Input[str] negative_outcome_expression: Negative outcome expression.
+        :param pulumi.Input[str] positive_outcome_expression: Positive outcome expression.
+        :param pulumi.Input[str] primary_profile_type: Primary profile type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] scope_expression: Scope expression.
+        :param pulumi.Input[str] score_label: Score label.
 
-        The **properties** object supports the following:
+        The **grades** object supports the following:
 
-          * `auto_analyze` (`pulumi.Input[bool]`) - Whether do auto analyze.
-          * `description` (`pulumi.Input[dict]`) - Description of the prediction.
-          * `display_name` (`pulumi.Input[dict]`) - Display name of the prediction.
-          * `grades` (`pulumi.Input[list]`) - The prediction grades.
-            * `grade_name` (`pulumi.Input[str]`) - Name of the grade.
-            * `max_score_threshold` (`pulumi.Input[float]`) - Maximum score threshold.
-            * `min_score_threshold` (`pulumi.Input[float]`) - Minimum score threshold.
-
-          * `involved_interaction_types` (`pulumi.Input[list]`) - Interaction types involved in the prediction.
-          * `involved_kpi_types` (`pulumi.Input[list]`) - KPI types involved in the prediction.
-          * `involved_relationships` (`pulumi.Input[list]`) - Relationships involved in the prediction.
-          * `mappings` (`pulumi.Input[dict]`) - Definition of the link mapping of prediction.
-          * `negative_outcome_expression` (`pulumi.Input[str]`) - Negative outcome expression.
-          * `positive_outcome_expression` (`pulumi.Input[str]`) - Positive outcome expression.
-          * `prediction_name` (`pulumi.Input[str]`) - Name of the prediction.
-          * `primary_profile_type` (`pulumi.Input[str]`) - Primary profile type.
-          * `scope_expression` (`pulumi.Input[str]`) - Scope expression.
-          * `score_label` (`pulumi.Input[str]`) - Score label.
+          * `grade_name` (`pulumi.Input[str]`) - Name of the grade.
+          * `max_score_threshold` (`pulumi.Input[float]`) - Maximum score threshold.
+          * `min_score_threshold` (`pulumi.Input[float]`) - Minimum score threshold.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -92,16 +89,43 @@ class Prediction(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if auto_analyze is None:
+                raise TypeError("Missing required property 'auto_analyze'")
+            __props__['auto_analyze'] = auto_analyze
+            __props__['description'] = description
+            __props__['display_name'] = display_name
+            __props__['grades'] = grades
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
+            __props__['involved_interaction_types'] = involved_interaction_types
+            __props__['involved_kpi_types'] = involved_kpi_types
+            __props__['involved_relationships'] = involved_relationships
+            if mappings is None:
+                raise TypeError("Missing required property 'mappings'")
+            __props__['mappings'] = mappings
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if negative_outcome_expression is None:
+                raise TypeError("Missing required property 'negative_outcome_expression'")
+            __props__['negative_outcome_expression'] = negative_outcome_expression
+            if positive_outcome_expression is None:
+                raise TypeError("Missing required property 'positive_outcome_expression'")
+            __props__['positive_outcome_expression'] = positive_outcome_expression
+            if primary_profile_type is None:
+                raise TypeError("Missing required property 'primary_profile_type'")
+            __props__['primary_profile_type'] = primary_profile_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if scope_expression is None:
+                raise TypeError("Missing required property 'scope_expression'")
+            __props__['scope_expression'] = scope_expression
+            if score_label is None:
+                raise TypeError("Missing required property 'score_label'")
+            __props__['score_label'] = score_label
+            __props__['properties'] = None
             __props__['type'] = None
         super(Prediction, __self__).__init__(
             'azurerm:customerinsights/v20170426:Prediction',

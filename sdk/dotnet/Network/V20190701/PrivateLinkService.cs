@@ -95,17 +95,65 @@ namespace Pulumi.AzureRM.Network.V20190701
 
     public sealed class PrivateLinkServiceArgs : Pulumi.ResourceArgs
     {
+        [Input("autoApproval")]
+        private InputMap<object>? _autoApproval;
+
+        /// <summary>
+        /// The auto-approval list of the private link service.
+        /// </summary>
+        public InputMap<object> AutoApproval
+        {
+            get => _autoApproval ?? (_autoApproval = new InputMap<object>());
+            set => _autoApproval = value;
+        }
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
+        [Input("fqdns")]
+        private InputList<string>? _fqdns;
+
+        /// <summary>
+        /// The list of Fqdn.
+        /// </summary>
+        public InputList<string> Fqdns
+        {
+            get => _fqdns ?? (_fqdns = new InputList<string>());
+            set => _fqdns = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ipConfigurations")]
+        private InputList<Inputs.PrivateLinkServiceIpConfigurationArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// An array of private link service IP configurations.
+        /// </summary>
+        public InputList<Inputs.PrivateLinkServiceIpConfigurationArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.PrivateLinkServiceIpConfigurationArgs>());
+            set => _ipConfigurations = value;
+        }
+
+        [Input("loadBalancerFrontendIpConfigurations")]
+        private InputList<Inputs.FrontendIPConfigurationArgs>? _loadBalancerFrontendIpConfigurations;
+
+        /// <summary>
+        /// An array of references to the load balancer IP configurations.
+        /// </summary>
+        public InputList<Inputs.FrontendIPConfigurationArgs> LoadBalancerFrontendIpConfigurations
+        {
+            get => _loadBalancerFrontendIpConfigurations ?? (_loadBalancerFrontendIpConfigurations = new InputList<Inputs.FrontendIPConfigurationArgs>());
+            set => _loadBalancerFrontendIpConfigurations = value;
+        }
 
         /// <summary>
         /// Resource location.
@@ -119,11 +167,23 @@ namespace Pulumi.AzureRM.Network.V20190701
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("privateEndpointConnections")]
+        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+
         /// <summary>
-        /// Properties of the private link service.
+        /// An array of list about connections to the private endpoint.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateLinkServicePropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
+            set => _privateEndpointConnections = value;
+        }
+
+        /// <summary>
+        /// The provisioning state of the private link service resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -141,6 +201,18 @@ namespace Pulumi.AzureRM.Network.V20190701
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("visibility")]
+        private InputMap<object>? _visibility;
+
+        /// <summary>
+        /// The visibility list of the private link service.
+        /// </summary>
+        public InputMap<object> Visibility
+        {
+            get => _visibility ?? (_visibility = new InputMap<object>());
+            set => _visibility = value;
         }
 
         public PrivateLinkServiceArgs()

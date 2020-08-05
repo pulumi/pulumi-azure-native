@@ -33,11 +33,11 @@ func NewBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 	if args == nil || args.ContainerName == nil {
 		return nil, errors.New("missing required argument 'ContainerName'")
 	}
+	if args == nil || args.ImmutabilityPeriodSinceCreationInDays == nil {
+		return nil, errors.New("missing required argument 'ImmutabilityPeriodSinceCreationInDays'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -97,10 +97,10 @@ type blobContainerImmutabilityPolicyArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 	ContainerName string `pulumi:"containerName"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays int `pulumi:"immutabilityPeriodSinceCreationInDays"`
 	// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
 	Name string `pulumi:"name"`
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties ImmutabilityPolicyProperty `pulumi:"properties"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -111,10 +111,10 @@ type BlobContainerImmutabilityPolicyArgs struct {
 	AccountName pulumi.StringInput
 	// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 	ContainerName pulumi.StringInput
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntInput
 	// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
 	Name pulumi.StringInput
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties ImmutabilityPolicyPropertyInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

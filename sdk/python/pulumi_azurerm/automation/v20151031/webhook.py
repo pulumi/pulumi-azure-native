@@ -35,27 +35,25 @@ class Webhook(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, expiry_time=None, is_enabled=None, name=None, parameters=None, resource_group_name=None, run_on=None, runbook=None, uri=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the webhook type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] expiry_time: Gets or sets the expiry time.
+        :param pulumi.Input[bool] is_enabled: Gets or sets the value of the enabled flag of webhook.
         :param pulumi.Input[str] name: The webhook name.
-        :param pulumi.Input[dict] properties: Gets or sets the properties of the webhook.
+        :param pulumi.Input[dict] parameters: Gets or sets the parameters of the job.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] run_on: Gets or sets the name of the hybrid worker group the webhook job will run on.
+        :param pulumi.Input[dict] runbook: Gets or sets the runbook.
+        :param pulumi.Input[str] uri: Gets or sets the uri.
 
-        The **properties** object supports the following:
+        The **runbook** object supports the following:
 
-          * `expiry_time` (`pulumi.Input[str]`) - Gets or sets the expiry time.
-          * `is_enabled` (`pulumi.Input[bool]`) - Gets or sets the value of the enabled flag of webhook.
-          * `parameters` (`pulumi.Input[dict]`) - Gets or sets the parameters of the job.
-          * `run_on` (`pulumi.Input[str]`) - Gets or sets the name of the hybrid worker group the webhook job will run on.
-          * `runbook` (`pulumi.Input[dict]`) - Gets or sets the runbook.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the name of the runbook.
-
-          * `uri` (`pulumi.Input[str]`) - Gets or sets the uri.
+          * `name` (`pulumi.Input[str]`) - Gets or sets the name of the runbook.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,15 +75,19 @@ class Webhook(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            __props__['expiry_time'] = expiry_time
+            __props__['is_enabled'] = is_enabled
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['parameters'] = parameters
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['run_on'] = run_on
+            __props__['runbook'] = runbook
+            __props__['uri'] = uri
+            __props__['properties'] = None
             __props__['type'] = None
         super(Webhook, __self__).__init__(
             'azurerm:automation/v20151031:Webhook',

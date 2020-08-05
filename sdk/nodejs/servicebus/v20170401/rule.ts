@@ -43,7 +43,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * Properties of Rule resource
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20170401.RulepropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20170401.RulepropertiesResponse>;
     /**
      * Resource type
      */
@@ -77,12 +77,16 @@ export class Rule extends pulumi.CustomResource {
             if (!args || args.topicName === undefined) {
                 throw new Error("Missing required property 'topicName'");
             }
+            inputs["action"] = args ? args.action : undefined;
+            inputs["correlationFilter"] = args ? args.correlationFilter : undefined;
+            inputs["filterType"] = args ? args.filterType : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sqlFilter"] = args ? args.sqlFilter : undefined;
             inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,6 +105,18 @@ export class Rule extends pulumi.CustomResource {
  */
 export interface RuleArgs {
     /**
+     * Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+     */
+    readonly action?: pulumi.Input<inputs.servicebus.v20170401.Action>;
+    /**
+     * Properties of correlationFilter
+     */
+    readonly correlationFilter?: pulumi.Input<inputs.servicebus.v20170401.CorrelationFilter>;
+    /**
+     * Filter type that is evaluated against a BrokeredMessage.
+     */
+    readonly filterType?: pulumi.Input<string>;
+    /**
      * The rule name.
      */
     readonly name: pulumi.Input<string>;
@@ -109,13 +125,13 @@ export interface RuleArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties of Rule resource
-     */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20170401.Ruleproperties>;
-    /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Properties of sqlFilter
+     */
+    readonly sqlFilter?: pulumi.Input<inputs.servicebus.v20170401.SqlFilter>;
     /**
      * The subscription name.
      */

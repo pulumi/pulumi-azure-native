@@ -101,11 +101,35 @@ namespace Pulumi.AzureRM.Network.V20190401
 
     public sealed class AzureFirewallArgs : Pulumi.ResourceArgs
     {
+        [Input("applicationRuleCollections")]
+        private InputList<Inputs.AzureFirewallApplicationRuleCollectionArgs>? _applicationRuleCollections;
+
+        /// <summary>
+        /// Collection of application rule collections used by Azure Firewall.
+        /// </summary>
+        public InputList<Inputs.AzureFirewallApplicationRuleCollectionArgs> ApplicationRuleCollections
+        {
+            get => _applicationRuleCollections ?? (_applicationRuleCollections = new InputList<Inputs.AzureFirewallApplicationRuleCollectionArgs>());
+            set => _applicationRuleCollections = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ipConfigurations")]
+        private InputList<Inputs.AzureFirewallIPConfigurationArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// IP configuration of the Azure Firewall resource.
+        /// </summary>
+        public InputList<Inputs.AzureFirewallIPConfigurationArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.AzureFirewallIPConfigurationArgs>());
+            set => _ipConfigurations = value;
+        }
 
         /// <summary>
         /// Resource location.
@@ -119,11 +143,35 @@ namespace Pulumi.AzureRM.Network.V20190401
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("natRuleCollections")]
+        private InputList<Inputs.AzureFirewallNatRuleCollectionArgs>? _natRuleCollections;
+
         /// <summary>
-        /// Properties of the azure firewall.
+        /// Collection of NAT rule collections used by Azure Firewall.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AzureFirewallPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.AzureFirewallNatRuleCollectionArgs> NatRuleCollections
+        {
+            get => _natRuleCollections ?? (_natRuleCollections = new InputList<Inputs.AzureFirewallNatRuleCollectionArgs>());
+            set => _natRuleCollections = value;
+        }
+
+        [Input("networkRuleCollections")]
+        private InputList<Inputs.AzureFirewallNetworkRuleCollectionArgs>? _networkRuleCollections;
+
+        /// <summary>
+        /// Collection of network rule collections used by Azure Firewall.
+        /// </summary>
+        public InputList<Inputs.AzureFirewallNetworkRuleCollectionArgs> NetworkRuleCollections
+        {
+            get => _networkRuleCollections ?? (_networkRuleCollections = new InputList<Inputs.AzureFirewallNetworkRuleCollectionArgs>());
+            set => _networkRuleCollections = value;
+        }
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -142,6 +190,12 @@ namespace Pulumi.AzureRM.Network.V20190401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The operation mode for Threat Intelligence.
+        /// </summary>
+        [Input("threatIntelMode")]
+        public Input<string>? ThreatIntelMode { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;

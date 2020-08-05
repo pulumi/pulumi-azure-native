@@ -32,14 +32,14 @@ func NewReferenceDataSet(ctx *pulumi.Context,
 	if args == nil || args.EnvironmentName == nil {
 		return nil, errors.New("missing required argument 'EnvironmentName'")
 	}
+	if args == nil || args.KeyProperties == nil {
+		return nil, errors.New("missing required argument 'KeyProperties'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -99,14 +99,16 @@ func (ReferenceDataSetState) ElementType() reflect.Type {
 }
 
 type referenceDataSetArgs struct {
+	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+	DataStringComparisonBehavior *string `pulumi:"dataStringComparisonBehavior"`
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName string `pulumi:"environmentName"`
+	// The list of key properties for the reference data set.
+	KeyProperties []ReferenceDataSetKeyProperty `pulumi:"keyProperties"`
 	// The location of the resource.
 	Location string `pulumi:"location"`
 	// Name of the reference data set.
 	Name string `pulumi:"name"`
-	// Properties used to create a reference data set.
-	Properties ReferenceDataSetCreationProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Key-value pairs of additional properties for the resource.
@@ -115,14 +117,16 @@ type referenceDataSetArgs struct {
 
 // The set of arguments for constructing a ReferenceDataSet resource.
 type ReferenceDataSetArgs struct {
+	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+	DataStringComparisonBehavior pulumi.StringPtrInput
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName pulumi.StringInput
+	// The list of key properties for the reference data set.
+	KeyProperties ReferenceDataSetKeyPropertyArrayInput
 	// The location of the resource.
 	Location pulumi.StringInput
 	// Name of the reference data set.
 	Name pulumi.StringInput
-	// Properties used to create a reference data set.
-	Properties ReferenceDataSetCreationPropertiesInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Key-value pairs of additional properties for the resource.

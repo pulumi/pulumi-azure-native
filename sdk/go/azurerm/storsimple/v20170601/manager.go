@@ -99,32 +99,40 @@ func (ManagerState) ElementType() reflect.Type {
 }
 
 type managerArgs struct {
+	// Represents the type of StorSimple Manager.
+	CisIntrinsicSettings *ManagerIntrinsicSettings `pulumi:"cisIntrinsicSettings"`
 	// The etag of the manager.
 	Etag *string `pulumi:"etag"`
 	// The geo location of the resource.
 	Location string `pulumi:"location"`
 	// The manager name
 	Name string `pulumi:"name"`
-	// The properties of the StorSimple Manager.
-	Properties *ManagerProperties `pulumi:"properties"`
+	// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the Sku.
+	Sku *ManagerSku `pulumi:"sku"`
 	// The tags attached to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Manager resource.
 type ManagerArgs struct {
+	// Represents the type of StorSimple Manager.
+	CisIntrinsicSettings ManagerIntrinsicSettingsPtrInput
 	// The etag of the manager.
 	Etag pulumi.StringPtrInput
 	// The geo location of the resource.
 	Location pulumi.StringInput
 	// The manager name
 	Name pulumi.StringInput
-	// The properties of the StorSimple Manager.
-	Properties ManagerPropertiesPtrInput
+	// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
+	ProvisioningState pulumi.StringPtrInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// Specifies the Sku.
+	Sku ManagerSkuPtrInput
 	// The tags attached to the resource.
 	Tags pulumi.StringMapInput
 }

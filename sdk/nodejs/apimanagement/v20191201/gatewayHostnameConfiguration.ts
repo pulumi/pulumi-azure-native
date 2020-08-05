@@ -43,7 +43,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
     /**
      * Gateway hostname configuration details.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.GatewayHostnameConfigurationContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.GatewayHostnameConfigurationContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -74,11 +74,14 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["certificateId"] = args ? args.certificateId : undefined;
             inputs["gatewayId"] = args ? args.gatewayId : undefined;
+            inputs["hostname"] = args ? args.hostname : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["negotiateClientCertificate"] = args ? args.negotiateClientCertificate : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,17 +100,25 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
  */
 export interface GatewayHostnameConfigurationArgs {
     /**
+     * Identifier of Certificate entity that will be used for TLS connection establishment
+     */
+    readonly certificateId?: pulumi.Input<string>;
+    /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
     readonly gatewayId: pulumi.Input<string>;
+    /**
+     * Hostname value. Supports valid domain name, partial or full wildcard
+     */
+    readonly hostname?: pulumi.Input<string>;
     /**
      * Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Gateway hostname configuration details.
+     * Determines whether gateway requests client certificate
      */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.GatewayHostnameConfigurationContractProperties>;
+    readonly negotiateClientCertificate?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */

@@ -43,7 +43,7 @@ export class LiveOutput extends pulumi.CustomResource {
     /**
      * The Live Output properties.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20180701.LiveOutputPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.LiveOutputPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -65,6 +65,12 @@ export class LiveOutput extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.archiveWindowLength === undefined) {
+                throw new Error("Missing required property 'archiveWindowLength'");
+            }
+            if (!args || args.assetName === undefined) {
+                throw new Error("Missing required property 'assetName'");
+            }
             if (!args || args.liveEventName === undefined) {
                 throw new Error("Missing required property 'liveEventName'");
             }
@@ -75,10 +81,16 @@ export class LiveOutput extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["archiveWindowLength"] = args ? args.archiveWindowLength : undefined;
+            inputs["assetName"] = args ? args.assetName : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["hls"] = args ? args.hls : undefined;
             inputs["liveEventName"] = args ? args.liveEventName : undefined;
+            inputs["manifestName"] = args ? args.manifestName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["outputSnapTime"] = args ? args.outputSnapTime : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,17 +113,37 @@ export interface LiveOutputArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+     */
+    readonly archiveWindowLength: pulumi.Input<string>;
+    /**
+     * The asset name.
+     */
+    readonly assetName: pulumi.Input<string>;
+    /**
+     * The description of the Live Output.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The HLS configuration.
+     */
+    readonly hls?: pulumi.Input<inputs.media.v20180701.Hls>;
+    /**
      * The name of the Live Event.
      */
     readonly liveEventName: pulumi.Input<string>;
+    /**
+     * The manifest file name.  If not provided, the service will generate one automatically.
+     */
+    readonly manifestName?: pulumi.Input<string>;
     /**
      * The name of the Live Output.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The Live Output properties.
+     * The output snapshot time.
      */
-    readonly properties?: pulumi.Input<inputs.media.v20180701.LiveOutputProperties>;
+    readonly outputSnapTime?: pulumi.Input<number>;
     /**
      * The name of the resource group within the Azure subscription.
      */

@@ -58,48 +58,52 @@ class GalleryImage(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, gallery_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, disallowed=None, end_of_life_date=None, eula=None, gallery_name=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, purchase_plan=None, recommended=None, release_note_uri=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Specifies information about the gallery Image Definition that you want to create or update.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of this gallery Image Definition resource. This property is updatable.
+        :param pulumi.Input[dict] disallowed: Describes the disallowed disk types.
+        :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+        :param pulumi.Input[str] eula: The Eula agreement for the gallery Image Definition.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition is to be created.
+        :param pulumi.Input[dict] identifier: This is the gallery Image Definition identifier.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-        :param pulumi.Input[dict] properties: Describes the properties of a gallery Image Definition.
+        :param pulumi.Input[str] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
+        :param pulumi.Input[str] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
+        :param pulumi.Input[dict] purchase_plan: Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        :param pulumi.Input[dict] recommended: The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+        :param pulumi.Input[str] release_note_uri: The release note uri.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags
 
-        The **properties** object supports the following:
+        The **disallowed** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - The description of this gallery Image Definition resource. This property is updatable.
-          * `disallowed` (`pulumi.Input[dict]`) - Describes the disallowed disk types.
-            * `disk_types` (`pulumi.Input[list]`) - A list of disk types.
+          * `disk_types` (`pulumi.Input[list]`) - A list of disk types.
 
-          * `end_of_life_date` (`pulumi.Input[str]`) - The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
-          * `eula` (`pulumi.Input[str]`) - The Eula agreement for the gallery Image Definition.
-          * `identifier` (`pulumi.Input[dict]`) - This is the gallery Image Definition identifier.
-            * `offer` (`pulumi.Input[str]`) - The name of the gallery Image Definition offer.
-            * `publisher` (`pulumi.Input[str]`) - The name of the gallery Image Definition publisher.
-            * `sku` (`pulumi.Input[str]`) - The name of the gallery Image Definition SKU.
+        The **identifier** object supports the following:
 
-          * `os_state` (`pulumi.Input[str]`) - This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-          * `os_type` (`pulumi.Input[str]`) - This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-          * `privacy_statement_uri` (`pulumi.Input[str]`) - The privacy statement uri.
-          * `purchase_plan` (`pulumi.Input[dict]`) - Describes the gallery Image Definition purchase plan. This is used by marketplace images.
-            * `name` (`pulumi.Input[str]`) - The plan ID.
-            * `product` (`pulumi.Input[str]`) - The product ID.
-            * `publisher` (`pulumi.Input[str]`) - The publisher ID.
+          * `offer` (`pulumi.Input[str]`) - The name of the gallery Image Definition offer.
+          * `publisher` (`pulumi.Input[str]`) - The name of the gallery Image Definition publisher.
+          * `sku` (`pulumi.Input[str]`) - The name of the gallery Image Definition SKU.
 
-          * `recommended` (`pulumi.Input[dict]`) - The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
-            * `memory` (`pulumi.Input[dict]`) - Describes the resource range.
-              * `max` (`pulumi.Input[float]`) - The maximum number of the resource.
-              * `min` (`pulumi.Input[float]`) - The minimum number of the resource.
+        The **purchase_plan** object supports the following:
 
-            * `v_cp_us` (`pulumi.Input[dict]`) - Describes the resource range.
+          * `name` (`pulumi.Input[str]`) - The plan ID.
+          * `product` (`pulumi.Input[str]`) - The product ID.
+          * `publisher` (`pulumi.Input[str]`) - The publisher ID.
 
-          * `release_note_uri` (`pulumi.Input[str]`) - The release note uri.
+        The **recommended** object supports the following:
+
+          * `memory` (`pulumi.Input[dict]`) - Describes the resource range.
+            * `max` (`pulumi.Input[float]`) - The maximum number of the resource.
+            * `min` (`pulumi.Input[float]`) - The minimum number of the resource.
+
+          * `v_cp_us` (`pulumi.Input[dict]`) - Describes the resource range.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -118,20 +122,37 @@ class GalleryImage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['disallowed'] = disallowed
+            __props__['end_of_life_date'] = end_of_life_date
+            __props__['eula'] = eula
             if gallery_name is None:
                 raise TypeError("Missing required property 'gallery_name'")
             __props__['gallery_name'] = gallery_name
+            if identifier is None:
+                raise TypeError("Missing required property 'identifier'")
+            __props__['identifier'] = identifier
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if os_state is None:
+                raise TypeError("Missing required property 'os_state'")
+            __props__['os_state'] = os_state
+            if os_type is None:
+                raise TypeError("Missing required property 'os_type'")
+            __props__['os_type'] = os_type
+            __props__['privacy_statement_uri'] = privacy_statement_uri
+            __props__['purchase_plan'] = purchase_plan
+            __props__['recommended'] = recommended
+            __props__['release_note_uri'] = release_note_uri
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(GalleryImage, __self__).__init__(
             'azurerm:compute/v20190301:GalleryImage',

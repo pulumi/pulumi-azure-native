@@ -28,14 +28,17 @@ func NewSchedule(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
+	if args == nil || args.Frequency == nil {
+		return nil, errors.New("missing required argument 'Frequency'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StartTime == nil {
+		return nil, errors.New("missing required argument 'StartTime'")
 	}
 	if args == nil {
 		args = &ScheduleArgs{}
@@ -84,26 +87,50 @@ func (ScheduleState) ElementType() reflect.Type {
 }
 
 type scheduleArgs struct {
+	// Gets or sets the AdvancedSchedule.
+	AdvancedSchedule *AdvancedSchedule `pulumi:"advancedSchedule"`
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets or sets the description of the schedule.
+	Description *string `pulumi:"description"`
+	// Gets or sets the end time of the schedule.
+	ExpiryTime *string `pulumi:"expiryTime"`
+	// Gets or sets the frequency of the schedule.
+	Frequency string `pulumi:"frequency"`
+	// Gets or sets the interval of the schedule.
+	Interval map[string]interface{} `pulumi:"interval"`
 	// The schedule name.
 	Name string `pulumi:"name"`
-	// Gets or sets the list of schedule properties.
-	Properties ScheduleCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets the start time of the schedule.
+	StartTime string `pulumi:"startTime"`
+	// Gets or sets the time zone of the schedule.
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
+	// Gets or sets the AdvancedSchedule.
+	AdvancedSchedule AdvancedSchedulePtrInput
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets or sets the description of the schedule.
+	Description pulumi.StringPtrInput
+	// Gets or sets the end time of the schedule.
+	ExpiryTime pulumi.StringPtrInput
+	// Gets or sets the frequency of the schedule.
+	Frequency pulumi.StringInput
+	// Gets or sets the interval of the schedule.
+	Interval pulumi.MapInput
 	// The schedule name.
 	Name pulumi.StringInput
-	// Gets or sets the list of schedule properties.
-	Properties ScheduleCreateOrUpdatePropertiesInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets the start time of the schedule.
+	StartTime pulumi.StringInput
+	// Gets or sets the time zone of the schedule.
+	TimeZone pulumi.StringPtrInput
 }
 
 func (ScheduleArgs) ElementType() reflect.Type {

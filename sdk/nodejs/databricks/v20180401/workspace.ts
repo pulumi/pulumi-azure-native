@@ -47,7 +47,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The workspace properties.
      */
-    public readonly properties!: pulumi.Output<outputs.databricks.v20180401.WorkspacePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.databricks.v20180401.WorkspacePropertiesResponse>;
     /**
      * The SKU of the resource.
      */
@@ -77,21 +77,29 @@ export class Workspace extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
+            if (!args || args.managedResourceGroupId === undefined) {
+                throw new Error("Missing required property 'managedResourceGroupId'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["authorizations"] = args ? args.authorizations : undefined;
+            inputs["createdBy"] = args ? args.createdBy : undefined;
+            inputs["createdDateTime"] = args ? args.createdDateTime : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["storageAccountIdentity"] = args ? args.storageAccountIdentity : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
+            inputs["updatedBy"] = args ? args.updatedBy : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,17 +118,33 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceArgs {
     /**
+     * The workspace provider authorizations.
+     */
+    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.v20180401.WorkspaceProviderAuthorization>[]>;
+    /**
+     * Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+     */
+    readonly createdBy?: pulumi.Input<inputs.databricks.v20180401.CreatedBy>;
+    /**
+     * Specifies the date and time when the workspace is created.
+     */
+    readonly createdDateTime?: pulumi.Input<string>;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The managed resource group Id.
+     */
+    readonly managedResourceGroupId: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The workspace properties.
+     * The workspace's custom parameters.
      */
-    readonly properties: pulumi.Input<inputs.databricks.v20180401.WorkspaceProperties>;
+    readonly parameters?: pulumi.Input<inputs.databricks.v20180401.WorkspaceCustomParameters>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,7 +154,19 @@ export interface WorkspaceArgs {
      */
     readonly sku?: pulumi.Input<inputs.databricks.v20180401.Sku>;
     /**
+     * The details of Managed Identity of Storage Account
+     */
+    readonly storageAccountIdentity?: pulumi.Input<inputs.databricks.v20180401.ManagedIdentityConfiguration>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The blob URI where the UI definition file is located.
+     */
+    readonly uiDefinitionUri?: pulumi.Input<string>;
+    /**
+     * Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+     */
+    readonly updatedBy?: pulumi.Input<inputs.databricks.v20180401.CreatedBy>;
 }

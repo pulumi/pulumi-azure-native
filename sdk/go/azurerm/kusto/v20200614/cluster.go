@@ -114,40 +114,68 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// A boolean value that indicates if the cluster's disks are encrypted.
+	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
+	// A boolean value that indicates if double encryption is enabled.
+	EnableDoubleEncryption *bool `pulumi:"enableDoubleEncryption"`
+	// A boolean value that indicates if the purge operations are enabled.
+	EnablePurge *bool `pulumi:"enablePurge"`
+	// A boolean value that indicates if the streaming ingest is enabled.
+	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// The identity of the cluster, if configured.
 	Identity *Identity `pulumi:"identity"`
+	// KeyVault properties for the cluster encryption.
+	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the Kusto cluster.
 	Name string `pulumi:"name"`
-	// The cluster properties.
-	Properties *ClusterProperties `pulumi:"properties"`
+	// Optimized auto scale definition.
+	OptimizedAutoscale *OptimizedAutoscale `pulumi:"optimizedAutoscale"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the cluster.
 	Sku AzureSku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The cluster's external tenants.
+	TrustedExternalTenants []TrustedExternalTenant `pulumi:"trustedExternalTenants"`
+	// Virtual network definition.
+	VirtualNetworkConfiguration *VirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
 	// The availability zones of the cluster.
 	Zones *Zones `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// A boolean value that indicates if the cluster's disks are encrypted.
+	EnableDiskEncryption pulumi.BoolPtrInput
+	// A boolean value that indicates if double encryption is enabled.
+	EnableDoubleEncryption pulumi.BoolPtrInput
+	// A boolean value that indicates if the purge operations are enabled.
+	EnablePurge pulumi.BoolPtrInput
+	// A boolean value that indicates if the streaming ingest is enabled.
+	EnableStreamingIngest pulumi.BoolPtrInput
 	// The identity of the cluster, if configured.
 	Identity IdentityPtrInput
+	// KeyVault properties for the cluster encryption.
+	KeyVaultProperties KeyVaultPropertiesPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The name of the Kusto cluster.
 	Name pulumi.StringInput
-	// The cluster properties.
-	Properties ClusterPropertiesPtrInput
+	// Optimized auto scale definition.
+	OptimizedAutoscale OptimizedAutoscalePtrInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the cluster.
 	Sku AzureSkuInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The cluster's external tenants.
+	TrustedExternalTenants TrustedExternalTenantArrayInput
+	// Virtual network definition.
+	VirtualNetworkConfiguration VirtualNetworkConfigurationPtrInput
 	// The availability zones of the cluster.
 	Zones ZonesPtrInput
 }

@@ -102,6 +102,12 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
     public sealed class FactoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// List of parameters for factory.
+        /// </summary>
+        [Input("globalParameters")]
+        public Input<Inputs.GlobalParameterDefinitionSpecificationArgs>? GlobalParameters { get; set; }
+
+        /// <summary>
         /// Managed service identity of the factory.
         /// </summary>
         [Input("identity")]
@@ -120,10 +126,10 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the factory.
+        /// Git repo information of the factory.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FactoryPropertiesArgs>? Properties { get; set; }
+        [Input("repoConfiguration")]
+        public Input<Inputs.FactoryRepoConfigurationArgs>? RepoConfiguration { get; set; }
 
         /// <summary>
         /// The resource group name.

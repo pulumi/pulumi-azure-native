@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class LabArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        /// </summary>
+        [Input("labStorageType")]
+        public Input<string>? LabStorageType { get; set; }
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location")]
@@ -102,10 +108,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The setting to enable usage of premium data disks.
+        /// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+        /// When its value is 'Disabled', only creation of standard data disks is allowed.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LabPropertiesArgs>? Properties { get; set; }
+        [Input("premiumDataDisks")]
+        public Input<string>? PremiumDataDisks { get; set; }
+
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -124,6 +138,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
 
         public LabArgs()
         {

@@ -27,11 +27,17 @@ namespace Pulumi.AzureRM.Network.V20181001.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("rewriteRules")]
+        private InputList<Inputs.ApplicationGatewayRewriteRuleArgs>? _rewriteRules;
+
         /// <summary>
-        /// Properties of rewrite rule set of the application gateway.
+        /// Rewrite rules in the rewrite rule set.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayRewriteRuleSetPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.ApplicationGatewayRewriteRuleArgs> RewriteRules
+        {
+            get => _rewriteRules ?? (_rewriteRules = new InputList<Inputs.ApplicationGatewayRewriteRuleArgs>());
+            set => _rewriteRules = value;
+        }
 
         public ApplicationGatewayRewriteRuleSetArgs()
         {

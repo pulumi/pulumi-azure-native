@@ -43,7 +43,7 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * Gets or sets the webhook properties.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.WebhookPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.WebhookPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -68,16 +68,19 @@ export class Webhook extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["expiryTime"] = args ? args.expiryTime : undefined;
+            inputs["isEnabled"] = args ? args.isEnabled : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["runOn"] = args ? args.runOn : undefined;
+            inputs["runbook"] = args ? args.runbook : undefined;
+            inputs["uri"] = args ? args.uri : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,15 +103,35 @@ export interface WebhookArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
+     * Gets or sets the expiry time.
+     */
+    readonly expiryTime?: pulumi.Input<string>;
+    /**
+     * Gets or sets the value of the enabled flag of webhook.
+     */
+    readonly isEnabled?: pulumi.Input<boolean>;
+    /**
      * The webhook name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Gets or sets the properties of the webhook.
+     * Gets or sets the parameters of the job.
      */
-    readonly properties: pulumi.Input<inputs.automation.v20151031.WebhookCreateOrUpdateProperties>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets the name of the hybrid worker group the webhook job will run on.
+     */
+    readonly runOn?: pulumi.Input<string>;
+    /**
+     * Gets or sets the runbook.
+     */
+    readonly runbook?: pulumi.Input<inputs.automation.v20151031.RunbookAssociationProperty>;
+    /**
+     * Gets or sets the uri.
+     */
+    readonly uri?: pulumi.Input<string>;
 }

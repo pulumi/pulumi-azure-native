@@ -84,22 +84,64 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         public Input<string> CacheName { get; set; } = null!;
 
         /// <summary>
+        /// Properties when targetType is clfs.
+        /// </summary>
+        [Input("clfs")]
+        public Input<Inputs.ClfsTargetArgs>? Clfs { get; set; }
+
+        [Input("junctions")]
+        private InputList<Inputs.NamespaceJunctionArgs>? _junctions;
+
+        /// <summary>
+        /// List of Cache namespace junctions to target for namespace associations.
+        /// </summary>
+        public InputList<Inputs.NamespaceJunctionArgs> Junctions
+        {
+            get => _junctions ?? (_junctions = new InputList<Inputs.NamespaceJunctionArgs>());
+            set => _junctions = value;
+        }
+
+        /// <summary>
         /// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// StorageTarget properties
+        /// Properties when targetType is nfs3.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.StorageTargetPropertiesArgs>? Properties { get; set; }
+        [Input("nfs3")]
+        public Input<Inputs.Nfs3TargetArgs>? Nfs3 { get; set; }
+
+        /// <summary>
+        /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Target resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Type of the Storage Target.
+        /// </summary>
+        [Input("targetBaseType", required: true)]
+        public Input<string> TargetBaseType { get; set; } = null!;
+
+        /// <summary>
+        /// Type of the Storage Target.
+        /// </summary>
+        [Input("targetType")]
+        public Input<string>? TargetType { get; set; }
+
+        /// <summary>
+        /// Properties when targetType is unknown.
+        /// </summary>
+        [Input("unknown")]
+        public Input<Inputs.UnknownTargetArgs>? Unknown { get; set; }
 
         public StorageTargetArgs()
         {

@@ -35,14 +35,17 @@ func NewController(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
+	}
+	if args == nil || args.TargetContainerHostCredentialsBase64 == nil {
+		return nil, errors.New("missing required argument 'TargetContainerHostCredentialsBase64'")
+	}
+	if args == nil || args.TargetContainerHostResourceId == nil {
+		return nil, errors.New("missing required argument 'TargetContainerHostResourceId'")
 	}
 	if args == nil {
 		args = &ControllerArgs{}
@@ -104,14 +107,17 @@ type controllerArgs struct {
 	// Region where the Azure resource is located.
 	Location string `pulumi:"location"`
 	// Name of the resource.
-	Name       string               `pulumi:"name"`
-	Properties ControllerProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
 	// Resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Model representing SKU for Azure Dev Spaces Controller.
 	Sku Sku `pulumi:"sku"`
 	// Tags for the Azure resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Credentials of the target container host (base64).
+	TargetContainerHostCredentialsBase64 string `pulumi:"targetContainerHostCredentialsBase64"`
+	// Resource ID of the target container host
+	TargetContainerHostResourceId string `pulumi:"targetContainerHostResourceId"`
 }
 
 // The set of arguments for constructing a Controller resource.
@@ -119,14 +125,17 @@ type ControllerArgs struct {
 	// Region where the Azure resource is located.
 	Location pulumi.StringInput
 	// Name of the resource.
-	Name       pulumi.StringInput
-	Properties ControllerPropertiesInput
+	Name pulumi.StringInput
 	// Resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Model representing SKU for Azure Dev Spaces Controller.
 	Sku SkuInput
 	// Tags for the Azure resource.
 	Tags pulumi.StringMapInput
+	// Credentials of the target container host (base64).
+	TargetContainerHostCredentialsBase64 pulumi.StringInput
+	// Resource ID of the target container host
+	TargetContainerHostResourceId pulumi.StringInput
 }
 
 func (ControllerArgs) ElementType() reflect.Type {

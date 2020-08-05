@@ -77,6 +77,108 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 
     public sealed class KpiArgs : Pulumi.ResourceArgs
     {
+        [Input("aliases")]
+        private InputList<Inputs.KpiAliasArgs>? _aliases;
+
+        /// <summary>
+        /// The aliases.
+        /// </summary>
+        public InputList<Inputs.KpiAliasArgs> Aliases
+        {
+            get => _aliases ?? (_aliases = new InputList<Inputs.KpiAliasArgs>());
+            set => _aliases = value;
+        }
+
+        /// <summary>
+        /// The calculation window.
+        /// </summary>
+        [Input("calculationWindow", required: true)]
+        public Input<string> CalculationWindow { get; set; } = null!;
+
+        /// <summary>
+        /// Name of calculation window field.
+        /// </summary>
+        [Input("calculationWindowFieldName")]
+        public Input<string>? CalculationWindowFieldName { get; set; }
+
+        [Input("description")]
+        private InputMap<string>? _description;
+
+        /// <summary>
+        /// Localized description for the KPI.
+        /// </summary>
+        public InputMap<string> Description
+        {
+            get => _description ?? (_description = new InputMap<string>());
+            set => _description = value;
+        }
+
+        [Input("displayName")]
+        private InputMap<string>? _displayName;
+
+        /// <summary>
+        /// Localized display name for the KPI.
+        /// </summary>
+        public InputMap<string> DisplayName
+        {
+            get => _displayName ?? (_displayName = new InputMap<string>());
+            set => _displayName = value;
+        }
+
+        /// <summary>
+        /// The mapping entity type.
+        /// </summary>
+        [Input("entityType", required: true)]
+        public Input<string> EntityType { get; set; } = null!;
+
+        /// <summary>
+        /// The mapping entity name.
+        /// </summary>
+        [Input("entityTypeName", required: true)]
+        public Input<string> EntityTypeName { get; set; } = null!;
+
+        /// <summary>
+        /// The computation expression for the KPI.
+        /// </summary>
+        [Input("expression", required: true)]
+        public Input<string> Expression { get; set; } = null!;
+
+        [Input("extracts")]
+        private InputList<Inputs.KpiExtractArgs>? _extracts;
+
+        /// <summary>
+        /// The KPI extracts.
+        /// </summary>
+        public InputList<Inputs.KpiExtractArgs> Extracts
+        {
+            get => _extracts ?? (_extracts = new InputList<Inputs.KpiExtractArgs>());
+            set => _extracts = value;
+        }
+
+        /// <summary>
+        /// The filter expression for the KPI.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
+
+        /// <summary>
+        /// The computation function for the KPI.
+        /// </summary>
+        [Input("function", required: true)]
+        public Input<string> Function { get; set; } = null!;
+
+        [Input("groupBy")]
+        private InputList<string>? _groupBy;
+
+        /// <summary>
+        /// the group by properties for the KPI.
+        /// </summary>
+        public InputList<string> GroupBy
+        {
+            get => _groupBy ?? (_groupBy = new InputList<string>());
+            set => _groupBy = value;
+        }
+
         /// <summary>
         /// The name of the hub.
         /// </summary>
@@ -90,16 +192,22 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Defines the KPI Threshold limits.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.KpiDefinitionArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The KPI thresholds.
+        /// </summary>
+        [Input("thresHolds")]
+        public Input<Inputs.KpiThresholdsArgs>? ThresHolds { get; set; }
+
+        /// <summary>
+        /// The unit of measurement for the KPI.
+        /// </summary>
+        [Input("unit")]
+        public Input<string>? Unit { get; set; }
 
         public KpiArgs()
         {

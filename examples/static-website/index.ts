@@ -21,12 +21,10 @@ const storageAccount = new azurerm.storage.v20190601.StorageAccount("websitesa",
         tier: "Standard",
     },
     kind: "StorageV2",
-    properties: {
-        // Apparently, this is not supported via ARM.
-        // staticWebsite: {
-        //     indexDocument: "index.html",
-        // },
-    }
+    // Apparently, this is not supported via ARM.
+    // staticWebsite: {
+    //     indexDocument: "index.html",
+    // },
 });
 
 // Upload the files
@@ -62,15 +60,11 @@ const endpoint = new azurerm.cdn.v20200331.Endpoint("website-cdn-ep", {
     profileName: cdn.name,
     name: "pulumi-static-website-ep",
     location: "westus",
-    properties: {
-        originHostHeader: staticHostname,
-        origins: [{
-            name: "blobstorage",
-            properties: {
-                hostName: staticHostname,
-            },
-        }],        
-    },
+    originHostHeader: staticHostname,
+    origins: [{
+        name: "blobstorage",
+        hostName: staticHostname,
+    }],        
 });
 
 // CDN endpoint to the website.

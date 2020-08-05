@@ -47,7 +47,7 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
     /**
      * Properties of the hub virtual network connection.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200501.HubVirtualNetworkConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.HubVirtualNetworkConnectionPropertiesResponse>;
 
     /**
      * Create a HubVirtualNetworkConnection resource with the given unique name, arguments, and options.
@@ -71,12 +71,17 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
             if (!args || args.virtualHubName === undefined) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
+            inputs["allowHubToRemoteVnetTransit"] = args ? args.allowHubToRemoteVnetTransit : undefined;
+            inputs["allowRemoteVnetToUseHubVnetGateways"] = args ? args.allowRemoteVnetToUseHubVnetGateways : undefined;
+            inputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
             inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -94,6 +99,18 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
  */
 export interface HubVirtualNetworkConnectionArgs {
     /**
+     * Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+     */
+    readonly allowHubToRemoteVnetTransit?: pulumi.Input<boolean>;
+    /**
+     * Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+     */
+    readonly allowRemoteVnetToUseHubVnetGateways?: pulumi.Input<boolean>;
+    /**
+     * Enable internet security.
+     */
+    readonly enableInternetSecurity?: pulumi.Input<boolean>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -102,13 +119,17 @@ export interface HubVirtualNetworkConnectionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the hub virtual network connection.
+     * Reference to the remote virtual network.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20200501.HubVirtualNetworkConnectionProperties>;
+    readonly remoteVirtualNetwork?: pulumi.Input<inputs.network.v20200501.SubResource>;
     /**
      * The resource group name of the HubVirtualNetworkConnection.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Routing Configuration indicating the associated and propagated route tables on this connection.
+     */
+    readonly routingConfiguration?: pulumi.Input<inputs.network.v20200501.RoutingConfiguration>;
     /**
      * The name of the VirtualHub.
      */

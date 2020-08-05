@@ -30,6 +30,15 @@ func NewAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	if args == nil || args.ClusterName == nil {
 		return nil, errors.New("missing required argument 'ClusterName'")
 	}
+	if args == nil || args.ClusterResourceId == nil {
+		return nil, errors.New("missing required argument 'ClusterResourceId'")
+	}
+	if args == nil || args.DatabaseName == nil {
+		return nil, errors.New("missing required argument 'DatabaseName'")
+	}
+	if args == nil || args.DefaultPrincipalsModificationKind == nil {
+		return nil, errors.New("missing required argument 'DefaultPrincipalsModificationKind'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -89,12 +98,16 @@ func (AttachedDatabaseConfigurationState) ElementType() reflect.Type {
 type attachedDatabaseConfigurationArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName string `pulumi:"clusterName"`
+	// The resource id of the cluster where the databases you would like to attach reside.
+	ClusterResourceId string `pulumi:"clusterResourceId"`
+	// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+	DatabaseName string `pulumi:"databaseName"`
+	// The default principals modification kind
+	DefaultPrincipalsModificationKind string `pulumi:"defaultPrincipalsModificationKind"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the attached database configuration.
 	Name string `pulumi:"name"`
-	// The properties of the attached database configuration.
-	Properties *AttachedDatabaseConfigurationProperties `pulumi:"properties"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -103,12 +116,16 @@ type attachedDatabaseConfigurationArgs struct {
 type AttachedDatabaseConfigurationArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName pulumi.StringInput
+	// The resource id of the cluster where the databases you would like to attach reside.
+	ClusterResourceId pulumi.StringInput
+	// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+	DatabaseName pulumi.StringInput
+	// The default principals modification kind
+	DefaultPrincipalsModificationKind pulumi.StringInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the attached database configuration.
 	Name pulumi.StringInput
-	// The properties of the attached database configuration.
-	Properties AttachedDatabaseConfigurationPropertiesPtrInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
 }

@@ -102,16 +102,22 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Maximum number of users allowed in the lab.
+        /// </summary>
+        [Input("maxUsersInLab")]
+        public Input<int>? MaxUsersInLab { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LabPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -130,6 +136,24 @@ namespace Pulumi.AzureRM.LabServices.V20181015
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
+
+        /// <summary>
+        /// Maximum duration a user can use an environment for in the lab.
+        /// </summary>
+        [Input("usageQuota")]
+        public Input<string>? UsageQuota { get; set; }
+
+        /// <summary>
+        /// Lab user access mode (open to all vs. restricted to those listed on the lab).
+        /// </summary>
+        [Input("userAccessMode")]
+        public Input<string>? UserAccessMode { get; set; }
 
         public LabArgs()
         {

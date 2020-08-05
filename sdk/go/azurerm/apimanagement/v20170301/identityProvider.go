@@ -25,6 +25,12 @@ type IdentityProvider struct {
 // NewIdentityProvider registers a new resource with the given unique name, arguments, and options.
 func NewIdentityProvider(ctx *pulumi.Context,
 	name string, args *IdentityProviderArgs, opts ...pulumi.ResourceOption) (*IdentityProvider, error) {
+	if args == nil || args.ClientId == nil {
+		return nil, errors.New("missing required argument 'ClientId'")
+	}
+	if args == nil || args.ClientSecret == nil {
+		return nil, errors.New("missing required argument 'ClientSecret'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -81,26 +87,54 @@ func (IdentityProviderState) ElementType() reflect.Type {
 }
 
 type identityProviderArgs struct {
+	// List of Allowed Tenants when configuring Azure Active Directory login.
+	AllowedTenants []string `pulumi:"allowedTenants"`
+	// Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+	ClientId string `pulumi:"clientId"`
+	// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
+	ClientSecret string `pulumi:"clientSecret"`
 	// Identity Provider Type identifier.
 	Name string `pulumi:"name"`
-	// Identity Provider contract properties.
-	Properties *IdentityProviderContractProperties `pulumi:"properties"`
+	// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
+	PasswordResetPolicyName *string `pulumi:"passwordResetPolicyName"`
+	// Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+	ProfileEditingPolicyName *string `pulumi:"profileEditingPolicyName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Signin Policy Name. Only applies to AAD B2C Identity Provider.
+	SigninPolicyName *string `pulumi:"signinPolicyName"`
+	// Signup Policy Name. Only applies to AAD B2C Identity Provider.
+	SignupPolicyName *string `pulumi:"signupPolicyName"`
+	// Identity Provider Type identifier.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a IdentityProvider resource.
 type IdentityProviderArgs struct {
+	// List of Allowed Tenants when configuring Azure Active Directory login.
+	AllowedTenants pulumi.StringArrayInput
+	// Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+	ClientId pulumi.StringInput
+	// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
+	ClientSecret pulumi.StringInput
 	// Identity Provider Type identifier.
 	Name pulumi.StringInput
-	// Identity Provider contract properties.
-	Properties IdentityProviderContractPropertiesPtrInput
+	// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
+	PasswordResetPolicyName pulumi.StringPtrInput
+	// Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+	ProfileEditingPolicyName pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Signin Policy Name. Only applies to AAD B2C Identity Provider.
+	SigninPolicyName pulumi.StringPtrInput
+	// Signup Policy Name. Only applies to AAD B2C Identity Provider.
+	SignupPolicyName pulumi.StringPtrInput
+	// Identity Provider Type identifier.
+	Type pulumi.StringPtrInput
 }
 
 func (IdentityProviderArgs) ElementType() reflect.Type {

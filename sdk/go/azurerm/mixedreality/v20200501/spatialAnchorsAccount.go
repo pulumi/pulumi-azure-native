@@ -97,8 +97,6 @@ type spatialAnchorsAccountArgs struct {
 	Location string `pulumi:"location"`
 	// Name of an Mixed Reality Account.
 	Name string `pulumi:"name"`
-	// Property bag.
-	Properties *MixedRealityAccountProperties `pulumi:"properties"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -111,8 +109,6 @@ type SpatialAnchorsAccountArgs struct {
 	Location pulumi.StringInput
 	// Name of an Mixed Reality Account.
 	Name pulumi.StringInput
-	// Property bag.
-	Properties MixedRealityAccountPropertiesPtrInput
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

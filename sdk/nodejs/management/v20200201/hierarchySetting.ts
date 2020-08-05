@@ -43,7 +43,7 @@ export class HierarchySetting extends pulumi.CustomResource {
     /**
      * The generic properties of hierarchy settings.
      */
-    public readonly properties!: pulumi.Output<outputs.management.v20200201.HierarchySettingsPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.management.v20200201.HierarchySettingsPropertiesResponse>;
     /**
      * The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
      */
@@ -65,8 +65,10 @@ export class HierarchySetting extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            inputs["defaultManagementGroup"] = args ? args.defaultManagementGroup : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["requireAuthorizationForGroupCreation"] = args ? args.requireAuthorizationForGroupCreation : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -85,11 +87,15 @@ export class HierarchySetting extends pulumi.CustomResource {
  */
 export interface HierarchySettingArgs {
     /**
+     * Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+     */
+    readonly defaultManagementGroup?: pulumi.Input<string>;
+    /**
      * Management Group ID.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the request to create or update Management Group settings
+     * Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
      */
-    readonly properties?: pulumi.Input<inputs.management.v20200201.CreateOrUpdateSettingsProperties>;
+    readonly requireAuthorizationForGroupCreation?: pulumi.Input<boolean>;
 }

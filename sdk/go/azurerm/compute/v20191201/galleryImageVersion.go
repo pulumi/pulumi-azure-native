@@ -44,6 +44,9 @@ func NewGalleryImageVersion(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.StorageProfile == nil {
+		return nil, errors.New("missing required argument 'StorageProfile'")
+	}
 	if args == nil {
 		args = &GalleryImageVersionArgs{}
 	}
@@ -107,10 +110,12 @@ type galleryImageVersionArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
 	Name string `pulumi:"name"`
-	// Describes the properties of a gallery Image Version.
-	Properties *GalleryImageVersionProperties `pulumi:"properties"`
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile *GalleryImageVersionPublishingProfile `pulumi:"publishingProfile"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// This is the storage profile of a Gallery Image Version.
+	StorageProfile GalleryImageVersionStorageProfile `pulumi:"storageProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -125,10 +130,12 @@ type GalleryImageVersionArgs struct {
 	Location pulumi.StringInput
 	// The name of the gallery Image Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
 	Name pulumi.StringInput
-	// Describes the properties of a gallery Image Version.
-	Properties GalleryImageVersionPropertiesPtrInput
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile GalleryImageVersionPublishingProfilePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// This is the storage profile of a Gallery Image Version.
+	StorageProfile GalleryImageVersionStorageProfileInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

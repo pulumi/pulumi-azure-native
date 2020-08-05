@@ -688,8 +688,10 @@ func (o PrivateEndpointACLResponseArrayOutput) Index(i pulumi.IntInput) PrivateE
 
 // A private endpoint connection to SignalR resource
 type PrivateEndpointConnection struct {
-	// Properties of the private endpoint connection
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// Private endpoint associated with the private endpoint connection
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// Connection state
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
 
 // PrivateEndpointConnectionInput is an input type that accepts PrivateEndpointConnectionArgs and PrivateEndpointConnectionOutput values.
@@ -705,8 +707,10 @@ type PrivateEndpointConnectionInput interface {
 
 // A private endpoint connection to SignalR resource
 type PrivateEndpointConnectionArgs struct {
-	// Properties of the private endpoint connection
-	Properties PrivateEndpointConnectionPropertiesPtrInput `pulumi:"properties"`
+	// Private endpoint associated with the private endpoint connection
+	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
+	// Connection state
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -736,162 +740,14 @@ func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithCo
 	return o
 }
 
-// Properties of the private endpoint connection
-func (o PrivateEndpointConnectionOutput) Properties() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesPtrOutput)
-}
-
-// Private endpoint connection properties
-type PrivateEndpointConnectionProperties struct {
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
-	// Connection state
-	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-}
-
-// PrivateEndpointConnectionPropertiesInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs and PrivateEndpointConnectionPropertiesOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInput` via:
-//
-//          PrivateEndpointConnectionPropertiesArgs{...}
-type PrivateEndpointConnectionPropertiesInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput
-	ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesOutput
-}
-
-// Private endpoint connection properties
-type PrivateEndpointConnectionPropertiesArgs struct {
-	// Private endpoint associated with the private endpoint connection
-	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
-	// Connection state
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
-}
-
-func (PrivateEndpointConnectionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput {
-	return i.ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesOutput)
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return i.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesOutput).ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx)
-}
-
-// PrivateEndpointConnectionPropertiesPtrInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs, PrivateEndpointConnectionPropertiesPtr and PrivateEndpointConnectionPropertiesPtrOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesPtrInput` via:
-//
-//          PrivateEndpointConnectionPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type PrivateEndpointConnectionPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput
-	ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesPtrOutput
-}
-
-type privateEndpointConnectionPropertiesPtrType PrivateEndpointConnectionPropertiesArgs
-
-func PrivateEndpointConnectionPropertiesPtr(v *PrivateEndpointConnectionPropertiesArgs) PrivateEndpointConnectionPropertiesPtrInput {
-	return (*privateEndpointConnectionPropertiesPtrType)(v)
-}
-
-func (*privateEndpointConnectionPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return i.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPtrOutput)
-}
-
-// Private endpoint connection properties
-type PrivateEndpointConnectionPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
-		return &v
-	}).(PrivateEndpointConnectionPropertiesPtrOutput)
-}
-
 // Private endpoint associated with the private endpoint connection
-func (o PrivateEndpointConnectionPropertiesOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
+func (o PrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
 }
 
 // Connection state
-func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionState {
-		return v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
-type PrivateEndpointConnectionPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
-}
-
-// Private endpoint associated with the private endpoint connection
-func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateEndpoint {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateEndpoint
-	}).(PrivateEndpointPtrOutput)
-}
-
-// Connection state
-func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionState {
-		if v == nil {
-			return nil
-		}
+func (o PrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateLinkServiceConnectionState {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStatePtrOutput)
 }
@@ -3478,240 +3334,6 @@ func (o SignalRPrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
 }
 
 // A class that describes the properties of the SignalR service that should contain more read-only properties than AzSignalR.Models.SignalRCreateOrUpdateProperties
-type SignalRProperties struct {
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors *SignalRCorsSettings `pulumi:"cors"`
-	// List of SignalR featureFlags. e.g. ServiceMode.
-	//
-	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-	// And the response will only include featureFlags that are explicitly set.
-	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
-	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-	Features []SignalRFeature `pulumi:"features"`
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix *string `pulumi:"hostNamePrefix"`
-	// Network ACLs
-	NetworkACLs *SignalRNetworkACLs `pulumi:"networkACLs"`
-	// Upstream settings when the Azure SignalR is in server-less mode.
-	Upstream *ServerlessUpstreamSettings `pulumi:"upstream"`
-}
-
-// SignalRPropertiesInput is an input type that accepts SignalRPropertiesArgs and SignalRPropertiesOutput values.
-// You can construct a concrete instance of `SignalRPropertiesInput` via:
-//
-//          SignalRPropertiesArgs{...}
-type SignalRPropertiesInput interface {
-	pulumi.Input
-
-	ToSignalRPropertiesOutput() SignalRPropertiesOutput
-	ToSignalRPropertiesOutputWithContext(context.Context) SignalRPropertiesOutput
-}
-
-// A class that describes the properties of the SignalR service that should contain more read-only properties than AzSignalR.Models.SignalRCreateOrUpdateProperties
-type SignalRPropertiesArgs struct {
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors SignalRCorsSettingsPtrInput `pulumi:"cors"`
-	// List of SignalR featureFlags. e.g. ServiceMode.
-	//
-	// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-	// And the response will only include featureFlags that are explicitly set.
-	// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
-	// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-	Features SignalRFeatureArrayInput `pulumi:"features"`
-	// Prefix for the hostName of the SignalR service. Retained for future use.
-	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-	HostNamePrefix pulumi.StringPtrInput `pulumi:"hostNamePrefix"`
-	// Network ACLs
-	NetworkACLs SignalRNetworkACLsPtrInput `pulumi:"networkACLs"`
-	// Upstream settings when the Azure SignalR is in server-less mode.
-	Upstream ServerlessUpstreamSettingsPtrInput `pulumi:"upstream"`
-}
-
-func (SignalRPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRProperties)(nil)).Elem()
-}
-
-func (i SignalRPropertiesArgs) ToSignalRPropertiesOutput() SignalRPropertiesOutput {
-	return i.ToSignalRPropertiesOutputWithContext(context.Background())
-}
-
-func (i SignalRPropertiesArgs) ToSignalRPropertiesOutputWithContext(ctx context.Context) SignalRPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalRPropertiesOutput)
-}
-
-func (i SignalRPropertiesArgs) ToSignalRPropertiesPtrOutput() SignalRPropertiesPtrOutput {
-	return i.ToSignalRPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SignalRPropertiesArgs) ToSignalRPropertiesPtrOutputWithContext(ctx context.Context) SignalRPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalRPropertiesOutput).ToSignalRPropertiesPtrOutputWithContext(ctx)
-}
-
-// SignalRPropertiesPtrInput is an input type that accepts SignalRPropertiesArgs, SignalRPropertiesPtr and SignalRPropertiesPtrOutput values.
-// You can construct a concrete instance of `SignalRPropertiesPtrInput` via:
-//
-//          SignalRPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SignalRPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSignalRPropertiesPtrOutput() SignalRPropertiesPtrOutput
-	ToSignalRPropertiesPtrOutputWithContext(context.Context) SignalRPropertiesPtrOutput
-}
-
-type signalRPropertiesPtrType SignalRPropertiesArgs
-
-func SignalRPropertiesPtr(v *SignalRPropertiesArgs) SignalRPropertiesPtrInput {
-	return (*signalRPropertiesPtrType)(v)
-}
-
-func (*signalRPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SignalRProperties)(nil)).Elem()
-}
-
-func (i *signalRPropertiesPtrType) ToSignalRPropertiesPtrOutput() SignalRPropertiesPtrOutput {
-	return i.ToSignalRPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *signalRPropertiesPtrType) ToSignalRPropertiesPtrOutputWithContext(ctx context.Context) SignalRPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalRPropertiesPtrOutput)
-}
-
-// A class that describes the properties of the SignalR service that should contain more read-only properties than AzSignalR.Models.SignalRCreateOrUpdateProperties
-type SignalRPropertiesOutput struct{ *pulumi.OutputState }
-
-func (SignalRPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRProperties)(nil)).Elem()
-}
-
-func (o SignalRPropertiesOutput) ToSignalRPropertiesOutput() SignalRPropertiesOutput {
-	return o
-}
-
-func (o SignalRPropertiesOutput) ToSignalRPropertiesOutputWithContext(ctx context.Context) SignalRPropertiesOutput {
-	return o
-}
-
-func (o SignalRPropertiesOutput) ToSignalRPropertiesPtrOutput() SignalRPropertiesPtrOutput {
-	return o.ToSignalRPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SignalRPropertiesOutput) ToSignalRPropertiesPtrOutputWithContext(ctx context.Context) SignalRPropertiesPtrOutput {
-	return o.ApplyT(func(v SignalRProperties) *SignalRProperties {
-		return &v
-	}).(SignalRPropertiesPtrOutput)
-}
-
-// Cross-Origin Resource Sharing (CORS) settings.
-func (o SignalRPropertiesOutput) Cors() SignalRCorsSettingsPtrOutput {
-	return o.ApplyT(func(v SignalRProperties) *SignalRCorsSettings { return v.Cors }).(SignalRCorsSettingsPtrOutput)
-}
-
-// List of SignalR featureFlags. e.g. ServiceMode.
-//
-// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-// And the response will only include featureFlags that are explicitly set.
-// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
-// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-func (o SignalRPropertiesOutput) Features() SignalRFeatureArrayOutput {
-	return o.ApplyT(func(v SignalRProperties) []SignalRFeature { return v.Features }).(SignalRFeatureArrayOutput)
-}
-
-// Prefix for the hostName of the SignalR service. Retained for future use.
-// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-func (o SignalRPropertiesOutput) HostNamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SignalRProperties) *string { return v.HostNamePrefix }).(pulumi.StringPtrOutput)
-}
-
-// Network ACLs
-func (o SignalRPropertiesOutput) NetworkACLs() SignalRNetworkACLsPtrOutput {
-	return o.ApplyT(func(v SignalRProperties) *SignalRNetworkACLs { return v.NetworkACLs }).(SignalRNetworkACLsPtrOutput)
-}
-
-// Upstream settings when the Azure SignalR is in server-less mode.
-func (o SignalRPropertiesOutput) Upstream() ServerlessUpstreamSettingsPtrOutput {
-	return o.ApplyT(func(v SignalRProperties) *ServerlessUpstreamSettings { return v.Upstream }).(ServerlessUpstreamSettingsPtrOutput)
-}
-
-type SignalRPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SignalRPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SignalRProperties)(nil)).Elem()
-}
-
-func (o SignalRPropertiesPtrOutput) ToSignalRPropertiesPtrOutput() SignalRPropertiesPtrOutput {
-	return o
-}
-
-func (o SignalRPropertiesPtrOutput) ToSignalRPropertiesPtrOutputWithContext(ctx context.Context) SignalRPropertiesPtrOutput {
-	return o
-}
-
-func (o SignalRPropertiesPtrOutput) Elem() SignalRPropertiesOutput {
-	return o.ApplyT(func(v *SignalRProperties) SignalRProperties { return *v }).(SignalRPropertiesOutput)
-}
-
-// Cross-Origin Resource Sharing (CORS) settings.
-func (o SignalRPropertiesPtrOutput) Cors() SignalRCorsSettingsPtrOutput {
-	return o.ApplyT(func(v *SignalRProperties) *SignalRCorsSettings {
-		if v == nil {
-			return nil
-		}
-		return v.Cors
-	}).(SignalRCorsSettingsPtrOutput)
-}
-
-// List of SignalR featureFlags. e.g. ServiceMode.
-//
-// FeatureFlags that are not included in the parameters for the update operation will not be modified.
-// And the response will only include featureFlags that are explicitly set.
-// When a featureFlag is not explicitly set, SignalR service will use its globally default value.
-// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-func (o SignalRPropertiesPtrOutput) Features() SignalRFeatureArrayOutput {
-	return o.ApplyT(func(v *SignalRProperties) []SignalRFeature {
-		if v == nil {
-			return nil
-		}
-		return v.Features
-	}).(SignalRFeatureArrayOutput)
-}
-
-// Prefix for the hostName of the SignalR service. Retained for future use.
-// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-func (o SignalRPropertiesPtrOutput) HostNamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SignalRProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HostNamePrefix
-	}).(pulumi.StringPtrOutput)
-}
-
-// Network ACLs
-func (o SignalRPropertiesPtrOutput) NetworkACLs() SignalRNetworkACLsPtrOutput {
-	return o.ApplyT(func(v *SignalRProperties) *SignalRNetworkACLs {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkACLs
-	}).(SignalRNetworkACLsPtrOutput)
-}
-
-// Upstream settings when the Azure SignalR is in server-less mode.
-func (o SignalRPropertiesPtrOutput) Upstream() ServerlessUpstreamSettingsPtrOutput {
-	return o.ApplyT(func(v *SignalRProperties) *ServerlessUpstreamSettings {
-		if v == nil {
-			return nil
-		}
-		return v.Upstream
-	}).(ServerlessUpstreamSettingsPtrOutput)
-}
-
-// A class that describes the properties of the SignalR service that should contain more read-only properties than AzSignalR.Models.SignalRCreateOrUpdateProperties
 type SignalRPropertiesResponse struct {
 	// Cross-Origin Resource Sharing (CORS) settings.
 	Cors *SignalRCorsSettingsResponse `pulumi:"cors"`
@@ -4430,8 +4052,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointACLResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointACLResponseArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
@@ -4464,8 +4084,6 @@ func init() {
 	pulumi.RegisterOutputType(SignalRNetworkACLsResponseOutput{})
 	pulumi.RegisterOutputType(SignalRNetworkACLsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SignalRPrivateEndpointConnectionTypeOutput{})
-	pulumi.RegisterOutputType(SignalRPropertiesOutput{})
-	pulumi.RegisterOutputType(SignalRPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SignalRPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SignalRPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(UpstreamTemplateOutput{})

@@ -47,7 +47,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The properties defined by Data Lake Analytics all properties are specific to each resource provider.
      */
-    public readonly properties!: pulumi.Output<outputs.datalakeanalytics.v20161101.DataLakeAnalyticsAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datalakeanalytics.v20161101.DataLakeAnalyticsAccountPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -70,23 +70,39 @@ export class Account extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AccountArgs | undefined;
+            if (!args || args.dataLakeStoreAccounts === undefined) {
+                throw new Error("Missing required property 'dataLakeStoreAccounts'");
+            }
+            if (!args || args.defaultDataLakeStoreAccount === undefined) {
+                throw new Error("Missing required property 'defaultDataLakeStoreAccount'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["computePolicies"] = args ? args.computePolicies : undefined;
+            inputs["dataLakeStoreAccounts"] = args ? args.dataLakeStoreAccounts : undefined;
+            inputs["defaultDataLakeStoreAccount"] = args ? args.defaultDataLakeStoreAccount : undefined;
+            inputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
+            inputs["firewallRules"] = args ? args.firewallRules : undefined;
+            inputs["firewallState"] = args ? args.firewallState : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maxDegreeOfParallelism"] = args ? args.maxDegreeOfParallelism : undefined;
+            inputs["maxDegreeOfParallelismPerJob"] = args ? args.maxDegreeOfParallelismPerJob : undefined;
+            inputs["maxJobCount"] = args ? args.maxJobCount : undefined;
+            inputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["newTier"] = args ? args.newTier : undefined;
+            inputs["queryStoreRetention"] = args ? args.queryStoreRetention : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,21 +121,69 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountArgs {
     /**
+     * The list of compute policies associated with this account.
+     */
+    readonly computePolicies?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.CreateComputePolicyWithAccountParameters>[]>;
+    /**
+     * The list of Data Lake Store accounts associated with this account.
+     */
+    readonly dataLakeStoreAccounts: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.AddDataLakeStoreWithAccountParameters>[]>;
+    /**
+     * The default Data Lake Store account associated with this account.
+     */
+    readonly defaultDataLakeStoreAccount: pulumi.Input<string>;
+    /**
+     * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+     */
+    readonly firewallAllowAzureIps?: pulumi.Input<string>;
+    /**
+     * The list of firewall rules associated with this account.
+     */
+    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.CreateFirewallRuleWithAccountParameters>[]>;
+    /**
+     * The current state of the IP address firewall for this account.
+     */
+    readonly firewallState?: pulumi.Input<string>;
+    /**
      * The resource location.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The maximum supported degree of parallelism for this account.
+     */
+    readonly maxDegreeOfParallelism?: pulumi.Input<number>;
+    /**
+     * The maximum supported degree of parallelism per job for this account.
+     */
+    readonly maxDegreeOfParallelismPerJob?: pulumi.Input<number>;
+    /**
+     * The maximum supported jobs running under the account at the same time.
+     */
+    readonly maxJobCount?: pulumi.Input<number>;
+    /**
+     * The minimum supported priority per job for this account.
+     */
+    readonly minPriorityPerJob?: pulumi.Input<number>;
     /**
      * The name of the Data Lake Analytics account.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The Data Lake Analytics account properties to use for creating.
+     * The commitment tier for the next month.
      */
-    readonly properties: pulumi.Input<inputs.datalakeanalytics.v20161101.CreateDataLakeAnalyticsAccountProperties>;
+    readonly newTier?: pulumi.Input<string>;
+    /**
+     * The number of days that job metadata is retained.
+     */
+    readonly queryStoreRetention?: pulumi.Input<number>;
     /**
      * The name of the Azure resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The list of Azure Blob Storage accounts associated with this account.
+     */
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.datalakeanalytics.v20161101.AddStorageAccountWithAccountParameters>[]>;
     /**
      * The resource tags.
      */

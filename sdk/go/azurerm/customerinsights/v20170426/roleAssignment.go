@@ -31,8 +31,14 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.Principals == nil {
+		return nil, errors.New("missing required argument 'Principals'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Role == nil {
+		return nil, errors.New("missing required argument 'Role'")
 	}
 	if args == nil {
 		args = &RoleAssignmentArgs{}
@@ -81,26 +87,90 @@ func (RoleAssignmentState) ElementType() reflect.Type {
 }
 
 type roleAssignmentArgs struct {
+	// Widget types set for the assignment.
+	ConflationPolicies *ResourceSetDescription `pulumi:"conflationPolicies"`
+	// Connectors set for the assignment.
+	Connectors *ResourceSetDescription `pulumi:"connectors"`
+	// Localized description for the metadata.
+	Description map[string]string `pulumi:"description"`
+	// Localized display names for the metadata.
+	DisplayName map[string]string `pulumi:"displayName"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
+	// Interactions set for the assignment.
+	Interactions *ResourceSetDescription `pulumi:"interactions"`
+	// Kpis set for the assignment.
+	Kpis *ResourceSetDescription `pulumi:"kpis"`
+	// Links set for the assignment.
+	Links *ResourceSetDescription `pulumi:"links"`
 	// The assignment name
 	Name string `pulumi:"name"`
-	// The Role Assignment definition.
-	Properties *RoleAssignmentDefinition `pulumi:"properties"`
+	// The principals being assigned to.
+	Principals []AssignmentPrincipal `pulumi:"principals"`
+	// Profiles set for the assignment.
+	Profiles *ResourceSetDescription `pulumi:"profiles"`
+	// The Role assignments set for the relationship links.
+	RelationshipLinks *ResourceSetDescription `pulumi:"relationshipLinks"`
+	// The Role assignments set for the relationships.
+	Relationships *ResourceSetDescription `pulumi:"relationships"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Type of roles.
+	Role string `pulumi:"role"`
+	// The Role assignments set for the assignment.
+	RoleAssignments *ResourceSetDescription `pulumi:"roleAssignments"`
+	// Sas Policies set for the assignment.
+	SasPolicies *ResourceSetDescription `pulumi:"sasPolicies"`
+	// The Role assignments set for the assignment.
+	Segments *ResourceSetDescription `pulumi:"segments"`
+	// Views set for the assignment.
+	Views *ResourceSetDescription `pulumi:"views"`
+	// Widget types set for the assignment.
+	WidgetTypes *ResourceSetDescription `pulumi:"widgetTypes"`
 }
 
 // The set of arguments for constructing a RoleAssignment resource.
 type RoleAssignmentArgs struct {
+	// Widget types set for the assignment.
+	ConflationPolicies ResourceSetDescriptionPtrInput
+	// Connectors set for the assignment.
+	Connectors ResourceSetDescriptionPtrInput
+	// Localized description for the metadata.
+	Description pulumi.StringMapInput
+	// Localized display names for the metadata.
+	DisplayName pulumi.StringMapInput
 	// The name of the hub.
 	HubName pulumi.StringInput
+	// Interactions set for the assignment.
+	Interactions ResourceSetDescriptionPtrInput
+	// Kpis set for the assignment.
+	Kpis ResourceSetDescriptionPtrInput
+	// Links set for the assignment.
+	Links ResourceSetDescriptionPtrInput
 	// The assignment name
 	Name pulumi.StringInput
-	// The Role Assignment definition.
-	Properties RoleAssignmentDefinitionPtrInput
+	// The principals being assigned to.
+	Principals AssignmentPrincipalArrayInput
+	// Profiles set for the assignment.
+	Profiles ResourceSetDescriptionPtrInput
+	// The Role assignments set for the relationship links.
+	RelationshipLinks ResourceSetDescriptionPtrInput
+	// The Role assignments set for the relationships.
+	Relationships ResourceSetDescriptionPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Type of roles.
+	Role pulumi.StringInput
+	// The Role assignments set for the assignment.
+	RoleAssignments ResourceSetDescriptionPtrInput
+	// Sas Policies set for the assignment.
+	SasPolicies ResourceSetDescriptionPtrInput
+	// The Role assignments set for the assignment.
+	Segments ResourceSetDescriptionPtrInput
+	// Views set for the assignment.
+	Views ResourceSetDescriptionPtrInput
+	// Widget types set for the assignment.
+	WidgetTypes ResourceSetDescriptionPtrInput
 }
 
 func (RoleAssignmentArgs) ElementType() reflect.Type {

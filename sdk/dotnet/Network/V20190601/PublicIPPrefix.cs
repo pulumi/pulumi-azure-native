@@ -120,6 +120,24 @@ namespace Pulumi.AzureRM.Network.V20190601
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// The allocated Prefix.
+        /// </summary>
+        [Input("ipPrefix")]
+        public Input<string>? IpPrefix { get; set; }
+
+        [Input("ipTags")]
+        private InputList<Inputs.IpTagArgs>? _ipTags;
+
+        /// <summary>
+        /// The list of tags associated with the public IP prefix.
+        /// </summary>
+        public InputList<Inputs.IpTagArgs> IpTags
+        {
+            get => _ipTags ?? (_ipTags = new InputList<Inputs.IpTagArgs>());
+            set => _ipTags = value;
+        }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
@@ -132,16 +150,46 @@ namespace Pulumi.AzureRM.Network.V20190601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Public IP prefix properties.
+        /// The Length of the Public IP Prefix.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PublicIPPrefixPropertiesFormatArgs>? Properties { get; set; }
+        [Input("prefixLength")]
+        public Input<int>? PrefixLength { get; set; }
+
+        /// <summary>
+        /// The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The public IP address version.
+        /// </summary>
+        [Input("publicIPAddressVersion")]
+        public Input<string>? PublicIPAddressVersion { get; set; }
+
+        [Input("publicIPAddresses")]
+        private InputList<Inputs.ReferencedPublicIpAddressArgs>? _publicIPAddresses;
+
+        /// <summary>
+        /// The list of all referenced PublicIPAddresses.
+        /// </summary>
+        public InputList<Inputs.ReferencedPublicIpAddressArgs> PublicIPAddresses
+        {
+            get => _publicIPAddresses ?? (_publicIPAddresses = new InputList<Inputs.ReferencedPublicIpAddressArgs>());
+            set => _publicIPAddresses = value;
+        }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the public IP prefix resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         /// <summary>
         /// The public IP prefix SKU.

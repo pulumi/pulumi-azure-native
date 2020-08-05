@@ -90,6 +90,42 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class IntegrationAccountAgreementArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The agreement type.
+        /// </summary>
+        [Input("agreementType", required: true)]
+        public Input<string> AgreementType { get; set; } = null!;
+
+        /// <summary>
+        /// The agreement content.
+        /// </summary>
+        [Input("content", required: true)]
+        public Input<Inputs.AgreementContentArgs> Content { get; set; } = null!;
+
+        /// <summary>
+        /// The business identity of the guest partner.
+        /// </summary>
+        [Input("guestIdentity", required: true)]
+        public Input<Inputs.BusinessIdentityArgs> GuestIdentity { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account partner that is set as guest partner for this agreement.
+        /// </summary>
+        [Input("guestPartner", required: true)]
+        public Input<string> GuestPartner { get; set; } = null!;
+
+        /// <summary>
+        /// The business identity of the host partner.
+        /// </summary>
+        [Input("hostIdentity", required: true)]
+        public Input<Inputs.BusinessIdentityArgs> HostIdentity { get; set; } = null!;
+
+        /// <summary>
+        /// The integration account partner that is set as host partner for this agreement.
+        /// </summary>
+        [Input("hostPartner", required: true)]
+        public Input<string> HostPartner { get; set; } = null!;
+
+        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -101,17 +137,23 @@ namespace Pulumi.AzureRM.Logic.V20190501
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("metadata")]
+        private InputMap<object>? _metadata;
+
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        public InputMap<object> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<object>());
+            set => _metadata = value;
+        }
+
         /// <summary>
         /// The integration account agreement name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The integration account agreement properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.IntegrationAccountAgreementPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

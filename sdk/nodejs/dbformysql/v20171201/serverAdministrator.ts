@@ -43,7 +43,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
     /**
      * Properties of the server AAD administrator.
      */
-    public readonly properties!: pulumi.Output<outputs.dbformysql.v20171201.ServerAdministratorPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.dbformysql.v20171201.ServerAdministratorPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -62,15 +62,31 @@ export class ServerAdministrator extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ServerAdministratorArgs | undefined;
+            if (!args || args.administratorType === undefined) {
+                throw new Error("Missing required property 'administratorType'");
+            }
+            if (!args || args.login === undefined) {
+                throw new Error("Missing required property 'login'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.sid === undefined) {
+                throw new Error("Missing required property 'sid'");
+            }
+            if (!args || args.tenantId === undefined) {
+                throw new Error("Missing required property 'tenantId'");
+            }
+            inputs["administratorType"] = args ? args.administratorType : undefined;
+            inputs["login"] = args ? args.login : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sid"] = args ? args.sid : undefined;
+            inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -89,15 +105,27 @@ export class ServerAdministrator extends pulumi.CustomResource {
  */
 export interface ServerAdministratorArgs {
     /**
+     * The type of administrator.
+     */
+    readonly administratorType: pulumi.Input<string>;
+    /**
+     * The server administrator login account name.
+     */
+    readonly login: pulumi.Input<string>;
+    /**
      * The name of the server.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the server AAD administrator.
-     */
-    readonly properties?: pulumi.Input<inputs.dbformysql.v20171201.ServerAdministratorProperties>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The server administrator Sid (Secure ID).
+     */
+    readonly sid: pulumi.Input<string>;
+    /**
+     * The server Active Directory Administrator tenant id.
+     */
+    readonly tenantId: pulumi.Input<string>;
 }

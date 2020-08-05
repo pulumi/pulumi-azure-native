@@ -16,22 +16,28 @@ namespace Pulumi.AzureRM.Network.V20190801.Inputs
     public sealed class ExpressRouteLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Administrative state of the physical port.
+        /// </summary>
+        [Input("adminState")]
+        public Input<string>? AdminState { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// MacSec configuration.
+        /// </summary>
+        [Input("macSecConfig")]
+        public Input<Inputs.ExpressRouteLinkMacSecConfigArgs>? MacSecConfig { get; set; }
+
+        /// <summary>
         /// Name of child port resource that is unique among child port resources of the parent.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// ExpressRouteLink properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ExpressRouteLinkPropertiesFormatArgs>? Properties { get; set; }
 
         public ExpressRouteLinkArgs()
         {

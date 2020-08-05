@@ -51,7 +51,7 @@ export class ApiManagementService extends pulumi.CustomResource {
     /**
      * Properties of the API Management service.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20161010.ApiManagementServicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20161010.ApiManagementServicePropertiesResponse>;
     /**
      * SKU properties of the API Management service.
      */
@@ -84,8 +84,11 @@ export class ApiManagementService extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.publisherEmail === undefined) {
+                throw new Error("Missing required property 'publisherEmail'");
+            }
+            if (!args || args.publisherName === undefined) {
+                throw new Error("Missing required property 'publisherName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -93,13 +96,21 @@ export class ApiManagementService extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
+            inputs["addresserEmail"] = args ? args.addresserEmail : undefined;
+            inputs["customProperties"] = args ? args.customProperties : undefined;
+            inputs["hostnameConfigurations"] = args ? args.hostnameConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["publisherEmail"] = args ? args.publisherEmail : undefined;
+            inputs["publisherName"] = args ? args.publisherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vpnType"] = args ? args.vpnType : undefined;
+            inputs["vpnconfiguration"] = args ? args.vpnconfiguration : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -118,6 +129,22 @@ export class ApiManagementService extends pulumi.CustomResource {
  */
 export interface ApiManagementServiceArgs {
     /**
+     * Additional datacenter locations of the API Management service.
+     */
+    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20161010.AdditionalRegion>[]>;
+    /**
+     * Addresser email.
+     */
+    readonly addresserEmail?: pulumi.Input<string>;
+    /**
+     * Custom properties of the API Management service, like disabling TLS 1.0.
+     */
+    readonly customProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Custom hostname configuration of the API Management service.
+     */
+    readonly hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20161010.HostnameConfiguration>[]>;
+    /**
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
@@ -126,9 +153,13 @@ export interface ApiManagementServiceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the API Management service.
+     * Publisher email.
      */
-    readonly properties: pulumi.Input<inputs.apimanagement.v20161010.ApiManagementServiceProperties>;
+    readonly publisherEmail: pulumi.Input<string>;
+    /**
+     * Publisher name.
+     */
+    readonly publisherName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -141,4 +172,12 @@ export interface ApiManagementServiceArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+     */
+    readonly vpnType?: pulumi.Input<string>;
+    /**
+     * Virtual network configuration of the API Management service.
+     */
+    readonly vpnconfiguration?: pulumi.Input<inputs.apimanagement.v20161010.VirtualNetworkConfiguration>;
 }

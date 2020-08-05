@@ -43,32 +43,30 @@ class IotSecuritySolution(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, disabled_data_sources=None, display_name=None, export=None, iot_hubs=None, location=None, name=None, recommendations_configuration=None, resource_group_name=None, status=None, tags=None, unmasked_ip_logging_status=None, user_defined_resources=None, workspace=None, __props__=None, __name__=None, __opts__=None):
         """
         IoT Security solution configuration and resource information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
+        :param pulumi.Input[str] display_name: Resource display name.
+        :param pulumi.Input[list] export: List of additional options for exporting to workspace data.
+        :param pulumi.Input[list] iot_hubs: IoT Hub resource IDs
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The name of the IoT Security solution.
-        :param pulumi.Input[dict] properties: Security Solution data
+        :param pulumi.Input[dict] recommendations_configuration: List of the configuration status for each recommendation type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] status: Status of the IoT Security solution.
         :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[str] unmasked_ip_logging_status: Unmasked IP address logging status
+        :param pulumi.Input[dict] user_defined_resources: Properties of the IoT Security solution's user defined resources.
+        :param pulumi.Input[str] workspace: Workspace resource ID
 
-        The **properties** object supports the following:
+        The **user_defined_resources** object supports the following:
 
-          * `disabled_data_sources` (`pulumi.Input[list]`) - Disabled data sources. Disabling these data sources compromises the system.
-          * `display_name` (`pulumi.Input[str]`) - Resource display name.
-          * `export` (`pulumi.Input[list]`) - List of additional options for exporting to workspace data.
-          * `iot_hubs` (`pulumi.Input[list]`) - IoT Hub resource IDs
-          * `recommendations_configuration` (`pulumi.Input[dict]`) - List of the configuration status for each recommendation type.
-          * `status` (`pulumi.Input[str]`) - Status of the IoT Security solution.
-          * `unmasked_ip_logging_status` (`pulumi.Input[str]`) - Unmasked IP address logging status
-          * `user_defined_resources` (`pulumi.Input[dict]`) - Properties of the IoT Security solution's user defined resources.
-            * `query` (`pulumi.Input[str]`) - Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
-            * `query_subscriptions` (`pulumi.Input[list]`) - List of Azure subscription ids on which the user defined resources query should be executed.
-
-          * `workspace` (`pulumi.Input[str]`) - Workspace resource ID
+          * `query` (`pulumi.Input[str]`) - Azure Resource Graph query which represents the security solution's user defined resources. Required to start with "where type != "Microsoft.Devices/IotHubs""
+          * `query_subscriptions` (`pulumi.Input[list]`) - List of Azure subscription ids on which the user defined resources query should be executed.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,15 +85,28 @@ class IotSecuritySolution(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['disabled_data_sources'] = disabled_data_sources
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
+            __props__['export'] = export
+            if iot_hubs is None:
+                raise TypeError("Missing required property 'iot_hubs'")
+            __props__['iot_hubs'] = iot_hubs
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['recommendations_configuration'] = recommendations_configuration
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['status'] = status
             __props__['tags'] = tags
+            __props__['unmasked_ip_logging_status'] = unmasked_ip_logging_status
+            __props__['user_defined_resources'] = user_defined_resources
+            __props__['workspace'] = workspace
+            __props__['properties'] = None
             __props__['type'] = None
         super(IotSecuritySolution, __self__).__init__(
             'azurerm:security/v20190801:IotSecuritySolution',

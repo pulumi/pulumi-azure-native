@@ -74,58 +74,58 @@ class Profile(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, hub_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_entity_set_name=None, attributes=None, description=None, display_name=None, entity_type=None, fields=None, hub_name=None, instances_count=None, large_image=None, localized_attributes=None, medium_image=None, name=None, resource_group_name=None, schema_item_type_link=None, small_image=None, strong_ids=None, timestamp_field_name=None, type_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The profile resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_entity_set_name: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+        :param pulumi.Input[dict] attributes: The attributes for the Type.
+        :param pulumi.Input[dict] description: Localized descriptions for the property.
+        :param pulumi.Input[dict] display_name: Localized display names for the property.
+        :param pulumi.Input[str] entity_type: Type of entity.
+        :param pulumi.Input[list] fields: The properties of the Profile.
         :param pulumi.Input[str] hub_name: The name of the hub.
+        :param pulumi.Input[float] instances_count: The instance count.
+        :param pulumi.Input[str] large_image: Large Image associated with the Property or EntityType.
+        :param pulumi.Input[dict] localized_attributes: Any custom localized attributes for the Type.
+        :param pulumi.Input[str] medium_image: Medium Image associated with the Property or EntityType.
         :param pulumi.Input[str] name: The name of the profile.
-        :param pulumi.Input[dict] properties: The profile type definition.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] schema_item_type_link: The schema org link. This helps ACI identify and suggest semantic models.
+        :param pulumi.Input[str] small_image: Small Image associated with the Property or EntityType.
+        :param pulumi.Input[list] strong_ids: The strong IDs.
+        :param pulumi.Input[str] timestamp_field_name: The timestamp property name. Represents the time when the interaction or profile update happened.
+        :param pulumi.Input[str] type_name: The name of the entity.
 
-        The **properties** object supports the following:
+        The **fields** object supports the following:
 
-          * `api_entity_set_name` (`pulumi.Input[str]`) - The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
-          * `attributes` (`pulumi.Input[dict]`) - The attributes for the Type.
-          * `description` (`pulumi.Input[dict]`) - Localized descriptions for the property.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display names for the property.
-          * `entity_type` (`pulumi.Input[str]`) - Type of entity.
-          * `fields` (`pulumi.Input[list]`) - The properties of the Profile.
-            * `array_value_separator` (`pulumi.Input[str]`) - Array value separator for properties with isArray set.
-            * `enum_valid_values` (`pulumi.Input[list]`) - Describes valid values for an enum property.
-              * `localized_value_names` (`pulumi.Input[dict]`) - Localized names of the enum member.
-              * `value` (`pulumi.Input[float]`) - The integer value of the enum member.
+          * `array_value_separator` (`pulumi.Input[str]`) - Array value separator for properties with isArray set.
+          * `enum_valid_values` (`pulumi.Input[list]`) - Describes valid values for an enum property.
+            * `localized_value_names` (`pulumi.Input[dict]`) - Localized names of the enum member.
+            * `value` (`pulumi.Input[float]`) - The integer value of the enum member.
 
-            * `field_name` (`pulumi.Input[str]`) - Name of the property.
-            * `field_type` (`pulumi.Input[str]`) - Type of the property.
-            * `is_array` (`pulumi.Input[bool]`) - Indicates if the property is actually an array of the fieldType above on the data api.
-            * `is_available_in_graph` (`pulumi.Input[bool]`) - Whether property is available in graph or not.
-            * `is_enum` (`pulumi.Input[bool]`) - Indicates if the property is an enum.
-            * `is_flag_enum` (`pulumi.Input[bool]`) - Indicates if the property is an flag enum.
-            * `is_image` (`pulumi.Input[bool]`) - Whether the property is an Image.
-            * `is_localized_string` (`pulumi.Input[bool]`) - Whether the property is a localized string.
-            * `is_name` (`pulumi.Input[bool]`) - Whether the property is a name or a part of name.
-            * `is_required` (`pulumi.Input[bool]`) - Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-            * `max_length` (`pulumi.Input[float]`) - Max length of string. Used only if type is string.
-            * `property_id` (`pulumi.Input[str]`) - The ID associated with the property.
-            * `schema_item_prop_link` (`pulumi.Input[str]`) - URL encoded schema.org item prop link for the property.
+          * `field_name` (`pulumi.Input[str]`) - Name of the property.
+          * `field_type` (`pulumi.Input[str]`) - Type of the property.
+          * `is_array` (`pulumi.Input[bool]`) - Indicates if the property is actually an array of the fieldType above on the data api.
+          * `is_available_in_graph` (`pulumi.Input[bool]`) - Whether property is available in graph or not.
+          * `is_enum` (`pulumi.Input[bool]`) - Indicates if the property is an enum.
+          * `is_flag_enum` (`pulumi.Input[bool]`) - Indicates if the property is an flag enum.
+          * `is_image` (`pulumi.Input[bool]`) - Whether the property is an Image.
+          * `is_localized_string` (`pulumi.Input[bool]`) - Whether the property is a localized string.
+          * `is_name` (`pulumi.Input[bool]`) - Whether the property is a name or a part of name.
+          * `is_required` (`pulumi.Input[bool]`) - Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
+          * `max_length` (`pulumi.Input[float]`) - Max length of string. Used only if type is string.
+          * `property_id` (`pulumi.Input[str]`) - The ID associated with the property.
+          * `schema_item_prop_link` (`pulumi.Input[str]`) - URL encoded schema.org item prop link for the property.
 
-          * `instances_count` (`pulumi.Input[float]`) - The instance count.
-          * `large_image` (`pulumi.Input[str]`) - Large Image associated with the Property or EntityType.
-          * `localized_attributes` (`pulumi.Input[dict]`) - Any custom localized attributes for the Type.
-          * `medium_image` (`pulumi.Input[str]`) - Medium Image associated with the Property or EntityType.
-          * `schema_item_type_link` (`pulumi.Input[str]`) - The schema org link. This helps ACI identify and suggest semantic models.
-          * `small_image` (`pulumi.Input[str]`) - Small Image associated with the Property or EntityType.
-          * `strong_ids` (`pulumi.Input[list]`) - The strong IDs.
-            * `description` (`pulumi.Input[dict]`) - Localized descriptions.
-            * `display_name` (`pulumi.Input[dict]`) - Localized display name.
-            * `key_property_names` (`pulumi.Input[list]`) - The properties which make up the unique ID.
-            * `strong_id_name` (`pulumi.Input[str]`) - The Name identifying the strong ID.
+        The **strong_ids** object supports the following:
 
-          * `timestamp_field_name` (`pulumi.Input[str]`) - The timestamp property name. Represents the time when the interaction or profile update happened.
-          * `type_name` (`pulumi.Input[str]`) - The name of the entity.
+          * `description` (`pulumi.Input[dict]`) - Localized descriptions.
+          * `display_name` (`pulumi.Input[dict]`) - Localized display name.
+          * `key_property_names` (`pulumi.Input[list]`) - The properties which make up the unique ID.
+          * `strong_id_name` (`pulumi.Input[str]`) - The Name identifying the strong ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -144,16 +144,31 @@ class Profile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['api_entity_set_name'] = api_entity_set_name
+            __props__['attributes'] = attributes
+            __props__['description'] = description
+            __props__['display_name'] = display_name
+            __props__['entity_type'] = entity_type
+            __props__['fields'] = fields
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
+            __props__['instances_count'] = instances_count
+            __props__['large_image'] = large_image
+            __props__['localized_attributes'] = localized_attributes
+            __props__['medium_image'] = medium_image
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['schema_item_type_link'] = schema_item_type_link
+            __props__['small_image'] = small_image
+            __props__['strong_ids'] = strong_ids
+            __props__['timestamp_field_name'] = timestamp_field_name
+            __props__['type_name'] = type_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Profile, __self__).__init__(
             'azurerm:customerinsights/v20170426:Profile',

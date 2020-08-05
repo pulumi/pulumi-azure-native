@@ -47,7 +47,7 @@ export class Partner extends pulumi.CustomResource {
     /**
      * The integration account partner properties.
      */
-    public readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountPartnerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountPartnerPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -70,24 +70,30 @@ export class Partner extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PartnerArgs | undefined;
+            if (!args || args.content === undefined) {
+                throw new Error("Missing required property 'content'");
+            }
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.partnerType === undefined) {
+                throw new Error("Missing required property 'partnerType'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["content"] = args ? args.content : undefined;
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["partnerType"] = args ? args.partnerType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +112,10 @@ export class Partner extends pulumi.CustomResource {
  */
 export interface PartnerArgs {
     /**
+     * The partner content.
+     */
+    readonly content: pulumi.Input<inputs.logic.v20160601.PartnerContent>;
+    /**
      * The integration account name.
      */
     readonly integrationAccountName: pulumi.Input<string>;
@@ -114,13 +124,17 @@ export interface PartnerArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The integration account partner name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The integration account partner properties.
+     * The partner type.
      */
-    readonly properties: pulumi.Input<inputs.logic.v20160601.IntegrationAccountPartnerProperties>;
+    readonly partnerType: pulumi.Input<string>;
     /**
      * The resource group name.
      */

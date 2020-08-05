@@ -48,7 +48,7 @@ export class CertificateOrderCertificate extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.certificateregistration.v20150801.CertificateOrderCertificateResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.certificateregistration.v20150801.CertificateOrderCertificateResponseProperties>;
     /**
      * Resource tags
      */
@@ -85,13 +85,16 @@ export class CertificateOrderCertificate extends pulumi.CustomResource {
             }
             inputs["certificateOrderName"] = args ? args.certificateOrderName : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            inputs["keyVaultSecretName"] = args ? args.keyVaultSecretName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -117,6 +120,14 @@ export interface CertificateOrderCertificateArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * Key Vault Csm resource Id
+     */
+    readonly keyVaultId?: pulumi.Input<string>;
+    /**
+     * Key Vault secret name
+     */
+    readonly keyVaultSecretName?: pulumi.Input<string>;
+    /**
      * Kind of resource
      */
     readonly kind?: pulumi.Input<string>;
@@ -128,7 +139,10 @@ export interface CertificateOrderCertificateArgs {
      * Resource Name
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.certificateregistration.v20150801.CertificateOrderCertificateProperties>;
+    /**
+     * Status of the Key Vault secret
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * Azure resource group name
      */

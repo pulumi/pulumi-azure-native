@@ -105,8 +105,6 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the share account.
 	Name string `pulumi:"name"`
-	// Properties on the account
-	Properties *AccountProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags on the azure resource.
@@ -121,8 +119,6 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the share account.
 	Name pulumi.StringInput
-	// Properties on the account
-	Properties AccountPropertiesPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Tags on the azure resource.

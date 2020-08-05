@@ -31,25 +31,23 @@ class PeerAsn(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, peer_asn=None, peer_contact_detail=None, peer_name=None, validation_state=None, __props__=None, __name__=None, __opts__=None):
         """
         The essential information related to the peer's ASN.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The peer ASN name.
-        :param pulumi.Input[dict] properties: The properties that define a peer's ASN.
+        :param pulumi.Input[float] peer_asn: The Autonomous System Number (ASN) of the peer.
+        :param pulumi.Input[list] peer_contact_detail: The contact details of the peer.
+        :param pulumi.Input[str] peer_name: The name of the peer.
+        :param pulumi.Input[str] validation_state: The validation state of the ASN associated with the peer.
 
-        The **properties** object supports the following:
+        The **peer_contact_detail** object supports the following:
 
-          * `peer_asn` (`pulumi.Input[float]`) - The Autonomous System Number (ASN) of the peer.
-          * `peer_contact_detail` (`pulumi.Input[list]`) - The contact details of the peer.
-            * `email` (`pulumi.Input[str]`) - The e-mail address of the contact.
-            * `phone` (`pulumi.Input[str]`) - The phone number of the contact.
-            * `role` (`pulumi.Input[str]`) - The role of the contact.
-
-          * `peer_name` (`pulumi.Input[str]`) - The name of the peer.
-          * `validation_state` (`pulumi.Input[str]`) - The validation state of the ASN associated with the peer.
+          * `email` (`pulumi.Input[str]`) - The e-mail address of the contact.
+          * `phone` (`pulumi.Input[str]`) - The phone number of the contact.
+          * `role` (`pulumi.Input[str]`) - The role of the contact.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,7 +69,11 @@ class PeerAsn(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['peer_asn'] = peer_asn
+            __props__['peer_contact_detail'] = peer_contact_detail
+            __props__['peer_name'] = peer_name
+            __props__['validation_state'] = validation_state
+            __props__['properties'] = None
             __props__['type'] = None
         super(PeerAsn, __self__).__init__(
             'azurerm:peering/v20200401:PeerAsn',

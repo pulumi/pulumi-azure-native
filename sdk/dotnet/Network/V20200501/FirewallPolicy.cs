@@ -96,6 +96,18 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class FirewallPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The parent firewall policy from which rules are inherited.
+        /// </summary>
+        [Input("basePolicy")]
+        public Input<Inputs.SubResourceArgs>? BasePolicy { get; set; }
+
+        /// <summary>
+        /// DNS Proxy Settings definition.
+        /// </summary>
+        [Input("dnsSettings")]
+        public Input<Inputs.DnsSettingsArgs>? DnsSettings { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -114,12 +126,6 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the firewall policy.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FirewallPolicyPropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -136,6 +142,18 @@ namespace Pulumi.AzureRM.Network.V20200501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The operation mode for Threat Intelligence.
+        /// </summary>
+        [Input("threatIntelMode")]
+        public Input<string>? ThreatIntelMode { get; set; }
+
+        /// <summary>
+        /// ThreatIntel Whitelist for Firewall Policy.
+        /// </summary>
+        [Input("threatIntelWhitelist")]
+        public Input<Inputs.FirewallPolicyThreatIntelWhitelistArgs>? ThreatIntelWhitelist { get; set; }
 
         public FirewallPolicyArgs()
         {

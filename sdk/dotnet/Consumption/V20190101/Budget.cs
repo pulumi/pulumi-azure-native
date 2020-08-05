@@ -84,10 +84,28 @@ namespace Pulumi.AzureRM.Consumption.V20190101
     public sealed class BudgetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The total amount of cost to track with the budget
+        /// </summary>
+        [Input("amount", required: true)]
+        public Input<double> Amount { get; set; } = null!;
+
+        /// <summary>
+        /// The category of the budget, whether the budget tracks cost or usage.
+        /// </summary>
+        [Input("category", required: true)]
+        public Input<string> Category { get; set; } = null!;
+
+        /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         /// </summary>
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
+
+        /// <summary>
+        /// May be used to filter budgets by resource group, resource, or meter.
+        /// </summary>
+        [Input("filters")]
+        public Input<Inputs.FiltersArgs>? Filters { get; set; }
 
         /// <summary>
         /// Budget Name.
@@ -95,17 +113,35 @@ namespace Pulumi.AzureRM.Consumption.V20190101
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("notifications")]
+        private InputMap<Inputs.NotificationArgs>? _notifications;
+
         /// <summary>
-        /// The properties of the budget.
+        /// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BudgetPropertiesArgs>? Properties { get; set; }
+        public InputMap<Inputs.NotificationArgs> Notifications
+        {
+            get => _notifications ?? (_notifications = new InputMap<Inputs.NotificationArgs>());
+            set => _notifications = value;
+        }
 
         /// <summary>
         /// The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
+
+        /// <summary>
+        /// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+        /// </summary>
+        [Input("timeGrain", required: true)]
+        public Input<string> TimeGrain { get; set; } = null!;
+
+        /// <summary>
+        /// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+        /// </summary>
+        [Input("timePeriod", required: true)]
+        public Input<Inputs.BudgetTimePeriodArgs> TimePeriod { get; set; } = null!;
 
         public BudgetArgs()
         {

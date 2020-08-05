@@ -43,7 +43,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
     /**
      * Properties of the External OAuth authorization server Contract.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.AuthorizationServerContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.AuthorizationServerContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -62,6 +62,21 @@ export class AuthorizationServer extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AuthorizationServerArgs | undefined;
+            if (!args || args.authorizationEndpoint === undefined) {
+                throw new Error("Missing required property 'authorizationEndpoint'");
+            }
+            if (!args || args.clientId === undefined) {
+                throw new Error("Missing required property 'clientId'");
+            }
+            if (!args || args.clientRegistrationEndpoint === undefined) {
+                throw new Error("Missing required property 'clientRegistrationEndpoint'");
+            }
+            if (!args || args.displayName === undefined) {
+                throw new Error("Missing required property 'displayName'");
+            }
+            if (!args || args.grantTypes === undefined) {
+                throw new Error("Missing required property 'grantTypes'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,10 +86,26 @@ export class AuthorizationServer extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
+            inputs["authorizationMethods"] = args ? args.authorizationMethods : undefined;
+            inputs["bearerTokenSendingMethods"] = args ? args.bearerTokenSendingMethods : undefined;
+            inputs["clientAuthenticationMethod"] = args ? args.clientAuthenticationMethod : undefined;
+            inputs["clientId"] = args ? args.clientId : undefined;
+            inputs["clientRegistrationEndpoint"] = args ? args.clientRegistrationEndpoint : undefined;
+            inputs["clientSecret"] = args ? args.clientSecret : undefined;
+            inputs["defaultScope"] = args ? args.defaultScope : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["grantTypes"] = args ? args.grantTypes : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceOwnerPassword"] = args ? args.resourceOwnerPassword : undefined;
+            inputs["resourceOwnerUsername"] = args ? args.resourceOwnerUsername : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["supportState"] = args ? args.supportState : undefined;
+            inputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
+            inputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,19 +124,79 @@ export class AuthorizationServer extends pulumi.CustomResource {
  */
 export interface AuthorizationServerArgs {
     /**
+     * OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
+     */
+    readonly authorizationEndpoint: pulumi.Input<string>;
+    /**
+     * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
+     */
+    readonly authorizationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the mechanism by which access token is passed to the API. 
+     */
+    readonly bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
+     */
+    readonly clientAuthenticationMethod?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Client or app id registered with this authorization server.
+     */
+    readonly clientId: pulumi.Input<string>;
+    /**
+     * Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
+     */
+    readonly clientRegistrationEndpoint: pulumi.Input<string>;
+    /**
+     * Client or app secret registered with this authorization server.
+     */
+    readonly clientSecret?: pulumi.Input<string>;
+    /**
+     * Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
+     */
+    readonly defaultScope?: pulumi.Input<string>;
+    /**
+     * Description of the authorization server. Can contain HTML formatting tags.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * User-friendly authorization server name.
+     */
+    readonly displayName: pulumi.Input<string>;
+    /**
+     * Form of an authorization grant, which the client uses to request the access token.
+     */
+    readonly grantTypes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Identifier of the authorization server.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the External OAuth authorization server Contract.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20170301.AuthorizationServerContractProperties>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
+     */
+    readonly resourceOwnerPassword?: pulumi.Input<string>;
+    /**
+     * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
+     */
+    readonly resourceOwnerUsername?: pulumi.Input<string>;
+    /**
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
+     */
+    readonly supportState?: pulumi.Input<boolean>;
+    /**
+     * Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
+     */
+    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20170301.TokenBodyParameterContract>[]>;
+    /**
+     * OAuth token endpoint. Contains absolute URI to entity being referenced.
+     */
+    readonly tokenEndpoint?: pulumi.Input<string>;
 }

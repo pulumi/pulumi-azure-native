@@ -48,7 +48,7 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.web.v20150801.HostNameBindingResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.HostNameBindingResponseProperties>;
     /**
      * Resource tags
      */
@@ -83,15 +83,21 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
+            inputs["azureResourceName"] = args ? args.azureResourceName : undefined;
+            inputs["azureResourceType"] = args ? args.azureResourceType : undefined;
+            inputs["customHostNameDnsRecordType"] = args ? args.customHostNameDnsRecordType : undefined;
+            inputs["domainId"] = args ? args.domainId : undefined;
+            inputs["hostNameType"] = args ? args.hostNameType : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["siteName"] = args ? args.siteName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -109,6 +115,26 @@ export class SiteHostNameBindingSlot extends pulumi.CustomResource {
  */
 export interface SiteHostNameBindingSlotArgs {
     /**
+     * Azure resource name
+     */
+    readonly azureResourceName?: pulumi.Input<string>;
+    /**
+     * Azure resource type
+     */
+    readonly azureResourceType?: pulumi.Input<string>;
+    /**
+     * Custom DNS record type
+     */
+    readonly customHostNameDnsRecordType?: pulumi.Input<string>;
+    /**
+     * Fully qualified ARM domain resource URI
+     */
+    readonly domainId?: pulumi.Input<string>;
+    /**
+     * Host name type
+     */
+    readonly hostNameType?: pulumi.Input<string>;
+    /**
      * Resource Id
      */
     readonly id?: pulumi.Input<string>;
@@ -124,11 +150,14 @@ export interface SiteHostNameBindingSlotArgs {
      * Name of host
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.v20150801.HostNameBindingProperties>;
     /**
      * Name of resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Web app name
+     */
+    readonly siteName?: pulumi.Input<string>;
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */

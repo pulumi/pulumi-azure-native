@@ -27,20 +27,53 @@ type Assessment struct {
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
 func NewAssessment(ctx *pulumi.Context,
 	name string, args *AssessmentArgs, opts ...pulumi.ResourceOption) (*Assessment, error) {
+	if args == nil || args.AzureHybridUseBenefit == nil {
+		return nil, errors.New("missing required argument 'AzureHybridUseBenefit'")
+	}
+	if args == nil || args.AzureLocation == nil {
+		return nil, errors.New("missing required argument 'AzureLocation'")
+	}
+	if args == nil || args.AzureOfferCode == nil {
+		return nil, errors.New("missing required argument 'AzureOfferCode'")
+	}
+	if args == nil || args.AzurePricingTier == nil {
+		return nil, errors.New("missing required argument 'AzurePricingTier'")
+	}
+	if args == nil || args.AzureStorageRedundancy == nil {
+		return nil, errors.New("missing required argument 'AzureStorageRedundancy'")
+	}
+	if args == nil || args.Currency == nil {
+		return nil, errors.New("missing required argument 'Currency'")
+	}
+	if args == nil || args.DiscountPercentage == nil {
+		return nil, errors.New("missing required argument 'DiscountPercentage'")
+	}
 	if args == nil || args.GroupName == nil {
 		return nil, errors.New("missing required argument 'GroupName'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.Percentile == nil {
+		return nil, errors.New("missing required argument 'Percentile'")
+	}
 	if args == nil || args.ProjectName == nil {
 		return nil, errors.New("missing required argument 'ProjectName'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ScalingFactor == nil {
+		return nil, errors.New("missing required argument 'ScalingFactor'")
+	}
+	if args == nil || args.SizingCriterion == nil {
+		return nil, errors.New("missing required argument 'SizingCriterion'")
+	}
+	if args == nil || args.Stage == nil {
+		return nil, errors.New("missing required argument 'Stage'")
+	}
+	if args == nil || args.TimeRange == nil {
+		return nil, errors.New("missing required argument 'TimeRange'")
 	}
 	if args == nil {
 		args = &AssessmentArgs{}
@@ -93,34 +126,78 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
+	// AHUB discount on windows virtual machines.
+	AzureHybridUseBenefit string `pulumi:"azureHybridUseBenefit"`
+	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+	AzureLocation string `pulumi:"azureLocation"`
+	// Offer code according to which cost estimation is done.
+	AzureOfferCode string `pulumi:"azureOfferCode"`
+	// Pricing tier for Size evaluation.
+	AzurePricingTier string `pulumi:"azurePricingTier"`
+	// Storage Redundancy type offered by Azure.
+	AzureStorageRedundancy string `pulumi:"azureStorageRedundancy"`
+	// Currency to report prices in.
+	Currency string `pulumi:"currency"`
+	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+	DiscountPercentage float64 `pulumi:"discountPercentage"`
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
 	// Unique name of a group within a project.
 	GroupName string `pulumi:"groupName"`
 	// Unique name of an assessment within a project.
 	Name string `pulumi:"name"`
+	// Percentile of performance data used to recommend Azure size.
+	Percentile string `pulumi:"percentile"`
 	// Name of the Azure Migrate project.
 	ProjectName string `pulumi:"projectName"`
-	// Properties of the assessment.
-	Properties AssessmentProperties `pulumi:"properties"`
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+	ScalingFactor float64 `pulumi:"scalingFactor"`
+	// Assessment sizing criterion.
+	SizingCriterion string `pulumi:"sizingCriterion"`
+	// User configurable setting that describes the status of the assessment.
+	Stage string `pulumi:"stage"`
+	// Time range of performance data used to recommend a size.
+	TimeRange string `pulumi:"timeRange"`
 }
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
+	// AHUB discount on windows virtual machines.
+	AzureHybridUseBenefit pulumi.StringInput
+	// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+	AzureLocation pulumi.StringInput
+	// Offer code according to which cost estimation is done.
+	AzureOfferCode pulumi.StringInput
+	// Pricing tier for Size evaluation.
+	AzurePricingTier pulumi.StringInput
+	// Storage Redundancy type offered by Azure.
+	AzureStorageRedundancy pulumi.StringInput
+	// Currency to report prices in.
+	Currency pulumi.StringInput
+	// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+	DiscountPercentage pulumi.Float64Input
 	// For optimistic concurrency control.
 	ETag pulumi.StringPtrInput
 	// Unique name of a group within a project.
 	GroupName pulumi.StringInput
 	// Unique name of an assessment within a project.
 	Name pulumi.StringInput
+	// Percentile of performance data used to recommend Azure size.
+	Percentile pulumi.StringInput
 	// Name of the Azure Migrate project.
 	ProjectName pulumi.StringInput
-	// Properties of the assessment.
-	Properties AssessmentPropertiesInput
 	// Name of the Azure Resource Group that project is part of.
 	ResourceGroupName pulumi.StringInput
+	// Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+	ScalingFactor pulumi.Float64Input
+	// Assessment sizing criterion.
+	SizingCriterion pulumi.StringInput
+	// User configurable setting that describes the status of the assessment.
+	Stage pulumi.StringInput
+	// Time range of performance data used to recommend a size.
+	TimeRange pulumi.StringInput
 }
 
 func (AssessmentArgs) ElementType() reflect.Type {

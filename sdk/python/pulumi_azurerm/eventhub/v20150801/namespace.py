@@ -44,27 +44,23 @@ class Namespace(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, created_at=None, enabled=None, location=None, name=None, provisioning_state=None, resource_group_name=None, service_bus_endpoint=None, sku=None, status=None, tags=None, updated_at=None, __props__=None, __name__=None, __opts__=None):
         """
         Single Namespace item in List or Get Operation
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] created_at: The time the Namespace was created.
+        :param pulumi.Input[bool] enabled: Specifies whether this instance is enabled.
         :param pulumi.Input[str] location: Namespace location.
         :param pulumi.Input[str] name: The Namespace name
-        :param pulumi.Input[dict] properties: Properties of the Namespace supplied for create or update Namespace operation
+        :param pulumi.Input[str] provisioning_state: Provisioning state of the Namespace.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
+        :param pulumi.Input[str] service_bus_endpoint: Endpoint you can use to perform Service Bus operations.
         :param pulumi.Input[dict] sku: SKU parameters supplied to the create Namespace operation
+        :param pulumi.Input[str] status: State of the Namespace.
         :param pulumi.Input[dict] tags: Namespace tags.
-
-        The **properties** object supports the following:
-
-          * `created_at` (`pulumi.Input[str]`) - The time the Namespace was created.
-          * `enabled` (`pulumi.Input[bool]`) - Specifies whether this instance is enabled.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Namespace.
-          * `service_bus_endpoint` (`pulumi.Input[str]`) - Endpoint you can use to perform Service Bus operations.
-          * `status` (`pulumi.Input[str]`) - State of the Namespace.
-          * `updated_at` (`pulumi.Input[str]`) - The time the Namespace was updated.
+        :param pulumi.Input[str] updated_at: The time the Namespace was updated.
 
         The **sku** object supports the following:
 
@@ -89,18 +85,24 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['created_at'] = created_at
+            __props__['enabled'] = enabled
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['service_bus_endpoint'] = service_bus_endpoint
             __props__['sku'] = sku
+            __props__['status'] = status
             __props__['tags'] = tags
+            __props__['updated_at'] = updated_at
+            __props__['properties'] = None
             __props__['type'] = None
         super(Namespace, __self__).__init__(
             'azurerm:eventhub/v20150801:Namespace',

@@ -102,16 +102,22 @@ namespace Pulumi.AzureRM.Media.V20151001
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The additional properties of a Media Service resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.MediaServicePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("storageAccounts")]
+        private InputList<Inputs.StorageAccountArgs>? _storageAccounts;
+
+        /// <summary>
+        /// The storage accounts for this resource.
+        /// </summary>
+        public InputList<Inputs.StorageAccountArgs> StorageAccounts
+        {
+            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.StorageAccountArgs>());
+            set => _storageAccounts = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

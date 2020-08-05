@@ -96,6 +96,18 @@ namespace Pulumi.AzureRM.Network.V20200301
     public sealed class VirtualRouterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Gateway on which VirtualRouter is hosted.
+        /// </summary>
+        [Input("hostedGateway")]
+        public Input<Inputs.SubResourceArgs>? HostedGateway { get; set; }
+
+        /// <summary>
+        /// The Subnet on which VirtualRouter is hosted.
+        /// </summary>
+        [Input("hostedSubnet")]
+        public Input<Inputs.SubResourceArgs>? HostedSubnet { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -114,12 +126,6 @@ namespace Pulumi.AzureRM.Network.V20200301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Virtual Router.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualRouterPropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -135,6 +141,24 @@ namespace Pulumi.AzureRM.Network.V20200301
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        /// <summary>
+        /// VirtualRouter ASN.
+        /// </summary>
+        [Input("virtualRouterAsn")]
+        public Input<int>? VirtualRouterAsn { get; set; }
+
+        [Input("virtualRouterIps")]
+        private InputList<string>? _virtualRouterIps;
+
+        /// <summary>
+        /// VirtualRouter IPs.
+        /// </summary>
+        public InputList<string> VirtualRouterIps
+        {
+            get => _virtualRouterIps ?? (_virtualRouterIps = new InputList<string>());
+            set => _virtualRouterIps = value;
         }
 
         public VirtualRouterArgs()

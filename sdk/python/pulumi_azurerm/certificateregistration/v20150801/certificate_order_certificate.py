@@ -31,7 +31,7 @@ class CertificateOrderCertificate(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, certificate_order_name=None, id=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, certificate_order_name=None, id=None, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Class representing the Key Vault container for certificate purchased through Azure
 
@@ -39,18 +39,15 @@ class CertificateOrderCertificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_order_name: Certificate name
         :param pulumi.Input[str] id: Resource Id
+        :param pulumi.Input[str] key_vault_id: Key Vault Csm resource Id
+        :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] name: Resource Name
+        :param pulumi.Input[str] provisioning_state: Status of the Key Vault secret
         :param pulumi.Input[str] resource_group_name: Azure resource group name
         :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `key_vault_id` (`pulumi.Input[str]`) - Key Vault Csm resource Id
-          * `key_vault_secret_name` (`pulumi.Input[str]`) - Key Vault secret name
-          * `provisioning_state` (`pulumi.Input[str]`) - Status of the Key Vault secret
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,6 +70,8 @@ class CertificateOrderCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'certificate_order_name'")
             __props__['certificate_order_name'] = certificate_order_name
             __props__['id'] = id
+            __props__['key_vault_id'] = key_vault_id
+            __props__['key_vault_secret_name'] = key_vault_secret_name
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -80,12 +79,13 @@ class CertificateOrderCertificate(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
+            __props__['properties'] = None
         super(CertificateOrderCertificate, __self__).__init__(
             'azurerm:certificateregistration/v20150801:CertificateOrderCertificate',
             resource_name,

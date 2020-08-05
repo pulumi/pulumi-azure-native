@@ -31,9 +31,6 @@ func NewWebhook(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -86,24 +83,44 @@ func (WebhookState) ElementType() reflect.Type {
 type webhookArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets or sets the expiry time.
+	ExpiryTime *string `pulumi:"expiryTime"`
+	// Gets or sets the value of the enabled flag of webhook.
+	IsEnabled *bool `pulumi:"isEnabled"`
 	// The webhook name.
 	Name string `pulumi:"name"`
-	// Gets or sets the properties of the webhook.
-	Properties WebhookCreateOrUpdateProperties `pulumi:"properties"`
+	// Gets or sets the parameters of the job.
+	Parameters map[string]string `pulumi:"parameters"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets the name of the hybrid worker group the webhook job will run on.
+	RunOn *string `pulumi:"runOn"`
+	// Gets or sets the runbook.
+	Runbook *RunbookAssociationProperty `pulumi:"runbook"`
+	// Gets or sets the uri.
+	Uri *string `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a Webhook resource.
 type WebhookArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets or sets the expiry time.
+	ExpiryTime pulumi.StringPtrInput
+	// Gets or sets the value of the enabled flag of webhook.
+	IsEnabled pulumi.BoolPtrInput
 	// The webhook name.
 	Name pulumi.StringInput
-	// Gets or sets the properties of the webhook.
-	Properties WebhookCreateOrUpdatePropertiesInput
+	// Gets or sets the parameters of the job.
+	Parameters pulumi.StringMapInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets the name of the hybrid worker group the webhook job will run on.
+	RunOn pulumi.StringPtrInput
+	// Gets or sets the runbook.
+	Runbook RunbookAssociationPropertyPtrInput
+	// Gets or sets the uri.
+	Uri pulumi.StringPtrInput
 }
 
 func (WebhookArgs) ElementType() reflect.Type {

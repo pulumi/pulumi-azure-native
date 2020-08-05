@@ -31,6 +31,9 @@ func NewApiPolicy(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PolicyContent == nil {
+		return nil, errors.New("missing required argument 'PolicyContent'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -86,10 +89,12 @@ func (ApiPolicyState) ElementType() reflect.Type {
 type apiPolicyArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId string `pulumi:"apiId"`
+	// Format of the policyContent.
+	ContentFormat *string `pulumi:"contentFormat"`
 	// The identifier of the Policy.
 	Name string `pulumi:"name"`
-	// Properties of the Policy.
-	Properties *PolicyContractProperties `pulumi:"properties"`
+	// Json escaped Xml Encoded contents of the Policy.
+	PolicyContent string `pulumi:"policyContent"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -100,10 +105,12 @@ type apiPolicyArgs struct {
 type ApiPolicyArgs struct {
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	ApiId pulumi.StringInput
+	// Format of the policyContent.
+	ContentFormat pulumi.StringPtrInput
 	// The identifier of the Policy.
 	Name pulumi.StringInput
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesPtrInput
+	// Json escaped Xml Encoded contents of the Policy.
+	PolicyContent pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

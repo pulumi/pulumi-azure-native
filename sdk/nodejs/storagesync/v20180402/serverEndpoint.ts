@@ -43,7 +43,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
     /**
      * Server Endpoint properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storagesync.v20180402.ServerEndpointPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20180402.ServerEndpointPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -74,13 +74,18 @@ export class ServerEndpoint extends pulumi.CustomResource {
             if (!args || args.syncGroupName === undefined) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
+            inputs["cloudTiering"] = args ? args.cloudTiering : undefined;
+            inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverLocalPath"] = args ? args.serverLocalPath : undefined;
+            inputs["serverResourceId"] = args ? args.serverResourceId : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["volumeFreeSpacePercent"] = args ? args.volumeFreeSpacePercent : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,6 +104,14 @@ export class ServerEndpoint extends pulumi.CustomResource {
  */
 export interface ServerEndpointArgs {
     /**
+     * Cloud Tiering.
+     */
+    readonly cloudTiering?: pulumi.Input<string>;
+    /**
+     * Friendly Name
+     */
+    readonly friendlyName?: pulumi.Input<string>;
+    /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
     readonly location?: pulumi.Input<string>;
@@ -107,13 +120,17 @@ export interface ServerEndpointArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The parameters used to create the storage sync service.
-     */
-    readonly properties?: pulumi.Input<inputs.storagesync.v20180402.ServerEndpointCreateParametersProperties>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Server Local path.
+     */
+    readonly serverLocalPath?: pulumi.Input<string>;
+    /**
+     * Server Resource Id.
+     */
+    readonly serverResourceId?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */
@@ -126,4 +143,8 @@ export interface ServerEndpointArgs {
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Level of free space to be maintained by Cloud Tiering if it is enabled.
+     */
+    readonly volumeFreeSpacePercent?: pulumi.Input<number>;
 }

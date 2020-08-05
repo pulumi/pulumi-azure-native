@@ -19,21 +19,18 @@ class AccessPolicy(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, environment_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, environment_name=None, name=None, principal_object_id=None, resource_group_name=None, roles=None, __props__=None, __name__=None, __opts__=None):
         """
         An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: An description of the access policy.
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
         :param pulumi.Input[str] name: Name of the access policy.
+        :param pulumi.Input[str] principal_object_id: The objectId of the principal in Azure Active Directory.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - An description of the access policy.
-          * `principal_object_id` (`pulumi.Input[str]`) - The objectId of the principal in Azure Active Directory.
-          * `roles` (`pulumi.Input[list]`) - The list of roles the principal is assigned on the environment.
+        :param pulumi.Input[list] roles: The list of roles the principal is assigned on the environment.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -52,18 +49,19 @@ class AccessPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
             if environment_name is None:
                 raise TypeError("Missing required property 'environment_name'")
             __props__['environment_name'] = environment_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['principal_object_id'] = principal_object_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['roles'] = roles
+            __props__['properties'] = None
             __props__['type'] = None
         super(AccessPolicy, __self__).__init__(
             'azurerm:timeseriesinsights/v20200515:AccessPolicy',

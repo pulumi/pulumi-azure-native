@@ -84,13 +84,19 @@ namespace Pulumi.AzureRM.Web.V20190801
     public sealed class WebAppHybridConnectionSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The hostname of the endpoint.
+        /// </summary>
+        [Input("hostname")]
+        public Input<string>? Hostname { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// The relay name for this hybrid connection.
+        /// The name of the Service Bus relay.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -102,16 +108,47 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// HybridConnection resource specific properties
+        /// The port of the endpoint.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.HybridConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// The ARM URI to the Service Bus relay.
+        /// </summary>
+        [Input("relayArmUri")]
+        public Input<string>? RelayArmUri { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+        /// </summary>
+        [Input("sendKeyName")]
+        public Input<string>? SendKeyName { get; set; }
+
+        /// <summary>
+        /// The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+        /// normally, use the POST /listKeys API instead.
+        /// </summary>
+        [Input("sendKeyValue")]
+        public Input<string>? SendKeyValue { get; set; }
+
+        /// <summary>
+        /// The name of the Service Bus namespace.
+        /// </summary>
+        [Input("serviceBusNamespace")]
+        public Input<string>? ServiceBusNamespace { get; set; }
+
+        /// <summary>
+        /// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+        /// </summary>
+        [Input("serviceBusSuffix")]
+        public Input<string>? ServiceBusSuffix { get; set; }
 
         /// <summary>
         /// The name of the slot for the web app.

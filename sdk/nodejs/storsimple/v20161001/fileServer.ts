@@ -43,7 +43,7 @@ export class FileServer extends pulumi.CustomResource {
     /**
      * The properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.FileServerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.FileServerPropertiesResponse>;
     /**
      * The type.
      */
@@ -62,8 +62,14 @@ export class FileServer extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as FileServerArgs | undefined;
+            if (!args || args.backupScheduleGroupId === undefined) {
+                throw new Error("Missing required property 'backupScheduleGroupId'");
+            }
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
+            }
+            if (!args || args.domainName === undefined) {
+                throw new Error("Missing required property 'domainName'");
             }
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
@@ -71,17 +77,21 @@ export class FileServer extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.storageDomainId === undefined) {
+                throw new Error("Missing required property 'storageDomainId'");
+            }
+            inputs["backupScheduleGroupId"] = args ? args.backupScheduleGroupId : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
+            inputs["domainName"] = args ? args.domainName : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageDomainId"] = args ? args.storageDomainId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,9 +110,21 @@ export class FileServer extends pulumi.CustomResource {
  */
 export interface FileServerArgs {
     /**
+     * The backup policy id.
+     */
+    readonly backupScheduleGroupId: pulumi.Input<string>;
+    /**
+     * The description of the file server
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The device name.
      */
     readonly deviceName: pulumi.Input<string>;
+    /**
+     * Domain of the file server
+     */
+    readonly domainName: pulumi.Input<string>;
     /**
      * The manager name
      */
@@ -112,11 +134,11 @@ export interface FileServerArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties.
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.v20161001.FileServerProperties>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The storage domain id.
+     */
+    readonly storageDomainId: pulumi.Input<string>;
 }

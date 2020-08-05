@@ -47,7 +47,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The cluster properties.
      */
-    public readonly properties!: pulumi.Output<outputs.kusto.v20190121.ClusterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.kusto.v20190121.ClusterPropertiesResponse>;
     /**
      * The SKU of the cluster.
      */
@@ -88,10 +88,11 @@ export class Cluster extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -118,10 +119,6 @@ export interface ClusterArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The cluster properties.
-     */
-    readonly properties?: pulumi.Input<inputs.kusto.v20190121.ClusterProperties>;
-    /**
      * The name of the resource group containing the Kusto cluster.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -133,4 +130,8 @@ export interface ClusterArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The cluster's external tenants.
+     */
+    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20190121.TrustedExternalTenant>[]>;
 }

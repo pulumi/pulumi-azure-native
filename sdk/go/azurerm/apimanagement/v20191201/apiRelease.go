@@ -84,12 +84,12 @@ func (ApiReleaseState) ElementType() reflect.Type {
 }
 
 type apiReleaseArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
+	// Identifier of the API the release belongs to.
 	ApiId string `pulumi:"apiId"`
 	// Release identifier within an API. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// ApiRelease entity contract properties.
-	Properties *ApiReleaseContractProperties `pulumi:"properties"`
+	// Release Notes
+	Notes *string `pulumi:"notes"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -98,12 +98,12 @@ type apiReleaseArgs struct {
 
 // The set of arguments for constructing a ApiRelease resource.
 type ApiReleaseArgs struct {
-	// API identifier. Must be unique in the current API Management service instance.
+	// Identifier of the API the release belongs to.
 	ApiId pulumi.StringInput
 	// Release identifier within an API. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// ApiRelease entity contract properties.
-	Properties ApiReleaseContractPropertiesPtrInput
+	// Release Notes
+	Notes pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

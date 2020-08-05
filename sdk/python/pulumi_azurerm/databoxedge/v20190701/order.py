@@ -50,36 +50,39 @@ class Order(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, contact_information=None, current_status=None, name=None, resource_group_name=None, shipping_address=None, __props__=None, __name__=None, __opts__=None):
         """
         The order details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] contact_information: The contact details.
+        :param pulumi.Input[dict] current_status: Current status of the order.
         :param pulumi.Input[str] name: The device name.
-        :param pulumi.Input[dict] properties: The order properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[dict] shipping_address: The shipping address.
 
-        The **properties** object supports the following:
+        The **contact_information** object supports the following:
 
-          * `contact_information` (`pulumi.Input[dict]`) - The contact details.
-            * `company_name` (`pulumi.Input[str]`) - The name of the company.
-            * `contact_person` (`pulumi.Input[str]`) - The contact person name.
-            * `email_list` (`pulumi.Input[list]`) - The email list.
-            * `phone` (`pulumi.Input[str]`) - The phone number.
+          * `company_name` (`pulumi.Input[str]`) - The name of the company.
+          * `contact_person` (`pulumi.Input[str]`) - The contact person name.
+          * `email_list` (`pulumi.Input[list]`) - The email list.
+          * `phone` (`pulumi.Input[str]`) - The phone number.
 
-          * `current_status` (`pulumi.Input[dict]`) - Current status of the order.
-            * `comments` (`pulumi.Input[str]`) - Comments related to this status change.
-            * `status` (`pulumi.Input[str]`) - Status of the order as per the allowed status types.
+        The **current_status** object supports the following:
 
-          * `shipping_address` (`pulumi.Input[dict]`) - The shipping address.
-            * `address_line1` (`pulumi.Input[str]`) - The address line1.
-            * `address_line2` (`pulumi.Input[str]`) - The address line2.
-            * `address_line3` (`pulumi.Input[str]`) - The address line3.
-            * `city` (`pulumi.Input[str]`) - The city name.
-            * `country` (`pulumi.Input[str]`) - The country name.
-            * `postal_code` (`pulumi.Input[str]`) - The postal code.
-            * `state` (`pulumi.Input[str]`) - The state name.
+          * `comments` (`pulumi.Input[str]`) - Comments related to this status change.
+          * `status` (`pulumi.Input[str]`) - Status of the order as per the allowed status types.
+
+        The **shipping_address** object supports the following:
+
+          * `address_line1` (`pulumi.Input[str]`) - The address line1.
+          * `address_line2` (`pulumi.Input[str]`) - The address line2.
+          * `address_line3` (`pulumi.Input[str]`) - The address line3.
+          * `city` (`pulumi.Input[str]`) - The city name.
+          * `country` (`pulumi.Input[str]`) - The country name.
+          * `postal_code` (`pulumi.Input[str]`) - The postal code.
+          * `state` (`pulumi.Input[str]`) - The state name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -98,13 +101,20 @@ class Order(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if contact_information is None:
+                raise TypeError("Missing required property 'contact_information'")
+            __props__['contact_information'] = contact_information
+            __props__['current_status'] = current_status
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if shipping_address is None:
+                raise TypeError("Missing required property 'shipping_address'")
+            __props__['shipping_address'] = shipping_address
+            __props__['properties'] = None
             __props__['type'] = None
         super(Order, __self__).__init__(
             'azurerm:databoxedge/v20190701:Order',

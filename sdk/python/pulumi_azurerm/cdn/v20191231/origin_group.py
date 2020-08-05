@@ -42,38 +42,40 @@ class OriginGroup(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, endpoint_name=None, name=None, profile_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, endpoint_name=None, health_probe_settings=None, name=None, origins=None, profile_name=None, resource_group_name=None, response_based_origin_error_detection_settings=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, __props__=None, __name__=None, __opts__=None):
         """
         Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
+        :param pulumi.Input[dict] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param pulumi.Input[str] name: Name of the origin group which is unique within the endpoint.
+        :param pulumi.Input[list] origins: The source of the content being delivered via CDN within given origin group.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
-        :param pulumi.Input[dict] properties: The JSON object that contains the properties of the origin group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[dict] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+        :param pulumi.Input[float] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
 
-        The **properties** object supports the following:
+        The **health_probe_settings** object supports the following:
 
-          * `health_probe_settings` (`pulumi.Input[dict]`) - Health probe settings to the origin that is used to determine the health of the origin.
-            * `probe_interval_in_seconds` (`pulumi.Input[float]`) - The number of seconds between health probes.Default is 240sec.
-            * `probe_path` (`pulumi.Input[str]`) - The path relative to the origin that is used to determine the health of the origin.
-            * `probe_protocol` (`pulumi.Input[str]`) - Protocol to use for health probe.
-            * `probe_request_type` (`pulumi.Input[str]`) - The type of health probe request that is made.
+          * `probe_interval_in_seconds` (`pulumi.Input[float]`) - The number of seconds between health probes.Default is 240sec.
+          * `probe_path` (`pulumi.Input[str]`) - The path relative to the origin that is used to determine the health of the origin.
+          * `probe_protocol` (`pulumi.Input[str]`) - Protocol to use for health probe.
+          * `probe_request_type` (`pulumi.Input[str]`) - The type of health probe request that is made.
 
-          * `origins` (`pulumi.Input[list]`) - The source of the content being delivered via CDN within given origin group.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
+        The **origins** object supports the following:
 
-          * `response_based_origin_error_detection_settings` (`pulumi.Input[dict]`) - The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-            * `http_error_ranges` (`pulumi.Input[list]`) - The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
-              * `begin` (`pulumi.Input[float]`) - The inclusive start of the http status code range.
-              * `end` (`pulumi.Input[float]`) - The inclusive end of the http status code range.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
 
-            * `response_based_detected_error_types` (`pulumi.Input[str]`) - Type of response errors for real user requests for which origin will be deemed unhealthy
-            * `response_based_failover_threshold_percentage` (`pulumi.Input[float]`) - The percentage of failed requests in the sample where failover should trigger.
+        The **response_based_origin_error_detection_settings** object supports the following:
 
-          * `traffic_restoration_time_to_healed_or_new_endpoints_in_minutes` (`pulumi.Input[float]`) - Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+          * `http_error_ranges` (`pulumi.Input[list]`) - The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
+            * `begin` (`pulumi.Input[float]`) - The inclusive start of the http status code range.
+            * `end` (`pulumi.Input[float]`) - The inclusive end of the http status code range.
+
+          * `response_based_detected_error_types` (`pulumi.Input[str]`) - Type of response errors for real user requests for which origin will be deemed unhealthy
+          * `response_based_failover_threshold_percentage` (`pulumi.Input[float]`) - The percentage of failed requests in the sample where failover should trigger.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,16 +97,22 @@ class OriginGroup(pulumi.CustomResource):
             if endpoint_name is None:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
+            __props__['health_probe_settings'] = health_probe_settings
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if origins is None:
+                raise TypeError("Missing required property 'origins'")
+            __props__['origins'] = origins
             if profile_name is None:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['response_based_origin_error_detection_settings'] = response_based_origin_error_detection_settings
+            __props__['traffic_restoration_time_to_healed_or_new_endpoints_in_minutes'] = traffic_restoration_time_to_healed_or_new_endpoints_in_minutes
+            __props__['properties'] = None
             __props__['type'] = None
         super(OriginGroup, __self__).__init__(
             'azurerm:cdn/v20191231:OriginGroup',

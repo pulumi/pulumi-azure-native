@@ -51,7 +51,7 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
     /**
      * Properties of the virtual network link to the Private DNS zone.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180901.VirtualNetworkLinkPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180901.VirtualNetworkLinkPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -87,9 +87,11 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["privateZoneName"] = args ? args.privateZoneName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["registrationEnabled"] = args ? args.registrationEnabled : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -124,9 +126,9 @@ export interface VirtualNetworkLinkArgs {
      */
     readonly privateZoneName: pulumi.Input<string>;
     /**
-     * Properties of the virtual network link to the Private DNS zone.
+     * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
      */
-    readonly properties?: pulumi.Input<inputs.network.v20180901.VirtualNetworkLinkProperties>;
+    readonly registrationEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */
@@ -135,4 +137,8 @@ export interface VirtualNetworkLinkArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The reference of the virtual network.
+     */
+    readonly virtualNetwork?: pulumi.Input<inputs.network.v20180901.SubResource>;
 }

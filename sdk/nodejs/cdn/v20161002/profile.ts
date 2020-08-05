@@ -47,7 +47,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The JSON object that contains the properties required to create a profile.
      */
-    public readonly properties!: pulumi.Output<outputs.cdn.v20161002.ProfilePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20161002.ProfilePropertiesResponse>;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
      */
@@ -88,10 +88,10 @@ export class Profile extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -117,10 +117,6 @@ export interface ProfileArgs {
      * Name of the CDN profile which is unique within the resource group.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The JSON object that contains the properties required to create a profile.
-     */
-    readonly properties?: pulumi.Input<inputs.cdn.v20161002.ProfileProperties>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

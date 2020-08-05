@@ -120,12 +120,6 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of a configuration store.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ConfigurationStorePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group to which the container registry belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]

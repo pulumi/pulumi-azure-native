@@ -47,7 +47,7 @@ export class EventHub extends pulumi.CustomResource {
     /**
      * Properties supplied to the Create Or Update Event Hub operation.
      */
-    public readonly properties!: pulumi.Output<outputs.eventhub.v20140901.EventHubPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20140901.EventHubPropertiesResponse>;
     /**
      * Resource type
      */
@@ -79,11 +79,14 @@ export class EventHub extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
+            inputs["messageRetentionInDays"] = args ? args.messageRetentionInDays : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["partitionCount"] = args ? args.partitionCount : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,6 +108,10 @@ export interface EventHubArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * Number of days to retain the events for this Event Hub.
+     */
+    readonly messageRetentionInDays?: pulumi.Input<number>;
+    /**
      * The Event Hub name
      */
     readonly name: pulumi.Input<string>;
@@ -113,13 +120,17 @@ export interface EventHubArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties supplied to the Create Or Update Event Hub operation.
+     * Number of partitions created for the Event Hub.
      */
-    readonly properties?: pulumi.Input<inputs.eventhub.v20140901.EventHubProperties>;
+    readonly partitionCount?: pulumi.Input<number>;
     /**
      * Name of the resource group within the azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Enumerates the possible values for the status of the Event Hub.
+     */
+    readonly status?: pulumi.Input<string>;
     /**
      * ARM type of the Namespace.
      */

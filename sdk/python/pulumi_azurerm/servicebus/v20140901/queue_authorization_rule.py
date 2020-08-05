@@ -34,27 +34,23 @@ class QueueAuthorizationRule(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, namespace_name=None, properties=None, queue_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, claim_type=None, claim_value=None, key_name=None, location=None, name=None, namespace_name=None, primary_key=None, queue_name=None, resource_group_name=None, rights=None, secondary_key=None, __props__=None, __name__=None, __opts__=None):
         """
         Description of a namespace authorization rule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] claim_type: A string that describes Claim Type for authorization rule.
+        :param pulumi.Input[str] claim_value: A string that describes Claim Value of authorization rule.
+        :param pulumi.Input[str] key_name: A string that describes the Key Name of authorization rule.
         :param pulumi.Input[str] location: data center location.
         :param pulumi.Input[str] name: The authorization rule name.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[dict] properties: AuthorizationRule properties.
+        :param pulumi.Input[str] primary_key: A base64-encoded 256-bit primary key for signing and validating the SAS token.
         :param pulumi.Input[str] queue_name: The queue name.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-
-        The **properties** object supports the following:
-
-          * `claim_type` (`pulumi.Input[str]`) - A string that describes Claim Type for authorization rule.
-          * `claim_value` (`pulumi.Input[str]`) - A string that describes Claim Value of authorization rule.
-          * `key_name` (`pulumi.Input[str]`) - A string that describes the Key Name of authorization rule.
-          * `primary_key` (`pulumi.Input[str]`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
-          * `rights` (`pulumi.Input[list]`) - The rights associated with the rule.
-          * `secondary_key` (`pulumi.Input[str]`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        :param pulumi.Input[list] rights: The rights associated with the rule.
+        :param pulumi.Input[str] secondary_key: A base64-encoded 256-bit primary key for signing and validating the SAS token.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,6 +69,9 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['claim_type'] = claim_type
+            __props__['claim_value'] = claim_value
+            __props__['key_name'] = key_name
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
@@ -80,13 +79,18 @@ class QueueAuthorizationRule(pulumi.CustomResource):
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            __props__['properties'] = properties
+            __props__['primary_key'] = primary_key
             if queue_name is None:
                 raise TypeError("Missing required property 'queue_name'")
             __props__['queue_name'] = queue_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if rights is None:
+                raise TypeError("Missing required property 'rights'")
+            __props__['rights'] = rights
+            __props__['secondary_key'] = secondary_key
+            __props__['properties'] = None
             __props__['type'] = None
         super(QueueAuthorizationRule, __self__).__init__(
             'azurerm:servicebus/v20140901:QueueAuthorizationRule',

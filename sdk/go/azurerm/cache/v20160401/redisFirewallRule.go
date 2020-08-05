@@ -28,14 +28,17 @@ func NewRedisFirewallRule(ctx *pulumi.Context,
 	if args == nil || args.CacheName == nil {
 		return nil, errors.New("missing required argument 'CacheName'")
 	}
+	if args == nil || args.EndIP == nil {
+		return nil, errors.New("missing required argument 'EndIP'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StartIP == nil {
+		return nil, errors.New("missing required argument 'StartIP'")
 	}
 	if args == nil {
 		args = &RedisFirewallRuleArgs{}
@@ -86,24 +89,28 @@ func (RedisFirewallRuleState) ElementType() reflect.Type {
 type redisFirewallRuleArgs struct {
 	// The name of the Redis cache.
 	CacheName string `pulumi:"cacheName"`
+	// highest IP address included in the range
+	EndIP string `pulumi:"endIP"`
 	// The name of the firewall rule.
 	Name string `pulumi:"name"`
-	// redis cache firewall rule properties
-	Properties RedisFirewallRuleProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// lowest IP address included in the range
+	StartIP string `pulumi:"startIP"`
 }
 
 // The set of arguments for constructing a RedisFirewallRule resource.
 type RedisFirewallRuleArgs struct {
 	// The name of the Redis cache.
 	CacheName pulumi.StringInput
+	// highest IP address included in the range
+	EndIP pulumi.StringInput
 	// The name of the firewall rule.
 	Name pulumi.StringInput
-	// redis cache firewall rule properties
-	Properties RedisFirewallRulePropertiesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// lowest IP address included in the range
+	StartIP pulumi.StringInput
 }
 
 func (RedisFirewallRuleArgs) ElementType() reflect.Type {

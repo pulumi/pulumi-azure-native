@@ -43,7 +43,7 @@ export class ApiPolicy extends pulumi.CustomResource {
     /**
      * Properties of the Policy.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.PolicyContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.PolicyContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -68,6 +68,9 @@ export class ApiPolicy extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.policyContent === undefined) {
+                throw new Error("Missing required property 'policyContent'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -76,9 +79,10 @@ export class ApiPolicy extends pulumi.CustomResource {
             }
             inputs["apiId"] = args ? args.apiId : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["policyContent"] = args ? args.policyContent : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,9 +109,9 @@ export interface ApiPolicyArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Policy.
+     * Json escaped Xml Encoded contents of the Policy.
      */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20170301.PolicyContractProperties>;
+    readonly policyContent: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

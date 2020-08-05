@@ -57,43 +57,45 @@ class Kpi(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, hub_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, aliases=None, calculation_window=None, calculation_window_field_name=None, description=None, display_name=None, entity_type=None, entity_type_name=None, expression=None, extracts=None, filter=None, function=None, group_by=None, hub_name=None, name=None, resource_group_name=None, thres_holds=None, unit=None, __props__=None, __name__=None, __opts__=None):
         """
         The KPI resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] aliases: The aliases.
+        :param pulumi.Input[str] calculation_window: The calculation window.
+        :param pulumi.Input[str] calculation_window_field_name: Name of calculation window field.
+        :param pulumi.Input[dict] description: Localized description for the KPI.
+        :param pulumi.Input[dict] display_name: Localized display name for the KPI.
+        :param pulumi.Input[str] entity_type: The mapping entity type.
+        :param pulumi.Input[str] entity_type_name: The mapping entity name.
+        :param pulumi.Input[str] expression: The computation expression for the KPI.
+        :param pulumi.Input[list] extracts: The KPI extracts.
+        :param pulumi.Input[str] filter: The filter expression for the KPI.
+        :param pulumi.Input[str] function: The computation function for the KPI.
+        :param pulumi.Input[list] group_by: the group by properties for the KPI.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[str] name: The name of the KPI.
-        :param pulumi.Input[dict] properties: Defines the KPI Threshold limits.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] thres_holds: The KPI thresholds.
+        :param pulumi.Input[str] unit: The unit of measurement for the KPI.
 
-        The **properties** object supports the following:
+        The **aliases** object supports the following:
 
-          * `aliases` (`pulumi.Input[list]`) - The aliases.
-            * `alias_name` (`pulumi.Input[str]`) - KPI alias name.
-            * `expression` (`pulumi.Input[str]`) - The expression.
+          * `alias_name` (`pulumi.Input[str]`) - KPI alias name.
+          * `expression` (`pulumi.Input[str]`) - The expression.
 
-          * `calculation_window` (`pulumi.Input[str]`) - The calculation window.
-          * `calculation_window_field_name` (`pulumi.Input[str]`) - Name of calculation window field.
-          * `description` (`pulumi.Input[dict]`) - Localized description for the KPI.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display name for the KPI.
-          * `entity_type` (`pulumi.Input[str]`) - The mapping entity type.
-          * `entity_type_name` (`pulumi.Input[str]`) - The mapping entity name.
-          * `expression` (`pulumi.Input[str]`) - The computation expression for the KPI.
-          * `extracts` (`pulumi.Input[list]`) - The KPI extracts.
-            * `expression` (`pulumi.Input[str]`) - The expression.
-            * `extract_name` (`pulumi.Input[str]`) - KPI extract name.
+        The **extracts** object supports the following:
 
-          * `filter` (`pulumi.Input[str]`) - The filter expression for the KPI.
-          * `function` (`pulumi.Input[str]`) - The computation function for the KPI.
-          * `group_by` (`pulumi.Input[list]`) - the group by properties for the KPI.
-          * `thres_holds` (`pulumi.Input[dict]`) - The KPI thresholds.
-            * `increasing_kpi` (`pulumi.Input[bool]`) - Whether or not the KPI is an increasing KPI.
-            * `lower_limit` (`pulumi.Input[float]`) - The lower threshold limit.
-            * `upper_limit` (`pulumi.Input[float]`) - The upper threshold limit.
+          * `expression` (`pulumi.Input[str]`) - The expression.
+          * `extract_name` (`pulumi.Input[str]`) - KPI extract name.
 
-          * `unit` (`pulumi.Input[str]`) - The unit of measurement for the KPI.
+        The **thres_holds** object supports the following:
+
+          * `increasing_kpi` (`pulumi.Input[bool]`) - Whether or not the KPI is an increasing KPI.
+          * `lower_limit` (`pulumi.Input[float]`) - The lower threshold limit.
+          * `upper_limit` (`pulumi.Input[float]`) - The upper threshold limit.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -112,16 +114,40 @@ class Kpi(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['aliases'] = aliases
+            if calculation_window is None:
+                raise TypeError("Missing required property 'calculation_window'")
+            __props__['calculation_window'] = calculation_window
+            __props__['calculation_window_field_name'] = calculation_window_field_name
+            __props__['description'] = description
+            __props__['display_name'] = display_name
+            if entity_type is None:
+                raise TypeError("Missing required property 'entity_type'")
+            __props__['entity_type'] = entity_type
+            if entity_type_name is None:
+                raise TypeError("Missing required property 'entity_type_name'")
+            __props__['entity_type_name'] = entity_type_name
+            if expression is None:
+                raise TypeError("Missing required property 'expression'")
+            __props__['expression'] = expression
+            __props__['extracts'] = extracts
+            __props__['filter'] = filter
+            if function is None:
+                raise TypeError("Missing required property 'function'")
+            __props__['function'] = function
+            __props__['group_by'] = group_by
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['thres_holds'] = thres_holds
+            __props__['unit'] = unit
+            __props__['properties'] = None
             __props__['type'] = None
         super(Kpi, __self__).__init__(
             'azurerm:customerinsights/v20170426:Kpi',

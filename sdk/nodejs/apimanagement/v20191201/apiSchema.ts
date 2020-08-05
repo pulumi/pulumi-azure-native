@@ -43,7 +43,7 @@ export class ApiSchema extends pulumi.CustomResource {
     /**
      * Properties of the Schema.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.SchemaContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.SchemaContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -65,6 +65,9 @@ export class ApiSchema extends pulumi.CustomResource {
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
+            if (!args || args.contentType === undefined) {
+                throw new Error("Missing required property 'contentType'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -75,10 +78,13 @@ export class ApiSchema extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["contentType"] = args ? args.contentType : undefined;
+            inputs["definitions"] = args ? args.definitions : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["value"] = args ? args.value : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,13 +107,17 @@ export interface ApiSchemaArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
+     * Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
+     */
+    readonly contentType: pulumi.Input<string>;
+    /**
+     * Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
+     */
+    readonly definitions?: pulumi.Input<{[key: string]: any}>;
+    /**
      * Schema identifier within an API. Must be unique in the current API Management service instance.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the Schema.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.SchemaContractProperties>;
     /**
      * The name of the resource group.
      */
@@ -116,4 +126,8 @@ export interface ApiSchemaArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
+     */
+    readonly value?: pulumi.Input<string>;
 }

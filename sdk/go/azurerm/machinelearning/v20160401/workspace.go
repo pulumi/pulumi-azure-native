@@ -35,8 +35,14 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.OwnerEmail == nil {
+		return nil, errors.New("missing required argument 'OwnerEmail'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.UserStorageAccountId == nil {
+		return nil, errors.New("missing required argument 'UserStorageAccountId'")
 	}
 	if args == nil {
 		args = &WorkspaceArgs{}
@@ -93,30 +99,38 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
+	// The key vault identifier used for encrypted workspaces.
+	KeyVaultIdentifierId *string `pulumi:"keyVaultIdentifierId"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the machine learning workspace.
 	Name string `pulumi:"name"`
-	// The properties of the machine learning workspace.
-	Properties *WorkspaceProperties `pulumi:"properties"`
+	// The email id of the owner for this workspace.
+	OwnerEmail string `pulumi:"ownerEmail"`
 	// The name of the resource group to which the machine learning workspace belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The fully qualified arm id of the storage account associated with this workspace.
+	UserStorageAccountId string `pulumi:"userStorageAccountId"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
+	// The key vault identifier used for encrypted workspaces.
+	KeyVaultIdentifierId pulumi.StringPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
 	// The name of the machine learning workspace.
 	Name pulumi.StringInput
-	// The properties of the machine learning workspace.
-	Properties WorkspacePropertiesPtrInput
+	// The email id of the owner for this workspace.
+	OwnerEmail pulumi.StringInput
 	// The name of the resource group to which the machine learning workspace belongs.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The fully qualified arm id of the storage account associated with this workspace.
+	UserStorageAccountId pulumi.StringInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

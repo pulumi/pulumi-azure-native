@@ -49,29 +49,30 @@ class JitRequest(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_resource_id=None, jit_authorization_policies=None, jit_scheduling_policy=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Information about JIT request definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_resource_id: The parent application id.
+        :param pulumi.Input[list] jit_authorization_policies: The JIT authorization policies.
+        :param pulumi.Input[dict] jit_scheduling_policy: The JIT request properties.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the JIT request.
-        :param pulumi.Input[dict] properties: The JIT request properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[dict] tags: Resource tags
 
-        The **properties** object supports the following:
+        The **jit_authorization_policies** object supports the following:
 
-          * `application_resource_id` (`pulumi.Input[str]`) - The parent application id.
-          * `jit_authorization_policies` (`pulumi.Input[list]`) - The JIT authorization policies.
-            * `principal_id` (`pulumi.Input[str]`) - The the principal id that will be granted JIT access.
-            * `role_definition_id` (`pulumi.Input[str]`) - The role definition id that will be granted to the Principal.
+          * `principal_id` (`pulumi.Input[str]`) - The the principal id that will be granted JIT access.
+          * `role_definition_id` (`pulumi.Input[str]`) - The role definition id that will be granted to the Principal.
 
-          * `jit_scheduling_policy` (`pulumi.Input[dict]`) - The JIT request properties.
-            * `duration` (`pulumi.Input[str]`)
-            * `start_time` (`pulumi.Input[str]`) - The start time of the request.
-            * `type` (`pulumi.Input[str]`) - The type of JIT schedule.
+        The **jit_scheduling_policy** object supports the following:
+
+          * `duration` (`pulumi.Input[str]`)
+          * `start_time` (`pulumi.Input[str]`) - The start time of the request.
+          * `type` (`pulumi.Input[str]`) - The type of JIT schedule.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,15 +91,24 @@ class JitRequest(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if application_resource_id is None:
+                raise TypeError("Missing required property 'application_resource_id'")
+            __props__['application_resource_id'] = application_resource_id
+            if jit_authorization_policies is None:
+                raise TypeError("Missing required property 'jit_authorization_policies'")
+            __props__['jit_authorization_policies'] = jit_authorization_policies
+            if jit_scheduling_policy is None:
+                raise TypeError("Missing required property 'jit_scheduling_policy'")
+            __props__['jit_scheduling_policy'] = jit_scheduling_policy
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(JitRequest, __self__).__init__(
             'azurerm:solutions/v20190701:JitRequest',

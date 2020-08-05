@@ -90,28 +90,60 @@ func (LabState) ElementType() reflect.Type {
 }
 
 type labArgs struct {
+	// The properties of any lab announcement associated with this lab
+	Announcement *LabAnnouncementProperties `pulumi:"announcement"`
+	// The access rights to be granted to the user when provisioning an environment
+	EnvironmentPermission *string `pulumi:"environmentPermission"`
+	// Extended properties of the lab used for experimental features
+	ExtendedProperties map[string]string `pulumi:"extendedProperties"`
+	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+	LabStorageType *string `pulumi:"labStorageType"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
+	// The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+	MandatoryArtifactsResourceIdsLinux []string `pulumi:"mandatoryArtifactsResourceIdsLinux"`
+	// The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+	MandatoryArtifactsResourceIdsWindows []string `pulumi:"mandatoryArtifactsResourceIdsWindows"`
 	// The name of the lab.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *LabProperties `pulumi:"properties"`
+	// The setting to enable usage of premium data disks.
+	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+	// When its value is 'Disabled', only creation of standard data disks is allowed.
+	PremiumDataDisks *string `pulumi:"premiumDataDisks"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The properties of any lab support message associated with this lab
+	Support *LabSupportProperties `pulumi:"support"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Lab resource.
 type LabArgs struct {
+	// The properties of any lab announcement associated with this lab
+	Announcement LabAnnouncementPropertiesPtrInput
+	// The access rights to be granted to the user when provisioning an environment
+	EnvironmentPermission pulumi.StringPtrInput
+	// Extended properties of the lab used for experimental features
+	ExtendedProperties pulumi.StringMapInput
+	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+	LabStorageType pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
+	// The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+	MandatoryArtifactsResourceIdsLinux pulumi.StringArrayInput
+	// The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+	MandatoryArtifactsResourceIdsWindows pulumi.StringArrayInput
 	// The name of the lab.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties LabPropertiesPtrInput
+	// The setting to enable usage of premium data disks.
+	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+	// When its value is 'Disabled', only creation of standard data disks is allowed.
+	PremiumDataDisks pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The properties of any lab support message associated with this lab
+	Support LabSupportPropertiesPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 }

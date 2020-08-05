@@ -47,7 +47,7 @@ export class DedicatedHost extends pulumi.CustomResource {
     /**
      * Properties of the dedicated host.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20200601.DedicatedHostPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20200601.DedicatedHostPropertiesResponse>;
     /**
      * SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
      */
@@ -89,13 +89,16 @@ export class DedicatedHost extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["autoReplaceOnFailure"] = args ? args.autoReplaceOnFailure : undefined;
             inputs["hostGroupName"] = args ? args.hostGroupName : undefined;
+            inputs["licenseType"] = args ? args.licenseType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,9 +117,17 @@ export class DedicatedHost extends pulumi.CustomResource {
  */
 export interface DedicatedHostArgs {
     /**
+     * Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+     */
+    readonly autoReplaceOnFailure?: pulumi.Input<boolean>;
+    /**
      * The name of the dedicated host group.
      */
     readonly hostGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+     */
+    readonly licenseType?: pulumi.Input<string>;
     /**
      * Resource location
      */
@@ -126,9 +137,9 @@ export interface DedicatedHostArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the dedicated host.
+     * Fault domain of the dedicated host within a dedicated host group.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20200601.DedicatedHostProperties>;
+    readonly platformFaultDomain?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */

@@ -31,6 +31,12 @@ func NewRelationship(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.ProfileType == nil {
+		return nil, errors.New("missing required argument 'ProfileType'")
+	}
+	if args == nil || args.RelatedProfileType == nil {
+		return nil, errors.New("missing required argument 'RelatedProfileType'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -81,24 +87,52 @@ func (RelationshipState) ElementType() reflect.Type {
 }
 
 type relationshipArgs struct {
+	// The Relationship Cardinality.
+	Cardinality *string `pulumi:"cardinality"`
+	// Localized descriptions for the Relationship.
+	Description map[string]string `pulumi:"description"`
+	// Localized display name for the Relationship.
+	DisplayName map[string]string `pulumi:"displayName"`
+	// The expiry date time in UTC.
+	ExpiryDateTimeUtc *string `pulumi:"expiryDateTimeUtc"`
+	// The properties of the Relationship.
+	Fields []PropertyDefinition `pulumi:"fields"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
+	// Optional property to be used to map fields in profile to their strong ids in related profile.
+	LookupMappings []RelationshipTypeMapping `pulumi:"lookupMappings"`
 	// The name of the Relationship.
 	Name string `pulumi:"name"`
-	// The definition of Relationship.
-	Properties *RelationshipDefinition `pulumi:"properties"`
+	// Profile type.
+	ProfileType string `pulumi:"profileType"`
+	// Related profile being referenced.
+	RelatedProfileType string `pulumi:"relatedProfileType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Relationship resource.
 type RelationshipArgs struct {
+	// The Relationship Cardinality.
+	Cardinality pulumi.StringPtrInput
+	// Localized descriptions for the Relationship.
+	Description pulumi.StringMapInput
+	// Localized display name for the Relationship.
+	DisplayName pulumi.StringMapInput
+	// The expiry date time in UTC.
+	ExpiryDateTimeUtc pulumi.StringPtrInput
+	// The properties of the Relationship.
+	Fields PropertyDefinitionArrayInput
 	// The name of the hub.
 	HubName pulumi.StringInput
+	// Optional property to be used to map fields in profile to their strong ids in related profile.
+	LookupMappings RelationshipTypeMappingArrayInput
 	// The name of the Relationship.
 	Name pulumi.StringInput
-	// The definition of Relationship.
-	Properties RelationshipDefinitionPtrInput
+	// Profile type.
+	ProfileType pulumi.StringInput
+	// Related profile being referenced.
+	RelatedProfileType pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

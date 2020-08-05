@@ -84,42 +84,47 @@ class DomainService(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, ldaps_settings=None, location=None, name=None, notification_settings=None, replica_sets=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Domain service.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] domain_name: The name of the Azure domain that the user would like to deploy Domain Services to.
+        :param pulumi.Input[dict] domain_security_settings: DomainSecurity Settings
         :param pulumi.Input[str] etag: Resource etag
+        :param pulumi.Input[str] filtered_sync: Enabled or Disabled flag to turn on Group-based filtered sync
+        :param pulumi.Input[dict] ldaps_settings: Secure LDAP Settings
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the domain service.
-        :param pulumi.Input[dict] properties: Domain service properties
+        :param pulumi.Input[dict] notification_settings: Notification Settings
+        :param pulumi.Input[list] replica_sets: List of ReplicaSets
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[dict] tags: Resource tags
 
-        The **properties** object supports the following:
+        The **domain_security_settings** object supports the following:
 
-          * `domain_name` (`pulumi.Input[str]`) - The name of the Azure domain that the user would like to deploy Domain Services to.
-          * `domain_security_settings` (`pulumi.Input[dict]`) - DomainSecurity Settings
-            * `ntlm_v1` (`pulumi.Input[str]`) - A flag to determine whether or not NtlmV1 is enabled or disabled.
-            * `sync_ntlm_passwords` (`pulumi.Input[str]`) - A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
-            * `tls_v1` (`pulumi.Input[str]`) - A flag to determine whether or not TlsV1 is enabled or disabled.
+          * `ntlm_v1` (`pulumi.Input[str]`) - A flag to determine whether or not NtlmV1 is enabled or disabled.
+          * `sync_ntlm_passwords` (`pulumi.Input[str]`) - A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+          * `tls_v1` (`pulumi.Input[str]`) - A flag to determine whether or not TlsV1 is enabled or disabled.
 
-          * `filtered_sync` (`pulumi.Input[str]`) - Enabled or Disabled flag to turn on Group-based filtered sync
-          * `ldaps_settings` (`pulumi.Input[dict]`) - Secure LDAP Settings
-            * `external_access` (`pulumi.Input[str]`) - A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
-            * `ldaps` (`pulumi.Input[str]`) - A flag to determine whether or not Secure LDAP is enabled or disabled.
-            * `pfx_certificate` (`pulumi.Input[str]`) - The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
-            * `pfx_certificate_password` (`pulumi.Input[str]`) - The password to decrypt the provided Secure LDAP certificate pfx file.
+        The **ldaps_settings** object supports the following:
 
-          * `notification_settings` (`pulumi.Input[dict]`) - Notification Settings
-            * `additional_recipients` (`pulumi.Input[list]`) - The list of additional recipients
-            * `notify_dc_admins` (`pulumi.Input[str]`) - Should domain controller admins be notified
-            * `notify_global_admins` (`pulumi.Input[str]`) - Should global admins be notified
+          * `external_access` (`pulumi.Input[str]`) - A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
+          * `ldaps` (`pulumi.Input[str]`) - A flag to determine whether or not Secure LDAP is enabled or disabled.
+          * `pfx_certificate` (`pulumi.Input[str]`) - The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.
+          * `pfx_certificate_password` (`pulumi.Input[str]`) - The password to decrypt the provided Secure LDAP certificate pfx file.
 
-          * `replica_sets` (`pulumi.Input[list]`) - List of ReplicaSets
-            * `location` (`pulumi.Input[str]`) - Virtual network location
-            * `subnet_id` (`pulumi.Input[str]`) - The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+        The **notification_settings** object supports the following:
+
+          * `additional_recipients` (`pulumi.Input[list]`) - The list of additional recipients
+          * `notify_dc_admins` (`pulumi.Input[str]`) - Should domain controller admins be notified
+          * `notify_global_admins` (`pulumi.Input[str]`) - Should global admins be notified
+
+        The **replica_sets** object supports the following:
+
+          * `location` (`pulumi.Input[str]`) - Virtual network location
+          * `subnet_id` (`pulumi.Input[str]`) - The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -138,16 +143,22 @@ class DomainService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['domain_name'] = domain_name
+            __props__['domain_security_settings'] = domain_security_settings
             __props__['etag'] = etag
+            __props__['filtered_sync'] = filtered_sync
+            __props__['ldaps_settings'] = ldaps_settings
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['notification_settings'] = notification_settings
+            __props__['replica_sets'] = replica_sets
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(DomainService, __self__).__init__(
             'azurerm:aad/v20200101:DomainService',

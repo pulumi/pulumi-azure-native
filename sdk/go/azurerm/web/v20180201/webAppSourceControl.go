@@ -84,24 +84,40 @@ func (WebAppSourceControlState) ElementType() reflect.Type {
 }
 
 type webAppSourceControlArgs struct {
+	// Name of branch to use for deployment.
+	Branch *string `pulumi:"branch"`
+	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
+	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+	IsManualIntegration *bool `pulumi:"isManualIntegration"`
+	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+	IsMercurial *bool `pulumi:"isMercurial"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Name of the app.
 	Name string `pulumi:"name"`
-	// SiteSourceControl resource specific properties
-	Properties *SiteSourceControlProperties `pulumi:"properties"`
+	// Repository or source control URL.
+	RepoUrl *string `pulumi:"repoUrl"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a WebAppSourceControl resource.
 type WebAppSourceControlArgs struct {
+	// Name of branch to use for deployment.
+	Branch pulumi.StringPtrInput
+	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+	DeploymentRollbackEnabled pulumi.BoolPtrInput
+	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+	IsManualIntegration pulumi.BoolPtrInput
+	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+	IsMercurial pulumi.BoolPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Name of the app.
 	Name pulumi.StringInput
-	// SiteSourceControl resource specific properties
-	Properties SiteSourceControlPropertiesPtrInput
+	// Repository or source control URL.
+	RepoUrl pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 }

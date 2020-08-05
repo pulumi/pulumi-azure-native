@@ -77,17 +77,53 @@ namespace Pulumi.AzureRM.Authorization.V20150701
 
     public sealed class RoleDefinitionArgs : Pulumi.ResourceArgs
     {
+        [Input("assignableScopes")]
+        private InputList<string>? _assignableScopes;
+
+        /// <summary>
+        /// Role definition assignable scopes.
+        /// </summary>
+        public InputList<string> AssignableScopes
+        {
+            get => _assignableScopes ?? (_assignableScopes = new InputList<string>());
+            set => _assignableScopes = value;
+        }
+
+        /// <summary>
+        /// The role definition description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         /// <summary>
         /// The ID of the role definition.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("permissions")]
+        private InputList<Inputs.PermissionArgs>? _permissions;
+
         /// <summary>
-        /// Role definition properties.
+        /// Role definition permissions.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RoleDefinitionPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.PermissionArgs> Permissions
+        {
+            get => _permissions ?? (_permissions = new InputList<Inputs.PermissionArgs>());
+            set => _permissions = value;
+        }
+
+        /// <summary>
+        /// The role name.
+        /// </summary>
+        [Input("roleName")]
+        public Input<string>? RoleName { get; set; }
+
+        /// <summary>
+        /// The role type.
+        /// </summary>
+        [Input("roleType")]
+        public Input<string>? RoleType { get; set; }
 
         /// <summary>
         /// The scope of the role definition.

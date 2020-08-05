@@ -51,7 +51,7 @@ export class VpnSite extends pulumi.CustomResource {
     /**
      * Properties of the VPN site.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200301.VpnSitePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200301.VpnSitePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -83,13 +83,21 @@ export class VpnSite extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["addressSpace"] = args ? args.addressSpace : undefined;
+            inputs["bgpProperties"] = args ? args.bgpProperties : undefined;
+            inputs["deviceProperties"] = args ? args.deviceProperties : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipAddress"] = args ? args.ipAddress : undefined;
+            inputs["isSecuritySite"] = args ? args.isSecuritySite : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["siteKey"] = args ? args.siteKey : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualWan"] = args ? args.virtualWan : undefined;
+            inputs["vpnSiteLinks"] = args ? args.vpnSiteLinks : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,9 +116,29 @@ export class VpnSite extends pulumi.CustomResource {
  */
 export interface VpnSiteArgs {
     /**
+     * The AddressSpace that contains an array of IP address ranges.
+     */
+    readonly addressSpace?: pulumi.Input<inputs.network.v20200301.AddressSpace>;
+    /**
+     * The set of bgp properties.
+     */
+    readonly bgpProperties?: pulumi.Input<inputs.network.v20200301.BgpSettings>;
+    /**
+     * The device properties.
+     */
+    readonly deviceProperties?: pulumi.Input<inputs.network.v20200301.DeviceProperties>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * The ip-address for the vpn-site.
+     */
+    readonly ipAddress?: pulumi.Input<string>;
+    /**
+     * IsSecuritySite flag.
+     */
+    readonly isSecuritySite?: pulumi.Input<boolean>;
     /**
      * Resource location.
      */
@@ -120,15 +148,23 @@ export interface VpnSiteArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the VPN site.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20200301.VpnSiteProperties>;
-    /**
      * The resource group name of the VpnSite.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The key for vpn-site that can be used for connections.
+     */
+    readonly siteKey?: pulumi.Input<string>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The VirtualWAN to which the vpnSite belongs.
+     */
+    readonly virtualWan?: pulumi.Input<inputs.network.v20200301.SubResource>;
+    /**
+     * List of all vpn site links.
+     */
+    readonly vpnSiteLinks?: pulumi.Input<pulumi.Input<inputs.network.v20200301.VpnSiteLink>[]>;
 }

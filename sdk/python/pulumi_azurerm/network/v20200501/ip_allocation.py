@@ -44,27 +44,23 @@ class IpAllocation(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allocation_tags=None, id=None, ipam_allocation_id=None, location=None, name=None, prefix=None, prefix_length=None, prefix_type=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         IpAllocation resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] allocation_tags: IpAllocation tags.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] ipam_allocation_id: The IPAM allocation ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the IpAllocation.
-        :param pulumi.Input[dict] properties: Properties of the IpAllocation.
+        :param pulumi.Input[str] prefix: The address prefix for the IpAllocation.
+        :param pulumi.Input[float] prefix_length: The address prefix length for the IpAllocation.
+        :param pulumi.Input[str] prefix_type: The address prefix Type for the IpAllocation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `allocation_tags` (`pulumi.Input[dict]`) - IpAllocation tags.
-          * `ipam_allocation_id` (`pulumi.Input[str]`) - The IPAM allocation ID.
-          * `prefix` (`pulumi.Input[str]`) - The address prefix for the IpAllocation.
-          * `prefix_length` (`pulumi.Input[float]`) - The address prefix length for the IpAllocation.
-          * `prefix_type` (`pulumi.Input[str]`) - The address prefix Type for the IpAllocation.
-          * `type` (`pulumi.Input[str]`) - The type for the IpAllocation.
+        :param pulumi.Input[str] type: The type for the IpAllocation.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,18 +79,23 @@ class IpAllocation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['allocation_tags'] = allocation_tags
             __props__['id'] = id
+            __props__['ipam_allocation_id'] = ipam_allocation_id
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['prefix'] = prefix
+            __props__['prefix_length'] = prefix_length
+            __props__['prefix_type'] = prefix_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['type'] = type
             __props__['etag'] = None
-            __props__['type'] = None
+            __props__['properties'] = None
         super(IpAllocation, __self__).__init__(
             'azurerm:network/v20200501:IpAllocation',
             resource_name,

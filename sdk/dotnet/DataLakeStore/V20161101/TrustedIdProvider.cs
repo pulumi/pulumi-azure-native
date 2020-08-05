@@ -84,16 +84,16 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The URL of this trusted identity provider.
+        /// </summary>
+        [Input("idProvider", required: true)]
+        public Input<string> IdProvider { get; set; } = null!;
+
+        /// <summary>
         /// The name of the trusted identity provider. This is used for differentiation of providers in the account.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The trusted identity provider properties to use when creating a new trusted identity provider.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.CreateOrUpdateTrustedIdProviderPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.

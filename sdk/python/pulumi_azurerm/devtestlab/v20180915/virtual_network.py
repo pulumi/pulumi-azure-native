@@ -56,39 +56,40 @@ class VirtualNetwork(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, lab_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allowed_subnets=None, description=None, external_provider_resource_id=None, lab_name=None, location=None, name=None, resource_group_name=None, subnet_overrides=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A virtual network.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] allowed_subnets: The allowed subnets of the virtual network.
+        :param pulumi.Input[str] description: The description of the virtual network.
+        :param pulumi.Input[str] external_provider_resource_id: The Microsoft.Network resource identifier of the virtual network.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the virtual network.
-        :param pulumi.Input[dict] properties: The properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] subnet_overrides: The subnet overrides of the virtual network.
         :param pulumi.Input[dict] tags: The tags of the resource.
 
-        The **properties** object supports the following:
+        The **allowed_subnets** object supports the following:
 
-          * `allowed_subnets` (`pulumi.Input[list]`) - The allowed subnets of the virtual network.
-            * `allow_public_ip` (`pulumi.Input[str]`) - The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-            * `lab_subnet_name` (`pulumi.Input[str]`) - The name of the subnet as seen in the lab.
-            * `resource_id` (`pulumi.Input[str]`) - The resource ID of the subnet.
+          * `allow_public_ip` (`pulumi.Input[str]`) - The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+          * `lab_subnet_name` (`pulumi.Input[str]`) - The name of the subnet as seen in the lab.
+          * `resource_id` (`pulumi.Input[str]`) - The resource ID of the subnet.
 
-          * `description` (`pulumi.Input[str]`) - The description of the virtual network.
-          * `external_provider_resource_id` (`pulumi.Input[str]`) - The Microsoft.Network resource identifier of the virtual network.
-          * `subnet_overrides` (`pulumi.Input[list]`) - The subnet overrides of the virtual network.
-            * `lab_subnet_name` (`pulumi.Input[str]`) - The name given to the subnet within the lab.
-            * `resource_id` (`pulumi.Input[str]`) - The resource ID of the subnet.
-            * `shared_public_ip_address_configuration` (`pulumi.Input[dict]`) - Properties that virtual machines on this subnet will share.
-              * `allowed_ports` (`pulumi.Input[list]`) - Backend ports that virtual machines on this subnet are allowed to expose
-                * `backend_port` (`pulumi.Input[float]`) - Backend port of the target virtual machine.
-                * `transport_protocol` (`pulumi.Input[str]`) - Protocol type of the port.
+        The **subnet_overrides** object supports the following:
 
-            * `use_in_vm_creation_permission` (`pulumi.Input[str]`) - Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-            * `use_public_ip_address_permission` (`pulumi.Input[str]`) - Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
-            * `virtual_network_pool_name` (`pulumi.Input[str]`) - The virtual network pool associated with this subnet.
+          * `lab_subnet_name` (`pulumi.Input[str]`) - The name given to the subnet within the lab.
+          * `resource_id` (`pulumi.Input[str]`) - The resource ID of the subnet.
+          * `shared_public_ip_address_configuration` (`pulumi.Input[dict]`) - Properties that virtual machines on this subnet will share.
+            * `allowed_ports` (`pulumi.Input[list]`) - Backend ports that virtual machines on this subnet are allowed to expose
+              * `backend_port` (`pulumi.Input[float]`) - Backend port of the target virtual machine.
+              * `transport_protocol` (`pulumi.Input[str]`) - Protocol type of the port.
+
+          * `use_in_vm_creation_permission` (`pulumi.Input[str]`) - Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
+          * `use_public_ip_address_permission` (`pulumi.Input[str]`) - Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
+          * `virtual_network_pool_name` (`pulumi.Input[str]`) - The virtual network pool associated with this subnet.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,6 +108,9 @@ class VirtualNetwork(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['allowed_subnets'] = allowed_subnets
+            __props__['description'] = description
+            __props__['external_provider_resource_id'] = external_provider_resource_id
             if lab_name is None:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
@@ -114,11 +118,12 @@ class VirtualNetwork(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['subnet_overrides'] = subnet_overrides
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualNetwork, __self__).__init__(
             'azurerm:devtestlab/v20180915:VirtualNetwork',

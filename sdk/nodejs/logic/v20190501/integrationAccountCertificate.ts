@@ -47,7 +47,7 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
     /**
      * The integration account certificate properties.
      */
-    public readonly properties!: pulumi.Output<outputs.logic.v20190501.IntegrationAccountCertificatePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20190501.IntegrationAccountCertificatePropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -76,18 +76,18 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
+            inputs["key"] = args ? args.key : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["publicCertificate"] = args ? args.publicCertificate : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,17 +110,25 @@ export interface IntegrationAccountCertificateArgs {
      */
     readonly integrationAccountName: pulumi.Input<string>;
     /**
+     * The key details in the key vault.
+     */
+    readonly key?: pulumi.Input<inputs.logic.v20190501.KeyVaultKeyReference>;
+    /**
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
     /**
      * The integration account certificate name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The integration account certificate properties.
+     * The public certificate.
      */
-    readonly properties: pulumi.Input<inputs.logic.v20190501.IntegrationAccountCertificateProperties>;
+    readonly publicCertificate?: pulumi.Input<string>;
     /**
      * The resource group name.
      */

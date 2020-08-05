@@ -27,12 +27,6 @@ namespace Pulumi.AzureRM.Network.V20181001.Inputs
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        /// <summary>
-        /// Properties of the application security group.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationSecurityGroupPropertiesFormatArgs>? Properties { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 

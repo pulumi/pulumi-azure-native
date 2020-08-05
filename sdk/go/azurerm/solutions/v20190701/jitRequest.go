@@ -29,6 +29,15 @@ type JitRequest struct {
 // NewJitRequest registers a new resource with the given unique name, arguments, and options.
 func NewJitRequest(ctx *pulumi.Context,
 	name string, args *JitRequestArgs, opts ...pulumi.ResourceOption) (*JitRequest, error) {
+	if args == nil || args.ApplicationResourceId == nil {
+		return nil, errors.New("missing required argument 'ApplicationResourceId'")
+	}
+	if args == nil || args.JitAuthorizationPolicies == nil {
+		return nil, errors.New("missing required argument 'JitAuthorizationPolicies'")
+	}
+	if args == nil || args.JitSchedulingPolicy == nil {
+		return nil, errors.New("missing required argument 'JitSchedulingPolicy'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -90,12 +99,16 @@ func (JitRequestState) ElementType() reflect.Type {
 }
 
 type jitRequestArgs struct {
+	// The parent application id.
+	ApplicationResourceId string `pulumi:"applicationResourceId"`
+	// The JIT authorization policies.
+	JitAuthorizationPolicies []JitAuthorizationPolicies `pulumi:"jitAuthorizationPolicies"`
+	// The JIT request properties.
+	JitSchedulingPolicy JitSchedulingPolicy `pulumi:"jitSchedulingPolicy"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the JIT request.
 	Name string `pulumi:"name"`
-	// The JIT request properties.
-	Properties *JitRequestProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -104,12 +117,16 @@ type jitRequestArgs struct {
 
 // The set of arguments for constructing a JitRequest resource.
 type JitRequestArgs struct {
+	// The parent application id.
+	ApplicationResourceId pulumi.StringInput
+	// The JIT authorization policies.
+	JitAuthorizationPolicies JitAuthorizationPoliciesArrayInput
+	// The JIT request properties.
+	JitSchedulingPolicy JitSchedulingPolicyInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the JIT request.
 	Name pulumi.StringInput
-	// The JIT request properties.
-	Properties JitRequestPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

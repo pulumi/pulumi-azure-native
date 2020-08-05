@@ -47,7 +47,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The properties of the volume.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20170601.VolumePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.VolumePropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -66,31 +66,48 @@ export class Volume extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VolumeArgs | undefined;
+            if (!args || args.accessControlRecordIds === undefined) {
+                throw new Error("Missing required property 'accessControlRecordIds'");
+            }
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
             }
+            if (!args || args.monitoringStatus === undefined) {
+                throw new Error("Missing required property 'monitoringStatus'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.sizeInBytes === undefined) {
+                throw new Error("Missing required property 'sizeInBytes'");
+            }
             if (!args || args.volumeContainerName === undefined) {
                 throw new Error("Missing required property 'volumeContainerName'");
             }
+            if (!args || args.volumeStatus === undefined) {
+                throw new Error("Missing required property 'volumeStatus'");
+            }
+            if (!args || args.volumeType === undefined) {
+                throw new Error("Missing required property 'volumeType'");
+            }
+            inputs["accessControlRecordIds"] = args ? args.accessControlRecordIds : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
+            inputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sizeInBytes"] = args ? args.sizeInBytes : undefined;
             inputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
+            inputs["volumeStatus"] = args ? args.volumeStatus : undefined;
+            inputs["volumeType"] = args ? args.volumeType : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,6 +126,10 @@ export class Volume extends pulumi.CustomResource {
  */
 export interface VolumeArgs {
     /**
+     * The IDs of the access control records, associated with the volume.
+     */
+    readonly accessControlRecordIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The device name
      */
     readonly deviceName: pulumi.Input<string>;
@@ -121,19 +142,31 @@ export interface VolumeArgs {
      */
     readonly managerName: pulumi.Input<string>;
     /**
+     * The monitoring status of the volume.
+     */
+    readonly monitoringStatus: pulumi.Input<string>;
+    /**
      * The volume name.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the volume.
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.v20170601.VolumeProperties>;
     /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The size of the volume in bytes.
+     */
+    readonly sizeInBytes: pulumi.Input<number>;
+    /**
      * The volume container name.
      */
     readonly volumeContainerName: pulumi.Input<string>;
+    /**
+     * The volume status.
+     */
+    readonly volumeStatus: pulumi.Input<string>;
+    /**
+     * The type of the volume.
+     */
+    readonly volumeType: pulumi.Input<string>;
 }

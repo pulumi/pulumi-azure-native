@@ -43,7 +43,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * Gets or sets the properties of the connection.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.ConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.ConnectionPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -65,19 +65,22 @@ export class Connection extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
+            if (!args || args.connectionType === undefined) {
+                throw new Error("Missing required property 'connectionType'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["connectionType"] = args ? args.connectionType : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["fieldDefinitionValues"] = args ? args.fieldDefinitionValues : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,13 +103,21 @@ export interface ConnectionArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
+     * Gets or sets the connectionType of the connection.
+     */
+    readonly connectionType: pulumi.Input<inputs.automation.v20151031.ConnectionTypeAssociationProperty>;
+    /**
+     * Gets or sets the description of the connection.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Gets or sets the field definition properties of the connection.
+     */
+    readonly fieldDefinitionValues?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The parameters supplied to the create or update connection operation.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Gets or sets the properties of the connection.
-     */
-    readonly properties: pulumi.Input<inputs.automation.v20151031.ConnectionCreateOrUpdateProperties>;
     /**
      * Name of an Azure Resource group.
      */

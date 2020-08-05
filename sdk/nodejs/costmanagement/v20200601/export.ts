@@ -47,7 +47,7 @@ export class Export extends pulumi.CustomResource {
     /**
      * The properties of the export.
      */
-    public readonly properties!: pulumi.Output<outputs.costmanagement.v20200601.ExportPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.costmanagement.v20200601.ExportPropertiesResponse>;
     /**
      * Resource type.
      */
@@ -66,16 +66,27 @@ export class Export extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ExportArgs | undefined;
+            if (!args || args.definition === undefined) {
+                throw new Error("Missing required property 'definition'");
+            }
+            if (!args || args.deliveryInfo === undefined) {
+                throw new Error("Missing required property 'deliveryInfo'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
+            inputs["definition"] = args ? args.definition : undefined;
+            inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["format"] = args ? args.format : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["runHistory"] = args ? args.runHistory : undefined;
+            inputs["schedule"] = args ? args.schedule : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -94,17 +105,33 @@ export class Export extends pulumi.CustomResource {
  */
 export interface ExportArgs {
     /**
+     * Has the definition for the export.
+     */
+    readonly definition: pulumi.Input<inputs.costmanagement.v20200601.ExportDefinition>;
+    /**
+     * Has delivery information for the export.
+     */
+    readonly deliveryInfo: pulumi.Input<inputs.costmanagement.v20200601.ExportDeliveryInfo>;
+    /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     readonly eTag?: pulumi.Input<string>;
+    /**
+     * The format of the export being delivered. Currently only 'Csv' is supported.
+     */
+    readonly format?: pulumi.Input<string>;
     /**
      * Export Name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the export.
+     * If requested, has the most recent execution history for the export.
      */
-    readonly properties?: pulumi.Input<inputs.costmanagement.v20200601.ExportProperties>;
+    readonly runHistory?: pulumi.Input<inputs.costmanagement.v20200601.ExportExecutionListResult>;
+    /**
+     * Has schedule information for the export.
+     */
+    readonly schedule?: pulumi.Input<inputs.costmanagement.v20200601.ExportSchedule>;
     /**
      * The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
      */

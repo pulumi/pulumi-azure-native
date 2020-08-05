@@ -102,12 +102,14 @@ func (ServerDetailsState) ElementType() reflect.Type {
 }
 
 type serverDetailsArgs struct {
+	// A collection of AS server administrators
+	AsAdministrators *ServerAdministrators `pulumi:"asAdministrators"`
+	// The container URI of backup blob.
+	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
 	// Location of the Analysis Services resource.
 	Location string `pulumi:"location"`
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
 	Name string `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties *AnalysisServicesServerProperties `pulumi:"properties"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Analysis Services resource.
@@ -118,12 +120,14 @@ type serverDetailsArgs struct {
 
 // The set of arguments for constructing a ServerDetails resource.
 type ServerDetailsArgs struct {
+	// A collection of AS server administrators
+	AsAdministrators ServerAdministratorsPtrInput
+	// The container URI of backup blob.
+	BackupBlobContainerUri pulumi.StringPtrInput
 	// Location of the Analysis Services resource.
 	Location pulumi.StringInput
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
 	Name pulumi.StringInput
-	// Properties of the provision operation request.
-	Properties AnalysisServicesServerPropertiesPtrInput
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the Analysis Services resource.

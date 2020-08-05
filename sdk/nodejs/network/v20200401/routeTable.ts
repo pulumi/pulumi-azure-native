@@ -51,7 +51,7 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * Properties of the route table.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200401.RouteTablePropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.RouteTablePropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,15 @@ export class RouteTable extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["disableBgpRoutePropagation"] = args ? args.disableBgpRoutePropagation : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routes"] = args ? args.routes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +107,10 @@ export class RouteTable extends pulumi.CustomResource {
  */
 export interface RouteTableArgs {
     /**
+     * Whether to disable the routes learned by BGP on that route table. True means disable.
+     */
+    readonly disableBgpRoutePropagation?: pulumi.Input<boolean>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -117,13 +123,13 @@ export interface RouteTableArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the route table.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20200401.RouteTablePropertiesFormat>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Collection of routes contained within a route table.
+     */
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20200401.Route>[]>;
     /**
      * Resource tags.
      */

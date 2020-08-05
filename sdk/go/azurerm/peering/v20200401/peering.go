@@ -111,14 +111,18 @@ func (PeeringState) ElementType() reflect.Type {
 }
 
 type peeringArgs struct {
+	// The properties that define a direct peering.
+	Direct *PeeringPropertiesDirect `pulumi:"direct"`
+	// The properties that define an exchange peering.
+	Exchange *PeeringPropertiesExchange `pulumi:"exchange"`
 	// The kind of the peering.
 	Kind string `pulumi:"kind"`
 	// The location of the resource.
 	Location string `pulumi:"location"`
 	// The name of the peering.
 	Name string `pulumi:"name"`
-	// The properties that define a peering.
-	Properties *PeeringProperties `pulumi:"properties"`
+	// The location of the peering.
+	PeeringLocation *string `pulumi:"peeringLocation"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU that defines the tier and kind of the peering.
@@ -129,14 +133,18 @@ type peeringArgs struct {
 
 // The set of arguments for constructing a Peering resource.
 type PeeringArgs struct {
+	// The properties that define a direct peering.
+	Direct PeeringPropertiesDirectPtrInput
+	// The properties that define an exchange peering.
+	Exchange PeeringPropertiesExchangePtrInput
 	// The kind of the peering.
 	Kind pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringInput
 	// The name of the peering.
 	Name pulumi.StringInput
-	// The properties that define a peering.
-	Properties PeeringPropertiesPtrInput
+	// The location of the peering.
+	PeeringLocation pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The SKU that defines the tier and kind of the peering.

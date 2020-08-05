@@ -90,6 +90,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class EnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The display name of the Azure Resource Manager template that produced the environment.
+        /// </summary>
+        [Input("armTemplateDisplayName")]
+        public Input<string>? ArmTemplateDisplayName { get; set; }
+
+        /// <summary>
+        /// The deployment properties of the environment.
+        /// </summary>
+        [Input("deploymentProperties")]
+        public Input<Inputs.EnvironmentDeploymentPropertiesArgs>? DeploymentProperties { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -106,12 +118,6 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.EnvironmentPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

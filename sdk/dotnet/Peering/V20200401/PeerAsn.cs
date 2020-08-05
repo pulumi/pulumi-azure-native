@@ -84,10 +84,34 @@ namespace Pulumi.AzureRM.Peering.V20200401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties that define a peer's ASN.
+        /// The Autonomous System Number (ASN) of the peer.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PeerAsnPropertiesArgs>? Properties { get; set; }
+        [Input("peerAsn")]
+        public Input<int>? PeerAsn { get; set; }
+
+        [Input("peerContactDetail")]
+        private InputList<Inputs.ContactDetailArgs>? _peerContactDetail;
+
+        /// <summary>
+        /// The contact details of the peer.
+        /// </summary>
+        public InputList<Inputs.ContactDetailArgs> PeerContactDetail
+        {
+            get => _peerContactDetail ?? (_peerContactDetail = new InputList<Inputs.ContactDetailArgs>());
+            set => _peerContactDetail = value;
+        }
+
+        /// <summary>
+        /// The name of the peer.
+        /// </summary>
+        [Input("peerName")]
+        public Input<string>? PeerName { get; set; }
+
+        /// <summary>
+        /// The validation state of the ASN associated with the peer.
+        /// </summary>
+        [Input("validationState")]
+        public Input<string>? ValidationState { get; set; }
 
         public PeerAsnArgs()
         {

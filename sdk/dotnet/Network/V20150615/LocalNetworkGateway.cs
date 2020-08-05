@@ -96,16 +96,34 @@ namespace Pulumi.AzureRM.Network.V20150615
     public sealed class LocalNetworkGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Local network gateway's BGP speaker settings.
+        /// </summary>
+        [Input("bgpSettings")]
+        public Input<Inputs.BgpSettingsArgs>? BgpSettings { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// IP address of local network gateway.
+        /// </summary>
+        [Input("gatewayIpAddress")]
+        public Input<string>? GatewayIpAddress { get; set; }
+
+        /// <summary>
         /// Resource Identifier.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Local network site address space.
+        /// </summary>
+        [Input("localNetworkAddressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? LocalNetworkAddressSpace { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -120,16 +138,22 @@ namespace Pulumi.AzureRM.Network.V20150615
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// LocalNetworkGateway properties
+        /// Gets or sets Provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LocalNetworkGatewayPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the LocalNetworkGateway resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

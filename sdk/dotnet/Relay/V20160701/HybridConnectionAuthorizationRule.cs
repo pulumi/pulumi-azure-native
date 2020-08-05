@@ -96,16 +96,22 @@ namespace Pulumi.AzureRM.Relay.V20160701
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Authorization Rule properties
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AuthorizationRulePropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("rights", required: true)]
+        private InputList<string>? _rights;
+
+        /// <summary>
+        /// The rights associated with the rule.
+        /// </summary>
+        public InputList<string> Rights
+        {
+            get => _rights ?? (_rights = new InputList<string>());
+            set => _rights = value;
+        }
 
         public HybridConnectionAuthorizationRuleArgs()
         {

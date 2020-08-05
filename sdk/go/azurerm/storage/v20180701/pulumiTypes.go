@@ -175,159 +175,6 @@ func (o BlobContainerImmutabilityPolicyTypeOutput) Type() pulumi.StringOutput {
 }
 
 // The properties of a container.
-type ContainerProperties struct {
-	// A name-value pair to associate with the container as metadata.
-	Metadata map[string]string `pulumi:"metadata"`
-	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess *string `pulumi:"publicAccess"`
-}
-
-// ContainerPropertiesInput is an input type that accepts ContainerPropertiesArgs and ContainerPropertiesOutput values.
-// You can construct a concrete instance of `ContainerPropertiesInput` via:
-//
-//          ContainerPropertiesArgs{...}
-type ContainerPropertiesInput interface {
-	pulumi.Input
-
-	ToContainerPropertiesOutput() ContainerPropertiesOutput
-	ToContainerPropertiesOutputWithContext(context.Context) ContainerPropertiesOutput
-}
-
-// The properties of a container.
-type ContainerPropertiesArgs struct {
-	// A name-value pair to associate with the container as metadata.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess pulumi.StringPtrInput `pulumi:"publicAccess"`
-}
-
-func (ContainerPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerProperties)(nil)).Elem()
-}
-
-func (i ContainerPropertiesArgs) ToContainerPropertiesOutput() ContainerPropertiesOutput {
-	return i.ToContainerPropertiesOutputWithContext(context.Background())
-}
-
-func (i ContainerPropertiesArgs) ToContainerPropertiesOutputWithContext(ctx context.Context) ContainerPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesOutput)
-}
-
-func (i ContainerPropertiesArgs) ToContainerPropertiesPtrOutput() ContainerPropertiesPtrOutput {
-	return i.ToContainerPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ContainerPropertiesArgs) ToContainerPropertiesPtrOutputWithContext(ctx context.Context) ContainerPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesOutput).ToContainerPropertiesPtrOutputWithContext(ctx)
-}
-
-// ContainerPropertiesPtrInput is an input type that accepts ContainerPropertiesArgs, ContainerPropertiesPtr and ContainerPropertiesPtrOutput values.
-// You can construct a concrete instance of `ContainerPropertiesPtrInput` via:
-//
-//          ContainerPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ContainerPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToContainerPropertiesPtrOutput() ContainerPropertiesPtrOutput
-	ToContainerPropertiesPtrOutputWithContext(context.Context) ContainerPropertiesPtrOutput
-}
-
-type containerPropertiesPtrType ContainerPropertiesArgs
-
-func ContainerPropertiesPtr(v *ContainerPropertiesArgs) ContainerPropertiesPtrInput {
-	return (*containerPropertiesPtrType)(v)
-}
-
-func (*containerPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerProperties)(nil)).Elem()
-}
-
-func (i *containerPropertiesPtrType) ToContainerPropertiesPtrOutput() ContainerPropertiesPtrOutput {
-	return i.ToContainerPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *containerPropertiesPtrType) ToContainerPropertiesPtrOutputWithContext(ctx context.Context) ContainerPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesPtrOutput)
-}
-
-// The properties of a container.
-type ContainerPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ContainerPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerProperties)(nil)).Elem()
-}
-
-func (o ContainerPropertiesOutput) ToContainerPropertiesOutput() ContainerPropertiesOutput {
-	return o
-}
-
-func (o ContainerPropertiesOutput) ToContainerPropertiesOutputWithContext(ctx context.Context) ContainerPropertiesOutput {
-	return o
-}
-
-func (o ContainerPropertiesOutput) ToContainerPropertiesPtrOutput() ContainerPropertiesPtrOutput {
-	return o.ToContainerPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ContainerPropertiesOutput) ToContainerPropertiesPtrOutputWithContext(ctx context.Context) ContainerPropertiesPtrOutput {
-	return o.ApplyT(func(v ContainerProperties) *ContainerProperties {
-		return &v
-	}).(ContainerPropertiesPtrOutput)
-}
-
-// A name-value pair to associate with the container as metadata.
-func (o ContainerPropertiesOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ContainerProperties) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
-}
-
-// Specifies whether data in the container may be accessed publicly and the level of access.
-func (o ContainerPropertiesOutput) PublicAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerProperties) *string { return v.PublicAccess }).(pulumi.StringPtrOutput)
-}
-
-type ContainerPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerProperties)(nil)).Elem()
-}
-
-func (o ContainerPropertiesPtrOutput) ToContainerPropertiesPtrOutput() ContainerPropertiesPtrOutput {
-	return o
-}
-
-func (o ContainerPropertiesPtrOutput) ToContainerPropertiesPtrOutputWithContext(ctx context.Context) ContainerPropertiesPtrOutput {
-	return o
-}
-
-func (o ContainerPropertiesPtrOutput) Elem() ContainerPropertiesOutput {
-	return o.ApplyT(func(v *ContainerProperties) ContainerProperties { return *v }).(ContainerPropertiesOutput)
-}
-
-// A name-value pair to associate with the container as metadata.
-func (o ContainerPropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ContainerProperties) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(pulumi.StringMapOutput)
-}
-
-// Specifies whether data in the container may be accessed publicly and the level of access.
-func (o ContainerPropertiesPtrOutput) PublicAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicAccess
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of a container.
 type ContainerPropertiesResponse struct {
 	// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
 	HasImmutabilityPolicy bool `pulumi:"hasImmutabilityPolicy"`
@@ -2840,8 +2687,8 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 // The properties of an ImmutabilityPolicy of a blob container.
 type ImmutabilityPolicyProperties struct {
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties *ImmutabilityPolicyProperty `pulumi:"properties"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays int `pulumi:"immutabilityPeriodSinceCreationInDays"`
 }
 
 // ImmutabilityPolicyPropertiesInput is an input type that accepts ImmutabilityPolicyPropertiesArgs and ImmutabilityPolicyPropertiesOutput values.
@@ -2857,8 +2704,8 @@ type ImmutabilityPolicyPropertiesInput interface {
 
 // The properties of an ImmutabilityPolicy of a blob container.
 type ImmutabilityPolicyPropertiesArgs struct {
-	// The properties of an ImmutabilityPolicy of a blob container.
-	Properties ImmutabilityPolicyPropertyPtrInput `pulumi:"properties"`
+	// The immutability period for the blobs in the container since the policy creation, in days.
+	ImmutabilityPeriodSinceCreationInDays pulumi.IntInput `pulumi:"immutabilityPeriodSinceCreationInDays"`
 }
 
 func (ImmutabilityPolicyPropertiesArgs) ElementType() reflect.Type {
@@ -2888,9 +2735,9 @@ func (o ImmutabilityPolicyPropertiesOutput) ToImmutabilityPolicyPropertiesOutput
 	return o
 }
 
-// The properties of an ImmutabilityPolicy of a blob container.
-func (o ImmutabilityPolicyPropertiesOutput) Properties() ImmutabilityPolicyPropertyPtrOutput {
-	return o.ApplyT(func(v ImmutabilityPolicyProperties) *ImmutabilityPolicyProperty { return v.Properties }).(ImmutabilityPolicyPropertyPtrOutput)
+// The immutability period for the blobs in the container since the policy creation, in days.
+func (o ImmutabilityPolicyPropertiesOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v ImmutabilityPolicyProperties) int { return v.ImmutabilityPeriodSinceCreationInDays }).(pulumi.IntOutput)
 }
 
 // The properties of an ImmutabilityPolicy of a blob container.
@@ -3063,140 +2910,6 @@ func (o ImmutabilityPolicyPropertiesResponsePtrOutput) UpdateHistory() UpdateHis
 		}
 		return v.UpdateHistory
 	}).(UpdateHistoryPropertyResponseArrayOutput)
-}
-
-// The properties of an ImmutabilityPolicy of a blob container.
-type ImmutabilityPolicyProperty struct {
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays int `pulumi:"immutabilityPeriodSinceCreationInDays"`
-}
-
-// ImmutabilityPolicyPropertyInput is an input type that accepts ImmutabilityPolicyPropertyArgs and ImmutabilityPolicyPropertyOutput values.
-// You can construct a concrete instance of `ImmutabilityPolicyPropertyInput` via:
-//
-//          ImmutabilityPolicyPropertyArgs{...}
-type ImmutabilityPolicyPropertyInput interface {
-	pulumi.Input
-
-	ToImmutabilityPolicyPropertyOutput() ImmutabilityPolicyPropertyOutput
-	ToImmutabilityPolicyPropertyOutputWithContext(context.Context) ImmutabilityPolicyPropertyOutput
-}
-
-// The properties of an ImmutabilityPolicy of a blob container.
-type ImmutabilityPolicyPropertyArgs struct {
-	// The immutability period for the blobs in the container since the policy creation, in days.
-	ImmutabilityPeriodSinceCreationInDays pulumi.IntInput `pulumi:"immutabilityPeriodSinceCreationInDays"`
-}
-
-func (ImmutabilityPolicyPropertyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImmutabilityPolicyProperty)(nil)).Elem()
-}
-
-func (i ImmutabilityPolicyPropertyArgs) ToImmutabilityPolicyPropertyOutput() ImmutabilityPolicyPropertyOutput {
-	return i.ToImmutabilityPolicyPropertyOutputWithContext(context.Background())
-}
-
-func (i ImmutabilityPolicyPropertyArgs) ToImmutabilityPolicyPropertyOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutabilityPolicyPropertyOutput)
-}
-
-func (i ImmutabilityPolicyPropertyArgs) ToImmutabilityPolicyPropertyPtrOutput() ImmutabilityPolicyPropertyPtrOutput {
-	return i.ToImmutabilityPolicyPropertyPtrOutputWithContext(context.Background())
-}
-
-func (i ImmutabilityPolicyPropertyArgs) ToImmutabilityPolicyPropertyPtrOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutabilityPolicyPropertyOutput).ToImmutabilityPolicyPropertyPtrOutputWithContext(ctx)
-}
-
-// ImmutabilityPolicyPropertyPtrInput is an input type that accepts ImmutabilityPolicyPropertyArgs, ImmutabilityPolicyPropertyPtr and ImmutabilityPolicyPropertyPtrOutput values.
-// You can construct a concrete instance of `ImmutabilityPolicyPropertyPtrInput` via:
-//
-//          ImmutabilityPolicyPropertyArgs{...}
-//
-//  or:
-//
-//          nil
-type ImmutabilityPolicyPropertyPtrInput interface {
-	pulumi.Input
-
-	ToImmutabilityPolicyPropertyPtrOutput() ImmutabilityPolicyPropertyPtrOutput
-	ToImmutabilityPolicyPropertyPtrOutputWithContext(context.Context) ImmutabilityPolicyPropertyPtrOutput
-}
-
-type immutabilityPolicyPropertyPtrType ImmutabilityPolicyPropertyArgs
-
-func ImmutabilityPolicyPropertyPtr(v *ImmutabilityPolicyPropertyArgs) ImmutabilityPolicyPropertyPtrInput {
-	return (*immutabilityPolicyPropertyPtrType)(v)
-}
-
-func (*immutabilityPolicyPropertyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImmutabilityPolicyProperty)(nil)).Elem()
-}
-
-func (i *immutabilityPolicyPropertyPtrType) ToImmutabilityPolicyPropertyPtrOutput() ImmutabilityPolicyPropertyPtrOutput {
-	return i.ToImmutabilityPolicyPropertyPtrOutputWithContext(context.Background())
-}
-
-func (i *immutabilityPolicyPropertyPtrType) ToImmutabilityPolicyPropertyPtrOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImmutabilityPolicyPropertyPtrOutput)
-}
-
-// The properties of an ImmutabilityPolicy of a blob container.
-type ImmutabilityPolicyPropertyOutput struct{ *pulumi.OutputState }
-
-func (ImmutabilityPolicyPropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImmutabilityPolicyProperty)(nil)).Elem()
-}
-
-func (o ImmutabilityPolicyPropertyOutput) ToImmutabilityPolicyPropertyOutput() ImmutabilityPolicyPropertyOutput {
-	return o
-}
-
-func (o ImmutabilityPolicyPropertyOutput) ToImmutabilityPolicyPropertyOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyOutput {
-	return o
-}
-
-func (o ImmutabilityPolicyPropertyOutput) ToImmutabilityPolicyPropertyPtrOutput() ImmutabilityPolicyPropertyPtrOutput {
-	return o.ToImmutabilityPolicyPropertyPtrOutputWithContext(context.Background())
-}
-
-func (o ImmutabilityPolicyPropertyOutput) ToImmutabilityPolicyPropertyPtrOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyPtrOutput {
-	return o.ApplyT(func(v ImmutabilityPolicyProperty) *ImmutabilityPolicyProperty {
-		return &v
-	}).(ImmutabilityPolicyPropertyPtrOutput)
-}
-
-// The immutability period for the blobs in the container since the policy creation, in days.
-func (o ImmutabilityPolicyPropertyOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntOutput {
-	return o.ApplyT(func(v ImmutabilityPolicyProperty) int { return v.ImmutabilityPeriodSinceCreationInDays }).(pulumi.IntOutput)
-}
-
-type ImmutabilityPolicyPropertyPtrOutput struct{ *pulumi.OutputState }
-
-func (ImmutabilityPolicyPropertyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ImmutabilityPolicyProperty)(nil)).Elem()
-}
-
-func (o ImmutabilityPolicyPropertyPtrOutput) ToImmutabilityPolicyPropertyPtrOutput() ImmutabilityPolicyPropertyPtrOutput {
-	return o
-}
-
-func (o ImmutabilityPolicyPropertyPtrOutput) ToImmutabilityPolicyPropertyPtrOutputWithContext(ctx context.Context) ImmutabilityPolicyPropertyPtrOutput {
-	return o
-}
-
-func (o ImmutabilityPolicyPropertyPtrOutput) Elem() ImmutabilityPolicyPropertyOutput {
-	return o.ApplyT(func(v *ImmutabilityPolicyProperty) ImmutabilityPolicyProperty { return *v }).(ImmutabilityPolicyPropertyOutput)
-}
-
-// The immutability period for the blobs in the container since the policy creation, in days.
-func (o ImmutabilityPolicyPropertyPtrOutput) ImmutabilityPeriodSinceCreationInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ImmutabilityPolicyProperty) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.ImmutabilityPeriodSinceCreationInDays
-	}).(pulumi.IntPtrOutput)
 }
 
 // The properties of an ImmutabilityPolicy of a blob container.
@@ -5296,254 +5009,6 @@ func (o StorageAccountKeyResponseArrayOutput) Index(i pulumi.IntInput) StorageAc
 	}).(StorageAccountKeyResponseOutput)
 }
 
-// The parameters used to create the storage account.
-type StorageAccountPropertiesCreateParameters struct {
-	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier *string `pulumi:"accessTier"`
-	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
-	CustomDomain *CustomDomain `pulumi:"customDomain"`
-	// Enables Azure Files AAD Integration for SMB if sets to true.
-	EnableAzureFilesAadIntegration *bool `pulumi:"enableAzureFilesAadIntegration"`
-	// Allows https traffic only to storage service if sets to true.
-	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
-	// Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
-	Encryption *Encryption `pulumi:"encryption"`
-	// Account HierarchicalNamespace enabled if sets to true.
-	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
-	// Network rule set
-	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
-}
-
-// StorageAccountPropertiesCreateParametersInput is an input type that accepts StorageAccountPropertiesCreateParametersArgs and StorageAccountPropertiesCreateParametersOutput values.
-// You can construct a concrete instance of `StorageAccountPropertiesCreateParametersInput` via:
-//
-//          StorageAccountPropertiesCreateParametersArgs{...}
-type StorageAccountPropertiesCreateParametersInput interface {
-	pulumi.Input
-
-	ToStorageAccountPropertiesCreateParametersOutput() StorageAccountPropertiesCreateParametersOutput
-	ToStorageAccountPropertiesCreateParametersOutputWithContext(context.Context) StorageAccountPropertiesCreateParametersOutput
-}
-
-// The parameters used to create the storage account.
-type StorageAccountPropertiesCreateParametersArgs struct {
-	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier pulumi.StringPtrInput `pulumi:"accessTier"`
-	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
-	CustomDomain CustomDomainPtrInput `pulumi:"customDomain"`
-	// Enables Azure Files AAD Integration for SMB if sets to true.
-	EnableAzureFilesAadIntegration pulumi.BoolPtrInput `pulumi:"enableAzureFilesAadIntegration"`
-	// Allows https traffic only to storage service if sets to true.
-	EnableHttpsTrafficOnly pulumi.BoolPtrInput `pulumi:"enableHttpsTrafficOnly"`
-	// Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
-	Encryption EncryptionPtrInput `pulumi:"encryption"`
-	// Account HierarchicalNamespace enabled if sets to true.
-	IsHnsEnabled pulumi.BoolPtrInput `pulumi:"isHnsEnabled"`
-	// Network rule set
-	NetworkRuleSet NetworkRuleSetPtrInput `pulumi:"networkRuleSet"`
-}
-
-func (StorageAccountPropertiesCreateParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountPropertiesCreateParameters)(nil)).Elem()
-}
-
-func (i StorageAccountPropertiesCreateParametersArgs) ToStorageAccountPropertiesCreateParametersOutput() StorageAccountPropertiesCreateParametersOutput {
-	return i.ToStorageAccountPropertiesCreateParametersOutputWithContext(context.Background())
-}
-
-func (i StorageAccountPropertiesCreateParametersArgs) ToStorageAccountPropertiesCreateParametersOutputWithContext(ctx context.Context) StorageAccountPropertiesCreateParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesCreateParametersOutput)
-}
-
-func (i StorageAccountPropertiesCreateParametersArgs) ToStorageAccountPropertiesCreateParametersPtrOutput() StorageAccountPropertiesCreateParametersPtrOutput {
-	return i.ToStorageAccountPropertiesCreateParametersPtrOutputWithContext(context.Background())
-}
-
-func (i StorageAccountPropertiesCreateParametersArgs) ToStorageAccountPropertiesCreateParametersPtrOutputWithContext(ctx context.Context) StorageAccountPropertiesCreateParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesCreateParametersOutput).ToStorageAccountPropertiesCreateParametersPtrOutputWithContext(ctx)
-}
-
-// StorageAccountPropertiesCreateParametersPtrInput is an input type that accepts StorageAccountPropertiesCreateParametersArgs, StorageAccountPropertiesCreateParametersPtr and StorageAccountPropertiesCreateParametersPtrOutput values.
-// You can construct a concrete instance of `StorageAccountPropertiesCreateParametersPtrInput` via:
-//
-//          StorageAccountPropertiesCreateParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type StorageAccountPropertiesCreateParametersPtrInput interface {
-	pulumi.Input
-
-	ToStorageAccountPropertiesCreateParametersPtrOutput() StorageAccountPropertiesCreateParametersPtrOutput
-	ToStorageAccountPropertiesCreateParametersPtrOutputWithContext(context.Context) StorageAccountPropertiesCreateParametersPtrOutput
-}
-
-type storageAccountPropertiesCreateParametersPtrType StorageAccountPropertiesCreateParametersArgs
-
-func StorageAccountPropertiesCreateParametersPtr(v *StorageAccountPropertiesCreateParametersArgs) StorageAccountPropertiesCreateParametersPtrInput {
-	return (*storageAccountPropertiesCreateParametersPtrType)(v)
-}
-
-func (*storageAccountPropertiesCreateParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAccountPropertiesCreateParameters)(nil)).Elem()
-}
-
-func (i *storageAccountPropertiesCreateParametersPtrType) ToStorageAccountPropertiesCreateParametersPtrOutput() StorageAccountPropertiesCreateParametersPtrOutput {
-	return i.ToStorageAccountPropertiesCreateParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *storageAccountPropertiesCreateParametersPtrType) ToStorageAccountPropertiesCreateParametersPtrOutputWithContext(ctx context.Context) StorageAccountPropertiesCreateParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesCreateParametersPtrOutput)
-}
-
-// The parameters used to create the storage account.
-type StorageAccountPropertiesCreateParametersOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountPropertiesCreateParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountPropertiesCreateParameters)(nil)).Elem()
-}
-
-func (o StorageAccountPropertiesCreateParametersOutput) ToStorageAccountPropertiesCreateParametersOutput() StorageAccountPropertiesCreateParametersOutput {
-	return o
-}
-
-func (o StorageAccountPropertiesCreateParametersOutput) ToStorageAccountPropertiesCreateParametersOutputWithContext(ctx context.Context) StorageAccountPropertiesCreateParametersOutput {
-	return o
-}
-
-func (o StorageAccountPropertiesCreateParametersOutput) ToStorageAccountPropertiesCreateParametersPtrOutput() StorageAccountPropertiesCreateParametersPtrOutput {
-	return o.ToStorageAccountPropertiesCreateParametersPtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountPropertiesCreateParametersOutput) ToStorageAccountPropertiesCreateParametersPtrOutputWithContext(ctx context.Context) StorageAccountPropertiesCreateParametersPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *StorageAccountPropertiesCreateParameters {
-		return &v
-	}).(StorageAccountPropertiesCreateParametersPtrOutput)
-}
-
-// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-func (o StorageAccountPropertiesCreateParametersOutput) AccessTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *string { return v.AccessTier }).(pulumi.StringPtrOutput)
-}
-
-// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
-func (o StorageAccountPropertiesCreateParametersOutput) CustomDomain() CustomDomainPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *CustomDomain { return v.CustomDomain }).(CustomDomainPtrOutput)
-}
-
-// Enables Azure Files AAD Integration for SMB if sets to true.
-func (o StorageAccountPropertiesCreateParametersOutput) EnableAzureFilesAadIntegration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *bool { return v.EnableAzureFilesAadIntegration }).(pulumi.BoolPtrOutput)
-}
-
-// Allows https traffic only to storage service if sets to true.
-func (o StorageAccountPropertiesCreateParametersOutput) EnableHttpsTrafficOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *bool { return v.EnableHttpsTrafficOnly }).(pulumi.BoolPtrOutput)
-}
-
-// Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
-func (o StorageAccountPropertiesCreateParametersOutput) Encryption() EncryptionPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *Encryption { return v.Encryption }).(EncryptionPtrOutput)
-}
-
-// Account HierarchicalNamespace enabled if sets to true.
-func (o StorageAccountPropertiesCreateParametersOutput) IsHnsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *bool { return v.IsHnsEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Network rule set
-func (o StorageAccountPropertiesCreateParametersOutput) NetworkRuleSet() NetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v StorageAccountPropertiesCreateParameters) *NetworkRuleSet { return v.NetworkRuleSet }).(NetworkRuleSetPtrOutput)
-}
-
-type StorageAccountPropertiesCreateParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountPropertiesCreateParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAccountPropertiesCreateParameters)(nil)).Elem()
-}
-
-func (o StorageAccountPropertiesCreateParametersPtrOutput) ToStorageAccountPropertiesCreateParametersPtrOutput() StorageAccountPropertiesCreateParametersPtrOutput {
-	return o
-}
-
-func (o StorageAccountPropertiesCreateParametersPtrOutput) ToStorageAccountPropertiesCreateParametersPtrOutputWithContext(ctx context.Context) StorageAccountPropertiesCreateParametersPtrOutput {
-	return o
-}
-
-func (o StorageAccountPropertiesCreateParametersPtrOutput) Elem() StorageAccountPropertiesCreateParametersOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) StorageAccountPropertiesCreateParameters { return *v }).(StorageAccountPropertiesCreateParametersOutput)
-}
-
-// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-func (o StorageAccountPropertiesCreateParametersPtrOutput) AccessTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccessTier
-	}).(pulumi.StringPtrOutput)
-}
-
-// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
-func (o StorageAccountPropertiesCreateParametersPtrOutput) CustomDomain() CustomDomainPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *CustomDomain {
-		if v == nil {
-			return nil
-		}
-		return v.CustomDomain
-	}).(CustomDomainPtrOutput)
-}
-
-// Enables Azure Files AAD Integration for SMB if sets to true.
-func (o StorageAccountPropertiesCreateParametersPtrOutput) EnableAzureFilesAadIntegration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableAzureFilesAadIntegration
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Allows https traffic only to storage service if sets to true.
-func (o StorageAccountPropertiesCreateParametersPtrOutput) EnableHttpsTrafficOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableHttpsTrafficOnly
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
-func (o StorageAccountPropertiesCreateParametersPtrOutput) Encryption() EncryptionPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *Encryption {
-		if v == nil {
-			return nil
-		}
-		return v.Encryption
-	}).(EncryptionPtrOutput)
-}
-
-// Account HierarchicalNamespace enabled if sets to true.
-func (o StorageAccountPropertiesCreateParametersPtrOutput) IsHnsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsHnsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Network rule set
-func (o StorageAccountPropertiesCreateParametersPtrOutput) NetworkRuleSet() NetworkRuleSetPtrOutput {
-	return o.ApplyT(func(v *StorageAccountPropertiesCreateParameters) *NetworkRuleSet {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkRuleSet
-	}).(NetworkRuleSetPtrOutput)
-}
-
 // Properties of the storage account.
 type StorageAccountPropertiesResponse struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
@@ -6658,8 +6123,6 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 func init() {
 	pulumi.RegisterOutputType(BlobContainerTypeOutput{})
 	pulumi.RegisterOutputType(BlobContainerImmutabilityPolicyTypeOutput{})
-	pulumi.RegisterOutputType(ContainerPropertiesOutput{})
-	pulumi.RegisterOutputType(ContainerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainOutput{})
@@ -6693,8 +6156,6 @@ func init() {
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ImmutabilityPolicyPropertyOutput{})
-	pulumi.RegisterOutputType(ImmutabilityPolicyPropertyPtrOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertyResponseOutput{})
 	pulumi.RegisterOutputType(ImmutabilityPolicyPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
@@ -6722,8 +6183,6 @@ func init() {
 	pulumi.RegisterOutputType(StorageAccountTypeOutput{})
 	pulumi.RegisterOutputType(StorageAccountKeyResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountKeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(StorageAccountPropertiesCreateParametersOutput{})
-	pulumi.RegisterOutputType(StorageAccountPropertiesCreateParametersPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TagPropertyOutput{})

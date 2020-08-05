@@ -34,10 +34,16 @@ namespace Pulumi.AzureRM.Network.V20190701.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the application gateway frontend port.
+        /// Frontend port.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayFrontendPortPropertiesFormatArgs>? Properties { get; set; }
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// The provisioning state of the frontend port resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Type of the resource.

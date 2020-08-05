@@ -25,20 +25,16 @@ class RegisteredAsn(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, peering_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, asn=None, name=None, peering_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The customer's ASN that is registered by the peering service provider.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] asn: The customer's ASN from which traffic originates.
         :param pulumi.Input[str] name: The name of the ASN.
         :param pulumi.Input[str] peering_name: The name of the peering.
-        :param pulumi.Input[dict] properties: The properties that define a registered ASN.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **properties** object supports the following:
-
-          * `asn` (`pulumi.Input[float]`) - The customer's ASN from which traffic originates.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -57,16 +53,17 @@ class RegisteredAsn(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['asn'] = asn
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if peering_name is None:
                 raise TypeError("Missing required property 'peering_name'")
             __props__['peering_name'] = peering_name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(RegisteredAsn, __self__).__init__(
             'azurerm:peering/v20200401:RegisteredAsn',

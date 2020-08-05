@@ -114,12 +114,6 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties on the account
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AccountPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]

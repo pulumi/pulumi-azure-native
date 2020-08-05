@@ -16,16 +16,41 @@ namespace Pulumi.AzureRM.Web.V20160801.Inputs
     public sealed class SnapshotRecoveryRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If true, custom hostname conflicts will be ignored when recovering to a target web app.
+        /// This setting is only necessary when RecoverConfiguration is enabled.
+        /// </summary>
+        [Input("ignoreConflictingHostNames")]
+        public Input<bool>? IgnoreConflictingHostNames { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
-        /// SnapshotRecoveryRequest resource specific properties
+        /// If &lt;code&gt;true&lt;/code&gt; the recovery operation can overwrite source app; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SnapshotRecoveryRequestPropertiesArgs>? Properties { get; set; }
+        [Input("overwrite", required: true)]
+        public Input<bool> Overwrite { get; set; } = null!;
+
+        /// <summary>
+        /// If true, site configuration, in addition to content, will be reverted.
+        /// </summary>
+        [Input("recoverConfiguration")]
+        public Input<bool>? RecoverConfiguration { get; set; }
+
+        /// <summary>
+        /// Specifies the web app that snapshot contents will be written to.
+        /// </summary>
+        [Input("recoveryTarget")]
+        public Input<Inputs.SnapshotRecoveryTargetArgs>? RecoveryTarget { get; set; }
+
+        /// <summary>
+        /// Point in time in which the app recovery should be attempted, formatted as a DateTime string.
+        /// </summary>
+        [Input("snapshotTime")]
+        public Input<string>? SnapshotTime { get; set; }
 
         public SnapshotRecoveryRequestArgs()
         {

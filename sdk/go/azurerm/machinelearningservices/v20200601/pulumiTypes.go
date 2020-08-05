@@ -3250,180 +3250,6 @@ func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
 }
 
 // Properties of the PrivateEndpointConnectProperties.
-type PrivateEndpointConnectionProperties struct {
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-}
-
-// PrivateEndpointConnectionPropertiesInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs and PrivateEndpointConnectionPropertiesOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInput` via:
-//
-//          PrivateEndpointConnectionPropertiesArgs{...}
-type PrivateEndpointConnectionPropertiesInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput
-	ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesOutput
-}
-
-// Properties of the PrivateEndpointConnectProperties.
-type PrivateEndpointConnectionPropertiesArgs struct {
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-}
-
-func (PrivateEndpointConnectionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput {
-	return i.ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesOutput)
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return i.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesOutput).ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx)
-}
-
-// PrivateEndpointConnectionPropertiesPtrInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs, PrivateEndpointConnectionPropertiesPtr and PrivateEndpointConnectionPropertiesPtrOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesPtrInput` via:
-//
-//          PrivateEndpointConnectionPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type PrivateEndpointConnectionPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput
-	ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesPtrOutput
-}
-
-type privateEndpointConnectionPropertiesPtrType PrivateEndpointConnectionPropertiesArgs
-
-func PrivateEndpointConnectionPropertiesPtr(v *PrivateEndpointConnectionPropertiesArgs) PrivateEndpointConnectionPropertiesPtrInput {
-	return (*privateEndpointConnectionPropertiesPtrType)(v)
-}
-
-func (*privateEndpointConnectionPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return i.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPtrOutput)
-}
-
-// Properties of the PrivateEndpointConnectProperties.
-type PrivateEndpointConnectionPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
-		return &v
-	}).(PrivateEndpointConnectionPropertiesPtrOutput)
-}
-
-// The resource of private end point.
-func (o PrivateEndpointConnectionPropertiesOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) PrivateLinkServiceConnectionState {
-		return v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStateOutput)
-}
-
-// The provisioning state of the private endpoint connection resource.
-func (o PrivateEndpointConnectionPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-type PrivateEndpointConnectionPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
-}
-
-// The resource of private end point.
-func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateEndpoint {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateEndpoint
-	}).(PrivateEndpointPtrOutput)
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionState {
-		if v == nil {
-			return nil
-		}
-		return &v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
-// The provisioning state of the private endpoint connection resource.
-func (o PrivateEndpointConnectionPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Properties of the PrivateEndpointConnectProperties.
 type PrivateEndpointConnectionPropertiesResponse struct {
 	// The resource of private end point.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -4306,10 +4132,16 @@ func (o RegistryListCredentialsResultResponseOutput) Username() pulumi.StringOut
 }
 
 type SharedPrivateLinkResource struct {
+	// The private link resource group id.
+	GroupId *string `pulumi:"groupId"`
 	// Unique name of the private link.
 	Name *string `pulumi:"name"`
-	// Resource properties.
-	Properties *SharedPrivateLinkResourceProperty `pulumi:"properties"`
+	// The resource id that private link links to.
+	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
+	// Request message.
+	RequestMessage *string `pulumi:"requestMessage"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status *string `pulumi:"status"`
 }
 
 // SharedPrivateLinkResourceInput is an input type that accepts SharedPrivateLinkResourceArgs and SharedPrivateLinkResourceOutput values.
@@ -4324,10 +4156,16 @@ type SharedPrivateLinkResourceInput interface {
 }
 
 type SharedPrivateLinkResourceArgs struct {
+	// The private link resource group id.
+	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
 	// Unique name of the private link.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Resource properties.
-	Properties SharedPrivateLinkResourcePropertyPtrInput `pulumi:"properties"`
+	// The resource id that private link links to.
+	PrivateLinkResourceId pulumi.StringPtrInput `pulumi:"privateLinkResourceId"`
+	// Request message.
+	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (SharedPrivateLinkResourceArgs) ElementType() reflect.Type {
@@ -4381,14 +4219,29 @@ func (o SharedPrivateLinkResourceOutput) ToSharedPrivateLinkResourceOutputWithCo
 	return o
 }
 
+// The private link resource group id.
+func (o SharedPrivateLinkResourceOutput) GroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResource) *string { return v.GroupId }).(pulumi.StringPtrOutput)
+}
+
 // Unique name of the private link.
 func (o SharedPrivateLinkResourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SharedPrivateLinkResource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Resource properties.
-func (o SharedPrivateLinkResourceOutput) Properties() SharedPrivateLinkResourcePropertyPtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResource) *SharedPrivateLinkResourceProperty { return v.Properties }).(SharedPrivateLinkResourcePropertyPtrOutput)
+// The resource id that private link links to.
+func (o SharedPrivateLinkResourceOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResource) *string { return v.PrivateLinkResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Request message.
+func (o SharedPrivateLinkResourceOutput) RequestMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResource) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o SharedPrivateLinkResourceOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedPrivateLinkResource) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
 type SharedPrivateLinkResourceArrayOutput struct{ *pulumi.OutputState }
@@ -4409,197 +4262,6 @@ func (o SharedPrivateLinkResourceArrayOutput) Index(i pulumi.IntInput) SharedPri
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SharedPrivateLinkResource {
 		return vs[0].([]SharedPrivateLinkResource)[vs[1].(int)]
 	}).(SharedPrivateLinkResourceOutput)
-}
-
-// Properties of a shared private link resource.
-type SharedPrivateLinkResourceProperty struct {
-	// The private link resource group id.
-	GroupId *string `pulumi:"groupId"`
-	// The resource id that private link links to.
-	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
-	// Request message.
-	RequestMessage *string `pulumi:"requestMessage"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status *string `pulumi:"status"`
-}
-
-// SharedPrivateLinkResourcePropertyInput is an input type that accepts SharedPrivateLinkResourcePropertyArgs and SharedPrivateLinkResourcePropertyOutput values.
-// You can construct a concrete instance of `SharedPrivateLinkResourcePropertyInput` via:
-//
-//          SharedPrivateLinkResourcePropertyArgs{...}
-type SharedPrivateLinkResourcePropertyInput interface {
-	pulumi.Input
-
-	ToSharedPrivateLinkResourcePropertyOutput() SharedPrivateLinkResourcePropertyOutput
-	ToSharedPrivateLinkResourcePropertyOutputWithContext(context.Context) SharedPrivateLinkResourcePropertyOutput
-}
-
-// Properties of a shared private link resource.
-type SharedPrivateLinkResourcePropertyArgs struct {
-	// The private link resource group id.
-	GroupId pulumi.StringPtrInput `pulumi:"groupId"`
-	// The resource id that private link links to.
-	PrivateLinkResourceId pulumi.StringPtrInput `pulumi:"privateLinkResourceId"`
-	// Request message.
-	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
-	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (SharedPrivateLinkResourcePropertyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedPrivateLinkResourceProperty)(nil)).Elem()
-}
-
-func (i SharedPrivateLinkResourcePropertyArgs) ToSharedPrivateLinkResourcePropertyOutput() SharedPrivateLinkResourcePropertyOutput {
-	return i.ToSharedPrivateLinkResourcePropertyOutputWithContext(context.Background())
-}
-
-func (i SharedPrivateLinkResourcePropertyArgs) ToSharedPrivateLinkResourcePropertyOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertyOutput)
-}
-
-func (i SharedPrivateLinkResourcePropertyArgs) ToSharedPrivateLinkResourcePropertyPtrOutput() SharedPrivateLinkResourcePropertyPtrOutput {
-	return i.ToSharedPrivateLinkResourcePropertyPtrOutputWithContext(context.Background())
-}
-
-func (i SharedPrivateLinkResourcePropertyArgs) ToSharedPrivateLinkResourcePropertyPtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertyOutput).ToSharedPrivateLinkResourcePropertyPtrOutputWithContext(ctx)
-}
-
-// SharedPrivateLinkResourcePropertyPtrInput is an input type that accepts SharedPrivateLinkResourcePropertyArgs, SharedPrivateLinkResourcePropertyPtr and SharedPrivateLinkResourcePropertyPtrOutput values.
-// You can construct a concrete instance of `SharedPrivateLinkResourcePropertyPtrInput` via:
-//
-//          SharedPrivateLinkResourcePropertyArgs{...}
-//
-//  or:
-//
-//          nil
-type SharedPrivateLinkResourcePropertyPtrInput interface {
-	pulumi.Input
-
-	ToSharedPrivateLinkResourcePropertyPtrOutput() SharedPrivateLinkResourcePropertyPtrOutput
-	ToSharedPrivateLinkResourcePropertyPtrOutputWithContext(context.Context) SharedPrivateLinkResourcePropertyPtrOutput
-}
-
-type sharedPrivateLinkResourcePropertyPtrType SharedPrivateLinkResourcePropertyArgs
-
-func SharedPrivateLinkResourcePropertyPtr(v *SharedPrivateLinkResourcePropertyArgs) SharedPrivateLinkResourcePropertyPtrInput {
-	return (*sharedPrivateLinkResourcePropertyPtrType)(v)
-}
-
-func (*sharedPrivateLinkResourcePropertyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SharedPrivateLinkResourceProperty)(nil)).Elem()
-}
-
-func (i *sharedPrivateLinkResourcePropertyPtrType) ToSharedPrivateLinkResourcePropertyPtrOutput() SharedPrivateLinkResourcePropertyPtrOutput {
-	return i.ToSharedPrivateLinkResourcePropertyPtrOutputWithContext(context.Background())
-}
-
-func (i *sharedPrivateLinkResourcePropertyPtrType) ToSharedPrivateLinkResourcePropertyPtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkResourcePropertyPtrOutput)
-}
-
-// Properties of a shared private link resource.
-type SharedPrivateLinkResourcePropertyOutput struct{ *pulumi.OutputState }
-
-func (SharedPrivateLinkResourcePropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SharedPrivateLinkResourceProperty)(nil)).Elem()
-}
-
-func (o SharedPrivateLinkResourcePropertyOutput) ToSharedPrivateLinkResourcePropertyOutput() SharedPrivateLinkResourcePropertyOutput {
-	return o
-}
-
-func (o SharedPrivateLinkResourcePropertyOutput) ToSharedPrivateLinkResourcePropertyOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertyOutput {
-	return o
-}
-
-func (o SharedPrivateLinkResourcePropertyOutput) ToSharedPrivateLinkResourcePropertyPtrOutput() SharedPrivateLinkResourcePropertyPtrOutput {
-	return o.ToSharedPrivateLinkResourcePropertyPtrOutputWithContext(context.Background())
-}
-
-func (o SharedPrivateLinkResourcePropertyOutput) ToSharedPrivateLinkResourcePropertyPtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertyPtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResourceProperty) *SharedPrivateLinkResourceProperty {
-		return &v
-	}).(SharedPrivateLinkResourcePropertyPtrOutput)
-}
-
-// The private link resource group id.
-func (o SharedPrivateLinkResourcePropertyOutput) GroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResourceProperty) *string { return v.GroupId }).(pulumi.StringPtrOutput)
-}
-
-// The resource id that private link links to.
-func (o SharedPrivateLinkResourcePropertyOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResourceProperty) *string { return v.PrivateLinkResourceId }).(pulumi.StringPtrOutput)
-}
-
-// Request message.
-func (o SharedPrivateLinkResourcePropertyOutput) RequestMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResourceProperty) *string { return v.RequestMessage }).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-func (o SharedPrivateLinkResourcePropertyOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SharedPrivateLinkResourceProperty) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type SharedPrivateLinkResourcePropertyPtrOutput struct{ *pulumi.OutputState }
-
-func (SharedPrivateLinkResourcePropertyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SharedPrivateLinkResourceProperty)(nil)).Elem()
-}
-
-func (o SharedPrivateLinkResourcePropertyPtrOutput) ToSharedPrivateLinkResourcePropertyPtrOutput() SharedPrivateLinkResourcePropertyPtrOutput {
-	return o
-}
-
-func (o SharedPrivateLinkResourcePropertyPtrOutput) ToSharedPrivateLinkResourcePropertyPtrOutputWithContext(ctx context.Context) SharedPrivateLinkResourcePropertyPtrOutput {
-	return o
-}
-
-func (o SharedPrivateLinkResourcePropertyPtrOutput) Elem() SharedPrivateLinkResourcePropertyOutput {
-	return o.ApplyT(func(v *SharedPrivateLinkResourceProperty) SharedPrivateLinkResourceProperty { return *v }).(SharedPrivateLinkResourcePropertyOutput)
-}
-
-// The private link resource group id.
-func (o SharedPrivateLinkResourcePropertyPtrOutput) GroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedPrivateLinkResourceProperty) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GroupId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource id that private link links to.
-func (o SharedPrivateLinkResourcePropertyPtrOutput) PrivateLinkResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedPrivateLinkResourceProperty) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateLinkResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Request message.
-func (o SharedPrivateLinkResourcePropertyPtrOutput) RequestMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedPrivateLinkResourceProperty) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RequestMessage
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-func (o SharedPrivateLinkResourcePropertyPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SharedPrivateLinkResourceProperty) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
 }
 
 // Properties of a shared private link resource.
@@ -5392,197 +5054,6 @@ func (o WorkspaceConnectionTypeOutput) Type() pulumi.StringOutput {
 }
 
 // Workspace Connection specific properties.
-type WorkspaceConnectionProps struct {
-	// Authorization type of the workspace connection.
-	AuthType *string `pulumi:"authType"`
-	// Category of the workspace connection.
-	Category *string `pulumi:"category"`
-	// Target of the workspace connection.
-	Target *string `pulumi:"target"`
-	// Value details of the workspace connection.
-	Value *string `pulumi:"value"`
-}
-
-// WorkspaceConnectionPropsInput is an input type that accepts WorkspaceConnectionPropsArgs and WorkspaceConnectionPropsOutput values.
-// You can construct a concrete instance of `WorkspaceConnectionPropsInput` via:
-//
-//          WorkspaceConnectionPropsArgs{...}
-type WorkspaceConnectionPropsInput interface {
-	pulumi.Input
-
-	ToWorkspaceConnectionPropsOutput() WorkspaceConnectionPropsOutput
-	ToWorkspaceConnectionPropsOutputWithContext(context.Context) WorkspaceConnectionPropsOutput
-}
-
-// Workspace Connection specific properties.
-type WorkspaceConnectionPropsArgs struct {
-	// Authorization type of the workspace connection.
-	AuthType pulumi.StringPtrInput `pulumi:"authType"`
-	// Category of the workspace connection.
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	// Target of the workspace connection.
-	Target pulumi.StringPtrInput `pulumi:"target"`
-	// Value details of the workspace connection.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (WorkspaceConnectionPropsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceConnectionProps)(nil)).Elem()
-}
-
-func (i WorkspaceConnectionPropsArgs) ToWorkspaceConnectionPropsOutput() WorkspaceConnectionPropsOutput {
-	return i.ToWorkspaceConnectionPropsOutputWithContext(context.Background())
-}
-
-func (i WorkspaceConnectionPropsArgs) ToWorkspaceConnectionPropsOutputWithContext(ctx context.Context) WorkspaceConnectionPropsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionPropsOutput)
-}
-
-func (i WorkspaceConnectionPropsArgs) ToWorkspaceConnectionPropsPtrOutput() WorkspaceConnectionPropsPtrOutput {
-	return i.ToWorkspaceConnectionPropsPtrOutputWithContext(context.Background())
-}
-
-func (i WorkspaceConnectionPropsArgs) ToWorkspaceConnectionPropsPtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionPropsOutput).ToWorkspaceConnectionPropsPtrOutputWithContext(ctx)
-}
-
-// WorkspaceConnectionPropsPtrInput is an input type that accepts WorkspaceConnectionPropsArgs, WorkspaceConnectionPropsPtr and WorkspaceConnectionPropsPtrOutput values.
-// You can construct a concrete instance of `WorkspaceConnectionPropsPtrInput` via:
-//
-//          WorkspaceConnectionPropsArgs{...}
-//
-//  or:
-//
-//          nil
-type WorkspaceConnectionPropsPtrInput interface {
-	pulumi.Input
-
-	ToWorkspaceConnectionPropsPtrOutput() WorkspaceConnectionPropsPtrOutput
-	ToWorkspaceConnectionPropsPtrOutputWithContext(context.Context) WorkspaceConnectionPropsPtrOutput
-}
-
-type workspaceConnectionPropsPtrType WorkspaceConnectionPropsArgs
-
-func WorkspaceConnectionPropsPtr(v *WorkspaceConnectionPropsArgs) WorkspaceConnectionPropsPtrInput {
-	return (*workspaceConnectionPropsPtrType)(v)
-}
-
-func (*workspaceConnectionPropsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceConnectionProps)(nil)).Elem()
-}
-
-func (i *workspaceConnectionPropsPtrType) ToWorkspaceConnectionPropsPtrOutput() WorkspaceConnectionPropsPtrOutput {
-	return i.ToWorkspaceConnectionPropsPtrOutputWithContext(context.Background())
-}
-
-func (i *workspaceConnectionPropsPtrType) ToWorkspaceConnectionPropsPtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConnectionPropsPtrOutput)
-}
-
-// Workspace Connection specific properties.
-type WorkspaceConnectionPropsOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceConnectionPropsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceConnectionProps)(nil)).Elem()
-}
-
-func (o WorkspaceConnectionPropsOutput) ToWorkspaceConnectionPropsOutput() WorkspaceConnectionPropsOutput {
-	return o
-}
-
-func (o WorkspaceConnectionPropsOutput) ToWorkspaceConnectionPropsOutputWithContext(ctx context.Context) WorkspaceConnectionPropsOutput {
-	return o
-}
-
-func (o WorkspaceConnectionPropsOutput) ToWorkspaceConnectionPropsPtrOutput() WorkspaceConnectionPropsPtrOutput {
-	return o.ToWorkspaceConnectionPropsPtrOutputWithContext(context.Background())
-}
-
-func (o WorkspaceConnectionPropsOutput) ToWorkspaceConnectionPropsPtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsPtrOutput {
-	return o.ApplyT(func(v WorkspaceConnectionProps) *WorkspaceConnectionProps {
-		return &v
-	}).(WorkspaceConnectionPropsPtrOutput)
-}
-
-// Authorization type of the workspace connection.
-func (o WorkspaceConnectionPropsOutput) AuthType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceConnectionProps) *string { return v.AuthType }).(pulumi.StringPtrOutput)
-}
-
-// Category of the workspace connection.
-func (o WorkspaceConnectionPropsOutput) Category() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceConnectionProps) *string { return v.Category }).(pulumi.StringPtrOutput)
-}
-
-// Target of the workspace connection.
-func (o WorkspaceConnectionPropsOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceConnectionProps) *string { return v.Target }).(pulumi.StringPtrOutput)
-}
-
-// Value details of the workspace connection.
-func (o WorkspaceConnectionPropsOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceConnectionProps) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type WorkspaceConnectionPropsPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceConnectionPropsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceConnectionProps)(nil)).Elem()
-}
-
-func (o WorkspaceConnectionPropsPtrOutput) ToWorkspaceConnectionPropsPtrOutput() WorkspaceConnectionPropsPtrOutput {
-	return o
-}
-
-func (o WorkspaceConnectionPropsPtrOutput) ToWorkspaceConnectionPropsPtrOutputWithContext(ctx context.Context) WorkspaceConnectionPropsPtrOutput {
-	return o
-}
-
-func (o WorkspaceConnectionPropsPtrOutput) Elem() WorkspaceConnectionPropsOutput {
-	return o.ApplyT(func(v *WorkspaceConnectionProps) WorkspaceConnectionProps { return *v }).(WorkspaceConnectionPropsOutput)
-}
-
-// Authorization type of the workspace connection.
-func (o WorkspaceConnectionPropsPtrOutput) AuthType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceConnectionProps) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AuthType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Category of the workspace connection.
-func (o WorkspaceConnectionPropsPtrOutput) Category() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceConnectionProps) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Category
-	}).(pulumi.StringPtrOutput)
-}
-
-// Target of the workspace connection.
-func (o WorkspaceConnectionPropsPtrOutput) Target() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceConnectionProps) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Target
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value details of the workspace connection.
-func (o WorkspaceConnectionPropsPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceConnectionProps) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-// Workspace Connection specific properties.
 type WorkspaceConnectionPropsResponse struct {
 	// Authorization type of the workspace connection.
 	AuthType *string `pulumi:"authType"`
@@ -5770,349 +5241,6 @@ func (o WorkspaceConnectionPropsResponsePtrOutput) Value() pulumi.StringPtrOutpu
 			return nil
 		}
 		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of a machine learning workspace.
-type WorkspaceProperties struct {
-	// The flag to indicate whether to allow public access when behind VNet.
-	AllowPublicAccessWhenBehindVnet *bool `pulumi:"allowPublicAccessWhenBehindVnet"`
-	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-	ApplicationInsights *string `pulumi:"applicationInsights"`
-	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-	ContainerRegistry *string `pulumi:"containerRegistry"`
-	// The description of this workspace.
-	Description *string `pulumi:"description"`
-	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
-	DiscoveryUrl *string `pulumi:"discoveryUrl"`
-	// The encryption settings of Azure ML workspace.
-	Encryption *EncryptionProperty `pulumi:"encryption"`
-	// The friendly name for this workspace. This name in mutable
-	FriendlyName *string `pulumi:"friendlyName"`
-	// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-	HbiWorkspace *bool `pulumi:"hbiWorkspace"`
-	// The compute name for image build
-	ImageBuildCompute *string `pulumi:"imageBuildCompute"`
-	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-	KeyVault *string `pulumi:"keyVault"`
-	// The list of shared private link resources in this workspace.
-	SharedPrivateLinkResources []SharedPrivateLinkResource `pulumi:"sharedPrivateLinkResources"`
-	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-	StorageAccount *string `pulumi:"storageAccount"`
-}
-
-// WorkspacePropertiesInput is an input type that accepts WorkspacePropertiesArgs and WorkspacePropertiesOutput values.
-// You can construct a concrete instance of `WorkspacePropertiesInput` via:
-//
-//          WorkspacePropertiesArgs{...}
-type WorkspacePropertiesInput interface {
-	pulumi.Input
-
-	ToWorkspacePropertiesOutput() WorkspacePropertiesOutput
-	ToWorkspacePropertiesOutputWithContext(context.Context) WorkspacePropertiesOutput
-}
-
-// The properties of a machine learning workspace.
-type WorkspacePropertiesArgs struct {
-	// The flag to indicate whether to allow public access when behind VNet.
-	AllowPublicAccessWhenBehindVnet pulumi.BoolPtrInput `pulumi:"allowPublicAccessWhenBehindVnet"`
-	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-	ApplicationInsights pulumi.StringPtrInput `pulumi:"applicationInsights"`
-	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-	ContainerRegistry pulumi.StringPtrInput `pulumi:"containerRegistry"`
-	// The description of this workspace.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
-	DiscoveryUrl pulumi.StringPtrInput `pulumi:"discoveryUrl"`
-	// The encryption settings of Azure ML workspace.
-	Encryption EncryptionPropertyPtrInput `pulumi:"encryption"`
-	// The friendly name for this workspace. This name in mutable
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-	HbiWorkspace pulumi.BoolPtrInput `pulumi:"hbiWorkspace"`
-	// The compute name for image build
-	ImageBuildCompute pulumi.StringPtrInput `pulumi:"imageBuildCompute"`
-	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-	KeyVault pulumi.StringPtrInput `pulumi:"keyVault"`
-	// The list of shared private link resources in this workspace.
-	SharedPrivateLinkResources SharedPrivateLinkResourceArrayInput `pulumi:"sharedPrivateLinkResources"`
-	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-	StorageAccount pulumi.StringPtrInput `pulumi:"storageAccount"`
-}
-
-func (WorkspacePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProperties)(nil)).Elem()
-}
-
-func (i WorkspacePropertiesArgs) ToWorkspacePropertiesOutput() WorkspacePropertiesOutput {
-	return i.ToWorkspacePropertiesOutputWithContext(context.Background())
-}
-
-func (i WorkspacePropertiesArgs) ToWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspacePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesOutput)
-}
-
-func (i WorkspacePropertiesArgs) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
-	return i.ToWorkspacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i WorkspacePropertiesArgs) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesOutput).ToWorkspacePropertiesPtrOutputWithContext(ctx)
-}
-
-// WorkspacePropertiesPtrInput is an input type that accepts WorkspacePropertiesArgs, WorkspacePropertiesPtr and WorkspacePropertiesPtrOutput values.
-// You can construct a concrete instance of `WorkspacePropertiesPtrInput` via:
-//
-//          WorkspacePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type WorkspacePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput
-	ToWorkspacePropertiesPtrOutputWithContext(context.Context) WorkspacePropertiesPtrOutput
-}
-
-type workspacePropertiesPtrType WorkspacePropertiesArgs
-
-func WorkspacePropertiesPtr(v *WorkspacePropertiesArgs) WorkspacePropertiesPtrInput {
-	return (*workspacePropertiesPtrType)(v)
-}
-
-func (*workspacePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceProperties)(nil)).Elem()
-}
-
-func (i *workspacePropertiesPtrType) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
-	return i.ToWorkspacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *workspacePropertiesPtrType) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspacePropertiesPtrOutput)
-}
-
-// The properties of a machine learning workspace.
-type WorkspacePropertiesOutput struct{ *pulumi.OutputState }
-
-func (WorkspacePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceProperties)(nil)).Elem()
-}
-
-func (o WorkspacePropertiesOutput) ToWorkspacePropertiesOutput() WorkspacePropertiesOutput {
-	return o
-}
-
-func (o WorkspacePropertiesOutput) ToWorkspacePropertiesOutputWithContext(ctx context.Context) WorkspacePropertiesOutput {
-	return o
-}
-
-func (o WorkspacePropertiesOutput) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
-	return o.ToWorkspacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o WorkspacePropertiesOutput) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *WorkspaceProperties {
-		return &v
-	}).(WorkspacePropertiesPtrOutput)
-}
-
-// The flag to indicate whether to allow public access when behind VNet.
-func (o WorkspacePropertiesOutput) AllowPublicAccessWhenBehindVnet() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *bool { return v.AllowPublicAccessWhenBehindVnet }).(pulumi.BoolPtrOutput)
-}
-
-// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-func (o WorkspacePropertiesOutput) ApplicationInsights() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *string { return v.ApplicationInsights }).(pulumi.StringPtrOutput)
-}
-
-// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-func (o WorkspacePropertiesOutput) ContainerRegistry() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *string { return v.ContainerRegistry }).(pulumi.StringPtrOutput)
-}
-
-// The description of this workspace.
-func (o WorkspacePropertiesOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Url for the discovery service to identify regional endpoints for machine learning experimentation services
-func (o WorkspacePropertiesOutput) DiscoveryUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *string { return v.DiscoveryUrl }).(pulumi.StringPtrOutput)
-}
-
-// The encryption settings of Azure ML workspace.
-func (o WorkspacePropertiesOutput) Encryption() EncryptionPropertyPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *EncryptionProperty { return v.Encryption }).(EncryptionPropertyPtrOutput)
-}
-
-// The friendly name for this workspace. This name in mutable
-func (o WorkspacePropertiesOutput) FriendlyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
-}
-
-// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-func (o WorkspacePropertiesOutput) HbiWorkspace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *bool { return v.HbiWorkspace }).(pulumi.BoolPtrOutput)
-}
-
-// The compute name for image build
-func (o WorkspacePropertiesOutput) ImageBuildCompute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *string { return v.ImageBuildCompute }).(pulumi.StringPtrOutput)
-}
-
-// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-func (o WorkspacePropertiesOutput) KeyVault() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *string { return v.KeyVault }).(pulumi.StringPtrOutput)
-}
-
-// The list of shared private link resources in this workspace.
-func (o WorkspacePropertiesOutput) SharedPrivateLinkResources() SharedPrivateLinkResourceArrayOutput {
-	return o.ApplyT(func(v WorkspaceProperties) []SharedPrivateLinkResource { return v.SharedPrivateLinkResources }).(SharedPrivateLinkResourceArrayOutput)
-}
-
-// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-func (o WorkspacePropertiesOutput) StorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkspaceProperties) *string { return v.StorageAccount }).(pulumi.StringPtrOutput)
-}
-
-type WorkspacePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspacePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceProperties)(nil)).Elem()
-}
-
-func (o WorkspacePropertiesPtrOutput) ToWorkspacePropertiesPtrOutput() WorkspacePropertiesPtrOutput {
-	return o
-}
-
-func (o WorkspacePropertiesPtrOutput) ToWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspacePropertiesPtrOutput {
-	return o
-}
-
-func (o WorkspacePropertiesPtrOutput) Elem() WorkspacePropertiesOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) WorkspaceProperties { return *v }).(WorkspacePropertiesOutput)
-}
-
-// The flag to indicate whether to allow public access when behind VNet.
-func (o WorkspacePropertiesPtrOutput) AllowPublicAccessWhenBehindVnet() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AllowPublicAccessWhenBehindVnet
-	}).(pulumi.BoolPtrOutput)
-}
-
-// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-func (o WorkspacePropertiesPtrOutput) ApplicationInsights() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationInsights
-	}).(pulumi.StringPtrOutput)
-}
-
-// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-func (o WorkspacePropertiesPtrOutput) ContainerRegistry() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerRegistry
-	}).(pulumi.StringPtrOutput)
-}
-
-// The description of this workspace.
-func (o WorkspacePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Url for the discovery service to identify regional endpoints for machine learning experimentation services
-func (o WorkspacePropertiesPtrOutput) DiscoveryUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiscoveryUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The encryption settings of Azure ML workspace.
-func (o WorkspacePropertiesPtrOutput) Encryption() EncryptionPropertyPtrOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) *EncryptionProperty {
-		if v == nil {
-			return nil
-		}
-		return v.Encryption
-	}).(EncryptionPropertyPtrOutput)
-}
-
-// The friendly name for this workspace. This name in mutable
-func (o WorkspacePropertiesPtrOutput) FriendlyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FriendlyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-func (o WorkspacePropertiesPtrOutput) HbiWorkspace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HbiWorkspace
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The compute name for image build
-func (o WorkspacePropertiesPtrOutput) ImageBuildCompute() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ImageBuildCompute
-	}).(pulumi.StringPtrOutput)
-}
-
-// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-func (o WorkspacePropertiesPtrOutput) KeyVault() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVault
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of shared private link resources in this workspace.
-func (o WorkspacePropertiesPtrOutput) SharedPrivateLinkResources() SharedPrivateLinkResourceArrayOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) []SharedPrivateLinkResource {
-		if v == nil {
-			return nil
-		}
-		return v.SharedPrivateLinkResources
-	}).(SharedPrivateLinkResourceArrayOutput)
-}
-
-// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-func (o WorkspacePropertiesPtrOutput) StorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccount
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6641,8 +5769,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
@@ -6656,8 +5782,6 @@ func init() {
 	pulumi.RegisterOutputType(RegistryListCredentialsResultResponseOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourceOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourceArrayOutput{})
-	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertyOutput{})
-	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertyPtrOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertyResponseOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourcePropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(SharedPrivateLinkResourceResponseOutput{})
@@ -6668,12 +5792,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceTypeOutput{})
 	pulumi.RegisterOutputType(WorkspaceConnectionTypeOutput{})
-	pulumi.RegisterOutputType(WorkspaceConnectionPropsOutput{})
-	pulumi.RegisterOutputType(WorkspaceConnectionPropsPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceConnectionPropsResponseOutput{})
 	pulumi.RegisterOutputType(WorkspaceConnectionPropsResponsePtrOutput{})
-	pulumi.RegisterOutputType(WorkspacePropertiesOutput{})
-	pulumi.RegisterOutputType(WorkspacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(WorkspacePropertiesResponsePtrOutput{})
 }

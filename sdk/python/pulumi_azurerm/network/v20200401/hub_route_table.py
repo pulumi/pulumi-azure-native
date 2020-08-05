@@ -36,27 +36,26 @@ class HubRouteTable(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, labels=None, name=None, resource_group_name=None, routes=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
         """
         RouteTable resource in a virtual hub.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[list] labels: List of labels associated with this route table.
         :param pulumi.Input[str] name: The name of the RouteTable.
-        :param pulumi.Input[dict] properties: Properties of the RouteTable resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
+        :param pulumi.Input[list] routes: List of all routes.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
 
-        The **properties** object supports the following:
+        The **routes** object supports the following:
 
-          * `labels` (`pulumi.Input[list]`) - List of labels associated with this route table.
-          * `routes` (`pulumi.Input[list]`) - List of all routes.
-            * `destination_type` (`pulumi.Input[str]`) - The type of destinations (eg: CIDR, ResourceId, Service).
-            * `destinations` (`pulumi.Input[list]`) - List of all destinations.
-            * `name` (`pulumi.Input[str]`) - The name of the Route that is unique within a RouteTable. This name can be used to access this route.
-            * `next_hop` (`pulumi.Input[str]`) - NextHop resource ID.
-            * `next_hop_type` (`pulumi.Input[str]`) - The type of next hop (eg: ResourceId).
+          * `destination_type` (`pulumi.Input[str]`) - The type of destinations (eg: CIDR, ResourceId, Service).
+          * `destinations` (`pulumi.Input[list]`) - List of all destinations.
+          * `name` (`pulumi.Input[str]`) - The name of the Route that is unique within a RouteTable. This name can be used to access this route.
+          * `next_hop` (`pulumi.Input[str]`) - NextHop resource ID.
+          * `next_hop_type` (`pulumi.Input[str]`) - The type of next hop (eg: ResourceId).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,17 +75,19 @@ class HubRouteTable(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
+            __props__['labels'] = labels
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['routes'] = routes
             if virtual_hub_name is None:
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(HubRouteTable, __self__).__init__(
             'azurerm:network/v20200401:HubRouteTable',

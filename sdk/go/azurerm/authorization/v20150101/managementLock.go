@@ -75,18 +75,22 @@ func (ManagementLockState) ElementType() reflect.Type {
 }
 
 type managementLockArgs struct {
+	// The lock level of the management lock.
+	Level *string `pulumi:"level"`
 	// The name of lock.
 	Name string `pulumi:"name"`
-	// The properties of the lock.
-	Properties *ManagementLockProperties `pulumi:"properties"`
+	// The notes of the management lock.
+	Notes *string `pulumi:"notes"`
 }
 
 // The set of arguments for constructing a ManagementLock resource.
 type ManagementLockArgs struct {
+	// The lock level of the management lock.
+	Level pulumi.StringPtrInput
 	// The name of lock.
 	Name pulumi.StringInput
-	// The properties of the lock.
-	Properties ManagementLockPropertiesPtrInput
+	// The notes of the management lock.
+	Notes pulumi.StringPtrInput
 }
 
 func (ManagementLockArgs) ElementType() reflect.Type {

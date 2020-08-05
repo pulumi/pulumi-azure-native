@@ -28,6 +28,9 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PolicyDefinitions == nil {
+		return nil, errors.New("missing required argument 'PolicyDefinitions'")
+	}
 	if args == nil {
 		args = &PolicySetDefinitionArgs{}
 	}
@@ -75,18 +78,38 @@ func (PolicySetDefinitionState) ElementType() reflect.Type {
 }
 
 type policySetDefinitionArgs struct {
+	// The policy set definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy set definition.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy set definition metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The name of the policy set definition to create.
 	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties *PolicySetDefinitionProperties `pulumi:"properties"`
+	// The policy set definition parameters that can be used in policy definition references.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// An array of policy definition references.
+	PolicyDefinitions []PolicyDefinitionReference `pulumi:"policyDefinitions"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType *string `pulumi:"policyType"`
 }
 
 // The set of arguments for constructing a PolicySetDefinition resource.
 type PolicySetDefinitionArgs struct {
+	// The policy set definition description.
+	Description pulumi.StringPtrInput
+	// The display name of the policy set definition.
+	DisplayName pulumi.StringPtrInput
+	// The policy set definition metadata.
+	Metadata pulumi.MapInput
 	// The name of the policy set definition to create.
 	Name pulumi.StringInput
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesPtrInput
+	// The policy set definition parameters that can be used in policy definition references.
+	Parameters pulumi.MapInput
+	// An array of policy definition references.
+	PolicyDefinitions PolicyDefinitionReferenceArrayInput
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType pulumi.StringPtrInput
 }
 
 func (PolicySetDefinitionArgs) ElementType() reflect.Type {

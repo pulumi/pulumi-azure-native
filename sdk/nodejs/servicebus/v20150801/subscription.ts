@@ -47,7 +47,7 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * Description of Subscription Resource.
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20150801.SubscriptionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20150801.SubscriptionPropertiesResponse>;
     /**
      * Resource type
      */
@@ -81,13 +81,24 @@ export class Subscription extends pulumi.CustomResource {
             if (!args || args.topicName === undefined) {
                 throw new Error("Missing required property 'topicName'");
             }
+            inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            inputs["deadLetteringOnFilterEvaluationExceptions"] = args ? args.deadLetteringOnFilterEvaluationExceptions : undefined;
+            inputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
+            inputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
+            inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
+            inputs["entityAvailabilityStatus"] = args ? args.entityAvailabilityStatus : undefined;
+            inputs["isReadOnly"] = args ? args.isReadOnly : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["lockDuration"] = args ? args.lockDuration : undefined;
+            inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["requiresSession"] = args ? args.requiresSession : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,9 +116,45 @@ export class Subscription extends pulumi.CustomResource {
  */
 export interface SubscriptionArgs {
     /**
+     * TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+     */
+    readonly autoDeleteOnIdle?: pulumi.Input<string>;
+    /**
+     * Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+     */
+    readonly deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
+    /**
+     * Value that indicates whether a subscription has dead letter support when a message expires.
+     */
+    readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
+    /**
+     * Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+     */
+    readonly defaultMessageTimeToLive?: pulumi.Input<string>;
+    /**
+     * Value that indicates whether server-side batched operations are enabled.
+     */
+    readonly enableBatchedOperations?: pulumi.Input<boolean>;
+    /**
+     * Entity availability status for the topic.
+     */
+    readonly entityAvailabilityStatus?: pulumi.Input<string>;
+    /**
+     * Value that indicates whether the entity description is read-only.
+     */
+    readonly isReadOnly?: pulumi.Input<boolean>;
+    /**
      * Subscription data center location.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The lock duration time span for the subscription.
+     */
+    readonly lockDuration?: pulumi.Input<string>;
+    /**
+     * Number of maximum deliveries.
+     */
+    readonly maxDeliveryCount?: pulumi.Input<number>;
     /**
      * The subscription name.
      */
@@ -117,13 +164,17 @@ export interface SubscriptionArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Description of Subscription Resource.
+     * Value indicating if a subscription supports the concept of sessions.
      */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20150801.SubscriptionProperties>;
+    readonly requiresSession?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Enumerates the possible values for the status of a messaging entity.
+     */
+    readonly status?: pulumi.Input<string>;
     /**
      * The topic name.
      */

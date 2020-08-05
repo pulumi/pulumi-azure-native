@@ -16,10 +16,16 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401.Inputs
     public sealed class GcmCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Properties of NotificationHub GcmCredential.
+        /// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.GcmCredentialPropertiesArgs>? Properties { get; set; }
+        [Input("gcmEndpoint")]
+        public Input<string>? GcmEndpoint { get; set; }
+
+        /// <summary>
+        /// The Google API key.
+        /// </summary>
+        [Input("googleApiKey")]
+        public Input<string>? GoogleApiKey { get; set; }
 
         public GcmCredentialArgs()
         {

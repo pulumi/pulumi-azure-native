@@ -51,7 +51,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
     /**
      * AppServiceCertificateOrder resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.certificateregistration.v20180201.AppServiceCertificateOrderResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.certificateregistration.v20180201.AppServiceCertificateOrderResponseProperties>;
     /**
      * Resource tags.
      */
@@ -80,15 +80,25 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.productType === undefined) {
+                throw new Error("Missing required property 'productType'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["autoRenew"] = args ? args.autoRenew : undefined;
+            inputs["certificates"] = args ? args.certificates : undefined;
+            inputs["csr"] = args ? args.csr : undefined;
+            inputs["distinguishedName"] = args ? args.distinguishedName : undefined;
+            inputs["keySize"] = args ? args.keySize : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["productType"] = args ? args.productType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["validityInYears"] = args ? args.validityInYears : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +117,26 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
  */
 export interface AppServiceCertificateOrderArgs {
     /**
+     * <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+     */
+    readonly autoRenew?: pulumi.Input<boolean>;
+    /**
+     * State of the Key Vault secret.
+     */
+    readonly certificates?: pulumi.Input<{[key: string]: pulumi.Input<inputs.certificateregistration.v20180201.AppServiceCertificate>}>;
+    /**
+     * Last CSR that was created for this order.
+     */
+    readonly csr?: pulumi.Input<string>;
+    /**
+     * Certificate distinguished name.
+     */
+    readonly distinguishedName?: pulumi.Input<string>;
+    /**
+     * Certificate key size.
+     */
+    readonly keySize?: pulumi.Input<number>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -119,9 +149,9 @@ export interface AppServiceCertificateOrderArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * AppServiceCertificateOrder resource specific properties
+     * Certificate product type.
      */
-    readonly properties?: pulumi.Input<inputs.certificateregistration.v20180201.AppServiceCertificateOrderProperties>;
+    readonly productType: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -130,4 +160,8 @@ export interface AppServiceCertificateOrderArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Duration in years (must be between 1 and 3).
+     */
+    readonly validityInYears?: pulumi.Input<number>;
 }

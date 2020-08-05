@@ -84,38 +84,54 @@ func (ServerEndpointState) ElementType() reflect.Type {
 }
 
 type serverEndpointArgs struct {
+	// Cloud Tiering.
+	CloudTiering *string `pulumi:"cloudTiering"`
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location *string `pulumi:"location"`
 	// Name of Server Endpoint object.
 	Name string `pulumi:"name"`
-	// The parameters used to create the storage sync service.
-	Properties *ServerEndpointCreateParametersProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Server Local path.
+	ServerLocalPath *string `pulumi:"serverLocalPath"`
+	// Server Resource Id.
+	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 	// Name of Sync Group resource.
 	SyncGroupName string `pulumi:"syncGroupName"`
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
 	Tags map[string]string `pulumi:"tags"`
+	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
 }
 
 // The set of arguments for constructing a ServerEndpoint resource.
 type ServerEndpointArgs struct {
+	// Cloud Tiering.
+	CloudTiering pulumi.StringPtrInput
+	// Friendly Name
+	FriendlyName pulumi.StringPtrInput
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location pulumi.StringPtrInput
 	// Name of Server Endpoint object.
 	Name pulumi.StringInput
-	// The parameters used to create the storage sync service.
-	Properties ServerEndpointCreateParametersPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Server Local path.
+	ServerLocalPath pulumi.StringPtrInput
+	// Server Resource Id.
+	ServerResourceId pulumi.StringPtrInput
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName pulumi.StringInput
 	// Name of Sync Group resource.
 	SyncGroupName pulumi.StringInput
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
 	Tags pulumi.StringMapInput
+	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	VolumeFreeSpacePercent pulumi.IntPtrInput
 }
 
 func (ServerEndpointArgs) ElementType() reflect.Type {

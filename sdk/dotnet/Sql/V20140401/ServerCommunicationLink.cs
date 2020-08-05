@@ -96,10 +96,10 @@ namespace Pulumi.AzureRM.Sql.V20140401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of resource.
+        /// The name of the partner server.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServerCommunicationLinkPropertiesArgs>? Properties { get; set; }
+        [Input("partnerServer", required: true)]
+        public Input<string> PartnerServer { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

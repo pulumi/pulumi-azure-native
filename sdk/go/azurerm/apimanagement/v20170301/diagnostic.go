@@ -25,6 +25,9 @@ type Diagnostic struct {
 // NewDiagnostic registers a new resource with the given unique name, arguments, and options.
 func NewDiagnostic(ctx *pulumi.Context,
 	name string, args *DiagnosticArgs, opts ...pulumi.ResourceOption) (*Diagnostic, error) {
+	if args == nil || args.Enabled == nil {
+		return nil, errors.New("missing required argument 'Enabled'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -81,10 +84,10 @@ func (DiagnosticState) ElementType() reflect.Type {
 }
 
 type diagnosticArgs struct {
+	// Indicates whether a diagnostic should receive data or not.
+	Enabled bool `pulumi:"enabled"`
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// Diagnostic entity contract properties.
-	Properties *DiagnosticContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -93,10 +96,10 @@ type diagnosticArgs struct {
 
 // The set of arguments for constructing a Diagnostic resource.
 type DiagnosticArgs struct {
+	// Indicates whether a diagnostic should receive data or not.
+	Enabled pulumi.BoolInput
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// Diagnostic entity contract properties.
-	Properties DiagnosticContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

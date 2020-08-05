@@ -47,7 +47,7 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
     /**
      * Identifier resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20180201.IdentifierResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20180201.IdentifierResponseProperties>;
     /**
      * Resource type.
      */
@@ -72,10 +72,11 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -94,6 +95,10 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
  */
 export interface WebAppDomainOwnershipIdentifierArgs {
     /**
+     * String representation of the identity.
+     */
+    readonly id?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -101,10 +106,6 @@ export interface WebAppDomainOwnershipIdentifierArgs {
      * Name of domain ownership identifier.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Identifier resource specific properties
-     */
-    readonly properties?: pulumi.Input<inputs.web.v20180201.IdentifierProperties>;
     /**
      * Name of the resource group to which the resource belongs.
      */

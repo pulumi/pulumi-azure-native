@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
     public sealed class FileServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Settings for the data disk which would be created for the File Server.
+        /// </summary>
+        [Input("dataDisks", required: true)]
+        public Input<Inputs.DataDisksArgs> DataDisks { get; set; } = null!;
+
+        /// <summary>
         /// The region in which to create the File Server.
         /// </summary>
         [Input("location", required: true)]
@@ -102,16 +108,22 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the File Server.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FileServerBasePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// SSH configuration settings for the VM
+        /// </summary>
+        [Input("sshConfiguration", required: true)]
+        public Input<Inputs.SshConfigurationArgs> SshConfiguration { get; set; } = null!;
+
+        /// <summary>
+        /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.ResourceIdArgs>? Subnet { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -124,6 +136,12 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// For information about available VM sizes for fileservers from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+        /// </summary>
+        [Input("vmSize", required: true)]
+        public Input<string> VmSize { get; set; } = null!;
 
         public FileServerArgs()
         {

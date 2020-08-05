@@ -29,7 +29,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, cluster_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cluster_name=None, name=None, principal_id=None, principal_type=None, resource_group_name=None, role=None, tenant_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Class representing a cluster principal assignment.
 
@@ -37,15 +37,11 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] name: The name of the Kusto principalAssignment.
-        :param pulumi.Input[dict] properties: The cluster principal.
+        :param pulumi.Input[str] principal_id: The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
+        :param pulumi.Input[str] principal_type: Principal type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
-
-        The **properties** object supports the following:
-
-          * `principal_id` (`pulumi.Input[str]`) - The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
-          * `principal_type` (`pulumi.Input[str]`) - Principal type.
-          * `role` (`pulumi.Input[str]`) - Cluster principal role.
-          * `tenant_id` (`pulumi.Input[str]`) - The tenant id of the principal
+        :param pulumi.Input[str] role: Cluster principal role.
+        :param pulumi.Input[str] tenant_id: The tenant id of the principal
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,10 +66,20 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if principal_id is None:
+                raise TypeError("Missing required property 'principal_id'")
+            __props__['principal_id'] = principal_id
+            if principal_type is None:
+                raise TypeError("Missing required property 'principal_type'")
+            __props__['principal_type'] = principal_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if role is None:
+                raise TypeError("Missing required property 'role'")
+            __props__['role'] = role
+            __props__['tenant_id'] = tenant_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(ClusterPrincipalAssignment, __self__).__init__(
             'azurerm:kusto/v20200614:ClusterPrincipalAssignment',

@@ -29,14 +29,29 @@ type IntegrationAccountAgreement struct {
 // NewIntegrationAccountAgreement registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountAgreement(ctx *pulumi.Context,
 	name string, args *IntegrationAccountAgreementArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountAgreement, error) {
+	if args == nil || args.AgreementType == nil {
+		return nil, errors.New("missing required argument 'AgreementType'")
+	}
+	if args == nil || args.Content == nil {
+		return nil, errors.New("missing required argument 'Content'")
+	}
+	if args == nil || args.GuestIdentity == nil {
+		return nil, errors.New("missing required argument 'GuestIdentity'")
+	}
+	if args == nil || args.GuestPartner == nil {
+		return nil, errors.New("missing required argument 'GuestPartner'")
+	}
+	if args == nil || args.HostIdentity == nil {
+		return nil, errors.New("missing required argument 'HostIdentity'")
+	}
+	if args == nil || args.HostPartner == nil {
+		return nil, errors.New("missing required argument 'HostPartner'")
+	}
 	if args == nil || args.IntegrationAccountName == nil {
 		return nil, errors.New("missing required argument 'IntegrationAccountName'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -96,14 +111,26 @@ func (IntegrationAccountAgreementState) ElementType() reflect.Type {
 }
 
 type integrationAccountAgreementArgs struct {
+	// The agreement type.
+	AgreementType string `pulumi:"agreementType"`
+	// The agreement content.
+	Content AgreementContent `pulumi:"content"`
+	// The business identity of the guest partner.
+	GuestIdentity BusinessIdentity `pulumi:"guestIdentity"`
+	// The integration account partner that is set as guest partner for this agreement.
+	GuestPartner string `pulumi:"guestPartner"`
+	// The business identity of the host partner.
+	HostIdentity BusinessIdentity `pulumi:"hostIdentity"`
+	// The integration account partner that is set as host partner for this agreement.
+	HostPartner string `pulumi:"hostPartner"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The integration account agreement name.
 	Name string `pulumi:"name"`
-	// The integration account agreement properties.
-	Properties IntegrationAccountAgreementProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -112,14 +139,26 @@ type integrationAccountAgreementArgs struct {
 
 // The set of arguments for constructing a IntegrationAccountAgreement resource.
 type IntegrationAccountAgreementArgs struct {
+	// The agreement type.
+	AgreementType pulumi.StringInput
+	// The agreement content.
+	Content AgreementContentInput
+	// The business identity of the guest partner.
+	GuestIdentity BusinessIdentityInput
+	// The integration account partner that is set as guest partner for this agreement.
+	GuestPartner pulumi.StringInput
+	// The business identity of the host partner.
+	HostIdentity BusinessIdentityInput
+	// The integration account partner that is set as host partner for this agreement.
+	HostPartner pulumi.StringInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.MapInput
 	// The integration account agreement name.
 	Name pulumi.StringInput
-	// The integration account agreement properties.
-	Properties IntegrationAccountAgreementPropertiesInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

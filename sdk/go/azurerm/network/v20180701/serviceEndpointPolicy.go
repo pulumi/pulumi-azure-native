@@ -104,10 +104,14 @@ type serviceEndpointPolicyArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the service endpoint policy.
 	Name string `pulumi:"name"`
-	// Properties of the service end point policy
-	Properties *ServiceEndpointPolicyPropertiesFormat `pulumi:"properties"`
+	// The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The resource GUID property of the service endpoint policy resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// A collection of service endpoint policy definitions of the service endpoint policy.
+	ServiceEndpointPolicyDefinitions []ServiceEndpointPolicyDefinitionType `pulumi:"serviceEndpointPolicyDefinitions"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -122,10 +126,14 @@ type ServiceEndpointPolicyArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the service endpoint policy.
 	Name pulumi.StringInput
-	// Properties of the service end point policy
-	Properties ServiceEndpointPolicyPropertiesFormatPtrInput
+	// The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The resource GUID property of the service endpoint policy resource.
+	ResourceGuid pulumi.StringPtrInput
+	// A collection of service endpoint policy definitions of the service endpoint policy.
+	ServiceEndpointPolicyDefinitions ServiceEndpointPolicyDefinitionTypeArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

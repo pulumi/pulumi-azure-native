@@ -120,16 +120,22 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Environment resource
+        /// The provisioning status of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.EnvironmentPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The set of a VM and the setting id it was created for
+        /// </summary>
+        [Input("resourceSets")]
+        public Input<Inputs.ResourceSetArgs>? ResourceSets { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -142,6 +148,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
 
         public EnvironmentArgs()
         {

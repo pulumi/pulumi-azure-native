@@ -96,6 +96,42 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20180201
     public sealed class AppServiceCertificateOrderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the certificate should be automatically renewed when it expires; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Input("autoRenew")]
+        public Input<bool>? AutoRenew { get; set; }
+
+        [Input("certificates")]
+        private InputMap<Inputs.AppServiceCertificateArgs>? _certificates;
+
+        /// <summary>
+        /// State of the Key Vault secret.
+        /// </summary>
+        public InputMap<Inputs.AppServiceCertificateArgs> Certificates
+        {
+            get => _certificates ?? (_certificates = new InputMap<Inputs.AppServiceCertificateArgs>());
+            set => _certificates = value;
+        }
+
+        /// <summary>
+        /// Last CSR that was created for this order.
+        /// </summary>
+        [Input("csr")]
+        public Input<string>? Csr { get; set; }
+
+        /// <summary>
+        /// Certificate distinguished name.
+        /// </summary>
+        [Input("distinguishedName")]
+        public Input<string>? DistinguishedName { get; set; }
+
+        /// <summary>
+        /// Certificate key size.
+        /// </summary>
+        [Input("keySize")]
+        public Input<int>? KeySize { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
@@ -114,10 +150,10 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20180201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// AppServiceCertificateOrder resource specific properties
+        /// Certificate product type.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AppServiceCertificateOrderPropertiesArgs>? Properties { get; set; }
+        [Input("productType", required: true)]
+        public Input<string> ProductType { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
@@ -136,6 +172,12 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20180201
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Duration in years (must be between 1 and 3).
+        /// </summary>
+        [Input("validityInYears")]
+        public Input<int>? ValidityInYears { get; set; }
 
         public AppServiceCertificateOrderArgs()
         {

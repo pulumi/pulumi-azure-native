@@ -90,30 +90,90 @@ func (QueueState) ElementType() reflect.Type {
 }
 
 type queueArgs struct {
+	// the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// A value that indicates whether this queue has dead letter support when a message expires.
+	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
+	// The default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive *string `pulumi:"defaultMessageTimeToLive"`
+	// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
+	// A value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
+	// A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
+	EnableExpress *bool `pulumi:"enableExpress"`
+	// A value that indicates whether the queue is to be partitioned across multiple message brokers.
+	EnablePartitioning *bool `pulumi:"enablePartitioning"`
+	// Entity availability status for the queue.
+	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
+	// A value that indicates whether the message is accessible anonymously.
+	IsAnonymousAccessible *bool `pulumi:"isAnonymousAccessible"`
 	// location of the resource.
 	Location string `pulumi:"location"`
+	// The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
+	LockDuration *string `pulumi:"lockDuration"`
+	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
+	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
+	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// The queue name.
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// The Queue Properties definition.
-	Properties *QueueProperties `pulumi:"properties"`
+	// A value indicating if this queue requires duplicate detection.
+	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
+	// A value that indicates whether the queue supports the concept of sessions.
+	RequiresSession *bool `pulumi:"requiresSession"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Enumerates the possible values for the status of a messaging entity.
+	Status *string `pulumi:"status"`
+	// A value that indicates whether the queue supports ordering.
+	SupportOrdering *bool `pulumi:"supportOrdering"`
 }
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
+	// the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle pulumi.StringPtrInput
+	// A value that indicates whether this queue has dead letter support when a message expires.
+	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
+	// The default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive pulumi.StringPtrInput
+	// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
+	// A value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations pulumi.BoolPtrInput
+	// A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
+	EnableExpress pulumi.BoolPtrInput
+	// A value that indicates whether the queue is to be partitioned across multiple message brokers.
+	EnablePartitioning pulumi.BoolPtrInput
+	// Entity availability status for the queue.
+	EntityAvailabilityStatus pulumi.StringPtrInput
+	// A value that indicates whether the message is accessible anonymously.
+	IsAnonymousAccessible pulumi.BoolPtrInput
 	// location of the resource.
 	Location pulumi.StringInput
+	// The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
+	LockDuration pulumi.StringPtrInput
+	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
+	MaxDeliveryCount pulumi.IntPtrInput
+	// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
+	MaxSizeInMegabytes pulumi.IntPtrInput
 	// The queue name.
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// The Queue Properties definition.
-	Properties QueuePropertiesPtrInput
+	// A value indicating if this queue requires duplicate detection.
+	RequiresDuplicateDetection pulumi.BoolPtrInput
+	// A value that indicates whether the queue supports the concept of sessions.
+	RequiresSession pulumi.BoolPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Enumerates the possible values for the status of a messaging entity.
+	Status pulumi.StringPtrInput
+	// A value that indicates whether the queue supports ordering.
+	SupportOrdering pulumi.BoolPtrInput
 }
 
 func (QueueArgs) ElementType() reflect.Type {

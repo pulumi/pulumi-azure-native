@@ -25,6 +25,9 @@ type Group struct {
 // NewGroup registers a new resource with the given unique name, arguments, and options.
 func NewGroup(ctx *pulumi.Context,
 	name string, args *GroupArgs, opts ...pulumi.ResourceOption) (*Group, error) {
+	if args == nil || args.DisplayName == nil {
+		return nil, errors.New("missing required argument 'DisplayName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -81,26 +84,38 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
+	// Group description.
+	Description *string `pulumi:"description"`
+	// Group name.
+	DisplayName string `pulumi:"displayName"`
+	// Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
+	ExternalId *string `pulumi:"externalId"`
 	// Group identifier. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// Properties supplied to Create Group operation.
-	Properties *GroupCreateParametersProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Group type.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
+	// Group description.
+	Description pulumi.StringPtrInput
+	// Group name.
+	DisplayName pulumi.StringInput
+	// Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
+	ExternalId pulumi.StringPtrInput
 	// Group identifier. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// Properties supplied to Create Group operation.
-	Properties GroupCreateParametersPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Group type.
+	Type pulumi.StringPtrInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {

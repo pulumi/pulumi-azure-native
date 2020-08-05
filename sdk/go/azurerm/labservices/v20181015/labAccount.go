@@ -90,30 +90,38 @@ func (LabAccountState) ElementType() reflect.Type {
 }
 
 type labAccountArgs struct {
+	// Represents if region selection is enabled
+	EnabledRegionSelection *bool `pulumi:"enabledRegionSelection"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the lab Account.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *LabAccountProperties `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a LabAccount resource.
 type LabAccountArgs struct {
+	// Represents if region selection is enabled
+	EnabledRegionSelection pulumi.BoolPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the lab Account.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties LabAccountPropertiesPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (LabAccountArgs) ElementType() reflect.Type {

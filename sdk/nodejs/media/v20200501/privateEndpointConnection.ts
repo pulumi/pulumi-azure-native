@@ -43,7 +43,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20200501.PrivateEndpointConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20200501.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -68,13 +68,19 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.privateLinkServiceConnectionState === undefined) {
+                throw new Error("Missing required property 'privateLinkServiceConnectionState'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
+            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,9 +104,17 @@ export interface PrivateEndpointConnectionArgs {
     readonly accountName: pulumi.Input<string>;
     readonly name: pulumi.Input<string>;
     /**
-     * Resource properties.
+     * The resource of private end point.
      */
-    readonly properties?: pulumi.Input<inputs.media.v20200501.PrivateEndpointConnectionProperties>;
+    readonly privateEndpoint?: pulumi.Input<inputs.media.v20200501.PrivateEndpoint>;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.media.v20200501.PrivateLinkServiceConnectionState>;
+    /**
+     * The provisioning state of the private endpoint connection resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group within the Azure subscription.
      */

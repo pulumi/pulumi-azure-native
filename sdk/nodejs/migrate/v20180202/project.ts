@@ -51,7 +51,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Properties of the project.
      */
-    public readonly properties!: pulumi.Output<outputs.migrate.v20180202.ProjectPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.migrate.v20180202.ProjectPropertiesResponse>;
     /**
      * Tags provided by Azure Tagging service.
      */
@@ -80,12 +80,15 @@ export class Project extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["customerWorkspaceId"] = args ? args.customerWorkspaceId : undefined;
+            inputs["customerWorkspaceLocation"] = args ? args.customerWorkspaceLocation : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,6 +107,14 @@ export class Project extends pulumi.CustomResource {
  */
 export interface ProjectArgs {
     /**
+     * ARM ID of the Service Map workspace created by user.
+     */
+    readonly customerWorkspaceId?: pulumi.Input<string>;
+    /**
+     * Location of the Service Map workspace created by user.
+     */
+    readonly customerWorkspaceLocation?: pulumi.Input<string>;
+    /**
      * For optimistic concurrency control.
      */
     readonly eTag?: pulumi.Input<string>;
@@ -116,9 +127,9 @@ export interface ProjectArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the project.
+     * Provisioning state of the project.
      */
-    readonly properties?: pulumi.Input<inputs.migrate.v20180202.ProjectProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

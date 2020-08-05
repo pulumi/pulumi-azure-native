@@ -89,11 +89,29 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
 
     public sealed class MaintenanceConfigurationArgs : Pulumi.ResourceArgs
     {
+        [Input("extensionProperties")]
+        private InputMap<string>? _extensionProperties;
+
+        /// <summary>
+        /// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+        /// </summary>
+        public InputMap<string> ExtensionProperties
+        {
+            get => _extensionProperties ?? (_extensionProperties = new InputMap<string>());
+            set => _extensionProperties = value;
+        }
+
         /// <summary>
         /// Gets or sets location of the resource
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+        /// </summary>
+        [Input("maintenanceScope")]
+        public Input<string>? MaintenanceScope { get; set; }
 
         /// <summary>
         /// Resource Identifier
@@ -102,10 +120,10 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets properties of the resource
+        /// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.MaintenanceConfigurationPropertiesArgs>? Properties { get; set; }
+        [Input("namespace")]
+        public Input<string>? Namespace { get; set; }
 
         /// <summary>
         /// Resource Group Name

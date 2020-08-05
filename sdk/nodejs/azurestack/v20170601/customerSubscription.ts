@@ -47,7 +47,7 @@ export class CustomerSubscription extends pulumi.CustomResource {
     /**
      * Customer subscription properties.
      */
-    public readonly properties!: pulumi.Output<outputs.azurestack.v20170601.CustomerSubscriptionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.azurestack.v20170601.CustomerSubscriptionPropertiesResponse>;
     /**
      * Type of Resource.
      */
@@ -77,9 +77,10 @@ export class CustomerSubscription extends pulumi.CustomResource {
             }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["registrationName"] = args ? args.registrationName : undefined;
             inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,10 +107,6 @@ export interface CustomerSubscriptionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Customer subscription properties.
-     */
-    readonly properties?: pulumi.Input<inputs.azurestack.v20170601.CustomerSubscriptionProperties>;
-    /**
      * Name of the Azure Stack registration.
      */
     readonly registrationName: pulumi.Input<string>;
@@ -117,4 +114,8 @@ export interface CustomerSubscriptionArgs {
      * Name of the resource group.
      */
     readonly resourceGroup: pulumi.Input<string>;
+    /**
+     * Tenant Id.
+     */
+    readonly tenantId?: pulumi.Input<string>;
 }

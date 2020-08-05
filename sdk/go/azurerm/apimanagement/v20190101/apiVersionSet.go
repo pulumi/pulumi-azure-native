@@ -25,6 +25,9 @@ type ApiVersionSet struct {
 // NewApiVersionSet registers a new resource with the given unique name, arguments, and options.
 func NewApiVersionSet(ctx *pulumi.Context,
 	name string, args *ApiVersionSetArgs, opts ...pulumi.ResourceOption) (*ApiVersionSet, error) {
+	if args == nil || args.DisplayName == nil {
+		return nil, errors.New("missing required argument 'DisplayName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -33,6 +36,9 @@ func NewApiVersionSet(ctx *pulumi.Context,
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.VersioningScheme == nil {
+		return nil, errors.New("missing required argument 'VersioningScheme'")
 	}
 	if args == nil {
 		args = &ApiVersionSetArgs{}
@@ -81,26 +87,42 @@ func (ApiVersionSetState) ElementType() reflect.Type {
 }
 
 type apiVersionSetArgs struct {
+	// Description of API Version Set.
+	Description *string `pulumi:"description"`
+	// Name of API Version Set
+	DisplayName string `pulumi:"displayName"`
 	// Api Version Set identifier. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// Api VersionSet contract properties.
-	Properties *ApiVersionSetContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+	VersionHeaderName *string `pulumi:"versionHeaderName"`
+	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+	VersionQueryName *string `pulumi:"versionQueryName"`
+	// An value that determines where the API Version identifer will be located in a HTTP request.
+	VersioningScheme string `pulumi:"versioningScheme"`
 }
 
 // The set of arguments for constructing a ApiVersionSet resource.
 type ApiVersionSetArgs struct {
+	// Description of API Version Set.
+	Description pulumi.StringPtrInput
+	// Name of API Version Set
+	DisplayName pulumi.StringInput
 	// Api Version Set identifier. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// Api VersionSet contract properties.
-	Properties ApiVersionSetContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+	VersionHeaderName pulumi.StringPtrInput
+	// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+	VersionQueryName pulumi.StringPtrInput
+	// An value that determines where the API Version identifer will be located in a HTTP request.
+	VersioningScheme pulumi.StringInput
 }
 
 func (ApiVersionSetArgs) ElementType() reflect.Type {

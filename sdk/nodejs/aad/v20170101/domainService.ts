@@ -51,7 +51,7 @@ export class DomainService extends pulumi.CustomResource {
     /**
      * Domain service properties
      */
-    public readonly properties!: pulumi.Output<outputs.aad.v20170101.DomainServicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.aad.v20170101.DomainServicePropertiesResponse>;
     /**
      * Resource tags
      */
@@ -80,12 +80,18 @@ export class DomainService extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["domainName"] = args ? args.domainName : undefined;
+            inputs["domainSecuritySettings"] = args ? args.domainSecuritySettings : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["filteredSync"] = args ? args.filteredSync : undefined;
+            inputs["ldapsSettings"] = args ? args.ldapsSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notificationSettings"] = args ? args.notificationSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,9 +110,25 @@ export class DomainService extends pulumi.CustomResource {
  */
 export interface DomainServiceArgs {
     /**
+     * The name of the Azure domain that the user would like to deploy Domain Services to.
+     */
+    readonly domainName?: pulumi.Input<string>;
+    /**
+     * DomainSecurity Settings
+     */
+    readonly domainSecuritySettings?: pulumi.Input<inputs.aad.v20170101.DomainSecuritySettings>;
+    /**
      * Resource etag
      */
     readonly etag?: pulumi.Input<string>;
+    /**
+     * Enabled or Disabled flag to turn on Group-based filtered sync
+     */
+    readonly filteredSync?: pulumi.Input<string>;
+    /**
+     * Secure LDAP Settings
+     */
+    readonly ldapsSettings?: pulumi.Input<inputs.aad.v20170101.LdapsSettings>;
     /**
      * Resource location
      */
@@ -116,13 +138,17 @@ export interface DomainServiceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Domain service properties
+     * Notification Settings
      */
-    readonly properties?: pulumi.Input<inputs.aad.v20170101.DomainServiceProperties>;
+    readonly notificationSettings?: pulumi.Input<inputs.aad.v20170101.NotificationSettings>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+     */
+    readonly subnetId?: pulumi.Input<string>;
     /**
      * Resource tags
      */

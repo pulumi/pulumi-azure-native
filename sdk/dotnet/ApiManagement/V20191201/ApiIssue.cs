@@ -78,22 +78,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class ApiIssueArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// API identifier. Must be unique in the current API Management service instance.
+        /// A resource identifier for the API the issue was created for.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
+        /// Date and time when the issue was created.
+        /// </summary>
+        [Input("createdDate")]
+        public Input<string>? CreatedDate { get; set; }
+
+        /// <summary>
+        /// Text describing the issue.
+        /// </summary>
+        [Input("description", required: true)]
+        public Input<string> Description { get; set; } = null!;
 
         /// <summary>
         /// Issue identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the Issue.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IssueContractPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -106,6 +112,24 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Status of the issue.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// The issue title.
+        /// </summary>
+        [Input("title", required: true)]
+        public Input<string> Title { get; set; } = null!;
+
+        /// <summary>
+        /// A resource identifier for the user created the issue.
+        /// </summary>
+        [Input("userId", required: true)]
+        public Input<string> UserId { get; set; } = null!;
 
         public ApiIssueArgs()
         {

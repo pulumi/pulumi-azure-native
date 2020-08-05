@@ -47,7 +47,7 @@ export class App extends pulumi.CustomResource {
     /**
      * The common properties of an IoT Central application.
      */
-    public readonly properties!: pulumi.Output<outputs.iotcentral.v20180901.AppPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.iotcentral.v20180901.AppPropertiesResponse>;
     /**
      * A valid instance SKU.
      */
@@ -86,12 +86,15 @@ export class App extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["subdomain"] = args ? args.subdomain : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["template"] = args ? args.template : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +113,10 @@ export class App extends pulumi.CustomResource {
  */
 export interface AppArgs {
     /**
+     * The display name of the application.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
      * The resource location.
      */
     readonly location: pulumi.Input<string>;
@@ -117,10 +124,6 @@ export interface AppArgs {
      * The ARM resource name of the IoT Central application.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The common properties of an IoT Central application.
-     */
-    readonly properties?: pulumi.Input<inputs.iotcentral.v20180901.AppProperties>;
     /**
      * The name of the resource group that contains the IoT Central application.
      */
@@ -130,7 +133,15 @@ export interface AppArgs {
      */
     readonly sku: pulumi.Input<inputs.iotcentral.v20180901.AppSkuInfo>;
     /**
+     * The subdomain of the application.
+     */
+    readonly subdomain?: pulumi.Input<string>;
+    /**
      * The resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+     */
+    readonly template?: pulumi.Input<string>;
 }

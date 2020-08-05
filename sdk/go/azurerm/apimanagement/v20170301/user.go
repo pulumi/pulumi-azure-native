@@ -25,6 +25,15 @@ type User struct {
 // NewUser registers a new resource with the given unique name, arguments, and options.
 func NewUser(ctx *pulumi.Context,
 	name string, args *UserArgs, opts ...pulumi.ResourceOption) (*User, error) {
+	if args == nil || args.Email == nil {
+		return nil, errors.New("missing required argument 'Email'")
+	}
+	if args == nil || args.FirstName == nil {
+		return nil, errors.New("missing required argument 'FirstName'")
+	}
+	if args == nil || args.LastName == nil {
+		return nil, errors.New("missing required argument 'LastName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -81,26 +90,50 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
+	// Determines the type of confirmation e-mail that will be sent to the newly created user.
+	Confirmation *string `pulumi:"confirmation"`
+	// Email address. Must not be empty and must be unique within the service instance.
+	Email string `pulumi:"email"`
+	// First name.
+	FirstName string `pulumi:"firstName"`
+	// Last name.
+	LastName string `pulumi:"lastName"`
 	// User identifier. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// User entity create contract properties.
-	Properties *UserCreateParameterProperties `pulumi:"properties"`
+	// Optional note about a user set by the administrator.
+	Note *string `pulumi:"note"`
+	// User Password. If no value is provided, a default password is generated.
+	Password *string `pulumi:"password"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+	State *string `pulumi:"state"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
+	// Determines the type of confirmation e-mail that will be sent to the newly created user.
+	Confirmation pulumi.StringPtrInput
+	// Email address. Must not be empty and must be unique within the service instance.
+	Email pulumi.StringInput
+	// First name.
+	FirstName pulumi.StringInput
+	// Last name.
+	LastName pulumi.StringInput
 	// User identifier. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// User entity create contract properties.
-	Properties UserCreateParameterPropertiesPtrInput
+	// Optional note about a user set by the administrator.
+	Note pulumi.StringPtrInput
+	// User Password. If no value is provided, a default password is generated.
+	Password pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+	State pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

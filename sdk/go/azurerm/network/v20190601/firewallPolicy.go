@@ -96,34 +96,42 @@ func (FirewallPolicyState) ElementType() reflect.Type {
 }
 
 type firewallPolicyArgs struct {
+	// The parent firewall policy from which rules are inherited.
+	BasePolicy *SubResource `pulumi:"basePolicy"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the Firewall Policy.
 	Name string `pulumi:"name"`
-	// Properties of the firewall policy.
-	Properties *FirewallPolicyPropertiesFormat `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 }
 
 // The set of arguments for constructing a FirewallPolicy resource.
 type FirewallPolicyArgs struct {
+	// The parent firewall policy from which rules are inherited.
+	BasePolicy SubResourcePtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the Firewall Policy.
 	Name pulumi.StringInput
-	// Properties of the firewall policy.
-	Properties FirewallPolicyPropertiesFormatPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The operation mode for Threat Intelligence.
+	ThreatIntelMode pulumi.StringPtrInput
 }
 
 func (FirewallPolicyArgs) ElementType() reflect.Type {

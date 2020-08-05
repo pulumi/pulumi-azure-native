@@ -75,6 +75,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
     public sealed class AccessPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An description of the access policy.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
         /// </summary>
         [Input("environmentName", required: true)]
@@ -86,14 +92,29 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties", required: true)]
-        public Input<Inputs.AccessPolicyResourcePropertiesArgs> Properties { get; set; } = null!;
+        /// <summary>
+        /// The objectId of the principal in Azure Active Directory.
+        /// </summary>
+        [Input("principalObjectId")]
+        public Input<string>? PrincipalObjectId { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("roles")]
+        private InputList<string>? _roles;
+
+        /// <summary>
+        /// The list of roles the principal is assigned on the environment.
+        /// </summary>
+        public InputList<string> Roles
+        {
+            get => _roles ?? (_roles = new InputList<string>());
+            set => _roles = value;
+        }
 
         public AccessPolicyArgs()
         {

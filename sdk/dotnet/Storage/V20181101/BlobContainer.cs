@@ -89,17 +89,29 @@ namespace Pulumi.AzureRM.Storage.V20181101
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
+
         /// <summary>
-        /// Properties of the blob container.
+        /// A name-value pair to associate with the container as metadata.
         /// </summary>
-        [Input("containerProperties")]
-        public Input<Inputs.ContainerPropertiesArgs>? ContainerProperties { get; set; }
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
 
         /// <summary>
         /// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether data in the container may be accessed publicly and the level of access.
+        /// </summary>
+        [Input("publicAccess")]
+        public Input<string>? PublicAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

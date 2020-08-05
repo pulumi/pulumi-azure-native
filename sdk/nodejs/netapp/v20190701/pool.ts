@@ -47,7 +47,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * Capacity pool properties
      */
-    public readonly properties!: pulumi.Output<outputs.netapp.v20190701.PoolPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.netapp.v20190701.PoolPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -79,18 +79,23 @@ export class Pool extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.serviceLevel === undefined) {
+                throw new Error("Missing required property 'serviceLevel'");
+            }
+            if (!args || args.size === undefined) {
+                throw new Error("Missing required property 'size'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceLevel"] = args ? args.serviceLevel : undefined;
+            inputs["size"] = args ? args.size : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -121,13 +126,17 @@ export interface PoolArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Capacity pool properties
-     */
-    readonly properties: pulumi.Input<inputs.netapp.v20190701.PoolProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The service level of the file system
+     */
+    readonly serviceLevel: pulumi.Input<string>;
+    /**
+     * Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+     */
+    readonly size: pulumi.Input<number>;
     /**
      * Resource tags
      */

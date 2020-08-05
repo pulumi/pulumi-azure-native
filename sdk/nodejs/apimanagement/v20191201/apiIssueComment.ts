@@ -43,7 +43,7 @@ export class ApiIssueComment extends pulumi.CustomResource {
     /**
      * Properties of the Issue Comment.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.IssueCommentContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.IssueCommentContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -77,12 +77,21 @@ export class ApiIssueComment extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.text === undefined) {
+                throw new Error("Missing required property 'text'");
+            }
+            if (!args || args.userId === undefined) {
+                throw new Error("Missing required property 'userId'");
+            }
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["createdDate"] = args ? args.createdDate : undefined;
             inputs["issueId"] = args ? args.issueId : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["text"] = args ? args.text : undefined;
+            inputs["userId"] = args ? args.userId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +114,10 @@ export interface ApiIssueCommentArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
+     * Date and time when the comment was created.
+     */
+    readonly createdDate?: pulumi.Input<string>;
+    /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
     readonly issueId: pulumi.Input<string>;
@@ -113,10 +126,6 @@ export interface ApiIssueCommentArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Issue Comment.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.IssueCommentContractProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -124,4 +133,12 @@ export interface ApiIssueCommentArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Comment text.
+     */
+    readonly text: pulumi.Input<string>;
+    /**
+     * A resource identifier for the user who left the comment.
+     */
+    readonly userId: pulumi.Input<string>;
 }

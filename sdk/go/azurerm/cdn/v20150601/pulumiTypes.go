@@ -80,137 +80,6 @@ func (o CustomDomainTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type CustomDomainPropertiesParameters struct {
-	// The host name of the custom domain. Must be a domain name.
-	HostName string `pulumi:"hostName"`
-}
-
-// CustomDomainPropertiesParametersInput is an input type that accepts CustomDomainPropertiesParametersArgs and CustomDomainPropertiesParametersOutput values.
-// You can construct a concrete instance of `CustomDomainPropertiesParametersInput` via:
-//
-//          CustomDomainPropertiesParametersArgs{...}
-type CustomDomainPropertiesParametersInput interface {
-	pulumi.Input
-
-	ToCustomDomainPropertiesParametersOutput() CustomDomainPropertiesParametersOutput
-	ToCustomDomainPropertiesParametersOutputWithContext(context.Context) CustomDomainPropertiesParametersOutput
-}
-
-type CustomDomainPropertiesParametersArgs struct {
-	// The host name of the custom domain. Must be a domain name.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-}
-
-func (CustomDomainPropertiesParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainPropertiesParameters)(nil)).Elem()
-}
-
-func (i CustomDomainPropertiesParametersArgs) ToCustomDomainPropertiesParametersOutput() CustomDomainPropertiesParametersOutput {
-	return i.ToCustomDomainPropertiesParametersOutputWithContext(context.Background())
-}
-
-func (i CustomDomainPropertiesParametersArgs) ToCustomDomainPropertiesParametersOutputWithContext(ctx context.Context) CustomDomainPropertiesParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPropertiesParametersOutput)
-}
-
-func (i CustomDomainPropertiesParametersArgs) ToCustomDomainPropertiesParametersPtrOutput() CustomDomainPropertiesParametersPtrOutput {
-	return i.ToCustomDomainPropertiesParametersPtrOutputWithContext(context.Background())
-}
-
-func (i CustomDomainPropertiesParametersArgs) ToCustomDomainPropertiesParametersPtrOutputWithContext(ctx context.Context) CustomDomainPropertiesParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPropertiesParametersOutput).ToCustomDomainPropertiesParametersPtrOutputWithContext(ctx)
-}
-
-// CustomDomainPropertiesParametersPtrInput is an input type that accepts CustomDomainPropertiesParametersArgs, CustomDomainPropertiesParametersPtr and CustomDomainPropertiesParametersPtrOutput values.
-// You can construct a concrete instance of `CustomDomainPropertiesParametersPtrInput` via:
-//
-//          CustomDomainPropertiesParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type CustomDomainPropertiesParametersPtrInput interface {
-	pulumi.Input
-
-	ToCustomDomainPropertiesParametersPtrOutput() CustomDomainPropertiesParametersPtrOutput
-	ToCustomDomainPropertiesParametersPtrOutputWithContext(context.Context) CustomDomainPropertiesParametersPtrOutput
-}
-
-type customDomainPropertiesParametersPtrType CustomDomainPropertiesParametersArgs
-
-func CustomDomainPropertiesParametersPtr(v *CustomDomainPropertiesParametersArgs) CustomDomainPropertiesParametersPtrInput {
-	return (*customDomainPropertiesParametersPtrType)(v)
-}
-
-func (*customDomainPropertiesParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDomainPropertiesParameters)(nil)).Elem()
-}
-
-func (i *customDomainPropertiesParametersPtrType) ToCustomDomainPropertiesParametersPtrOutput() CustomDomainPropertiesParametersPtrOutput {
-	return i.ToCustomDomainPropertiesParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *customDomainPropertiesParametersPtrType) ToCustomDomainPropertiesParametersPtrOutputWithContext(ctx context.Context) CustomDomainPropertiesParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainPropertiesParametersPtrOutput)
-}
-
-type CustomDomainPropertiesParametersOutput struct{ *pulumi.OutputState }
-
-func (CustomDomainPropertiesParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainPropertiesParameters)(nil)).Elem()
-}
-
-func (o CustomDomainPropertiesParametersOutput) ToCustomDomainPropertiesParametersOutput() CustomDomainPropertiesParametersOutput {
-	return o
-}
-
-func (o CustomDomainPropertiesParametersOutput) ToCustomDomainPropertiesParametersOutputWithContext(ctx context.Context) CustomDomainPropertiesParametersOutput {
-	return o
-}
-
-func (o CustomDomainPropertiesParametersOutput) ToCustomDomainPropertiesParametersPtrOutput() CustomDomainPropertiesParametersPtrOutput {
-	return o.ToCustomDomainPropertiesParametersPtrOutputWithContext(context.Background())
-}
-
-func (o CustomDomainPropertiesParametersOutput) ToCustomDomainPropertiesParametersPtrOutputWithContext(ctx context.Context) CustomDomainPropertiesParametersPtrOutput {
-	return o.ApplyT(func(v CustomDomainPropertiesParameters) *CustomDomainPropertiesParameters {
-		return &v
-	}).(CustomDomainPropertiesParametersPtrOutput)
-}
-
-// The host name of the custom domain. Must be a domain name.
-func (o CustomDomainPropertiesParametersOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDomainPropertiesParameters) string { return v.HostName }).(pulumi.StringOutput)
-}
-
-type CustomDomainPropertiesParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (CustomDomainPropertiesParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDomainPropertiesParameters)(nil)).Elem()
-}
-
-func (o CustomDomainPropertiesParametersPtrOutput) ToCustomDomainPropertiesParametersPtrOutput() CustomDomainPropertiesParametersPtrOutput {
-	return o
-}
-
-func (o CustomDomainPropertiesParametersPtrOutput) ToCustomDomainPropertiesParametersPtrOutputWithContext(ctx context.Context) CustomDomainPropertiesParametersPtrOutput {
-	return o
-}
-
-func (o CustomDomainPropertiesParametersPtrOutput) Elem() CustomDomainPropertiesParametersOutput {
-	return o.ApplyT(func(v *CustomDomainPropertiesParameters) CustomDomainPropertiesParameters { return *v }).(CustomDomainPropertiesParametersOutput)
-}
-
-// The host name of the custom domain. Must be a domain name.
-func (o CustomDomainPropertiesParametersPtrOutput) HostName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CustomDomainPropertiesParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HostName
-	}).(pulumi.StringPtrOutput)
-}
-
 type CustomDomainPropertiesResponse struct {
 	// The host name of the custom domain. Must be a domain name.
 	HostName string `pulumi:"hostName"`
@@ -382,10 +251,14 @@ func (o CustomDomainPropertiesResponsePtrOutput) ResourceState() pulumi.StringPt
 
 // Deep created origins within a CDN endpoint.
 type DeepCreatedOrigin struct {
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+	HostName string `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535
+	HttpPort *int `pulumi:"httpPort"`
+	// The value of the HTTPS port. Must be between 1 and 65535
+	HttpsPort *int `pulumi:"httpsPort"`
 	// Origin name
 	Name string `pulumi:"name"`
-	// Properties of deep created origin on a CDN endpoint.
-	Properties *DeepCreatedOriginProperties `pulumi:"properties"`
 }
 
 // DeepCreatedOriginInput is an input type that accepts DeepCreatedOriginArgs and DeepCreatedOriginOutput values.
@@ -401,10 +274,14 @@ type DeepCreatedOriginInput interface {
 
 // Deep created origins within a CDN endpoint.
 type DeepCreatedOriginArgs struct {
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+	HostName pulumi.StringInput `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535
+	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
+	// The value of the HTTPS port. Must be between 1 and 65535
+	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
 	// Origin name
 	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of deep created origin on a CDN endpoint.
-	Properties DeepCreatedOriginPropertiesPtrInput `pulumi:"properties"`
 }
 
 func (DeepCreatedOriginArgs) ElementType() reflect.Type {
@@ -459,14 +336,24 @@ func (o DeepCreatedOriginOutput) ToDeepCreatedOriginOutputWithContext(ctx contex
 	return o
 }
 
+// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+func (o DeepCreatedOriginOutput) HostName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeepCreatedOrigin) string { return v.HostName }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP port. Must be between 1 and 65535
+func (o DeepCreatedOriginOutput) HttpPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOrigin) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
+}
+
+// The value of the HTTPS port. Must be between 1 and 65535
+func (o DeepCreatedOriginOutput) HttpsPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeepCreatedOrigin) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
+}
+
 // Origin name
 func (o DeepCreatedOriginOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DeepCreatedOrigin) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of deep created origin on a CDN endpoint.
-func (o DeepCreatedOriginOutput) Properties() DeepCreatedOriginPropertiesPtrOutput {
-	return o.ApplyT(func(v DeepCreatedOrigin) *DeepCreatedOriginProperties { return v.Properties }).(DeepCreatedOriginPropertiesPtrOutput)
 }
 
 type DeepCreatedOriginArrayOutput struct{ *pulumi.OutputState }
@@ -487,178 +374,6 @@ func (o DeepCreatedOriginArrayOutput) Index(i pulumi.IntInput) DeepCreatedOrigin
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeepCreatedOrigin {
 		return vs[0].([]DeepCreatedOrigin)[vs[1].(int)]
 	}).(DeepCreatedOriginOutput)
-}
-
-// Properties of deep created origin on a CDN endpoint.
-type DeepCreatedOriginProperties struct {
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
-	HttpsPort *int `pulumi:"httpsPort"`
-}
-
-// DeepCreatedOriginPropertiesInput is an input type that accepts DeepCreatedOriginPropertiesArgs and DeepCreatedOriginPropertiesOutput values.
-// You can construct a concrete instance of `DeepCreatedOriginPropertiesInput` via:
-//
-//          DeepCreatedOriginPropertiesArgs{...}
-type DeepCreatedOriginPropertiesInput interface {
-	pulumi.Input
-
-	ToDeepCreatedOriginPropertiesOutput() DeepCreatedOriginPropertiesOutput
-	ToDeepCreatedOriginPropertiesOutputWithContext(context.Context) DeepCreatedOriginPropertiesOutput
-}
-
-// Properties of deep created origin on a CDN endpoint.
-type DeepCreatedOriginPropertiesArgs struct {
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535
-	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-}
-
-func (DeepCreatedOriginPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeepCreatedOriginProperties)(nil)).Elem()
-}
-
-func (i DeepCreatedOriginPropertiesArgs) ToDeepCreatedOriginPropertiesOutput() DeepCreatedOriginPropertiesOutput {
-	return i.ToDeepCreatedOriginPropertiesOutputWithContext(context.Background())
-}
-
-func (i DeepCreatedOriginPropertiesArgs) ToDeepCreatedOriginPropertiesOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginPropertiesOutput)
-}
-
-func (i DeepCreatedOriginPropertiesArgs) ToDeepCreatedOriginPropertiesPtrOutput() DeepCreatedOriginPropertiesPtrOutput {
-	return i.ToDeepCreatedOriginPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DeepCreatedOriginPropertiesArgs) ToDeepCreatedOriginPropertiesPtrOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginPropertiesOutput).ToDeepCreatedOriginPropertiesPtrOutputWithContext(ctx)
-}
-
-// DeepCreatedOriginPropertiesPtrInput is an input type that accepts DeepCreatedOriginPropertiesArgs, DeepCreatedOriginPropertiesPtr and DeepCreatedOriginPropertiesPtrOutput values.
-// You can construct a concrete instance of `DeepCreatedOriginPropertiesPtrInput` via:
-//
-//          DeepCreatedOriginPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type DeepCreatedOriginPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDeepCreatedOriginPropertiesPtrOutput() DeepCreatedOriginPropertiesPtrOutput
-	ToDeepCreatedOriginPropertiesPtrOutputWithContext(context.Context) DeepCreatedOriginPropertiesPtrOutput
-}
-
-type deepCreatedOriginPropertiesPtrType DeepCreatedOriginPropertiesArgs
-
-func DeepCreatedOriginPropertiesPtr(v *DeepCreatedOriginPropertiesArgs) DeepCreatedOriginPropertiesPtrInput {
-	return (*deepCreatedOriginPropertiesPtrType)(v)
-}
-
-func (*deepCreatedOriginPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeepCreatedOriginProperties)(nil)).Elem()
-}
-
-func (i *deepCreatedOriginPropertiesPtrType) ToDeepCreatedOriginPropertiesPtrOutput() DeepCreatedOriginPropertiesPtrOutput {
-	return i.ToDeepCreatedOriginPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *deepCreatedOriginPropertiesPtrType) ToDeepCreatedOriginPropertiesPtrOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeepCreatedOriginPropertiesPtrOutput)
-}
-
-// Properties of deep created origin on a CDN endpoint.
-type DeepCreatedOriginPropertiesOutput struct{ *pulumi.OutputState }
-
-func (DeepCreatedOriginPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeepCreatedOriginProperties)(nil)).Elem()
-}
-
-func (o DeepCreatedOriginPropertiesOutput) ToDeepCreatedOriginPropertiesOutput() DeepCreatedOriginPropertiesOutput {
-	return o
-}
-
-func (o DeepCreatedOriginPropertiesOutput) ToDeepCreatedOriginPropertiesOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesOutput {
-	return o
-}
-
-func (o DeepCreatedOriginPropertiesOutput) ToDeepCreatedOriginPropertiesPtrOutput() DeepCreatedOriginPropertiesPtrOutput {
-	return o.ToDeepCreatedOriginPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DeepCreatedOriginPropertiesOutput) ToDeepCreatedOriginPropertiesPtrOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesPtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginProperties) *DeepCreatedOriginProperties {
-		return &v
-	}).(DeepCreatedOriginPropertiesPtrOutput)
-}
-
-// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-func (o DeepCreatedOriginPropertiesOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func(v DeepCreatedOriginProperties) string { return v.HostName }).(pulumi.StringOutput)
-}
-
-// The value of the HTTP port. Must be between 1 and 65535
-func (o DeepCreatedOriginPropertiesOutput) HttpPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginProperties) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
-}
-
-// The value of the HTTPS port. Must be between 1 and 65535
-func (o DeepCreatedOriginPropertiesOutput) HttpsPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeepCreatedOriginProperties) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
-}
-
-type DeepCreatedOriginPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (DeepCreatedOriginPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeepCreatedOriginProperties)(nil)).Elem()
-}
-
-func (o DeepCreatedOriginPropertiesPtrOutput) ToDeepCreatedOriginPropertiesPtrOutput() DeepCreatedOriginPropertiesPtrOutput {
-	return o
-}
-
-func (o DeepCreatedOriginPropertiesPtrOutput) ToDeepCreatedOriginPropertiesPtrOutputWithContext(ctx context.Context) DeepCreatedOriginPropertiesPtrOutput {
-	return o
-}
-
-func (o DeepCreatedOriginPropertiesPtrOutput) Elem() DeepCreatedOriginPropertiesOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginProperties) DeepCreatedOriginProperties { return *v }).(DeepCreatedOriginPropertiesOutput)
-}
-
-// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-func (o DeepCreatedOriginPropertiesPtrOutput) HostName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HostName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the HTTP port. Must be between 1 and 65535
-func (o DeepCreatedOriginPropertiesPtrOutput) HttpPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.HttpPort
-	}).(pulumi.IntPtrOutput)
-}
-
-// The value of the HTTPS port. Must be between 1 and 65535
-func (o DeepCreatedOriginPropertiesPtrOutput) HttpsPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeepCreatedOriginProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.HttpsPort
-	}).(pulumi.IntPtrOutput)
 }
 
 // Properties of deep created origin on a CDN endpoint.
@@ -1028,270 +743,6 @@ func (o EndpointTypeOutput) Tags() pulumi.StringMapOutput {
 // Resource type
 func (o EndpointTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type EndpointPropertiesCreateParameters struct {
-	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
-	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
-	// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
-	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
-	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
-	// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
-	// The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
-	OriginHostHeader *string `pulumi:"originHostHeader"`
-	// The path used for origin requests.
-	OriginPath *string `pulumi:"originPath"`
-	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
-	Origins []DeepCreatedOrigin `pulumi:"origins"`
-	// Defines the query string caching behavior.
-	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
-}
-
-// EndpointPropertiesCreateParametersInput is an input type that accepts EndpointPropertiesCreateParametersArgs and EndpointPropertiesCreateParametersOutput values.
-// You can construct a concrete instance of `EndpointPropertiesCreateParametersInput` via:
-//
-//          EndpointPropertiesCreateParametersArgs{...}
-type EndpointPropertiesCreateParametersInput interface {
-	pulumi.Input
-
-	ToEndpointPropertiesCreateParametersOutput() EndpointPropertiesCreateParametersOutput
-	ToEndpointPropertiesCreateParametersOutputWithContext(context.Context) EndpointPropertiesCreateParametersOutput
-}
-
-type EndpointPropertiesCreateParametersArgs struct {
-	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
-	ContentTypesToCompress pulumi.StringArrayInput `pulumi:"contentTypesToCompress"`
-	// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
-	IsCompressionEnabled pulumi.BoolPtrInput `pulumi:"isCompressionEnabled"`
-	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpAllowed pulumi.BoolPtrInput `pulumi:"isHttpAllowed"`
-	// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-	IsHttpsAllowed pulumi.BoolPtrInput `pulumi:"isHttpsAllowed"`
-	// The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
-	OriginHostHeader pulumi.StringPtrInput `pulumi:"originHostHeader"`
-	// The path used for origin requests.
-	OriginPath pulumi.StringPtrInput `pulumi:"originPath"`
-	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
-	Origins DeepCreatedOriginArrayInput `pulumi:"origins"`
-	// Defines the query string caching behavior.
-	QueryStringCachingBehavior pulumi.StringPtrInput `pulumi:"queryStringCachingBehavior"`
-}
-
-func (EndpointPropertiesCreateParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointPropertiesCreateParameters)(nil)).Elem()
-}
-
-func (i EndpointPropertiesCreateParametersArgs) ToEndpointPropertiesCreateParametersOutput() EndpointPropertiesCreateParametersOutput {
-	return i.ToEndpointPropertiesCreateParametersOutputWithContext(context.Background())
-}
-
-func (i EndpointPropertiesCreateParametersArgs) ToEndpointPropertiesCreateParametersOutputWithContext(ctx context.Context) EndpointPropertiesCreateParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesCreateParametersOutput)
-}
-
-func (i EndpointPropertiesCreateParametersArgs) ToEndpointPropertiesCreateParametersPtrOutput() EndpointPropertiesCreateParametersPtrOutput {
-	return i.ToEndpointPropertiesCreateParametersPtrOutputWithContext(context.Background())
-}
-
-func (i EndpointPropertiesCreateParametersArgs) ToEndpointPropertiesCreateParametersPtrOutputWithContext(ctx context.Context) EndpointPropertiesCreateParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesCreateParametersOutput).ToEndpointPropertiesCreateParametersPtrOutputWithContext(ctx)
-}
-
-// EndpointPropertiesCreateParametersPtrInput is an input type that accepts EndpointPropertiesCreateParametersArgs, EndpointPropertiesCreateParametersPtr and EndpointPropertiesCreateParametersPtrOutput values.
-// You can construct a concrete instance of `EndpointPropertiesCreateParametersPtrInput` via:
-//
-//          EndpointPropertiesCreateParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type EndpointPropertiesCreateParametersPtrInput interface {
-	pulumi.Input
-
-	ToEndpointPropertiesCreateParametersPtrOutput() EndpointPropertiesCreateParametersPtrOutput
-	ToEndpointPropertiesCreateParametersPtrOutputWithContext(context.Context) EndpointPropertiesCreateParametersPtrOutput
-}
-
-type endpointPropertiesCreateParametersPtrType EndpointPropertiesCreateParametersArgs
-
-func EndpointPropertiesCreateParametersPtr(v *EndpointPropertiesCreateParametersArgs) EndpointPropertiesCreateParametersPtrInput {
-	return (*endpointPropertiesCreateParametersPtrType)(v)
-}
-
-func (*endpointPropertiesCreateParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointPropertiesCreateParameters)(nil)).Elem()
-}
-
-func (i *endpointPropertiesCreateParametersPtrType) ToEndpointPropertiesCreateParametersPtrOutput() EndpointPropertiesCreateParametersPtrOutput {
-	return i.ToEndpointPropertiesCreateParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *endpointPropertiesCreateParametersPtrType) ToEndpointPropertiesCreateParametersPtrOutputWithContext(ctx context.Context) EndpointPropertiesCreateParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesCreateParametersPtrOutput)
-}
-
-type EndpointPropertiesCreateParametersOutput struct{ *pulumi.OutputState }
-
-func (EndpointPropertiesCreateParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointPropertiesCreateParameters)(nil)).Elem()
-}
-
-func (o EndpointPropertiesCreateParametersOutput) ToEndpointPropertiesCreateParametersOutput() EndpointPropertiesCreateParametersOutput {
-	return o
-}
-
-func (o EndpointPropertiesCreateParametersOutput) ToEndpointPropertiesCreateParametersOutputWithContext(ctx context.Context) EndpointPropertiesCreateParametersOutput {
-	return o
-}
-
-func (o EndpointPropertiesCreateParametersOutput) ToEndpointPropertiesCreateParametersPtrOutput() EndpointPropertiesCreateParametersPtrOutput {
-	return o.ToEndpointPropertiesCreateParametersPtrOutputWithContext(context.Background())
-}
-
-func (o EndpointPropertiesCreateParametersOutput) ToEndpointPropertiesCreateParametersPtrOutputWithContext(ctx context.Context) EndpointPropertiesCreateParametersPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesCreateParameters) *EndpointPropertiesCreateParameters {
-		return &v
-	}).(EndpointPropertiesCreateParametersPtrOutput)
-}
-
-// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
-func (o EndpointPropertiesCreateParametersOutput) ContentTypesToCompress() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v EndpointPropertiesCreateParameters) []string { return v.ContentTypesToCompress }).(pulumi.StringArrayOutput)
-}
-
-// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
-func (o EndpointPropertiesCreateParametersOutput) IsCompressionEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesCreateParameters) *bool { return v.IsCompressionEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-func (o EndpointPropertiesCreateParametersOutput) IsHttpAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesCreateParameters) *bool { return v.IsHttpAllowed }).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-func (o EndpointPropertiesCreateParametersOutput) IsHttpsAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesCreateParameters) *bool { return v.IsHttpsAllowed }).(pulumi.BoolPtrOutput)
-}
-
-// The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
-func (o EndpointPropertiesCreateParametersOutput) OriginHostHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesCreateParameters) *string { return v.OriginHostHeader }).(pulumi.StringPtrOutput)
-}
-
-// The path used for origin requests.
-func (o EndpointPropertiesCreateParametersOutput) OriginPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesCreateParameters) *string { return v.OriginPath }).(pulumi.StringPtrOutput)
-}
-
-// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
-func (o EndpointPropertiesCreateParametersOutput) Origins() DeepCreatedOriginArrayOutput {
-	return o.ApplyT(func(v EndpointPropertiesCreateParameters) []DeepCreatedOrigin { return v.Origins }).(DeepCreatedOriginArrayOutput)
-}
-
-// Defines the query string caching behavior.
-func (o EndpointPropertiesCreateParametersOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesCreateParameters) *string { return v.QueryStringCachingBehavior }).(pulumi.StringPtrOutput)
-}
-
-type EndpointPropertiesCreateParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (EndpointPropertiesCreateParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointPropertiesCreateParameters)(nil)).Elem()
-}
-
-func (o EndpointPropertiesCreateParametersPtrOutput) ToEndpointPropertiesCreateParametersPtrOutput() EndpointPropertiesCreateParametersPtrOutput {
-	return o
-}
-
-func (o EndpointPropertiesCreateParametersPtrOutput) ToEndpointPropertiesCreateParametersPtrOutputWithContext(ctx context.Context) EndpointPropertiesCreateParametersPtrOutput {
-	return o
-}
-
-func (o EndpointPropertiesCreateParametersPtrOutput) Elem() EndpointPropertiesCreateParametersOutput {
-	return o.ApplyT(func(v *EndpointPropertiesCreateParameters) EndpointPropertiesCreateParameters { return *v }).(EndpointPropertiesCreateParametersOutput)
-}
-
-// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
-func (o EndpointPropertiesCreateParametersPtrOutput) ContentTypesToCompress() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EndpointPropertiesCreateParameters) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ContentTypesToCompress
-	}).(pulumi.StringArrayOutput)
-}
-
-// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
-func (o EndpointPropertiesCreateParametersPtrOutput) IsCompressionEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesCreateParameters) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsCompressionEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-func (o EndpointPropertiesCreateParametersPtrOutput) IsHttpAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesCreateParameters) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsHttpAllowed
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-func (o EndpointPropertiesCreateParametersPtrOutput) IsHttpsAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesCreateParameters) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsHttpsAllowed
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
-func (o EndpointPropertiesCreateParametersPtrOutput) OriginHostHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesCreateParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OriginHostHeader
-	}).(pulumi.StringPtrOutput)
-}
-
-// The path used for origin requests.
-func (o EndpointPropertiesCreateParametersPtrOutput) OriginPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesCreateParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OriginPath
-	}).(pulumi.StringPtrOutput)
-}
-
-// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
-func (o EndpointPropertiesCreateParametersPtrOutput) Origins() DeepCreatedOriginArrayOutput {
-	return o.ApplyT(func(v *EndpointPropertiesCreateParameters) []DeepCreatedOrigin {
-		if v == nil {
-			return nil
-		}
-		return v.Origins
-	}).(DeepCreatedOriginArrayOutput)
-}
-
-// Defines the query string caching behavior.
-func (o EndpointPropertiesCreateParametersPtrOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesCreateParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.QueryStringCachingBehavior
-	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointPropertiesResponse struct {
@@ -1685,175 +1136,6 @@ func (o OriginTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type OriginPropertiesParameters struct {
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName string `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort *int `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535.
-	HttpsPort *int `pulumi:"httpsPort"`
-}
-
-// OriginPropertiesParametersInput is an input type that accepts OriginPropertiesParametersArgs and OriginPropertiesParametersOutput values.
-// You can construct a concrete instance of `OriginPropertiesParametersInput` via:
-//
-//          OriginPropertiesParametersArgs{...}
-type OriginPropertiesParametersInput interface {
-	pulumi.Input
-
-	ToOriginPropertiesParametersOutput() OriginPropertiesParametersOutput
-	ToOriginPropertiesParametersOutputWithContext(context.Context) OriginPropertiesParametersOutput
-}
-
-type OriginPropertiesParametersArgs struct {
-	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The value of the HTTP port. Must be between 1 and 65535.
-	HttpPort pulumi.IntPtrInput `pulumi:"httpPort"`
-	// The value of the HTTPS port. Must be between 1 and 65535.
-	HttpsPort pulumi.IntPtrInput `pulumi:"httpsPort"`
-}
-
-func (OriginPropertiesParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginPropertiesParameters)(nil)).Elem()
-}
-
-func (i OriginPropertiesParametersArgs) ToOriginPropertiesParametersOutput() OriginPropertiesParametersOutput {
-	return i.ToOriginPropertiesParametersOutputWithContext(context.Background())
-}
-
-func (i OriginPropertiesParametersArgs) ToOriginPropertiesParametersOutputWithContext(ctx context.Context) OriginPropertiesParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginPropertiesParametersOutput)
-}
-
-func (i OriginPropertiesParametersArgs) ToOriginPropertiesParametersPtrOutput() OriginPropertiesParametersPtrOutput {
-	return i.ToOriginPropertiesParametersPtrOutputWithContext(context.Background())
-}
-
-func (i OriginPropertiesParametersArgs) ToOriginPropertiesParametersPtrOutputWithContext(ctx context.Context) OriginPropertiesParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginPropertiesParametersOutput).ToOriginPropertiesParametersPtrOutputWithContext(ctx)
-}
-
-// OriginPropertiesParametersPtrInput is an input type that accepts OriginPropertiesParametersArgs, OriginPropertiesParametersPtr and OriginPropertiesParametersPtrOutput values.
-// You can construct a concrete instance of `OriginPropertiesParametersPtrInput` via:
-//
-//          OriginPropertiesParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type OriginPropertiesParametersPtrInput interface {
-	pulumi.Input
-
-	ToOriginPropertiesParametersPtrOutput() OriginPropertiesParametersPtrOutput
-	ToOriginPropertiesParametersPtrOutputWithContext(context.Context) OriginPropertiesParametersPtrOutput
-}
-
-type originPropertiesParametersPtrType OriginPropertiesParametersArgs
-
-func OriginPropertiesParametersPtr(v *OriginPropertiesParametersArgs) OriginPropertiesParametersPtrInput {
-	return (*originPropertiesParametersPtrType)(v)
-}
-
-func (*originPropertiesParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginPropertiesParameters)(nil)).Elem()
-}
-
-func (i *originPropertiesParametersPtrType) ToOriginPropertiesParametersPtrOutput() OriginPropertiesParametersPtrOutput {
-	return i.ToOriginPropertiesParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *originPropertiesParametersPtrType) ToOriginPropertiesParametersPtrOutputWithContext(ctx context.Context) OriginPropertiesParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginPropertiesParametersPtrOutput)
-}
-
-type OriginPropertiesParametersOutput struct{ *pulumi.OutputState }
-
-func (OriginPropertiesParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OriginPropertiesParameters)(nil)).Elem()
-}
-
-func (o OriginPropertiesParametersOutput) ToOriginPropertiesParametersOutput() OriginPropertiesParametersOutput {
-	return o
-}
-
-func (o OriginPropertiesParametersOutput) ToOriginPropertiesParametersOutputWithContext(ctx context.Context) OriginPropertiesParametersOutput {
-	return o
-}
-
-func (o OriginPropertiesParametersOutput) ToOriginPropertiesParametersPtrOutput() OriginPropertiesParametersPtrOutput {
-	return o.ToOriginPropertiesParametersPtrOutputWithContext(context.Background())
-}
-
-func (o OriginPropertiesParametersOutput) ToOriginPropertiesParametersPtrOutputWithContext(ctx context.Context) OriginPropertiesParametersPtrOutput {
-	return o.ApplyT(func(v OriginPropertiesParameters) *OriginPropertiesParameters {
-		return &v
-	}).(OriginPropertiesParametersPtrOutput)
-}
-
-// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-func (o OriginPropertiesParametersOutput) HostName() pulumi.StringOutput {
-	return o.ApplyT(func(v OriginPropertiesParameters) string { return v.HostName }).(pulumi.StringOutput)
-}
-
-// The value of the HTTP port. Must be between 1 and 65535.
-func (o OriginPropertiesParametersOutput) HttpPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OriginPropertiesParameters) *int { return v.HttpPort }).(pulumi.IntPtrOutput)
-}
-
-// The value of the HTTPS port. Must be between 1 and 65535.
-func (o OriginPropertiesParametersOutput) HttpsPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v OriginPropertiesParameters) *int { return v.HttpsPort }).(pulumi.IntPtrOutput)
-}
-
-type OriginPropertiesParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (OriginPropertiesParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginPropertiesParameters)(nil)).Elem()
-}
-
-func (o OriginPropertiesParametersPtrOutput) ToOriginPropertiesParametersPtrOutput() OriginPropertiesParametersPtrOutput {
-	return o
-}
-
-func (o OriginPropertiesParametersPtrOutput) ToOriginPropertiesParametersPtrOutputWithContext(ctx context.Context) OriginPropertiesParametersPtrOutput {
-	return o
-}
-
-func (o OriginPropertiesParametersPtrOutput) Elem() OriginPropertiesParametersOutput {
-	return o.ApplyT(func(v *OriginPropertiesParameters) OriginPropertiesParameters { return *v }).(OriginPropertiesParametersOutput)
-}
-
-// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-func (o OriginPropertiesParametersPtrOutput) HostName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HostName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the HTTP port. Must be between 1 and 65535.
-func (o OriginPropertiesParametersPtrOutput) HttpPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesParameters) *int {
-		if v == nil {
-			return nil
-		}
-		return v.HttpPort
-	}).(pulumi.IntPtrOutput)
-}
-
-// The value of the HTTPS port. Must be between 1 and 65535.
-func (o OriginPropertiesParametersPtrOutput) HttpsPort() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *OriginPropertiesParameters) *int {
-		if v == nil {
-			return nil
-		}
-		return v.HttpsPort
-	}).(pulumi.IntPtrOutput)
-}
-
 type OriginPropertiesResponse struct {
 	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
 	HostName string `pulumi:"hostName"`
@@ -2147,137 +1429,6 @@ func (o ProfileTypeOutput) Tags() pulumi.StringMapOutput {
 // Resource type
 func (o ProfileTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ProfileType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ProfilePropertiesCreateParameters struct {
-	// Profile SKU
-	Sku Sku `pulumi:"sku"`
-}
-
-// ProfilePropertiesCreateParametersInput is an input type that accepts ProfilePropertiesCreateParametersArgs and ProfilePropertiesCreateParametersOutput values.
-// You can construct a concrete instance of `ProfilePropertiesCreateParametersInput` via:
-//
-//          ProfilePropertiesCreateParametersArgs{...}
-type ProfilePropertiesCreateParametersInput interface {
-	pulumi.Input
-
-	ToProfilePropertiesCreateParametersOutput() ProfilePropertiesCreateParametersOutput
-	ToProfilePropertiesCreateParametersOutputWithContext(context.Context) ProfilePropertiesCreateParametersOutput
-}
-
-type ProfilePropertiesCreateParametersArgs struct {
-	// Profile SKU
-	Sku SkuInput `pulumi:"sku"`
-}
-
-func (ProfilePropertiesCreateParametersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfilePropertiesCreateParameters)(nil)).Elem()
-}
-
-func (i ProfilePropertiesCreateParametersArgs) ToProfilePropertiesCreateParametersOutput() ProfilePropertiesCreateParametersOutput {
-	return i.ToProfilePropertiesCreateParametersOutputWithContext(context.Background())
-}
-
-func (i ProfilePropertiesCreateParametersArgs) ToProfilePropertiesCreateParametersOutputWithContext(ctx context.Context) ProfilePropertiesCreateParametersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfilePropertiesCreateParametersOutput)
-}
-
-func (i ProfilePropertiesCreateParametersArgs) ToProfilePropertiesCreateParametersPtrOutput() ProfilePropertiesCreateParametersPtrOutput {
-	return i.ToProfilePropertiesCreateParametersPtrOutputWithContext(context.Background())
-}
-
-func (i ProfilePropertiesCreateParametersArgs) ToProfilePropertiesCreateParametersPtrOutputWithContext(ctx context.Context) ProfilePropertiesCreateParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfilePropertiesCreateParametersOutput).ToProfilePropertiesCreateParametersPtrOutputWithContext(ctx)
-}
-
-// ProfilePropertiesCreateParametersPtrInput is an input type that accepts ProfilePropertiesCreateParametersArgs, ProfilePropertiesCreateParametersPtr and ProfilePropertiesCreateParametersPtrOutput values.
-// You can construct a concrete instance of `ProfilePropertiesCreateParametersPtrInput` via:
-//
-//          ProfilePropertiesCreateParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type ProfilePropertiesCreateParametersPtrInput interface {
-	pulumi.Input
-
-	ToProfilePropertiesCreateParametersPtrOutput() ProfilePropertiesCreateParametersPtrOutput
-	ToProfilePropertiesCreateParametersPtrOutputWithContext(context.Context) ProfilePropertiesCreateParametersPtrOutput
-}
-
-type profilePropertiesCreateParametersPtrType ProfilePropertiesCreateParametersArgs
-
-func ProfilePropertiesCreateParametersPtr(v *ProfilePropertiesCreateParametersArgs) ProfilePropertiesCreateParametersPtrInput {
-	return (*profilePropertiesCreateParametersPtrType)(v)
-}
-
-func (*profilePropertiesCreateParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfilePropertiesCreateParameters)(nil)).Elem()
-}
-
-func (i *profilePropertiesCreateParametersPtrType) ToProfilePropertiesCreateParametersPtrOutput() ProfilePropertiesCreateParametersPtrOutput {
-	return i.ToProfilePropertiesCreateParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *profilePropertiesCreateParametersPtrType) ToProfilePropertiesCreateParametersPtrOutputWithContext(ctx context.Context) ProfilePropertiesCreateParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfilePropertiesCreateParametersPtrOutput)
-}
-
-type ProfilePropertiesCreateParametersOutput struct{ *pulumi.OutputState }
-
-func (ProfilePropertiesCreateParametersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfilePropertiesCreateParameters)(nil)).Elem()
-}
-
-func (o ProfilePropertiesCreateParametersOutput) ToProfilePropertiesCreateParametersOutput() ProfilePropertiesCreateParametersOutput {
-	return o
-}
-
-func (o ProfilePropertiesCreateParametersOutput) ToProfilePropertiesCreateParametersOutputWithContext(ctx context.Context) ProfilePropertiesCreateParametersOutput {
-	return o
-}
-
-func (o ProfilePropertiesCreateParametersOutput) ToProfilePropertiesCreateParametersPtrOutput() ProfilePropertiesCreateParametersPtrOutput {
-	return o.ToProfilePropertiesCreateParametersPtrOutputWithContext(context.Background())
-}
-
-func (o ProfilePropertiesCreateParametersOutput) ToProfilePropertiesCreateParametersPtrOutputWithContext(ctx context.Context) ProfilePropertiesCreateParametersPtrOutput {
-	return o.ApplyT(func(v ProfilePropertiesCreateParameters) *ProfilePropertiesCreateParameters {
-		return &v
-	}).(ProfilePropertiesCreateParametersPtrOutput)
-}
-
-// Profile SKU
-func (o ProfilePropertiesCreateParametersOutput) Sku() SkuOutput {
-	return o.ApplyT(func(v ProfilePropertiesCreateParameters) Sku { return v.Sku }).(SkuOutput)
-}
-
-type ProfilePropertiesCreateParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (ProfilePropertiesCreateParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfilePropertiesCreateParameters)(nil)).Elem()
-}
-
-func (o ProfilePropertiesCreateParametersPtrOutput) ToProfilePropertiesCreateParametersPtrOutput() ProfilePropertiesCreateParametersPtrOutput {
-	return o
-}
-
-func (o ProfilePropertiesCreateParametersPtrOutput) ToProfilePropertiesCreateParametersPtrOutputWithContext(ctx context.Context) ProfilePropertiesCreateParametersPtrOutput {
-	return o
-}
-
-func (o ProfilePropertiesCreateParametersPtrOutput) Elem() ProfilePropertiesCreateParametersOutput {
-	return o.ApplyT(func(v *ProfilePropertiesCreateParameters) ProfilePropertiesCreateParameters { return *v }).(ProfilePropertiesCreateParametersOutput)
-}
-
-// Profile SKU
-func (o ProfilePropertiesCreateParametersPtrOutput) Sku() SkuPtrOutput {
-	return o.ApplyT(func(v *ProfilePropertiesCreateParameters) *Sku {
-		if v == nil {
-			return nil
-		}
-		return &v.Sku
-	}).(SkuPtrOutput)
 }
 
 type ProfilePropertiesResponse struct {
@@ -2719,31 +1870,21 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 
 func init() {
 	pulumi.RegisterOutputType(CustomDomainTypeOutput{})
-	pulumi.RegisterOutputType(CustomDomainPropertiesParametersOutput{})
-	pulumi.RegisterOutputType(CustomDomainPropertiesParametersPtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginArrayOutput{})
-	pulumi.RegisterOutputType(DeepCreatedOriginPropertiesOutput{})
-	pulumi.RegisterOutputType(DeepCreatedOriginPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseOutput{})
 	pulumi.RegisterOutputType(DeepCreatedOriginResponseArrayOutput{})
 	pulumi.RegisterOutputType(EndpointTypeOutput{})
-	pulumi.RegisterOutputType(EndpointPropertiesCreateParametersOutput{})
-	pulumi.RegisterOutputType(EndpointPropertiesCreateParametersPtrOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(OriginTypeOutput{})
-	pulumi.RegisterOutputType(OriginPropertiesParametersOutput{})
-	pulumi.RegisterOutputType(OriginPropertiesParametersPtrOutput{})
 	pulumi.RegisterOutputType(OriginPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(OriginPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProfileTypeOutput{})
-	pulumi.RegisterOutputType(ProfilePropertiesCreateParametersOutput{})
-	pulumi.RegisterOutputType(ProfilePropertiesCreateParametersPtrOutput{})
 	pulumi.RegisterOutputType(ProfilePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProfilePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

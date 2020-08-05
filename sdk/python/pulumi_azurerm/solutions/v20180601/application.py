@@ -69,19 +69,21 @@ class Application(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_definition_id=None, identity=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, name=None, parameters=None, plan=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Information about managed application.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.
         :param pulumi.Input[dict] identity: The identity of the resource.
         :param pulumi.Input[str] kind: The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
+        :param pulumi.Input[str] managed_resource_group_id: The managed resource group Id.
         :param pulumi.Input[str] name: The name of the managed application.
+        :param pulumi.Input[dict] parameters: Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         :param pulumi.Input[dict] plan: The plan information.
-        :param pulumi.Input[dict] properties: The managed application properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[dict] sku: The SKU of the resource.
         :param pulumi.Input[dict] tags: Resource tags
@@ -97,12 +99,6 @@ class Application(pulumi.CustomResource):
           * `promotion_code` (`pulumi.Input[str]`) - The promotion code.
           * `publisher` (`pulumi.Input[str]`) - The publisher ID.
           * `version` (`pulumi.Input[str]`) - The plan's version.
-
-        The **properties** object supports the following:
-
-          * `application_definition_id` (`pulumi.Input[str]`) - The fully qualified path of managed application definition Id.
-          * `managed_resource_group_id` (`pulumi.Input[str]`) - The managed resource group Id.
-          * `parameters` (`pulumi.Input[dict]`) - Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
 
         The **sku** object supports the following:
 
@@ -130,24 +126,27 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['application_definition_id'] = application_definition_id
             __props__['identity'] = identity
             if kind is None:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['managed_by'] = managed_by
+            if managed_resource_group_id is None:
+                raise TypeError("Missing required property 'managed_resource_group_id'")
+            __props__['managed_resource_group_id'] = managed_resource_group_id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['parameters'] = parameters
             __props__['plan'] = plan
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Application, __self__).__init__(
             'azurerm:solutions/v20180601:Application',

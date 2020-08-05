@@ -16,6 +16,24 @@ namespace Pulumi.AzureRM.Network.V20180201.Inputs
     public sealed class ExpressRouteCircuitConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// /29 IP address space to carve out Customer addresses for tunnels.
+        /// </summary>
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
+
+        /// <summary>
+        /// The authorization key.
+        /// </summary>
+        [Input("authorizationKey")]
+        public Input<string>? AuthorizationKey { get; set; }
+
+        /// <summary>
+        /// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        /// </summary>
+        [Input("expressRouteCircuitPeering")]
+        public Input<Inputs.SubResourceArgs>? ExpressRouteCircuitPeering { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -27,8 +45,11 @@ namespace Pulumi.AzureRM.Network.V20180201.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("properties")]
-        public Input<Inputs.ExpressRouteCircuitConnectionPropertiesFormatArgs>? Properties { get; set; }
+        /// <summary>
+        /// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        /// </summary>
+        [Input("peerExpressRouteCircuitPeering")]
+        public Input<Inputs.SubResourceArgs>? PeerExpressRouteCircuitPeering { get; set; }
 
         public ExpressRouteCircuitConnectionArgs()
         {

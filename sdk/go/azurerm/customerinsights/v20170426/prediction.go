@@ -25,14 +25,35 @@ type Prediction struct {
 // NewPrediction registers a new resource with the given unique name, arguments, and options.
 func NewPrediction(ctx *pulumi.Context,
 	name string, args *PredictionArgs, opts ...pulumi.ResourceOption) (*Prediction, error) {
+	if args == nil || args.AutoAnalyze == nil {
+		return nil, errors.New("missing required argument 'AutoAnalyze'")
+	}
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
+	}
+	if args == nil || args.Mappings == nil {
+		return nil, errors.New("missing required argument 'Mappings'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.NegativeOutcomeExpression == nil {
+		return nil, errors.New("missing required argument 'NegativeOutcomeExpression'")
+	}
+	if args == nil || args.PositiveOutcomeExpression == nil {
+		return nil, errors.New("missing required argument 'PositiveOutcomeExpression'")
+	}
+	if args == nil || args.PrimaryProfileType == nil {
+		return nil, errors.New("missing required argument 'PrimaryProfileType'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ScopeExpression == nil {
+		return nil, errors.New("missing required argument 'ScopeExpression'")
+	}
+	if args == nil || args.ScoreLabel == nil {
+		return nil, errors.New("missing required argument 'ScoreLabel'")
 	}
 	if args == nil {
 		args = &PredictionArgs{}
@@ -81,26 +102,74 @@ func (PredictionState) ElementType() reflect.Type {
 }
 
 type predictionArgs struct {
+	// Whether do auto analyze.
+	AutoAnalyze bool `pulumi:"autoAnalyze"`
+	// Description of the prediction.
+	Description map[string]string `pulumi:"description"`
+	// Display name of the prediction.
+	DisplayName map[string]string `pulumi:"displayName"`
+	// The prediction grades.
+	Grades []PredictionProperties `pulumi:"grades"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
-	// The name of the Prediction.
+	// Interaction types involved in the prediction.
+	InvolvedInteractionTypes []string `pulumi:"involvedInteractionTypes"`
+	// KPI types involved in the prediction.
+	InvolvedKpiTypes []string `pulumi:"involvedKpiTypes"`
+	// Relationships involved in the prediction.
+	InvolvedRelationships []string `pulumi:"involvedRelationships"`
+	// Definition of the link mapping of prediction.
+	Mappings PredictionProperties `pulumi:"mappings"`
+	// Name of the prediction.
 	Name string `pulumi:"name"`
-	// The prediction definition.
-	Properties *PredictionDefinition `pulumi:"properties"`
+	// Negative outcome expression.
+	NegativeOutcomeExpression string `pulumi:"negativeOutcomeExpression"`
+	// Positive outcome expression.
+	PositiveOutcomeExpression string `pulumi:"positiveOutcomeExpression"`
+	// Primary profile type.
+	PrimaryProfileType string `pulumi:"primaryProfileType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Scope expression.
+	ScopeExpression string `pulumi:"scopeExpression"`
+	// Score label.
+	ScoreLabel string `pulumi:"scoreLabel"`
 }
 
 // The set of arguments for constructing a Prediction resource.
 type PredictionArgs struct {
+	// Whether do auto analyze.
+	AutoAnalyze pulumi.BoolInput
+	// Description of the prediction.
+	Description pulumi.StringMapInput
+	// Display name of the prediction.
+	DisplayName pulumi.StringMapInput
+	// The prediction grades.
+	Grades PredictionPropertiesArrayInput
 	// The name of the hub.
 	HubName pulumi.StringInput
-	// The name of the Prediction.
+	// Interaction types involved in the prediction.
+	InvolvedInteractionTypes pulumi.StringArrayInput
+	// KPI types involved in the prediction.
+	InvolvedKpiTypes pulumi.StringArrayInput
+	// Relationships involved in the prediction.
+	InvolvedRelationships pulumi.StringArrayInput
+	// Definition of the link mapping of prediction.
+	Mappings PredictionPropertiesInput
+	// Name of the prediction.
 	Name pulumi.StringInput
-	// The prediction definition.
-	Properties PredictionDefinitionPtrInput
+	// Negative outcome expression.
+	NegativeOutcomeExpression pulumi.StringInput
+	// Positive outcome expression.
+	PositiveOutcomeExpression pulumi.StringInput
+	// Primary profile type.
+	PrimaryProfileType pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Scope expression.
+	ScopeExpression pulumi.StringInput
+	// Score label.
+	ScoreLabel pulumi.StringInput
 }
 
 func (PredictionArgs) ElementType() reflect.Type {

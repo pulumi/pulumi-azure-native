@@ -48,7 +48,7 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.web.v20150801.DeploymentResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.DeploymentResponseProperties>;
     /**
      * Resource tags
      */
@@ -86,15 +86,24 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
+            inputs["active"] = args ? args.active : undefined;
+            inputs["author"] = args ? args.author : undefined;
+            inputs["author_email"] = args ? args.author_email : undefined;
+            inputs["deployer"] = args ? args.deployer : undefined;
+            inputs["details"] = args ? args.details : undefined;
+            inputs["end_time"] = args ? args.end_time : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["message"] = args ? args.message : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["start_time"] = args ? args.start_time : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -112,6 +121,30 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
  */
 export interface SiteInstanceDeploymentSlotArgs {
     /**
+     * Active
+     */
+    readonly active?: pulumi.Input<boolean>;
+    /**
+     * Author
+     */
+    readonly author?: pulumi.Input<string>;
+    /**
+     * AuthorEmail
+     */
+    readonly author_email?: pulumi.Input<string>;
+    /**
+     * Deployer
+     */
+    readonly deployer?: pulumi.Input<string>;
+    /**
+     * Detail
+     */
+    readonly details?: pulumi.Input<string>;
+    /**
+     * EndTime
+     */
+    readonly end_time?: pulumi.Input<string>;
+    /**
      * Id of web app instance
      */
     readonly instanceId: pulumi.Input<string>;
@@ -124,10 +157,13 @@ export interface SiteInstanceDeploymentSlotArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * Message
+     */
+    readonly message?: pulumi.Input<string>;
+    /**
      * Resource Id
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.v20150801.DeploymentProperties>;
     /**
      * Name of resource group
      */
@@ -136,6 +172,14 @@ export interface SiteInstanceDeploymentSlotArgs {
      * Name of web app slot. If not specified then will default to production slot.
      */
     readonly slot: pulumi.Input<string>;
+    /**
+     * StartTime
+     */
+    readonly start_time?: pulumi.Input<string>;
+    /**
+     * Status
+     */
+    readonly status?: pulumi.Input<number>;
     /**
      * Resource tags
      */

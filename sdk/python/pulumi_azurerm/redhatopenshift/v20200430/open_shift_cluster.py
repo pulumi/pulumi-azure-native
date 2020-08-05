@@ -68,58 +68,71 @@ class OpenShiftCluster(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, apiserver_profile=None, cluster_profile=None, console_profile=None, ingress_profiles=None, location=None, master_profile=None, name=None, network_profile=None, provisioning_state=None, resource_group_name=None, service_principal_profile=None, tags=None, worker_profiles=None, __props__=None, __name__=None, __opts__=None):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] apiserver_profile: The cluster API server profile.
+        :param pulumi.Input[dict] cluster_profile: The cluster profile.
+        :param pulumi.Input[dict] console_profile: The console profile.
+        :param pulumi.Input[list] ingress_profiles: The cluster ingress profiles.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[dict] master_profile: The cluster master profile.
         :param pulumi.Input[str] name: The name of the OpenShift cluster resource.
-        :param pulumi.Input[dict] properties: The cluster properties.
+        :param pulumi.Input[dict] network_profile: The cluster network profile.
+        :param pulumi.Input[str] provisioning_state: The cluster provisioning state (immutable).
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[dict] service_principal_profile: The cluster service principal profile.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[list] worker_profiles: The cluster worker profiles.
 
-        The **properties** object supports the following:
+        The **apiserver_profile** object supports the following:
 
-          * `apiserver_profile` (`pulumi.Input[dict]`) - The cluster API server profile.
-            * `ip` (`pulumi.Input[str]`) - The IP of the cluster API server (immutable).
-            * `url` (`pulumi.Input[str]`) - The URL to access the cluster API server (immutable).
-            * `visibility` (`pulumi.Input[str]`) - API server visibility (immutable).
+          * `ip` (`pulumi.Input[str]`) - The IP of the cluster API server (immutable).
+          * `url` (`pulumi.Input[str]`) - The URL to access the cluster API server (immutable).
+          * `visibility` (`pulumi.Input[str]`) - API server visibility (immutable).
 
-          * `cluster_profile` (`pulumi.Input[dict]`) - The cluster profile.
-            * `domain` (`pulumi.Input[str]`) - The domain for the cluster (immutable).
-            * `pull_secret` (`pulumi.Input[str]`) - The pull secret for the cluster (immutable).
-            * `resource_group_id` (`pulumi.Input[str]`) - The ID of the cluster resource group (immutable).
-            * `version` (`pulumi.Input[str]`) - The version of the cluster (immutable).
+        The **cluster_profile** object supports the following:
 
-          * `console_profile` (`pulumi.Input[dict]`) - The console profile.
-            * `url` (`pulumi.Input[str]`) - The URL to access the cluster console (immutable).
+          * `domain` (`pulumi.Input[str]`) - The domain for the cluster (immutable).
+          * `pull_secret` (`pulumi.Input[str]`) - The pull secret for the cluster (immutable).
+          * `resource_group_id` (`pulumi.Input[str]`) - The ID of the cluster resource group (immutable).
+          * `version` (`pulumi.Input[str]`) - The version of the cluster (immutable).
 
-          * `ingress_profiles` (`pulumi.Input[list]`) - The cluster ingress profiles.
-            * `ip` (`pulumi.Input[str]`) - The IP of the ingress (immutable).
-            * `name` (`pulumi.Input[str]`) - The ingress profile name.  Must be "default" (immutable).
-            * `visibility` (`pulumi.Input[str]`) - Ingress visibility (immutable).
+        The **console_profile** object supports the following:
 
-          * `master_profile` (`pulumi.Input[dict]`) - The cluster master profile.
-            * `subnet_id` (`pulumi.Input[str]`) - The Azure resource ID of the master subnet (immutable).
-            * `vm_size` (`pulumi.Input[str]`) - The size of the master VMs (immutable).
+          * `url` (`pulumi.Input[str]`) - The URL to access the cluster console (immutable).
 
-          * `network_profile` (`pulumi.Input[dict]`) - The cluster network profile.
-            * `pod_cidr` (`pulumi.Input[str]`) - The CIDR used for OpenShift/Kubernetes Pods (immutable).
-            * `service_cidr` (`pulumi.Input[str]`) - The CIDR used for OpenShift/Kubernetes Services (immutable).
+        The **ingress_profiles** object supports the following:
 
-          * `provisioning_state` (`pulumi.Input[str]`) - The cluster provisioning state (immutable).
-          * `service_principal_profile` (`pulumi.Input[dict]`) - The cluster service principal profile.
-            * `client_id` (`pulumi.Input[str]`) - The client ID used for the cluster (immutable).
-            * `client_secret` (`pulumi.Input[str]`) - The client secret used for the cluster (immutable).
+          * `ip` (`pulumi.Input[str]`) - The IP of the ingress (immutable).
+          * `name` (`pulumi.Input[str]`) - The ingress profile name.  Must be "default" (immutable).
+          * `visibility` (`pulumi.Input[str]`) - Ingress visibility (immutable).
 
-          * `worker_profiles` (`pulumi.Input[list]`) - The cluster worker profiles.
-            * `count` (`pulumi.Input[float]`) - The number of worker VMs.  Must be between 3 and 20 (immutable).
-            * `disk_size_gb` (`pulumi.Input[float]`) - The disk size of the worker VMs.  Must be 128 or greater (immutable).
-            * `name` (`pulumi.Input[str]`) - The worker profile name.  Must be "worker" (immutable).
-            * `subnet_id` (`pulumi.Input[str]`) - The Azure resource ID of the worker subnet (immutable).
-            * `vm_size` (`pulumi.Input[str]`) - The size of the worker VMs (immutable).
+        The **master_profile** object supports the following:
+
+          * `subnet_id` (`pulumi.Input[str]`) - The Azure resource ID of the master subnet (immutable).
+          * `vm_size` (`pulumi.Input[str]`) - The size of the master VMs (immutable).
+
+        The **network_profile** object supports the following:
+
+          * `pod_cidr` (`pulumi.Input[str]`) - The CIDR used for OpenShift/Kubernetes Pods (immutable).
+          * `service_cidr` (`pulumi.Input[str]`) - The CIDR used for OpenShift/Kubernetes Services (immutable).
+
+        The **service_principal_profile** object supports the following:
+
+          * `client_id` (`pulumi.Input[str]`) - The client ID used for the cluster (immutable).
+          * `client_secret` (`pulumi.Input[str]`) - The client secret used for the cluster (immutable).
+
+        The **worker_profiles** object supports the following:
+
+          * `count` (`pulumi.Input[float]`) - The number of worker VMs.  Must be between 3 and 20 (immutable).
+          * `disk_size_gb` (`pulumi.Input[float]`) - The disk size of the worker VMs.  Must be 128 or greater (immutable).
+          * `name` (`pulumi.Input[str]`) - The worker profile name.  Must be "worker" (immutable).
+          * `subnet_id` (`pulumi.Input[str]`) - The Azure resource ID of the worker subnet (immutable).
+          * `vm_size` (`pulumi.Input[str]`) - The size of the worker VMs (immutable).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -138,17 +151,26 @@ class OpenShiftCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['apiserver_profile'] = apiserver_profile
+            __props__['cluster_profile'] = cluster_profile
+            __props__['console_profile'] = console_profile
+            __props__['ingress_profiles'] = ingress_profiles
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['master_profile'] = master_profile
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['network_profile'] = network_profile
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['service_principal_profile'] = service_principal_profile
             __props__['tags'] = tags
+            __props__['worker_profiles'] = worker_profiles
+            __props__['properties'] = None
             __props__['type'] = None
         super(OpenShiftCluster, __self__).__init__(
             'azurerm:redhatopenshift/v20200430:OpenShiftCluster',

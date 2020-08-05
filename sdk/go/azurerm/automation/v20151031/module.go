@@ -34,11 +34,11 @@ func NewModule(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
+	if args == nil || args.ContentLink == nil {
+		return nil, errors.New("missing required argument 'ContentLink'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -104,12 +104,12 @@ func (ModuleState) ElementType() reflect.Type {
 type moduleArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets or sets the module content link.
+	ContentLink ContentLink `pulumi:"contentLink"`
 	// Gets or sets the location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of module.
 	Name string `pulumi:"name"`
-	// Gets or sets the module create properties.
-	Properties ModuleCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets the tags attached to the resource.
@@ -120,12 +120,12 @@ type moduleArgs struct {
 type ModuleArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets or sets the module content link.
+	ContentLink ContentLinkInput
 	// Gets or sets the location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of module.
 	Name pulumi.StringInput
-	// Gets or sets the module create properties.
-	Properties ModuleCreateOrUpdatePropertiesInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets the tags attached to the resource.

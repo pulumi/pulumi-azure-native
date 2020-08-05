@@ -51,7 +51,7 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
     /**
      * The properties of resource.
      */
-    public readonly properties!: pulumi.Output<outputs.sql.v20140401.ServerCommunicationLinkPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.sql.v20140401.ServerCommunicationLinkPropertiesResponse>;
     /**
      * Resource type.
      */
@@ -73,6 +73,9 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.partnerServer === undefined) {
+                throw new Error("Missing required property 'partnerServer'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -80,11 +83,12 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["partnerServer"] = args ? args.partnerServer : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["kind"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,9 +111,9 @@ export interface ServerCommunicationLinkArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of resource.
+     * The name of the partner server.
      */
-    readonly properties?: pulumi.Input<inputs.sql.v20140401.ServerCommunicationLinkProperties>;
+    readonly partnerServer: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

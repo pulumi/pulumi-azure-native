@@ -47,7 +47,7 @@ export class Topic extends pulumi.CustomResource {
     /**
      * Properties of the topic
      */
-    public readonly properties!: pulumi.Output<outputs.eventgrid.v20190601.TopicPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventgrid.v20190601.TopicPropertiesResponse>;
     /**
      * Tags of the resource.
      */
@@ -81,9 +81,9 @@ export class Topic extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,10 +109,6 @@ export interface TopicArgs {
      * Name of the topic.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the topic
-     */
-    readonly properties?: pulumi.Input<inputs.eventgrid.v20190601.TopicProperties>;
     /**
      * The name of the resource group within the user's subscription.
      */

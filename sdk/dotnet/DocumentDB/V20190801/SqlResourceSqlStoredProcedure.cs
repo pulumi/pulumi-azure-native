@@ -120,10 +120,16 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties to create and update Azure Cosmos DB storedProcedure.
+        /// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.SqlStoredProcedureCreateUpdatePropertiesArgs> Properties { get; set; } = null!;
+        [Input("options", required: true)]
+        public Input<Inputs.CreateUpdateOptionsArgs> Options { get; set; } = null!;
+
+        /// <summary>
+        /// The standard JSON format of a storedProcedure
+        /// </summary>
+        [Input("resource", required: true)]
+        public Input<Inputs.SqlStoredProcedureResourceArgs> Resource { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure resource group.

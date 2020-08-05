@@ -43,7 +43,7 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
     /**
      * The properties of the lock.
      */
-    public readonly properties!: pulumi.Output<outputs.authorization.v20160901.ManagementLockPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20160901.ManagementLockPropertiesResponse>;
     /**
      * The resource type of the lock - Microsoft.Authorization/locks.
      */
@@ -62,14 +62,17 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ManagementLockAtSubscriptionLevelArgs | undefined;
+            if (!args || args.level === undefined) {
+                throw new Error("Missing required property 'level'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
+            inputs["level"] = args ? args.level : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notes"] = args ? args.notes : undefined;
+            inputs["owners"] = args ? args.owners : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -88,11 +91,19 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
  */
 export interface ManagementLockAtSubscriptionLevelArgs {
     /**
+     * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+     */
+    readonly level: pulumi.Input<string>;
+    /**
      * The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the lock.
+     * Notes about the lock. Maximum of 512 characters.
      */
-    readonly properties: pulumi.Input<inputs.authorization.v20160901.ManagementLockProperties>;
+    readonly notes?: pulumi.Input<string>;
+    /**
+     * The owners of the lock.
+     */
+    readonly owners?: pulumi.Input<pulumi.Input<inputs.authorization.v20160901.ManagementLockOwner>[]>;
 }

@@ -51,42 +51,47 @@ class Share(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, device_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_protocol=None, azure_container_info=None, client_access_rights=None, data_policy=None, description=None, device_name=None, monitoring_status=None, name=None, refresh_details=None, resource_group_name=None, share_status=None, user_access_rights=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a share on the  Data Box Edge/Gateway device.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_protocol: Access protocol to be used by the share.
+        :param pulumi.Input[dict] azure_container_info: Azure container mapping for the share.
+        :param pulumi.Input[list] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        :param pulumi.Input[str] data_policy: Data policy of the share.
+        :param pulumi.Input[str] description: Description for the share.
         :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input[str] monitoring_status: Current monitoring status of the share.
         :param pulumi.Input[str] name: The share name.
-        :param pulumi.Input[dict] properties: The share properties.
+        :param pulumi.Input[dict] refresh_details: Details of the refresh job on this share.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] share_status: Current status of the share.
+        :param pulumi.Input[list] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
 
-        The **properties** object supports the following:
+        The **azure_container_info** object supports the following:
 
-          * `access_protocol` (`pulumi.Input[str]`) - Access protocol to be used by the share.
-          * `azure_container_info` (`pulumi.Input[dict]`) - Azure container mapping for the share.
-            * `container_name` (`pulumi.Input[str]`) - Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-            * `data_format` (`pulumi.Input[str]`) - Storage format used for the file represented by the share.
-            * `storage_account_credential_id` (`pulumi.Input[str]`) - ID of the storage account credential used to access storage.
+          * `container_name` (`pulumi.Input[str]`) - Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
+          * `data_format` (`pulumi.Input[str]`) - Storage format used for the file represented by the share.
+          * `storage_account_credential_id` (`pulumi.Input[str]`) - ID of the storage account credential used to access storage.
 
-          * `client_access_rights` (`pulumi.Input[list]`) - List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-            * `access_permission` (`pulumi.Input[str]`) - Type of access to be allowed for the client.
-            * `client` (`pulumi.Input[str]`) - IP of the client.
+        The **client_access_rights** object supports the following:
 
-          * `data_policy` (`pulumi.Input[str]`) - Data policy of the share.
-          * `description` (`pulumi.Input[str]`) - Description for the share.
-          * `monitoring_status` (`pulumi.Input[str]`) - Current monitoring status of the share.
-          * `refresh_details` (`pulumi.Input[dict]`) - Details of the refresh job on this share.
-            * `error_manifest_file` (`pulumi.Input[str]`) - Indicates the relative path of the error xml for the last refresh job on this particular share, if any. This could be a failed job or a successful job.
-            * `in_progress_refresh_job_id` (`pulumi.Input[str]`) - If a refresh share job is currently in progress on this share, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
-            * `last_completed_refresh_job_time_in_utc` (`pulumi.Input[str]`) - Indicates the completed time for the last refresh job on this particular share, if any.This could be a failed job or a successful job.
-            * `last_job` (`pulumi.Input[str]`) - Indicates the id of the last refresh job on this particular share,if any. This could be a failed job or a successful job.
+          * `access_permission` (`pulumi.Input[str]`) - Type of access to be allowed for the client.
+          * `client` (`pulumi.Input[str]`) - IP of the client.
 
-          * `share_status` (`pulumi.Input[str]`) - Current status of the share.
-          * `user_access_rights` (`pulumi.Input[list]`) - Mapping of users and corresponding access rights on the share (required for SMB protocol).
-            * `access_type` (`pulumi.Input[str]`) - Type of access to be allowed for the user.
-            * `user_id` (`pulumi.Input[str]`) - User ID (already existing in the device).
+        The **refresh_details** object supports the following:
+
+          * `error_manifest_file` (`pulumi.Input[str]`) - Indicates the relative path of the error xml for the last refresh job on this particular share, if any. This could be a failed job or a successful job.
+          * `in_progress_refresh_job_id` (`pulumi.Input[str]`) - If a refresh share job is currently in progress on this share, this field indicates the ARM resource ID of that job. The field is empty if no job is in progress.
+          * `last_completed_refresh_job_time_in_utc` (`pulumi.Input[str]`) - Indicates the completed time for the last refresh job on this particular share, if any.This could be a failed job or a successful job.
+          * `last_job` (`pulumi.Input[str]`) - Indicates the id of the last refresh job on this particular share,if any. This could be a failed job or a successful job.
+
+        The **user_access_rights** object supports the following:
+
+          * `access_type` (`pulumi.Input[str]`) - Type of access to be allowed for the user.
+          * `user_id` (`pulumi.Input[str]`) - User ID (already existing in the device).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,18 +110,31 @@ class Share(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if access_protocol is None:
+                raise TypeError("Missing required property 'access_protocol'")
+            __props__['access_protocol'] = access_protocol
+            __props__['azure_container_info'] = azure_container_info
+            __props__['client_access_rights'] = client_access_rights
+            __props__['data_policy'] = data_policy
+            __props__['description'] = description
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
+            if monitoring_status is None:
+                raise TypeError("Missing required property 'monitoring_status'")
+            __props__['monitoring_status'] = monitoring_status
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['refresh_details'] = refresh_details
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if share_status is None:
+                raise TypeError("Missing required property 'share_status'")
+            __props__['share_status'] = share_status
+            __props__['user_access_rights'] = user_access_rights
+            __props__['properties'] = None
             __props__['type'] = None
         super(Share, __self__).__init__(
             'azurerm:databoxedge/v20190701:Share',

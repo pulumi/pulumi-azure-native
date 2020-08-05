@@ -78,6 +78,18 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
     public sealed class ServerEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Cloud Tiering.
+        /// </summary>
+        [Input("cloudTiering")]
+        public Input<string>? CloudTiering { get; set; }
+
+        /// <summary>
+        /// Friendly Name
+        /// </summary>
+        [Input("friendlyName")]
+        public Input<string>? FriendlyName { get; set; }
+
+        /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         /// </summary>
         [Input("location")]
@@ -90,16 +102,22 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The parameters used to create the storage sync service.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServerEndpointCreateParametersPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Server Local path.
+        /// </summary>
+        [Input("serverLocalPath")]
+        public Input<string>? ServerLocalPath { get; set; }
+
+        /// <summary>
+        /// Server Resource Id.
+        /// </summary>
+        [Input("serverResourceId")]
+        public Input<string>? ServerResourceId { get; set; }
 
         /// <summary>
         /// Name of Storage Sync Service resource.
@@ -124,6 +142,12 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Level of free space to be maintained by Cloud Tiering if it is enabled.
+        /// </summary>
+        [Input("volumeFreeSpacePercent")]
+        public Input<int>? VolumeFreeSpacePercent { get; set; }
 
         public ServerEndpointArgs()
         {

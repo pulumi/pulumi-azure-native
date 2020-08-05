@@ -78,6 +78,12 @@ namespace Pulumi.AzureRM.Network.V20180701
     public sealed class SubnetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The address prefix for the subnet.
+        /// </summary>
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -96,16 +102,64 @@ namespace Pulumi.AzureRM.Network.V20180701
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the subnet.
+        /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SubnetPropertiesFormatArgs>? Properties { get; set; }
+        [Input("networkSecurityGroup")]
+        public Input<Inputs.NetworkSecurityGroupArgs>? NetworkSecurityGroup { get; set; }
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("resourceNavigationLinks")]
+        private InputList<Inputs.ResourceNavigationLinkArgs>? _resourceNavigationLinks;
+
+        /// <summary>
+        /// Gets an array of references to the external resources using subnet.
+        /// </summary>
+        public InputList<Inputs.ResourceNavigationLinkArgs> ResourceNavigationLinks
+        {
+            get => _resourceNavigationLinks ?? (_resourceNavigationLinks = new InputList<Inputs.ResourceNavigationLinkArgs>());
+            set => _resourceNavigationLinks = value;
+        }
+
+        /// <summary>
+        /// The reference of the RouteTable resource.
+        /// </summary>
+        [Input("routeTable")]
+        public Input<Inputs.RouteTableArgs>? RouteTable { get; set; }
+
+        [Input("serviceEndpointPolicies")]
+        private InputList<Inputs.ServiceEndpointPolicyArgs>? _serviceEndpointPolicies;
+
+        /// <summary>
+        /// An array of service endpoint policies.
+        /// </summary>
+        public InputList<Inputs.ServiceEndpointPolicyArgs> ServiceEndpointPolicies
+        {
+            get => _serviceEndpointPolicies ?? (_serviceEndpointPolicies = new InputList<Inputs.ServiceEndpointPolicyArgs>());
+            set => _serviceEndpointPolicies = value;
+        }
+
+        [Input("serviceEndpoints")]
+        private InputList<Inputs.ServiceEndpointPropertiesFormatArgs>? _serviceEndpoints;
+
+        /// <summary>
+        /// An array of service endpoints.
+        /// </summary>
+        public InputList<Inputs.ServiceEndpointPropertiesFormatArgs> ServiceEndpoints
+        {
+            get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<Inputs.ServiceEndpointPropertiesFormatArgs>());
+            set => _serviceEndpoints = value;
+        }
 
         /// <summary>
         /// The name of the virtual network.

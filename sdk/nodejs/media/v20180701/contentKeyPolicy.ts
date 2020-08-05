@@ -43,7 +43,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
     /**
      * The properties of the Content Key Policy.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20180701.ContentKeyPolicyPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.ContentKeyPolicyPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -68,13 +68,18 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.options === undefined) {
+                throw new Error("Missing required property 'options'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["options"] = args ? args.options : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,13 +102,17 @@ export interface ContentKeyPolicyArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * A description for the Policy.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The Content Key Policy name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the Content Key Policy.
+     * The Key Policy options.
      */
-    readonly properties?: pulumi.Input<inputs.media.v20180701.ContentKeyPolicyProperties>;
+    readonly options: pulumi.Input<pulumi.Input<inputs.media.v20180701.ContentKeyPolicyOption>[]>;
     /**
      * The name of the resource group within the Azure subscription.
      */

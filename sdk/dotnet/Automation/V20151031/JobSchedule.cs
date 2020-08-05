@@ -89,17 +89,41 @@ namespace Pulumi.AzureRM.Automation.V20151031
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputMap<string>? _parameters;
+
         /// <summary>
-        /// Gets or sets the list of job schedule properties.
+        /// Gets or sets a list of job properties.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.JobScheduleCreatePropertiesArgs> Properties { get; set; } = null!;
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the hybrid worker group that the scheduled job should run on.
+        /// </summary>
+        [Input("runOn")]
+        public Input<string>? RunOn { get; set; }
+
+        /// <summary>
+        /// Gets or sets the runbook.
+        /// </summary>
+        [Input("runbook", required: true)]
+        public Input<Inputs.RunbookAssociationPropertyArgs> Runbook { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the schedule.
+        /// </summary>
+        [Input("schedule", required: true)]
+        public Input<Inputs.ScheduleAssociationPropertyArgs> Schedule { get; set; } = null!;
 
         public JobScheduleArgs()
         {

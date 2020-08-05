@@ -96,36 +96,52 @@ func (LocalNetworkGatewayState) ElementType() reflect.Type {
 }
 
 type localNetworkGatewayArgs struct {
+	// Local network gateway's BGP speaker settings
+	BgpSettings *BgpSettings `pulumi:"bgpSettings"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// IP address of local network gateway.
+	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Local network site Address space
+	LocalNetworkAddressSpace *AddressSpace `pulumi:"localNetworkAddressSpace"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the local network gateway.
 	Name string `pulumi:"name"`
-	// LocalNetworkGateway properties
-	Properties *LocalNetworkGatewayPropertiesFormat `pulumi:"properties"`
+	// Gets or sets Provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets resource GUID property of the LocalNetworkGateway resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocalNetworkGateway resource.
 type LocalNetworkGatewayArgs struct {
+	// Local network gateway's BGP speaker settings
+	BgpSettings BgpSettingsPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
+	// IP address of local network gateway.
+	GatewayIpAddress pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
+	// Local network site Address space
+	LocalNetworkAddressSpace AddressSpacePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the local network gateway.
 	Name pulumi.StringInput
-	// LocalNetworkGateway properties
-	Properties LocalNetworkGatewayPropertiesFormatPtrInput
+	// Gets or sets Provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets resource GUID property of the LocalNetworkGateway resource
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

@@ -47,7 +47,7 @@ export class LabAccount extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.labservices.v20181015.LabAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.labservices.v20181015.LabAccountPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -76,11 +76,14 @@ export class LabAccount extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["enabledRegionSelection"] = args ? args.enabledRegionSelection : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,6 +102,10 @@ export class LabAccount extends pulumi.CustomResource {
  */
 export interface LabAccountArgs {
     /**
+     * Represents if region selection is enabled
+     */
+    readonly enabledRegionSelection?: pulumi.Input<boolean>;
+    /**
      * The location of the resource.
      */
     readonly location?: pulumi.Input<string>;
@@ -107,9 +114,9 @@ export interface LabAccountArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties?: pulumi.Input<inputs.labservices.v20181015.LabAccountProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -118,4 +125,8 @@ export interface LabAccountArgs {
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
 }

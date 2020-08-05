@@ -90,10 +90,34 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class ManagerExtendedInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
+        /// </summary>
+        [Input("algorithm", required: true)]
+        public Input<string> Algorithm { get; set; } = null!;
+
+        /// <summary>
+        /// Represents the CEK of the resource.
+        /// </summary>
+        [Input("encryptionKey")]
+        public Input<string>? EncryptionKey { get; set; }
+
+        /// <summary>
+        /// Represents the Cert thumbprint that was used to encrypt the CEK.
+        /// </summary>
+        [Input("encryptionKeyThumbprint")]
+        public Input<string>? EncryptionKeyThumbprint { get; set; }
+
+        /// <summary>
         /// The etag of the resource.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Represents the CIK of the resource.
+        /// </summary>
+        [Input("integrityKey", required: true)]
+        public Input<string> IntegrityKey { get; set; } = null!;
 
         /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
@@ -108,16 +132,22 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The extended info properties.
+        /// Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ManagerExtendedInfoPropertiesArgs>? Properties { get; set; }
+        [Input("portalCertificateThumbprint")]
+        public Input<string>? PortalCertificateThumbprint { get; set; }
 
         /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The version of the extended info being persisted.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public ManagerExtendedInfoArgs()
         {

@@ -52,7 +52,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     """
     Specifies the type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, resource_group_name=None, sku=None, tags=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The Private Endpoint Connection resource.
 
@@ -61,7 +61,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[dict] identity: The identity of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[str] name: The name of the private endpoint connection associated with the workspace
-        :param pulumi.Input[dict] properties: Resource properties.
+        :param pulumi.Input[dict] private_endpoint: The resource of private end point.
+        :param pulumi.Input[dict] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the private endpoint connection resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[dict] sku: The sku of the workspace.
         :param pulumi.Input[dict] tags: Contains resource tags defined as key/value pairs.
@@ -71,15 +73,11 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
           * `type` (`pulumi.Input[str]`) - The identity type.
 
-        The **properties** object supports the following:
+        The **private_link_service_connection_state** object supports the following:
 
-          * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private end point.
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
-            * `action_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
-            * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
-            * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the private endpoint connection resource.
+          * `action_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
+          * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
+          * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 
         The **sku** object supports the following:
 
@@ -108,7 +106,11 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['private_endpoint'] = private_endpoint
+            if private_link_service_connection_state is None:
+                raise TypeError("Missing required property 'private_link_service_connection_state'")
+            __props__['private_link_service_connection_state'] = private_link_service_connection_state
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -117,6 +119,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:machinelearningservices/v20200101:PrivateEndpointConnection',

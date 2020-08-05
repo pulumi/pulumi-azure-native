@@ -40,6 +40,12 @@ func NewApiIssueComment(ctx *pulumi.Context,
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
 	}
+	if args == nil || args.Text == nil {
+		return nil, errors.New("missing required argument 'Text'")
+	}
+	if args == nil || args.UserId == nil {
+		return nil, errors.New("missing required argument 'UserId'")
+	}
 	if args == nil {
 		args = &ApiIssueCommentArgs{}
 	}
@@ -89,32 +95,40 @@ func (ApiIssueCommentState) ElementType() reflect.Type {
 type apiIssueCommentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
+	// Date and time when the comment was created.
+	CreatedDate *string `pulumi:"createdDate"`
 	// Issue identifier. Must be unique in the current API Management service instance.
 	IssueId string `pulumi:"issueId"`
 	// Comment identifier within an Issue. Must be unique in the current Issue.
 	Name string `pulumi:"name"`
-	// Properties of the Issue Comment.
-	Properties *IssueCommentContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Comment text.
+	Text string `pulumi:"text"`
+	// A resource identifier for the user who left the comment.
+	UserId string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a ApiIssueComment resource.
 type ApiIssueCommentArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId pulumi.StringInput
+	// Date and time when the comment was created.
+	CreatedDate pulumi.StringPtrInput
 	// Issue identifier. Must be unique in the current API Management service instance.
 	IssueId pulumi.StringInput
 	// Comment identifier within an Issue. Must be unique in the current Issue.
 	Name pulumi.StringInput
-	// Properties of the Issue Comment.
-	Properties IssueCommentContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Comment text.
+	Text pulumi.StringInput
+	// A resource identifier for the user who left the comment.
+	UserId pulumi.StringInput
 }
 
 func (ApiIssueCommentArgs) ElementType() reflect.Type {

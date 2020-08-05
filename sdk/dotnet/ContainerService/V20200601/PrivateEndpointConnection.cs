@@ -84,10 +84,16 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of a private endpoint connection.
+        /// The resource of private endpoint.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("privateEndpoint")]
+        public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
+        /// A collection of information about the state of the connection between service consumer and provider.
+        /// </summary>
+        [Input("privateLinkServiceConnectionState", required: true)]
+        public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

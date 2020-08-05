@@ -104,18 +104,16 @@ func (SnapshotState) ElementType() reflect.Type {
 type snapshotArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
+	// UUID v4 used to identify the FileSystem
+	FileSystemId *string `pulumi:"fileSystemId"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the mount target
 	Name string `pulumi:"name"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
-	// Snapshot Properties
-	Properties *SnapshotProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Resource tags
-	Tags *ResourceTags `pulumi:"tags"`
 	// The name of the volume
 	VolumeName string `pulumi:"volumeName"`
 }
@@ -124,18 +122,16 @@ type snapshotArgs struct {
 type SnapshotArgs struct {
 	// The name of the NetApp account
 	AccountName pulumi.StringInput
+	// UUID v4 used to identify the FileSystem
+	FileSystemId pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the mount target
 	Name pulumi.StringInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
-	// Snapshot Properties
-	Properties SnapshotPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
-	// Resource tags
-	Tags ResourceTagsPtrInput
 	// The name of the volume
 	VolumeName pulumi.StringInput
 }

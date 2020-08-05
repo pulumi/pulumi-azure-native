@@ -47,7 +47,7 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
     /**
      * The properties of the Virtual Appliance Sites.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200501.VirtualApplianceSitePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.VirtualApplianceSitePropertiesResponse>;
     /**
      * Site type.
      */
@@ -75,12 +75,14 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["o365Policy"] = args ? args.o365Policy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,6 +101,10 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
  */
 export interface VirtualApplianceSiteArgs {
     /**
+     * Address Prefix.
+     */
+    readonly addressPrefix?: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -111,9 +117,9 @@ export interface VirtualApplianceSiteArgs {
      */
     readonly networkVirtualApplianceName: pulumi.Input<string>;
     /**
-     * The properties of the Virtual Appliance Sites.
+     * Office 365 Policy.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20200501.VirtualApplianceSiteProperties>;
+    readonly o365Policy?: pulumi.Input<inputs.network.v20200501.Office365PolicyProperties>;
     /**
      * The name of the resource group.
      */

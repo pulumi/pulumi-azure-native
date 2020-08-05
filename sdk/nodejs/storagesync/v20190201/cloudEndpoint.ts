@@ -43,7 +43,7 @@ export class CloudEndpoint extends pulumi.CustomResource {
     /**
      * Cloud Endpoint properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storagesync.v20190201.CloudEndpointPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20190201.CloudEndpointPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -74,11 +74,14 @@ export class CloudEndpoint extends pulumi.CustomResource {
             if (!args || args.syncGroupName === undefined) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
+            inputs["azureFileShareName"] = args ? args.azureFileShareName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
+            inputs["storageAccountTenantId"] = args ? args.storageAccountTenantId : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,17 +100,25 @@ export class CloudEndpoint extends pulumi.CustomResource {
  */
 export interface CloudEndpointArgs {
     /**
+     * Azure file share name
+     */
+    readonly azureFileShareName?: pulumi.Input<string>;
+    /**
      * Name of Cloud Endpoint object.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The parameters used to create the cloud endpoint.
-     */
-    readonly properties?: pulumi.Input<inputs.storagesync.v20190201.CloudEndpointCreateParametersProperties>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Storage Account Resource Id
+     */
+    readonly storageAccountResourceId?: pulumi.Input<string>;
+    /**
+     * Storage Account Tenant Id
+     */
+    readonly storageAccountTenantId?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */

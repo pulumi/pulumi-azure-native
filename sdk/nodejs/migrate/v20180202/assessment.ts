@@ -47,7 +47,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Properties of the assessment.
      */
-    public readonly properties!: pulumi.Output<outputs.migrate.v20180202.AssessmentPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.migrate.v20180202.AssessmentPropertiesResponse>;
     /**
      * Type of the object = [Microsoft.Migrate/projects/groups/assessments].
      */
@@ -66,27 +66,72 @@ export class Assessment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AssessmentArgs | undefined;
+            if (!args || args.azureHybridUseBenefit === undefined) {
+                throw new Error("Missing required property 'azureHybridUseBenefit'");
+            }
+            if (!args || args.azureLocation === undefined) {
+                throw new Error("Missing required property 'azureLocation'");
+            }
+            if (!args || args.azureOfferCode === undefined) {
+                throw new Error("Missing required property 'azureOfferCode'");
+            }
+            if (!args || args.azurePricingTier === undefined) {
+                throw new Error("Missing required property 'azurePricingTier'");
+            }
+            if (!args || args.azureStorageRedundancy === undefined) {
+                throw new Error("Missing required property 'azureStorageRedundancy'");
+            }
+            if (!args || args.currency === undefined) {
+                throw new Error("Missing required property 'currency'");
+            }
+            if (!args || args.discountPercentage === undefined) {
+                throw new Error("Missing required property 'discountPercentage'");
+            }
             if (!args || args.groupName === undefined) {
                 throw new Error("Missing required property 'groupName'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.percentile === undefined) {
+                throw new Error("Missing required property 'percentile'");
+            }
             if (!args || args.projectName === undefined) {
                 throw new Error("Missing required property 'projectName'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.scalingFactor === undefined) {
+                throw new Error("Missing required property 'scalingFactor'");
+            }
+            if (!args || args.sizingCriterion === undefined) {
+                throw new Error("Missing required property 'sizingCriterion'");
+            }
+            if (!args || args.stage === undefined) {
+                throw new Error("Missing required property 'stage'");
+            }
+            if (!args || args.timeRange === undefined) {
+                throw new Error("Missing required property 'timeRange'");
+            }
+            inputs["azureHybridUseBenefit"] = args ? args.azureHybridUseBenefit : undefined;
+            inputs["azureLocation"] = args ? args.azureLocation : undefined;
+            inputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
+            inputs["azurePricingTier"] = args ? args.azurePricingTier : undefined;
+            inputs["azureStorageRedundancy"] = args ? args.azureStorageRedundancy : undefined;
+            inputs["currency"] = args ? args.currency : undefined;
+            inputs["discountPercentage"] = args ? args.discountPercentage : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["groupName"] = args ? args.groupName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["percentile"] = args ? args.percentile : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scalingFactor"] = args ? args.scalingFactor : undefined;
+            inputs["sizingCriterion"] = args ? args.sizingCriterion : undefined;
+            inputs["stage"] = args ? args.stage : undefined;
+            inputs["timeRange"] = args ? args.timeRange : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +150,34 @@ export class Assessment extends pulumi.CustomResource {
  */
 export interface AssessmentArgs {
     /**
+     * AHUB discount on windows virtual machines.
+     */
+    readonly azureHybridUseBenefit: pulumi.Input<string>;
+    /**
+     * Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+     */
+    readonly azureLocation: pulumi.Input<string>;
+    /**
+     * Offer code according to which cost estimation is done.
+     */
+    readonly azureOfferCode: pulumi.Input<string>;
+    /**
+     * Pricing tier for Size evaluation.
+     */
+    readonly azurePricingTier: pulumi.Input<string>;
+    /**
+     * Storage Redundancy type offered by Azure.
+     */
+    readonly azureStorageRedundancy: pulumi.Input<string>;
+    /**
+     * Currency to report prices in.
+     */
+    readonly currency: pulumi.Input<string>;
+    /**
+     * Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
+     */
+    readonly discountPercentage: pulumi.Input<number>;
+    /**
      * For optimistic concurrency control.
      */
     readonly eTag?: pulumi.Input<string>;
@@ -117,15 +190,31 @@ export interface AssessmentArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
+     * Percentile of performance data used to recommend Azure size.
+     */
+    readonly percentile: pulumi.Input<string>;
+    /**
      * Name of the Azure Migrate project.
      */
     readonly projectName: pulumi.Input<string>;
     /**
-     * Properties of the assessment.
-     */
-    readonly properties: pulumi.Input<inputs.migrate.v20180202.AssessmentProperties>;
-    /**
      * Name of the Azure Resource Group that project is part of.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+     */
+    readonly scalingFactor: pulumi.Input<number>;
+    /**
+     * Assessment sizing criterion.
+     */
+    readonly sizingCriterion: pulumi.Input<string>;
+    /**
+     * User configurable setting that describes the status of the assessment.
+     */
+    readonly stage: pulumi.Input<string>;
+    /**
+     * Time range of performance data used to recommend a size.
+     */
+    readonly timeRange: pulumi.Input<string>;
 }

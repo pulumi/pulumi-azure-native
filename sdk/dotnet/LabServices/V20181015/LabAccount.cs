@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class LabAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Represents if region selection is enabled
+        /// </summary>
+        [Input("enabledRegionSelection")]
+        public Input<bool>? EnabledRegionSelection { get; set; }
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location")]
@@ -102,10 +108,10 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LabAccountPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -124,6 +130,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
 
         public LabAccountArgs()
         {

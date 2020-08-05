@@ -108,16 +108,22 @@ namespace Pulumi.AzureRM.Compute.V20200601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Dedicated Host Group Properties.
+        /// Number of fault domains that the host group can span.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DedicatedHostGroupPropertiesArgs>? Properties { get; set; }
+        [Input("platformFaultDomainCount", required: true)]
+        public Input<int> PlatformFaultDomainCount { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
+        /// </summary>
+        [Input("supportAutomaticPlacement")]
+        public Input<bool>? SupportAutomaticPlacement { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

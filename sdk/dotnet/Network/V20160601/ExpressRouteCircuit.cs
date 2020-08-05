@@ -102,10 +102,40 @@ namespace Pulumi.AzureRM.Network.V20160601
     public sealed class ExpressRouteCircuitArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// allow classic operations
+        /// </summary>
+        [Input("allowClassicOperations")]
+        public Input<bool>? AllowClassicOperations { get; set; }
+
+        [Input("authorizations")]
+        private InputList<Inputs.ExpressRouteCircuitAuthorizationArgs>? _authorizations;
+
+        /// <summary>
+        /// Gets or sets list of authorizations
+        /// </summary>
+        public InputList<Inputs.ExpressRouteCircuitAuthorizationArgs> Authorizations
+        {
+            get => _authorizations ?? (_authorizations = new InputList<Inputs.ExpressRouteCircuitAuthorizationArgs>());
+            set => _authorizations = value;
+        }
+
+        /// <summary>
+        /// Gets or sets CircuitProvisioningState state of the resource 
+        /// </summary>
+        [Input("circuitProvisioningState")]
+        public Input<string>? CircuitProvisioningState { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Gets or sets the GatewayManager Etag
+        /// </summary>
+        [Input("gatewayManagerEtag")]
+        public Input<string>? GatewayManagerEtag { get; set; }
 
         /// <summary>
         /// Resource Id
@@ -125,17 +155,53 @@ namespace Pulumi.AzureRM.Network.V20160601
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("peerings")]
+        private InputList<Inputs.ExpressRouteCircuitPeeringArgs>? _peerings;
+
         /// <summary>
-        /// Properties of ExpressRouteCircuit
+        /// Gets or sets list of peerings
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ExpressRouteCircuitPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.ExpressRouteCircuitPeeringArgs> Peerings
+        {
+            get => _peerings ?? (_peerings = new InputList<Inputs.ExpressRouteCircuitPeeringArgs>());
+            set => _peerings = value;
+        }
+
+        /// <summary>
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets ServiceKey
+        /// </summary>
+        [Input("serviceKey")]
+        public Input<string>? ServiceKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets ServiceProviderNotes
+        /// </summary>
+        [Input("serviceProviderNotes")]
+        public Input<string>? ServiceProviderNotes { get; set; }
+
+        /// <summary>
+        /// Gets or sets ServiceProviderProperties
+        /// </summary>
+        [Input("serviceProviderProperties")]
+        public Input<Inputs.ExpressRouteCircuitServiceProviderPropertiesArgs>? ServiceProviderProperties { get; set; }
+
+        /// <summary>
+        /// Gets or sets ServiceProviderProvisioningState state of the resource 
+        /// </summary>
+        [Input("serviceProviderProvisioningState")]
+        public Input<string>? ServiceProviderProvisioningState { get; set; }
 
         /// <summary>
         /// Gets or sets sku

@@ -51,7 +51,7 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
     /**
      * The properties of the application type version resource.
      */
-    public readonly properties!: pulumi.Output<outputs.servicefabric.v20200301.ApplicationTypeVersionResourcePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicefabric.v20200301.ApplicationTypeVersionResourcePropertiesResponse>;
     /**
      * Azure resource tags.
      */
@@ -74,6 +74,9 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ApplicationTypeVersionArgs | undefined;
+            if (!args || args.appPackageUrl === undefined) {
+                throw new Error("Missing required property 'appPackageUrl'");
+            }
             if (!args || args.applicationTypeName === undefined) {
                 throw new Error("Missing required property 'applicationTypeName'");
             }
@@ -86,14 +89,15 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["appPackageUrl"] = args ? args.appPackageUrl : undefined;
             inputs["applicationTypeName"] = args ? args.applicationTypeName : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,6 +116,10 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
  */
 export interface ApplicationTypeVersionArgs {
     /**
+     * The URL to the application package
+     */
+    readonly appPackageUrl: pulumi.Input<string>;
+    /**
      * The name of the application type name resource.
      */
     readonly applicationTypeName: pulumi.Input<string>;
@@ -127,10 +135,6 @@ export interface ApplicationTypeVersionArgs {
      * The application type version.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the application type version resource.
-     */
-    readonly properties?: pulumi.Input<inputs.servicefabric.v20200301.ApplicationTypeVersionResourceProperties>;
     /**
      * The name of the resource group.
      */

@@ -35,11 +35,11 @@ func NewRedis(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Sku == nil {
+		return nil, errors.New("missing required argument 'Sku'")
 	}
 	if args == nil {
 		args = &RedisArgs{}
@@ -96,30 +96,62 @@ func (RedisState) ElementType() reflect.Type {
 }
 
 type redisArgs struct {
+	// If the value is true, then the non-SLL Redis server port (6379) will be enabled.
+	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The name of the Redis cache.
 	Name string `pulumi:"name"`
-	// Redis cache properties.
-	Properties RedisProperties `pulumi:"properties"`
+	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+	RedisConfiguration map[string]string `pulumi:"redisConfiguration"`
+	// RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
+	RedisVersion *string `pulumi:"redisVersion"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The number of shards to be created on a Premium Cluster Cache.
+	ShardCount *int `pulumi:"shardCount"`
+	// What SKU of Redis cache to deploy.
+	Sku Sku `pulumi:"sku"`
+	// Required when deploying a Redis cache inside an existing Azure Virtual Network.
+	StaticIP *string `pulumi:"staticIP"`
+	// Required when deploying a Redis cache inside an existing Azure Virtual Network.
+	Subnet *string `pulumi:"subnet"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// tenantSettings
+	TenantSettings map[string]string `pulumi:"tenantSettings"`
+	// The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
+	VirtualNetwork *string `pulumi:"virtualNetwork"`
 }
 
 // The set of arguments for constructing a Redis resource.
 type RedisArgs struct {
+	// If the value is true, then the non-SLL Redis server port (6379) will be enabled.
+	EnableNonSslPort pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringInput
 	// The name of the Redis cache.
 	Name pulumi.StringInput
-	// Redis cache properties.
-	Properties RedisPropertiesInput
+	// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+	RedisConfiguration pulumi.StringMapInput
+	// RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
+	RedisVersion pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The number of shards to be created on a Premium Cluster Cache.
+	ShardCount pulumi.IntPtrInput
+	// What SKU of Redis cache to deploy.
+	Sku SkuInput
+	// Required when deploying a Redis cache inside an existing Azure Virtual Network.
+	StaticIP pulumi.StringPtrInput
+	// Required when deploying a Redis cache inside an existing Azure Virtual Network.
+	Subnet pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// tenantSettings
+	TenantSettings pulumi.StringMapInput
+	// The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
+	VirtualNetwork pulumi.StringPtrInput
 }
 
 func (RedisArgs) ElementType() reflect.Type {

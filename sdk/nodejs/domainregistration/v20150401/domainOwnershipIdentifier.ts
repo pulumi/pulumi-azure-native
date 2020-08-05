@@ -47,7 +47,7 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
     /**
      * DomainOwnershipIdentifier resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.domainregistration.v20150401.DomainOwnershipIdentifierResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.domainregistration.v20150401.DomainOwnershipIdentifierResponseProperties>;
     /**
      * Resource type.
      */
@@ -78,8 +78,9 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["ownershipId"] = args ? args.ownershipId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,9 +111,9 @@ export interface DomainOwnershipIdentifierArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * DomainOwnershipIdentifier resource specific properties
+     * Ownership Id.
      */
-    readonly properties?: pulumi.Input<inputs.domainregistration.v20150401.DomainOwnershipIdentifierProperties>;
+    readonly ownershipId?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

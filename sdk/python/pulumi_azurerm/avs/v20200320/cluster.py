@@ -31,21 +31,17 @@ class Cluster(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, private_cloud_name=None, properties=None, resource_group_name=None, sku=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cluster_size=None, name=None, private_cloud_name=None, resource_group_name=None, sku=None, __props__=None, __name__=None, __opts__=None):
         """
         A cluster resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] cluster_size: The cluster size
         :param pulumi.Input[str] name: Name of the cluster in the private cloud
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
-        :param pulumi.Input[dict] properties: The properties of a cluster resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[dict] sku: The cluster SKU
-
-        The **properties** object supports the following:
-
-          * `cluster_size` (`pulumi.Input[float]`) - The cluster size
 
         The **sku** object supports the following:
 
@@ -68,21 +64,22 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if cluster_size is None:
+                raise TypeError("Missing required property 'cluster_size'")
+            __props__['cluster_size'] = cluster_size
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if private_cloud_name is None:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__['private_cloud_name'] = private_cloud_name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
+            __props__['properties'] = None
             __props__['type'] = None
         super(Cluster, __self__).__init__(
             'azurerm:avs/v20200320:Cluster',

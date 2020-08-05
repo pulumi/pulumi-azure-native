@@ -78,20 +78,24 @@ func (ManagementLockAtResourceGroupLevelState) ElementType() reflect.Type {
 }
 
 type managementLockAtResourceGroupLevelArgs struct {
+	// The lock level of the management lock.
+	Level *string `pulumi:"level"`
 	// The lock name.
 	Name string `pulumi:"name"`
-	// The properties of the lock.
-	Properties *ManagementLockProperties `pulumi:"properties"`
+	// The notes of the management lock.
+	Notes *string `pulumi:"notes"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ManagementLockAtResourceGroupLevel resource.
 type ManagementLockAtResourceGroupLevelArgs struct {
+	// The lock level of the management lock.
+	Level pulumi.StringPtrInput
 	// The lock name.
 	Name pulumi.StringInput
-	// The properties of the lock.
-	Properties ManagementLockPropertiesPtrInput
+	// The notes of the management lock.
+	Notes pulumi.StringPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 }

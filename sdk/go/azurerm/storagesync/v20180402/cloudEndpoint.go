@@ -88,10 +88,14 @@ type cloudEndpointArgs struct {
 	Location *string `pulumi:"location"`
 	// Name of Cloud Endpoint object.
 	Name string `pulumi:"name"`
-	// The parameters used to create the storage sync service.
-	Properties *CloudEndpointCreateParametersProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Storage Account Resource Id
+	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
+	// Storage Account Share name
+	StorageAccountShareName *string `pulumi:"storageAccountShareName"`
+	// Storage Account Tenant Id
+	StorageAccountTenantId *string `pulumi:"storageAccountTenantId"`
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 	// Name of Sync Group resource.
@@ -106,10 +110,14 @@ type CloudEndpointArgs struct {
 	Location pulumi.StringPtrInput
 	// Name of Cloud Endpoint object.
 	Name pulumi.StringInput
-	// The parameters used to create the storage sync service.
-	Properties CloudEndpointCreateParametersPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Storage Account Resource Id
+	StorageAccountResourceId pulumi.StringPtrInput
+	// Storage Account Share name
+	StorageAccountShareName pulumi.StringPtrInput
+	// Storage Account Tenant Id
+	StorageAccountTenantId pulumi.StringPtrInput
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName pulumi.StringInput
 	// Name of Sync Group resource.

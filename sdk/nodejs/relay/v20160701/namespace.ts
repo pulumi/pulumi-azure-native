@@ -47,7 +47,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Description of Relay Namespace
      */
-    public readonly properties!: pulumi.Output<outputs.relay.v20160701.RelayNamespacePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.relay.v20160701.RelayNamespacePropertiesResponse>;
     /**
      * Sku of the Namespace.
      */
@@ -85,10 +85,10 @@ export class Namespace extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,10 +114,6 @@ export interface NamespaceArgs {
      * The Namespace Name
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Description of Relay Namespace
-     */
-    readonly properties?: pulumi.Input<inputs.relay.v20160701.RelayNamespaceProperties>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

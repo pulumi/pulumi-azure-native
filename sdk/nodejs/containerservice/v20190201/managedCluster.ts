@@ -47,7 +47,7 @@ export class ManagedCluster extends pulumi.CustomResource {
     /**
      * Properties of a managed cluster.
      */
-    public readonly properties!: pulumi.Output<outputs.containerservice.v20190201.ManagedClusterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.containerservice.v20190201.ManagedClusterPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -79,11 +79,22 @@ export class ManagedCluster extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["aadProfile"] = args ? args.aadProfile : undefined;
+            inputs["addonProfiles"] = args ? args.addonProfiles : undefined;
+            inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
+            inputs["apiServerAuthorizedIPRanges"] = args ? args.apiServerAuthorizedIPRanges : undefined;
+            inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
+            inputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
+            inputs["enableRBAC"] = args ? args.enableRBAC : undefined;
+            inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
+            inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +113,42 @@ export class ManagedCluster extends pulumi.CustomResource {
  */
 export interface ManagedClusterArgs {
     /**
+     * Profile of Azure Active Directory configuration.
+     */
+    readonly aadProfile?: pulumi.Input<inputs.containerservice.v20190201.ManagedClusterAADProfile>;
+    /**
+     * Profile of managed cluster add-on.
+     */
+    readonly addonProfiles?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20190201.ManagedClusterAddonProfile>}>;
+    /**
+     * Properties of the agent pool.
+     */
+    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20190201.ManagedClusterAgentPoolProfile>[]>;
+    /**
+     * (PREVIEW) Authorized IP Ranges to kubernetes API server.
+     */
+    readonly apiServerAuthorizedIPRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * DNS prefix specified when creating the managed cluster.
+     */
+    readonly dnsPrefix?: pulumi.Input<string>;
+    /**
+     * (PREVIEW) Whether to enable Kubernetes Pod security policy.
+     */
+    readonly enablePodSecurityPolicy?: pulumi.Input<boolean>;
+    /**
+     * Whether to enable Kubernetes Role-Based Access Control.
+     */
+    readonly enableRBAC?: pulumi.Input<boolean>;
+    /**
+     * Version of Kubernetes specified when creating the managed cluster.
+     */
+    readonly kubernetesVersion?: pulumi.Input<string>;
+    /**
+     * Profile for Linux VMs in the container service cluster.
+     */
+    readonly linuxProfile?: pulumi.Input<inputs.containerservice.v20190201.ContainerServiceLinuxProfile>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -110,13 +157,17 @@ export interface ManagedClusterArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of a managed cluster.
+     * Profile of network configuration.
      */
-    readonly properties?: pulumi.Input<inputs.containerservice.v20190201.ManagedClusterProperties>;
+    readonly networkProfile?: pulumi.Input<inputs.containerservice.v20190201.ContainerServiceNetworkProfile>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+     */
+    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20190201.ManagedClusterServicePrincipalProfile>;
     /**
      * Resource tags
      */

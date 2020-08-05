@@ -120,6 +120,12 @@ namespace Pulumi.AzureRM.Solutions.V20180601
     public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The fully qualified path of managed application definition Id.
+        /// </summary>
+        [Input("applicationDefinitionId")]
+        public Input<string>? ApplicationDefinitionId { get; set; }
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
@@ -144,22 +150,34 @@ namespace Pulumi.AzureRM.Solutions.V20180601
         public Input<string>? ManagedBy { get; set; }
 
         /// <summary>
+        /// The managed resource group Id.
+        /// </summary>
+        [Input("managedResourceGroupId", required: true)]
+        public Input<string> ManagedResourceGroupId { get; set; } = null!;
+
+        /// <summary>
         /// The name of the managed application.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("parameters")]
+        private InputMap<object>? _parameters;
+
+        /// <summary>
+        /// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        /// </summary>
+        public InputMap<object> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<object>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// The plan information.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.PlanArgs>? Plan { get; set; }
-
-        /// <summary>
-        /// The managed application properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ApplicationPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

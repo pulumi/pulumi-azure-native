@@ -114,6 +114,12 @@ namespace Pulumi.AzureRM.Network.V20190201
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// The idle timeout of the nat gateway.
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
@@ -126,16 +132,46 @@ namespace Pulumi.AzureRM.Network.V20190201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Nat Gateway properties.
+        /// The provisioning state of the NatGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NatGatewayPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        [Input("publicIpAddresses")]
+        private InputList<Inputs.SubResourceArgs>? _publicIpAddresses;
+
+        /// <summary>
+        /// An array of public ip addresses associated with the nat gateway resource.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> PublicIpAddresses
+        {
+            get => _publicIpAddresses ?? (_publicIpAddresses = new InputList<Inputs.SubResourceArgs>());
+            set => _publicIpAddresses = value;
+        }
+
+        [Input("publicIpPrefixes")]
+        private InputList<Inputs.SubResourceArgs>? _publicIpPrefixes;
+
+        /// <summary>
+        /// An array of public ip prefixes associated with the nat gateway resource.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> PublicIpPrefixes
+        {
+            get => _publicIpPrefixes ?? (_publicIpPrefixes = new InputList<Inputs.SubResourceArgs>());
+            set => _publicIpPrefixes = value;
+        }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the nat gateway resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         /// <summary>
         /// The nat gateway SKU.

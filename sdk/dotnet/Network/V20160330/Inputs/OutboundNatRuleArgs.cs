@@ -16,10 +16,34 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
     public sealed class OutboundNatRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets the number of outbound ports to be used for SNAT
+        /// </summary>
+        [Input("allocatedOutboundPorts")]
+        public Input<int>? AllocatedOutboundPorts { get; set; }
+
+        /// <summary>
+        /// Gets or sets a reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs
+        /// </summary>
+        [Input("backendAddressPool", required: true)]
+        public Input<Inputs.SubResourceArgs> BackendAddressPool { get; set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        [Input("frontendIPConfigurations")]
+        private InputList<Inputs.SubResourceArgs>? _frontendIPConfigurations;
+
+        /// <summary>
+        /// Gets or sets Frontend IP addresses of the load balancer
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> FrontendIPConfigurations
+        {
+            get => _frontendIPConfigurations ?? (_frontendIPConfigurations = new InputList<Inputs.SubResourceArgs>());
+            set => _frontendIPConfigurations = value;
+        }
 
         /// <summary>
         /// Resource Id
@@ -34,10 +58,10 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Outbound NAT pool of the loadbalancer
+        /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OutboundNatRulePropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public OutboundNatRuleArgs()
         {

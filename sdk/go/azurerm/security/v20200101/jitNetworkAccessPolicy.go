@@ -33,11 +33,11 @@ func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VirtualMachines == nil {
+		return nil, errors.New("missing required argument 'VirtualMachines'")
 	}
 	if args == nil {
 		args = &JitNetworkAccessPolicyArgs{}
@@ -97,10 +97,12 @@ type jitNetworkAccessPolicyArgs struct {
 	// Kind of the resource
 	Kind *string `pulumi:"kind"`
 	// Name of a Just-in-Time access configuration policy.
-	Name       string                           `pulumi:"name"`
-	Properties JitNetworkAccessPolicyProperties `pulumi:"properties"`
+	Name     string                    `pulumi:"name"`
+	Requests []JitNetworkAccessRequest `pulumi:"requests"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Configurations for Microsoft.Compute/virtualMachines resource type.
+	VirtualMachines []JitNetworkAccessPolicyVirtualMachine `pulumi:"virtualMachines"`
 }
 
 // The set of arguments for constructing a JitNetworkAccessPolicy resource.
@@ -110,10 +112,12 @@ type JitNetworkAccessPolicyArgs struct {
 	// Kind of the resource
 	Kind pulumi.StringPtrInput
 	// Name of a Just-in-Time access configuration policy.
-	Name       pulumi.StringInput
-	Properties JitNetworkAccessPolicyPropertiesInput
+	Name     pulumi.StringInput
+	Requests JitNetworkAccessRequestArrayInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Configurations for Microsoft.Compute/virtualMachines resource type.
+	VirtualMachines JitNetworkAccessPolicyVirtualMachineArrayInput
 }
 
 func (JitNetworkAccessPolicyArgs) ElementType() reflect.Type {

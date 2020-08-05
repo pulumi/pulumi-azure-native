@@ -12,12 +12,6 @@ namespace Pulumi.AzureRM.Resources.V20160201.Inputs
 
     public sealed class DebugSettingArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The debug detail level.
-        /// </summary>
-        [Input("detailLevel")]
-        public Input<string>? DetailLevel { get; set; }
-
         public DebugSettingArgs()
         {
         }

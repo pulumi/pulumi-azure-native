@@ -38,11 +38,17 @@ func NewTask(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.Platform == nil {
+		return nil, errors.New("missing required argument 'Platform'")
+	}
 	if args == nil || args.RegistryName == nil {
 		return nil, errors.New("missing required argument 'RegistryName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Step == nil {
+		return nil, errors.New("missing required argument 'Step'")
 	}
 	if args == nil {
 		args = &TaskArgs{}
@@ -103,38 +109,62 @@ func (TaskState) ElementType() reflect.Type {
 }
 
 type taskArgs struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration *AgentProperties `pulumi:"agentConfiguration"`
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials *Credentials `pulumi:"credentials"`
 	// Identity for the resource.
 	Identity *IdentityProperties `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the container registry task.
 	Name string `pulumi:"name"`
-	// The properties of a task.
-	Properties *TaskProperties `pulumi:"properties"`
+	// The platform properties against which the run has to happen.
+	Platform PlatformProperties `pulumi:"platform"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The current status of task.
+	Status *string `pulumi:"status"`
+	// The properties of a task step.
+	Step TaskStepProperties `pulumi:"step"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Run timeout in seconds.
+	Timeout *int `pulumi:"timeout"`
+	// The properties that describe all triggers for the task.
+	Trigger *TriggerProperties `pulumi:"trigger"`
 }
 
 // The set of arguments for constructing a Task resource.
 type TaskArgs struct {
+	// The machine configuration of the run agent.
+	AgentConfiguration AgentPropertiesPtrInput
+	// The properties that describes a set of credentials that will be used when this run is invoked.
+	Credentials CredentialsPtrInput
 	// Identity for the resource.
 	Identity IdentityPropertiesPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
 	// The name of the container registry task.
 	Name pulumi.StringInput
-	// The properties of a task.
-	Properties TaskPropertiesPtrInput
+	// The platform properties against which the run has to happen.
+	Platform PlatformPropertiesInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
+	// The current status of task.
+	Status pulumi.StringPtrInput
+	// The properties of a task step.
+	Step TaskStepPropertiesInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// Run timeout in seconds.
+	Timeout pulumi.IntPtrInput
+	// The properties that describe all triggers for the task.
+	Trigger TriggerPropertiesPtrInput
 }
 
 func (TaskArgs) ElementType() reflect.Type {

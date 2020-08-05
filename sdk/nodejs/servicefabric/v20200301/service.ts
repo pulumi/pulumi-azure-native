@@ -51,7 +51,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * The service resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.servicefabric.v20200301.ServiceResourcePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicefabric.v20200301.ServiceResourcePropertiesResponse>;
     /**
      * Azure resource tags.
      */
@@ -86,14 +86,27 @@ export class Service extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.serviceKind === undefined) {
+                throw new Error("Missing required property 'serviceKind'");
+            }
             inputs["applicationName"] = args ? args.applicationName : undefined;
             inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["correlationScheme"] = args ? args.correlationScheme : undefined;
+            inputs["defaultMoveCost"] = args ? args.defaultMoveCost : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["partitionDescription"] = args ? args.partitionDescription : undefined;
+            inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceDnsName"] = args ? args.serviceDnsName : undefined;
+            inputs["serviceKind"] = args ? args.serviceKind : undefined;
+            inputs["serviceLoadMetrics"] = args ? args.serviceLoadMetrics : undefined;
+            inputs["servicePackageActivationMode"] = args ? args.servicePackageActivationMode : undefined;
+            inputs["servicePlacementPolicies"] = args ? args.servicePlacementPolicies : undefined;
+            inputs["serviceTypeName"] = args ? args.serviceTypeName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -120,6 +133,14 @@ export interface ServiceArgs {
      */
     readonly clusterName: pulumi.Input<string>;
     /**
+     * A list that describes the correlation of the service with other services.
+     */
+    readonly correlationScheme?: pulumi.Input<inputs.servicefabric.v20200301.CorrelationSchemeList>;
+    /**
+     * Specifies the move cost for the service.
+     */
+    readonly defaultMoveCost?: pulumi.Input<string>;
+    /**
      * It will be deprecated in New API, resource location depends on the parent resource.
      */
     readonly location?: pulumi.Input<string>;
@@ -128,13 +149,41 @@ export interface ServiceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The service resource properties.
+     * Describes how the service is partitioned.
      */
-    readonly properties?: pulumi.Input<inputs.servicefabric.v20200301.ServiceResourceProperties>;
+    readonly partitionDescription?: pulumi.Input<inputs.servicefabric.v20200301.PartitionSchemeDescription>;
+    /**
+     * The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+     */
+    readonly placementConstraints?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
+     */
+    readonly serviceDnsName?: pulumi.Input<string>;
+    /**
+     * The kind of service (Stateless or Stateful).
+     */
+    readonly serviceKind: pulumi.Input<string>;
+    /**
+     * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+     */
+    readonly serviceLoadMetrics?: pulumi.Input<inputs.servicefabric.v20200301.ServiceLoadMetricsList>;
+    /**
+     * The activation Mode of the service package
+     */
+    readonly servicePackageActivationMode?: pulumi.Input<string>;
+    /**
+     * A list that describes the correlation of the service with other services.
+     */
+    readonly servicePlacementPolicies?: pulumi.Input<inputs.servicefabric.v20200301.ServicePlacementPoliciesList>;
+    /**
+     * The name of the service type
+     */
+    readonly serviceTypeName?: pulumi.Input<string>;
     /**
      * Azure resource tags.
      */

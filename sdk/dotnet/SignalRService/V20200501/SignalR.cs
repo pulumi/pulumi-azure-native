@@ -102,6 +102,36 @@ namespace Pulumi.AzureRM.SignalRService.V20200501
     public sealed class SignalRArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Cross-Origin Resource Sharing (CORS) settings.
+        /// </summary>
+        [Input("cors")]
+        public Input<Inputs.SignalRCorsSettingsArgs>? Cors { get; set; }
+
+        [Input("features")]
+        private InputList<Inputs.SignalRFeatureArgs>? _features;
+
+        /// <summary>
+        /// List of SignalR featureFlags. e.g. ServiceMode.
+        /// 
+        /// FeatureFlags that are not included in the parameters for the update operation will not be modified.
+        /// And the response will only include featureFlags that are explicitly set. 
+        /// When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+        /// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        /// </summary>
+        public InputList<Inputs.SignalRFeatureArgs> Features
+        {
+            get => _features ?? (_features = new InputList<Inputs.SignalRFeatureArgs>());
+            set => _features = value;
+        }
+
+        /// <summary>
+        /// Prefix for the hostName of the SignalR service. Retained for future use.
+        /// The hostname will be of format: &amp;lt;hostNamePrefix&amp;gt;.service.signalr.net.
+        /// </summary>
+        [Input("hostNamePrefix")]
+        public Input<string>? HostNamePrefix { get; set; }
+
+        /// <summary>
         /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         /// </summary>
         [Input("kind")]
@@ -120,10 +150,10 @@ namespace Pulumi.AzureRM.SignalRService.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Settings used to provision or configure the resource
+        /// Network ACLs
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SignalRPropertiesArgs>? Properties { get; set; }
+        [Input("networkACLs")]
+        public Input<Inputs.SignalRNetworkACLsArgs>? NetworkACLs { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -148,6 +178,12 @@ namespace Pulumi.AzureRM.SignalRService.V20200501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Upstream settings when the Azure SignalR is in server-less mode.
+        /// </summary>
+        [Input("upstream")]
+        public Input<Inputs.ServerlessUpstreamSettingsArgs>? Upstream { get; set; }
 
         public SignalRArgs()
         {

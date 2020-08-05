@@ -78,6 +78,18 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     public sealed class StorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Data policy of the storage Account.
+        /// </summary>
+        [Input("dataPolicy")]
+        public Input<string>? DataPolicy { get; set; }
+
+        /// <summary>
+        /// Description for the storage Account.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
@@ -90,16 +102,22 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Storage Account properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.StorageAccountPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Storage Account Credential Id
+        /// </summary>
+        [Input("storageAccountCredentialId")]
+        public Input<string>? StorageAccountCredentialId { get; set; }
+
+        /// <summary>
+        /// Current status of the storage account
+        /// </summary>
+        [Input("storageAccountStatus")]
+        public Input<string>? StorageAccountStatus { get; set; }
 
         public StorageAccountArgs()
         {

@@ -47,7 +47,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * The properties of the container registry.
      */
-    public readonly properties!: pulumi.Output<outputs.containerregistry.v20170301.RegistryPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.containerregistry.v20170301.RegistryPropertiesResponse>;
     /**
      * The SKU of the container registry.
      */
@@ -86,12 +86,17 @@ export class Registry extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            if (!args || args.storageAccount === undefined) {
+                throw new Error("Missing required property 'storageAccount'");
+            }
+            inputs["adminUserEnabled"] = args ? args.adminUserEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +115,10 @@ export class Registry extends pulumi.CustomResource {
  */
 export interface RegistryArgs {
     /**
+     * The value that indicates whether the admin user is enabled.
+     */
+    readonly adminUserEnabled?: pulumi.Input<boolean>;
+    /**
      * The location of the container registry. This cannot be changed after the resource is created.
      */
     readonly location: pulumi.Input<string>;
@@ -118,10 +127,6 @@ export interface RegistryArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties that the container registry will be created with.
-     */
-    readonly properties?: pulumi.Input<inputs.containerregistry.v20170301.RegistryPropertiesCreateParameters>;
-    /**
      * The name of the resource group to which the container registry belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -129,6 +134,10 @@ export interface RegistryArgs {
      * The SKU of the container registry.
      */
     readonly sku: pulumi.Input<inputs.containerregistry.v20170301.Sku>;
+    /**
+     * The parameters of a storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
+     */
+    readonly storageAccount: pulumi.Input<inputs.containerregistry.v20170301.StorageAccountParameters>;
     /**
      * The tags for the container registry.
      */

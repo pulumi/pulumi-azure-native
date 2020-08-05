@@ -51,7 +51,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * Properties of the virtual network.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190901.VirtualNetworkPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.VirtualNetworkPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,21 @@ export class VirtualNetwork extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["addressSpace"] = args ? args.addressSpace : undefined;
+            inputs["bgpCommunities"] = args ? args.bgpCommunities : undefined;
+            inputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
+            inputs["dhcpOptions"] = args ? args.dhcpOptions : undefined;
+            inputs["enableDdosProtection"] = args ? args.enableDdosProtection : undefined;
+            inputs["enableVmProtection"] = args ? args.enableVmProtection : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkPeerings"] = args ? args.virtualNetworkPeerings : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +113,30 @@ export class VirtualNetwork extends pulumi.CustomResource {
  */
 export interface VirtualNetworkArgs {
     /**
+     * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+     */
+    readonly addressSpace?: pulumi.Input<inputs.network.v20190901.AddressSpace>;
+    /**
+     * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+     */
+    readonly bgpCommunities?: pulumi.Input<inputs.network.v20190901.VirtualNetworkBgpCommunities>;
+    /**
+     * The DDoS protection plan associated with the virtual network.
+     */
+    readonly ddosProtectionPlan?: pulumi.Input<inputs.network.v20190901.SubResource>;
+    /**
+     * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+     */
+    readonly dhcpOptions?: pulumi.Input<inputs.network.v20190901.DhcpOptions>;
+    /**
+     * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+     */
+    readonly enableDdosProtection?: pulumi.Input<boolean>;
+    /**
+     * Indicates if VM protection is enabled for all the subnets in the virtual network.
+     */
+    readonly enableVmProtection?: pulumi.Input<boolean>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -117,15 +149,19 @@ export interface VirtualNetworkArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the virtual network.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20190901.VirtualNetworkPropertiesFormat>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * A list of subnets in a Virtual Network.
+     */
+    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20190901.Subnet>[]>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of peerings in a Virtual Network.
+     */
+    readonly virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.v20190901.VirtualNetworkPeering>[]>;
 }

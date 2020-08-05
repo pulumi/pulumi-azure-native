@@ -69,8 +69,8 @@ export class Queue extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["queueProperties"] = args ? args.queueProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -95,13 +95,13 @@ export interface QueueArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * A name-value pair that represents queue metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Queue resource properties.
-     */
-    readonly queueProperties?: pulumi.Input<inputs.storage.v20190601.QueueProperties>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

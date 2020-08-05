@@ -40,28 +40,26 @@ class NotificationChannel(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, lab_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, email_recipient=None, events=None, lab_name=None, location=None, name=None, notification_locale=None, resource_group_name=None, tags=None, web_hook_url=None, __props__=None, __name__=None, __opts__=None):
         """
         A notification.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Description of notification.
+        :param pulumi.Input[str] email_recipient: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+        :param pulumi.Input[list] events: The list of event for which this notification is enabled.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the notification channel.
-        :param pulumi.Input[dict] properties: The properties of the resource.
+        :param pulumi.Input[str] notification_locale: The locale to use when sending a notification (fallback for unsupported languages is EN).
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[str] web_hook_url: The webhook URL to send notifications to.
 
-        The **properties** object supports the following:
+        The **events** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - Description of notification.
-          * `email_recipient` (`pulumi.Input[str]`) - The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-          * `events` (`pulumi.Input[list]`) - The list of event for which this notification is enabled.
-            * `event_name` (`pulumi.Input[str]`) - The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
-
-          * `notification_locale` (`pulumi.Input[str]`) - The locale to use when sending a notification (fallback for unsupported languages is EN).
-          * `web_hook_url` (`pulumi.Input[str]`) - The webhook URL to send notifications to.
+          * `event_name` (`pulumi.Input[str]`) - The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,6 +78,9 @@ class NotificationChannel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['email_recipient'] = email_recipient
+            __props__['events'] = events
             if lab_name is None:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
@@ -87,13 +88,13 @@ class NotificationChannel(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['notification_locale'] = notification_locale
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['web_hook_url'] = web_hook_url
+            __props__['properties'] = None
             __props__['type'] = None
         super(NotificationChannel, __self__).__init__(
             'azurerm:devtestlab/v20180915:NotificationChannel',

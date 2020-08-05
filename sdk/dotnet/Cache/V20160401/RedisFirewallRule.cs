@@ -84,22 +84,28 @@ namespace Pulumi.AzureRM.Cache.V20160401
         public Input<string> CacheName { get; set; } = null!;
 
         /// <summary>
+        /// highest IP address included in the range
+        /// </summary>
+        [Input("endIP", required: true)]
+        public Input<string> EndIP { get; set; } = null!;
+
+        /// <summary>
         /// The name of the firewall rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// redis cache firewall rule properties
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.RedisFirewallRulePropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// lowest IP address included in the range
+        /// </summary>
+        [Input("startIP", required: true)]
+        public Input<string> StartIP { get; set; } = null!;
 
         public RedisFirewallRuleArgs()
         {

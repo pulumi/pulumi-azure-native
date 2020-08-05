@@ -43,7 +43,7 @@ export class Output extends pulumi.CustomResource {
     /**
      * The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
      */
-    public readonly properties!: pulumi.Output<outputs.streamanalytics.v20160301.OutputPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.streamanalytics.v20160301.OutputPropertiesResponse>;
     /**
      * Resource type
      */
@@ -71,10 +71,12 @@ export class Output extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["datasource"] = args ? args.datasource : undefined;
             inputs["jobName"] = args ? args.jobName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serialization"] = args ? args.serialization : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,6 +95,10 @@ export class Output extends pulumi.CustomResource {
  */
 export interface OutputArgs {
     /**
+     * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+     */
+    readonly datasource?: pulumi.Input<inputs.streamanalytics.v20160301.OutputDataSource>;
+    /**
      * The name of the streaming job.
      */
     readonly jobName: pulumi.Input<string>;
@@ -101,11 +107,11 @@ export interface OutputArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-     */
-    readonly properties?: pulumi.Input<inputs.streamanalytics.v20160301.OutputProperties>;
-    /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+     */
+    readonly serialization?: pulumi.Input<inputs.streamanalytics.v20160301.Serialization>;
 }

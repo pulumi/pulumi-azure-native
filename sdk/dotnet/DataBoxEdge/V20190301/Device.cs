@@ -102,10 +102,28 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
     public sealed class DeviceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The status of the Data Box Edge/Gateway device.
+        /// </summary>
+        [Input("dataBoxEdgeDeviceStatus")]
+        public Input<string>? DataBoxEdgeDeviceStatus { get; set; }
+
+        /// <summary>
+        /// The Description of the Data Box Edge/Gateway device.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The etag for the devices.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// The Data Box Edge/Gateway device name.
+        /// </summary>
+        [Input("friendlyName")]
+        public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
         /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
@@ -114,16 +132,16 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// The description of the Data Box Edge/Gateway device model.
+        /// </summary>
+        [Input("modelDescription")]
+        public Input<string>? ModelDescription { get; set; }
+
+        /// <summary>
         /// The device name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the Data Box Edge/Gateway device.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DataBoxEdgeDevicePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The resource group name.

@@ -93,8 +93,8 @@ type domainOwnershipIdentifierArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Name of identifier.
 	Name string `pulumi:"name"`
-	// DomainOwnershipIdentifier resource specific properties
-	Properties *DomainOwnershipIdentifierProperties `pulumi:"properties"`
+	// Ownership Id.
+	OwnershipId *string `pulumi:"ownershipId"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -107,8 +107,8 @@ type DomainOwnershipIdentifierArgs struct {
 	Kind pulumi.StringPtrInput
 	// Name of identifier.
 	Name pulumi.StringInput
-	// DomainOwnershipIdentifier resource specific properties
-	Properties DomainOwnershipIdentifierPropertiesPtrInput
+	// Ownership Id.
+	OwnershipId pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 }

@@ -152,135 +152,139 @@ class VirtualMachine(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, lab_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_claim=None, applicable_schedule=None, artifact_deployment_status=None, artifacts=None, compute_vm=None, created_by_user=None, created_by_user_id=None, created_date=None, custom_image_id=None, disallow_public_ip_address=None, environment_id=None, expiration_date=None, fqdn=None, gallery_image_reference=None, is_authentication_with_ssh_key=None, lab_name=None, lab_subnet_name=None, lab_virtual_network_id=None, location=None, name=None, network_interface=None, notes=None, os_type=None, owner_object_id=None, owner_user_principal_name=None, password=None, provisioning_state=None, resource_group_name=None, size=None, ssh_key=None, storage_type=None, tags=None, unique_identifier=None, user_name=None, virtual_machine_creation_source=None, __props__=None, __name__=None, __opts__=None):
         """
         A virtual machine.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
+        :param pulumi.Input[dict] applicable_schedule: The applicable schedule for the virtual machine.
+        :param pulumi.Input[dict] artifact_deployment_status: The artifact deployment status for the virtual machine.
+        :param pulumi.Input[list] artifacts: The artifacts to be installed on the virtual machine.
+        :param pulumi.Input[dict] compute_vm: The compute virtual machine properties.
+        :param pulumi.Input[str] created_by_user: The email address of creator of the virtual machine.
+        :param pulumi.Input[str] created_by_user_id: The object identifier of the creator of the virtual machine.
+        :param pulumi.Input[str] created_date: The creation date of the virtual machine.
+        :param pulumi.Input[str] custom_image_id: The custom image identifier of the virtual machine.
+        :param pulumi.Input[bool] disallow_public_ip_address: Indicates whether the virtual machine is to be created without a public IP address.
+        :param pulumi.Input[str] environment_id: The resource ID of the environment that contains this virtual machine, if any.
+        :param pulumi.Input[str] expiration_date: The expiration date for VM.
+        :param pulumi.Input[str] fqdn: The fully-qualified domain name of the virtual machine.
+        :param pulumi.Input[dict] gallery_image_reference: The Microsoft Azure Marketplace image reference of the virtual machine.
+        :param pulumi.Input[bool] is_authentication_with_ssh_key: Indicates whether this virtual machine uses an SSH key for authentication.
         :param pulumi.Input[str] lab_name: The name of the lab.
+        :param pulumi.Input[str] lab_subnet_name: The lab subnet name of the virtual machine.
+        :param pulumi.Input[str] lab_virtual_network_id: The lab virtual network identifier of the virtual machine.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the virtual machine.
-        :param pulumi.Input[dict] properties: The properties of the resource.
+        :param pulumi.Input[dict] network_interface: The network interface properties.
+        :param pulumi.Input[str] notes: The notes of the virtual machine.
+        :param pulumi.Input[str] os_type: The OS type of the virtual machine.
+        :param pulumi.Input[str] owner_object_id: The object identifier of the owner of the virtual machine.
+        :param pulumi.Input[str] owner_user_principal_name: The user principal name of the virtual machine owner.
+        :param pulumi.Input[str] password: The password of the virtual machine administrator.
+        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] size: The size of the virtual machine.
+        :param pulumi.Input[str] ssh_key: The SSH key of the virtual machine administrator.
+        :param pulumi.Input[str] storage_type: Storage type to use for virtual machine (i.e. Standard, Premium).
         :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
+        :param pulumi.Input[str] user_name: The user name of the virtual machine.
+        :param pulumi.Input[str] virtual_machine_creation_source: Tells source of creation of lab virtual machine. Output property only.
 
-        The **properties** object supports the following:
+        The **applicable_schedule** object supports the following:
 
-          * `allow_claim` (`pulumi.Input[bool]`) - Indicates whether another user can take ownership of the virtual machine
-          * `applicable_schedule` (`pulumi.Input[dict]`) - The applicable schedule for the virtual machine.
+          * `lab_vms_shutdown` (`pulumi.Input[dict]`) - The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+            * `daily_recurrence` (`pulumi.Input[dict]`) - If the schedule will occur once each day of the week, specify the daily recurrence.
+              * `time` (`pulumi.Input[str]`) - The time of day the schedule will occur.
+
+            * `hourly_recurrence` (`pulumi.Input[dict]`) - If the schedule will occur multiple times a day, specify the hourly recurrence.
+              * `minute` (`pulumi.Input[float]`) - Minutes of the hour the schedule will run.
+
             * `location` (`pulumi.Input[str]`) - The location of the resource.
-            * `properties` (`pulumi.Input[dict]`) - The properties of the resource.
-              * `lab_vms_shutdown` (`pulumi.Input[dict]`) - The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-                * `location` (`pulumi.Input[str]`) - The location of the resource.
-                * `properties` (`pulumi.Input[dict]`) - The properties of the resource.
-                  * `daily_recurrence` (`pulumi.Input[dict]`) - If the schedule will occur once each day of the week, specify the daily recurrence.
-                    * `time` (`pulumi.Input[str]`) - The time of day the schedule will occur.
+            * `notification_settings` (`pulumi.Input[dict]`) - Notification settings.
+              * `status` (`pulumi.Input[str]`) - If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+              * `time_in_minutes` (`pulumi.Input[float]`) - Time in minutes before event at which notification will be sent.
+              * `webhook_url` (`pulumi.Input[str]`) - The webhook URL to which the notification will be sent.
 
-                  * `hourly_recurrence` (`pulumi.Input[dict]`) - If the schedule will occur multiple times a day, specify the hourly recurrence.
-                    * `minute` (`pulumi.Input[float]`) - Minutes of the hour the schedule will run.
-
-                  * `notification_settings` (`pulumi.Input[dict]`) - Notification settings.
-                    * `status` (`pulumi.Input[str]`) - If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-                    * `time_in_minutes` (`pulumi.Input[float]`) - Time in minutes before event at which notification will be sent.
-                    * `webhook_url` (`pulumi.Input[str]`) - The webhook URL to which the notification will be sent.
-
-                  * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-                  * `status` (`pulumi.Input[str]`) - The status of the schedule (i.e. Enabled, Disabled)
-                  * `target_resource_id` (`pulumi.Input[str]`) - The resource ID to which the schedule belongs
-                  * `task_type` (`pulumi.Input[str]`) - The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-                  * `time_zone_id` (`pulumi.Input[str]`) - The time zone ID (e.g. Pacific Standard time).
-                  * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
-                  * `weekly_recurrence` (`pulumi.Input[dict]`) - If the schedule will occur only some days of the week, specify the weekly recurrence.
-                    * `time` (`pulumi.Input[str]`) - The time of the day the schedule will occur.
-                    * `weekdays` (`pulumi.Input[list]`) - The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
-
-                * `tags` (`pulumi.Input[dict]`) - The tags of the resource.
-
-              * `lab_vms_startup` (`pulumi.Input[dict]`) - The auto-startup schedule, if one has been set at the lab or lab resource level.
-
+            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
+            * `status` (`pulumi.Input[str]`) - The status of the schedule (i.e. Enabled, Disabled)
             * `tags` (`pulumi.Input[dict]`) - The tags of the resource.
+            * `target_resource_id` (`pulumi.Input[str]`) - The resource ID to which the schedule belongs
+            * `task_type` (`pulumi.Input[str]`) - The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+            * `time_zone_id` (`pulumi.Input[str]`) - The time zone ID (e.g. Pacific Standard time).
+            * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
+            * `weekly_recurrence` (`pulumi.Input[dict]`) - If the schedule will occur only some days of the week, specify the weekly recurrence.
+              * `time` (`pulumi.Input[str]`) - The time of the day the schedule will occur.
+              * `weekdays` (`pulumi.Input[list]`) - The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
 
-          * `artifact_deployment_status` (`pulumi.Input[dict]`) - The artifact deployment status for the virtual machine.
-            * `artifacts_applied` (`pulumi.Input[float]`) - The total count of the artifacts that were successfully applied.
-            * `deployment_status` (`pulumi.Input[str]`) - The deployment status of the artifact.
-            * `total_artifacts` (`pulumi.Input[float]`) - The total count of the artifacts that were tentatively applied.
+          * `lab_vms_startup` (`pulumi.Input[dict]`) - The auto-startup schedule, if one has been set at the lab or lab resource level.
+          * `location` (`pulumi.Input[str]`) - The location of the resource.
+          * `tags` (`pulumi.Input[dict]`) - The tags of the resource.
 
-          * `artifacts` (`pulumi.Input[list]`) - The artifacts to be installed on the virtual machine.
-            * `artifact_id` (`pulumi.Input[str]`) - The artifact's identifier.
-            * `deployment_status_message` (`pulumi.Input[str]`) - The status message from the deployment.
-            * `install_time` (`pulumi.Input[str]`) - The time that the artifact starts to install on the virtual machine.
-            * `parameters` (`pulumi.Input[list]`) - The parameters of the artifact.
-              * `name` (`pulumi.Input[str]`) - The name of the artifact parameter.
-              * `value` (`pulumi.Input[str]`) - The value of the artifact parameter.
+        The **artifact_deployment_status** object supports the following:
 
-            * `status` (`pulumi.Input[str]`) - The status of the artifact.
-            * `vm_extension_status_message` (`pulumi.Input[str]`) - The status message from the virtual machine extension.
+          * `artifacts_applied` (`pulumi.Input[float]`) - The total count of the artifacts that were successfully applied.
+          * `deployment_status` (`pulumi.Input[str]`) - The deployment status of the artifact.
+          * `total_artifacts` (`pulumi.Input[float]`) - The total count of the artifacts that were tentatively applied.
 
-          * `compute_vm` (`pulumi.Input[dict]`) - The compute virtual machine properties.
-            * `data_disk_ids` (`pulumi.Input[list]`) - Gets data disks blob uri for the virtual machine.
-            * `data_disks` (`pulumi.Input[list]`) - Gets all data disks attached to the virtual machine.
-              * `disk_size_gi_b` (`pulumi.Input[float]`) - Gets data disk size in GiB.
-              * `disk_uri` (`pulumi.Input[str]`) - When backed by a blob, the URI of underlying blob.
-              * `managed_disk_id` (`pulumi.Input[str]`) - When backed by managed disk, this is the ID of the compute disk resource.
-              * `name` (`pulumi.Input[str]`) - Gets data disk name.
+        The **artifacts** object supports the following:
 
-            * `network_interface_id` (`pulumi.Input[str]`) - Gets the network interface ID of the virtual machine.
-            * `os_disk_id` (`pulumi.Input[str]`) - Gets OS disk blob uri for the virtual machine.
-            * `os_type` (`pulumi.Input[str]`) - Gets the OS type of the virtual machine.
-            * `statuses` (`pulumi.Input[list]`) - Gets the statuses of the virtual machine.
-              * `code` (`pulumi.Input[str]`) - Gets the status Code.
-              * `display_status` (`pulumi.Input[str]`) - Gets the short localizable label for the status.
-              * `message` (`pulumi.Input[str]`) - Gets the message associated with the status.
+          * `artifact_id` (`pulumi.Input[str]`) - The artifact's identifier.
+          * `deployment_status_message` (`pulumi.Input[str]`) - The status message from the deployment.
+          * `install_time` (`pulumi.Input[str]`) - The time that the artifact starts to install on the virtual machine.
+          * `parameters` (`pulumi.Input[list]`) - The parameters of the artifact.
+            * `name` (`pulumi.Input[str]`) - The name of the artifact parameter.
+            * `value` (`pulumi.Input[str]`) - The value of the artifact parameter.
 
-            * `vm_size` (`pulumi.Input[str]`) - Gets the size of the virtual machine.
+          * `status` (`pulumi.Input[str]`) - The status of the artifact.
+          * `vm_extension_status_message` (`pulumi.Input[str]`) - The status message from the virtual machine extension.
 
-          * `created_by_user` (`pulumi.Input[str]`) - The email address of creator of the virtual machine.
-          * `created_by_user_id` (`pulumi.Input[str]`) - The object identifier of the creator of the virtual machine.
-          * `created_date` (`pulumi.Input[str]`) - The creation date of the virtual machine.
-          * `custom_image_id` (`pulumi.Input[str]`) - The custom image identifier of the virtual machine.
-          * `disallow_public_ip_address` (`pulumi.Input[bool]`) - Indicates whether the virtual machine is to be created without a public IP address.
-          * `environment_id` (`pulumi.Input[str]`) - The resource ID of the environment that contains this virtual machine, if any.
-          * `expiration_date` (`pulumi.Input[str]`) - The expiration date for VM.
-          * `fqdn` (`pulumi.Input[str]`) - The fully-qualified domain name of the virtual machine.
-          * `gallery_image_reference` (`pulumi.Input[dict]`) - The Microsoft Azure Marketplace image reference of the virtual machine.
-            * `offer` (`pulumi.Input[str]`) - The offer of the gallery image.
-            * `os_type` (`pulumi.Input[str]`) - The OS type of the gallery image.
-            * `publisher` (`pulumi.Input[str]`) - The publisher of the gallery image.
-            * `sku` (`pulumi.Input[str]`) - The SKU of the gallery image.
-            * `version` (`pulumi.Input[str]`) - The version of the gallery image.
+        The **compute_vm** object supports the following:
 
-          * `is_authentication_with_ssh_key` (`pulumi.Input[bool]`) - Indicates whether this virtual machine uses an SSH key for authentication.
-          * `lab_subnet_name` (`pulumi.Input[str]`) - The lab subnet name of the virtual machine.
-          * `lab_virtual_network_id` (`pulumi.Input[str]`) - The lab virtual network identifier of the virtual machine.
-          * `network_interface` (`pulumi.Input[dict]`) - The network interface properties.
-            * `dns_name` (`pulumi.Input[str]`) - The DNS name.
-            * `private_ip_address` (`pulumi.Input[str]`) - The private IP address.
-            * `public_ip_address` (`pulumi.Input[str]`) - The public IP address.
-            * `public_ip_address_id` (`pulumi.Input[str]`) - The resource ID of the public IP address.
-            * `rdp_authority` (`pulumi.Input[str]`) - The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-            * `shared_public_ip_address_configuration` (`pulumi.Input[dict]`) - The configuration for sharing a public IP address across multiple virtual machines.
-              * `inbound_nat_rules` (`pulumi.Input[list]`) - The incoming NAT rules
-                * `backend_port` (`pulumi.Input[float]`) - The port to which the external traffic will be redirected.
-                * `frontend_port` (`pulumi.Input[float]`) - The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
-                * `transport_protocol` (`pulumi.Input[str]`) - The transport protocol for the endpoint.
+          * `data_disk_ids` (`pulumi.Input[list]`) - Gets data disks blob uri for the virtual machine.
+          * `data_disks` (`pulumi.Input[list]`) - Gets all data disks attached to the virtual machine.
+            * `disk_size_gi_b` (`pulumi.Input[float]`) - Gets data disk size in GiB.
+            * `disk_uri` (`pulumi.Input[str]`) - When backed by a blob, the URI of underlying blob.
+            * `managed_disk_id` (`pulumi.Input[str]`) - When backed by managed disk, this is the ID of the compute disk resource.
+            * `name` (`pulumi.Input[str]`) - Gets data disk name.
 
-            * `ssh_authority` (`pulumi.Input[str]`) - The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-            * `subnet_id` (`pulumi.Input[str]`) - The resource ID of the sub net.
-            * `virtual_network_id` (`pulumi.Input[str]`) - The resource ID of the virtual network.
+          * `network_interface_id` (`pulumi.Input[str]`) - Gets the network interface ID of the virtual machine.
+          * `os_disk_id` (`pulumi.Input[str]`) - Gets OS disk blob uri for the virtual machine.
+          * `os_type` (`pulumi.Input[str]`) - Gets the OS type of the virtual machine.
+          * `statuses` (`pulumi.Input[list]`) - Gets the statuses of the virtual machine.
+            * `code` (`pulumi.Input[str]`) - Gets the status Code.
+            * `display_status` (`pulumi.Input[str]`) - Gets the short localizable label for the status.
+            * `message` (`pulumi.Input[str]`) - Gets the message associated with the status.
 
-          * `notes` (`pulumi.Input[str]`) - The notes of the virtual machine.
-          * `os_type` (`pulumi.Input[str]`) - The OS type of the virtual machine.
-          * `owner_object_id` (`pulumi.Input[str]`) - The object identifier of the owner of the virtual machine.
-          * `owner_user_principal_name` (`pulumi.Input[str]`) - The user principal name of the virtual machine owner.
-          * `password` (`pulumi.Input[str]`) - The password of the virtual machine administrator.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `size` (`pulumi.Input[str]`) - The size of the virtual machine.
-          * `ssh_key` (`pulumi.Input[str]`) - The SSH key of the virtual machine administrator.
-          * `storage_type` (`pulumi.Input[str]`) - Storage type to use for virtual machine (i.e. Standard, Premium).
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
-          * `user_name` (`pulumi.Input[str]`) - The user name of the virtual machine.
-          * `virtual_machine_creation_source` (`pulumi.Input[str]`) - Tells source of creation of lab virtual machine. Output property only.
+          * `vm_size` (`pulumi.Input[str]`) - Gets the size of the virtual machine.
+
+        The **gallery_image_reference** object supports the following:
+
+          * `offer` (`pulumi.Input[str]`) - The offer of the gallery image.
+          * `os_type` (`pulumi.Input[str]`) - The OS type of the gallery image.
+          * `publisher` (`pulumi.Input[str]`) - The publisher of the gallery image.
+          * `sku` (`pulumi.Input[str]`) - The SKU of the gallery image.
+          * `version` (`pulumi.Input[str]`) - The version of the gallery image.
+
+        The **network_interface** object supports the following:
+
+          * `dns_name` (`pulumi.Input[str]`) - The DNS name.
+          * `private_ip_address` (`pulumi.Input[str]`) - The private IP address.
+          * `public_ip_address` (`pulumi.Input[str]`) - The public IP address.
+          * `public_ip_address_id` (`pulumi.Input[str]`) - The resource ID of the public IP address.
+          * `rdp_authority` (`pulumi.Input[str]`) - The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+          * `shared_public_ip_address_configuration` (`pulumi.Input[dict]`) - The configuration for sharing a public IP address across multiple virtual machines.
+            * `inbound_nat_rules` (`pulumi.Input[list]`) - The incoming NAT rules
+              * `backend_port` (`pulumi.Input[float]`) - The port to which the external traffic will be redirected.
+              * `frontend_port` (`pulumi.Input[float]`) - The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
+              * `transport_protocol` (`pulumi.Input[str]`) - The transport protocol for the endpoint.
+
+          * `ssh_authority` (`pulumi.Input[str]`) - The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
+          * `subnet_id` (`pulumi.Input[str]`) - The resource ID of the sub net.
+          * `virtual_network_id` (`pulumi.Input[str]`) - The resource ID of the virtual network.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -299,20 +303,48 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['allow_claim'] = allow_claim
+            __props__['applicable_schedule'] = applicable_schedule
+            __props__['artifact_deployment_status'] = artifact_deployment_status
+            __props__['artifacts'] = artifacts
+            __props__['compute_vm'] = compute_vm
+            __props__['created_by_user'] = created_by_user
+            __props__['created_by_user_id'] = created_by_user_id
+            __props__['created_date'] = created_date
+            __props__['custom_image_id'] = custom_image_id
+            __props__['disallow_public_ip_address'] = disallow_public_ip_address
+            __props__['environment_id'] = environment_id
+            __props__['expiration_date'] = expiration_date
+            __props__['fqdn'] = fqdn
+            __props__['gallery_image_reference'] = gallery_image_reference
+            __props__['is_authentication_with_ssh_key'] = is_authentication_with_ssh_key
             if lab_name is None:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
+            __props__['lab_subnet_name'] = lab_subnet_name
+            __props__['lab_virtual_network_id'] = lab_virtual_network_id
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['network_interface'] = network_interface
+            __props__['notes'] = notes
+            __props__['os_type'] = os_type
+            __props__['owner_object_id'] = owner_object_id
+            __props__['owner_user_principal_name'] = owner_user_principal_name
+            __props__['password'] = password
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['size'] = size
+            __props__['ssh_key'] = ssh_key
+            __props__['storage_type'] = storage_type
             __props__['tags'] = tags
+            __props__['unique_identifier'] = unique_identifier
+            __props__['user_name'] = user_name
+            __props__['virtual_machine_creation_source'] = virtual_machine_creation_source
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualMachine, __self__).__init__(
             'azurerm:devtestlab/v20160515:VirtualMachine',

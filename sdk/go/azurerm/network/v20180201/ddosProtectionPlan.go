@@ -102,8 +102,6 @@ type ddosProtectionPlanArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the DDoS protection plan.
 	Name string `pulumi:"name"`
-	// Properties of the DDoS protection plan.
-	Properties *DdosProtectionPlanPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -118,8 +116,6 @@ type DdosProtectionPlanArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the DDoS protection plan.
 	Name pulumi.StringInput
-	// Properties of the DDoS protection plan.
-	Properties DdosProtectionPlanPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

@@ -27,7 +27,7 @@ class HybridConnection(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, name=None, namespace_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, namespace_name=None, requires_client_authorization=None, resource_group_name=None, user_metadata=None, __props__=None, __name__=None, __opts__=None):
         """
         Description of HybridConnection Resource.
 
@@ -35,13 +35,9 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The hybrid connection name.
         :param pulumi.Input[str] namespace_name: The Namespace Name
-        :param pulumi.Input[dict] properties: Properties of HybridConnection
+        :param pulumi.Input[bool] requires_client_authorization: true if client authorization is needed for this HybridConnection; otherwise, false.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-
-        The **properties** object supports the following:
-
-          * `requires_client_authorization` (`pulumi.Input[bool]`) - true if client authorization is needed for this HybridConnection; otherwise, false.
-          * `user_metadata` (`pulumi.Input[str]`) - usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+        :param pulumi.Input[str] user_metadata: usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,10 +62,12 @@ class HybridConnection(pulumi.CustomResource):
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            __props__['properties'] = properties
+            __props__['requires_client_authorization'] = requires_client_authorization
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['user_metadata'] = user_metadata
+            __props__['properties'] = None
             __props__['type'] = None
         super(HybridConnection, __self__).__init__(
             'azurerm:relay/v20160701:HybridConnection',

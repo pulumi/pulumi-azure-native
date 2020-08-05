@@ -84,22 +84,28 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        /// </summary>
+        [Input("endIpAddress", required: true)]
+        public Input<string> EndIpAddress { get; set; } = null!;
+
+        /// <summary>
         /// The name of the firewall rule to create or update.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The firewall rule properties to use when creating a new firewall rule.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.CreateOrUpdateFirewallRulePropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The name of the Azure resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        /// </summary>
+        [Input("startIpAddress", required: true)]
+        public Input<string> StartIpAddress { get; set; } = null!;
 
         public FirewallRuleArgs()
         {

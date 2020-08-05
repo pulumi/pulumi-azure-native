@@ -43,7 +43,7 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
     /**
      * The properties of the lock.
      */
-    public readonly properties!: pulumi.Output<outputs.authorization.v20150101.ManagementLockPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20150101.ManagementLockPropertiesResponse>;
     /**
      * The type of the lock.
      */
@@ -68,9 +68,11 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["level"] = args ? args.level : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notes"] = args ? args.notes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -89,13 +91,17 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
  */
 export interface ManagementLockAtResourceGroupLevelArgs {
     /**
+     * The lock level of the management lock.
+     */
+    readonly level?: pulumi.Input<string>;
+    /**
      * The lock name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the lock.
+     * The notes of the management lock.
      */
-    readonly properties?: pulumi.Input<inputs.authorization.v20150101.ManagementLockProperties>;
+    readonly notes?: pulumi.Input<string>;
     /**
      * The resource group name.
      */

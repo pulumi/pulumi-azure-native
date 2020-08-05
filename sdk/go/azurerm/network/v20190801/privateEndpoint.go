@@ -102,12 +102,18 @@ type privateEndpointArgs struct {
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+	ManualPrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"manualPrivateLinkServiceConnections"`
 	// The name of the private endpoint.
 	Name string `pulumi:"name"`
-	// Properties of the private endpoint.
-	Properties *PrivateEndpointProperties `pulumi:"properties"`
+	// A grouping of information about the connection to the remote resource.
+	PrivateLinkServiceConnections []PrivateLinkServiceConnection `pulumi:"privateLinkServiceConnections"`
+	// The provisioning state of the private endpoint resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The ID of the subnet from which the private IP will be allocated.
+	Subnet *SubnetType `pulumi:"subnet"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -120,12 +126,18 @@ type PrivateEndpointArgs struct {
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+	ManualPrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput
 	// The name of the private endpoint.
 	Name pulumi.StringInput
-	// Properties of the private endpoint.
-	Properties PrivateEndpointPropertiesPtrInput
+	// A grouping of information about the connection to the remote resource.
+	PrivateLinkServiceConnections PrivateLinkServiceConnectionArrayInput
+	// The provisioning state of the private endpoint resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The ID of the subnet from which the private IP will be allocated.
+	Subnet SubnetTypePtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

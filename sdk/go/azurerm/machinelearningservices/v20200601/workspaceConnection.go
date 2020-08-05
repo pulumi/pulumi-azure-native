@@ -81,24 +81,36 @@ func (WorkspaceConnectionState) ElementType() reflect.Type {
 }
 
 type workspaceConnectionArgs struct {
+	// Authorization type of the workspace connection.
+	AuthType *string `pulumi:"authType"`
+	// Category of the workspace connection.
+	Category *string `pulumi:"category"`
 	// Friendly name of the workspace connection
 	Name string `pulumi:"name"`
-	// Properties of workspace connection.
-	Properties *WorkspaceConnectionProps `pulumi:"properties"`
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Target of the workspace connection.
+	Target *string `pulumi:"target"`
+	// Value details of the workspace connection.
+	Value *string `pulumi:"value"`
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a WorkspaceConnection resource.
 type WorkspaceConnectionArgs struct {
+	// Authorization type of the workspace connection.
+	AuthType pulumi.StringPtrInput
+	// Category of the workspace connection.
+	Category pulumi.StringPtrInput
 	// Friendly name of the workspace connection
 	Name pulumi.StringInput
-	// Properties of workspace connection.
-	Properties WorkspaceConnectionPropsPtrInput
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName pulumi.StringInput
+	// Target of the workspace connection.
+	Target pulumi.StringPtrInput
+	// Value details of the workspace connection.
+	Value pulumi.StringPtrInput
 	// Name of Azure Machine Learning workspace.
 	WorkspaceName pulumi.StringInput
 }

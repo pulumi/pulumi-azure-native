@@ -90,30 +90,50 @@ func (ProfileState) ElementType() reflect.Type {
 }
 
 type profileArgs struct {
+	// The DNS settings of the Traffic Manager profile.
+	DnsConfig *DnsConfig `pulumi:"dnsConfig"`
+	// The list of endpoints in the Traffic Manager profile.
+	Endpoints []EndpointType `pulumi:"endpoints"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
+	// The endpoint monitoring settings of the Traffic Manager profile.
+	MonitorConfig *MonitorConfig `pulumi:"monitorConfig"`
 	// The name of the Traffic Manager profile.
 	Name string `pulumi:"name"`
-	// The properties of the Traffic Manager profile.
-	Properties *ProfileProperties `pulumi:"properties"`
+	// The status of the Traffic Manager profile.
+	ProfileStatus *string `pulumi:"profileStatus"`
 	// The name of the resource group containing the Traffic Manager profile.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The traffic routing method of the Traffic Manager profile.
+	TrafficRoutingMethod *string `pulumi:"trafficRoutingMethod"`
+	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+	TrafficViewEnrollmentStatus *string `pulumi:"trafficViewEnrollmentStatus"`
 }
 
 // The set of arguments for constructing a Profile resource.
 type ProfileArgs struct {
+	// The DNS settings of the Traffic Manager profile.
+	DnsConfig DnsConfigPtrInput
+	// The list of endpoints in the Traffic Manager profile.
+	Endpoints EndpointTypeArrayInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
+	// The endpoint monitoring settings of the Traffic Manager profile.
+	MonitorConfig MonitorConfigPtrInput
 	// The name of the Traffic Manager profile.
 	Name pulumi.StringInput
-	// The properties of the Traffic Manager profile.
-	Properties ProfilePropertiesPtrInput
+	// The status of the Traffic Manager profile.
+	ProfileStatus pulumi.StringPtrInput
 	// The name of the resource group containing the Traffic Manager profile.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The traffic routing method of the Traffic Manager profile.
+	TrafficRoutingMethod pulumi.StringPtrInput
+	// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+	TrafficViewEnrollmentStatus pulumi.StringPtrInput
 }
 
 func (ProfileArgs) ElementType() reflect.Type {

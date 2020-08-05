@@ -34,6 +34,9 @@ func NewEndpoint(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.Origins == nil {
+		return nil, errors.New("missing required argument 'Origins'")
+	}
 	if args == nil || args.ProfileName == nil {
 		return nil, errors.New("missing required argument 'ProfileName'")
 	}
@@ -93,13 +96,28 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
+	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
+	// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
+	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpAllowed *bool `pulumi:"isHttpAllowed"`
+	// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpsAllowed *bool `pulumi:"isHttpsAllowed"`
 	// Endpoint location
 	Location string `pulumi:"location"`
 	// Name of the endpoint within the CDN profile.
 	Name string `pulumi:"name"`
+	// The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+	OriginHostHeader *string `pulumi:"originHostHeader"`
+	// The path used for origin requests.
+	OriginPath *string `pulumi:"originPath"`
+	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+	Origins []DeepCreatedOrigin `pulumi:"origins"`
 	// Name of the CDN profile within the resource group.
-	ProfileName string                              `pulumi:"profileName"`
-	Properties  *EndpointPropertiesCreateParameters `pulumi:"properties"`
+	ProfileName string `pulumi:"profileName"`
+	// Defines the query string caching behavior.
+	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Endpoint tags
@@ -108,13 +126,28 @@ type endpointArgs struct {
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
+	// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+	ContentTypesToCompress pulumi.StringArrayInput
+	// Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+	IsCompressionEnabled pulumi.BoolPtrInput
+	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpAllowed pulumi.BoolPtrInput
+	// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+	IsHttpsAllowed pulumi.BoolPtrInput
 	// Endpoint location
 	Location pulumi.StringInput
 	// Name of the endpoint within the CDN profile.
 	Name pulumi.StringInput
+	// The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+	OriginHostHeader pulumi.StringPtrInput
+	// The path used for origin requests.
+	OriginPath pulumi.StringPtrInput
+	// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+	Origins DeepCreatedOriginArrayInput
 	// Name of the CDN profile within the resource group.
 	ProfileName pulumi.StringInput
-	Properties  EndpointPropertiesCreateParametersPtrInput
+	// Defines the query string caching behavior.
+	QueryStringCachingBehavior pulumi.StringPtrInput
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Endpoint tags

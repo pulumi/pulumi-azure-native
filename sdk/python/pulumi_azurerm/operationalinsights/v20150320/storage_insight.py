@@ -40,27 +40,25 @@ class StorageInsight(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, name=None, properties=None, resource_group_name=None, tags=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, containers=None, e_tag=None, name=None, resource_group_name=None, storage_account=None, tables=None, tags=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The top level storage insight resource container.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] containers: The names of the blob containers that the workspace should read
         :param pulumi.Input[str] e_tag: The ETag of the storage insight.
         :param pulumi.Input[str] name: Name of the storageInsightsConfigs resource
-        :param pulumi.Input[dict] properties: Storage insight properties.
         :param pulumi.Input[str] resource_group_name: The Resource Group name.
+        :param pulumi.Input[dict] storage_account: The storage account connection details
+        :param pulumi.Input[list] tables: The names of the Azure tables that the workspace should read
         :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[str] workspace_name: The Log Analytics Workspace name.
 
-        The **properties** object supports the following:
+        The **storage_account** object supports the following:
 
-          * `containers` (`pulumi.Input[list]`) - The names of the blob containers that the workspace should read
-          * `storage_account` (`pulumi.Input[dict]`) - The storage account connection details
-            * `id` (`pulumi.Input[str]`) - The Azure Resource Manager ID of the storage account resource.
-            * `key` (`pulumi.Input[str]`) - The storage account key.
-
-          * `tables` (`pulumi.Input[list]`) - The names of the Azure tables that the workspace should read
+          * `id` (`pulumi.Input[str]`) - The Azure Resource Manager ID of the storage account resource.
+          * `key` (`pulumi.Input[str]`) - The storage account key.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,18 +77,23 @@ class StorageInsight(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['containers'] = containers
             __props__['e_tag'] = e_tag
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if storage_account is None:
+                raise TypeError("Missing required property 'storage_account'")
+            __props__['storage_account'] = storage_account
+            __props__['tables'] = tables
             __props__['tags'] = tags
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(StorageInsight, __self__).__init__(
             'azurerm:operationalinsights/v20150320:StorageInsight',

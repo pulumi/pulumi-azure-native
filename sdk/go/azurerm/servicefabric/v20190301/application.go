@@ -103,14 +103,28 @@ type applicationArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location *string `pulumi:"location"`
+	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+	MaximumNodes *int `pulumi:"maximumNodes"`
+	// List of application capacity metric description.
+	Metrics *ApplicationMetricDescriptionList `pulumi:"metrics"`
+	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+	MinimumNodes *int `pulumi:"minimumNodes"`
 	// The name of the application resource.
 	Name string `pulumi:"name"`
-	// The application resource properties.
-	Properties *ApplicationResourceProperties `pulumi:"properties"`
+	// List of application parameters with overridden values from their default values specified in the application manifest.
+	Parameters *ApplicationParameterList `pulumi:"parameters"`
+	// Remove the current application capacity settings.
+	RemoveApplicationCapacity *bool `pulumi:"removeApplicationCapacity"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Azure resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The application type name as defined in the application manifest.
+	TypeName *string `pulumi:"typeName"`
+	// The version of the application type as defined in the application manifest.
+	TypeVersion *string `pulumi:"typeVersion"`
+	// Describes the policy for a monitored application upgrade.
+	UpgradePolicy *ApplicationUpgradePolicy `pulumi:"upgradePolicy"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -119,14 +133,28 @@ type ApplicationArgs struct {
 	ClusterName pulumi.StringInput
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location pulumi.StringPtrInput
+	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+	MaximumNodes pulumi.IntPtrInput
+	// List of application capacity metric description.
+	Metrics ApplicationMetricDescriptionListPtrInput
+	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+	MinimumNodes pulumi.IntPtrInput
 	// The name of the application resource.
 	Name pulumi.StringInput
-	// The application resource properties.
-	Properties ApplicationResourcePropertiesPtrInput
+	// List of application parameters with overridden values from their default values specified in the application manifest.
+	Parameters ApplicationParameterListPtrInput
+	// Remove the current application capacity settings.
+	RemoveApplicationCapacity pulumi.BoolPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Azure resource tags.
 	Tags pulumi.StringMapInput
+	// The application type name as defined in the application manifest.
+	TypeName pulumi.StringPtrInput
+	// The version of the application type as defined in the application manifest.
+	TypeVersion pulumi.StringPtrInput
+	// Describes the policy for a monitored application upgrade.
+	UpgradePolicy ApplicationUpgradePolicyPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {

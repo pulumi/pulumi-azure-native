@@ -100,8 +100,6 @@ type integrationAccountArgs struct {
 	Location *string `pulumi:"location"`
 	// The integration account name.
 	Name string `pulumi:"name"`
-	// The integration account properties.
-	Properties *IntegrationAccountProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku.
@@ -116,8 +114,6 @@ type IntegrationAccountArgs struct {
 	Location pulumi.StringPtrInput
 	// The integration account name.
 	Name pulumi.StringInput
-	// The integration account properties.
-	Properties IntegrationAccountPropertiesPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The sku.

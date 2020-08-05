@@ -51,7 +51,7 @@ export class ManagedCluster extends pulumi.CustomResource {
     /**
      * Properties of a managed cluster.
      */
-    public readonly properties!: pulumi.Output<outputs.containerservice.v20200201.ManagedClusterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.containerservice.v20200201.ManagedClusterPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -83,12 +83,28 @@ export class ManagedCluster extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["aadProfile"] = args ? args.aadProfile : undefined;
+            inputs["addonProfiles"] = args ? args.addonProfiles : undefined;
+            inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
+            inputs["apiServerAccessProfile"] = args ? args.apiServerAccessProfile : undefined;
+            inputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
+            inputs["diskEncryptionSetID"] = args ? args.diskEncryptionSetID : undefined;
+            inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
+            inputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
+            inputs["enableRBAC"] = args ? args.enableRBAC : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["identityProfile"] = args ? args.identityProfile : undefined;
+            inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
+            inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkProfile"] = args ? args.networkProfile : undefined;
+            inputs["nodeResourceGroup"] = args ? args.nodeResourceGroup : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["windowsProfile"] = args ? args.windowsProfile : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,9 +123,57 @@ export class ManagedCluster extends pulumi.CustomResource {
  */
 export interface ManagedClusterArgs {
     /**
+     * Profile of Azure Active Directory configuration.
+     */
+    readonly aadProfile?: pulumi.Input<inputs.containerservice.v20200201.ManagedClusterAADProfile>;
+    /**
+     * Profile of managed cluster add-on.
+     */
+    readonly addonProfiles?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20200201.ManagedClusterAddonProfile>}>;
+    /**
+     * Properties of the agent pool.
+     */
+    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<inputs.containerservice.v20200201.ManagedClusterAgentPoolProfile>[]>;
+    /**
+     * Access profile for managed cluster API server.
+     */
+    readonly apiServerAccessProfile?: pulumi.Input<inputs.containerservice.v20200201.ManagedClusterAPIServerAccessProfile>;
+    /**
+     * Parameters to be applied to the cluster-autoscaler when enabled
+     */
+    readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.v20200201.ManagedClusterPropertiesProperties>;
+    /**
+     * ResourceId of the disk encryption set to use for enabling encryption at rest.
+     */
+    readonly diskEncryptionSetID?: pulumi.Input<string>;
+    /**
+     * DNS prefix specified when creating the managed cluster.
+     */
+    readonly dnsPrefix?: pulumi.Input<string>;
+    /**
+     * (PREVIEW) Whether to enable Kubernetes Pod security policy.
+     */
+    readonly enablePodSecurityPolicy?: pulumi.Input<boolean>;
+    /**
+     * Whether to enable Kubernetes Role-Based Access Control.
+     */
+    readonly enableRBAC?: pulumi.Input<boolean>;
+    /**
      * The identity of the managed cluster, if configured.
      */
     readonly identity?: pulumi.Input<inputs.containerservice.v20200201.ManagedClusterIdentity>;
+    /**
+     * Identities associated with the cluster.
+     */
+    readonly identityProfile?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+    /**
+     * Version of Kubernetes specified when creating the managed cluster.
+     */
+    readonly kubernetesVersion?: pulumi.Input<string>;
+    /**
+     * Profile for Linux VMs in the container service cluster.
+     */
+    readonly linuxProfile?: pulumi.Input<inputs.containerservice.v20200201.ContainerServiceLinuxProfile>;
     /**
      * Resource location
      */
@@ -119,15 +183,27 @@ export interface ManagedClusterArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of a managed cluster.
+     * Profile of network configuration.
      */
-    readonly properties?: pulumi.Input<inputs.containerservice.v20200201.ManagedClusterProperties>;
+    readonly networkProfile?: pulumi.Input<inputs.containerservice.v20200201.ContainerServiceNetworkProfile>;
+    /**
+     * Name of the resource group containing agent pool nodes.
+     */
+    readonly nodeResourceGroup?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+     */
+    readonly servicePrincipalProfile?: pulumi.Input<inputs.containerservice.v20200201.ManagedClusterServicePrincipalProfile>;
+    /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Profile for Windows VMs in the container service cluster.
+     */
+    readonly windowsProfile?: pulumi.Input<inputs.containerservice.v20200201.ManagedClusterWindowsProfile>;
 }

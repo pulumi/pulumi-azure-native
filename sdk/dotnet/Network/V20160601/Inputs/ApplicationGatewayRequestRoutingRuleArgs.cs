@@ -16,10 +16,28 @@ namespace Pulumi.AzureRM.Network.V20160601.Inputs
     public sealed class ApplicationGatewayRequestRoutingRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Backend address pool resource of application gateway 
+        /// </summary>
+        [Input("backendAddressPool")]
+        public Input<Inputs.SubResourceArgs>? BackendAddressPool { get; set; }
+
+        /// <summary>
+        /// Frontend port resource of application gateway 
+        /// </summary>
+        [Input("backendHttpSettings")]
+        public Input<Inputs.SubResourceArgs>? BackendHttpSettings { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Http listener resource of application gateway 
+        /// </summary>
+        [Input("httpListener")]
+        public Input<Inputs.SubResourceArgs>? HttpListener { get; set; }
 
         /// <summary>
         /// Resource Id
@@ -34,10 +52,22 @@ namespace Pulumi.AzureRM.Network.V20160601.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of Request routing rule of application gateway
+        /// Provisioning state of the request routing rule resource Updating/Deleting/Failed
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayRequestRoutingRulePropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Rule type
+        /// </summary>
+        [Input("ruleType")]
+        public Input<string>? RuleType { get; set; }
+
+        /// <summary>
+        /// Url path map resource of application gateway 
+        /// </summary>
+        [Input("urlPathMap")]
+        public Input<Inputs.SubResourceArgs>? UrlPathMap { get; set; }
 
         public ApplicationGatewayRequestRoutingRuleArgs()
         {

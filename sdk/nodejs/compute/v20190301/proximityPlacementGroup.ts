@@ -47,7 +47,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
     /**
      * Describes the properties of a Proximity Placement Group.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20190301.ProximityPlacementGroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20190301.ProximityPlacementGroupPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -81,9 +81,10 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["proximityPlacementGroupType"] = args ? args.proximityPlacementGroupType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,9 +111,9 @@ export interface ProximityPlacementGroupArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes the properties of a Proximity Placement Group.
+     * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20190301.ProximityPlacementGroupProperties>;
+    readonly proximityPlacementGroupType?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

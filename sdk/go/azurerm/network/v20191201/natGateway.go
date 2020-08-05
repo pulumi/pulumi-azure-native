@@ -110,12 +110,16 @@ func (NatGatewayState) ElementType() reflect.Type {
 type natGatewayArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// The idle timeout of the nat gateway.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the nat gateway.
 	Name string `pulumi:"name"`
-	// Nat Gateway properties.
-	Properties *NatGatewayPropertiesFormat `pulumi:"properties"`
+	// An array of public ip addresses associated with the nat gateway resource.
+	PublicIpAddresses []SubResource `pulumi:"publicIpAddresses"`
+	// An array of public ip prefixes associated with the nat gateway resource.
+	PublicIpPrefixes []SubResource `pulumi:"publicIpPrefixes"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The nat gateway SKU.
@@ -130,12 +134,16 @@ type natGatewayArgs struct {
 type NatGatewayArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// The idle timeout of the nat gateway.
+	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the nat gateway.
 	Name pulumi.StringInput
-	// Nat Gateway properties.
-	Properties NatGatewayPropertiesFormatPtrInput
+	// An array of public ip addresses associated with the nat gateway resource.
+	PublicIpAddresses SubResourceArrayInput
+	// An array of public ip prefixes associated with the nat gateway resource.
+	PublicIpPrefixes SubResourceArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The nat gateway SKU.

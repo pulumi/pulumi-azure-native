@@ -78,6 +78,24 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class FileShareArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+        /// </summary>
+        [Input("adminUser", required: true)]
+        public Input<string> AdminUser { get; set; } = null!;
+
+        /// <summary>
+        /// The data policy
+        /// </summary>
+        [Input("dataPolicy", required: true)]
+        public Input<string> DataPolicy { get; set; } = null!;
+
+        /// <summary>
+        /// Description for file share
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
@@ -96,22 +114,34 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
+        /// The monitoring status
+        /// </summary>
+        [Input("monitoringStatus", required: true)]
+        public Input<string> MonitoringStatus { get; set; } = null!;
+
+        /// <summary>
         /// The file share name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties.
+        /// The total provisioned capacity in Bytes
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.FileSharePropertiesArgs> Properties { get; set; } = null!;
+        [Input("provisionedCapacityInBytes", required: true)]
+        public Input<int> ProvisionedCapacityInBytes { get; set; } = null!;
 
         /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Share Status
+        /// </summary>
+        [Input("shareStatus", required: true)]
+        public Input<string> ShareStatus { get; set; } = null!;
 
         public FileShareArgs()
         {

@@ -47,7 +47,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The properties associated with the Application.
      */
-    public readonly properties!: pulumi.Output<outputs.batch.v20200501.ApplicationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.batch.v20200501.ApplicationPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -76,10 +76,13 @@ export class Application extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["allowUpdates"] = args ? args.allowUpdates : undefined;
+            inputs["defaultVersion"] = args ? args.defaultVersion : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,13 +105,21 @@ export interface ApplicationArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * A value indicating whether packages within the application may be overwritten using the same version string.
+     */
+    readonly allowUpdates?: pulumi.Input<boolean>;
+    /**
+     * The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+     */
+    readonly defaultVersion?: pulumi.Input<string>;
+    /**
+     * The display name for the application.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
      * The name of the application. This must be unique within the account.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties associated with the Application.
-     */
-    readonly properties?: pulumi.Input<inputs.batch.v20200501.ApplicationProperties>;
     /**
      * The name of the resource group that contains the Batch account.
      */

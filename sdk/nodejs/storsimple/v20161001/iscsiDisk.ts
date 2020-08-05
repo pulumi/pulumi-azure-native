@@ -43,7 +43,7 @@ export class IscsiDisk extends pulumi.CustomResource {
     /**
      * The properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ISCSIDiskPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ISCSIDiskPropertiesResponse>;
     /**
      * The type.
      */
@@ -62,8 +62,17 @@ export class IscsiDisk extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as IscsiDiskArgs | undefined;
+            if (!args || args.accessControlRecords === undefined) {
+                throw new Error("Missing required property 'accessControlRecords'");
+            }
+            if (!args || args.dataPolicy === undefined) {
+                throw new Error("Missing required property 'dataPolicy'");
+            }
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
+            }
+            if (!args || args.diskStatus === undefined) {
+                throw new Error("Missing required property 'diskStatus'");
             }
             if (!args || args.iscsiServerName === undefined) {
                 throw new Error("Missing required property 'iscsiServerName'");
@@ -71,21 +80,30 @@ export class IscsiDisk extends pulumi.CustomResource {
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
             }
+            if (!args || args.monitoringStatus === undefined) {
+                throw new Error("Missing required property 'monitoringStatus'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.provisionedCapacityInBytes === undefined) {
+                throw new Error("Missing required property 'provisionedCapacityInBytes'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["accessControlRecords"] = args ? args.accessControlRecords : undefined;
+            inputs["dataPolicy"] = args ? args.dataPolicy : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
+            inputs["diskStatus"] = args ? args.diskStatus : undefined;
             inputs["iscsiServerName"] = args ? args.iscsiServerName : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
+            inputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisionedCapacityInBytes"] = args ? args.provisionedCapacityInBytes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,9 +122,25 @@ export class IscsiDisk extends pulumi.CustomResource {
  */
 export interface IscsiDiskArgs {
     /**
+     * The access control records.
+     */
+    readonly accessControlRecords: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The data policy.
+     */
+    readonly dataPolicy: pulumi.Input<string>;
+    /**
+     * The description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The device name.
      */
     readonly deviceName: pulumi.Input<string>;
+    /**
+     * The disk status.
+     */
+    readonly diskStatus: pulumi.Input<string>;
     /**
      * The iSCSI server name.
      */
@@ -116,13 +150,17 @@ export interface IscsiDiskArgs {
      */
     readonly managerName: pulumi.Input<string>;
     /**
+     * The monitoring.
+     */
+    readonly monitoringStatus: pulumi.Input<string>;
+    /**
      * The disk name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties.
+     * The provisioned capacity in bytes.
      */
-    readonly properties: pulumi.Input<inputs.storsimple.v20161001.ISCSIDiskProperties>;
+    readonly provisionedCapacityInBytes: pulumi.Input<number>;
     /**
      * The resource group name
      */

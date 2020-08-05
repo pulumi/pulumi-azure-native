@@ -90,34 +90,70 @@ func (RecordSetState) ElementType() reflect.Type {
 }
 
 type recordSetArgs struct {
+	// The list of A records in the record set.
+	ARecords []ARecord `pulumi:"aRecords"`
+	// The list of AAAA records in the record set.
+	AaaaRecords []AaaaRecord `pulumi:"aaaaRecords"`
+	// The CNAME record in the record set.
+	CnameRecord *CnameRecord `pulumi:"cnameRecord"`
 	// The ETag of the record set.
 	Etag *string `pulumi:"etag"`
+	// The metadata attached to the record set.
+	Metadata map[string]string `pulumi:"metadata"`
+	// The list of MX records in the record set.
+	MxRecords []MxRecord `pulumi:"mxRecords"`
 	// The name of the record set, relative to the name of the zone.
 	Name string `pulumi:"name"`
 	// The name of the Private DNS zone (without a terminating dot).
 	PrivateZoneName string `pulumi:"privateZoneName"`
-	// The properties of the record set.
-	Properties *RecordSetProperties `pulumi:"properties"`
+	// The list of PTR records in the record set.
+	PtrRecords []PtrRecord `pulumi:"ptrRecords"`
 	// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
 	RecordType string `pulumi:"recordType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The SOA record in the record set.
+	SoaRecord *SoaRecord `pulumi:"soaRecord"`
+	// The list of SRV records in the record set.
+	SrvRecords []SrvRecord `pulumi:"srvRecords"`
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl *int `pulumi:"ttl"`
+	// The list of TXT records in the record set.
+	TxtRecords []TxtRecord `pulumi:"txtRecords"`
 }
 
 // The set of arguments for constructing a RecordSet resource.
 type RecordSetArgs struct {
+	// The list of A records in the record set.
+	ARecords ARecordArrayInput
+	// The list of AAAA records in the record set.
+	AaaaRecords AaaaRecordArrayInput
+	// The CNAME record in the record set.
+	CnameRecord CnameRecordPtrInput
 	// The ETag of the record set.
 	Etag pulumi.StringPtrInput
+	// The metadata attached to the record set.
+	Metadata pulumi.StringMapInput
+	// The list of MX records in the record set.
+	MxRecords MxRecordArrayInput
 	// The name of the record set, relative to the name of the zone.
 	Name pulumi.StringInput
 	// The name of the Private DNS zone (without a terminating dot).
 	PrivateZoneName pulumi.StringInput
-	// The properties of the record set.
-	Properties RecordSetPropertiesPtrInput
+	// The list of PTR records in the record set.
+	PtrRecords PtrRecordArrayInput
 	// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
 	RecordType pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The SOA record in the record set.
+	SoaRecord SoaRecordPtrInput
+	// The list of SRV records in the record set.
+	SrvRecords SrvRecordArrayInput
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl pulumi.IntPtrInput
+	// The list of TXT records in the record set.
+	TxtRecords TxtRecordArrayInput
 }
 
 func (RecordSetArgs) ElementType() reflect.Type {

@@ -34,10 +34,10 @@ namespace Pulumi.AzureRM.Network.V20161201.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the revoked VPN client certificate of virtual network gateway.
+        /// The revoked VPN client certificate thumbprint.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VpnClientRevokedCertificatePropertiesFormatArgs>? Properties { get; set; }
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
 
         public VpnClientRevokedCertificateArgs()
         {

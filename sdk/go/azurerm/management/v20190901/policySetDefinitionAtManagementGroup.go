@@ -31,6 +31,9 @@ func NewPolicySetDefinitionAtManagementGroup(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PolicyDefinitions == nil {
+		return nil, errors.New("missing required argument 'PolicyDefinitions'")
+	}
 	if args == nil {
 		args = &PolicySetDefinitionAtManagementGroupArgs{}
 	}
@@ -78,22 +81,46 @@ func (PolicySetDefinitionAtManagementGroupState) ElementType() reflect.Type {
 }
 
 type policySetDefinitionAtManagementGroupArgs struct {
+	// The policy set definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy set definition.
+	DisplayName *string `pulumi:"displayName"`
 	// The ID of the management group.
 	ManagementGroupId string `pulumi:"managementGroupId"`
+	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The name of the policy set definition to create.
 	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties *PolicySetDefinitionProperties `pulumi:"properties"`
+	// The policy set definition parameters that can be used in policy definition references.
+	Parameters *ParameterDefinitions `pulumi:"parameters"`
+	// The metadata describing groups of policy definition references within the policy set definition.
+	PolicyDefinitionGroups []PolicyDefinitionGroup `pulumi:"policyDefinitionGroups"`
+	// An array of policy definition references.
+	PolicyDefinitions []PolicyDefinitionReference `pulumi:"policyDefinitions"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+	PolicyType *string `pulumi:"policyType"`
 }
 
 // The set of arguments for constructing a PolicySetDefinitionAtManagementGroup resource.
 type PolicySetDefinitionAtManagementGroupArgs struct {
+	// The policy set definition description.
+	Description pulumi.StringPtrInput
+	// The display name of the policy set definition.
+	DisplayName pulumi.StringPtrInput
 	// The ID of the management group.
 	ManagementGroupId pulumi.StringInput
+	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata pulumi.MapInput
 	// The name of the policy set definition to create.
 	Name pulumi.StringInput
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesPtrInput
+	// The policy set definition parameters that can be used in policy definition references.
+	Parameters ParameterDefinitionsPtrInput
+	// The metadata describing groups of policy definition references within the policy set definition.
+	PolicyDefinitionGroups PolicyDefinitionGroupArrayInput
+	// An array of policy definition references.
+	PolicyDefinitions PolicyDefinitionReferenceArrayInput
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+	PolicyType pulumi.StringPtrInput
 }
 
 func (PolicySetDefinitionAtManagementGroupArgs) ElementType() reflect.Type {

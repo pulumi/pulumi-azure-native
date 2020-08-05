@@ -37,7 +37,7 @@ class Registration(pulumi.CustomResource):
     """
     Type of Resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, registration_token=None, resource_group=None, __props__=None, __name__=None, __opts__=None):
         """
         Registration information.
 
@@ -45,12 +45,8 @@ class Registration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] name: Name of the Azure Stack registration.
-        :param pulumi.Input[dict] properties: Properties of the Azure Stack registration resource
+        :param pulumi.Input[str] registration_token: The token identifying registered Azure Stack
         :param pulumi.Input[str] resource_group: Name of the resource group.
-
-        The **properties** object supports the following:
-
-          * `registration_token` (`pulumi.Input[str]`) - The token identifying registered Azure Stack
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,13 +71,14 @@ class Registration(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if registration_token is None:
+                raise TypeError("Missing required property 'registration_token'")
+            __props__['registration_token'] = registration_token
             if resource_group is None:
                 raise TypeError("Missing required property 'resource_group'")
             __props__['resource_group'] = resource_group
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(Registration, __self__).__init__(

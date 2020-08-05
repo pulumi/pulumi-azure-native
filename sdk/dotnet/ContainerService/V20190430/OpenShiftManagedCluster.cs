@@ -95,11 +95,35 @@ namespace Pulumi.AzureRM.ContainerService.V20190430
 
     public sealed class OpenShiftManagedClusterArgs : Pulumi.ResourceArgs
     {
+        [Input("agentPoolProfiles")]
+        private InputList<Inputs.OpenShiftManagedClusterAgentPoolProfileArgs>? _agentPoolProfiles;
+
+        /// <summary>
+        /// Configuration of OpenShift cluster VMs.
+        /// </summary>
+        public InputList<Inputs.OpenShiftManagedClusterAgentPoolProfileArgs> AgentPoolProfiles
+        {
+            get => _agentPoolProfiles ?? (_agentPoolProfiles = new InputList<Inputs.OpenShiftManagedClusterAgentPoolProfileArgs>());
+            set => _agentPoolProfiles = value;
+        }
+
+        /// <summary>
+        /// Configures OpenShift authentication.
+        /// </summary>
+        [Input("authProfile")]
+        public Input<Inputs.OpenShiftManagedClusterAuthProfileArgs>? AuthProfile { get; set; }
+
         /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Configuration for OpenShift master VMs.
+        /// </summary>
+        [Input("masterPoolProfile")]
+        public Input<Inputs.OpenShiftManagedClusterMasterPoolProfileArgs>? MasterPoolProfile { get; set; }
 
         /// <summary>
         /// The name of the OpenShift managed cluster resource.
@@ -108,22 +132,40 @@ namespace Pulumi.AzureRM.ContainerService.V20190430
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Configuration for OpenShift networking.
+        /// </summary>
+        [Input("networkProfile")]
+        public Input<Inputs.NetworkProfileArgs>? NetworkProfile { get; set; }
+
+        /// <summary>
+        /// Version of OpenShift specified when creating the cluster.
+        /// </summary>
+        [Input("openShiftVersion", required: true)]
+        public Input<string> OpenShiftVersion { get; set; } = null!;
+
+        /// <summary>
         /// Define the resource plan as required by ARM for billing purposes
         /// </summary>
         [Input("plan")]
         public Input<Inputs.PurchasePlanArgs>? Plan { get; set; }
 
         /// <summary>
-        /// Properties of a OpenShift managed cluster.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OpenShiftManagedClusterPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("routerProfiles")]
+        private InputList<Inputs.OpenShiftRouterProfileArgs>? _routerProfiles;
+
+        /// <summary>
+        /// Configuration for OpenShift router(s).
+        /// </summary>
+        public InputList<Inputs.OpenShiftRouterProfileArgs> RouterProfiles
+        {
+            get => _routerProfiles ?? (_routerProfiles = new InputList<Inputs.OpenShiftRouterProfileArgs>());
+            set => _routerProfiles = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

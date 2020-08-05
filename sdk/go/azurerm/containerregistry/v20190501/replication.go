@@ -100,8 +100,6 @@ type replicationArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the replication.
 	Name string `pulumi:"name"`
-	// The properties of the replication.
-	Properties *ReplicationProperties `pulumi:"properties"`
 	// The name of the container registry.
 	RegistryName string `pulumi:"registryName"`
 	// The name of the resource group to which the container registry belongs.
@@ -116,8 +114,6 @@ type ReplicationArgs struct {
 	Location pulumi.StringInput
 	// The name of the replication.
 	Name pulumi.StringInput
-	// The properties of the replication.
-	Properties ReplicationPropertiesPtrInput
 	// The name of the container registry.
 	RegistryName pulumi.StringInput
 	// The name of the resource group to which the container registry belongs.

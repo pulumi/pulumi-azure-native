@@ -68,11 +68,15 @@ export class ManagementPolicy extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.policy === undefined) {
+                throw new Error("Missing required property 'policy'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["policy"] = args ? args.policy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -100,6 +104,10 @@ export interface ManagementPolicyArgs {
      * The name of the Storage Account Management Policy. It should always be 'default'
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+     */
+    readonly policy: pulumi.Input<inputs.storage.v20181101.ManagementPolicySchema>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

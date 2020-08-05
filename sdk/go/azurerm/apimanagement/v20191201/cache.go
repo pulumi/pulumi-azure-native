@@ -25,6 +25,9 @@ type Cache struct {
 // NewCache registers a new resource with the given unique name, arguments, and options.
 func NewCache(ctx *pulumi.Context,
 	name string, args *CacheArgs, opts ...pulumi.ResourceOption) (*Cache, error) {
+	if args == nil || args.ConnectionString == nil {
+		return nil, errors.New("missing required argument 'ConnectionString'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -81,24 +84,32 @@ func (CacheState) ElementType() reflect.Type {
 }
 
 type cacheArgs struct {
+	// Runtime connection string to cache
+	ConnectionString string `pulumi:"connectionString"`
+	// Cache description
+	Description *string `pulumi:"description"`
 	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
 	Name string `pulumi:"name"`
-	// Cache properties details.
-	Properties *CacheContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Original uri of entity in external system cache points to
+	ResourceId *string `pulumi:"resourceId"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a Cache resource.
 type CacheArgs struct {
+	// Runtime connection string to cache
+	ConnectionString pulumi.StringInput
+	// Cache description
+	Description pulumi.StringPtrInput
 	// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
 	Name pulumi.StringInput
-	// Cache properties details.
-	Properties CacheContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Original uri of entity in external system cache points to
+	ResourceId pulumi.StringPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 }

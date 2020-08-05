@@ -47,7 +47,7 @@ export class User extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.UserPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.UserPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -79,12 +79,14 @@ export class User extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["secretStore"] = args ? args.secretStore : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,6 +105,10 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserArgs {
     /**
+     * The identity of the user.
+     */
+    readonly identity?: pulumi.Input<inputs.devtestlab.v20180915.UserIdentity>;
+    /**
      * The name of the lab.
      */
     readonly labName: pulumi.Input<string>;
@@ -115,13 +121,13 @@ export interface UserArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the resource.
-     */
-    readonly properties?: pulumi.Input<inputs.devtestlab.v20180915.UserProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The secret store of the user.
+     */
+    readonly secretStore?: pulumi.Input<inputs.devtestlab.v20180915.UserSecretStore>;
     /**
      * The tags of the resource.
      */

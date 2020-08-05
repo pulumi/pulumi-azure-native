@@ -108,14 +108,20 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
+	// Describes custom rules inside the policy.
+	CustomRules *CustomRuleList `pulumi:"customRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location string `pulumi:"location"`
+	// Describes managed rules inside the policy.
+	ManagedRules *ManagedRuleSetList `pulumi:"managedRules"`
 	// The name of the CdnWebApplicationFirewallPolicy.
 	Name string `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties *CdnWebApplicationFirewallPolicyProperties `pulumi:"properties"`
+	// Describes  policySettings for policy
+	PolicySettings *PolicySettings `pulumi:"policySettings"`
+	// Describes rate limit rules inside the policy.
+	RateLimitRules *RateLimitRuleList `pulumi:"rateLimitRules"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
@@ -126,14 +132,20 @@ type policyArgs struct {
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
+	// Describes custom rules inside the policy.
+	CustomRules CustomRuleListPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
+	// Describes managed rules inside the policy.
+	ManagedRules ManagedRuleSetListPtrInput
 	// The name of the CdnWebApplicationFirewallPolicy.
 	Name pulumi.StringInput
-	// Properties of the web application firewall policy.
-	Properties CdnWebApplicationFirewallPolicyPropertiesPtrInput
+	// Describes  policySettings for policy
+	PolicySettings PolicySettingsPtrInput
+	// Describes rate limit rules inside the policy.
+	RateLimitRules RateLimitRuleListPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.

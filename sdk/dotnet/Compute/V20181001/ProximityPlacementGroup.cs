@@ -102,10 +102,10 @@ namespace Pulumi.AzureRM.Compute.V20181001
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a Proximity Placement Group.
+        /// Specifies the type of the proximity placement group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Standard** : Co-locate resources within an Azure region or Availability Zone. &lt;br&gt;&lt;br&gt; **Ultra** : For future use.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ProximityPlacementGroupPropertiesArgs>? Properties { get; set; }
+        [Input("proximityPlacementGroupType")]
+        public Input<string>? ProximityPlacementGroupType { get; set; }
 
         /// <summary>
         /// The name of the resource group.

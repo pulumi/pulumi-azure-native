@@ -28,10 +28,16 @@ namespace Pulumi.AzureRM.Network.V20200501.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the P2S connection configuration.
+        /// The Routing Configuration indicating the associated and propagated route tables on this connection.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.P2SConnectionConfigurationPropertiesArgs>? Properties { get; set; }
+        [Input("routingConfiguration")]
+        public Input<Inputs.RoutingConfigurationArgs>? RoutingConfiguration { get; set; }
+
+        /// <summary>
+        /// The reference to the address space resource which represents Address space for P2S VpnClient.
+        /// </summary>
+        [Input("vpnClientAddressPool")]
+        public Input<Inputs.AddressSpaceArgs>? VpnClientAddressPool { get; set; }
 
         public P2SConnectionConfigurationArgs()
         {

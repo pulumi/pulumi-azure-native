@@ -43,7 +43,7 @@ export class SyncGroup extends pulumi.CustomResource {
     /**
      * SyncGroup properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storagesync.v20190601.SyncGroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20190601.SyncGroupPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -72,9 +72,9 @@ export class SyncGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,10 +96,6 @@ export interface SyncGroupArgs {
      * Name of Sync Group resource.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The parameters used to create the sync group
-     */
-    readonly properties?: pulumi.Input<inputs.storagesync.v20190601.SyncGroupCreateParametersProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

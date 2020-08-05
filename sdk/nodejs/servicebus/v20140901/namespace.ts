@@ -47,7 +47,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Properties of the namespace.
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20140901.NamespacePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20140901.NamespacePropertiesResponse>;
     /**
      * SKU of the namespace.
      */
@@ -83,12 +83,15 @@ export class Namespace extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["createACSNamespace"] = args ? args.createACSNamespace : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +110,14 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceArgs {
     /**
+     * Indicates whether to create an ACS namespace.
+     */
+    readonly createACSNamespace?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether this instance is enabled.
+     */
+    readonly enabled?: pulumi.Input<boolean>;
+    /**
      * Namespace location.
      */
     readonly location: pulumi.Input<string>;
@@ -115,10 +126,6 @@ export interface NamespaceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the namespace.
-     */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20140901.NamespaceProperties>;
-    /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -126,6 +133,10 @@ export interface NamespaceArgs {
      * SKU of the namespace.
      */
     readonly sku?: pulumi.Input<inputs.servicebus.v20140901.Sku>;
+    /**
+     * State of the namespace.
+     */
+    readonly status?: pulumi.Input<string>;
     /**
      * Namespace tags.
      */

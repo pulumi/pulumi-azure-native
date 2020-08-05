@@ -78,30 +78,48 @@ func (SubnetState) ElementType() reflect.Type {
 }
 
 type subnetArgs struct {
+	// Gets or sets Address prefix for the subnet.
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Gets array of references to the network interface IP configurations using subnet
+	IpConfigurations []IPConfiguration `pulumi:"ipConfigurations"`
 	// The name of the subnet.
-	Name       string                  `pulumi:"name"`
-	Properties *SubnetPropertiesFormat `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Gets or sets the reference of the NetworkSecurityGroup resource
+	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets the reference of the RouteTable resource
+	RouteTable *RouteTableType `pulumi:"routeTable"`
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }
 
 // The set of arguments for constructing a Subnet resource.
 type SubnetArgs struct {
+	// Gets or sets Address prefix for the subnet.
+	AddressPrefix pulumi.StringPtrInput
 	// A unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
+	// Gets array of references to the network interface IP configurations using subnet
+	IpConfigurations IPConfigurationArrayInput
 	// The name of the subnet.
-	Name       pulumi.StringInput
-	Properties SubnetPropertiesFormatPtrInput
+	Name pulumi.StringInput
+	// Gets or sets the reference of the NetworkSecurityGroup resource
+	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets the reference of the RouteTable resource
+	RouteTable RouteTableTypePtrInput
 	// The name of the virtual network.
 	VirtualNetworkName pulumi.StringInput
 }

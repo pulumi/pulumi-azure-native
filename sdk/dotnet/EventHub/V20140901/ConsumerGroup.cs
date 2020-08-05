@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties supplied to the Create Or Update Consumer Group operation.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ConsumerGroupPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group within the azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -124,6 +118,12 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// The user metadata.
+        /// </summary>
+        [Input("userMetadata")]
+        public Input<string>? UserMetadata { get; set; }
 
         public ConsumerGroupArgs()
         {

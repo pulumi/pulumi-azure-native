@@ -78,6 +78,42 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class StorageAccountCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The details of the storage account password
+        /// </summary>
+        [Input("accessKey")]
+        public Input<Inputs.AsymmetricEncryptedSecretArgs>? AccessKey { get; set; }
+
+        /// <summary>
+        /// The cloud service provider
+        /// </summary>
+        [Input("cloudType", required: true)]
+        public Input<string> CloudType { get; set; } = null!;
+
+        /// <summary>
+        /// SSL needs to be enabled or not
+        /// </summary>
+        [Input("enableSSL", required: true)]
+        public Input<string> EnableSSL { get; set; } = null!;
+
+        /// <summary>
+        /// The storage endpoint
+        /// </summary>
+        [Input("endPoint", required: true)]
+        public Input<string> EndPoint { get; set; } = null!;
+
+        /// <summary>
+        /// The storage account's geo location
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The storage account login
+        /// </summary>
+        [Input("login", required: true)]
+        public Input<string> Login { get; set; } = null!;
+
+        /// <summary>
         /// The manager name
         /// </summary>
         [Input("managerName", required: true)]
@@ -88,12 +124,6 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Credential properties
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.StorageAccountCredentialPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

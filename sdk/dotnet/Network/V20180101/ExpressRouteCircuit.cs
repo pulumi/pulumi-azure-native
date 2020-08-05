@@ -102,6 +102,36 @@ namespace Pulumi.AzureRM.Network.V20180101
     public sealed class ExpressRouteCircuitArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Allow classic operations
+        /// </summary>
+        [Input("allowClassicOperations")]
+        public Input<bool>? AllowClassicOperations { get; set; }
+
+        [Input("authorizations")]
+        private InputList<Inputs.ExpressRouteCircuitAuthorizationArgs>? _authorizations;
+
+        /// <summary>
+        /// The list of authorizations.
+        /// </summary>
+        public InputList<Inputs.ExpressRouteCircuitAuthorizationArgs> Authorizations
+        {
+            get => _authorizations ?? (_authorizations = new InputList<Inputs.ExpressRouteCircuitAuthorizationArgs>());
+            set => _authorizations = value;
+        }
+
+        /// <summary>
+        /// The CircuitProvisioningState state of the resource.
+        /// </summary>
+        [Input("circuitProvisioningState")]
+        public Input<string>? CircuitProvisioningState { get; set; }
+
+        /// <summary>
+        /// The GatewayManager Etag.
+        /// </summary>
+        [Input("gatewayManagerEtag")]
+        public Input<string>? GatewayManagerEtag { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -119,17 +149,53 @@ namespace Pulumi.AzureRM.Network.V20180101
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("peerings")]
+        private InputList<Inputs.ExpressRouteCircuitPeeringArgs>? _peerings;
+
         /// <summary>
-        /// Properties of ExpressRouteCircuit.
+        /// The list of peerings.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ExpressRouteCircuitPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.ExpressRouteCircuitPeeringArgs> Peerings
+        {
+            get => _peerings ?? (_peerings = new InputList<Inputs.ExpressRouteCircuitPeeringArgs>());
+            set => _peerings = value;
+        }
+
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The ServiceKey.
+        /// </summary>
+        [Input("serviceKey")]
+        public Input<string>? ServiceKey { get; set; }
+
+        /// <summary>
+        /// The ServiceProviderNotes.
+        /// </summary>
+        [Input("serviceProviderNotes")]
+        public Input<string>? ServiceProviderNotes { get; set; }
+
+        /// <summary>
+        /// The ServiceProviderProperties.
+        /// </summary>
+        [Input("serviceProviderProperties")]
+        public Input<Inputs.ExpressRouteCircuitServiceProviderPropertiesArgs>? ServiceProviderProperties { get; set; }
+
+        /// <summary>
+        /// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+        /// </summary>
+        [Input("serviceProviderProvisioningState")]
+        public Input<string>? ServiceProviderProvisioningState { get; set; }
 
         /// <summary>
         /// The SKU.

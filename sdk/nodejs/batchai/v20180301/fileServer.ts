@@ -47,7 +47,7 @@ export class FileServer extends pulumi.CustomResource {
     /**
      * The properties associated with the File Server.
      */
-    public readonly properties!: pulumi.Output<outputs.batchai.v20180301.FileServerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.batchai.v20180301.FileServerPropertiesResponse>;
     /**
      * The tags of the resource
      */
@@ -70,6 +70,9 @@ export class FileServer extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as FileServerArgs | undefined;
+            if (!args || args.dataDisks === undefined) {
+                throw new Error("Missing required property 'dataDisks'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -79,11 +82,21 @@ export class FileServer extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.sshConfiguration === undefined) {
+                throw new Error("Missing required property 'sshConfiguration'");
+            }
+            if (!args || args.vmSize === undefined) {
+                throw new Error("Missing required property 'vmSize'");
+            }
+            inputs["dataDisks"] = args ? args.dataDisks : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sshConfiguration"] = args ? args.sshConfiguration : undefined;
+            inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vmSize"] = args ? args.vmSize : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +115,10 @@ export class FileServer extends pulumi.CustomResource {
  */
 export interface FileServerArgs {
     /**
+     * Settings for the data disk which would be created for the File Server.
+     */
+    readonly dataDisks: pulumi.Input<inputs.batchai.v20180301.DataDisks>;
+    /**
      * The region in which to create the File Server.
      */
     readonly location: pulumi.Input<string>;
@@ -110,15 +127,23 @@ export interface FileServerArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the File Server.
-     */
-    readonly properties?: pulumi.Input<inputs.batchai.v20180301.FileServerBaseProperties>;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * SSH configuration settings for the VM
+     */
+    readonly sshConfiguration: pulumi.Input<inputs.batchai.v20180301.SshConfiguration>;
+    /**
+     * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+     */
+    readonly subnet?: pulumi.Input<inputs.batchai.v20180301.ResourceId>;
+    /**
      * The user specified tags associated with the File Server.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * For information about available VM sizes for fileservers from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+     */
+    readonly vmSize: pulumi.Input<string>;
 }

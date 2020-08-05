@@ -87,8 +87,8 @@ type webAppPrivateEndpointConnectionArgs struct {
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	Name string  `pulumi:"name"`
-	// Core resource properties
-	Properties *PrivateLinkConnectionApprovalRequest `pulumi:"properties"`
+	// The state of a private link connection
+	PrivateLinkServiceConnectionState *PrivateLinkConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -98,8 +98,8 @@ type WebAppPrivateEndpointConnectionArgs struct {
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	Name pulumi.StringInput
-	// Core resource properties
-	Properties PrivateLinkConnectionApprovalRequestPtrInput
+	// The state of a private link connection
+	PrivateLinkServiceConnectionState PrivateLinkConnectionStatePtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 }

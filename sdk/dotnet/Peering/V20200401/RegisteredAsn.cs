@@ -78,6 +78,12 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public sealed class RegisteredAsnArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The customer's ASN from which traffic originates.
+        /// </summary>
+        [Input("asn")]
+        public Input<int>? Asn { get; set; }
+
+        /// <summary>
         /// The name of the ASN.
         /// </summary>
         [Input("name", required: true)]
@@ -88,12 +94,6 @@ namespace Pulumi.AzureRM.Peering.V20200401
         /// </summary>
         [Input("peeringName", required: true)]
         public Input<string> PeeringName { get; set; } = null!;
-
-        /// <summary>
-        /// The properties that define a registered ASN.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PeeringRegisteredAsnPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

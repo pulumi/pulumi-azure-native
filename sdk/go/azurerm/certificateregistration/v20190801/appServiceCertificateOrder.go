@@ -37,6 +37,9 @@ func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.ProductType == nil {
+		return nil, errors.New("missing required argument 'ProductType'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -99,34 +102,58 @@ func (AppServiceCertificateOrderState) ElementType() reflect.Type {
 }
 
 type appServiceCertificateOrderArgs struct {
+	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// State of the Key Vault secret.
+	Certificates map[string]AppServiceCertificate `pulumi:"certificates"`
+	// Last CSR that was created for this order.
+	Csr *string `pulumi:"csr"`
+	// Certificate distinguished name.
+	DistinguishedName *string `pulumi:"distinguishedName"`
+	// Certificate key size.
+	KeySize *int `pulumi:"keySize"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
 	// Name of the certificate order.
 	Name string `pulumi:"name"`
-	// AppServiceCertificateOrder resource specific properties
-	Properties *AppServiceCertificateOrderProperties `pulumi:"properties"`
+	// Certificate product type.
+	ProductType string `pulumi:"productType"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Duration in years (must be between 1 and 3).
+	ValidityInYears *int `pulumi:"validityInYears"`
 }
 
 // The set of arguments for constructing a AppServiceCertificateOrder resource.
 type AppServiceCertificateOrderArgs struct {
+	// <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+	AutoRenew pulumi.BoolPtrInput
+	// State of the Key Vault secret.
+	Certificates AppServiceCertificateMapInput
+	// Last CSR that was created for this order.
+	Csr pulumi.StringPtrInput
+	// Certificate distinguished name.
+	DistinguishedName pulumi.StringPtrInput
+	// Certificate key size.
+	KeySize pulumi.IntPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
 	// Name of the certificate order.
 	Name pulumi.StringInput
-	// AppServiceCertificateOrder resource specific properties
-	Properties AppServiceCertificateOrderPropertiesPtrInput
+	// Certificate product type.
+	ProductType pulumi.StringInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Duration in years (must be between 1 and 3).
+	ValidityInYears pulumi.IntPtrInput
 }
 
 func (AppServiceCertificateOrderArgs) ElementType() reflect.Type {

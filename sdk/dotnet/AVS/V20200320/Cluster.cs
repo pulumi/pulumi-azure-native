@@ -84,6 +84,12 @@ namespace Pulumi.AzureRM.AVS.V20200320
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The cluster size
+        /// </summary>
+        [Input("clusterSize", required: true)]
+        public Input<int> ClusterSize { get; set; } = null!;
+
+        /// <summary>
         /// Name of the cluster in the private cloud
         /// </summary>
         [Input("name", required: true)]
@@ -94,12 +100,6 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// </summary>
         [Input("privateCloudName", required: true)]
         public Input<string> PrivateCloudName { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of a cluster resource
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ClusterPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

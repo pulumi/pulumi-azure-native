@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.Relay.V20170401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Description of Relay namespace
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RelayNamespacePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]

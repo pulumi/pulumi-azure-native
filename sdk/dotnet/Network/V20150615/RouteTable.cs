@@ -120,16 +120,40 @@ namespace Pulumi.AzureRM.Network.V20150615
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Route Table resource
+        /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RouteTablePropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("routes")]
+        private InputList<Inputs.RouteArgs>? _routes;
+
+        /// <summary>
+        /// Collection of routes contained within a route table.
+        /// </summary>
+        public InputList<Inputs.RouteArgs> Routes
+        {
+            get => _routes ?? (_routes = new InputList<Inputs.RouteArgs>());
+            set => _routes = value;
+        }
+
+        [Input("subnets")]
+        private InputList<Inputs.SubnetArgs>? _subnets;
+
+        /// <summary>
+        /// A collection of references to subnets.
+        /// </summary>
+        public InputList<Inputs.SubnetArgs> Subnets
+        {
+            get => _subnets ?? (_subnets = new InputList<Inputs.SubnetArgs>());
+            set => _subnets = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

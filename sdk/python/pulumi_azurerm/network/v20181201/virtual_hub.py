@@ -58,44 +58,45 @@ class VirtualHub(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, address_prefix=None, express_route_gateway=None, id=None, location=None, name=None, p2_s_vpn_gateway=None, provisioning_state=None, resource_group_name=None, route_table=None, tags=None, virtual_network_connections=None, virtual_wan=None, vpn_gateway=None, __props__=None, __name__=None, __opts__=None):
         """
         VirtualHub Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] address_prefix: Address-prefix for this VirtualHub.
+        :param pulumi.Input[dict] express_route_gateway: The expressRouteGateway associated with this VirtualHub
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VirtualHub.
-        :param pulumi.Input[dict] properties: Parameters for VirtualHub
+        :param pulumi.Input[dict] p2_s_vpn_gateway: The P2SVpnGateway associated with this VirtualHub
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
+        :param pulumi.Input[dict] route_table: The routeTable associated with this virtual hub.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[list] virtual_network_connections: List of all vnet connections with this VirtualHub.
+        :param pulumi.Input[dict] virtual_wan: The VirtualWAN to which the VirtualHub belongs
+        :param pulumi.Input[dict] vpn_gateway: The VpnGateway associated with this VirtualHub
 
-        The **properties** object supports the following:
+        The **express_route_gateway** object supports the following:
 
-          * `address_prefix` (`pulumi.Input[str]`) - Address-prefix for this VirtualHub.
-          * `express_route_gateway` (`pulumi.Input[dict]`) - The expressRouteGateway associated with this VirtualHub
-            * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
 
-          * `p2_s_vpn_gateway` (`pulumi.Input[dict]`) - The P2SVpnGateway associated with this VirtualHub
+        The **route_table** object supports the following:
+
+          * `routes` (`pulumi.Input[list]`) - List of all routes.
+            * `address_prefixes` (`pulumi.Input[list]`) - List of all addressPrefixes.
+            * `next_hop_ip_address` (`pulumi.Input[str]`) - NextHop ip address.
+
+        The **virtual_network_connections** object supports the following:
+
+          * `allow_hub_to_remote_vnet_transit` (`pulumi.Input[bool]`) - VirtualHub to RemoteVnet transit to enabled or not.
+          * `allow_remote_vnet_to_use_hub_vnet_gateways` (`pulumi.Input[bool]`) - Allow RemoteVnet to use Virtual Hub's gateways.
+          * `enable_internet_security` (`pulumi.Input[bool]`) - Enable internet security
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
           * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-          * `route_table` (`pulumi.Input[dict]`) - The routeTable associated with this virtual hub.
-            * `routes` (`pulumi.Input[list]`) - List of all routes.
-              * `address_prefixes` (`pulumi.Input[list]`) - List of all addressPrefixes.
-              * `next_hop_ip_address` (`pulumi.Input[str]`) - NextHop ip address.
-
-          * `virtual_network_connections` (`pulumi.Input[list]`) - List of all vnet connections with this VirtualHub.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Parameters for HubVirtualNetworkConnection
-              * `allow_hub_to_remote_vnet_transit` (`pulumi.Input[bool]`) - VirtualHub to RemoteVnet transit to enabled or not.
-              * `allow_remote_vnet_to_use_hub_vnet_gateways` (`pulumi.Input[bool]`) - Allow RemoteVnet to use Virtual Hub's gateways.
-              * `enable_internet_security` (`pulumi.Input[bool]`) - Enable internet security
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-              * `remote_virtual_network` (`pulumi.Input[dict]`) - Reference to the remote virtual network.
-
-          * `virtual_wan` (`pulumi.Input[dict]`) - The VirtualWAN to which the VirtualHub belongs
-          * `vpn_gateway` (`pulumi.Input[dict]`) - The VpnGateway associated with this VirtualHub
+          * `remote_virtual_network` (`pulumi.Input[dict]`) - Reference to the remote virtual network.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -114,6 +115,8 @@ class VirtualHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['address_prefix'] = address_prefix
+            __props__['express_route_gateway'] = express_route_gateway
             __props__['id'] = id
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -121,12 +124,18 @@ class VirtualHub(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['p2_s_vpn_gateway'] = p2_s_vpn_gateway
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['route_table'] = route_table
             __props__['tags'] = tags
+            __props__['virtual_network_connections'] = virtual_network_connections
+            __props__['virtual_wan'] = virtual_wan
+            __props__['vpn_gateway'] = vpn_gateway
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualHub, __self__).__init__(
             'azurerm:network/v20181201:VirtualHub',

@@ -31,8 +31,17 @@ func NewLink(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.ParticipantPropertyReferences == nil {
+		return nil, errors.New("missing required argument 'ParticipantPropertyReferences'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SourceInteractionType == nil {
+		return nil, errors.New("missing required argument 'SourceInteractionType'")
+	}
+	if args == nil || args.TargetProfileType == nil {
+		return nil, errors.New("missing required argument 'TargetProfileType'")
 	}
 	if args == nil {
 		args = &LinkArgs{}
@@ -81,26 +90,54 @@ func (LinkState) ElementType() reflect.Type {
 }
 
 type linkArgs struct {
+	// Localized descriptions for the Link.
+	Description map[string]string `pulumi:"description"`
+	// Localized display name for the Link.
+	DisplayName map[string]string `pulumi:"displayName"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
+	// The set of properties mappings between the source and target Types.
+	Mappings []TypePropertiesMapping `pulumi:"mappings"`
 	// The name of the link.
 	Name string `pulumi:"name"`
-	// The definition of Link.
-	Properties *LinkDefinition `pulumi:"properties"`
+	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
+	OperationType *string `pulumi:"operationType"`
+	// The properties that represent the participating profile.
+	ParticipantPropertyReferences []ParticipantPropertyReference `pulumi:"participantPropertyReferences"`
+	// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+	ReferenceOnly *bool `pulumi:"referenceOnly"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the source Interaction Type.
+	SourceInteractionType string `pulumi:"sourceInteractionType"`
+	// Name of the target Profile Type.
+	TargetProfileType string `pulumi:"targetProfileType"`
 }
 
 // The set of arguments for constructing a Link resource.
 type LinkArgs struct {
+	// Localized descriptions for the Link.
+	Description pulumi.StringMapInput
+	// Localized display name for the Link.
+	DisplayName pulumi.StringMapInput
 	// The name of the hub.
 	HubName pulumi.StringInput
+	// The set of properties mappings between the source and target Types.
+	Mappings TypePropertiesMappingArrayInput
 	// The name of the link.
 	Name pulumi.StringInput
-	// The definition of Link.
-	Properties LinkDefinitionPtrInput
+	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
+	OperationType pulumi.StringPtrInput
+	// The properties that represent the participating profile.
+	ParticipantPropertyReferences ParticipantPropertyReferenceArrayInput
+	// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+	ReferenceOnly pulumi.BoolPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Name of the source Interaction Type.
+	SourceInteractionType pulumi.StringInput
+	// Name of the target Profile Type.
+	TargetProfileType pulumi.StringInput
 }
 
 func (LinkArgs) ElementType() reflect.Type {

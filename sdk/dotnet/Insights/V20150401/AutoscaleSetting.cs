@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.Insights.V20150401
     public sealed class AutoscaleSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
@@ -101,11 +107,29 @@ namespace Pulumi.AzureRM.Insights.V20150401
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("notifications")]
+        private InputList<Inputs.AutoscaleNotificationArgs>? _notifications;
+
         /// <summary>
-        /// The autoscale setting of the resource.
+        /// the collection of notifications.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AutoscaleSettingDefinitionArgs> Properties { get; set; } = null!;
+        public InputList<Inputs.AutoscaleNotificationArgs> Notifications
+        {
+            get => _notifications ?? (_notifications = new InputList<Inputs.AutoscaleNotificationArgs>());
+            set => _notifications = value;
+        }
+
+        [Input("profiles", required: true)]
+        private InputList<Inputs.AutoscaleProfileArgs>? _profiles;
+
+        /// <summary>
+        /// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+        /// </summary>
+        public InputList<Inputs.AutoscaleProfileArgs> Profiles
+        {
+            get => _profiles ?? (_profiles = new InputList<Inputs.AutoscaleProfileArgs>());
+            set => _profiles = value;
+        }
 
         /// <summary>
         /// The name of the resource group.
@@ -124,6 +148,12 @@ namespace Pulumi.AzureRM.Insights.V20150401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// the resource identifier of the resource that the autoscale setting should be added to.
+        /// </summary>
+        [Input("targetResourceUri")]
+        public Input<string>? TargetResourceUri { get; set; }
 
         public AutoscaleSettingArgs()
         {

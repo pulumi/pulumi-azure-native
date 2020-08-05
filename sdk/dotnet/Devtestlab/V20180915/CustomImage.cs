@@ -90,6 +90,42 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class CustomImageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The author of the custom image.
+        /// </summary>
+        [Input("author")]
+        public Input<string>? Author { get; set; }
+
+        /// <summary>
+        /// Storage information about the plan related to this custom image
+        /// </summary>
+        [Input("customImagePlan")]
+        public Input<Inputs.CustomImagePropertiesFromPlanArgs>? CustomImagePlan { get; set; }
+
+        [Input("dataDiskStorageInfo")]
+        private InputList<Inputs.DataDiskStorageTypeInfoArgs>? _dataDiskStorageInfo;
+
+        /// <summary>
+        /// Storage information about the data disks present in the custom image
+        /// </summary>
+        public InputList<Inputs.DataDiskStorageTypeInfoArgs> DataDiskStorageInfo
+        {
+            get => _dataDiskStorageInfo ?? (_dataDiskStorageInfo = new InputList<Inputs.DataDiskStorageTypeInfoArgs>());
+            set => _dataDiskStorageInfo = value;
+        }
+
+        /// <summary>
+        /// The description of the custom image.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
+        /// </summary>
+        [Input("isPlanAuthorized")]
+        public Input<bool>? IsPlanAuthorized { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -102,16 +138,22 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The Managed Image Id backing the custom image.
+        /// </summary>
+        [Input("managedImageId")]
+        public Input<string>? ManagedImageId { get; set; }
+
+        /// <summary>
+        /// The Managed Snapshot Id backing the custom image.
+        /// </summary>
+        [Input("managedSnapshotId")]
+        public Input<string>? ManagedSnapshotId { get; set; }
+
+        /// <summary>
         /// The name of the custom image.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.CustomImagePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -130,6 +172,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The VHD from which the image is to be created.
+        /// </summary>
+        [Input("vhd")]
+        public Input<Inputs.CustomImagePropertiesCustomArgs>? Vhd { get; set; }
+
+        /// <summary>
+        /// The virtual machine from which the image is to be created.
+        /// </summary>
+        [Input("vm")]
+        public Input<Inputs.CustomImagePropertiesFromVmArgs>? Vm { get; set; }
 
         public CustomImageArgs()
         {

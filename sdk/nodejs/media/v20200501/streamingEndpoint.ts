@@ -47,7 +47,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
     /**
      * The StreamingEndpoint properties.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20200501.StreamingEndpointPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20200501.StreamingEndpointPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -82,13 +82,26 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.scaleUnits === undefined) {
+                throw new Error("Missing required property 'scaleUnits'");
+            }
+            inputs["accessControl"] = args ? args.accessControl : undefined;
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["autoStart"] = args ? args.autoStart : undefined;
+            inputs["availabilitySetName"] = args ? args.availabilitySetName : undefined;
+            inputs["cdnEnabled"] = args ? args.cdnEnabled : undefined;
+            inputs["cdnProfile"] = args ? args.cdnProfile : undefined;
+            inputs["cdnProvider"] = args ? args.cdnProvider : undefined;
+            inputs["crossSiteAccessPolicies"] = args ? args.crossSiteAccessPolicies : undefined;
+            inputs["customHostNames"] = args ? args.customHostNames : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maxCacheAge"] = args ? args.maxCacheAge : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scaleUnits"] = args ? args.scaleUnits : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +120,10 @@ export class StreamingEndpoint extends pulumi.CustomResource {
  */
 export interface StreamingEndpointArgs {
     /**
+     * The access control definition of the StreamingEndpoint.
+     */
+    readonly accessControl?: pulumi.Input<inputs.media.v20200501.StreamingEndpointAccessControl>;
+    /**
      * The Media Services account name.
      */
     readonly accountName: pulumi.Input<string>;
@@ -115,21 +132,53 @@ export interface StreamingEndpointArgs {
      */
     readonly autoStart?: pulumi.Input<boolean>;
     /**
+     * The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+     */
+    readonly availabilitySetName?: pulumi.Input<string>;
+    /**
+     * The CDN enabled flag.
+     */
+    readonly cdnEnabled?: pulumi.Input<boolean>;
+    /**
+     * The CDN profile name.
+     */
+    readonly cdnProfile?: pulumi.Input<string>;
+    /**
+     * The CDN provider name.
+     */
+    readonly cdnProvider?: pulumi.Input<string>;
+    /**
+     * The StreamingEndpoint access policies.
+     */
+    readonly crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20200501.CrossSiteAccessPolicies>;
+    /**
+     * The custom host names of the StreamingEndpoint
+     */
+    readonly customHostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The StreamingEndpoint description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Max cache age
+     */
+    readonly maxCacheAge?: pulumi.Input<number>;
     /**
      * The name of the StreamingEndpoint.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The StreamingEndpoint properties.
-     */
-    readonly properties?: pulumi.Input<inputs.media.v20200501.StreamingEndpointProperties>;
-    /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The number of scale units.  Use the Scale operation to adjust this value.
+     */
+    readonly scaleUnits: pulumi.Input<number>;
     /**
      * Resource tags.
      */

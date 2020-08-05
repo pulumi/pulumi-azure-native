@@ -25,6 +25,9 @@ type Product struct {
 // NewProduct registers a new resource with the given unique name, arguments, and options.
 func NewProduct(ctx *pulumi.Context,
 	name string, args *ProductArgs, opts ...pulumi.ResourceOption) (*Product, error) {
+	if args == nil || args.DisplayName == nil {
+		return nil, errors.New("missing required argument 'DisplayName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -81,26 +84,50 @@ func (ProductState) ElementType() reflect.Type {
 }
 
 type productArgs struct {
+	// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
+	ApprovalRequired *bool `pulumi:"approvalRequired"`
+	// Product description. May include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	// Product name.
+	DisplayName string `pulumi:"displayName"`
 	// Product identifier. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// Product entity contract properties.
-	Properties *ProductContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
+	State *string `pulumi:"state"`
+	// Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
+	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
+	// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
+	SubscriptionsLimit *int `pulumi:"subscriptionsLimit"`
+	// Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
+	Terms *string `pulumi:"terms"`
 }
 
 // The set of arguments for constructing a Product resource.
 type ProductArgs struct {
+	// whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
+	ApprovalRequired pulumi.BoolPtrInput
+	// Product description. May include HTML formatting tags.
+	Description pulumi.StringPtrInput
+	// Product name.
+	DisplayName pulumi.StringInput
 	// Product identifier. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// Product entity contract properties.
-	Properties ProductContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
+	State pulumi.StringPtrInput
+	// Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
+	SubscriptionRequired pulumi.BoolPtrInput
+	// Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
+	SubscriptionsLimit pulumi.IntPtrInput
+	// Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
+	Terms pulumi.StringPtrInput
 }
 
 func (ProductArgs) ElementType() reflect.Type {

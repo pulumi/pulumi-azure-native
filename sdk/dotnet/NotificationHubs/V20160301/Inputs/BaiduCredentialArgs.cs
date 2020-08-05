@@ -16,10 +16,22 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301.Inputs
     public sealed class BaiduCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Properties of NotificationHub BaiduCredential.
+        /// Baidu Api Key.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BaiduCredentialPropertiesArgs>? Properties { get; set; }
+        [Input("baiduApiKey")]
+        public Input<string>? BaiduApiKey { get; set; }
+
+        /// <summary>
+        /// Baidu Endpoint.
+        /// </summary>
+        [Input("baiduEndPoint")]
+        public Input<string>? BaiduEndPoint { get; set; }
+
+        /// <summary>
+        /// Baidu Secret Key
+        /// </summary>
+        [Input("baiduSecretKey")]
+        public Input<string>? BaiduSecretKey { get; set; }
 
         public BaiduCredentialArgs()
         {

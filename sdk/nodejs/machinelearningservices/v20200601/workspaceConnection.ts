@@ -43,7 +43,7 @@ export class WorkspaceConnection extends pulumi.CustomResource {
     /**
      * Properties of workspace connection.
      */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.v20200601.WorkspaceConnectionPropsResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.machinelearningservices.v20200601.WorkspaceConnectionPropsResponse>;
     /**
      * Resource type of workspace connection.
      */
@@ -71,10 +71,14 @@ export class WorkspaceConnection extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["authType"] = args ? args.authType : undefined;
+            inputs["category"] = args ? args.category : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["target"] = args ? args.target : undefined;
+            inputs["value"] = args ? args.value : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,17 +97,29 @@ export class WorkspaceConnection extends pulumi.CustomResource {
  */
 export interface WorkspaceConnectionArgs {
     /**
+     * Authorization type of the workspace connection.
+     */
+    readonly authType?: pulumi.Input<string>;
+    /**
+     * Category of the workspace connection.
+     */
+    readonly category?: pulumi.Input<string>;
+    /**
      * Friendly name of the workspace connection
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of workspace connection.
-     */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20200601.WorkspaceConnectionProps>;
-    /**
      * Name of the resource group in which workspace is located.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Target of the workspace connection.
+     */
+    readonly target?: pulumi.Input<string>;
+    /**
+     * Value details of the workspace connection.
+     */
+    readonly value?: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */

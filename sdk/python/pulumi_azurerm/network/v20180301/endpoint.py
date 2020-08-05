@@ -35,35 +35,33 @@ class Endpoint(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
     """
-    def __init__(__self__, resource_name, opts=None, endpoint_type=None, id=None, name=None, profile_name=None, properties=None, resource_group_name=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, custom_headers=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, endpoint_type=None, geo_mapping=None, id=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, target=None, target_resource_id=None, type=None, weight=None, __props__=None, __name__=None, __opts__=None):
         """
         Class representing a Traffic Manager endpoint.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] custom_headers: List of custom headers.
+        :param pulumi.Input[str] endpoint_location: Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+        :param pulumi.Input[str] endpoint_monitor_status: The monitoring status of the endpoint.
+        :param pulumi.Input[str] endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         :param pulumi.Input[str] endpoint_type: The type of the Traffic Manager endpoint to be created or updated.
+        :param pulumi.Input[list] geo_mapping: The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+        :param pulumi.Input[float] min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         :param pulumi.Input[str] name: The name of the Traffic Manager endpoint to be created or updated.
+        :param pulumi.Input[float] priority: The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
-        :param pulumi.Input[dict] properties: The properties of the Traffic Manager endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Traffic Manager endpoint to be created or updated.
+        :param pulumi.Input[str] target: The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+        :param pulumi.Input[str] target_resource_id: The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
         :param pulumi.Input[str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+        :param pulumi.Input[float] weight: The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
 
-        The **properties** object supports the following:
+        The **custom_headers** object supports the following:
 
-          * `custom_headers` (`pulumi.Input[list]`) - List of custom headers.
-            * `name` (`pulumi.Input[str]`) - Header name.
-            * `value` (`pulumi.Input[str]`) - Header value.
-
-          * `endpoint_location` (`pulumi.Input[str]`) - Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-          * `endpoint_monitor_status` (`pulumi.Input[str]`) - The monitoring status of the endpoint.
-          * `endpoint_status` (`pulumi.Input[str]`) - The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-          * `geo_mapping` (`pulumi.Input[list]`) - The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-          * `min_child_endpoints` (`pulumi.Input[float]`) - The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-          * `priority` (`pulumi.Input[float]`) - The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-          * `target` (`pulumi.Input[str]`) - The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-          * `target_resource_id` (`pulumi.Input[str]`) - The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-          * `weight` (`pulumi.Input[float]`) - The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+          * `name` (`pulumi.Input[str]`) - Header name.
+          * `value` (`pulumi.Input[str]`) - Header value.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,21 +80,31 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['custom_headers'] = custom_headers
+            __props__['endpoint_location'] = endpoint_location
+            __props__['endpoint_monitor_status'] = endpoint_monitor_status
+            __props__['endpoint_status'] = endpoint_status
             if endpoint_type is None:
                 raise TypeError("Missing required property 'endpoint_type'")
             __props__['endpoint_type'] = endpoint_type
+            __props__['geo_mapping'] = geo_mapping
             __props__['id'] = id
+            __props__['min_child_endpoints'] = min_child_endpoints
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['priority'] = priority
             if profile_name is None:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['target'] = target
+            __props__['target_resource_id'] = target_resource_id
             __props__['type'] = type
+            __props__['weight'] = weight
+            __props__['properties'] = None
         super(Endpoint, __self__).__init__(
             'azurerm:network/v20180301:Endpoint',
             resource_name,

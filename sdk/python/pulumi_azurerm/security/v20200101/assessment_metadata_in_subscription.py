@@ -38,32 +38,28 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, assessment_type=None, category=None, description=None, display_name=None, implementation_effort=None, name=None, partner_data=None, preview=None, remediation_description=None, severity=None, threats=None, user_impact=None, __props__=None, __name__=None, __opts__=None):
         """
         Security assessment metadata
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] assessment_type: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+        :param pulumi.Input[str] description: Human readable description of the assessment
+        :param pulumi.Input[str] display_name: User friendly display name of the assessment
+        :param pulumi.Input[str] implementation_effort: The implementation effort required to remediate this assessment
         :param pulumi.Input[str] name: The Assessment Key - Unique key for the assessment type
-        :param pulumi.Input[dict] properties: Describes properties of an assessment metadata.
+        :param pulumi.Input[dict] partner_data: Describes the partner that created the assessment
+        :param pulumi.Input[bool] preview: True if this assessment is in preview release status
+        :param pulumi.Input[str] remediation_description: Human readable description of what you should do to mitigate this security issue
+        :param pulumi.Input[str] severity: The severity level of the assessment
+        :param pulumi.Input[str] user_impact: The user impact of the assessment
 
-        The **properties** object supports the following:
+        The **partner_data** object supports the following:
 
-          * `assessment_type` (`pulumi.Input[str]`) - BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
-          * `category` (`pulumi.Input[list]`)
-          * `description` (`pulumi.Input[str]`) - Human readable description of the assessment
-          * `display_name` (`pulumi.Input[str]`) - User friendly display name of the assessment
-          * `implementation_effort` (`pulumi.Input[str]`) - The implementation effort required to remediate this assessment
-          * `partner_data` (`pulumi.Input[dict]`) - Describes the partner that created the assessment
-            * `partner_name` (`pulumi.Input[str]`) - Name of the company of the partner
-            * `product_name` (`pulumi.Input[str]`) - Name of the product of the partner that created the assessment
-            * `secret` (`pulumi.Input[str]`) - Secret to authenticate the partner and verify it created the assessment - write only
-
-          * `preview` (`pulumi.Input[bool]`) - True if this assessment is in preview release status
-          * `remediation_description` (`pulumi.Input[str]`) - Human readable description of what you should do to mitigate this security issue
-          * `severity` (`pulumi.Input[str]`) - The severity level of the assessment
-          * `threats` (`pulumi.Input[list]`)
-          * `user_impact` (`pulumi.Input[str]`) - The user impact of the assessment
+          * `partner_name` (`pulumi.Input[str]`) - Name of the company of the partner
+          * `product_name` (`pulumi.Input[str]`) - Name of the product of the partner that created the assessment
+          * `secret` (`pulumi.Input[str]`) - Secret to authenticate the partner and verify it created the assessment - write only
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,10 +78,27 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if assessment_type is None:
+                raise TypeError("Missing required property 'assessment_type'")
+            __props__['assessment_type'] = assessment_type
+            __props__['category'] = category
+            __props__['description'] = description
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
+            __props__['implementation_effort'] = implementation_effort
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['partner_data'] = partner_data
+            __props__['preview'] = preview
+            __props__['remediation_description'] = remediation_description
+            if severity is None:
+                raise TypeError("Missing required property 'severity'")
+            __props__['severity'] = severity
+            __props__['threats'] = threats
+            __props__['user_impact'] = user_impact
+            __props__['properties'] = None
             __props__['type'] = None
         super(AssessmentMetadataInSubscription, __self__).__init__(
             'azurerm:security/v20200101:AssessmentMetadataInSubscription',

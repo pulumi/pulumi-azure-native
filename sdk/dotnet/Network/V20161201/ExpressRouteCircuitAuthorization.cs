@@ -75,6 +75,18 @@ namespace Pulumi.AzureRM.Network.V20161201
     public sealed class ExpressRouteCircuitAuthorizationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authorization key.
+        /// </summary>
+        [Input("authorizationKey")]
+        public Input<string>? AuthorizationKey { get; set; }
+
+        /// <summary>
+        /// AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+        /// </summary>
+        [Input("authorizationUseStatus")]
+        public Input<string>? AuthorizationUseStatus { get; set; }
+
+        /// <summary>
         /// The name of the express route circuit.
         /// </summary>
         [Input("circuitName", required: true)]
@@ -92,8 +104,11 @@ namespace Pulumi.AzureRM.Network.V20161201
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.AuthorizationPropertiesFormatArgs>? Properties { get; set; }
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

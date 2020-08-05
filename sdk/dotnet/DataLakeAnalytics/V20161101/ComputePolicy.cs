@@ -84,16 +84,34 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
+        /// </summary>
+        [Input("maxDegreeOfParallelismPerJob")]
+        public Input<int>? MaxDegreeOfParallelismPerJob { get; set; }
+
+        /// <summary>
+        /// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
+        /// </summary>
+        [Input("minPriorityPerJob")]
+        public Input<int>? MinPriorityPerJob { get; set; }
+
+        /// <summary>
         /// The name of the compute policy to create or update.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The compute policy properties to use when creating a new compute policy.
+        /// The AAD object identifier for the entity to create a policy for.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.CreateOrUpdateComputePolicyPropertiesArgs> Properties { get; set; } = null!;
+        [Input("objectId", required: true)]
+        public Input<string> ObjectId { get; set; } = null!;
+
+        /// <summary>
+        /// The type of AAD object the object identifier refers to.
+        /// </summary>
+        [Input("objectType", required: true)]
+        public Input<string> ObjectType { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure resource group.

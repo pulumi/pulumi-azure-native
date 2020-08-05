@@ -44,7 +44,7 @@ export class DiskAccess extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.compute.v20200501.DiskAccessPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20200501.DiskAccessPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -78,9 +78,9 @@ export class DiskAccess extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,7 +106,6 @@ export interface DiskAccessArgs {
      * The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.compute.v20200501.DiskAccessProperties>;
     /**
      * The name of the resource group.
      */

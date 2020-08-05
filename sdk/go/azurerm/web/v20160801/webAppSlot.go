@@ -105,8 +105,30 @@ func (WebAppSlotState) ElementType() reflect.Type {
 }
 
 type webAppSlotArgs struct {
+	// <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
+	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
+	// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
+	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
+	// If specified during app creation, the app is cloned from a source app.
+	CloningInfo *CloningInfo `pulumi:"cloningInfo"`
+	// Size of the function container.
+	ContainerSize *int `pulumi:"containerSize"`
+	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
+	// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+	Enabled *bool `pulumi:"enabled"`
 	// If true, web app hostname is force registered with DNS.
 	ForceDnsRegistration *bool `pulumi:"forceDnsRegistration"`
+	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+	HostNameSslStates []HostNameSslState `pulumi:"hostNameSslStates"`
+	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
+	//  If <code>true</code>, the app is only accessible via API management process.
+	HostNamesDisabled *bool `pulumi:"hostNamesDisabled"`
+	// App Service Environment to use for the app.
+	HostingEnvironmentProfile *HostingEnvironmentProfile `pulumi:"hostingEnvironmentProfile"`
+	// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+	// http requests
+	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// Managed service identity.
 	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// Kind of resource.
@@ -115,15 +137,23 @@ type webAppSlotArgs struct {
 	Location string `pulumi:"location"`
 	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
 	Name string `pulumi:"name"`
-	// Site resource specific properties
-	Properties *SiteProperties `pulumi:"properties"`
+	// <code>true</code> if reserved; otherwise, <code>false</code>.
+	Reserved *bool `pulumi:"reserved"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
+	ScmSiteAlsoStopped *bool `pulumi:"scmSiteAlsoStopped"`
+	// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+	ServerFarmId *string `pulumi:"serverFarmId"`
+	// Configuration of the app.
+	SiteConfig *SiteConfig `pulumi:"siteConfig"`
 	// If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
 	SkipCustomDomainVerification *bool `pulumi:"skipCustomDomainVerification"`
 	// If true web app hostname is not registered with DNS on creation. This parameter is
 	//  only used for app creation.
 	SkipDnsRegistration *bool `pulumi:"skipDnsRegistration"`
+	// If specified during app creation, the app is created from a previous snapshot.
+	SnapshotInfo *SnapshotRecoveryRequest `pulumi:"snapshotInfo"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Time to live in seconds for web app's default domain name.
@@ -132,8 +162,30 @@ type webAppSlotArgs struct {
 
 // The set of arguments for constructing a WebAppSlot resource.
 type WebAppSlotArgs struct {
+	// <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
+	ClientAffinityEnabled pulumi.BoolPtrInput
+	// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
+	ClientCertEnabled pulumi.BoolPtrInput
+	// If specified during app creation, the app is cloned from a source app.
+	CloningInfo CloningInfoPtrInput
+	// Size of the function container.
+	ContainerSize pulumi.IntPtrInput
+	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+	DailyMemoryTimeQuota pulumi.IntPtrInput
+	// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+	Enabled pulumi.BoolPtrInput
 	// If true, web app hostname is force registered with DNS.
 	ForceDnsRegistration pulumi.BoolPtrInput
+	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+	HostNameSslStates HostNameSslStateArrayInput
+	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
+	//  If <code>true</code>, the app is only accessible via API management process.
+	HostNamesDisabled pulumi.BoolPtrInput
+	// App Service Environment to use for the app.
+	HostingEnvironmentProfile HostingEnvironmentProfilePtrInput
+	// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+	// http requests
+	HttpsOnly pulumi.BoolPtrInput
 	// Managed service identity.
 	Identity ManagedServiceIdentityPtrInput
 	// Kind of resource.
@@ -142,15 +194,23 @@ type WebAppSlotArgs struct {
 	Location pulumi.StringInput
 	// Name of the deployment slot to create or update. By default, this API attempts to create or modify the production slot.
 	Name pulumi.StringInput
-	// Site resource specific properties
-	Properties SitePropertiesPtrInput
+	// <code>true</code> if reserved; otherwise, <code>false</code>.
+	Reserved pulumi.BoolPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
+	ScmSiteAlsoStopped pulumi.BoolPtrInput
+	// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+	ServerFarmId pulumi.StringPtrInput
+	// Configuration of the app.
+	SiteConfig SiteConfigPtrInput
 	// If true, custom (non *.azurewebsites.net) domains associated with web app are not verified.
 	SkipCustomDomainVerification pulumi.BoolPtrInput
 	// If true web app hostname is not registered with DNS on creation. This parameter is
 	//  only used for app creation.
 	SkipDnsRegistration pulumi.BoolPtrInput
+	// If specified during app creation, the app is created from a previous snapshot.
+	SnapshotInfo SnapshotRecoveryRequestPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Time to live in seconds for web app's default domain name.

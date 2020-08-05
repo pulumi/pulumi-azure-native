@@ -16,16 +16,40 @@ namespace Pulumi.AzureRM.Compute.V20190301.Inputs
     public sealed class VirtualMachineScaleSetPublicIPAddressConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The dns settings to be applied on the publicIP addresses .
+        /// </summary>
+        [Input("dnsSettings")]
+        public Input<Inputs.VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs>? DnsSettings { get; set; }
+
+        /// <summary>
+        /// The idle timeout of the public IP address.
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
+
+        [Input("ipTags")]
+        private InputList<Inputs.VirtualMachineScaleSetIpTagArgs>? _ipTags;
+
+        /// <summary>
+        /// The list of IP tags associated with the public IP address.
+        /// </summary>
+        public InputList<Inputs.VirtualMachineScaleSetIpTagArgs> IpTags
+        {
+            get => _ipTags ?? (_ipTags = new InputList<Inputs.VirtualMachineScaleSetIpTagArgs>());
+            set => _ipTags = value;
+        }
+
+        /// <summary>
         /// The publicIP address configuration name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
+        /// The PublicIPPrefix from which to allocate publicIP addresses.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesArgs>? Properties { get; set; }
+        [Input("publicIPPrefix")]
+        public Input<Inputs.SubResourceArgs>? PublicIPPrefix { get; set; }
 
         public VirtualMachineScaleSetPublicIPAddressConfigurationArgs()
         {

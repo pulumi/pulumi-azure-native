@@ -114,10 +114,10 @@ namespace Pulumi.AzureRM.Compute.V20190701
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a gallery Image Version.
+        /// The publishing profile of a gallery Image Version.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.GalleryApplicationVersionPropertiesArgs>? Properties { get; set; }
+        [Input("publishingProfile", required: true)]
+        public Input<Inputs.GalleryApplicationVersionPublishingProfileArgs> PublishingProfile { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

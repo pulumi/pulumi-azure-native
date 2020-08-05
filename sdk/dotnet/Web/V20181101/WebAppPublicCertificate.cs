@@ -84,6 +84,12 @@ namespace Pulumi.AzureRM.Web.V20181101
     public sealed class WebAppPublicCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Public Certificate byte array
+        /// </summary>
+        [Input("blob")]
+        public Input<string>? Blob { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
@@ -96,10 +102,10 @@ namespace Pulumi.AzureRM.Web.V20181101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// PublicCertificate resource specific properties
+        /// Public Certificate Location
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PublicCertificatePropertiesArgs>? Properties { get; set; }
+        [Input("publicCertificateLocation")]
+        public Input<string>? PublicCertificateLocation { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

@@ -93,34 +93,50 @@ func (GalleryImageState) ElementType() reflect.Type {
 }
 
 type galleryImageArgs struct {
+	// Indicates whether this gallery image is enabled.
+	IsEnabled *bool `pulumi:"isEnabled"`
+	// Indicates whether this gallery has been overridden for this lab account
+	IsOverride *bool `pulumi:"isOverride"`
+	// Indicates if the plan has been authorized for programmatic deployment.
+	IsPlanAuthorized *bool `pulumi:"isPlanAuthorized"`
 	// The name of the lab Account.
 	LabAccountName string `pulumi:"labAccountName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the gallery Image.
 	Name string `pulumi:"name"`
-	// The gallery image properties
-	Properties *GalleryImageProperties `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a GalleryImage resource.
 type GalleryImageArgs struct {
+	// Indicates whether this gallery image is enabled.
+	IsEnabled pulumi.BoolPtrInput
+	// Indicates whether this gallery has been overridden for this lab account
+	IsOverride pulumi.BoolPtrInput
+	// Indicates if the plan has been authorized for programmatic deployment.
+	IsPlanAuthorized pulumi.BoolPtrInput
 	// The name of the lab Account.
 	LabAccountName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the gallery Image.
 	Name pulumi.StringInput
-	// The gallery image properties
-	Properties GalleryImagePropertiesPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (GalleryImageArgs) ElementType() reflect.Type {

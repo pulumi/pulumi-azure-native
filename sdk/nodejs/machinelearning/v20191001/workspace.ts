@@ -47,7 +47,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The properties of the machine learning workspace.
      */
-    public readonly properties!: pulumi.Output<outputs.machinelearning.v20191001.WorkspacePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.machinelearning.v20191001.WorkspacePropertiesResponse>;
     /**
      * The sku of the workspace.
      */
@@ -80,15 +80,24 @@ export class Workspace extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.ownerEmail === undefined) {
+                throw new Error("Missing required property 'ownerEmail'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.userStorageAccountId === undefined) {
+                throw new Error("Missing required property 'userStorageAccountId'");
+            }
+            inputs["keyVaultIdentifierId"] = args ? args.keyVaultIdentifierId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["ownerEmail"] = args ? args.ownerEmail : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["userStorageAccountId"] = args ? args.userStorageAccountId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +116,10 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceArgs {
     /**
+     * The key vault identifier used for encrypted workspaces.
+     */
+    readonly keyVaultIdentifierId?: pulumi.Input<string>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: pulumi.Input<string>;
@@ -115,9 +128,9 @@ export interface WorkspaceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the machine learning workspace.
+     * The email id of the owner for this workspace.
      */
-    readonly properties?: pulumi.Input<inputs.machinelearning.v20191001.WorkspaceProperties>;
+    readonly ownerEmail: pulumi.Input<string>;
     /**
      * The name of the resource group to which the machine learning workspace belongs.
      */
@@ -130,4 +143,8 @@ export interface WorkspaceArgs {
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The fully qualified arm id of the storage account associated with this workspace.
+     */
+    readonly userStorageAccountId: pulumi.Input<string>;
 }

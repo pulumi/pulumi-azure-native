@@ -47,7 +47,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The properties of the Environment resource
      */
-    public readonly properties!: pulumi.Output<outputs.labservices.v20181015.EnvironmentPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.labservices.v20181015.EnvironmentPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -90,9 +90,12 @@ export class Environment extends pulumi.CustomResource {
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceSets"] = args ? args.resourceSets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -131,15 +134,23 @@ export interface EnvironmentArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the Environment resource
+     * The provisioning status of the resource.
      */
-    readonly properties?: pulumi.Input<inputs.labservices.v20181015.EnvironmentProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The set of a VM and the setting id it was created for
+     */
+    readonly resourceSets?: pulumi.Input<inputs.labservices.v20181015.ResourceSet>;
+    /**
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
 }

@@ -47,7 +47,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
     /**
      * The instance view of a resource.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20150615.AvailabilitySetPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20150615.AvailabilitySetPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -81,9 +81,12 @@ export class AvailabilitySet extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
+            inputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualMachines"] = args ? args.virtualMachines : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,9 +113,13 @@ export interface AvailabilitySetArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The instance view of a resource.
+     * Fault Domain count.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20150615.AvailabilitySetProperties>;
+    readonly platformFaultDomainCount?: pulumi.Input<number>;
+    /**
+     * Update Domain count.
+     */
+    readonly platformUpdateDomainCount?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */
@@ -121,4 +128,8 @@ export interface AvailabilitySetArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of references to all virtual machines in the availability set.
+     */
+    readonly virtualMachines?: pulumi.Input<pulumi.Input<inputs.compute.v20150615.SubResource>[]>;
 }

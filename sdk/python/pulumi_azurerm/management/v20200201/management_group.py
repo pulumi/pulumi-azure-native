@@ -47,22 +47,20 @@ class ManagementGroup(pulumi.CustomResource):
     """
     The type of the resource.  For example, Microsoft.Management/managementGroups
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, details=None, display_name=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         The management group details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] details: The details of a management group used during creation.
+        :param pulumi.Input[str] display_name: The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
         :param pulumi.Input[str] name: Management Group ID.
-        :param pulumi.Input[dict] properties: The generic properties of a management group used during creation.
 
-        The **properties** object supports the following:
+        The **details** object supports the following:
 
-          * `details` (`pulumi.Input[dict]`) - The details of a management group used during creation.
-            * `parent` (`pulumi.Input[dict]`) - (Optional) The ID of the parent management group used during creation.
-              * `id` (`pulumi.Input[str]`) - The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-
-          * `display_name` (`pulumi.Input[str]`) - The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
+          * `parent` (`pulumi.Input[dict]`) - (Optional) The ID of the parent management group used during creation.
+            * `id` (`pulumi.Input[str]`) - The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,10 +79,12 @@ class ManagementGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['details'] = details
+            __props__['display_name'] = display_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['properties'] = None
             __props__['type'] = None
         super(ManagementGroup, __self__).__init__(
             'azurerm:management/v20200201:ManagementGroup',

@@ -93,10 +93,10 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Core resource properties
+        /// The state of a private link connection
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateLinkConnectionApprovalRequestArgs>? Properties { get; set; }
+        [Input("privateLinkServiceConnectionState")]
+        public Input<Inputs.PrivateLinkConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

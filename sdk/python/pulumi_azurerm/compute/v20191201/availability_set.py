@@ -50,7 +50,7 @@ class AvailabilitySet(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, proximity_placement_group=None, resource_group_name=None, sku=None, tags=None, virtual_machines=None, __props__=None, __name__=None, __opts__=None):
         """
         Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
 
@@ -58,19 +58,17 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the availability set.
-        :param pulumi.Input[dict] properties: The instance view of a resource.
+        :param pulumi.Input[float] platform_fault_domain_count: Fault Domain count.
+        :param pulumi.Input[float] platform_update_domain_count: Update Domain count.
+        :param pulumi.Input[dict] proximity_placement_group: Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] sku: Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[list] virtual_machines: A list of references to all virtual machines in the availability set.
 
-        The **properties** object supports the following:
+        The **proximity_placement_group** object supports the following:
 
-          * `platform_fault_domain_count` (`pulumi.Input[float]`) - Fault Domain count.
-          * `platform_update_domain_count` (`pulumi.Input[float]`) - Update Domain count.
-          * `proximity_placement_group` (`pulumi.Input[dict]`) - Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-            * `id` (`pulumi.Input[str]`) - Resource Id
-
-          * `virtual_machines` (`pulumi.Input[list]`) - A list of references to all virtual machines in the availability set.
+          * `id` (`pulumi.Input[str]`) - Resource Id
 
         The **sku** object supports the following:
 
@@ -101,12 +99,16 @@ class AvailabilitySet(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['platform_fault_domain_count'] = platform_fault_domain_count
+            __props__['platform_update_domain_count'] = platform_update_domain_count
+            __props__['proximity_placement_group'] = proximity_placement_group
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['virtual_machines'] = virtual_machines
+            __props__['properties'] = None
             __props__['type'] = None
         super(AvailabilitySet, __self__).__init__(
             'azurerm:compute/v20191201:AvailabilitySet',

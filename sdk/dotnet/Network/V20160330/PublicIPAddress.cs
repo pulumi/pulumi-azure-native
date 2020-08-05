@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.Network.V20160330
     public sealed class PublicIPAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets FQDN of the DNS record associated with the public IP address
+        /// </summary>
+        [Input("dnsSettings")]
+        public Input<Inputs.PublicIPAddressDnsSettingsArgs>? DnsSettings { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
@@ -106,6 +112,21 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the idle timeout of the public IP address
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
+
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
+
+        /// <summary>
+        /// IPConfiguration
+        /// </summary>
+        [Input("ipConfiguration")]
+        public Input<Inputs.IPConfigurationArgs>? IpConfiguration { get; set; }
 
         /// <summary>
         /// Resource location
@@ -120,16 +141,34 @@ namespace Pulumi.AzureRM.Network.V20160330
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// PublicIpAddress properties
+        /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PublicIPAddressPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Gets or sets PublicIP address version (IPv4/IPv6)
+        /// </summary>
+        [Input("publicIPAddressVersion")]
+        public Input<string>? PublicIPAddressVersion { get; set; }
+
+        /// <summary>
+        /// Gets or sets PublicIP allocation method (Static/Dynamic)
+        /// </summary>
+        [Input("publicIPAllocationMethod")]
+        public Input<string>? PublicIPAllocationMethod { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets resource GUID property of the PublicIP resource
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -25,6 +25,9 @@ type Property struct {
 // NewProperty registers a new resource with the given unique name, arguments, and options.
 func NewProperty(ctx *pulumi.Context,
 	name string, args *PropertyArgs, opts ...pulumi.ResourceOption) (*Property, error) {
+	if args == nil || args.DisplayName == nil {
+		return nil, errors.New("missing required argument 'DisplayName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -33,6 +36,9 @@ func NewProperty(ctx *pulumi.Context,
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.Value == nil {
+		return nil, errors.New("missing required argument 'Value'")
 	}
 	if args == nil {
 		args = &PropertyArgs{}
@@ -81,26 +87,38 @@ func (PropertyState) ElementType() reflect.Type {
 }
 
 type propertyArgs struct {
+	// Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+	DisplayName string `pulumi:"displayName"`
 	// Identifier of the property.
 	Name string `pulumi:"name"`
-	// Property entity contract properties.
-	Properties *PropertyContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+	Secret *bool `pulumi:"secret"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Optional tags that when provided can be used to filter the property list.
+	Tags []string `pulumi:"tags"`
+	// Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Property resource.
 type PropertyArgs struct {
+	// Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+	DisplayName pulumi.StringInput
 	// Identifier of the property.
 	Name pulumi.StringInput
-	// Property entity contract properties.
-	Properties PropertyContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+	Secret pulumi.BoolPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Optional tags that when provided can be used to filter the property list.
+	Tags pulumi.StringArrayInput
+	// Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+	Value pulumi.StringInput
 }
 
 func (PropertyArgs) ElementType() reflect.Type {

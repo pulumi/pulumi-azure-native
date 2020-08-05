@@ -48,7 +48,7 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.web.v20150801.VnetRouteResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.VnetRouteResponseProperties>;
     /**
      * Resource tags
      */
@@ -83,15 +83,18 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
             if (!args || args.vnetName === undefined) {
                 throw new Error("Missing required property 'vnetName'");
             }
+            inputs["endAddress"] = args ? args.endAddress : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routeType"] = args ? args.routeType : undefined;
+            inputs["startAddress"] = args ? args.startAddress : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["vnetName"] = args ? args.vnetName : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -109,6 +112,10 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
  */
 export interface ServerFarmRouteForVnetArgs {
     /**
+     * The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+     */
+    readonly endAddress?: pulumi.Input<string>;
+    /**
      * Resource Id
      */
     readonly id?: pulumi.Input<string>;
@@ -124,11 +131,24 @@ export interface ServerFarmRouteForVnetArgs {
      * Name of the virtual network route
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.v20150801.VnetRouteProperties>;
     /**
      * Name of resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The type of route this is:
+     *             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+     *             INHERITED - Routes inherited from the real Virtual Network routes
+     *             STATIC - Static route set on the web app only
+     *             
+     *             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+     *             with new INHERITED routes.
+     */
+    readonly routeType?: pulumi.Input<string>;
+    /**
+     * The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+     */
+    readonly startAddress?: pulumi.Input<string>;
     /**
      * Resource tags
      */

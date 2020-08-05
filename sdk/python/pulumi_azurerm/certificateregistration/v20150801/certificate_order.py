@@ -31,56 +31,53 @@ class CertificateOrder(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, id=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_renew=None, certificates=None, csr=None, distinguished_name=None, domain_verification_token=None, expiration_time=None, id=None, intermediate=None, key_size=None, kind=None, last_certificate_issuance_time=None, location=None, name=None, product_type=None, provisioning_state=None, resource_group_name=None, root=None, serial_number=None, signed_certificate=None, status=None, tags=None, type=None, validity_in_years=None, __props__=None, __name__=None, __opts__=None):
         """
         Certificate purchase order
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_renew: Auto renew
+        :param pulumi.Input[dict] certificates: State of the Key Vault secret
+        :param pulumi.Input[str] csr: Last CSR that was created for this order
+        :param pulumi.Input[str] distinguished_name: Certificate distinguished name
+        :param pulumi.Input[str] domain_verification_token: Domain Verification Token
+        :param pulumi.Input[str] expiration_time: Certificate expiration time
         :param pulumi.Input[str] id: Resource Id
+        :param pulumi.Input[dict] intermediate: Intermediate certificate
+        :param pulumi.Input[float] key_size: Certificate Key Size
         :param pulumi.Input[str] kind: Kind of resource
+        :param pulumi.Input[str] last_certificate_issuance_time: Certificate last issuance time
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] name: Resource Name
+        :param pulumi.Input[str] product_type: Certificate product type
+        :param pulumi.Input[str] provisioning_state: Status of certificate order
         :param pulumi.Input[str] resource_group_name: Azure resource group name
+        :param pulumi.Input[dict] root: Root certificate
+        :param pulumi.Input[str] serial_number: Current serial number of the certificate
+        :param pulumi.Input[dict] signed_certificate: Signed certificate
+        :param pulumi.Input[str] status: Current order status
         :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
+        :param pulumi.Input[float] validity_in_years: Duration in years (must be between 1 and 3)
 
-        The **properties** object supports the following:
+        The **intermediate** object supports the following:
 
-          * `auto_renew` (`pulumi.Input[bool]`) - Auto renew
-          * `certificates` (`pulumi.Input[dict]`) - State of the Key Vault secret
-          * `csr` (`pulumi.Input[str]`) - Last CSR that was created for this order
-          * `distinguished_name` (`pulumi.Input[str]`) - Certificate distinguished name
-          * `domain_verification_token` (`pulumi.Input[str]`) - Domain Verification Token
-          * `expiration_time` (`pulumi.Input[str]`) - Certificate expiration time
-          * `intermediate` (`pulumi.Input[dict]`) - Intermediate certificate
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `kind` (`pulumi.Input[str]`) - Kind of resource
-            * `location` (`pulumi.Input[str]`) - Resource Location
-            * `name` (`pulumi.Input[str]`) - Resource Name
-            * `properties` (`pulumi.Input[dict]`)
-              * `issuer` (`pulumi.Input[str]`) - Issuer
-              * `not_after` (`pulumi.Input[str]`) - Valid to
-              * `not_before` (`pulumi.Input[str]`) - Valid from
-              * `raw_data` (`pulumi.Input[str]`) - Raw certificate data
-              * `serial_number` (`pulumi.Input[str]`) - Serial Number
-              * `signature_algorithm` (`pulumi.Input[str]`) - Signature Algorithm
-              * `subject` (`pulumi.Input[str]`) - Subject
-              * `thumbprint` (`pulumi.Input[str]`) - Thumbprint
-              * `version` (`pulumi.Input[float]`) - Version
-
-            * `tags` (`pulumi.Input[dict]`) - Resource tags
-            * `type` (`pulumi.Input[str]`) - Resource type
-
-          * `key_size` (`pulumi.Input[float]`) - Certificate Key Size
-          * `last_certificate_issuance_time` (`pulumi.Input[str]`) - Certificate last issuance time
-          * `product_type` (`pulumi.Input[str]`) - Certificate product type
-          * `provisioning_state` (`pulumi.Input[str]`) - Status of certificate order
-          * `root` (`pulumi.Input[dict]`) - Root certificate
-          * `serial_number` (`pulumi.Input[str]`) - Current serial number of the certificate
-          * `signed_certificate` (`pulumi.Input[dict]`) - Signed certificate
-          * `status` (`pulumi.Input[str]`) - Current order status
-          * `validity_in_years` (`pulumi.Input[float]`) - Duration in years (must be between 1 and 3)
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `issuer` (`pulumi.Input[str]`) - Issuer
+          * `kind` (`pulumi.Input[str]`) - Kind of resource
+          * `location` (`pulumi.Input[str]`) - Resource Location
+          * `name` (`pulumi.Input[str]`) - Resource Name
+          * `not_after` (`pulumi.Input[str]`) - Valid to
+          * `not_before` (`pulumi.Input[str]`) - Valid from
+          * `raw_data` (`pulumi.Input[str]`) - Raw certificate data
+          * `serial_number` (`pulumi.Input[str]`) - Serial Number
+          * `signature_algorithm` (`pulumi.Input[str]`) - Signature Algorithm
+          * `subject` (`pulumi.Input[str]`) - Subject
+          * `tags` (`pulumi.Input[dict]`) - Resource tags
+          * `thumbprint` (`pulumi.Input[str]`) - Thumbprint
+          * `type` (`pulumi.Input[str]`) - Resource type
+          * `version` (`pulumi.Input[float]`) - Version
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,20 +96,36 @@ class CertificateOrder(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auto_renew'] = auto_renew
+            __props__['certificates'] = certificates
+            __props__['csr'] = csr
+            __props__['distinguished_name'] = distinguished_name
+            __props__['domain_verification_token'] = domain_verification_token
+            __props__['expiration_time'] = expiration_time
             __props__['id'] = id
+            __props__['intermediate'] = intermediate
+            __props__['key_size'] = key_size
             __props__['kind'] = kind
+            __props__['last_certificate_issuance_time'] = last_certificate_issuance_time
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['product_type'] = product_type
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['root'] = root
+            __props__['serial_number'] = serial_number
+            __props__['signed_certificate'] = signed_certificate
+            __props__['status'] = status
             __props__['tags'] = tags
             __props__['type'] = type
+            __props__['validity_in_years'] = validity_in_years
+            __props__['properties'] = None
         super(CertificateOrder, __self__).__init__(
             'azurerm:certificateregistration/v20150801:CertificateOrder',
             resource_name,

@@ -90,6 +90,30 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class ArtifactSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The folder containing Azure Resource Manager templates.
+        /// </summary>
+        [Input("armTemplateFolderPath")]
+        public Input<string>? ArmTemplateFolderPath { get; set; }
+
+        /// <summary>
+        /// The artifact source's branch reference.
+        /// </summary>
+        [Input("branchRef")]
+        public Input<string>? BranchRef { get; set; }
+
+        /// <summary>
+        /// The artifact source's display name.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// The folder containing artifacts.
+        /// </summary>
+        [Input("folderPath")]
+        public Input<string>? FolderPath { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -108,16 +132,28 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ArtifactSourcePropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The security token to authenticate to the artifact source.
+        /// </summary>
+        [Input("securityToken")]
+        public Input<string>? SecurityToken { get; set; }
+
+        /// <summary>
+        /// The artifact source's type.
+        /// </summary>
+        [Input("sourceType")]
+        public Input<string>? SourceType { get; set; }
+
+        /// <summary>
+        /// Indicates if the artifact source is enabled (values: Enabled, Disabled).
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -130,6 +166,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The artifact source's URI.
+        /// </summary>
+        [Input("uri")]
+        public Input<string>? Uri { get; set; }
 
         public ArtifactSourceArgs()
         {

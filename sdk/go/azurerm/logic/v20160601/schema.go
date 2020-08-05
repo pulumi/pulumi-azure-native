@@ -35,11 +35,11 @@ func NewSchema(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SchemaType == nil {
+		return nil, errors.New("missing required argument 'SchemaType'")
 	}
 	if args == nil {
 		args = &SchemaArgs{}
@@ -96,34 +96,58 @@ func (SchemaState) ElementType() reflect.Type {
 }
 
 type schemaArgs struct {
+	// The content.
+	Content *string `pulumi:"content"`
+	// The content type.
+	ContentType *string `pulumi:"contentType"`
+	// The document name.
+	DocumentName *string `pulumi:"documentName"`
+	// The file name.
+	FileName *string `pulumi:"fileName"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The integration account schema name.
 	Name string `pulumi:"name"`
-	// The integration account schema properties.
-	Properties IntegrationAccountSchemaProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The schema type.
+	SchemaType string `pulumi:"schemaType"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The target namespace of the schema.
+	TargetNamespace *string `pulumi:"targetNamespace"`
 }
 
 // The set of arguments for constructing a Schema resource.
 type SchemaArgs struct {
+	// The content.
+	Content pulumi.StringPtrInput
+	// The content type.
+	ContentType pulumi.StringPtrInput
+	// The document name.
+	DocumentName pulumi.StringPtrInput
+	// The file name.
+	FileName pulumi.StringPtrInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.MapInput
 	// The integration account schema name.
 	Name pulumi.StringInput
-	// The integration account schema properties.
-	Properties IntegrationAccountSchemaPropertiesInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// The schema type.
+	SchemaType pulumi.StringInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
+	// The target namespace of the schema.
+	TargetNamespace pulumi.StringPtrInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {

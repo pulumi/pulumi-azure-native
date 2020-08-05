@@ -51,7 +51,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
     /**
      * LocalNetworkGateway properties
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20160330.LocalNetworkGatewayPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160330.LocalNetworkGatewayPropertiesFormatResponse>;
     /**
      * Resource tags
      */
@@ -80,13 +80,18 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["localNetworkAddressSpace"] = args ? args.localNetworkAddressSpace : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,13 +110,25 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
  */
 export interface LocalNetworkGatewayArgs {
     /**
+     * Local network gateway's BGP speaker settings
+     */
+    readonly bgpSettings?: pulumi.Input<inputs.network.v20160330.BgpSettings>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: pulumi.Input<string>;
     /**
+     * IP address of local network gateway.
+     */
+    readonly gatewayIpAddress?: pulumi.Input<string>;
+    /**
      * Resource Id
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * Local network site Address space
+     */
+    readonly localNetworkAddressSpace?: pulumi.Input<inputs.network.v20160330.AddressSpace>;
     /**
      * Resource location
      */
@@ -121,13 +138,17 @@ export interface LocalNetworkGatewayArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * LocalNetworkGateway properties
+     * Gets or sets Provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
      */
-    readonly properties?: pulumi.Input<inputs.network.v20160330.LocalNetworkGatewayPropertiesFormat>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets resource GUID property of the LocalNetworkGateway resource
+     */
+    readonly resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags
      */

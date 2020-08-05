@@ -43,7 +43,7 @@ export class EventHub extends pulumi.CustomResource {
     /**
      * Properties supplied to the Create Or Update Event Hub operation.
      */
-    public readonly properties!: pulumi.Output<outputs.eventhub.v20170401.EventhubResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20170401.EventhubResponseProperties>;
     /**
      * Resource type.
      */
@@ -71,10 +71,14 @@ export class EventHub extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["captureDescription"] = args ? args.captureDescription : undefined;
+            inputs["messageRetentionInDays"] = args ? args.messageRetentionInDays : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["partitionCount"] = args ? args.partitionCount : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,6 +97,14 @@ export class EventHub extends pulumi.CustomResource {
  */
 export interface EventHubArgs {
     /**
+     * Properties of capture description
+     */
+    readonly captureDescription?: pulumi.Input<inputs.eventhub.v20170401.CaptureDescription>;
+    /**
+     * Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+     */
+    readonly messageRetentionInDays?: pulumi.Input<number>;
+    /**
      * The Event Hub name
      */
     readonly name: pulumi.Input<string>;
@@ -101,11 +113,15 @@ export interface EventHubArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties supplied to the Create Or Update Event Hub operation.
+     * Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
      */
-    readonly properties?: pulumi.Input<inputs.eventhub.v20170401.EventhubProperties>;
+    readonly partitionCount?: pulumi.Input<number>;
     /**
      * Name of the resource group within the azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Enumerates the possible values for the status of the Event Hub.
+     */
+    readonly status?: pulumi.Input<string>;
 }

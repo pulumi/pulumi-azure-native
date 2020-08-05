@@ -34,10 +34,10 @@ namespace Pulumi.AzureRM.Network.V20181201.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the P2SVpnServerConfiguration Radius Server root certificate.
+        /// The certificate public data.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.P2SVpnServerConfigRadiusServerRootCertificatePropertiesFormatArgs> Properties { get; set; } = null!;
+        [Input("publicCertData", required: true)]
+        public Input<string> PublicCertData { get; set; } = null!;
 
         public P2SVpnServerConfigRadiusServerRootCertificateArgs()
         {

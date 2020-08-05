@@ -83,6 +83,48 @@ namespace Pulumi.AzureRM.Web.V20181101
 
     public sealed class WebAppFunctionArgs : Pulumi.ResourceArgs
     {
+        [Input("config")]
+        private InputMap<object>? _config;
+
+        /// <summary>
+        /// Config information.
+        /// </summary>
+        public InputMap<object> Config
+        {
+            get => _config ?? (_config = new InputMap<object>());
+            set => _config = value;
+        }
+
+        /// <summary>
+        /// Config URI.
+        /// </summary>
+        [Input("config_href")]
+        public Input<string>? Config_href { get; set; }
+
+        [Input("files")]
+        private InputMap<string>? _files;
+
+        /// <summary>
+        /// File list.
+        /// </summary>
+        public InputMap<string> Files
+        {
+            get => _files ?? (_files = new InputMap<string>());
+            set => _files = value;
+        }
+
+        /// <summary>
+        /// Function App ID.
+        /// </summary>
+        [Input("function_app_id")]
+        public Input<string>? Function_app_id { get; set; }
+
+        /// <summary>
+        /// Function URI.
+        /// </summary>
+        [Input("href")]
+        public Input<string>? Href { get; set; }
+
         /// <summary>
         /// Kind of resource.
         /// </summary>
@@ -96,16 +138,34 @@ namespace Pulumi.AzureRM.Web.V20181101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// FunctionEnvelope resource specific properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FunctionEnvelopePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Script URI.
+        /// </summary>
+        [Input("script_href")]
+        public Input<string>? Script_href { get; set; }
+
+        /// <summary>
+        /// Script root path URI.
+        /// </summary>
+        [Input("script_root_path_href")]
+        public Input<string>? Script_root_path_href { get; set; }
+
+        /// <summary>
+        /// Secrets file URI.
+        /// </summary>
+        [Input("secrets_file_href")]
+        public Input<string>? Secrets_file_href { get; set; }
+
+        /// <summary>
+        /// Test data used when testing via the Azure Portal.
+        /// </summary>
+        [Input("test_data")]
+        public Input<string>? Test_data { get; set; }
 
         public WebAppFunctionArgs()
         {

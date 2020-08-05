@@ -31,27 +31,24 @@ class SiteSourceControl(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, id=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, branch=None, deployment_rollback_enabled=None, id=None, is_manual_integration=None, is_mercurial=None, kind=None, location=None, name=None, repo_url=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes the source control configuration for web app
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] branch: Name of branch to use for deployment
+        :param pulumi.Input[bool] deployment_rollback_enabled: Whether to manual or continuous integration
         :param pulumi.Input[str] id: Resource Id
+        :param pulumi.Input[bool] is_manual_integration: Whether to manual or continuous integration
+        :param pulumi.Input[bool] is_mercurial: Mercurial or Git repository type
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] name: Resource Name
+        :param pulumi.Input[str] repo_url: Repository or source control url
         :param pulumi.Input[str] resource_group_name: Name of resource group
         :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
-
-        The **properties** object supports the following:
-
-          * `branch` (`pulumi.Input[str]`) - Name of branch to use for deployment
-          * `deployment_rollback_enabled` (`pulumi.Input[bool]`) - Whether to manual or continuous integration
-          * `is_manual_integration` (`pulumi.Input[bool]`) - Whether to manual or continuous integration
-          * `is_mercurial` (`pulumi.Input[bool]`) - Mercurial or Git repository type
-          * `repo_url` (`pulumi.Input[str]`) - Repository or source control url
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,7 +67,11 @@ class SiteSourceControl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['branch'] = branch
+            __props__['deployment_rollback_enabled'] = deployment_rollback_enabled
             __props__['id'] = id
+            __props__['is_manual_integration'] = is_manual_integration
+            __props__['is_mercurial'] = is_mercurial
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -78,12 +79,13 @@ class SiteSourceControl(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['repo_url'] = repo_url
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
+            __props__['properties'] = None
         super(SiteSourceControl, __self__).__init__(
             'azurerm:web/v20150801:SiteSourceControl',
             resource_name,

@@ -50,36 +50,35 @@ class MediaService(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, encryption=None, identity=None, location=None, name=None, resource_group_name=None, storage_accounts=None, storage_authentication=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A Media Services account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] encryption: The account encryption properties.
         :param pulumi.Input[dict] identity: The Managed Identity for the Media Services account.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The Media Services account name.
-        :param pulumi.Input[dict] properties: The resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
+        :param pulumi.Input[list] storage_accounts: The storage accounts for this resource.
         :param pulumi.Input[dict] tags: Resource tags.
+
+        The **encryption** object supports the following:
+
+          * `key_vault_properties` (`pulumi.Input[dict]`) - The properties of the key used to encrypt the account.
+            * `key_identifier` (`pulumi.Input[str]`) - The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+
+          * `type` (`pulumi.Input[str]`) - The type of key used to encrypt the Account Key.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The identity type.
 
-        The **properties** object supports the following:
+        The **storage_accounts** object supports the following:
 
-          * `encryption` (`pulumi.Input[dict]`) - The account encryption properties.
-            * `key_vault_properties` (`pulumi.Input[dict]`) - The properties of the key used to encrypt the account.
-              * `key_identifier` (`pulumi.Input[str]`) - The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-
-            * `type` (`pulumi.Input[str]`) - The type of key used to encrypt the Account Key.
-
-          * `storage_accounts` (`pulumi.Input[list]`) - The storage accounts for this resource.
-            * `id` (`pulumi.Input[str]`) - The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
-            * `type` (`pulumi.Input[str]`) - The type of the storage account.
-
-          * `storage_authentication` (`pulumi.Input[str]`)
+          * `id` (`pulumi.Input[str]`) - The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+          * `type` (`pulumi.Input[str]`) - The type of the storage account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -98,6 +97,7 @@ class MediaService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['encryption'] = encryption
             __props__['identity'] = identity
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -105,11 +105,13 @@ class MediaService(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['storage_accounts'] = storage_accounts
+            __props__['storage_authentication'] = storage_authentication
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(MediaService, __self__).__init__(
             'azurerm:media/v20200501:MediaService',

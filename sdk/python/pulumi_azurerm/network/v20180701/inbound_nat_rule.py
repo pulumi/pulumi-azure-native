@@ -254,31 +254,29 @@ class InboundNatRule(pulumi.CustomResource):
       * `protocol` (`str`) - The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
       * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, id=None, load_balancer_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, backend_port=None, enable_floating_ip=None, enable_tcp_reset=None, etag=None, frontend_ip_configuration=None, frontend_port=None, id=None, idle_timeout_in_minutes=None, load_balancer_name=None, name=None, protocol=None, provisioning_state=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Inbound NAT rule of the load balancer.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] backend_port: The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+        :param pulumi.Input[bool] enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+        :param pulumi.Input[bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
+        :param pulumi.Input[dict] frontend_ip_configuration: A reference to frontend IP addresses.
+        :param pulumi.Input[float] frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[float] idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[str] name: The name of the inbound nat rule.
-        :param pulumi.Input[dict] properties: Properties of load balancer inbound nat rule.
+        :param pulumi.Input[str] protocol: The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
+        :param pulumi.Input[str] provisioning_state: Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
-        The **properties** object supports the following:
+        The **frontend_ip_configuration** object supports the following:
 
-          * `backend_port` (`pulumi.Input[float]`) - The port used for the internal endpoint. Acceptable values range from 1 to 65535.
-          * `enable_floating_ip` (`pulumi.Input[bool]`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
-          * `enable_tcp_reset` (`pulumi.Input[bool]`) - Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
-          * `frontend_ip_configuration` (`pulumi.Input[dict]`) - A reference to frontend IP addresses.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `frontend_port` (`pulumi.Input[float]`) - The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
-          * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
-          * `protocol` (`pulumi.Input[str]`) - The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
-          * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -297,18 +295,26 @@ class InboundNatRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['backend_port'] = backend_port
+            __props__['enable_floating_ip'] = enable_floating_ip
+            __props__['enable_tcp_reset'] = enable_tcp_reset
             __props__['etag'] = etag
+            __props__['frontend_ip_configuration'] = frontend_ip_configuration
+            __props__['frontend_port'] = frontend_port
             __props__['id'] = id
+            __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
             if load_balancer_name is None:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['protocol'] = protocol
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
         super(InboundNatRule, __self__).__init__(
             'azurerm:network/v20180701:InboundNatRule',
             resource_name,

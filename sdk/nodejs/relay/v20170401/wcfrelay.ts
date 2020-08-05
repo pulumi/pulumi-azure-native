@@ -43,7 +43,7 @@ export class WCFRelay extends pulumi.CustomResource {
     /**
      * Properties of the WCF relay.
      */
-    public readonly properties!: pulumi.Output<outputs.relay.v20170401.WcfRelayResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.relay.v20170401.WcfRelayResponseProperties>;
     /**
      * Resource type.
      */
@@ -73,8 +73,12 @@ export class WCFRelay extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["relayType"] = args ? args.relayType : undefined;
+            inputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
+            inputs["requiresTransportSecurity"] = args ? args.requiresTransportSecurity : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["userMetadata"] = args ? args.userMetadata : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,11 +105,23 @@ export interface WCFRelayArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties of the WCF relay.
+     * WCF relay type.
      */
-    readonly properties?: pulumi.Input<inputs.relay.v20170401.WcfRelayProperties>;
+    readonly relayType?: pulumi.Input<string>;
+    /**
+     * Returns true if client authorization is needed for this relay; otherwise, false.
+     */
+    readonly requiresClientAuthorization?: pulumi.Input<boolean>;
+    /**
+     * Returns true if transport security is needed for this relay; otherwise, false.
+     */
+    readonly requiresTransportSecurity?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
+     */
+    readonly userMetadata?: pulumi.Input<string>;
 }

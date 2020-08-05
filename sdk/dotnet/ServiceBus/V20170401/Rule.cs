@@ -78,6 +78,24 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public sealed class RuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+        /// </summary>
+        [Input("action")]
+        public Input<Inputs.ActionArgs>? Action { get; set; }
+
+        /// <summary>
+        /// Properties of correlationFilter
+        /// </summary>
+        [Input("correlationFilter")]
+        public Input<Inputs.CorrelationFilterArgs>? CorrelationFilter { get; set; }
+
+        /// <summary>
+        /// Filter type that is evaluated against a BrokeredMessage.
+        /// </summary>
+        [Input("filterType")]
+        public Input<string>? FilterType { get; set; }
+
+        /// <summary>
         /// The rule name.
         /// </summary>
         [Input("name", required: true)]
@@ -90,16 +108,16 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of Rule resource
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RulepropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Properties of sqlFilter
+        /// </summary>
+        [Input("sqlFilter")]
+        public Input<Inputs.SqlFilterArgs>? SqlFilter { get; set; }
 
         /// <summary>
         /// The subscription name.

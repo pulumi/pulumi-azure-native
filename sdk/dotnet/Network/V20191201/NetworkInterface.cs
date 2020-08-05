@@ -96,10 +96,40 @@ namespace Pulumi.AzureRM.Network.V20191201
     public sealed class NetworkInterfaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The DNS settings in network interface.
+        /// </summary>
+        [Input("dnsSettings")]
+        public Input<Inputs.NetworkInterfaceDnsSettingsArgs>? DnsSettings { get; set; }
+
+        /// <summary>
+        /// If the network interface is accelerated networking enabled.
+        /// </summary>
+        [Input("enableAcceleratedNetworking")]
+        public Input<bool>? EnableAcceleratedNetworking { get; set; }
+
+        /// <summary>
+        /// Indicates whether IP forwarding is enabled on this network interface.
+        /// </summary>
+        [Input("enableIPForwarding")]
+        public Input<bool>? EnableIPForwarding { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ipConfigurations")]
+        private InputList<Inputs.NetworkInterfaceIPConfigurationArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// A list of IPConfigurations of the network interface.
+        /// </summary>
+        public InputList<Inputs.NetworkInterfaceIPConfigurationArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.NetworkInterfaceIPConfigurationArgs>());
+            set => _ipConfigurations = value;
+        }
 
         /// <summary>
         /// Resource location.
@@ -114,10 +144,10 @@ namespace Pulumi.AzureRM.Network.V20191201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the network interface.
+        /// The reference to the NetworkSecurityGroup resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkInterfacePropertiesFormatArgs>? Properties { get; set; }
+        [Input("networkSecurityGroup")]
+        public Input<Inputs.NetworkSecurityGroupArgs>? NetworkSecurityGroup { get; set; }
 
         /// <summary>
         /// The name of the resource group.

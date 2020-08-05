@@ -47,7 +47,7 @@ export class BackupSchedule extends pulumi.CustomResource {
     /**
      * The properties of the backup schedule.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20170601.BackupSchedulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.BackupSchedulePropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -69,6 +69,9 @@ export class BackupSchedule extends pulumi.CustomResource {
             if (!args || args.backupPolicyName === undefined) {
                 throw new Error("Missing required property 'backupPolicyName'");
             }
+            if (!args || args.backupType === undefined) {
+                throw new Error("Missing required property 'backupType'");
+            }
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -78,19 +81,33 @@ export class BackupSchedule extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.retentionCount === undefined) {
+                throw new Error("Missing required property 'retentionCount'");
+            }
+            if (!args || args.scheduleRecurrence === undefined) {
+                throw new Error("Missing required property 'scheduleRecurrence'");
+            }
+            if (!args || args.scheduleStatus === undefined) {
+                throw new Error("Missing required property 'scheduleStatus'");
+            }
+            if (!args || args.startTime === undefined) {
+                throw new Error("Missing required property 'startTime'");
+            }
             inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
+            inputs["backupType"] = args ? args.backupType : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["retentionCount"] = args ? args.retentionCount : undefined;
+            inputs["scheduleRecurrence"] = args ? args.scheduleRecurrence : undefined;
+            inputs["scheduleStatus"] = args ? args.scheduleStatus : undefined;
+            inputs["startTime"] = args ? args.startTime : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -113,6 +130,10 @@ export interface BackupScheduleArgs {
      */
     readonly backupPolicyName: pulumi.Input<string>;
     /**
+     * The type of backup which needs to be taken.
+     */
+    readonly backupType: pulumi.Input<string>;
+    /**
      * The device name
      */
     readonly deviceName: pulumi.Input<string>;
@@ -129,11 +150,23 @@ export interface BackupScheduleArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the backup schedule.
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.v20170601.BackupScheduleProperties>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The number of backups to be retained.
+     */
+    readonly retentionCount: pulumi.Input<number>;
+    /**
+     * The schedule recurrence.
+     */
+    readonly scheduleRecurrence: pulumi.Input<inputs.storsimple.v20170601.ScheduleRecurrence>;
+    /**
+     * The schedule status.
+     */
+    readonly scheduleStatus: pulumi.Input<string>;
+    /**
+     * The start time of the schedule.
+     */
+    readonly startTime: pulumi.Input<string>;
 }

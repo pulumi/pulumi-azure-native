@@ -47,7 +47,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * The database properties.
      */
-    public readonly properties!: pulumi.Output<outputs.kusto.v20190121.DatabasePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.kusto.v20190121.DatabasePropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -76,10 +76,13 @@ export class Database extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["softDeletePeriod"] = args ? args.softDeletePeriod : undefined;
+            inputs["statistics"] = args ? args.statistics : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +105,10 @@ export interface DatabaseArgs {
      */
     readonly clusterName: pulumi.Input<string>;
     /**
+     * The time the data that should be kept in cache for fast queries in TimeSpan.
+     */
+    readonly hotCachePeriod?: pulumi.Input<string>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -110,11 +117,15 @@ export interface DatabaseArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The database properties.
-     */
-    readonly properties?: pulumi.Input<inputs.kusto.v20190121.DatabaseProperties>;
-    /**
      * The name of the resource group containing the Kusto cluster.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The time the data should be kept before it stops being accessible to queries in TimeSpan.
+     */
+    readonly softDeletePeriod?: pulumi.Input<string>;
+    /**
+     * The statistics of the database.
+     */
+    readonly statistics?: pulumi.Input<inputs.kusto.v20190121.DatabaseStatistics>;
 }

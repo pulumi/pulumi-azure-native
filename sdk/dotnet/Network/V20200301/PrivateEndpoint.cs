@@ -95,6 +95,18 @@ namespace Pulumi.AzureRM.Network.V20200301
 
     public sealed class PrivateEndpointArgs : Pulumi.ResourceArgs
     {
+        [Input("customDnsConfigs")]
+        private InputList<Inputs.CustomDnsConfigPropertiesFormatArgs>? _customDnsConfigs;
+
+        /// <summary>
+        /// An array of custom dns configurations.
+        /// </summary>
+        public InputList<Inputs.CustomDnsConfigPropertiesFormatArgs> CustomDnsConfigs
+        {
+            get => _customDnsConfigs ?? (_customDnsConfigs = new InputList<Inputs.CustomDnsConfigPropertiesFormatArgs>());
+            set => _customDnsConfigs = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -107,23 +119,47 @@ namespace Pulumi.AzureRM.Network.V20200301
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("manualPrivateLinkServiceConnections")]
+        private InputList<Inputs.PrivateLinkServiceConnectionArgs>? _manualPrivateLinkServiceConnections;
+
+        /// <summary>
+        /// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+        /// </summary>
+        public InputList<Inputs.PrivateLinkServiceConnectionArgs> ManualPrivateLinkServiceConnections
+        {
+            get => _manualPrivateLinkServiceConnections ?? (_manualPrivateLinkServiceConnections = new InputList<Inputs.PrivateLinkServiceConnectionArgs>());
+            set => _manualPrivateLinkServiceConnections = value;
+        }
+
         /// <summary>
         /// The name of the private endpoint.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("privateLinkServiceConnections")]
+        private InputList<Inputs.PrivateLinkServiceConnectionArgs>? _privateLinkServiceConnections;
+
         /// <summary>
-        /// Properties of the private endpoint.
+        /// A grouping of information about the connection to the remote resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateEndpointPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.PrivateLinkServiceConnectionArgs> PrivateLinkServiceConnections
+        {
+            get => _privateLinkServiceConnections ?? (_privateLinkServiceConnections = new InputList<Inputs.PrivateLinkServiceConnectionArgs>());
+            set => _privateLinkServiceConnections = value;
+        }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of the subnet from which the private IP will be allocated.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

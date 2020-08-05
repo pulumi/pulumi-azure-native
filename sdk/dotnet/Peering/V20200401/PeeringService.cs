@@ -108,10 +108,16 @@ namespace Pulumi.AzureRM.Peering.V20200401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties that define a peering service.
+        /// The PeeringServiceLocation of the Customer.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PeeringServicePropertiesArgs>? Properties { get; set; }
+        [Input("peeringServiceLocation")]
+        public Input<string>? PeeringServiceLocation { get; set; }
+
+        /// <summary>
+        /// The MAPS Provider Name.
+        /// </summary>
+        [Input("peeringServiceProvider")]
+        public Input<string>? PeeringServiceProvider { get; set; }
 
         /// <summary>
         /// The name of the resource group.

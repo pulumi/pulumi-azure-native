@@ -43,33 +43,31 @@ class Schedule(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, advanced_schedule=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, name=None, resource_group_name=None, start_time=None, time_zone=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the schedule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] advanced_schedule: Gets or sets the AdvancedSchedule.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] description: Gets or sets the description of the schedule.
+        :param pulumi.Input[str] expiry_time: Gets or sets the end time of the schedule.
+        :param pulumi.Input[str] frequency: Gets or sets the frequency of the schedule.
+        :param pulumi.Input[dict] interval: Gets or sets the interval of the schedule.
         :param pulumi.Input[str] name: The schedule name.
-        :param pulumi.Input[dict] properties: Gets or sets the list of schedule properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] start_time: Gets or sets the start time of the schedule.
+        :param pulumi.Input[str] time_zone: Gets or sets the time zone of the schedule.
 
-        The **properties** object supports the following:
+        The **advanced_schedule** object supports the following:
 
-          * `advanced_schedule` (`pulumi.Input[dict]`) - Gets or sets the AdvancedSchedule.
-            * `month_days` (`pulumi.Input[list]`) - Days of the month that the job should execute on. Must be between 1 and 31.
-            * `monthly_occurrences` (`pulumi.Input[list]`) - Occurrences of days within a month.
-              * `day` (`pulumi.Input[str]`) - Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
-              * `occurrence` (`pulumi.Input[float]`) - Occurrence of the week within the month. Must be between 1 and 5
+          * `month_days` (`pulumi.Input[list]`) - Days of the month that the job should execute on. Must be between 1 and 31.
+          * `monthly_occurrences` (`pulumi.Input[list]`) - Occurrences of days within a month.
+            * `day` (`pulumi.Input[str]`) - Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+            * `occurrence` (`pulumi.Input[float]`) - Occurrence of the week within the month. Must be between 1 and 5
 
-            * `week_days` (`pulumi.Input[list]`) - Days of the week that the job should execute on.
-
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description of the schedule.
-          * `expiry_time` (`pulumi.Input[str]`) - Gets or sets the end time of the schedule.
-          * `frequency` (`pulumi.Input[str]`) - Gets or sets the frequency of the schedule.
-          * `interval` (`pulumi.Input[dict]`) - Gets or sets the interval of the schedule.
-          * `start_time` (`pulumi.Input[str]`) - Gets or sets the start time of the schedule.
-          * `time_zone` (`pulumi.Input[str]`) - Gets or sets the time zone of the schedule.
+          * `week_days` (`pulumi.Input[list]`) - Days of the week that the job should execute on.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,18 +86,27 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['advanced_schedule'] = advanced_schedule
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            __props__['description'] = description
+            __props__['expiry_time'] = expiry_time
+            if frequency is None:
+                raise TypeError("Missing required property 'frequency'")
+            __props__['frequency'] = frequency
+            __props__['interval'] = interval
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if start_time is None:
+                raise TypeError("Missing required property 'start_time'")
+            __props__['start_time'] = start_time
+            __props__['time_zone'] = time_zone
+            __props__['properties'] = None
             __props__['type'] = None
         super(Schedule, __self__).__init__(
             'azurerm:automation/v20151031:Schedule',

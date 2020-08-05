@@ -47,7 +47,7 @@ export class ServiceFabric extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.ServiceFabricPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.ServiceFabricPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -76,22 +76,21 @@ export class ServiceFabric extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.userName === undefined) {
                 throw new Error("Missing required property 'userName'");
             }
+            inputs["environmentId"] = args ? args.environmentId : undefined;
+            inputs["externalServiceFabricId"] = args ? args.externalServiceFabricId : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userName"] = args ? args.userName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +109,14 @@ export class ServiceFabric extends pulumi.CustomResource {
  */
 export interface ServiceFabricArgs {
     /**
+     * The resource id of the environment under which the service fabric resource is present
+     */
+    readonly environmentId?: pulumi.Input<string>;
+    /**
+     * The backing service fabric resource's id
+     */
+    readonly externalServiceFabricId?: pulumi.Input<string>;
+    /**
      * The name of the lab.
      */
     readonly labName: pulumi.Input<string>;
@@ -121,10 +128,6 @@ export interface ServiceFabricArgs {
      * The name of the service fabric.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the resource.
-     */
-    readonly properties: pulumi.Input<inputs.devtestlab.v20180915.ServiceFabricProperties>;
     /**
      * The name of the resource group.
      */

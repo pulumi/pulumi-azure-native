@@ -84,22 +84,34 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
+        /// The password details.
+        /// </summary>
+        [Input("encryptedPassword")]
+        public Input<Inputs.AsymmetricEncryptedSecretArgs>? EncryptedPassword { get; set; }
+
+        /// <summary>
         /// The user name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The storage account credential properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.UserPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("shareAccessRights")]
+        private InputList<Inputs.ShareAccessRightArgs>? _shareAccessRights;
+
+        /// <summary>
+        /// List of shares that the user has rights on. This field should not be specified during user creation.
+        /// </summary>
+        public InputList<Inputs.ShareAccessRightArgs> ShareAccessRights
+        {
+            get => _shareAccessRights ?? (_shareAccessRights = new InputList<Inputs.ShareAccessRightArgs>());
+            set => _shareAccessRights = value;
+        }
 
         public UserArgs()
         {

@@ -51,7 +51,7 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * The properties representing the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.sql.v20140401.ElasticPoolPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.sql.v20140401.ElasticPoolPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -86,13 +86,19 @@ export class ElasticPool extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
+            inputs["databaseDtuMax"] = args ? args.databaseDtuMax : undefined;
+            inputs["databaseDtuMin"] = args ? args.databaseDtuMin : undefined;
+            inputs["dtu"] = args ? args.dtu : undefined;
+            inputs["edition"] = args ? args.edition : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["storageMB"] = args ? args.storageMB : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["kind"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -111,6 +117,22 @@ export class ElasticPool extends pulumi.CustomResource {
  */
 export interface ElasticPoolArgs {
     /**
+     * The maximum DTU any one database can consume.
+     */
+    readonly databaseDtuMax?: pulumi.Input<number>;
+    /**
+     * The minimum DTU all databases are guaranteed.
+     */
+    readonly databaseDtuMin?: pulumi.Input<number>;
+    /**
+     * The total shared DTU for the database elastic pool.
+     */
+    readonly dtu?: pulumi.Input<number>;
+    /**
+     * The edition of the elastic pool.
+     */
+    readonly edition?: pulumi.Input<string>;
+    /**
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
@@ -118,10 +140,6 @@ export interface ElasticPoolArgs {
      * The name of the elastic pool to be operated on (updated or created).
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties representing the resource.
-     */
-    readonly properties?: pulumi.Input<inputs.sql.v20140401.ElasticPoolProperties>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -131,7 +149,15 @@ export interface ElasticPoolArgs {
      */
     readonly serverName: pulumi.Input<string>;
     /**
+     * Gets storage limit for the database elastic pool in MB.
+     */
+    readonly storageMB?: pulumi.Input<number>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+     */
+    readonly zoneRedundant?: pulumi.Input<boolean>;
 }

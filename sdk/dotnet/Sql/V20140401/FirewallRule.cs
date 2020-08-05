@@ -90,16 +90,16 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        /// </summary>
+        [Input("endIpAddress", required: true)]
+        public Input<string> EndIpAddress { get; set; } = null!;
+
+        /// <summary>
         /// The name of the firewall rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties representing the resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FirewallRulePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -112,6 +112,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
+        /// </summary>
+        [Input("startIpAddress", required: true)]
+        public Input<string> StartIpAddress { get; set; } = null!;
 
         public FirewallRuleArgs()
         {

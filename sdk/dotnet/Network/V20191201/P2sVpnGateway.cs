@@ -113,11 +113,17 @@ namespace Pulumi.AzureRM.Network.V20191201
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("p2SConnectionConfigurations")]
+        private InputList<Inputs.P2SConnectionConfigurationArgs>? _p2SConnectionConfigurations;
+
         /// <summary>
-        /// Properties of the P2SVpnGateway.
+        /// List of all p2s connection configurations of the gateway.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.P2SVpnGatewayPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.P2SConnectionConfigurationArgs> P2SConnectionConfigurations
+        {
+            get => _p2SConnectionConfigurations ?? (_p2SConnectionConfigurations = new InputList<Inputs.P2SConnectionConfigurationArgs>());
+            set => _p2SConnectionConfigurations = value;
+        }
 
         /// <summary>
         /// The resource group name of the P2SVpnGateway.
@@ -136,6 +142,24 @@ namespace Pulumi.AzureRM.Network.V20191201
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The VirtualHub to which the gateway belongs.
+        /// </summary>
+        [Input("virtualHub")]
+        public Input<Inputs.SubResourceArgs>? VirtualHub { get; set; }
+
+        /// <summary>
+        /// The scale unit for this p2s vpn gateway.
+        /// </summary>
+        [Input("vpnGatewayScaleUnit")]
+        public Input<int>? VpnGatewayScaleUnit { get; set; }
+
+        /// <summary>
+        /// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+        /// </summary>
+        [Input("vpnServerConfiguration")]
+        public Input<Inputs.SubResourceArgs>? VpnServerConfiguration { get; set; }
 
         public P2sVpnGatewayArgs()
         {

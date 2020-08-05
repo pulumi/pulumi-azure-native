@@ -47,7 +47,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
      * Dedicated Host Group Properties.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20190301.DedicatedHostGroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20190301.DedicatedHostGroupPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -80,15 +80,19 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.platformFaultDomainCount === undefined) {
+                throw new Error("Missing required property 'platformFaultDomainCount'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,9 +119,9 @@ export interface DedicatedHostGroupArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Dedicated Host Group Properties.
+     * Number of fault domains that the host group can span.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20190301.DedicatedHostGroupProperties>;
+    readonly platformFaultDomainCount: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */

@@ -55,7 +55,7 @@ export class WebApp extends pulumi.CustomResource {
     /**
      * Site resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20160801.SiteResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.SiteResponseProperties>;
     /**
      * Resource tags.
      */
@@ -87,13 +87,28 @@ export class WebApp extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
+            inputs["clientCertEnabled"] = args ? args.clientCertEnabled : undefined;
+            inputs["cloningInfo"] = args ? args.cloningInfo : undefined;
+            inputs["containerSize"] = args ? args.containerSize : undefined;
+            inputs["dailyMemoryTimeQuota"] = args ? args.dailyMemoryTimeQuota : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["hostNameSslStates"] = args ? args.hostNameSslStates : undefined;
+            inputs["hostNamesDisabled"] = args ? args.hostNamesDisabled : undefined;
+            inputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
+            inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["reserved"] = args ? args.reserved : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scmSiteAlsoStopped"] = args ? args.scmSiteAlsoStopped : undefined;
+            inputs["serverFarmId"] = args ? args.serverFarmId : undefined;
+            inputs["siteConfig"] = args ? args.siteConfig : undefined;
+            inputs["snapshotInfo"] = args ? args.snapshotInfo : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,6 +127,48 @@ export class WebApp extends pulumi.CustomResource {
  */
 export interface WebAppArgs {
     /**
+     * <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
+     */
+    readonly clientAffinityEnabled?: pulumi.Input<boolean>;
+    /**
+     * <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
+     */
+    readonly clientCertEnabled?: pulumi.Input<boolean>;
+    /**
+     * If specified during app creation, the app is cloned from a source app.
+     */
+    readonly cloningInfo?: pulumi.Input<inputs.web.v20160801.CloningInfo>;
+    /**
+     * Size of the function container.
+     */
+    readonly containerSize?: pulumi.Input<number>;
+    /**
+     * Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+     */
+    readonly dailyMemoryTimeQuota?: pulumi.Input<number>;
+    /**
+     * <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+     */
+    readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+     */
+    readonly hostNameSslStates?: pulumi.Input<pulumi.Input<inputs.web.v20160801.HostNameSslState>[]>;
+    /**
+     * <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
+     *  If <code>true</code>, the app is only accessible via API management process.
+     */
+    readonly hostNamesDisabled?: pulumi.Input<boolean>;
+    /**
+     * App Service Environment to use for the app.
+     */
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20160801.HostingEnvironmentProfile>;
+    /**
+     * HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+     * http requests
+     */
+    readonly httpsOnly?: pulumi.Input<boolean>;
+    /**
      * Managed service identity.
      */
     readonly identity?: pulumi.Input<inputs.web.v20160801.ManagedServiceIdentity>;
@@ -128,13 +185,29 @@ export interface WebAppArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Site resource specific properties
+     * <code>true</code> if reserved; otherwise, <code>false</code>.
      */
-    readonly properties?: pulumi.Input<inputs.web.v20160801.SiteProperties>;
+    readonly reserved?: pulumi.Input<boolean>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
+     */
+    readonly scmSiteAlsoStopped?: pulumi.Input<boolean>;
+    /**
+     * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+     */
+    readonly serverFarmId?: pulumi.Input<string>;
+    /**
+     * Configuration of the app.
+     */
+    readonly siteConfig?: pulumi.Input<inputs.web.v20160801.SiteConfig>;
+    /**
+     * If specified during app creation, the app is created from a previous snapshot.
+     */
+    readonly snapshotInfo?: pulumi.Input<inputs.web.v20160801.SnapshotRecoveryRequest>;
     /**
      * Resource tags.
      */

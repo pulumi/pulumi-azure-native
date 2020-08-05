@@ -90,6 +90,60 @@ namespace Pulumi.AzureRM.ContainerService.V20180331
     public sealed class ManagedClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Profile of Azure Active Directory configuration.
+        /// </summary>
+        [Input("aadProfile")]
+        public Input<Inputs.ManagedClusterAADProfileArgs>? AadProfile { get; set; }
+
+        [Input("addonProfiles")]
+        private InputMap<Inputs.ManagedClusterAddonProfileArgs>? _addonProfiles;
+
+        /// <summary>
+        /// Profile of managed cluster add-on.
+        /// </summary>
+        public InputMap<Inputs.ManagedClusterAddonProfileArgs> AddonProfiles
+        {
+            get => _addonProfiles ?? (_addonProfiles = new InputMap<Inputs.ManagedClusterAddonProfileArgs>());
+            set => _addonProfiles = value;
+        }
+
+        [Input("agentPoolProfiles")]
+        private InputList<Inputs.ManagedClusterAgentPoolProfileArgs>? _agentPoolProfiles;
+
+        /// <summary>
+        /// Properties of the agent pool. Currently only one agent pool can exist.
+        /// </summary>
+        public InputList<Inputs.ManagedClusterAgentPoolProfileArgs> AgentPoolProfiles
+        {
+            get => _agentPoolProfiles ?? (_agentPoolProfiles = new InputList<Inputs.ManagedClusterAgentPoolProfileArgs>());
+            set => _agentPoolProfiles = value;
+        }
+
+        /// <summary>
+        /// DNS prefix specified when creating the managed cluster.
+        /// </summary>
+        [Input("dnsPrefix")]
+        public Input<string>? DnsPrefix { get; set; }
+
+        /// <summary>
+        /// Whether to enable Kubernetes Role-Based Access Control.
+        /// </summary>
+        [Input("enableRBAC")]
+        public Input<bool>? EnableRBAC { get; set; }
+
+        /// <summary>
+        /// Version of Kubernetes specified when creating the managed cluster.
+        /// </summary>
+        [Input("kubernetesVersion")]
+        public Input<string>? KubernetesVersion { get; set; }
+
+        /// <summary>
+        /// Profile for Linux VMs in the container service cluster.
+        /// </summary>
+        [Input("linuxProfile")]
+        public Input<Inputs.ContainerServiceLinuxProfileArgs>? LinuxProfile { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
@@ -102,16 +156,22 @@ namespace Pulumi.AzureRM.ContainerService.V20180331
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of a managed cluster.
+        /// Profile of network configuration.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ManagedClusterPropertiesArgs>? Properties { get; set; }
+        [Input("networkProfile")]
+        public Input<Inputs.ContainerServiceNetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+        /// </summary>
+        [Input("servicePrincipalProfile")]
+        public Input<Inputs.ManagedClusterServicePrincipalProfileArgs>? ServicePrincipalProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

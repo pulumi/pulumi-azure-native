@@ -92,6 +92,30 @@ namespace Pulumi.AzureRM.Network.V20160601
 
     public sealed class VirtualNetworkArgs : Pulumi.ResourceArgs
     {
+        [Input("VirtualNetworkPeerings")]
+        private InputList<Inputs.VirtualNetworkPeeringArgs>? _VirtualNetworkPeerings;
+
+        /// <summary>
+        /// Gets or sets list of peerings in a VirtualNetwork
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkPeeringArgs> VirtualNetworkPeerings
+        {
+            get => _VirtualNetworkPeerings ?? (_VirtualNetworkPeerings = new InputList<Inputs.VirtualNetworkPeeringArgs>());
+            set => _VirtualNetworkPeerings = value;
+        }
+
+        /// <summary>
+        /// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+        /// </summary>
+        [Input("addressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? AddressSpace { get; set; }
+
+        /// <summary>
+        /// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+        /// </summary>
+        [Input("dhcpOptions")]
+        public Input<Inputs.DhcpOptionsArgs>? DhcpOptions { get; set; }
+
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
@@ -116,14 +140,35 @@ namespace Pulumi.AzureRM.Network.V20160601
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.VirtualNetworkPropertiesFormatArgs>? Properties { get; set; }
+        /// <summary>
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets resource guid property of the VirtualNetwork resource
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
+
+        [Input("subnets")]
+        private InputList<Inputs.SubnetArgs>? _subnets;
+
+        /// <summary>
+        /// Gets or sets list of subnets in a VirtualNetwork
+        /// </summary>
+        public InputList<Inputs.SubnetArgs> Subnets
+        {
+            get => _subnets ?? (_subnets = new InputList<Inputs.SubnetArgs>());
+            set => _subnets = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

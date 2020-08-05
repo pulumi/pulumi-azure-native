@@ -90,16 +90,22 @@ namespace Pulumi.AzureRM.Cache.V20160401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// List of patch schedules for a Redis cache.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ScheduleEntriesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("scheduleEntries", required: true)]
+        private InputList<Inputs.ScheduleEntryArgs>? _scheduleEntries;
+
+        /// <summary>
+        /// List of patch schedules for a Redis cache.
+        /// </summary>
+        public InputList<Inputs.ScheduleEntryArgs> ScheduleEntries
+        {
+            get => _scheduleEntries ?? (_scheduleEntries = new InputList<Inputs.ScheduleEntryArgs>());
+            set => _scheduleEntries = value;
+        }
 
         public PatchScheduleArgs()
         {

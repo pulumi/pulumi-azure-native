@@ -35,7 +35,7 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
 
       * `provisioning_state` (`str`) - The provisioning state of the private dns zone group resource.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, private_endpoint_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, private_dns_zone_configs=None, private_endpoint_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Private dns zone group resource.
 
@@ -43,16 +43,14 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the private dns zone group.
+        :param pulumi.Input[list] private_dns_zone_configs: A collection of private dns zone configurations of the private dns zone group.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
-        :param pulumi.Input[dict] properties: Properties of the private dns zone group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
-        The **properties** object supports the following:
+        The **private_dns_zone_configs** object supports the following:
 
-          * `private_dns_zone_configs` (`pulumi.Input[list]`) - A collection of private dns zone configurations of the private dns zone group.
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the private dns zone configuration.
-              * `private_dns_zone_id` (`pulumi.Input[str]`) - The resource id of the private dns zone.
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `private_dns_zone_id` (`pulumi.Input[str]`) - The resource id of the private dns zone.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,14 +73,15 @@ class PrivateDnsZoneGroup(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['private_dns_zone_configs'] = private_dns_zone_configs
             if private_endpoint_name is None:
                 raise TypeError("Missing required property 'private_endpoint_name'")
             __props__['private_endpoint_name'] = private_endpoint_name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
+            __props__['properties'] = None
         super(PrivateDnsZoneGroup, __self__).__init__(
             'azurerm:network/v20200401:PrivateDnsZoneGroup',
             resource_name,

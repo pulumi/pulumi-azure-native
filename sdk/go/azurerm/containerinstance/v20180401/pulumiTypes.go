@@ -394,10 +394,20 @@ func (o AzureFileVolumeResponsePtrOutput) StorageAccountName() pulumi.StringPtrO
 
 // A container instance.
 type Container struct {
+	// The commands to execute within the container instance in exec form.
+	Command []string `pulumi:"command"`
+	// The environment variables to set in the container instance.
+	EnvironmentVariables []EnvironmentVariable `pulumi:"environmentVariables"`
+	// The name of the image used to create the container instance.
+	Image string `pulumi:"image"`
 	// The user-provided name of the container instance.
 	Name string `pulumi:"name"`
-	// The properties of the container instance.
-	Properties ContainerProperties `pulumi:"properties"`
+	// The exposed ports on the container instance.
+	Ports []ContainerPort `pulumi:"ports"`
+	// The resource requirements of the container instance.
+	Resources ResourceRequirements `pulumi:"resources"`
+	// The volume mounts available to the container instance.
+	VolumeMounts []VolumeMount `pulumi:"volumeMounts"`
 }
 
 // ContainerInput is an input type that accepts ContainerArgs and ContainerOutput values.
@@ -413,10 +423,20 @@ type ContainerInput interface {
 
 // A container instance.
 type ContainerArgs struct {
+	// The commands to execute within the container instance in exec form.
+	Command pulumi.StringArrayInput `pulumi:"command"`
+	// The environment variables to set in the container instance.
+	EnvironmentVariables EnvironmentVariableArrayInput `pulumi:"environmentVariables"`
+	// The name of the image used to create the container instance.
+	Image pulumi.StringInput `pulumi:"image"`
 	// The user-provided name of the container instance.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the container instance.
-	Properties ContainerPropertiesInput `pulumi:"properties"`
+	// The exposed ports on the container instance.
+	Ports ContainerPortArrayInput `pulumi:"ports"`
+	// The resource requirements of the container instance.
+	Resources ResourceRequirementsInput `pulumi:"resources"`
+	// The volume mounts available to the container instance.
+	VolumeMounts VolumeMountArrayInput `pulumi:"volumeMounts"`
 }
 
 func (ContainerArgs) ElementType() reflect.Type {
@@ -471,14 +491,39 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 	return o
 }
 
+// The commands to execute within the container instance in exec form.
+func (o ContainerOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Container) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+// The environment variables to set in the container instance.
+func (o ContainerOutput) EnvironmentVariables() EnvironmentVariableArrayOutput {
+	return o.ApplyT(func(v Container) []EnvironmentVariable { return v.EnvironmentVariables }).(EnvironmentVariableArrayOutput)
+}
+
+// The name of the image used to create the container instance.
+func (o ContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v Container) string { return v.Image }).(pulumi.StringOutput)
+}
+
 // The user-provided name of the container instance.
 func (o ContainerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Container) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The properties of the container instance.
-func (o ContainerOutput) Properties() ContainerPropertiesOutput {
-	return o.ApplyT(func(v Container) ContainerProperties { return v.Properties }).(ContainerPropertiesOutput)
+// The exposed ports on the container instance.
+func (o ContainerOutput) Ports() ContainerPortArrayOutput {
+	return o.ApplyT(func(v Container) []ContainerPort { return v.Ports }).(ContainerPortArrayOutput)
+}
+
+// The resource requirements of the container instance.
+func (o ContainerOutput) Resources() ResourceRequirementsOutput {
+	return o.ApplyT(func(v Container) ResourceRequirements { return v.Resources }).(ResourceRequirementsOutput)
+}
+
+// The volume mounts available to the container instance.
+func (o ContainerOutput) VolumeMounts() VolumeMountArrayOutput {
+	return o.ApplyT(func(v Container) []VolumeMount { return v.VolumeMounts }).(VolumeMountArrayOutput)
 }
 
 type ContainerArrayOutput struct{ *pulumi.OutputState }
@@ -589,22 +634,8 @@ func (o ContainerGroupTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerGroupType) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The instance view of the container group. Only valid in response.
 type ContainerGroupProperties struct {
-	// The containers within the container group.
-	Containers []Container `pulumi:"containers"`
-	// The image registry credentials by which the container group is created from.
-	ImageRegistryCredentials []ImageRegistryCredential `pulumi:"imageRegistryCredentials"`
-	// The IP address type of the container group.
-	IpAddress *IpAddress `pulumi:"ipAddress"`
-	// The operating system type required by the containers in the container group.
-	OsType string `pulumi:"osType"`
-	// Restart policy for all containers within the container group.
-	// - `Always` Always restart
-	// - `OnFailure` Restart on failure
-	// - `Never` Never restart
-	RestartPolicy *string `pulumi:"restartPolicy"`
-	// The list of volumes that can be mounted by containers in this container group.
-	Volumes []Volume `pulumi:"volumes"`
 }
 
 // ContainerGroupPropertiesInput is an input type that accepts ContainerGroupPropertiesArgs and ContainerGroupPropertiesOutput values.
@@ -618,22 +649,8 @@ type ContainerGroupPropertiesInput interface {
 	ToContainerGroupPropertiesOutputWithContext(context.Context) ContainerGroupPropertiesOutput
 }
 
+// The instance view of the container group. Only valid in response.
 type ContainerGroupPropertiesArgs struct {
-	// The containers within the container group.
-	Containers ContainerArrayInput `pulumi:"containers"`
-	// The image registry credentials by which the container group is created from.
-	ImageRegistryCredentials ImageRegistryCredentialArrayInput `pulumi:"imageRegistryCredentials"`
-	// The IP address type of the container group.
-	IpAddress IpAddressPtrInput `pulumi:"ipAddress"`
-	// The operating system type required by the containers in the container group.
-	OsType pulumi.StringInput `pulumi:"osType"`
-	// Restart policy for all containers within the container group.
-	// - `Always` Always restart
-	// - `OnFailure` Restart on failure
-	// - `Never` Never restart
-	RestartPolicy pulumi.StringPtrInput `pulumi:"restartPolicy"`
-	// The list of volumes that can be mounted by containers in this container group.
-	Volumes VolumeArrayInput `pulumi:"volumes"`
 }
 
 func (ContainerGroupPropertiesArgs) ElementType() reflect.Type {
@@ -648,47 +665,7 @@ func (i ContainerGroupPropertiesArgs) ToContainerGroupPropertiesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupPropertiesOutput)
 }
 
-func (i ContainerGroupPropertiesArgs) ToContainerGroupPropertiesPtrOutput() ContainerGroupPropertiesPtrOutput {
-	return i.ToContainerGroupPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ContainerGroupPropertiesArgs) ToContainerGroupPropertiesPtrOutputWithContext(ctx context.Context) ContainerGroupPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupPropertiesOutput).ToContainerGroupPropertiesPtrOutputWithContext(ctx)
-}
-
-// ContainerGroupPropertiesPtrInput is an input type that accepts ContainerGroupPropertiesArgs, ContainerGroupPropertiesPtr and ContainerGroupPropertiesPtrOutput values.
-// You can construct a concrete instance of `ContainerGroupPropertiesPtrInput` via:
-//
-//          ContainerGroupPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ContainerGroupPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToContainerGroupPropertiesPtrOutput() ContainerGroupPropertiesPtrOutput
-	ToContainerGroupPropertiesPtrOutputWithContext(context.Context) ContainerGroupPropertiesPtrOutput
-}
-
-type containerGroupPropertiesPtrType ContainerGroupPropertiesArgs
-
-func ContainerGroupPropertiesPtr(v *ContainerGroupPropertiesArgs) ContainerGroupPropertiesPtrInput {
-	return (*containerGroupPropertiesPtrType)(v)
-}
-
-func (*containerGroupPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerGroupProperties)(nil)).Elem()
-}
-
-func (i *containerGroupPropertiesPtrType) ToContainerGroupPropertiesPtrOutput() ContainerGroupPropertiesPtrOutput {
-	return i.ToContainerGroupPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *containerGroupPropertiesPtrType) ToContainerGroupPropertiesPtrOutputWithContext(ctx context.Context) ContainerGroupPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupPropertiesPtrOutput)
-}
-
+// The instance view of the container group. Only valid in response.
 type ContainerGroupPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ContainerGroupPropertiesOutput) ElementType() reflect.Type {
@@ -701,130 +678,6 @@ func (o ContainerGroupPropertiesOutput) ToContainerGroupPropertiesOutput() Conta
 
 func (o ContainerGroupPropertiesOutput) ToContainerGroupPropertiesOutputWithContext(ctx context.Context) ContainerGroupPropertiesOutput {
 	return o
-}
-
-func (o ContainerGroupPropertiesOutput) ToContainerGroupPropertiesPtrOutput() ContainerGroupPropertiesPtrOutput {
-	return o.ToContainerGroupPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ContainerGroupPropertiesOutput) ToContainerGroupPropertiesPtrOutputWithContext(ctx context.Context) ContainerGroupPropertiesPtrOutput {
-	return o.ApplyT(func(v ContainerGroupProperties) *ContainerGroupProperties {
-		return &v
-	}).(ContainerGroupPropertiesPtrOutput)
-}
-
-// The containers within the container group.
-func (o ContainerGroupPropertiesOutput) Containers() ContainerArrayOutput {
-	return o.ApplyT(func(v ContainerGroupProperties) []Container { return v.Containers }).(ContainerArrayOutput)
-}
-
-// The image registry credentials by which the container group is created from.
-func (o ContainerGroupPropertiesOutput) ImageRegistryCredentials() ImageRegistryCredentialArrayOutput {
-	return o.ApplyT(func(v ContainerGroupProperties) []ImageRegistryCredential { return v.ImageRegistryCredentials }).(ImageRegistryCredentialArrayOutput)
-}
-
-// The IP address type of the container group.
-func (o ContainerGroupPropertiesOutput) IpAddress() IpAddressPtrOutput {
-	return o.ApplyT(func(v ContainerGroupProperties) *IpAddress { return v.IpAddress }).(IpAddressPtrOutput)
-}
-
-// The operating system type required by the containers in the container group.
-func (o ContainerGroupPropertiesOutput) OsType() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerGroupProperties) string { return v.OsType }).(pulumi.StringOutput)
-}
-
-// Restart policy for all containers within the container group.
-// - `Always` Always restart
-// - `OnFailure` Restart on failure
-// - `Never` Never restart
-func (o ContainerGroupPropertiesOutput) RestartPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerGroupProperties) *string { return v.RestartPolicy }).(pulumi.StringPtrOutput)
-}
-
-// The list of volumes that can be mounted by containers in this container group.
-func (o ContainerGroupPropertiesOutput) Volumes() VolumeArrayOutput {
-	return o.ApplyT(func(v ContainerGroupProperties) []Volume { return v.Volumes }).(VolumeArrayOutput)
-}
-
-type ContainerGroupPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerGroupPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerGroupProperties)(nil)).Elem()
-}
-
-func (o ContainerGroupPropertiesPtrOutput) ToContainerGroupPropertiesPtrOutput() ContainerGroupPropertiesPtrOutput {
-	return o
-}
-
-func (o ContainerGroupPropertiesPtrOutput) ToContainerGroupPropertiesPtrOutputWithContext(ctx context.Context) ContainerGroupPropertiesPtrOutput {
-	return o
-}
-
-func (o ContainerGroupPropertiesPtrOutput) Elem() ContainerGroupPropertiesOutput {
-	return o.ApplyT(func(v *ContainerGroupProperties) ContainerGroupProperties { return *v }).(ContainerGroupPropertiesOutput)
-}
-
-// The containers within the container group.
-func (o ContainerGroupPropertiesPtrOutput) Containers() ContainerArrayOutput {
-	return o.ApplyT(func(v *ContainerGroupProperties) []Container {
-		if v == nil {
-			return nil
-		}
-		return v.Containers
-	}).(ContainerArrayOutput)
-}
-
-// The image registry credentials by which the container group is created from.
-func (o ContainerGroupPropertiesPtrOutput) ImageRegistryCredentials() ImageRegistryCredentialArrayOutput {
-	return o.ApplyT(func(v *ContainerGroupProperties) []ImageRegistryCredential {
-		if v == nil {
-			return nil
-		}
-		return v.ImageRegistryCredentials
-	}).(ImageRegistryCredentialArrayOutput)
-}
-
-// The IP address type of the container group.
-func (o ContainerGroupPropertiesPtrOutput) IpAddress() IpAddressPtrOutput {
-	return o.ApplyT(func(v *ContainerGroupProperties) *IpAddress {
-		if v == nil {
-			return nil
-		}
-		return v.IpAddress
-	}).(IpAddressPtrOutput)
-}
-
-// The operating system type required by the containers in the container group.
-func (o ContainerGroupPropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerGroupProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OsType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Restart policy for all containers within the container group.
-// - `Always` Always restart
-// - `OnFailure` Restart on failure
-// - `Never` Never restart
-func (o ContainerGroupPropertiesPtrOutput) RestartPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerGroupProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RestartPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of volumes that can be mounted by containers in this container group.
-func (o ContainerGroupPropertiesPtrOutput) Volumes() VolumeArrayOutput {
-	return o.ApplyT(func(v *ContainerGroupProperties) []Volume {
-		if v == nil {
-			return nil
-		}
-		return v.Volumes
-	}).(VolumeArrayOutput)
 }
 
 type ContainerGroupResponseProperties struct {
@@ -1321,106 +1174,6 @@ func (o ContainerPortResponseArrayOutput) Index(i pulumi.IntInput) ContainerPort
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerPortResponse {
 		return vs[0].([]ContainerPortResponse)[vs[1].(int)]
 	}).(ContainerPortResponseOutput)
-}
-
-// The container instance properties.
-type ContainerProperties struct {
-	// The commands to execute within the container instance in exec form.
-	Command []string `pulumi:"command"`
-	// The environment variables to set in the container instance.
-	EnvironmentVariables []EnvironmentVariable `pulumi:"environmentVariables"`
-	// The name of the image used to create the container instance.
-	Image string `pulumi:"image"`
-	// The exposed ports on the container instance.
-	Ports []ContainerPort `pulumi:"ports"`
-	// The resource requirements of the container instance.
-	Resources ResourceRequirements `pulumi:"resources"`
-	// The volume mounts available to the container instance.
-	VolumeMounts []VolumeMount `pulumi:"volumeMounts"`
-}
-
-// ContainerPropertiesInput is an input type that accepts ContainerPropertiesArgs and ContainerPropertiesOutput values.
-// You can construct a concrete instance of `ContainerPropertiesInput` via:
-//
-//          ContainerPropertiesArgs{...}
-type ContainerPropertiesInput interface {
-	pulumi.Input
-
-	ToContainerPropertiesOutput() ContainerPropertiesOutput
-	ToContainerPropertiesOutputWithContext(context.Context) ContainerPropertiesOutput
-}
-
-// The container instance properties.
-type ContainerPropertiesArgs struct {
-	// The commands to execute within the container instance in exec form.
-	Command pulumi.StringArrayInput `pulumi:"command"`
-	// The environment variables to set in the container instance.
-	EnvironmentVariables EnvironmentVariableArrayInput `pulumi:"environmentVariables"`
-	// The name of the image used to create the container instance.
-	Image pulumi.StringInput `pulumi:"image"`
-	// The exposed ports on the container instance.
-	Ports ContainerPortArrayInput `pulumi:"ports"`
-	// The resource requirements of the container instance.
-	Resources ResourceRequirementsInput `pulumi:"resources"`
-	// The volume mounts available to the container instance.
-	VolumeMounts VolumeMountArrayInput `pulumi:"volumeMounts"`
-}
-
-func (ContainerPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerProperties)(nil)).Elem()
-}
-
-func (i ContainerPropertiesArgs) ToContainerPropertiesOutput() ContainerPropertiesOutput {
-	return i.ToContainerPropertiesOutputWithContext(context.Background())
-}
-
-func (i ContainerPropertiesArgs) ToContainerPropertiesOutputWithContext(ctx context.Context) ContainerPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesOutput)
-}
-
-// The container instance properties.
-type ContainerPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ContainerPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerProperties)(nil)).Elem()
-}
-
-func (o ContainerPropertiesOutput) ToContainerPropertiesOutput() ContainerPropertiesOutput {
-	return o
-}
-
-func (o ContainerPropertiesOutput) ToContainerPropertiesOutputWithContext(ctx context.Context) ContainerPropertiesOutput {
-	return o
-}
-
-// The commands to execute within the container instance in exec form.
-func (o ContainerPropertiesOutput) Command() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ContainerProperties) []string { return v.Command }).(pulumi.StringArrayOutput)
-}
-
-// The environment variables to set in the container instance.
-func (o ContainerPropertiesOutput) EnvironmentVariables() EnvironmentVariableArrayOutput {
-	return o.ApplyT(func(v ContainerProperties) []EnvironmentVariable { return v.EnvironmentVariables }).(EnvironmentVariableArrayOutput)
-}
-
-// The name of the image used to create the container instance.
-func (o ContainerPropertiesOutput) Image() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerProperties) string { return v.Image }).(pulumi.StringOutput)
-}
-
-// The exposed ports on the container instance.
-func (o ContainerPropertiesOutput) Ports() ContainerPortArrayOutput {
-	return o.ApplyT(func(v ContainerProperties) []ContainerPort { return v.Ports }).(ContainerPortArrayOutput)
-}
-
-// The resource requirements of the container instance.
-func (o ContainerPropertiesOutput) Resources() ResourceRequirementsOutput {
-	return o.ApplyT(func(v ContainerProperties) ResourceRequirements { return v.Resources }).(ResourceRequirementsOutput)
-}
-
-// The volume mounts available to the container instance.
-func (o ContainerPropertiesOutput) VolumeMounts() VolumeMountArrayOutput {
-	return o.ApplyT(func(v ContainerProperties) []VolumeMount { return v.VolumeMounts }).(VolumeMountArrayOutput)
 }
 
 // The instance view of the container instance. Only valid in response.
@@ -5053,14 +4806,12 @@ func init() {
 	pulumi.RegisterOutputType(ContainerArrayOutput{})
 	pulumi.RegisterOutputType(ContainerGroupTypeOutput{})
 	pulumi.RegisterOutputType(ContainerGroupPropertiesOutput{})
-	pulumi.RegisterOutputType(ContainerGroupPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerGroupResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerPortOutput{})
 	pulumi.RegisterOutputType(ContainerPortArrayOutput{})
 	pulumi.RegisterOutputType(ContainerPortResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPortResponseArrayOutput{})
-	pulumi.RegisterOutputType(ContainerPropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesResponsePropertiesOutput{})

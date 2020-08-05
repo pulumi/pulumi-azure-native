@@ -16,16 +16,28 @@ namespace Pulumi.AzureRM.Cdn.V20160402.Inputs
     public sealed class DeepCreatedOriginArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
+        /// The value of the HTTP port. Must be between 1 and 65535
+        /// </summary>
+        [Input("httpPort")]
+        public Input<int>? HttpPort { get; set; }
+
+        /// <summary>
+        /// The value of the HTTPS port. Must be between 1 and 65535
+        /// </summary>
+        [Input("httpsPort")]
+        public Input<int>? HttpsPort { get; set; }
+
+        /// <summary>
         /// Origin name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of deep created origin on a CDN endpoint.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DeepCreatedOriginPropertiesArgs>? Properties { get; set; }
 
         public DeepCreatedOriginArgs()
         {

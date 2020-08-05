@@ -93,28 +93,44 @@ func (ManagedClusterState) ElementType() reflect.Type {
 }
 
 type managedClusterArgs struct {
+	// Properties of the agent pool.
+	AgentPoolProfiles []ContainerServiceAgentPoolProfile `pulumi:"agentPoolProfiles"`
+	// DNS prefix specified when creating the managed cluster.
+	DnsPrefix *string `pulumi:"dnsPrefix"`
+	// Version of Kubernetes specified when creating the managed cluster.
+	KubernetesVersion *string `pulumi:"kubernetesVersion"`
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile *ContainerServiceLinuxProfile `pulumi:"linuxProfile"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the managed cluster resource.
 	Name string `pulumi:"name"`
-	// Properties of a managed cluster.
-	Properties *ManagedClusterProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+	ServicePrincipalProfile *ContainerServiceServicePrincipalProfile `pulumi:"servicePrincipalProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ManagedCluster resource.
 type ManagedClusterArgs struct {
+	// Properties of the agent pool.
+	AgentPoolProfiles ContainerServiceAgentPoolProfileArrayInput
+	// DNS prefix specified when creating the managed cluster.
+	DnsPrefix pulumi.StringPtrInput
+	// Version of Kubernetes specified when creating the managed cluster.
+	KubernetesVersion pulumi.StringPtrInput
+	// Profile for Linux VMs in the container service cluster.
+	LinuxProfile ContainerServiceLinuxProfilePtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the managed cluster resource.
 	Name pulumi.StringInput
-	// Properties of a managed cluster.
-	Properties ManagedClusterPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+	ServicePrincipalProfile ContainerServiceServicePrincipalProfilePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

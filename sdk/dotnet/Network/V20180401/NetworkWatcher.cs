@@ -120,12 +120,6 @@ namespace Pulumi.AzureRM.Network.V20180401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The network watcher properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkWatcherPropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]

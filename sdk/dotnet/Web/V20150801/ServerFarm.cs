@@ -99,10 +99,22 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class ServerFarmArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// App Service Plan administration site
+        /// </summary>
+        [Input("adminSiteName")]
+        public Input<string>? AdminSiteName { get; set; }
+
+        /// <summary>
         /// OBSOLETE: If true, allow pending state for App Service Plan
         /// </summary>
         [Input("allowPendingState")]
         public Input<bool>? AllowPendingState { get; set; }
+
+        /// <summary>
+        /// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+        /// </summary>
+        [Input("hostingEnvironmentProfile")]
+        public Input<Inputs.HostingEnvironmentProfileArgs>? HostingEnvironmentProfile { get; set; }
 
         /// <summary>
         /// Resource Id
@@ -123,13 +135,29 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// Maximum number of instances that can be assigned to this App Service Plan
+        /// </summary>
+        [Input("maximumNumberOfWorkers")]
+        public Input<int>? MaximumNumberOfWorkers { get; set; }
+
+        /// <summary>
         /// Resource Name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.ServerFarmWithRichSkuPropertiesArgs>? Properties { get; set; }
+        /// <summary>
+        /// If True apps assigned to this App Service Plan can be scaled independently
+        ///             If False apps assigned to this App Service Plan will scale to all instances of the plan
+        /// </summary>
+        [Input("perSiteScaling")]
+        public Input<bool>? PerSiteScaling { get; set; }
+
+        /// <summary>
+        /// Enables creation of a Linux App Service Plan
+        /// </summary>
+        [Input("reserved")]
+        public Input<bool>? Reserved { get; set; }
 
         /// <summary>
         /// Name of resource group
@@ -160,6 +188,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Target worker tier assigned to the App Service Plan
+        /// </summary>
+        [Input("workerTierName")]
+        public Input<string>? WorkerTierName { get; set; }
 
         public ServerFarmArgs()
         {

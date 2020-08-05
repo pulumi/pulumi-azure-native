@@ -754,259 +754,281 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     A list of availability zones denoting where the resource needs to come from.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings_collection=None, custom_error_configurations=None, enable_fips=None, enable_http2=None, firewall_policy=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, id=None, identity=None, location=None, name=None, private_link_configurations=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policy=None, tags=None, trusted_root_certificates=None, url_path_maps=None, web_application_firewall_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Application gateway resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] authentication_certificates: Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[dict] autoscale_configuration: Autoscale Configuration.
+        :param pulumi.Input[list] backend_address_pools: Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[list] backend_http_settings_collection: Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[list] custom_error_configurations: Custom error configurations of the application gateway resource.
+        :param pulumi.Input[bool] enable_fips: Whether FIPS is enabled on the application gateway resource.
+        :param pulumi.Input[bool] enable_http2: Whether HTTP2 is enabled on the application gateway resource.
+        :param pulumi.Input[dict] firewall_policy: Reference to the FirewallPolicy resource.
+        :param pulumi.Input[bool] force_firewall_policy_association: If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
+        :param pulumi.Input[list] frontend_ip_configurations: Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[list] frontend_ports: Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[list] gateway_ip_configurations: Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[list] http_listeners: Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[dict] identity: The identity of the application gateway, if configured.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the application gateway.
-        :param pulumi.Input[dict] properties: Properties of the application gateway.
+        :param pulumi.Input[list] private_link_configurations: PrivateLink configurations on application gateway.
+        :param pulumi.Input[list] probes: Probes of the application gateway resource.
+        :param pulumi.Input[list] redirect_configurations: Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[list] request_routing_rules: Request routing rules of the application gateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] rewrite_rule_sets: Rewrite rules for the application gateway resource.
+        :param pulumi.Input[dict] sku: SKU of the application gateway resource.
+        :param pulumi.Input[list] ssl_certificates: SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[dict] ssl_policy: SSL policy of the application gateway resource.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[list] trusted_root_certificates: Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[list] url_path_maps: URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[dict] web_application_firewall_configuration: Web application firewall configuration.
         :param pulumi.Input[list] zones: A list of availability zones denoting where the resource needs to come from.
+
+        The **authentication_certificates** object supports the following:
+
+          * `data` (`pulumi.Input[str]`) - Certificate public data.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - Name of the authentication certificate that is unique within an Application Gateway.
+
+        The **autoscale_configuration** object supports the following:
+
+          * `max_capacity` (`pulumi.Input[float]`) - Upper bound on number of Application Gateway capacity.
+          * `min_capacity` (`pulumi.Input[float]`) - Lower bound on number of Application Gateway capacity.
+
+        The **backend_address_pools** object supports the following:
+
+          * `backend_addresses` (`pulumi.Input[list]`) - Backend addresses.
+            * `fqdn` (`pulumi.Input[str]`) - Fully qualified domain name (FQDN).
+            * `ip_address` (`pulumi.Input[str]`) - IP address.
+
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - Name of the backend address pool that is unique within an Application Gateway.
+
+        The **backend_http_settings_collection** object supports the following:
+
+          * `affinity_cookie_name` (`pulumi.Input[str]`) - Cookie name to use for the affinity cookie.
+          * `authentication_certificates` (`pulumi.Input[list]`) - Array of references to application gateway authentication certificates.
+            * `id` (`pulumi.Input[str]`) - Resource ID.
+
+          * `connection_draining` (`pulumi.Input[dict]`) - Connection draining of the backend http settings resource.
+            * `drain_timeout_in_sec` (`pulumi.Input[float]`) - The number of seconds connection draining is active. Acceptable values are from 1 second to 3600 seconds.
+            * `enabled` (`pulumi.Input[bool]`) - Whether connection draining is enabled or not.
+
+          * `cookie_based_affinity` (`pulumi.Input[str]`) - Cookie based affinity.
+          * `host_name` (`pulumi.Input[str]`) - Host header to be sent to the backend servers.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - Name of the backend http settings that is unique within an Application Gateway.
+          * `path` (`pulumi.Input[str]`) - Path which should be used as a prefix for all HTTP requests. Null means no path will be prefixed. Default value is null.
+          * `pick_host_name_from_backend_address` (`pulumi.Input[bool]`) - Whether to pick host header should be picked from the host name of the backend server. Default value is false.
+          * `port` (`pulumi.Input[float]`) - The destination port on the backend.
+          * `probe` (`pulumi.Input[dict]`) - Probe resource of an application gateway.
+          * `probe_enabled` (`pulumi.Input[bool]`) - Whether the probe is enabled. Default value is false.
+          * `protocol` (`pulumi.Input[str]`) - The protocol used to communicate with the backend.
+          * `request_timeout` (`pulumi.Input[float]`) - Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
+          * `trusted_root_certificates` (`pulumi.Input[list]`) - Array of references to application gateway trusted root certificates.
+
+        The **custom_error_configurations** object supports the following:
+
+          * `custom_error_page_url` (`pulumi.Input[str]`) - Error page URL of the application gateway customer error.
+          * `status_code` (`pulumi.Input[str]`) - Status code of the application gateway customer error.
+
+        The **frontend_ip_configurations** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - Name of the frontend IP configuration that is unique within an Application Gateway.
+          * `private_ip_address` (`pulumi.Input[str]`) - PrivateIPAddress of the network interface IP Configuration.
+          * `private_ip_allocation_method` (`pulumi.Input[str]`) - The private IP address allocation method.
+          * `private_link_configuration` (`pulumi.Input[dict]`) - Reference to the application gateway private link configuration.
+          * `public_ip_address` (`pulumi.Input[dict]`) - Reference to the PublicIP resource.
+          * `subnet` (`pulumi.Input[dict]`) - Reference to the subnet resource.
+
+        The **frontend_ports** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - Name of the frontend port that is unique within an Application Gateway.
+          * `port` (`pulumi.Input[float]`) - Frontend port.
+
+        The **gateway_ip_configurations** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - Name of the IP configuration that is unique within an Application Gateway.
+          * `subnet` (`pulumi.Input[dict]`) - Reference to the subnet resource. A subnet from where application gateway gets its private address.
+
+        The **http_listeners** object supports the following:
+
+          * `custom_error_configurations` (`pulumi.Input[list]`) - Custom error configurations of the HTTP listener.
+          * `firewall_policy` (`pulumi.Input[dict]`) - Reference to the FirewallPolicy resource.
+          * `frontend_ip_configuration` (`pulumi.Input[dict]`) - Frontend IP configuration resource of an application gateway.
+          * `frontend_port` (`pulumi.Input[dict]`) - Frontend port resource of an application gateway.
+          * `host_name` (`pulumi.Input[str]`) - Host name of HTTP listener.
+          * `host_names` (`pulumi.Input[list]`) - List of Host names for HTTP Listener that allows special wildcard characters as well.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - Name of the HTTP listener that is unique within an Application Gateway.
+          * `protocol` (`pulumi.Input[str]`) - Protocol of the HTTP listener.
+          * `require_server_name_indication` (`pulumi.Input[bool]`) - Applicable only if protocol is https. Enables SNI for multi-hosting.
+          * `ssl_certificate` (`pulumi.Input[dict]`) - SSL certificate resource of an application gateway.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
           * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
-        The **properties** object supports the following:
+        The **private_link_configurations** object supports the following:
 
-          * `authentication_certificates` (`pulumi.Input[list]`) - Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `ip_configurations` (`pulumi.Input[list]`) - An array of application gateway private link ip configurations.
             * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the authentication certificate that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway authentication certificate.
-              * `data` (`pulumi.Input[str]`) - Certificate public data.
+            * `name` (`pulumi.Input[str]`) - The name of application gateway private link ip configuration.
+            * `primary` (`pulumi.Input[bool]`) - Whether the ip configuration is primary or not.
+            * `private_ip_address` (`pulumi.Input[str]`) - The private IP address of the IP configuration.
+            * `private_ip_allocation_method` (`pulumi.Input[str]`) - The private IP address allocation method.
+            * `subnet` (`pulumi.Input[dict]`) - Reference to the subnet resource.
 
-          * `autoscale_configuration` (`pulumi.Input[dict]`) - Autoscale Configuration.
-            * `max_capacity` (`pulumi.Input[float]`) - Upper bound on number of Application Gateway capacity.
-            * `min_capacity` (`pulumi.Input[float]`) - Lower bound on number of Application Gateway capacity.
+          * `name` (`pulumi.Input[str]`) - Name of the private link configuration that is unique within an Application Gateway.
 
-          * `backend_address_pools` (`pulumi.Input[list]`) - Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        The **probes** object supports the following:
+
+          * `host` (`pulumi.Input[str]`) - Host name to send the probe to.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `interval` (`pulumi.Input[float]`) - The probing interval in seconds. This is the time interval between two consecutive probes. Acceptable values are from 1 second to 86400 seconds.
+          * `match` (`pulumi.Input[dict]`) - Criterion for classifying a healthy probe response.
+            * `body` (`pulumi.Input[str]`) - Body that must be contained in the health response. Default value is empty.
+            * `status_codes` (`pulumi.Input[list]`) - Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
+
+          * `min_servers` (`pulumi.Input[float]`) - Minimum number of servers that are always marked healthy. Default value is 0.
+          * `name` (`pulumi.Input[str]`) - Name of the probe that is unique within an Application Gateway.
+          * `path` (`pulumi.Input[str]`) - Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
+          * `pick_host_name_from_backend_http_settings` (`pulumi.Input[bool]`) - Whether the host header should be picked from the backend http settings. Default value is false.
+          * `port` (`pulumi.Input[float]`) - Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+          * `protocol` (`pulumi.Input[str]`) - The protocol used for the probe.
+          * `timeout` (`pulumi.Input[float]`) - The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
+          * `unhealthy_threshold` (`pulumi.Input[float]`) - The probe retry count. Backend server is marked down after consecutive probe failure count reaches UnhealthyThreshold. Acceptable values are from 1 second to 20.
+
+        The **redirect_configurations** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `include_path` (`pulumi.Input[bool]`) - Include path in the redirected url.
+          * `include_query_string` (`pulumi.Input[bool]`) - Include query string in the redirected url.
+          * `name` (`pulumi.Input[str]`) - Name of the redirect configuration that is unique within an Application Gateway.
+          * `path_rules` (`pulumi.Input[list]`) - Path rules specifying redirect configuration.
+          * `redirect_type` (`pulumi.Input[str]`) - HTTP redirection type.
+          * `request_routing_rules` (`pulumi.Input[list]`) - Request routing specifying redirect configuration.
+          * `target_listener` (`pulumi.Input[dict]`) - Reference to a listener to redirect the request to.
+          * `target_url` (`pulumi.Input[str]`) - Url to redirect the request to.
+          * `url_path_maps` (`pulumi.Input[list]`) - Url path maps specifying default redirect configuration.
+
+        The **request_routing_rules** object supports the following:
+
+          * `backend_address_pool` (`pulumi.Input[dict]`) - Backend address pool resource of the application gateway.
+          * `backend_http_settings` (`pulumi.Input[dict]`) - Backend http settings resource of the application gateway.
+          * `http_listener` (`pulumi.Input[dict]`) - Http listener resource of the application gateway.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - Name of the request routing rule that is unique within an Application Gateway.
+          * `priority` (`pulumi.Input[float]`) - Priority of the request routing rule.
+          * `redirect_configuration` (`pulumi.Input[dict]`) - Redirect configuration resource of the application gateway.
+          * `rewrite_rule_set` (`pulumi.Input[dict]`) - Rewrite Rule Set resource in Basic rule of the application gateway.
+          * `rule_type` (`pulumi.Input[str]`) - Rule type.
+          * `url_path_map` (`pulumi.Input[dict]`) - URL path map resource of the application gateway.
+
+        The **rewrite_rule_sets** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - Name of the rewrite rule set that is unique within an Application Gateway.
+          * `rewrite_rules` (`pulumi.Input[list]`) - Rewrite rules in the rewrite rule set.
+            * `action_set` (`pulumi.Input[dict]`) - Set of actions to be done as part of the rewrite Rule.
+              * `request_header_configurations` (`pulumi.Input[list]`) - Request Header Actions in the Action Set.
+                * `header_name` (`pulumi.Input[str]`) - Header name of the header configuration.
+                * `header_value` (`pulumi.Input[str]`) - Header value of the header configuration.
+
+              * `response_header_configurations` (`pulumi.Input[list]`) - Response Header Actions in the Action Set.
+              * `url_configuration` (`pulumi.Input[dict]`) - Url Configuration Action in the Action Set.
+                * `modified_path` (`pulumi.Input[str]`) - Url path which user has provided for url rewrite. Null means no path will be updated. Default value is null.
+                * `modified_query_string` (`pulumi.Input[str]`) - Query string which user has provided for url rewrite. Null means no query string will be updated. Default value is null.
+                * `reroute` (`pulumi.Input[bool]`) - If set as true, it will re-evaluate the url path map provided in path based request routing rules using modified path. Default value is false.
+
+            * `conditions` (`pulumi.Input[list]`) - Conditions based on which the action set execution will be evaluated.
+              * `ignore_case` (`pulumi.Input[bool]`) - Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
+              * `negate` (`pulumi.Input[bool]`) - Setting this value as truth will force to check the negation of the condition given by the user.
+              * `pattern` (`pulumi.Input[str]`) - The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+              * `variable` (`pulumi.Input[str]`) - The condition parameter of the RewriteRuleCondition.
+
+            * `name` (`pulumi.Input[str]`) - Name of the rewrite rule that is unique within an Application Gateway.
+            * `rule_sequence` (`pulumi.Input[float]`) - Rule Sequence of the rewrite rule that determines the order of execution of a particular rule in a RewriteRuleSet.
+
+        The **sku** object supports the following:
+
+          * `capacity` (`pulumi.Input[float]`) - Capacity (instance count) of an application gateway.
+          * `name` (`pulumi.Input[str]`) - Name of an application gateway SKU.
+          * `tier` (`pulumi.Input[str]`) - Tier of an application gateway.
+
+        The **ssl_certificates** object supports the following:
+
+          * `data` (`pulumi.Input[str]`) - Base-64 encoded pfx certificate. Only applicable in PUT Request.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `key_vault_secret_id` (`pulumi.Input[str]`) - Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+          * `name` (`pulumi.Input[str]`) - Name of the SSL certificate that is unique within an Application Gateway.
+          * `password` (`pulumi.Input[str]`) - Password for the pfx file specified in data. Only applicable in PUT request.
+
+        The **ssl_policy** object supports the following:
+
+          * `cipher_suites` (`pulumi.Input[list]`) - Ssl cipher suites to be enabled in the specified order to application gateway.
+          * `disabled_ssl_protocols` (`pulumi.Input[list]`) - Ssl protocols to be disabled on application gateway.
+          * `min_protocol_version` (`pulumi.Input[str]`) - Minimum version of Ssl protocol to be supported on application gateway.
+          * `policy_name` (`pulumi.Input[str]`) - Name of Ssl predefined policy.
+          * `policy_type` (`pulumi.Input[str]`) - Type of Ssl Policy.
+
+        The **trusted_root_certificates** object supports the following:
+
+          * `data` (`pulumi.Input[str]`) - Certificate public data.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `key_vault_secret_id` (`pulumi.Input[str]`) - Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+          * `name` (`pulumi.Input[str]`) - Name of the trusted root certificate that is unique within an Application Gateway.
+
+        The **url_path_maps** object supports the following:
+
+          * `default_backend_address_pool` (`pulumi.Input[dict]`) - Default backend address pool resource of URL path map.
+          * `default_backend_http_settings` (`pulumi.Input[dict]`) - Default backend http settings resource of URL path map.
+          * `default_redirect_configuration` (`pulumi.Input[dict]`) - Default redirect configuration resource of URL path map.
+          * `default_rewrite_rule_set` (`pulumi.Input[dict]`) - Default Rewrite rule set resource of URL path map.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - Name of the URL path map that is unique within an Application Gateway.
+          * `path_rules` (`pulumi.Input[list]`) - Path rule of URL path map resource.
+            * `backend_address_pool` (`pulumi.Input[dict]`) - Backend address pool resource of URL path map path rule.
+            * `backend_http_settings` (`pulumi.Input[dict]`) - Backend http settings resource of URL path map path rule.
+            * `firewall_policy` (`pulumi.Input[dict]`) - Reference to the FirewallPolicy resource.
             * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the backend address pool that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway backend address pool.
-              * `backend_addresses` (`pulumi.Input[list]`) - Backend addresses.
-                * `fqdn` (`pulumi.Input[str]`) - Fully qualified domain name (FQDN).
-                * `ip_address` (`pulumi.Input[str]`) - IP address.
+            * `name` (`pulumi.Input[str]`) - Name of the path rule that is unique within an Application Gateway.
+            * `paths` (`pulumi.Input[list]`) - Path rules of URL path map.
+            * `redirect_configuration` (`pulumi.Input[dict]`) - Redirect configuration resource of URL path map path rule.
+            * `rewrite_rule_set` (`pulumi.Input[dict]`) - Rewrite rule set resource of URL path map path rule.
 
-          * `backend_http_settings_collection` (`pulumi.Input[list]`) - Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the backend http settings that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway backend HTTP settings.
-              * `affinity_cookie_name` (`pulumi.Input[str]`) - Cookie name to use for the affinity cookie.
-              * `authentication_certificates` (`pulumi.Input[list]`) - Array of references to application gateway authentication certificates.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
+        The **web_application_firewall_configuration** object supports the following:
 
-              * `connection_draining` (`pulumi.Input[dict]`) - Connection draining of the backend http settings resource.
-                * `drain_timeout_in_sec` (`pulumi.Input[float]`) - The number of seconds connection draining is active. Acceptable values are from 1 second to 3600 seconds.
-                * `enabled` (`pulumi.Input[bool]`) - Whether connection draining is enabled or not.
+          * `disabled_rule_groups` (`pulumi.Input[list]`) - The disabled rule groups.
+            * `rule_group_name` (`pulumi.Input[str]`) - The name of the rule group that will be disabled.
+            * `rules` (`pulumi.Input[list]`) - The list of rules that will be disabled. If null, all rules of the rule group will be disabled.
 
-              * `cookie_based_affinity` (`pulumi.Input[str]`) - Cookie based affinity.
-              * `host_name` (`pulumi.Input[str]`) - Host header to be sent to the backend servers.
-              * `path` (`pulumi.Input[str]`) - Path which should be used as a prefix for all HTTP requests. Null means no path will be prefixed. Default value is null.
-              * `pick_host_name_from_backend_address` (`pulumi.Input[bool]`) - Whether to pick host header should be picked from the host name of the backend server. Default value is false.
-              * `port` (`pulumi.Input[float]`) - The destination port on the backend.
-              * `probe` (`pulumi.Input[dict]`) - Probe resource of an application gateway.
-              * `probe_enabled` (`pulumi.Input[bool]`) - Whether the probe is enabled. Default value is false.
-              * `protocol` (`pulumi.Input[str]`) - The protocol used to communicate with the backend.
-              * `request_timeout` (`pulumi.Input[float]`) - Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
-              * `trusted_root_certificates` (`pulumi.Input[list]`) - Array of references to application gateway trusted root certificates.
+          * `enabled` (`pulumi.Input[bool]`) - Whether the web application firewall is enabled or not.
+          * `exclusions` (`pulumi.Input[list]`) - The exclusion list.
+            * `match_variable` (`pulumi.Input[str]`) - The variable to be excluded.
+            * `selector` (`pulumi.Input[str]`) - When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+            * `selector_match_operator` (`pulumi.Input[str]`) - When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
 
-          * `custom_error_configurations` (`pulumi.Input[list]`) - Custom error configurations of the application gateway resource.
-            * `custom_error_page_url` (`pulumi.Input[str]`) - Error page URL of the application gateway customer error.
-            * `status_code` (`pulumi.Input[str]`) - Status code of the application gateway customer error.
-
-          * `enable_fips` (`pulumi.Input[bool]`) - Whether FIPS is enabled on the application gateway resource.
-          * `enable_http2` (`pulumi.Input[bool]`) - Whether HTTP2 is enabled on the application gateway resource.
-          * `firewall_policy` (`pulumi.Input[dict]`) - Reference to the FirewallPolicy resource.
-          * `force_firewall_policy_association` (`pulumi.Input[bool]`) - If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
-          * `frontend_ip_configurations` (`pulumi.Input[list]`) - Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the frontend IP configuration that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway frontend IP configuration.
-              * `private_ip_address` (`pulumi.Input[str]`) - PrivateIPAddress of the network interface IP Configuration.
-              * `private_ip_allocation_method` (`pulumi.Input[str]`) - The private IP address allocation method.
-              * `private_link_configuration` (`pulumi.Input[dict]`) - Reference to the application gateway private link configuration.
-              * `public_ip_address` (`pulumi.Input[dict]`) - Reference to the PublicIP resource.
-              * `subnet` (`pulumi.Input[dict]`) - Reference to the subnet resource.
-
-          * `frontend_ports` (`pulumi.Input[list]`) - Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the frontend port that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway frontend port.
-              * `port` (`pulumi.Input[float]`) - Frontend port.
-
-          * `gateway_ip_configurations` (`pulumi.Input[list]`) - Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the IP configuration that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway IP configuration.
-              * `subnet` (`pulumi.Input[dict]`) - Reference to the subnet resource. A subnet from where application gateway gets its private address.
-
-          * `http_listeners` (`pulumi.Input[list]`) - Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the HTTP listener that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway HTTP listener.
-              * `custom_error_configurations` (`pulumi.Input[list]`) - Custom error configurations of the HTTP listener.
-              * `firewall_policy` (`pulumi.Input[dict]`) - Reference to the FirewallPolicy resource.
-              * `frontend_ip_configuration` (`pulumi.Input[dict]`) - Frontend IP configuration resource of an application gateway.
-              * `frontend_port` (`pulumi.Input[dict]`) - Frontend port resource of an application gateway.
-              * `host_name` (`pulumi.Input[str]`) - Host name of HTTP listener.
-              * `host_names` (`pulumi.Input[list]`) - List of Host names for HTTP Listener that allows special wildcard characters as well.
-              * `protocol` (`pulumi.Input[str]`) - Protocol of the HTTP listener.
-              * `require_server_name_indication` (`pulumi.Input[bool]`) - Applicable only if protocol is https. Enables SNI for multi-hosting.
-              * `ssl_certificate` (`pulumi.Input[dict]`) - SSL certificate resource of an application gateway.
-
-          * `private_link_configurations` (`pulumi.Input[list]`) - PrivateLink configurations on application gateway.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the private link configuration that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway private link configuration.
-              * `ip_configurations` (`pulumi.Input[list]`) - An array of application gateway private link ip configurations.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
-                * `name` (`pulumi.Input[str]`) - The name of application gateway private link ip configuration.
-                * `properties` (`pulumi.Input[dict]`) - Properties of an application gateway private link ip configuration.
-                  * `primary` (`pulumi.Input[bool]`) - Whether the ip configuration is primary or not.
-                  * `private_ip_address` (`pulumi.Input[str]`) - The private IP address of the IP configuration.
-                  * `private_ip_allocation_method` (`pulumi.Input[str]`) - The private IP address allocation method.
-                  * `subnet` (`pulumi.Input[dict]`) - Reference to the subnet resource.
-
-          * `probes` (`pulumi.Input[list]`) - Probes of the application gateway resource.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the probe that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway probe.
-              * `host` (`pulumi.Input[str]`) - Host name to send the probe to.
-              * `interval` (`pulumi.Input[float]`) - The probing interval in seconds. This is the time interval between two consecutive probes. Acceptable values are from 1 second to 86400 seconds.
-              * `match` (`pulumi.Input[dict]`) - Criterion for classifying a healthy probe response.
-                * `body` (`pulumi.Input[str]`) - Body that must be contained in the health response. Default value is empty.
-                * `status_codes` (`pulumi.Input[list]`) - Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
-
-              * `min_servers` (`pulumi.Input[float]`) - Minimum number of servers that are always marked healthy. Default value is 0.
-              * `path` (`pulumi.Input[str]`) - Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
-              * `pick_host_name_from_backend_http_settings` (`pulumi.Input[bool]`) - Whether the host header should be picked from the backend http settings. Default value is false.
-              * `port` (`pulumi.Input[float]`) - Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
-              * `protocol` (`pulumi.Input[str]`) - The protocol used for the probe.
-              * `timeout` (`pulumi.Input[float]`) - The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
-              * `unhealthy_threshold` (`pulumi.Input[float]`) - The probe retry count. Backend server is marked down after consecutive probe failure count reaches UnhealthyThreshold. Acceptable values are from 1 second to 20.
-
-          * `redirect_configurations` (`pulumi.Input[list]`) - Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the redirect configuration that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway redirect configuration.
-              * `include_path` (`pulumi.Input[bool]`) - Include path in the redirected url.
-              * `include_query_string` (`pulumi.Input[bool]`) - Include query string in the redirected url.
-              * `path_rules` (`pulumi.Input[list]`) - Path rules specifying redirect configuration.
-              * `redirect_type` (`pulumi.Input[str]`) - HTTP redirection type.
-              * `request_routing_rules` (`pulumi.Input[list]`) - Request routing specifying redirect configuration.
-              * `target_listener` (`pulumi.Input[dict]`) - Reference to a listener to redirect the request to.
-              * `target_url` (`pulumi.Input[str]`) - Url to redirect the request to.
-              * `url_path_maps` (`pulumi.Input[list]`) - Url path maps specifying default redirect configuration.
-
-          * `request_routing_rules` (`pulumi.Input[list]`) - Request routing rules of the application gateway resource.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the request routing rule that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway request routing rule.
-              * `backend_address_pool` (`pulumi.Input[dict]`) - Backend address pool resource of the application gateway.
-              * `backend_http_settings` (`pulumi.Input[dict]`) - Backend http settings resource of the application gateway.
-              * `http_listener` (`pulumi.Input[dict]`) - Http listener resource of the application gateway.
-              * `priority` (`pulumi.Input[float]`) - Priority of the request routing rule.
-              * `redirect_configuration` (`pulumi.Input[dict]`) - Redirect configuration resource of the application gateway.
-              * `rewrite_rule_set` (`pulumi.Input[dict]`) - Rewrite Rule Set resource in Basic rule of the application gateway.
-              * `rule_type` (`pulumi.Input[str]`) - Rule type.
-              * `url_path_map` (`pulumi.Input[dict]`) - URL path map resource of the application gateway.
-
-          * `rewrite_rule_sets` (`pulumi.Input[list]`) - Rewrite rules for the application gateway resource.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the rewrite rule set that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway rewrite rule set.
-              * `rewrite_rules` (`pulumi.Input[list]`) - Rewrite rules in the rewrite rule set.
-                * `action_set` (`pulumi.Input[dict]`) - Set of actions to be done as part of the rewrite Rule.
-                  * `request_header_configurations` (`pulumi.Input[list]`) - Request Header Actions in the Action Set.
-                    * `header_name` (`pulumi.Input[str]`) - Header name of the header configuration.
-                    * `header_value` (`pulumi.Input[str]`) - Header value of the header configuration.
-
-                  * `response_header_configurations` (`pulumi.Input[list]`) - Response Header Actions in the Action Set.
-                  * `url_configuration` (`pulumi.Input[dict]`) - Url Configuration Action in the Action Set.
-                    * `modified_path` (`pulumi.Input[str]`) - Url path which user has provided for url rewrite. Null means no path will be updated. Default value is null.
-                    * `modified_query_string` (`pulumi.Input[str]`) - Query string which user has provided for url rewrite. Null means no query string will be updated. Default value is null.
-                    * `reroute` (`pulumi.Input[bool]`) - If set as true, it will re-evaluate the url path map provided in path based request routing rules using modified path. Default value is false.
-
-                * `conditions` (`pulumi.Input[list]`) - Conditions based on which the action set execution will be evaluated.
-                  * `ignore_case` (`pulumi.Input[bool]`) - Setting this paramter to truth value with force the pattern to do a case in-sensitive comparison.
-                  * `negate` (`pulumi.Input[bool]`) - Setting this value as truth will force to check the negation of the condition given by the user.
-                  * `pattern` (`pulumi.Input[str]`) - The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
-                  * `variable` (`pulumi.Input[str]`) - The condition parameter of the RewriteRuleCondition.
-
-                * `name` (`pulumi.Input[str]`) - Name of the rewrite rule that is unique within an Application Gateway.
-                * `rule_sequence` (`pulumi.Input[float]`) - Rule Sequence of the rewrite rule that determines the order of execution of a particular rule in a RewriteRuleSet.
-
-          * `sku` (`pulumi.Input[dict]`) - SKU of the application gateway resource.
-            * `capacity` (`pulumi.Input[float]`) - Capacity (instance count) of an application gateway.
-            * `name` (`pulumi.Input[str]`) - Name of an application gateway SKU.
-            * `tier` (`pulumi.Input[str]`) - Tier of an application gateway.
-
-          * `ssl_certificates` (`pulumi.Input[list]`) - SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the SSL certificate that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway SSL certificate.
-              * `data` (`pulumi.Input[str]`) - Base-64 encoded pfx certificate. Only applicable in PUT Request.
-              * `key_vault_secret_id` (`pulumi.Input[str]`) - Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
-              * `password` (`pulumi.Input[str]`) - Password for the pfx file specified in data. Only applicable in PUT request.
-
-          * `ssl_policy` (`pulumi.Input[dict]`) - SSL policy of the application gateway resource.
-            * `cipher_suites` (`pulumi.Input[list]`) - Ssl cipher suites to be enabled in the specified order to application gateway.
-            * `disabled_ssl_protocols` (`pulumi.Input[list]`) - Ssl protocols to be disabled on application gateway.
-            * `min_protocol_version` (`pulumi.Input[str]`) - Minimum version of Ssl protocol to be supported on application gateway.
-            * `policy_name` (`pulumi.Input[str]`) - Name of Ssl predefined policy.
-            * `policy_type` (`pulumi.Input[str]`) - Type of Ssl Policy.
-
-          * `trusted_root_certificates` (`pulumi.Input[list]`) - Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the trusted root certificate that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway trusted root certificate.
-              * `data` (`pulumi.Input[str]`) - Certificate public data.
-              * `key_vault_secret_id` (`pulumi.Input[str]`) - Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
-
-          * `url_path_maps` (`pulumi.Input[list]`) - URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the URL path map that is unique within an Application Gateway.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway URL path map.
-              * `default_backend_address_pool` (`pulumi.Input[dict]`) - Default backend address pool resource of URL path map.
-              * `default_backend_http_settings` (`pulumi.Input[dict]`) - Default backend http settings resource of URL path map.
-              * `default_redirect_configuration` (`pulumi.Input[dict]`) - Default redirect configuration resource of URL path map.
-              * `default_rewrite_rule_set` (`pulumi.Input[dict]`) - Default Rewrite rule set resource of URL path map.
-              * `path_rules` (`pulumi.Input[list]`) - Path rule of URL path map resource.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
-                * `name` (`pulumi.Input[str]`) - Name of the path rule that is unique within an Application Gateway.
-                * `properties` (`pulumi.Input[dict]`) - Properties of the application gateway path rule.
-                  * `backend_address_pool` (`pulumi.Input[dict]`) - Backend address pool resource of URL path map path rule.
-                  * `backend_http_settings` (`pulumi.Input[dict]`) - Backend http settings resource of URL path map path rule.
-                  * `firewall_policy` (`pulumi.Input[dict]`) - Reference to the FirewallPolicy resource.
-                  * `paths` (`pulumi.Input[list]`) - Path rules of URL path map.
-                  * `redirect_configuration` (`pulumi.Input[dict]`) - Redirect configuration resource of URL path map path rule.
-                  * `rewrite_rule_set` (`pulumi.Input[dict]`) - Rewrite rule set resource of URL path map path rule.
-
-          * `web_application_firewall_configuration` (`pulumi.Input[dict]`) - Web application firewall configuration.
-            * `disabled_rule_groups` (`pulumi.Input[list]`) - The disabled rule groups.
-              * `rule_group_name` (`pulumi.Input[str]`) - The name of the rule group that will be disabled.
-              * `rules` (`pulumi.Input[list]`) - The list of rules that will be disabled. If null, all rules of the rule group will be disabled.
-
-            * `enabled` (`pulumi.Input[bool]`) - Whether the web application firewall is enabled or not.
-            * `exclusions` (`pulumi.Input[list]`) - The exclusion list.
-              * `match_variable` (`pulumi.Input[str]`) - The variable to be excluded.
-              * `selector` (`pulumi.Input[str]`) - When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
-              * `selector_match_operator` (`pulumi.Input[str]`) - When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
-
-            * `file_upload_limit_in_mb` (`pulumi.Input[float]`) - Maximum file upload size in Mb for WAF.
-            * `firewall_mode` (`pulumi.Input[str]`) - Web application firewall mode.
-            * `max_request_body_size` (`pulumi.Input[float]`) - Maximum request body size for WAF.
-            * `max_request_body_size_in_kb` (`pulumi.Input[float]`) - Maximum request body size in Kb for WAF.
-            * `request_body_check` (`pulumi.Input[bool]`) - Whether allow WAF to check request Body.
-            * `rule_set_type` (`pulumi.Input[str]`) - The type of the web application firewall rule set. Possible values are: 'OWASP'.
-            * `rule_set_version` (`pulumi.Input[str]`) - The version of the rule set type.
+          * `file_upload_limit_in_mb` (`pulumi.Input[float]`) - Maximum file upload size in Mb for WAF.
+          * `firewall_mode` (`pulumi.Input[str]`) - Web application firewall mode.
+          * `max_request_body_size` (`pulumi.Input[float]`) - Maximum request body size for WAF.
+          * `max_request_body_size_in_kb` (`pulumi.Input[float]`) - Maximum request body size in Kb for WAF.
+          * `request_body_check` (`pulumi.Input[bool]`) - Whether allow WAF to check request Body.
+          * `rule_set_type` (`pulumi.Input[str]`) - The type of the web application firewall rule set. Possible values are: 'OWASP'.
+          * `rule_set_version` (`pulumi.Input[str]`) - The version of the rule set type.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -1025,19 +1047,43 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['authentication_certificates'] = authentication_certificates
+            __props__['autoscale_configuration'] = autoscale_configuration
+            __props__['backend_address_pools'] = backend_address_pools
+            __props__['backend_http_settings_collection'] = backend_http_settings_collection
+            __props__['custom_error_configurations'] = custom_error_configurations
+            __props__['enable_fips'] = enable_fips
+            __props__['enable_http2'] = enable_http2
+            __props__['firewall_policy'] = firewall_policy
+            __props__['force_firewall_policy_association'] = force_firewall_policy_association
+            __props__['frontend_ip_configurations'] = frontend_ip_configurations
+            __props__['frontend_ports'] = frontend_ports
+            __props__['gateway_ip_configurations'] = gateway_ip_configurations
+            __props__['http_listeners'] = http_listeners
             __props__['id'] = id
             __props__['identity'] = identity
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['private_link_configurations'] = private_link_configurations
+            __props__['probes'] = probes
+            __props__['redirect_configurations'] = redirect_configurations
+            __props__['request_routing_rules'] = request_routing_rules
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['rewrite_rule_sets'] = rewrite_rule_sets
+            __props__['sku'] = sku
+            __props__['ssl_certificates'] = ssl_certificates
+            __props__['ssl_policy'] = ssl_policy
             __props__['tags'] = tags
+            __props__['trusted_root_certificates'] = trusted_root_certificates
+            __props__['url_path_maps'] = url_path_maps
+            __props__['web_application_firewall_configuration'] = web_application_firewall_configuration
             __props__['zones'] = zones
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ApplicationGateway, __self__).__init__(
             'azurerm:network/v20200501:ApplicationGateway',

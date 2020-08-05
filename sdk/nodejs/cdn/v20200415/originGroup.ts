@@ -43,7 +43,7 @@ export class OriginGroup extends pulumi.CustomResource {
     /**
      * The JSON object that contains the properties of the origin group.
      */
-    public readonly properties!: pulumi.Output<outputs.cdn.v20200415.OriginGroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20200415.OriginGroupPropertiesResponse>;
     /**
      * Resource type.
      */
@@ -68,6 +68,9 @@ export class OriginGroup extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.origins === undefined) {
+                throw new Error("Missing required property 'origins'");
+            }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -75,10 +78,14 @@ export class OriginGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;
+            inputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["origins"] = args ? args.origins : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["responseBasedOriginErrorDetectionSettings"] = args ? args.responseBasedOriginErrorDetectionSettings : undefined;
+            inputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args ? args.trafficRestorationTimeToHealedOrNewEndpointsInMinutes : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,19 +108,31 @@ export interface OriginGroupArgs {
      */
     readonly endpointName: pulumi.Input<string>;
     /**
+     * Health probe settings to the origin that is used to determine the health of the origin.
+     */
+    readonly healthProbeSettings?: pulumi.Input<inputs.cdn.v20200415.HealthProbeParameters>;
+    /**
      * Name of the origin group which is unique within the endpoint.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * The source of the content being delivered via CDN within given origin group.
+     */
+    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20200415.ResourceReference>[]>;
     /**
      * Name of the CDN profile which is unique within the resource group.
      */
     readonly profileName: pulumi.Input<string>;
     /**
-     * The JSON object that contains the properties of the origin group.
-     */
-    readonly properties?: pulumi.Input<inputs.cdn.v20200415.OriginGroupProperties>;
-    /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+     */
+    readonly responseBasedOriginErrorDetectionSettings?: pulumi.Input<inputs.cdn.v20200415.ResponseBasedOriginErrorDetectionParameters>;
+    /**
+     * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+     */
+    readonly trafficRestorationTimeToHealedOrNewEndpointsInMinutes?: pulumi.Input<number>;
 }

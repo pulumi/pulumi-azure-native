@@ -42,27 +42,23 @@ class ElasticPool(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, server_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, database_dtu_max=None, database_dtu_min=None, dtu=None, edition=None, location=None, name=None, resource_group_name=None, server_name=None, storage_mb=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a database elastic pool.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] database_dtu_max: The maximum DTU any one database can consume.
+        :param pulumi.Input[float] database_dtu_min: The minimum DTU all databases are guaranteed.
+        :param pulumi.Input[float] dtu: The total shared DTU for the database elastic pool.
+        :param pulumi.Input[str] edition: The edition of the elastic pool.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the elastic pool to be operated on (updated or created).
-        :param pulumi.Input[dict] properties: The properties representing the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input[float] storage_mb: Gets storage limit for the database elastic pool in MB.
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `database_dtu_max` (`pulumi.Input[float]`) - The maximum DTU any one database can consume.
-          * `database_dtu_min` (`pulumi.Input[float]`) - The minimum DTU all databases are guaranteed.
-          * `dtu` (`pulumi.Input[float]`) - The total shared DTU for the database elastic pool.
-          * `edition` (`pulumi.Input[str]`) - The edition of the elastic pool.
-          * `storage_mb` (`pulumi.Input[float]`) - Gets storage limit for the database elastic pool in MB.
-          * `zone_redundant` (`pulumi.Input[bool]`) - Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,21 +77,27 @@ class ElasticPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['database_dtu_max'] = database_dtu_max
+            __props__['database_dtu_min'] = database_dtu_min
+            __props__['dtu'] = dtu
+            __props__['edition'] = edition
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if server_name is None:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
+            __props__['storage_mb'] = storage_mb
             __props__['tags'] = tags
+            __props__['zone_redundant'] = zone_redundant
             __props__['kind'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ElasticPool, __self__).__init__(
             'azurerm:sql/v20140401:ElasticPool',

@@ -47,7 +47,7 @@ export class WebAppSourceControl extends pulumi.CustomResource {
     /**
      * SiteSourceControl resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20160801.SiteSourceControlResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.SiteSourceControlResponseProperties>;
     /**
      * Resource type.
      */
@@ -72,10 +72,15 @@ export class WebAppSourceControl extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["branch"] = args ? args.branch : undefined;
+            inputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
+            inputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
+            inputs["isMercurial"] = args ? args.isMercurial : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["repoUrl"] = args ? args.repoUrl : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -94,6 +99,22 @@ export class WebAppSourceControl extends pulumi.CustomResource {
  */
 export interface WebAppSourceControlArgs {
     /**
+     * Name of branch to use for deployment.
+     */
+    readonly branch?: pulumi.Input<string>;
+    /**
+     * <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+     */
+    readonly deploymentRollbackEnabled?: pulumi.Input<boolean>;
+    /**
+     * <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+     */
+    readonly isManualIntegration?: pulumi.Input<boolean>;
+    /**
+     * <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
+     */
+    readonly isMercurial?: pulumi.Input<boolean>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -102,9 +123,9 @@ export interface WebAppSourceControlArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * SiteSourceControl resource specific properties
+     * Repository or source control URL.
      */
-    readonly properties?: pulumi.Input<inputs.web.v20160801.SiteSourceControlProperties>;
+    readonly repoUrl?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

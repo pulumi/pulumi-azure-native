@@ -102,10 +102,10 @@ type networkSecurityGroupArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the network security group.
 	Name string `pulumi:"name"`
-	// Properties of the network security group.
-	Properties *NetworkSecurityGroupPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A collection of security rules of the network security group.
+	SecurityRules []SecurityRuleType `pulumi:"securityRules"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -118,10 +118,10 @@ type NetworkSecurityGroupArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the network security group.
 	Name pulumi.StringInput
-	// Properties of the network security group.
-	Properties NetworkSecurityGroupPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// A collection of security rules of the network security group.
+	SecurityRules SecurityRuleTypeArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

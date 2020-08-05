@@ -22,6 +22,12 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// Issuer
+        /// </summary>
+        [Input("issuer")]
+        public Input<string>? Issuer { get; set; }
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Input("kind")]
@@ -39,8 +45,41 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("properties")]
-        public Input<Inputs.CertificateDetailsPropertiesArgs>? Properties { get; set; }
+        /// <summary>
+        /// Valid to
+        /// </summary>
+        [Input("notAfter")]
+        public Input<string>? NotAfter { get; set; }
+
+        /// <summary>
+        /// Valid from
+        /// </summary>
+        [Input("notBefore")]
+        public Input<string>? NotBefore { get; set; }
+
+        /// <summary>
+        /// Raw certificate data
+        /// </summary>
+        [Input("rawData")]
+        public Input<string>? RawData { get; set; }
+
+        /// <summary>
+        /// Serial Number
+        /// </summary>
+        [Input("serialNumber")]
+        public Input<string>? SerialNumber { get; set; }
+
+        /// <summary>
+        /// Signature Algorithm
+        /// </summary>
+        [Input("signatureAlgorithm")]
+        public Input<string>? SignatureAlgorithm { get; set; }
+
+        /// <summary>
+        /// Subject
+        /// </summary>
+        [Input("subject")]
+        public Input<string>? Subject { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -55,10 +94,22 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Inputs
         }
 
         /// <summary>
+        /// Thumbprint
+        /// </summary>
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
+
+        /// <summary>
         /// Resource type
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Version
+        /// </summary>
+        [Input("version")]
+        public Input<int>? Version { get; set; }
 
         public CertificateDetailsArgs()
         {

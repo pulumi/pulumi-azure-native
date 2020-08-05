@@ -47,7 +47,7 @@ export class Hub extends pulumi.CustomResource {
     /**
      * Properties of hub.
      */
-    public readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.HubPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.HubPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -76,11 +76,13 @@ export class Hub extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["hubBillingInfo"] = args ? args.hubBillingInfo : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tenantFeatures"] = args ? args.tenantFeatures : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,6 +101,10 @@ export class Hub extends pulumi.CustomResource {
  */
 export interface HubArgs {
     /**
+     * Billing settings of the hub.
+     */
+    readonly hubBillingInfo?: pulumi.Input<inputs.customerinsights.v20170426.HubBillingInfoFormat>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -107,10 +113,6 @@ export interface HubArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of hub.
-     */
-    readonly properties?: pulumi.Input<inputs.customerinsights.v20170426.HubPropertiesFormat>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -118,4 +120,8 @@ export interface HubArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+     */
+    readonly tenantFeatures?: pulumi.Input<number>;
 }

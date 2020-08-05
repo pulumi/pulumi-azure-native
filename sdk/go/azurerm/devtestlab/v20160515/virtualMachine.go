@@ -35,9 +35,6 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -96,34 +93,150 @@ func (VirtualMachineState) ElementType() reflect.Type {
 }
 
 type virtualMachineArgs struct {
+	// Indicates whether another user can take ownership of the virtual machine
+	AllowClaim *bool `pulumi:"allowClaim"`
+	// The applicable schedule for the virtual machine.
+	ApplicableSchedule *ApplicableSchedule `pulumi:"applicableSchedule"`
+	// The artifact deployment status for the virtual machine.
+	ArtifactDeploymentStatus *ArtifactDeploymentStatusProperties `pulumi:"artifactDeploymentStatus"`
+	// The artifacts to be installed on the virtual machine.
+	Artifacts []ArtifactInstallProperties `pulumi:"artifacts"`
+	// The compute virtual machine properties.
+	ComputeVm *ComputeVmProperties `pulumi:"computeVm"`
+	// The email address of creator of the virtual machine.
+	CreatedByUser *string `pulumi:"createdByUser"`
+	// The object identifier of the creator of the virtual machine.
+	CreatedByUserId *string `pulumi:"createdByUserId"`
+	// The creation date of the virtual machine.
+	CreatedDate *string `pulumi:"createdDate"`
+	// The custom image identifier of the virtual machine.
+	CustomImageId *string `pulumi:"customImageId"`
+	// Indicates whether the virtual machine is to be created without a public IP address.
+	DisallowPublicIpAddress *bool `pulumi:"disallowPublicIpAddress"`
+	// The resource ID of the environment that contains this virtual machine, if any.
+	EnvironmentId *string `pulumi:"environmentId"`
+	// The expiration date for VM.
+	ExpirationDate *string `pulumi:"expirationDate"`
+	// The fully-qualified domain name of the virtual machine.
+	Fqdn *string `pulumi:"fqdn"`
+	// The Microsoft Azure Marketplace image reference of the virtual machine.
+	GalleryImageReference *GalleryImageReference `pulumi:"galleryImageReference"`
+	// Indicates whether this virtual machine uses an SSH key for authentication.
+	IsAuthenticationWithSshKey *bool `pulumi:"isAuthenticationWithSshKey"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
+	// The lab subnet name of the virtual machine.
+	LabSubnetName *string `pulumi:"labSubnetName"`
+	// The lab virtual network identifier of the virtual machine.
+	LabVirtualNetworkId *string `pulumi:"labVirtualNetworkId"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the virtual machine.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties LabVirtualMachineProperties `pulumi:"properties"`
+	// The network interface properties.
+	NetworkInterface *NetworkInterfaceProperties `pulumi:"networkInterface"`
+	// The notes of the virtual machine.
+	Notes *string `pulumi:"notes"`
+	// The OS type of the virtual machine.
+	OsType *string `pulumi:"osType"`
+	// The object identifier of the owner of the virtual machine.
+	OwnerObjectId *string `pulumi:"ownerObjectId"`
+	// The user principal name of the virtual machine owner.
+	OwnerUserPrincipalName *string `pulumi:"ownerUserPrincipalName"`
+	// The password of the virtual machine administrator.
+	Password *string `pulumi:"password"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The size of the virtual machine.
+	Size *string `pulumi:"size"`
+	// The SSH key of the virtual machine administrator.
+	SshKey *string `pulumi:"sshKey"`
+	// Storage type to use for virtual machine (i.e. Standard, Premium).
+	StorageType *string `pulumi:"storageType"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// The user name of the virtual machine.
+	UserName *string `pulumi:"userName"`
+	// Tells source of creation of lab virtual machine. Output property only.
+	VirtualMachineCreationSource *string `pulumi:"virtualMachineCreationSource"`
 }
 
 // The set of arguments for constructing a VirtualMachine resource.
 type VirtualMachineArgs struct {
+	// Indicates whether another user can take ownership of the virtual machine
+	AllowClaim pulumi.BoolPtrInput
+	// The applicable schedule for the virtual machine.
+	ApplicableSchedule ApplicableSchedulePtrInput
+	// The artifact deployment status for the virtual machine.
+	ArtifactDeploymentStatus ArtifactDeploymentStatusPropertiesPtrInput
+	// The artifacts to be installed on the virtual machine.
+	Artifacts ArtifactInstallPropertiesArrayInput
+	// The compute virtual machine properties.
+	ComputeVm ComputeVmPropertiesPtrInput
+	// The email address of creator of the virtual machine.
+	CreatedByUser pulumi.StringPtrInput
+	// The object identifier of the creator of the virtual machine.
+	CreatedByUserId pulumi.StringPtrInput
+	// The creation date of the virtual machine.
+	CreatedDate pulumi.StringPtrInput
+	// The custom image identifier of the virtual machine.
+	CustomImageId pulumi.StringPtrInput
+	// Indicates whether the virtual machine is to be created without a public IP address.
+	DisallowPublicIpAddress pulumi.BoolPtrInput
+	// The resource ID of the environment that contains this virtual machine, if any.
+	EnvironmentId pulumi.StringPtrInput
+	// The expiration date for VM.
+	ExpirationDate pulumi.StringPtrInput
+	// The fully-qualified domain name of the virtual machine.
+	Fqdn pulumi.StringPtrInput
+	// The Microsoft Azure Marketplace image reference of the virtual machine.
+	GalleryImageReference GalleryImageReferencePtrInput
+	// Indicates whether this virtual machine uses an SSH key for authentication.
+	IsAuthenticationWithSshKey pulumi.BoolPtrInput
 	// The name of the lab.
 	LabName pulumi.StringInput
+	// The lab subnet name of the virtual machine.
+	LabSubnetName pulumi.StringPtrInput
+	// The lab virtual network identifier of the virtual machine.
+	LabVirtualNetworkId pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the virtual machine.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties LabVirtualMachinePropertiesInput
+	// The network interface properties.
+	NetworkInterface NetworkInterfacePropertiesPtrInput
+	// The notes of the virtual machine.
+	Notes pulumi.StringPtrInput
+	// The OS type of the virtual machine.
+	OsType pulumi.StringPtrInput
+	// The object identifier of the owner of the virtual machine.
+	OwnerObjectId pulumi.StringPtrInput
+	// The user principal name of the virtual machine owner.
+	OwnerUserPrincipalName pulumi.StringPtrInput
+	// The password of the virtual machine administrator.
+	Password pulumi.StringPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The size of the virtual machine.
+	Size pulumi.StringPtrInput
+	// The SSH key of the virtual machine administrator.
+	SshKey pulumi.StringPtrInput
+	// Storage type to use for virtual machine (i.e. Standard, Premium).
+	StorageType pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
+	// The user name of the virtual machine.
+	UserName pulumi.StringPtrInput
+	// Tells source of creation of lab virtual machine. Output property only.
+	VirtualMachineCreationSource pulumi.StringPtrInput
 }
 
 func (VirtualMachineArgs) ElementType() reflect.Type {

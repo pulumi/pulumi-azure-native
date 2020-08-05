@@ -47,7 +47,7 @@ export class IntegrationAccount extends pulumi.CustomResource {
     /**
      * The integration account properties.
      */
-    public readonly properties!: pulumi.Output<outputs.logic.v20190501.IntegrationAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20190501.IntegrationAccountPropertiesResponse>;
     /**
      * The sku.
      */
@@ -80,12 +80,14 @@ export class IntegrationAccount extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["integrationServiceEnvironment"] = args ? args.integrationServiceEnvironment : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,6 +106,10 @@ export class IntegrationAccount extends pulumi.CustomResource {
  */
 export interface IntegrationAccountArgs {
     /**
+     * The integration service environment.
+     */
+    readonly integrationServiceEnvironment?: pulumi.Input<inputs.logic.v20190501.IntegrationServiceEnvironment>;
+    /**
      * The resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -112,10 +118,6 @@ export interface IntegrationAccountArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The integration account properties.
-     */
-    readonly properties?: pulumi.Input<inputs.logic.v20190501.IntegrationAccountProperties>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -123,6 +125,10 @@ export interface IntegrationAccountArgs {
      * The sku.
      */
     readonly sku?: pulumi.Input<inputs.logic.v20190501.IntegrationAccountSku>;
+    /**
+     * The workflow state.
+     */
+    readonly state?: pulumi.Input<string>;
     /**
      * The resource tags.
      */

@@ -26,23 +26,19 @@ class Route(pulumi.CustomResource):
       * `next_hop_type` (`str`) - The type of Azure hop the packet should be sent to.
       * `provisioning_state` (`str`) - The provisioning state of the route resource.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, route_table_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, address_prefix=None, id=None, name=None, next_hop_ip_address=None, next_hop_type=None, resource_group_name=None, route_table_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Route resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the route.
-        :param pulumi.Input[dict] properties: Properties of the route.
+        :param pulumi.Input[str] next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        :param pulumi.Input[str] next_hop_type: The type of Azure hop the packet should be sent to.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] route_table_name: The name of the route table.
-
-        The **properties** object supports the following:
-
-          * `address_prefix` (`pulumi.Input[str]`) - The destination CIDR to which the route applies.
-          * `next_hop_ip_address` (`pulumi.Input[str]`) - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-          * `next_hop_type` (`pulumi.Input[str]`) - The type of Azure hop the packet should be sent to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,11 +57,15 @@ class Route(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['address_prefix'] = address_prefix
             __props__['id'] = id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['next_hop_ip_address'] = next_hop_ip_address
+            if next_hop_type is None:
+                raise TypeError("Missing required property 'next_hop_type'")
+            __props__['next_hop_type'] = next_hop_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -73,6 +73,7 @@ class Route(pulumi.CustomResource):
                 raise TypeError("Missing required property 'route_table_name'")
             __props__['route_table_name'] = route_table_name
             __props__['etag'] = None
+            __props__['properties'] = None
         super(Route, __self__).__init__(
             'azurerm:network/v20191201:Route',
             resource_name,

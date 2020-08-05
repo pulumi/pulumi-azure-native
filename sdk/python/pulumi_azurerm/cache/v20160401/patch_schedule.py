@@ -30,22 +30,21 @@ class PatchSchedule(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, schedule_entries=None, __props__=None, __name__=None, __opts__=None):
         """
         Response to put/get patch schedules for Redis cache.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Redis cache.
-        :param pulumi.Input[dict] properties: List of patch schedules for a Redis cache.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] schedule_entries: List of patch schedules for a Redis cache.
 
-        The **properties** object supports the following:
+        The **schedule_entries** object supports the following:
 
-          * `schedule_entries` (`pulumi.Input[list]`) - List of patch schedules for a Redis cache.
-            * `day_of_week` (`pulumi.Input[str]`) - Day of the week when a cache can be patched.
-            * `maintenance_window` (`pulumi.Input[str]`) - ISO8601 timespan specifying how much time cache patching can take. 
-            * `start_hour_utc` (`pulumi.Input[float]`) - Start hour after which cache patching can start.
+          * `day_of_week` (`pulumi.Input[str]`) - Day of the week when a cache can be patched.
+          * `maintenance_window` (`pulumi.Input[str]`) - ISO8601 timespan specifying how much time cache patching can take. 
+          * `start_hour_utc` (`pulumi.Input[float]`) - Start hour after which cache patching can start.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,13 +66,14 @@ class PatchSchedule(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if schedule_entries is None:
+                raise TypeError("Missing required property 'schedule_entries'")
+            __props__['schedule_entries'] = schedule_entries
             __props__['location'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(PatchSchedule, __self__).__init__(
             'azurerm:cache/v20160401:PatchSchedule',

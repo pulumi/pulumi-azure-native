@@ -22,16 +22,34 @@ namespace Pulumi.AzureRM.Network.V20190401.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// The number of seconds between health probes.
+        /// </summary>
+        [Input("intervalInSeconds")]
+        public Input<int>? IntervalInSeconds { get; set; }
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the health probe settings
+        /// The path to use for the health probe. Default is /
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.HealthProbeSettingsPropertiesArgs>? Properties { get; set; }
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
+        /// Protocol scheme to use for this probe
+        /// </summary>
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// Resource status.
+        /// </summary>
+        [Input("resourceState")]
+        public Input<string>? ResourceState { get; set; }
 
         public HealthProbeSettingsModelArgs()
         {

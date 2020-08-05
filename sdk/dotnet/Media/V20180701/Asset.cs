@@ -84,22 +84,40 @@ namespace Pulumi.AzureRM.Media.V20180701
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The alternate ID of the Asset.
+        /// </summary>
+        [Input("alternateId")]
+        public Input<string>? AlternateId { get; set; }
+
+        /// <summary>
+        /// The name of the asset blob container.
+        /// </summary>
+        [Input("container")]
+        public Input<string>? Container { get; set; }
+
+        /// <summary>
+        /// The Asset description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The Asset name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The resource properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AssetPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the storage account.
+        /// </summary>
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         public AssetArgs()
         {

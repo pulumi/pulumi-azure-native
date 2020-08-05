@@ -42,36 +42,36 @@ class Link(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, hub_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, hub_name=None, mappings=None, name=None, operation_type=None, participant_property_references=None, reference_only=None, resource_group_name=None, source_entity_type=None, source_entity_type_name=None, target_entity_type=None, target_entity_type_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The link resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] description: Localized descriptions for the Link.
+        :param pulumi.Input[dict] display_name: Localized display name for the Link.
         :param pulumi.Input[str] hub_name: The name of the hub.
+        :param pulumi.Input[list] mappings: The set of properties mappings between the source and target Types.
         :param pulumi.Input[str] name: The name of the link.
-        :param pulumi.Input[dict] properties: The definition of Link.
+        :param pulumi.Input[str] operation_type: Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
+        :param pulumi.Input[list] participant_property_references: The properties that represent the participating profile.
+        :param pulumi.Input[bool] reference_only: Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] source_entity_type: Type of source entity.
+        :param pulumi.Input[str] source_entity_type_name: Name of the source Entity Type.
+        :param pulumi.Input[str] target_entity_type: Type of target entity.
+        :param pulumi.Input[str] target_entity_type_name: Name of the target Entity Type.
 
-        The **properties** object supports the following:
+        The **mappings** object supports the following:
 
-          * `description` (`pulumi.Input[dict]`) - Localized descriptions for the Link.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display name for the Link.
-          * `mappings` (`pulumi.Input[list]`) - The set of properties mappings between the source and target Types.
-            * `link_type` (`pulumi.Input[str]`) - Link type.
-            * `source_property_name` (`pulumi.Input[str]`) -  Property name on the source Entity Type.
-            * `target_property_name` (`pulumi.Input[str]`) - Property name on the target Entity Type.
+          * `link_type` (`pulumi.Input[str]`) - Link type.
+          * `source_property_name` (`pulumi.Input[str]`) -  Property name on the source Entity Type.
+          * `target_property_name` (`pulumi.Input[str]`) - Property name on the target Entity Type.
 
-          * `operation_type` (`pulumi.Input[str]`) - Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-          * `participant_property_references` (`pulumi.Input[list]`) - The properties that represent the participating profile.
-            * `source_property_name` (`pulumi.Input[str]`) - The source property that maps to the target property.
-            * `target_property_name` (`pulumi.Input[str]`) - The target property that maps to the source property.
+        The **participant_property_references** object supports the following:
 
-          * `reference_only` (`pulumi.Input[bool]`) - Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
-          * `source_entity_type` (`pulumi.Input[str]`) - Type of source entity.
-          * `source_entity_type_name` (`pulumi.Input[str]`) - Name of the source Entity Type.
-          * `target_entity_type` (`pulumi.Input[str]`) - Type of target entity.
-          * `target_entity_type_name` (`pulumi.Input[str]`) - Name of the target Entity Type.
+          * `source_property_name` (`pulumi.Input[str]`) - The source property that maps to the target property.
+          * `target_property_name` (`pulumi.Input[str]`) - The target property that maps to the source property.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,16 +90,36 @@ class Link(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['display_name'] = display_name
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
+            __props__['mappings'] = mappings
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['operation_type'] = operation_type
+            if participant_property_references is None:
+                raise TypeError("Missing required property 'participant_property_references'")
+            __props__['participant_property_references'] = participant_property_references
+            __props__['reference_only'] = reference_only
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if source_entity_type is None:
+                raise TypeError("Missing required property 'source_entity_type'")
+            __props__['source_entity_type'] = source_entity_type
+            if source_entity_type_name is None:
+                raise TypeError("Missing required property 'source_entity_type_name'")
+            __props__['source_entity_type_name'] = source_entity_type_name
+            if target_entity_type is None:
+                raise TypeError("Missing required property 'target_entity_type'")
+            __props__['target_entity_type'] = target_entity_type
+            if target_entity_type_name is None:
+                raise TypeError("Missing required property 'target_entity_type_name'")
+            __props__['target_entity_type_name'] = target_entity_type_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Link, __self__).__init__(
             'azurerm:customerinsights/v20170426:Link',

@@ -55,7 +55,7 @@ export class ApiManagementService extends pulumi.CustomResource {
     /**
      * Properties of the API Management service.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.ApiManagementServicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.ApiManagementServicePropertiesResponse>;
     /**
      * SKU properties of the API Management service.
      */
@@ -88,8 +88,11 @@ export class ApiManagementService extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.publisherEmail === undefined) {
+                throw new Error("Missing required property 'publisherEmail'");
+            }
+            if (!args || args.publisherName === undefined) {
+                throw new Error("Missing required property 'publisherName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -97,14 +100,23 @@ export class ApiManagementService extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
+            inputs["certificates"] = args ? args.certificates : undefined;
+            inputs["customProperties"] = args ? args.customProperties : undefined;
+            inputs["hostnameConfigurations"] = args ? args.hostnameConfigurations : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
+            inputs["publisherEmail"] = args ? args.publisherEmail : undefined;
+            inputs["publisherName"] = args ? args.publisherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
+            inputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -123,6 +135,22 @@ export class ApiManagementService extends pulumi.CustomResource {
  */
 export interface ApiManagementServiceArgs {
     /**
+     * Additional datacenter locations of the API Management service.
+     */
+    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20170301.AdditionalLocation>[]>;
+    /**
+     * List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+     */
+    readonly certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20170301.CertificateConfiguration>[]>;
+    /**
+     * Custom properties of the API Management service. Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2). Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1 and setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.
+     */
+    readonly customProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Custom hostname configuration of the API Management service.
+     */
+    readonly hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20170301.HostnameConfiguration>[]>;
+    /**
      * Managed service identity of the Api Management service.
      */
     readonly identity?: pulumi.Input<inputs.apimanagement.v20170301.ApiManagementServiceIdentity>;
@@ -135,9 +163,17 @@ export interface ApiManagementServiceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the API Management service.
+     * Email address from which the notification will be sent.
      */
-    readonly properties: pulumi.Input<inputs.apimanagement.v20170301.ApiManagementServiceProperties>;
+    readonly notificationSenderEmail?: pulumi.Input<string>;
+    /**
+     * Publisher email.
+     */
+    readonly publisherEmail: pulumi.Input<string>;
+    /**
+     * Publisher name.
+     */
+    readonly publisherName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -150,4 +186,12 @@ export interface ApiManagementServiceArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Virtual network configuration of the API Management service.
+     */
+    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.v20170301.VirtualNetworkConfiguration>;
+    /**
+     * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+     */
+    readonly virtualNetworkType?: pulumi.Input<string>;
 }

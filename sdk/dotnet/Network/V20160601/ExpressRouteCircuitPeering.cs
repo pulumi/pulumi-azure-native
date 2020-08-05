@@ -75,6 +75,12 @@ namespace Pulumi.AzureRM.Network.V20160601
     public sealed class ExpressRouteCircuitPeeringArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets the azure ASN
+        /// </summary>
+        [Input("azureASN")]
+        public Input<int>? AzureASN { get; set; }
+
+        /// <summary>
         /// The name of the express route circuit.
         /// </summary>
         [Input("circuitName", required: true)]
@@ -87,10 +93,28 @@ namespace Pulumi.AzureRM.Network.V20160601
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// Gets or sets the GatewayManager Etag
+        /// </summary>
+        [Input("gatewayManagerEtag")]
+        public Input<string>? GatewayManagerEtag { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Gets whether the provider or the customer last modified the peering
+        /// </summary>
+        [Input("lastModifiedBy")]
+        public Input<string>? LastModifiedBy { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Microsoft peering config
+        /// </summary>
+        [Input("microsoftPeeringConfig")]
+        public Input<Inputs.ExpressRouteCircuitPeeringConfigArgs>? MicrosoftPeeringConfig { get; set; }
 
         /// <summary>
         /// The name of the peering.
@@ -98,14 +122,77 @@ namespace Pulumi.AzureRM.Network.V20160601
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.ExpressRouteCircuitPeeringPropertiesFormatArgs>? Properties { get; set; }
+        /// <summary>
+        /// Gets or sets the peer ASN
+        /// </summary>
+        [Input("peerASN")]
+        public Input<int>? PeerASN { get; set; }
+
+        /// <summary>
+        /// Gets or sets PeeringType
+        /// </summary>
+        [Input("peeringType")]
+        public Input<string>? PeeringType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the primary port
+        /// </summary>
+        [Input("primaryAzurePort")]
+        public Input<string>? PrimaryAzurePort { get; set; }
+
+        /// <summary>
+        /// Gets or sets the primary address prefix
+        /// </summary>
+        [Input("primaryPeerAddressPrefix")]
+        public Input<string>? PrimaryPeerAddressPrefix { get; set; }
+
+        /// <summary>
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the secondary port
+        /// </summary>
+        [Input("secondaryAzurePort")]
+        public Input<string>? SecondaryAzurePort { get; set; }
+
+        /// <summary>
+        /// Gets or sets the secondary address prefix
+        /// </summary>
+        [Input("secondaryPeerAddressPrefix")]
+        public Input<string>? SecondaryPeerAddressPrefix { get; set; }
+
+        /// <summary>
+        /// Gets or sets the shared key
+        /// </summary>
+        [Input("sharedKey")]
+        public Input<string>? SharedKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets state of Peering
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// Gets or peering stats
+        /// </summary>
+        [Input("stats")]
+        public Input<Inputs.ExpressRouteCircuitStatsArgs>? Stats { get; set; }
+
+        /// <summary>
+        /// Gets or sets the vlan id
+        /// </summary>
+        [Input("vlanId")]
+        public Input<int>? VlanId { get; set; }
 
         public ExpressRouteCircuitPeeringArgs()
         {

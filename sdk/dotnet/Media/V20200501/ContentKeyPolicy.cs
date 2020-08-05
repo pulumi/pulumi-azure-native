@@ -84,16 +84,28 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// A description for the Policy.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The Content Key Policy name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("options", required: true)]
+        private InputList<Inputs.ContentKeyPolicyOptionArgs>? _options;
+
         /// <summary>
-        /// The properties of the Content Key Policy.
+        /// The Key Policy options.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ContentKeyPolicyPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.ContentKeyPolicyOptionArgs> Options
+        {
+            get => _options ?? (_options = new InputList<Inputs.ContentKeyPolicyOptionArgs>());
+            set => _options = value;
+        }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

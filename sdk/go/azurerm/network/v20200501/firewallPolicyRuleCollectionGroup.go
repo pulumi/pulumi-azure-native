@@ -93,10 +93,12 @@ type firewallPolicyRuleCollectionGroupArgs struct {
 	Id *string `pulumi:"id"`
 	// The name of the FirewallPolicyRuleCollectionGroup.
 	Name string `pulumi:"name"`
-	// The properties of the firewall policy rule collection group.
-	Properties *FirewallPolicyRuleCollectionGroupProperties `pulumi:"properties"`
+	// Priority of the Firewall Policy Rule Collection Group resource.
+	Priority *int `pulumi:"priority"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Group of Firewall Policy rule collections.
+	RuleCollections []FirewallPolicyRuleCollection `pulumi:"ruleCollections"`
 }
 
 // The set of arguments for constructing a FirewallPolicyRuleCollectionGroup resource.
@@ -107,10 +109,12 @@ type FirewallPolicyRuleCollectionGroupArgs struct {
 	Id pulumi.StringPtrInput
 	// The name of the FirewallPolicyRuleCollectionGroup.
 	Name pulumi.StringInput
-	// The properties of the firewall policy rule collection group.
-	Properties FirewallPolicyRuleCollectionGroupPropertiesPtrInput
+	// Priority of the Firewall Policy Rule Collection Group resource.
+	Priority pulumi.IntPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Group of Firewall Policy rule collections.
+	RuleCollections FirewallPolicyRuleCollectionArrayInput
 }
 
 func (FirewallPolicyRuleCollectionGroupArgs) ElementType() reflect.Type {

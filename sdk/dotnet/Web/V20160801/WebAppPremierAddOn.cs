@@ -108,22 +108,40 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Add-on name.
+        /// Premier add on Marketplace offer.
+        /// </summary>
+        [Input("marketplaceOffer")]
+        public Input<string>? MarketplaceOffer { get; set; }
+
+        /// <summary>
+        /// Premier add on Marketplace publisher.
+        /// </summary>
+        [Input("marketplacePublisher")]
+        public Input<string>? MarketplacePublisher { get; set; }
+
+        /// <summary>
+        /// Premier add on Name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// PremierAddOn resource specific properties
+        /// Premier add on Product.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PremierAddOnPropertiesArgs>? Properties { get; set; }
+        [Input("product")]
+        public Input<string>? Product { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Premier add on SKU.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -136,6 +154,12 @@ namespace Pulumi.AzureRM.Web.V20160801
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Premier add on Vendor.
+        /// </summary>
+        [Input("vendor")]
+        public Input<string>? Vendor { get; set; }
 
         public WebAppPremierAddOnArgs()
         {

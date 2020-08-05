@@ -120,159 +120,6 @@ func (o ConfigurationStoreTypeOutput) Type() pulumi.StringOutput {
 }
 
 // The properties of a configuration store.
-type ConfigurationStoreProperties struct {
-	// The encryption settings of the configuration store.
-	Encryption *EncryptionProperties `pulumi:"encryption"`
-	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-}
-
-// ConfigurationStorePropertiesInput is an input type that accepts ConfigurationStorePropertiesArgs and ConfigurationStorePropertiesOutput values.
-// You can construct a concrete instance of `ConfigurationStorePropertiesInput` via:
-//
-//          ConfigurationStorePropertiesArgs{...}
-type ConfigurationStorePropertiesInput interface {
-	pulumi.Input
-
-	ToConfigurationStorePropertiesOutput() ConfigurationStorePropertiesOutput
-	ToConfigurationStorePropertiesOutputWithContext(context.Context) ConfigurationStorePropertiesOutput
-}
-
-// The properties of a configuration store.
-type ConfigurationStorePropertiesArgs struct {
-	// The encryption settings of the configuration store.
-	Encryption EncryptionPropertiesPtrInput `pulumi:"encryption"`
-	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-}
-
-func (ConfigurationStorePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStoreProperties)(nil)).Elem()
-}
-
-func (i ConfigurationStorePropertiesArgs) ToConfigurationStorePropertiesOutput() ConfigurationStorePropertiesOutput {
-	return i.ToConfigurationStorePropertiesOutputWithContext(context.Background())
-}
-
-func (i ConfigurationStorePropertiesArgs) ToConfigurationStorePropertiesOutputWithContext(ctx context.Context) ConfigurationStorePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePropertiesOutput)
-}
-
-func (i ConfigurationStorePropertiesArgs) ToConfigurationStorePropertiesPtrOutput() ConfigurationStorePropertiesPtrOutput {
-	return i.ToConfigurationStorePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationStorePropertiesArgs) ToConfigurationStorePropertiesPtrOutputWithContext(ctx context.Context) ConfigurationStorePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePropertiesOutput).ToConfigurationStorePropertiesPtrOutputWithContext(ctx)
-}
-
-// ConfigurationStorePropertiesPtrInput is an input type that accepts ConfigurationStorePropertiesArgs, ConfigurationStorePropertiesPtr and ConfigurationStorePropertiesPtrOutput values.
-// You can construct a concrete instance of `ConfigurationStorePropertiesPtrInput` via:
-//
-//          ConfigurationStorePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ConfigurationStorePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToConfigurationStorePropertiesPtrOutput() ConfigurationStorePropertiesPtrOutput
-	ToConfigurationStorePropertiesPtrOutputWithContext(context.Context) ConfigurationStorePropertiesPtrOutput
-}
-
-type configurationStorePropertiesPtrType ConfigurationStorePropertiesArgs
-
-func ConfigurationStorePropertiesPtr(v *ConfigurationStorePropertiesArgs) ConfigurationStorePropertiesPtrInput {
-	return (*configurationStorePropertiesPtrType)(v)
-}
-
-func (*configurationStorePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationStoreProperties)(nil)).Elem()
-}
-
-func (i *configurationStorePropertiesPtrType) ToConfigurationStorePropertiesPtrOutput() ConfigurationStorePropertiesPtrOutput {
-	return i.ToConfigurationStorePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *configurationStorePropertiesPtrType) ToConfigurationStorePropertiesPtrOutputWithContext(ctx context.Context) ConfigurationStorePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStorePropertiesPtrOutput)
-}
-
-// The properties of a configuration store.
-type ConfigurationStorePropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationStorePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStoreProperties)(nil)).Elem()
-}
-
-func (o ConfigurationStorePropertiesOutput) ToConfigurationStorePropertiesOutput() ConfigurationStorePropertiesOutput {
-	return o
-}
-
-func (o ConfigurationStorePropertiesOutput) ToConfigurationStorePropertiesOutputWithContext(ctx context.Context) ConfigurationStorePropertiesOutput {
-	return o
-}
-
-func (o ConfigurationStorePropertiesOutput) ToConfigurationStorePropertiesPtrOutput() ConfigurationStorePropertiesPtrOutput {
-	return o.ToConfigurationStorePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationStorePropertiesOutput) ToConfigurationStorePropertiesPtrOutputWithContext(ctx context.Context) ConfigurationStorePropertiesPtrOutput {
-	return o.ApplyT(func(v ConfigurationStoreProperties) *ConfigurationStoreProperties {
-		return &v
-	}).(ConfigurationStorePropertiesPtrOutput)
-}
-
-// The encryption settings of the configuration store.
-func (o ConfigurationStorePropertiesOutput) Encryption() EncryptionPropertiesPtrOutput {
-	return o.ApplyT(func(v ConfigurationStoreProperties) *EncryptionProperties { return v.Encryption }).(EncryptionPropertiesPtrOutput)
-}
-
-// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-func (o ConfigurationStorePropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationStoreProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
-}
-
-type ConfigurationStorePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationStorePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationStoreProperties)(nil)).Elem()
-}
-
-func (o ConfigurationStorePropertiesPtrOutput) ToConfigurationStorePropertiesPtrOutput() ConfigurationStorePropertiesPtrOutput {
-	return o
-}
-
-func (o ConfigurationStorePropertiesPtrOutput) ToConfigurationStorePropertiesPtrOutputWithContext(ctx context.Context) ConfigurationStorePropertiesPtrOutput {
-	return o
-}
-
-func (o ConfigurationStorePropertiesPtrOutput) Elem() ConfigurationStorePropertiesOutput {
-	return o.ApplyT(func(v *ConfigurationStoreProperties) ConfigurationStoreProperties { return *v }).(ConfigurationStorePropertiesOutput)
-}
-
-// The encryption settings of the configuration store.
-func (o ConfigurationStorePropertiesPtrOutput) Encryption() EncryptionPropertiesPtrOutput {
-	return o.ApplyT(func(v *ConfigurationStoreProperties) *EncryptionProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Encryption
-	}).(EncryptionPropertiesPtrOutput)
-}
-
-// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-func (o ConfigurationStorePropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationStoreProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicNetworkAccess
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of a configuration store.
 type ConfigurationStorePropertiesResponse struct {
 	// The creation date of configuration store.
 	CreationDate string `pulumi:"creationDate"`
@@ -1285,161 +1132,6 @@ func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
 }
 
 // Properties of a private endpoint connection.
-type PrivateEndpointConnectionProperties struct {
-	// The resource of private endpoint.
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-}
-
-// PrivateEndpointConnectionPropertiesInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs and PrivateEndpointConnectionPropertiesOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInput` via:
-//
-//          PrivateEndpointConnectionPropertiesArgs{...}
-type PrivateEndpointConnectionPropertiesInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput
-	ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesOutput
-}
-
-// Properties of a private endpoint connection.
-type PrivateEndpointConnectionPropertiesArgs struct {
-	// The resource of private endpoint.
-	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between service consumer and provider.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput `pulumi:"privateLinkServiceConnectionState"`
-}
-
-func (PrivateEndpointConnectionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput {
-	return i.ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesOutput)
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return i.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesOutput).ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx)
-}
-
-// PrivateEndpointConnectionPropertiesPtrInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs, PrivateEndpointConnectionPropertiesPtr and PrivateEndpointConnectionPropertiesPtrOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesPtrInput` via:
-//
-//          PrivateEndpointConnectionPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type PrivateEndpointConnectionPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput
-	ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesPtrOutput
-}
-
-type privateEndpointConnectionPropertiesPtrType PrivateEndpointConnectionPropertiesArgs
-
-func PrivateEndpointConnectionPropertiesPtr(v *PrivateEndpointConnectionPropertiesArgs) PrivateEndpointConnectionPropertiesPtrInput {
-	return (*privateEndpointConnectionPropertiesPtrType)(v)
-}
-
-func (*privateEndpointConnectionPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return i.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPtrOutput)
-}
-
-// Properties of a private endpoint connection.
-type PrivateEndpointConnectionPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
-		return &v
-	}).(PrivateEndpointConnectionPropertiesPtrOutput)
-}
-
-// The resource of private endpoint.
-func (o PrivateEndpointConnectionPropertiesOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) PrivateLinkServiceConnectionState {
-		return v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStateOutput)
-}
-
-type PrivateEndpointConnectionPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
-}
-
-// The resource of private endpoint.
-func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateEndpoint {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateEndpoint
-	}).(PrivateEndpointPtrOutput)
-}
-
-// A collection of information about the state of the connection between service consumer and provider.
-func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionState {
-		if v == nil {
-			return nil
-		}
-		return &v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
-// Properties of a private endpoint connection.
 type PrivateEndpointConnectionPropertiesResponse struct {
 	// The resource of private endpoint.
 	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
@@ -1617,8 +1309,10 @@ func (o PrivateEndpointConnectionPropertiesResponsePtrOutput) ProvisioningState(
 
 // A reference to a related private endpoint connection.
 type PrivateEndpointConnectionReference struct {
-	// The properties of a private endpoint connection.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// The resource of private endpoint.
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
 
 // PrivateEndpointConnectionReferenceInput is an input type that accepts PrivateEndpointConnectionReferenceArgs and PrivateEndpointConnectionReferenceOutput values.
@@ -1634,8 +1328,10 @@ type PrivateEndpointConnectionReferenceInput interface {
 
 // A reference to a related private endpoint connection.
 type PrivateEndpointConnectionReferenceArgs struct {
-	// The properties of a private endpoint connection.
-	Properties PrivateEndpointConnectionPropertiesPtrInput `pulumi:"properties"`
+	// The resource of private endpoint.
+	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput `pulumi:"privateLinkServiceConnectionState"`
 }
 
 func (PrivateEndpointConnectionReferenceArgs) ElementType() reflect.Type {
@@ -1665,9 +1361,16 @@ func (o PrivateEndpointConnectionReferenceOutput) ToPrivateEndpointConnectionRef
 	return o
 }
 
-// The properties of a private endpoint connection.
-func (o PrivateEndpointConnectionReferenceOutput) Properties() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionReference) *PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesPtrOutput)
+// The resource of private endpoint.
+func (o PrivateEndpointConnectionReferenceOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionReference) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionReferenceOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionReference) PrivateLinkServiceConnectionState {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // A reference to a related private endpoint connection.
@@ -3074,8 +2777,6 @@ func (o UserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdenti
 
 func init() {
 	pulumi.RegisterOutputType(ConfigurationStoreTypeOutput{})
-	pulumi.RegisterOutputType(ConfigurationStorePropertiesOutput{})
-	pulumi.RegisterOutputType(ConfigurationStorePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesOutput{})
@@ -3089,8 +2790,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionReferenceOutput{})

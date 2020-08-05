@@ -51,7 +51,7 @@ export class IpAllocation extends pulumi.CustomResource {
     /**
      * Properties of the IpAllocation.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200401.IpAllocationPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.IpAllocationPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -59,7 +59,7 @@ export class IpAllocation extends pulumi.CustomResource {
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a IpAllocation resource with the given unique name, arguments, and options.
@@ -80,14 +80,19 @@ export class IpAllocation extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["allocationTags"] = args ? args.allocationTags : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipamAllocationId"] = args ? args.ipamAllocationId : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["prefix"] = args ? args.prefix : undefined;
+            inputs["prefixLength"] = args ? args.prefixLength : undefined;
+            inputs["prefixType"] = args ? args.prefixType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
             inputs["etag"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,9 +110,17 @@ export class IpAllocation extends pulumi.CustomResource {
  */
 export interface IpAllocationArgs {
     /**
+     * IpAllocation tags.
+     */
+    readonly allocationTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * The IPAM allocation ID.
+     */
+    readonly ipamAllocationId?: pulumi.Input<string>;
     /**
      * Resource location.
      */
@@ -117,9 +130,17 @@ export interface IpAllocationArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the IpAllocation.
+     * The address prefix for the IpAllocation.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20200401.IpAllocationPropertiesFormat>;
+    readonly prefix?: pulumi.Input<string>;
+    /**
+     * The address prefix length for the IpAllocation.
+     */
+    readonly prefixLength?: pulumi.Input<number>;
+    /**
+     * The address prefix Type for the IpAllocation.
+     */
+    readonly prefixType?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -128,4 +149,8 @@ export interface IpAllocationArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type for the IpAllocation.
+     */
+    readonly type?: pulumi.Input<string>;
 }

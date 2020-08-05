@@ -25,23 +25,18 @@ class PolicyAssignment(pulumi.CustomResource):
     """
     The type of the policy assignment.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, scope=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, display_name=None, id=None, name=None, policy_definition_id=None, scope=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         The policy assignment.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] display_name: The display name of the policy assignment.
         :param pulumi.Input[str] id: The ID of the policy assignment.
         :param pulumi.Input[str] name: The name of the policy assignment.
-        :param pulumi.Input[dict] properties: Properties for the policy assignment.
-        :param pulumi.Input[str] scope: The scope of the policy assignment.
+        :param pulumi.Input[str] policy_definition_id: The ID of the policy definition.
+        :param pulumi.Input[str] scope: The scope for the policy assignment.
         :param pulumi.Input[str] type: The type of the policy assignment.
-
-        The **properties** object supports the following:
-
-          * `display_name` (`pulumi.Input[str]`) - The display name of the policy assignment.
-          * `policy_definition_id` (`pulumi.Input[str]`) - The ID of the policy definition.
-          * `scope` (`pulumi.Input[str]`) - The scope for the policy assignment.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,15 +55,17 @@ class PolicyAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['display_name'] = display_name
             __props__['id'] = id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['policy_definition_id'] = policy_definition_id
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['type'] = type
+            __props__['properties'] = None
         super(PolicyAssignment, __self__).__init__(
             'azurerm:authorization/v20160401:PolicyAssignment',
             resource_name,

@@ -72,57 +72,55 @@ class IntegrationAccount(pulumi.CustomResource):
     """
     Gets the resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, integration_service_environment=None, location=None, name=None, resource_group_name=None, sku=None, state=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The integration account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] integration_service_environment: The integration service environment.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The integration account name.
-        :param pulumi.Input[dict] properties: The integration account properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[dict] sku: The sku.
+        :param pulumi.Input[str] state: The workflow state.
         :param pulumi.Input[dict] tags: The resource tags.
 
-        The **properties** object supports the following:
+        The **integration_service_environment** object supports the following:
 
-          * `integration_service_environment` (`pulumi.Input[dict]`) - The integration service environment.
-            * `location` (`pulumi.Input[str]`) - The resource location.
-            * `name` (`pulumi.Input[str]`) - Gets the resource name.
-            * `properties` (`pulumi.Input[dict]`) - The integration service environment properties.
-              * `endpoints_configuration` (`pulumi.Input[dict]`) - The endpoints configuration.
-                * `connector` (`pulumi.Input[dict]`) - The connector endpoints.
-                  * `access_endpoint_ip_addresses` (`pulumi.Input[list]`) - The access endpoint ip address.
-                    * `address` (`pulumi.Input[str]`) - The address.
+          * `location` (`pulumi.Input[str]`) - The resource location.
+          * `name` (`pulumi.Input[str]`) - Gets the resource name.
+          * `properties` (`pulumi.Input[dict]`) - The integration service environment properties.
+            * `endpoints_configuration` (`pulumi.Input[dict]`) - The endpoints configuration.
+              * `connector` (`pulumi.Input[dict]`) - The connector endpoints.
+                * `access_endpoint_ip_addresses` (`pulumi.Input[list]`) - The access endpoint ip address.
+                  * `address` (`pulumi.Input[str]`) - The address.
 
-                  * `outgoing_ip_addresses` (`pulumi.Input[list]`) - The outgoing ip address.
+                * `outgoing_ip_addresses` (`pulumi.Input[list]`) - The outgoing ip address.
 
-                * `workflow` (`pulumi.Input[dict]`) - The workflow endpoints.
+              * `workflow` (`pulumi.Input[dict]`) - The workflow endpoints.
 
-              * `integration_service_environment_id` (`pulumi.Input[str]`) - Gets the tracking id.
-              * `network_configuration` (`pulumi.Input[dict]`) - The network configuration.
-                * `access_endpoint` (`pulumi.Input[dict]`) - The access endpoint.
-                  * `type` (`pulumi.Input[str]`) - The access endpoint type.
+            * `integration_service_environment_id` (`pulumi.Input[str]`) - Gets the tracking id.
+            * `network_configuration` (`pulumi.Input[dict]`) - The network configuration.
+              * `access_endpoint` (`pulumi.Input[dict]`) - The access endpoint.
+                * `type` (`pulumi.Input[str]`) - The access endpoint type.
 
-                * `subnets` (`pulumi.Input[list]`) - The subnets.
-                  * `id` (`pulumi.Input[str]`) - The resource id.
-                  * `name` (`pulumi.Input[str]`) - Gets the resource name.
-                  * `type` (`pulumi.Input[str]`) - Gets the resource type.
+              * `subnets` (`pulumi.Input[list]`) - The subnets.
+                * `id` (`pulumi.Input[str]`) - The resource id.
+                * `name` (`pulumi.Input[str]`) - Gets the resource name.
+                * `type` (`pulumi.Input[str]`) - Gets the resource type.
 
-                * `virtual_network_address_space` (`pulumi.Input[str]`) - Gets the virtual network address space.
+              * `virtual_network_address_space` (`pulumi.Input[str]`) - Gets the virtual network address space.
 
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state.
-              * `state` (`pulumi.Input[str]`) - The integration service environment state.
+            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state.
+            * `state` (`pulumi.Input[str]`) - The integration service environment state.
 
-            * `sku` (`pulumi.Input[dict]`) - The sku.
-              * `capacity` (`pulumi.Input[float]`) - The sku capacity.
-              * `name` (`pulumi.Input[str]`) - The sku name.
+          * `sku` (`pulumi.Input[dict]`) - The sku.
+            * `capacity` (`pulumi.Input[float]`) - The sku capacity.
+            * `name` (`pulumi.Input[str]`) - The sku name.
 
-            * `tags` (`pulumi.Input[dict]`) - The resource tags.
-            * `type` (`pulumi.Input[str]`) - Gets the resource type.
-
-          * `state` (`pulumi.Input[str]`) - The workflow state.
+          * `tags` (`pulumi.Input[dict]`) - The resource tags.
+          * `type` (`pulumi.Input[str]`) - Gets the resource type.
 
         The **sku** object supports the following:
 
@@ -145,16 +143,18 @@ class IntegrationAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['integration_service_environment'] = integration_service_environment
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
+            __props__['state'] = state
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(IntegrationAccount, __self__).__init__(
             'azurerm:logic/v20190501:IntegrationAccount',

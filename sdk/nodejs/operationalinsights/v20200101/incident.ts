@@ -47,7 +47,7 @@ export class Incident extends pulumi.CustomResource {
     /**
      * Incident properties
      */
-    public readonly properties!: pulumi.Output<outputs.operationalinsights.v20200101.IncidentPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.operationalinsights.v20200101.IncidentPropertiesResponse>;
     /**
      * Azure resource type
      */
@@ -72,14 +72,34 @@ export class Incident extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.severity === undefined) {
+                throw new Error("Missing required property 'severity'");
+            }
+            if (!args || args.status === undefined) {
+                throw new Error("Missing required property 'status'");
+            }
+            if (!args || args.title === undefined) {
+                throw new Error("Missing required property 'title'");
+            }
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["classification"] = args ? args.classification : undefined;
+            inputs["classificationComment"] = args ? args.classificationComment : undefined;
+            inputs["classificationReason"] = args ? args.classificationReason : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["firstActivityTimeUtc"] = args ? args.firstActivityTimeUtc : undefined;
+            inputs["labels"] = args ? args.labels : undefined;
+            inputs["lastActivityTimeUtc"] = args ? args.lastActivityTimeUtc : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["owner"] = args ? args.owner : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["severity"] = args ? args.severity : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["title"] = args ? args.title : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,21 +118,61 @@ export class Incident extends pulumi.CustomResource {
  */
 export interface IncidentArgs {
     /**
+     * The reason the incident was closed
+     */
+    readonly classification?: pulumi.Input<string>;
+    /**
+     * Describes the reason the incident was closed
+     */
+    readonly classificationComment?: pulumi.Input<string>;
+    /**
+     * The classification reason the incident was closed with
+     */
+    readonly classificationReason?: pulumi.Input<string>;
+    /**
+     * The description of the incident
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * Etag of the azure resource
      */
     readonly etag?: pulumi.Input<string>;
+    /**
+     * The time of the first activity in the incident
+     */
+    readonly firstActivityTimeUtc?: pulumi.Input<string>;
+    /**
+     * List of labels relevant to this incident
+     */
+    readonly labels?: pulumi.Input<pulumi.Input<inputs.operationalinsights.v20200101.IncidentLabel>[]>;
+    /**
+     * The time of the last activity in the incident
+     */
+    readonly lastActivityTimeUtc?: pulumi.Input<string>;
     /**
      * Incident ID
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Incident properties
+     * Describes a user that the incident is assigned to
      */
-    readonly properties?: pulumi.Input<inputs.operationalinsights.v20200101.IncidentProperties>;
+    readonly owner?: pulumi.Input<inputs.operationalinsights.v20200101.IncidentOwnerInfo>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The severity of the incident
+     */
+    readonly severity: pulumi.Input<string>;
+    /**
+     * The status of the incident
+     */
+    readonly status: pulumi.Input<string>;
+    /**
+     * The title of the incident
+     */
+    readonly title: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

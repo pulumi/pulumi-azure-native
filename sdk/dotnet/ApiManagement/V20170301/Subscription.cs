@@ -78,16 +78,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public sealed class SubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Subscription name.
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
         /// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Subscription contract properties.
+        /// Primary subscription key. If not specified during request key will be generated automatically.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SubscriptionCreateParameterPropertiesArgs>? Properties { get; set; }
+        [Input("primaryKey")]
+        public Input<string>? PrimaryKey { get; set; }
+
+        /// <summary>
+        /// Product (product id path) for which subscription is being created in form /products/{productId}
+        /// </summary>
+        [Input("productId", required: true)]
+        public Input<string> ProductId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -96,10 +108,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Secondary subscription key. If not specified during request key will be generated automatically.
+        /// </summary>
+        [Input("secondaryKey")]
+        public Input<string>? SecondaryKey { get; set; }
+
+        /// <summary>
         /// The name of the API Management service.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// User (user id path) for whom subscription is being created in form /users/{uid}
+        /// </summary>
+        [Input("userId", required: true)]
+        public Input<string> UserId { get; set; } = null!;
 
         public SubscriptionArgs()
         {

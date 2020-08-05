@@ -25,6 +25,9 @@ type NamedValue struct {
 // NewNamedValue registers a new resource with the given unique name, arguments, and options.
 func NewNamedValue(ctx *pulumi.Context,
 	name string, args *NamedValueArgs, opts ...pulumi.ResourceOption) (*NamedValue, error) {
+	if args == nil || args.DisplayName == nil {
+		return nil, errors.New("missing required argument 'DisplayName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -33,6 +36,9 @@ func NewNamedValue(ctx *pulumi.Context,
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.Value == nil {
+		return nil, errors.New("missing required argument 'Value'")
 	}
 	if args == nil {
 		args = &NamedValueArgs{}
@@ -81,26 +87,38 @@ func (NamedValueState) ElementType() reflect.Type {
 }
 
 type namedValueArgs struct {
+	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+	DisplayName string `pulumi:"displayName"`
 	// Identifier of the NamedValue.
 	Name string `pulumi:"name"`
-	// NamedValue entity contract properties for PUT operation.
-	Properties *NamedValueCreateContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+	Secret *bool `pulumi:"secret"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Optional tags that when provided can be used to filter the NamedValue list.
+	Tags []string `pulumi:"tags"`
+	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a NamedValue resource.
 type NamedValueArgs struct {
+	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+	DisplayName pulumi.StringInput
 	// Identifier of the NamedValue.
 	Name pulumi.StringInput
-	// NamedValue entity contract properties for PUT operation.
-	Properties NamedValueCreateContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+	Secret pulumi.BoolPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Optional tags that when provided can be used to filter the NamedValue list.
+	Tags pulumi.StringArrayInput
+	// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+	Value pulumi.StringInput
 }
 
 func (NamedValueArgs) ElementType() reflect.Type {

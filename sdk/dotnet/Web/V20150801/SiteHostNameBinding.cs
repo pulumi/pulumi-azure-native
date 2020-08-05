@@ -93,6 +93,36 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class SiteHostNameBindingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Azure resource name
+        /// </summary>
+        [Input("azureResourceName")]
+        public Input<string>? AzureResourceName { get; set; }
+
+        /// <summary>
+        /// Azure resource type
+        /// </summary>
+        [Input("azureResourceType")]
+        public Input<string>? AzureResourceType { get; set; }
+
+        /// <summary>
+        /// Custom DNS record type
+        /// </summary>
+        [Input("customHostNameDnsRecordType")]
+        public Input<string>? CustomHostNameDnsRecordType { get; set; }
+
+        /// <summary>
+        /// Fully qualified ARM domain resource URI
+        /// </summary>
+        [Input("domainId")]
+        public Input<string>? DomainId { get; set; }
+
+        /// <summary>
+        /// Host name type
+        /// </summary>
+        [Input("hostNameType")]
+        public Input<string>? HostNameType { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
@@ -116,14 +146,17 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.HostNameBindingPropertiesArgs>? Properties { get; set; }
-
         /// <summary>
         /// Name of resource group
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Web app name
+        /// </summary>
+        [Input("siteName")]
+        public Input<string>? SiteName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

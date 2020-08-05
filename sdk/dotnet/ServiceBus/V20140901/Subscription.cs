@@ -84,10 +84,64 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public sealed class SubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        /// </summary>
+        [Input("autoDeleteOnIdle")]
+        public Input<string>? AutoDeleteOnIdle { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+        /// </summary>
+        [Input("deadLetteringOnFilterEvaluationExceptions")]
+        public Input<bool>? DeadLetteringOnFilterEvaluationExceptions { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether a subscription has dead letter support when a message expires.
+        /// </summary>
+        [Input("deadLetteringOnMessageExpiration")]
+        public Input<bool>? DeadLetteringOnMessageExpiration { get; set; }
+
+        /// <summary>
+        /// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        /// </summary>
+        [Input("defaultMessageTimeToLive")]
+        public Input<string>? DefaultMessageTimeToLive { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether server-side batched operations are enabled.
+        /// </summary>
+        [Input("enableBatchedOperations")]
+        public Input<bool>? EnableBatchedOperations { get; set; }
+
+        /// <summary>
+        /// Entity availability status for the topic.
+        /// </summary>
+        [Input("entityAvailabilityStatus")]
+        public Input<string>? EntityAvailabilityStatus { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether the entity description is read-only.
+        /// </summary>
+        [Input("isReadOnly")]
+        public Input<bool>? IsReadOnly { get; set; }
+
+        /// <summary>
         /// Subscription data center location.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The lock duration time span for the subscription.
+        /// </summary>
+        [Input("lockDuration")]
+        public Input<string>? LockDuration { get; set; }
+
+        /// <summary>
+        /// Number of maximum deliveries.
+        /// </summary>
+        [Input("maxDeliveryCount")]
+        public Input<int>? MaxDeliveryCount { get; set; }
 
         /// <summary>
         /// The subscription name.
@@ -102,16 +156,22 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Description of Subscription Resource.
+        /// Value indicating if a subscription supports the concept of sessions.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SubscriptionPropertiesArgs>? Properties { get; set; }
+        [Input("requiresSession")]
+        public Input<bool>? RequiresSession { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Enumerates the possible values for the status of a messaging entity.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         /// <summary>
         /// The topic name.

@@ -47,7 +47,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
     /**
      * The properties of the Virtual Hub IPConfigurations.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200501.HubIPConfigurationPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.HubIPConfigurationPropertiesFormatResponse>;
     /**
      * Ipconfiguration type.
      */
@@ -77,10 +77,14 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
             }
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privateIPAddress"] = args ? args.privateIPAddress : undefined;
+            inputs["privateIPAllocationMethod"] = args ? args.privateIPAllocationMethod : undefined;
+            inputs["publicIPAddress"] = args ? args.publicIPAddress : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["subnet"] = args ? args.subnet : undefined;
             inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,13 +111,25 @@ export interface VirtualHubIpConfigurationArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the Virtual Hub IPConfigurations.
+     * The private IP address of the IP configuration.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20200501.HubIPConfigurationPropertiesFormat>;
+    readonly privateIPAddress?: pulumi.Input<string>;
+    /**
+     * The private IP address allocation method.
+     */
+    readonly privateIPAllocationMethod?: pulumi.Input<string>;
+    /**
+     * The reference to the public IP resource.
+     */
+    readonly publicIPAddress?: pulumi.Input<inputs.network.v20200501.PublicIPAddress>;
     /**
      * The resource group name of the VirtualHub.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The reference to the subnet resource.
+     */
+    readonly subnet?: pulumi.Input<inputs.network.v20200501.Subnet>;
     /**
      * The name of the VirtualHub.
      */

@@ -51,7 +51,7 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
      * The properties of the image template
      */
-    public readonly properties!: pulumi.Output<outputs.virtualmachineimages.v20200214.ImageTemplatePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.virtualmachineimages.v20200214.ImageTemplatePropertiesResponse>;
     /**
      * Resource tags
      */
@@ -74,6 +74,9 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualMachineImageTemplateArgs | undefined;
+            if (!args || args.distribute === undefined) {
+                throw new Error("Missing required property 'distribute'");
+            }
             if (!args || args.identity === undefined) {
                 throw new Error("Missing required property 'identity'");
             }
@@ -86,12 +89,20 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.source === undefined) {
+                throw new Error("Missing required property 'source'");
+            }
+            inputs["buildTimeoutInMinutes"] = args ? args.buildTimeoutInMinutes : undefined;
+            inputs["customize"] = args ? args.customize : undefined;
+            inputs["distribute"] = args ? args.distribute : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vmProfile"] = args ? args.vmProfile : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +121,18 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
  */
 export interface VirtualMachineImageTemplateArgs {
     /**
+     * Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+     */
+    readonly buildTimeoutInMinutes?: pulumi.Input<number>;
+    /**
+     * Specifies the properties used to describe the customization steps of the image, like Image source etc
+     */
+    readonly customize?: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateCustomizer>[]>;
+    /**
+     * The distribution targets where the image output needs to go to.
+     */
+    readonly distribute: pulumi.Input<pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateDistributor>[]>;
+    /**
      * The identity of the image template, if configured.
      */
     readonly identity: pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateIdentity>;
@@ -122,15 +145,19 @@ export interface VirtualMachineImageTemplateArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the image template
-     */
-    readonly properties?: pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Specifies the properties used to describe the source image.
+     */
+    readonly source: pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateSource>;
+    /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Describes how virtual machine is set up to build images
+     */
+    readonly vmProfile?: pulumi.Input<inputs.virtualmachineimages.v20200214.ImageTemplateVmProfile>;
 }

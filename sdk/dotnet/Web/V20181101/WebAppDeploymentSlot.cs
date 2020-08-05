@@ -84,22 +84,58 @@ namespace Pulumi.AzureRM.Web.V20181101
     public sealed class WebAppDeploymentSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// True if deployment is currently active, false if completed and null if not started.
+        /// </summary>
+        [Input("active")]
+        public Input<bool>? Active { get; set; }
+
+        /// <summary>
+        /// Who authored the deployment.
+        /// </summary>
+        [Input("author")]
+        public Input<string>? Author { get; set; }
+
+        /// <summary>
+        /// Author email.
+        /// </summary>
+        [Input("author_email")]
+        public Input<string>? Author_email { get; set; }
+
+        /// <summary>
+        /// Who performed the deployment.
+        /// </summary>
+        [Input("deployer")]
+        public Input<string>? Deployer { get; set; }
+
+        /// <summary>
+        /// Details on deployment.
+        /// </summary>
+        [Input("details")]
+        public Input<string>? Details { get; set; }
+
+        /// <summary>
+        /// End time.
+        /// </summary>
+        [Input("end_time")]
+        public Input<string>? End_time { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
         /// <summary>
+        /// Details about deployment status.
+        /// </summary>
+        [Input("message")]
+        public Input<string>? Message { get; set; }
+
+        /// <summary>
         /// ID of an existing deployment.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Deployment resource specific properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DeploymentPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
@@ -112,6 +148,18 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// </summary>
         [Input("slot", required: true)]
         public Input<string> Slot { get; set; } = null!;
+
+        /// <summary>
+        /// Start time.
+        /// </summary>
+        [Input("start_time")]
+        public Input<string>? Start_time { get; set; }
+
+        /// <summary>
+        /// Deployment status.
+        /// </summary>
+        [Input("status")]
+        public Input<int>? Status { get; set; }
 
         public WebAppDeploymentSlotArgs()
         {

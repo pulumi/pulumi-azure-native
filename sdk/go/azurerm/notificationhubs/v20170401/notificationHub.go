@@ -37,9 +37,6 @@ func NewNotificationHub(ctx *pulumi.Context,
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -102,38 +99,66 @@ func (NotificationHubState) ElementType() reflect.Type {
 }
 
 type notificationHubArgs struct {
+	// The AdmCredential of the created NotificationHub
+	AdmCredential *AdmCredential `pulumi:"admCredential"`
+	// The ApnsCredential of the created NotificationHub
+	ApnsCredential *ApnsCredential `pulumi:"apnsCredential"`
+	// The AuthorizationRules of the created NotificationHub
+	AuthorizationRules []SharedAccessAuthorizationRuleProperties `pulumi:"authorizationRules"`
+	// The BaiduCredential of the created NotificationHub
+	BaiduCredential *BaiduCredential `pulumi:"baiduCredential"`
+	// The GcmCredential of the created NotificationHub
+	GcmCredential *GcmCredential `pulumi:"gcmCredential"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// The MpnsCredential of the created NotificationHub
+	MpnsCredential *MpnsCredential `pulumi:"mpnsCredential"`
 	// The notification hub name.
 	Name string `pulumi:"name"`
 	// The namespace name.
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties of the NotificationHub.
-	Properties NotificationHubProperties `pulumi:"properties"`
+	// The RegistrationTtl of the created NotificationHub
+	RegistrationTtl *string `pulumi:"registrationTtl"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku of the created namespace
 	Sku *Sku `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// The WnsCredential of the created NotificationHub
+	WnsCredential *WnsCredential `pulumi:"wnsCredential"`
 }
 
 // The set of arguments for constructing a NotificationHub resource.
 type NotificationHubArgs struct {
+	// The AdmCredential of the created NotificationHub
+	AdmCredential AdmCredentialPtrInput
+	// The ApnsCredential of the created NotificationHub
+	ApnsCredential ApnsCredentialPtrInput
+	// The AuthorizationRules of the created NotificationHub
+	AuthorizationRules SharedAccessAuthorizationRulePropertiesArrayInput
+	// The BaiduCredential of the created NotificationHub
+	BaiduCredential BaiduCredentialPtrInput
+	// The GcmCredential of the created NotificationHub
+	GcmCredential GcmCredentialPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
+	// The MpnsCredential of the created NotificationHub
+	MpnsCredential MpnsCredentialPtrInput
 	// The notification hub name.
 	Name pulumi.StringInput
 	// The namespace name.
 	NamespaceName pulumi.StringInput
-	// Properties of the NotificationHub.
-	Properties NotificationHubPropertiesInput
+	// The RegistrationTtl of the created NotificationHub
+	RegistrationTtl pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The sku of the created namespace
 	Sku SkuPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// The WnsCredential of the created NotificationHub
+	WnsCredential WnsCredentialPtrInput
 }
 
 func (NotificationHubArgs) ElementType() reflect.Type {

@@ -47,7 +47,7 @@ export class GalleryImage extends pulumi.CustomResource {
     /**
      * Describes the properties of a gallery Image Definition.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20191201.GalleryImagePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20191201.GalleryImagePropertiesResponse>;
     /**
      * Resource tags
      */
@@ -73,21 +73,42 @@ export class GalleryImage extends pulumi.CustomResource {
             if (!args || args.galleryName === undefined) {
                 throw new Error("Missing required property 'galleryName'");
             }
+            if (!args || args.identifier === undefined) {
+                throw new Error("Missing required property 'identifier'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.osState === undefined) {
+                throw new Error("Missing required property 'osState'");
+            }
+            if (!args || args.osType === undefined) {
+                throw new Error("Missing required property 'osType'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["disallowed"] = args ? args.disallowed : undefined;
+            inputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
+            inputs["eula"] = args ? args.eula : undefined;
             inputs["galleryName"] = args ? args.galleryName : undefined;
+            inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
+            inputs["identifier"] = args ? args.identifier : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["osState"] = args ? args.osState : undefined;
+            inputs["osType"] = args ? args.osType : undefined;
+            inputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
+            inputs["purchasePlan"] = args ? args.purchasePlan : undefined;
+            inputs["recommended"] = args ? args.recommended : undefined;
+            inputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,9 +127,33 @@ export class GalleryImage extends pulumi.CustomResource {
  */
 export interface GalleryImageArgs {
     /**
+     * The description of this gallery Image Definition resource. This property is updatable.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Describes the disallowed disk types.
+     */
+    readonly disallowed?: pulumi.Input<inputs.compute.v20191201.Disallowed>;
+    /**
+     * The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+     */
+    readonly endOfLifeDate?: pulumi.Input<string>;
+    /**
+     * The Eula agreement for the gallery Image Definition.
+     */
+    readonly eula?: pulumi.Input<string>;
+    /**
      * The name of the Shared Image Gallery in which the Image Definition is to be created.
      */
     readonly galleryName: pulumi.Input<string>;
+    /**
+     * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+     */
+    readonly hyperVGeneration?: pulumi.Input<string>;
+    /**
+     * This is the gallery Image Definition identifier.
+     */
+    readonly identifier: pulumi.Input<inputs.compute.v20191201.GalleryImageIdentifier>;
     /**
      * Resource location
      */
@@ -118,9 +163,29 @@ export interface GalleryImageArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes the properties of a gallery Image Definition.
+     * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20191201.GalleryImageProperties>;
+    readonly osState: pulumi.Input<string>;
+    /**
+     * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     */
+    readonly osType: pulumi.Input<string>;
+    /**
+     * The privacy statement uri.
+     */
+    readonly privacyStatementUri?: pulumi.Input<string>;
+    /**
+     * Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+     */
+    readonly purchasePlan?: pulumi.Input<inputs.compute.v20191201.ImagePurchasePlan>;
+    /**
+     * The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+     */
+    readonly recommended?: pulumi.Input<inputs.compute.v20191201.RecommendedMachineConfiguration>;
+    /**
+     * The release note uri.
+     */
+    readonly releaseNoteUri?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

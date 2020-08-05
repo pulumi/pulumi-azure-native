@@ -27,6 +27,12 @@ type Export struct {
 // NewExport registers a new resource with the given unique name, arguments, and options.
 func NewExport(ctx *pulumi.Context,
 	name string, args *ExportArgs, opts ...pulumi.ResourceOption) (*Export, error) {
+	if args == nil || args.Definition == nil {
+		return nil, errors.New("missing required argument 'Definition'")
+	}
+	if args == nil || args.DeliveryInfo == nil {
+		return nil, errors.New("missing required argument 'DeliveryInfo'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -84,24 +90,40 @@ func (ExportState) ElementType() reflect.Type {
 }
 
 type exportArgs struct {
+	// Has the definition for the export.
+	Definition ExportDefinition `pulumi:"definition"`
+	// Has delivery information for the export.
+	DeliveryInfo ExportDeliveryInfo `pulumi:"deliveryInfo"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
+	// The format of the export being delivered. Currently only 'Csv' is supported.
+	Format *string `pulumi:"format"`
 	// Export Name.
 	Name string `pulumi:"name"`
-	// The properties of the export.
-	Properties *ExportProperties `pulumi:"properties"`
+	// If requested, has the most recent execution history for the export.
+	RunHistory *ExportExecutionListResult `pulumi:"runHistory"`
+	// Has schedule information for the export.
+	Schedule *ExportSchedule `pulumi:"schedule"`
 	// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
 	Scope string `pulumi:"scope"`
 }
 
 // The set of arguments for constructing a Export resource.
 type ExportArgs struct {
+	// Has the definition for the export.
+	Definition ExportDefinitionInput
+	// Has delivery information for the export.
+	DeliveryInfo ExportDeliveryInfoInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
+	// The format of the export being delivered. Currently only 'Csv' is supported.
+	Format pulumi.StringPtrInput
 	// Export Name.
 	Name pulumi.StringInput
-	// The properties of the export.
-	Properties ExportPropertiesPtrInput
+	// If requested, has the most recent execution history for the export.
+	RunHistory ExportExecutionListResultPtrInput
+	// Has schedule information for the export.
+	Schedule ExportSchedulePtrInput
 	// The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
 	Scope pulumi.StringInput
 }

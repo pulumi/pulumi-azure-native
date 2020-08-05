@@ -43,7 +43,7 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.sql.v20140401.ServerAdministratorPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.sql.v20140401.ServerAdministratorPropertiesResponse>;
     /**
      * Resource type.
      */
@@ -62,6 +62,12 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ServerAzureADAdministratorArgs | undefined;
+            if (!args || args.administratorType === undefined) {
+                throw new Error("Missing required property 'administratorType'");
+            }
+            if (!args || args.login === undefined) {
+                throw new Error("Missing required property 'login'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,10 +77,20 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
+            if (!args || args.sid === undefined) {
+                throw new Error("Missing required property 'sid'");
+            }
+            if (!args || args.tenantId === undefined) {
+                throw new Error("Missing required property 'tenantId'");
+            }
+            inputs["administratorType"] = args ? args.administratorType : undefined;
+            inputs["login"] = args ? args.login : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["sid"] = args ? args.sid : undefined;
+            inputs["tenantId"] = args ? args.tenantId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,13 +109,17 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
  */
 export interface ServerAzureADAdministratorArgs {
     /**
+     * The type of administrator.
+     */
+    readonly administratorType: pulumi.Input<string>;
+    /**
+     * The server administrator login value.
+     */
+    readonly login: pulumi.Input<string>;
+    /**
      * Name of the server administrator resource.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the resource.
-     */
-    readonly properties?: pulumi.Input<inputs.sql.v20140401.ServerAdministratorProperties>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -108,4 +128,12 @@ export interface ServerAzureADAdministratorArgs {
      * The name of the server.
      */
     readonly serverName: pulumi.Input<string>;
+    /**
+     * The server administrator Sid (Secure ID).
+     */
+    readonly sid: pulumi.Input<string>;
+    /**
+     * The server Active Directory Administrator tenant id.
+     */
+    readonly tenantId: pulumi.Input<string>;
 }

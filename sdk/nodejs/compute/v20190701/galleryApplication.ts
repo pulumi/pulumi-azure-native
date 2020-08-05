@@ -47,7 +47,7 @@ export class GalleryApplication extends pulumi.CustomResource {
     /**
      * Describes the properties of a gallery Application Definition.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20190701.GalleryApplicationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20190701.GalleryApplicationPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -82,12 +82,21 @@ export class GalleryApplication extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.supportedOSType === undefined) {
+                throw new Error("Missing required property 'supportedOSType'");
+            }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
+            inputs["eula"] = args ? args.eula : undefined;
             inputs["galleryName"] = args ? args.galleryName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
+            inputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["supportedOSType"] = args ? args.supportedOSType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +115,18 @@ export class GalleryApplication extends pulumi.CustomResource {
  */
 export interface GalleryApplicationArgs {
     /**
+     * The description of this gallery Application Definition resource. This property is updatable.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+     */
+    readonly endOfLifeDate?: pulumi.Input<string>;
+    /**
+     * The Eula agreement for the gallery Application Definition.
+     */
+    readonly eula?: pulumi.Input<string>;
+    /**
      * The name of the Shared Application Gallery in which the Application Definition is to be created.
      */
     readonly galleryName: pulumi.Input<string>;
@@ -118,13 +139,21 @@ export interface GalleryApplicationArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes the properties of a gallery Application Definition.
+     * The privacy statement uri.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20190701.GalleryApplicationProperties>;
+    readonly privacyStatementUri?: pulumi.Input<string>;
+    /**
+     * The release note uri.
+     */
+    readonly releaseNoteUri?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+     */
+    readonly supportedOSType: pulumi.Input<string>;
     /**
      * Resource tags
      */

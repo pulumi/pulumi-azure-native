@@ -108,16 +108,22 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the backup policy.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.BackupPolicyPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("volumeIds", required: true)]
+        private InputList<string>? _volumeIds;
+
+        /// <summary>
+        /// The path IDs of the volumes which are part of the backup policy.
+        /// </summary>
+        public InputList<string> VolumeIds
+        {
+            get => _volumeIds ?? (_volumeIds = new InputList<string>());
+            set => _volumeIds = value;
+        }
 
         public BackupPolicyArgs()
         {

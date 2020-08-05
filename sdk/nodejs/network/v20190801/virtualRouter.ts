@@ -51,7 +51,7 @@ export class VirtualRouter extends pulumi.CustomResource {
     /**
      * Properties of the Virtual Router.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190801.VirtualRouterPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190801.VirtualRouterPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,17 @@ export class VirtualRouter extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["hostedGateway"] = args ? args.hostedGateway : undefined;
+            inputs["hostedSubnet"] = args ? args.hostedSubnet : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualRouterAsn"] = args ? args.virtualRouterAsn : undefined;
+            inputs["virtualRouterIps"] = args ? args.virtualRouterIps : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +109,14 @@ export class VirtualRouter extends pulumi.CustomResource {
  */
 export interface VirtualRouterArgs {
     /**
+     * The Gateway on which VirtualRouter is hosted.
+     */
+    readonly hostedGateway?: pulumi.Input<inputs.network.v20190801.SubResource>;
+    /**
+     * The Subnet on which VirtualRouter is hosted.
+     */
+    readonly hostedSubnet?: pulumi.Input<inputs.network.v20190801.SubResource>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -117,10 +129,6 @@ export interface VirtualRouterArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Virtual Router.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20190801.VirtualRouterPropertiesFormat>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -128,4 +136,12 @@ export interface VirtualRouterArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * VirtualRouter ASN.
+     */
+    readonly virtualRouterAsn?: pulumi.Input<number>;
+    /**
+     * VirtualRouter IPs
+     */
+    readonly virtualRouterIps?: pulumi.Input<pulumi.Input<string>[]>;
 }

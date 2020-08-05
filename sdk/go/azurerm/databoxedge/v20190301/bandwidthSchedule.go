@@ -25,17 +25,26 @@ type BandwidthSchedule struct {
 // NewBandwidthSchedule registers a new resource with the given unique name, arguments, and options.
 func NewBandwidthSchedule(ctx *pulumi.Context,
 	name string, args *BandwidthScheduleArgs, opts ...pulumi.ResourceOption) (*BandwidthSchedule, error) {
+	if args == nil || args.Days == nil {
+		return nil, errors.New("missing required argument 'Days'")
+	}
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.RateInMbps == nil {
+		return nil, errors.New("missing required argument 'RateInMbps'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Start == nil {
+		return nil, errors.New("missing required argument 'Start'")
+	}
+	if args == nil || args.Stop == nil {
+		return nil, errors.New("missing required argument 'Stop'")
 	}
 	if args == nil {
 		args = &BandwidthScheduleArgs{}
@@ -84,26 +93,38 @@ func (BandwidthScheduleState) ElementType() reflect.Type {
 }
 
 type bandwidthScheduleArgs struct {
+	// The days of the week when this schedule is applicable.
+	Days []string `pulumi:"days"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The bandwidth schedule name which needs to be added/updated.
 	Name string `pulumi:"name"`
-	// The properties of the bandwidth schedule.
-	Properties BandwidthScheduleProperties `pulumi:"properties"`
+	// The bandwidth rate in Mbps.
+	RateInMbps int `pulumi:"rateInMbps"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The start time of the schedule in UTC.
+	Start string `pulumi:"start"`
+	// The stop time of the schedule in UTC.
+	Stop string `pulumi:"stop"`
 }
 
 // The set of arguments for constructing a BandwidthSchedule resource.
 type BandwidthScheduleArgs struct {
+	// The days of the week when this schedule is applicable.
+	Days pulumi.StringArrayInput
 	// The device name.
 	DeviceName pulumi.StringInput
 	// The bandwidth schedule name which needs to be added/updated.
 	Name pulumi.StringInput
-	// The properties of the bandwidth schedule.
-	Properties BandwidthSchedulePropertiesInput
+	// The bandwidth rate in Mbps.
+	RateInMbps pulumi.IntInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// The start time of the schedule in UTC.
+	Start pulumi.StringInput
+	// The stop time of the schedule in UTC.
+	Stop pulumi.StringInput
 }
 
 func (BandwidthScheduleArgs) ElementType() reflect.Type {

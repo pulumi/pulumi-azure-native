@@ -47,7 +47,7 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
     /**
      * RelayServiceConnectionEntity resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20181101.RelayServiceConnectionEntityResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20181101.RelayServiceConnectionEntityResponseProperties>;
     /**
      * Resource type.
      */
@@ -72,10 +72,16 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["biztalkUri"] = args ? args.biztalkUri : undefined;
+            inputs["entityConnectionString"] = args ? args.entityConnectionString : undefined;
+            inputs["hostname"] = args ? args.hostname : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["port"] = args ? args.port : undefined;
+            inputs["resourceConnectionString"] = args ? args.resourceConnectionString : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceType"] = args ? args.resourceType : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,20 +99,19 @@ export class WebAppRelayServiceConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a WebAppRelayServiceConnection resource.
  */
 export interface WebAppRelayServiceConnectionArgs {
+    readonly biztalkUri?: pulumi.Input<string>;
+    readonly entityConnectionString?: pulumi.Input<string>;
+    readonly hostname?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
-    /**
-     * Name of the hybrid connection configuration.
-     */
     readonly name: pulumi.Input<string>;
-    /**
-     * RelayServiceConnectionEntity resource specific properties
-     */
-    readonly properties?: pulumi.Input<inputs.web.v20181101.RelayServiceConnectionEntityProperties>;
+    readonly port?: pulumi.Input<number>;
+    readonly resourceConnectionString?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceType?: pulumi.Input<string>;
 }

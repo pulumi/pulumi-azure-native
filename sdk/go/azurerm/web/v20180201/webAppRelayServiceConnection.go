@@ -84,26 +84,32 @@ func (WebAppRelayServiceConnectionState) ElementType() reflect.Type {
 }
 
 type webAppRelayServiceConnectionArgs struct {
+	BiztalkUri             *string `pulumi:"biztalkUri"`
+	EntityConnectionString *string `pulumi:"entityConnectionString"`
+	Hostname               *string `pulumi:"hostname"`
 	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the hybrid connection configuration.
-	Name string `pulumi:"name"`
-	// RelayServiceConnectionEntity resource specific properties
-	Properties *RelayServiceConnectionEntityProperties `pulumi:"properties"`
+	Kind                     *string `pulumi:"kind"`
+	Name                     string  `pulumi:"name"`
+	Port                     *int    `pulumi:"port"`
+	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
 	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ResourceType      *string `pulumi:"resourceType"`
 }
 
 // The set of arguments for constructing a WebAppRelayServiceConnection resource.
 type WebAppRelayServiceConnectionArgs struct {
+	BiztalkUri             pulumi.StringPtrInput
+	EntityConnectionString pulumi.StringPtrInput
+	Hostname               pulumi.StringPtrInput
 	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the hybrid connection configuration.
-	Name pulumi.StringInput
-	// RelayServiceConnectionEntity resource specific properties
-	Properties RelayServiceConnectionEntityPropertiesPtrInput
+	Kind                     pulumi.StringPtrInput
+	Name                     pulumi.StringInput
+	Port                     pulumi.IntPtrInput
+	ResourceConnectionString pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	ResourceType      pulumi.StringPtrInput
 }
 
 func (WebAppRelayServiceConnectionArgs) ElementType() reflect.Type {

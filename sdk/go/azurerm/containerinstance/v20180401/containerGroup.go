@@ -28,11 +28,14 @@ type ContainerGroup struct {
 // NewContainerGroup registers a new resource with the given unique name, arguments, and options.
 func NewContainerGroup(ctx *pulumi.Context,
 	name string, args *ContainerGroupArgs, opts ...pulumi.ResourceOption) (*ContainerGroup, error) {
+	if args == nil || args.Containers == nil {
+		return nil, errors.New("missing required argument 'Containers'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.OsType == nil {
+		return nil, errors.New("missing required argument 'OsType'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -90,28 +93,56 @@ func (ContainerGroupState) ElementType() reflect.Type {
 }
 
 type containerGroupArgs struct {
+	// The containers within the container group.
+	Containers []Container `pulumi:"containers"`
+	// The image registry credentials by which the container group is created from.
+	ImageRegistryCredentials []ImageRegistryCredential `pulumi:"imageRegistryCredentials"`
+	// The IP address type of the container group.
+	IpAddress *IpAddress `pulumi:"ipAddress"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The name of the container group.
-	Name       string                   `pulumi:"name"`
-	Properties ContainerGroupProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// The operating system type required by the containers in the container group.
+	OsType string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Restart policy for all containers within the container group.
+	// - `Always` Always restart
+	// - `OnFailure` Restart on failure
+	// - `Never` Never restart
+	RestartPolicy *string `pulumi:"restartPolicy"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The list of volumes that can be mounted by containers in this container group.
+	Volumes []Volume `pulumi:"volumes"`
 }
 
 // The set of arguments for constructing a ContainerGroup resource.
 type ContainerGroupArgs struct {
+	// The containers within the container group.
+	Containers ContainerArrayInput
+	// The image registry credentials by which the container group is created from.
+	ImageRegistryCredentials ImageRegistryCredentialArrayInput
+	// The IP address type of the container group.
+	IpAddress IpAddressPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The name of the container group.
-	Name       pulumi.StringInput
-	Properties ContainerGroupPropertiesInput
+	Name pulumi.StringInput
+	// The operating system type required by the containers in the container group.
+	OsType pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Restart policy for all containers within the container group.
+	// - `Always` Always restart
+	// - `OnFailure` Restart on failure
+	// - `Never` Never restart
+	RestartPolicy pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
+	// The list of volumes that can be mounted by containers in this container group.
+	Volumes VolumeArrayInput
 }
 
 func (ContainerGroupArgs) ElementType() reflect.Type {

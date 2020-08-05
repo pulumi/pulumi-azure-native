@@ -32,7 +32,7 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
     """
     Rule Group type.
     """
-    def __init__(__self__, resource_name, opts=None, firewall_policy_name=None, id=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, firewall_policy_name=None, id=None, name=None, priority=None, resource_group_name=None, rules=None, __props__=None, __name__=None, __opts__=None):
         """
         Rule Group resource.
 
@@ -41,16 +41,15 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the FirewallPolicyRuleGroup.
-        :param pulumi.Input[dict] properties: The properties of the firewall policy rule group.
+        :param pulumi.Input[float] priority: Priority of the Firewall Policy Rule Group resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] rules: Group of Firewall Policy rules.
 
-        The **properties** object supports the following:
+        The **rules** object supports the following:
 
-          * `priority` (`pulumi.Input[float]`) - Priority of the Firewall Policy Rule Group resource.
-          * `rules` (`pulumi.Input[list]`) - Group of Firewall Policy rules.
-            * `name` (`pulumi.Input[str]`) - The name of the rule.
-            * `priority` (`pulumi.Input[float]`) - Priority of the Firewall Policy Rule resource.
-            * `rule_type` (`pulumi.Input[str]`) - The type of the rule.
+          * `name` (`pulumi.Input[str]`) - The name of the rule.
+          * `priority` (`pulumi.Input[float]`) - Priority of the Firewall Policy Rule resource.
+          * `rule_type` (`pulumi.Input[str]`) - The type of the rule.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,11 +75,13 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['priority'] = priority
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['rules'] = rules
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(FirewallPolicyRuleGroup, __self__).__init__(
             'azurerm:network/v20191101:FirewallPolicyRuleGroup',

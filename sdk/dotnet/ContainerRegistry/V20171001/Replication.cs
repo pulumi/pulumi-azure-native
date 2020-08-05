@@ -102,12 +102,6 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the replication.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ReplicationPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the container registry.
         /// </summary>
         [Input("registryName", required: true)]

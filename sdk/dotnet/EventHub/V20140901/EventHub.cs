@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// Number of days to retain the events for this Event Hub.
+        /// </summary>
+        [Input("messageRetentionInDays")]
+        public Input<int>? MessageRetentionInDays { get; set; }
+
+        /// <summary>
         /// The Event Hub name
         /// </summary>
         [Input("name", required: true)]
@@ -102,16 +108,22 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties supplied to the Create Or Update Event Hub operation.
+        /// Number of partitions created for the Event Hub.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.EventHubPropertiesArgs>? Properties { get; set; }
+        [Input("partitionCount")]
+        public Input<int>? PartitionCount { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Enumerates the possible values for the status of the Event Hub.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         /// <summary>
         /// ARM type of the Namespace.

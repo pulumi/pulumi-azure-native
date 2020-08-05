@@ -32,6 +32,9 @@ func NewOrigin(ctx *pulumi.Context,
 	if args == nil || args.EndpointName == nil {
 		return nil, errors.New("missing required argument 'EndpointName'")
 	}
+	if args == nil || args.HostName == nil {
+		return nil, errors.New("missing required argument 'HostName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -99,38 +102,78 @@ func (OriginState) ElementType() reflect.Type {
 }
 
 type originArgs struct {
+	// Origin is enabled for load balancing or not
+	Enabled *bool `pulumi:"enabled"`
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName string `pulumi:"endpointName"`
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+	HostName string `pulumi:"hostName"`
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort *int `pulumi:"httpPort"`
+	// The value of the HTTPS port. Must be between 1 and 65535.
+	HttpsPort *int `pulumi:"httpsPort"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Name of the origin that is unique within the endpoint.
 	Name string `pulumi:"name"`
+	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+	OriginHostHeader *string `pulumi:"originHostHeader"`
+	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+	Priority *int `pulumi:"priority"`
+	// The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
+	PrivateLinkAlias *string `pulumi:"privateLinkAlias"`
+	// A custom message to be included in the approval request to connect to the Private Link.
+	PrivateLinkApprovalMessage *string `pulumi:"privateLinkApprovalMessage"`
+	// The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
+	PrivateLinkLocation *string `pulumi:"privateLinkLocation"`
+	// The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
+	PrivateLinkResourceId *string `pulumi:"privateLinkResourceId"`
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
-	// The JSON object that contains the properties of the origin.
-	Properties *OriginProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+	Weight *int `pulumi:"weight"`
 }
 
 // The set of arguments for constructing a Origin resource.
 type OriginArgs struct {
+	// Origin is enabled for load balancing or not
+	Enabled pulumi.BoolPtrInput
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName pulumi.StringInput
+	// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+	HostName pulumi.StringInput
+	// The value of the HTTP port. Must be between 1 and 65535.
+	HttpPort pulumi.IntPtrInput
+	// The value of the HTTPS port. Must be between 1 and 65535.
+	HttpsPort pulumi.IntPtrInput
 	// Resource location.
 	Location pulumi.StringInput
 	// Name of the origin that is unique within the endpoint.
 	Name pulumi.StringInput
+	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+	OriginHostHeader pulumi.StringPtrInput
+	// Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+	Priority pulumi.IntPtrInput
+	// The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
+	PrivateLinkAlias pulumi.StringPtrInput
+	// A custom message to be included in the approval request to connect to the Private Link.
+	PrivateLinkApprovalMessage pulumi.StringPtrInput
+	// The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
+	PrivateLinkLocation pulumi.StringPtrInput
+	// The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
+	PrivateLinkResourceId pulumi.StringPtrInput
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
-	// The JSON object that contains the properties of the origin.
-	Properties OriginPropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+	Weight pulumi.IntPtrInput
 }
 
 func (OriginArgs) ElementType() reflect.Type {

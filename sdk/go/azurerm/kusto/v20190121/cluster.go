@@ -106,14 +106,14 @@ type clusterArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the Kusto cluster.
 	Name string `pulumi:"name"`
-	// The cluster properties.
-	Properties *ClusterProperties `pulumi:"properties"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the cluster.
 	Sku AzureSku `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The cluster's external tenants.
+	TrustedExternalTenants []TrustedExternalTenant `pulumi:"trustedExternalTenants"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -122,14 +122,14 @@ type ClusterArgs struct {
 	Location pulumi.StringInput
 	// The name of the Kusto cluster.
 	Name pulumi.StringInput
-	// The cluster properties.
-	Properties ClusterPropertiesPtrInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the cluster.
 	Sku AzureSkuInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The cluster's external tenants.
+	TrustedExternalTenants TrustedExternalTenantArrayInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

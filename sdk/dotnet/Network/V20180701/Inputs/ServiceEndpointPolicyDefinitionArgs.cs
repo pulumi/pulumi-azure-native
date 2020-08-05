@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20180701.Inputs
     public sealed class ServiceEndpointPolicyDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A description for this rule. Restricted to 140 chars.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -34,10 +40,28 @@ namespace Pulumi.AzureRM.Network.V20180701.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the service endpoint policy definition
+        /// The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServiceEndpointPolicyDefinitionPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// service endpoint name.
+        /// </summary>
+        [Input("service")]
+        public Input<string>? Service { get; set; }
+
+        [Input("serviceResources")]
+        private InputList<string>? _serviceResources;
+
+        /// <summary>
+        /// A list of service resources.
+        /// </summary>
+        public InputList<string> ServiceResources
+        {
+            get => _serviceResources ?? (_serviceResources = new InputList<string>());
+            set => _serviceResources = value;
+        }
 
         public ServiceEndpointPolicyDefinitionArgs()
         {

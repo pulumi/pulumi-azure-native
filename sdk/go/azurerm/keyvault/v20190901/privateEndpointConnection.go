@@ -95,8 +95,12 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 type privateEndpointConnectionArgs struct {
 	// Name of the private endpoint connection associated with the key vault.
 	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// Properties of the private endpoint object.
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// Approval state of the private link connection.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the private endpoint connection.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Name of the resource group that contains the key vault.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the key vault.
@@ -107,8 +111,12 @@ type privateEndpointConnectionArgs struct {
 type PrivateEndpointConnectionArgs struct {
 	// Name of the private endpoint connection associated with the key vault.
 	Name pulumi.StringInput
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesPtrInput
+	// Properties of the private endpoint object.
+	PrivateEndpoint PrivateEndpointPtrInput
+	// Approval state of the private link connection.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
+	// Provisioning state of the private endpoint connection.
+	ProvisioningState pulumi.StringPtrInput
 	// Name of the resource group that contains the key vault.
 	ResourceGroupName pulumi.StringInput
 	// The name of the key vault.

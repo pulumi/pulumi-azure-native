@@ -29,6 +29,12 @@ type ActivityLogAlert struct {
 // NewActivityLogAlert registers a new resource with the given unique name, arguments, and options.
 func NewActivityLogAlert(ctx *pulumi.Context,
 	name string, args *ActivityLogAlertArgs, opts ...pulumi.ResourceOption) (*ActivityLogAlert, error) {
+	if args == nil || args.Actions == nil {
+		return nil, errors.New("missing required argument 'Actions'")
+	}
+	if args == nil || args.Condition == nil {
+		return nil, errors.New("missing required argument 'Condition'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -37,6 +43,9 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Scopes == nil {
+		return nil, errors.New("missing required argument 'Scopes'")
 	}
 	if args == nil {
 		args = &ActivityLogAlertArgs{}
@@ -93,28 +102,44 @@ func (ActivityLogAlertState) ElementType() reflect.Type {
 }
 
 type activityLogAlertArgs struct {
+	// The actions that will activate when the condition is met.
+	Actions ActivityLogAlertActionList `pulumi:"actions"`
+	// The condition that will cause this alert to activate.
+	Condition ActivityLogAlertAllOfCondition `pulumi:"condition"`
+	// A description of this activity log alert.
+	Description *string `pulumi:"description"`
+	// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+	Enabled *bool `pulumi:"enabled"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the activity log alert.
 	Name string `pulumi:"name"`
-	// The activity log alert properties of the resource.
-	Properties *ActivityLogAlertDefinition `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+	Scopes []string `pulumi:"scopes"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ActivityLogAlert resource.
 type ActivityLogAlertArgs struct {
+	// The actions that will activate when the condition is met.
+	Actions ActivityLogAlertActionListInput
+	// The condition that will cause this alert to activate.
+	Condition ActivityLogAlertAllOfConditionInput
+	// A description of this activity log alert.
+	Description pulumi.StringPtrInput
+	// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+	Enabled pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the activity log alert.
 	Name pulumi.StringInput
-	// The activity log alert properties of the resource.
-	Properties ActivityLogAlertDefinitionPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+	Scopes pulumi.StringArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

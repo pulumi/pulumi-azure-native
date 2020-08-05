@@ -90,6 +90,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class EnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The display name of the Azure Resource Manager template that produced the environment.
+        /// </summary>
+        [Input("armTemplateDisplayName")]
+        public Input<string>? ArmTemplateDisplayName { get; set; }
+
+        /// <summary>
+        /// The deployment properties of the environment.
+        /// </summary>
+        [Input("deploymentProperties")]
+        public Input<Inputs.EnvironmentDeploymentPropertiesArgs>? DeploymentProperties { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -108,10 +120,10 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.EnvironmentPropertiesArgs> Properties { get; set; } = null!;
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -130,6 +142,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
 
         /// <summary>
         /// The name of the user profile.

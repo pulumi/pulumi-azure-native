@@ -55,7 +55,7 @@ class P2sVpnGateway(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, p2_s_connection_configurations=None, resource_group_name=None, tags=None, virtual_hub=None, vpn_gateway_scale_unit=None, vpn_server_configuration=None, __props__=None, __name__=None, __opts__=None):
         """
         P2SVpnGateway Resource.
 
@@ -64,24 +64,23 @@ class P2sVpnGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the gateway.
-        :param pulumi.Input[dict] properties: Properties of the P2SVpnGateway.
+        :param pulumi.Input[list] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
         :param pulumi.Input[str] resource_group_name: The resource group name of the P2SVpnGateway.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[dict] virtual_hub: The VirtualHub to which the gateway belongs.
+        :param pulumi.Input[float] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
+        :param pulumi.Input[dict] vpn_server_configuration: The VpnServerConfiguration to which the p2sVpnGateway is attached to.
 
-        The **properties** object supports the following:
+        The **p2_s_connection_configurations** object supports the following:
 
-          * `p2_s_connection_configurations` (`pulumi.Input[list]`) - List of all p2s connection configurations of the gateway.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the P2S connection configuration.
-              * `vpn_client_address_pool` (`pulumi.Input[dict]`) - The reference to the address space resource which represents Address space for P2S VpnClient.
-                * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `vpn_client_address_pool` (`pulumi.Input[dict]`) - The reference to the address space resource which represents Address space for P2S VpnClient.
+            * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
 
-          * `virtual_hub` (`pulumi.Input[dict]`) - The VirtualHub to which the gateway belongs.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
+        The **virtual_hub** object supports the following:
 
-          * `vpn_gateway_scale_unit` (`pulumi.Input[float]`) - The scale unit for this p2s vpn gateway.
-          * `vpn_server_configuration` (`pulumi.Input[dict]`) - The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,12 +106,16 @@ class P2sVpnGateway(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['p2_s_connection_configurations'] = p2_s_connection_configurations
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['virtual_hub'] = virtual_hub
+            __props__['vpn_gateway_scale_unit'] = vpn_gateway_scale_unit
+            __props__['vpn_server_configuration'] = vpn_server_configuration
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(P2sVpnGateway, __self__).__init__(
             'azurerm:network/v20191101:P2sVpnGateway',

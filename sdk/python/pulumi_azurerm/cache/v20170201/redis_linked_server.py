@@ -26,21 +26,17 @@ class RedisLinkedServer(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, linked_redis_cache_id=None, linked_redis_cache_location=None, name=None, resource_group_name=None, server_role=None, __props__=None, __name__=None, __opts__=None):
         """
         Response to put/get linked server (with properties) for Redis cache.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
+        :param pulumi.Input[str] linked_redis_cache_location: Location of the linked redis cache.
         :param pulumi.Input[str] name: The name of the linked server that is being added to the Redis cache.
-        :param pulumi.Input[dict] properties: Properties required to create a linked server.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **properties** object supports the following:
-
-          * `linked_redis_cache_id` (`pulumi.Input[str]`) - Fully qualified resourceId of the linked redis cache.
-          * `linked_redis_cache_location` (`pulumi.Input[str]`) - Location of the linked redis cache.
-          * `server_role` (`pulumi.Input[str]`) - Role of the linked server.
+        :param pulumi.Input[str] server_role: Role of the linked server.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -59,15 +55,22 @@ class RedisLinkedServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if linked_redis_cache_id is None:
+                raise TypeError("Missing required property 'linked_redis_cache_id'")
+            __props__['linked_redis_cache_id'] = linked_redis_cache_id
+            if linked_redis_cache_location is None:
+                raise TypeError("Missing required property 'linked_redis_cache_location'")
+            __props__['linked_redis_cache_location'] = linked_redis_cache_location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if server_role is None:
+                raise TypeError("Missing required property 'server_role'")
+            __props__['server_role'] = server_role
+            __props__['properties'] = None
             __props__['type'] = None
         super(RedisLinkedServer, __self__).__init__(
             'azurerm:cache/v20170201:RedisLinkedServer',

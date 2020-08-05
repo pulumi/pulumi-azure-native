@@ -43,6 +43,9 @@ func NewRegistry(ctx *pulumi.Context,
 	if args == nil || args.Sku == nil {
 		return nil, errors.New("missing required argument 'Sku'")
 	}
+	if args == nil || args.StorageAccount == nil {
+		return nil, errors.New("missing required argument 'StorageAccount'")
+	}
 	if args == nil {
 		args = &RegistryArgs{}
 	}
@@ -102,32 +105,36 @@ func (RegistryState) ElementType() reflect.Type {
 }
 
 type registryArgs struct {
+	// The value that indicates whether the admin user is enabled.
+	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
 	// The location of the container registry. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the container registry.
 	Name string `pulumi:"name"`
-	// The properties that the container registry will be created with.
-	Properties *RegistryPropertiesCreateParameters `pulumi:"properties"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the container registry.
 	Sku Sku `pulumi:"sku"`
+	// The parameters of a storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
+	StorageAccount StorageAccountParameters `pulumi:"storageAccount"`
 	// The tags for the container registry.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
 type RegistryArgs struct {
+	// The value that indicates whether the admin user is enabled.
+	AdminUserEnabled pulumi.BoolPtrInput
 	// The location of the container registry. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
 	// The name of the container registry.
 	Name pulumi.StringInput
-	// The properties that the container registry will be created with.
-	Properties RegistryPropertiesCreateParametersPtrInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the container registry.
 	Sku SkuInput
+	// The parameters of a storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
+	StorageAccount StorageAccountParametersInput
 	// The tags for the container registry.
 	Tags pulumi.StringMapInput
 }

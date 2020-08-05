@@ -47,7 +47,7 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * Properties of the subnet.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180401.SubnetPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180401.SubnetPropertiesFormatResponse>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -71,12 +71,18 @@ export class Subnet extends pulumi.CustomResource {
             if (!args || args.virtualNetworkName === undefined) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
+            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceNavigationLinks"] = args ? args.resourceNavigationLinks : undefined;
+            inputs["routeTable"] = args ? args.routeTable : undefined;
+            inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -94,6 +100,10 @@ export class Subnet extends pulumi.CustomResource {
  */
 export interface SubnetArgs {
     /**
+     * The address prefix for the subnet.
+     */
+    readonly addressPrefix?: pulumi.Input<string>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
@@ -106,13 +116,29 @@ export interface SubnetArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the subnet.
+     * The reference of the NetworkSecurityGroup resource.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20180401.SubnetPropertiesFormat>;
+    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20180401.NetworkSecurityGroup>;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets an array of references to the external resources using subnet.
+     */
+    readonly resourceNavigationLinks?: pulumi.Input<pulumi.Input<inputs.network.v20180401.ResourceNavigationLink>[]>;
+    /**
+     * The reference of the RouteTable resource.
+     */
+    readonly routeTable?: pulumi.Input<inputs.network.v20180401.RouteTable>;
+    /**
+     * An array of service endpoints.
+     */
+    readonly serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.v20180401.ServiceEndpointPropertiesFormat>[]>;
     /**
      * The name of the virtual network.
      */

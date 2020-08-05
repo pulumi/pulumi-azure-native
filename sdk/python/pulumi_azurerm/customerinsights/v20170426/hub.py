@@ -39,26 +39,24 @@ class Hub(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, hub_billing_info=None, location=None, name=None, resource_group_name=None, tags=None, tenant_features=None, __props__=None, __name__=None, __opts__=None):
         """
         Hub resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] hub_billing_info: Billing settings of the hub.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the Hub.
-        :param pulumi.Input[dict] properties: Properties of hub.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[float] tenant_features: The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
 
-        The **properties** object supports the following:
+        The **hub_billing_info** object supports the following:
 
-          * `hub_billing_info` (`pulumi.Input[dict]`) - Billing settings of the hub.
-            * `max_units` (`pulumi.Input[float]`) - The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
-            * `min_units` (`pulumi.Input[float]`) - The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
-            * `sku_name` (`pulumi.Input[str]`) - The sku name.
-
-          * `tenant_features` (`pulumi.Input[float]`) - The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+          * `max_units` (`pulumi.Input[float]`) - The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
+          * `min_units` (`pulumi.Input[float]`) - The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
+          * `sku_name` (`pulumi.Input[str]`) - The sku name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,15 +75,17 @@ class Hub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['hub_billing_info'] = hub_billing_info
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['tenant_features'] = tenant_features
+            __props__['properties'] = None
             __props__['type'] = None
         super(Hub, __self__).__init__(
             'azurerm:customerinsights/v20170426:Hub',

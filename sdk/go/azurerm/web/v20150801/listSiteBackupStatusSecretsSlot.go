@@ -17,6 +17,12 @@ func ListSiteBackupStatusSecretsSlot(ctx *pulumi.Context, args *ListSiteBackupSt
 }
 
 type ListSiteBackupStatusSecretsSlotArgs struct {
+	// Schedule for the backup if it is executed periodically
+	BackupSchedule *BackupSchedule `pulumi:"backupSchedule"`
+	// Databases included in the backup
+	Databases []DatabaseBackupSetting `pulumi:"databases"`
+	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
+	Enabled *bool `pulumi:"enabled"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Kind of resource
@@ -24,16 +30,17 @@ type ListSiteBackupStatusSecretsSlotArgs struct {
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Id of backup
-	Name       string                   `pulumi:"name"`
-	Properties *BackupRequestProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of web app slot. If not specified then will default to production slot.
 	Slot string `pulumi:"slot"`
+	// SAS URL to the container
+	StorageAccountUrl *string `pulumi:"storageAccountUrl"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
-	Type *string `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // Backup description

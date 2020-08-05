@@ -89,6 +89,18 @@ namespace Pulumi.AzureRM.NetApp.V20190701
 
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
+        [Input("activeDirectories")]
+        private InputList<Inputs.ActiveDirectoryArgs>? _activeDirectories;
+
+        /// <summary>
+        /// Active Directories
+        /// </summary>
+        public InputList<Inputs.ActiveDirectoryArgs> ActiveDirectories
+        {
+            get => _activeDirectories ?? (_activeDirectories = new InputList<Inputs.ActiveDirectoryArgs>());
+            set => _activeDirectories = value;
+        }
+
         /// <summary>
         /// Resource location
         /// </summary>
@@ -100,12 +112,6 @@ namespace Pulumi.AzureRM.NetApp.V20190701
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// NetApp Account properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AccountPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

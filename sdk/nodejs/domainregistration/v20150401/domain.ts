@@ -51,7 +51,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Domain resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.domainregistration.v20150401.DomainResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.domainregistration.v20150401.DomainResponseProperties>;
     /**
      * Resource tags.
      */
@@ -74,6 +74,21 @@ export class Domain extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DomainArgs | undefined;
+            if (!args || args.consent === undefined) {
+                throw new Error("Missing required property 'consent'");
+            }
+            if (!args || args.contactAdmin === undefined) {
+                throw new Error("Missing required property 'contactAdmin'");
+            }
+            if (!args || args.contactBilling === undefined) {
+                throw new Error("Missing required property 'contactBilling'");
+            }
+            if (!args || args.contactRegistrant === undefined) {
+                throw new Error("Missing required property 'contactRegistrant'");
+            }
+            if (!args || args.contactTech === undefined) {
+                throw new Error("Missing required property 'contactTech'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -83,12 +98,23 @@ export class Domain extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["authCode"] = args ? args.authCode : undefined;
+            inputs["autoRenew"] = args ? args.autoRenew : undefined;
+            inputs["consent"] = args ? args.consent : undefined;
+            inputs["contactAdmin"] = args ? args.contactAdmin : undefined;
+            inputs["contactBilling"] = args ? args.contactBilling : undefined;
+            inputs["contactRegistrant"] = args ? args.contactRegistrant : undefined;
+            inputs["contactTech"] = args ? args.contactTech : undefined;
+            inputs["dnsType"] = args ? args.dnsType : undefined;
+            inputs["dnsZoneId"] = args ? args.dnsZoneId : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privacy"] = args ? args.privacy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetDnsType"] = args ? args.targetDnsType : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +132,39 @@ export class Domain extends pulumi.CustomResource {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
+    readonly authCode?: pulumi.Input<string>;
+    /**
+     * <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
+     */
+    readonly autoRenew?: pulumi.Input<boolean>;
+    /**
+     * Legal agreement consent.
+     */
+    readonly consent: pulumi.Input<inputs.domainregistration.v20150401.DomainPurchaseConsent>;
+    /**
+     * Administrative contact.
+     */
+    readonly contactAdmin: pulumi.Input<inputs.domainregistration.v20150401.Contact>;
+    /**
+     * Billing contact.
+     */
+    readonly contactBilling: pulumi.Input<inputs.domainregistration.v20150401.Contact>;
+    /**
+     * Registrant contact.
+     */
+    readonly contactRegistrant: pulumi.Input<inputs.domainregistration.v20150401.Contact>;
+    /**
+     * Technical contact.
+     */
+    readonly contactTech: pulumi.Input<inputs.domainregistration.v20150401.Contact>;
+    /**
+     * Current DNS type
+     */
+    readonly dnsType?: pulumi.Input<string>;
+    /**
+     * Azure DNS Zone to use
+     */
+    readonly dnsZoneId?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
@@ -119,9 +178,9 @@ export interface DomainArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Domain resource specific properties
+     * <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
      */
-    readonly properties?: pulumi.Input<inputs.domainregistration.v20150401.DomainProperties>;
+    readonly privacy?: pulumi.Input<boolean>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -130,4 +189,8 @@ export interface DomainArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Target DNS type (would be used for migration)
+     */
+    readonly targetDnsType?: pulumi.Input<string>;
 }

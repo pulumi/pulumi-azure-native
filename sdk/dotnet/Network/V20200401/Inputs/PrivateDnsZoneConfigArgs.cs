@@ -22,10 +22,10 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the private dns zone configuration.
+        /// The resource id of the private dns zone.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateDnsZonePropertiesFormatArgs>? Properties { get; set; }
+        [Input("privateDnsZoneId")]
+        public Input<string>? PrivateDnsZoneId { get; set; }
 
         public PrivateDnsZoneConfigArgs()
         {

@@ -96,10 +96,22 @@ namespace Pulumi.AzureRM.KeyVault.V20190901
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Resource properties.
+        /// Properties of the private endpoint object.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("privateEndpoint")]
+        public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
+        /// Approval state of the private link connection.
+        /// </summary>
+        [Input("privateLinkServiceConnectionState")]
+        public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
+
+        /// <summary>
+        /// Provisioning state of the private endpoint connection.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the resource group that contains the key vault.

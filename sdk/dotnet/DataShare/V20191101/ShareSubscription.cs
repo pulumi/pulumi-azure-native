@@ -84,22 +84,28 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The invitation id.
+        /// </summary>
+        [Input("invitationId", required: true)]
+        public Input<string> InvitationId { get; set; } = null!;
+
+        /// <summary>
         /// The name of the shareSubscription.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties on the share subscription
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ShareSubscriptionPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Source share location.
+        /// </summary>
+        [Input("sourceShareLocation", required: true)]
+        public Input<string> SourceShareLocation { get; set; } = null!;
 
         public ShareSubscriptionArgs()
         {

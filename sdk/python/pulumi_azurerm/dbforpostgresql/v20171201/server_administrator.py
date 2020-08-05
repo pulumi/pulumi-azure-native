@@ -26,22 +26,18 @@ class ServerAdministrator(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, administrator_type=None, login=None, name=None, resource_group_name=None, sid=None, tenant_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a and external administrator to be created.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] administrator_type: The type of administrator.
+        :param pulumi.Input[str] login: The server administrator login account name.
         :param pulumi.Input[str] name: The name of the server.
-        :param pulumi.Input[dict] properties: Properties of the server AAD administrator.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-
-        The **properties** object supports the following:
-
-          * `administrator_type` (`pulumi.Input[str]`) - The type of administrator.
-          * `login` (`pulumi.Input[str]`) - The server administrator login account name.
-          * `sid` (`pulumi.Input[str]`) - The server administrator Sid (Secure ID).
-          * `tenant_id` (`pulumi.Input[str]`) - The server Active Directory Administrator tenant id.
+        :param pulumi.Input[str] sid: The server administrator Sid (Secure ID).
+        :param pulumi.Input[str] tenant_id: The server Active Directory Administrator tenant id.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,13 +56,25 @@ class ServerAdministrator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if administrator_type is None:
+                raise TypeError("Missing required property 'administrator_type'")
+            __props__['administrator_type'] = administrator_type
+            if login is None:
+                raise TypeError("Missing required property 'login'")
+            __props__['login'] = login
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if sid is None:
+                raise TypeError("Missing required property 'sid'")
+            __props__['sid'] = sid
+            if tenant_id is None:
+                raise TypeError("Missing required property 'tenant_id'")
+            __props__['tenant_id'] = tenant_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(ServerAdministrator, __self__).__init__(
             'azurerm:dbforpostgresql/v20171201:ServerAdministrator',

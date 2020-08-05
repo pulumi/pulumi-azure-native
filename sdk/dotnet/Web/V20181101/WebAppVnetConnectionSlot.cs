@@ -84,6 +84,25 @@ namespace Pulumi.AzureRM.Web.V20181101
     public sealed class WebAppVnetConnectionSlotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+        /// Point-To-Site VPN connection.
+        /// </summary>
+        [Input("certBlob")]
+        public Input<string>? CertBlob { get; set; }
+
+        /// <summary>
+        /// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+        /// </summary>
+        [Input("dnsServers")]
+        public Input<string>? DnsServers { get; set; }
+
+        /// <summary>
+        /// Flag that is used to denote if this is VNET injection
+        /// </summary>
+        [Input("isSwift")]
+        public Input<bool>? IsSwift { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
@@ -96,12 +115,6 @@ namespace Pulumi.AzureRM.Web.V20181101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// VnetInfo resource specific properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VnetInfoPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -112,6 +125,12 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// </summary>
         [Input("slot", required: true)]
         public Input<string> Slot { get; set; } = null!;
+
+        /// <summary>
+        /// The Virtual Network's resource ID.
+        /// </summary>
+        [Input("vnetResourceId")]
+        public Input<string>? VnetResourceId { get; set; }
 
         public WebAppVnetConnectionSlotArgs()
         {

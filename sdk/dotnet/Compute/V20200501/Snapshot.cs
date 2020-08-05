@@ -102,6 +102,48 @@ namespace Pulumi.AzureRM.Compute.V20200501
     public sealed class SnapshotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Disk source information. CreationData information cannot be changed after the disk has been created.
+        /// </summary>
+        [Input("creationData", required: true)]
+        public Input<Inputs.CreationDataArgs> CreationData { get; set; } = null!;
+
+        /// <summary>
+        /// ARM id of the DiskAccess resource for using private endpoints on disks.
+        /// </summary>
+        [Input("diskAccessId")]
+        public Input<string>? DiskAccessId { get; set; }
+
+        /// <summary>
+        /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        /// </summary>
+        [Input("diskSizeGB")]
+        public Input<int>? DiskSizeGB { get; set; }
+
+        /// <summary>
+        /// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        /// </summary>
+        [Input("encryptionSettingsCollection")]
+        public Input<Inputs.EncryptionSettingsCollectionArgs>? EncryptionSettingsCollection { get; set; }
+
+        /// <summary>
+        /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+        /// </summary>
+        [Input("hyperVGeneration")]
+        public Input<string>? HyperVGeneration { get; set; }
+
+        /// <summary>
+        /// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
+        /// </summary>
+        [Input("incremental")]
+        public Input<bool>? Incremental { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
@@ -114,10 +156,16 @@ namespace Pulumi.AzureRM.Compute.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Snapshot resource properties.
+        /// Policy for accessing the disk via network.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SnapshotPropertiesArgs>? Properties { get; set; }
+        [Input("networkAccessPolicy")]
+        public Input<string>? NetworkAccessPolicy { get; set; }
+
+        /// <summary>
+        /// The Operating System type.
+        /// </summary>
+        [Input("osType")]
+        public Input<string>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group.

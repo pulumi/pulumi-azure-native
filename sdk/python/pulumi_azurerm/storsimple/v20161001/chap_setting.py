@@ -26,7 +26,7 @@ class ChapSetting(pulumi.CustomResource):
     """
     The type.
     """
-    def __init__(__self__, resource_name, opts=None, device_name=None, manager_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, device_name=None, manager_name=None, name=None, password=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Challenge-Handshake Authentication Protocol (CHAP) setting
 
@@ -35,15 +35,14 @@ class ChapSetting(pulumi.CustomResource):
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The chap user name.
-        :param pulumi.Input[dict] properties: Chap properties
+        :param pulumi.Input[dict] password: The chap password.
         :param pulumi.Input[str] resource_group_name: The resource group name
 
-        The **properties** object supports the following:
+        The **password** object supports the following:
 
-          * `password` (`pulumi.Input[dict]`) - The chap password.
-            * `encryption_algorithm` (`pulumi.Input[str]`) - Algorithm used to encrypt "Value"
-            * `encryption_certificate_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value"
-            * `value` (`pulumi.Input[str]`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
+          * `encryption_algorithm` (`pulumi.Input[str]`) - Algorithm used to encrypt "Value"
+          * `encryption_certificate_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value"
+          * `value` (`pulumi.Input[str]`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,12 +70,13 @@ class ChapSetting(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if password is None:
+                raise TypeError("Missing required property 'password'")
+            __props__['password'] = password
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(ChapSetting, __self__).__init__(
             'azurerm:storsimple/v20161001:ChapSetting',

@@ -25,14 +25,23 @@ type Job struct {
 // NewJob registers a new resource with the given unique name, arguments, and options.
 func NewJob(ctx *pulumi.Context,
 	name string, args *JobArgs, opts ...pulumi.ResourceOption) (*Job, error) {
+	if args == nil || args.Cluster == nil {
+		return nil, errors.New("missing required argument 'Cluster'")
+	}
 	if args == nil || args.ExperimentName == nil {
 		return nil, errors.New("missing required argument 'ExperimentName'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.NodeCount == nil {
+		return nil, errors.New("missing required argument 'NodeCount'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StdOutErrPathPrefix == nil {
+		return nil, errors.New("missing required argument 'StdOutErrPathPrefix'")
 	}
 	if args == nil || args.WorkspaceName == nil {
 		return nil, errors.New("missing required argument 'WorkspaceName'")
@@ -84,28 +93,108 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
+	// Settings for Caffe2 job.
+	Caffe2Settings *Caffe2Settings `pulumi:"caffe2Settings"`
+	// Settings for Caffe job.
+	CaffeSettings *CaffeSettings `pulumi:"caffeSettings"`
+	// Settings for Chainer job.
+	ChainerSettings *ChainerSettings `pulumi:"chainerSettings"`
+	// Resource ID of the cluster on which this job will run.
+	Cluster ResourceId `pulumi:"cluster"`
+	// Settings for CNTK (aka Microsoft Cognitive Toolkit) job.
+	CntkSettings *CNTKsettings `pulumi:"cntkSettings"`
+	// Constraints associated with the Job.
+	Constraints *JobBasePropertiesProperties `pulumi:"constraints"`
+	// Docker container settings for the job. If not provided, the job will run directly on the node.
+	ContainerSettings *ContainerSettings `pulumi:"containerSettings"`
+	// Settings for custom MPI job.
+	CustomMpiSettings *CustomMpiSettings `pulumi:"customMpiSettings"`
+	// Settings for custom tool kit job.
+	CustomToolkitSettings *CustomToolkitSettings `pulumi:"customToolkitSettings"`
+	// A list of user defined environment variables which will be setup for the job.
+	EnvironmentVariables []EnvironmentVariable `pulumi:"environmentVariables"`
 	// The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	ExperimentName string `pulumi:"experimentName"`
+	// Settings for Horovod job.
+	HorovodSettings *HorovodSettings `pulumi:"horovodSettings"`
+	// A list of input directories for the job.
+	InputDirectories []InputDirectory `pulumi:"inputDirectories"`
+	// A command line to be executed on each node allocated for the job before tool kit is launched.
+	JobPreparation *JobPreparation `pulumi:"jobPreparation"`
+	// Information on mount volumes to be used by the job. These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
+	MountVolumes *MountVolumes `pulumi:"mountVolumes"`
 	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name string `pulumi:"name"`
-	// The properties of the Job.
-	Properties *JobBaseProperties `pulumi:"properties"`
+	// Number of compute nodes to run the job on. The job will be gang scheduled on that many compute nodes.
+	NodeCount int `pulumi:"nodeCount"`
+	// A list of output directories for the job.
+	OutputDirectories []OutputDirectory `pulumi:"outputDirectories"`
+	// Settings for pyTorch job.
+	PyTorchSettings *PyTorchSettings `pulumi:"pyTorchSettings"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Scheduling priority associated with the job. Possible values: low, normal, high.
+	SchedulingPriority *string `pulumi:"schedulingPriority"`
+	// A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
+	Secrets []EnvironmentVariableWithSecretValue `pulumi:"secrets"`
+	// The path where the Batch AI service will store stdout, stderror and execution log of the job.
+	StdOutErrPathPrefix string `pulumi:"stdOutErrPathPrefix"`
+	// Settings for Tensor Flow job.
+	TensorFlowSettings *TensorFlowSettings `pulumi:"tensorFlowSettings"`
 	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
+	// Settings for Caffe2 job.
+	Caffe2Settings Caffe2SettingsPtrInput
+	// Settings for Caffe job.
+	CaffeSettings CaffeSettingsPtrInput
+	// Settings for Chainer job.
+	ChainerSettings ChainerSettingsPtrInput
+	// Resource ID of the cluster on which this job will run.
+	Cluster ResourceIdInput
+	// Settings for CNTK (aka Microsoft Cognitive Toolkit) job.
+	CntkSettings CNTKsettingsPtrInput
+	// Constraints associated with the Job.
+	Constraints JobBasePropertiesPropertiesPtrInput
+	// Docker container settings for the job. If not provided, the job will run directly on the node.
+	ContainerSettings ContainerSettingsPtrInput
+	// Settings for custom MPI job.
+	CustomMpiSettings CustomMpiSettingsPtrInput
+	// Settings for custom tool kit job.
+	CustomToolkitSettings CustomToolkitSettingsPtrInput
+	// A list of user defined environment variables which will be setup for the job.
+	EnvironmentVariables EnvironmentVariableArrayInput
 	// The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	ExperimentName pulumi.StringInput
+	// Settings for Horovod job.
+	HorovodSettings HorovodSettingsPtrInput
+	// A list of input directories for the job.
+	InputDirectories InputDirectoryArrayInput
+	// A command line to be executed on each node allocated for the job before tool kit is launched.
+	JobPreparation JobPreparationPtrInput
+	// Information on mount volumes to be used by the job. These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
+	MountVolumes MountVolumesPtrInput
 	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name pulumi.StringInput
-	// The properties of the Job.
-	Properties JobBasePropertiesPtrInput
+	// Number of compute nodes to run the job on. The job will be gang scheduled on that many compute nodes.
+	NodeCount pulumi.IntInput
+	// A list of output directories for the job.
+	OutputDirectories OutputDirectoryArrayInput
+	// Settings for pyTorch job.
+	PyTorchSettings PyTorchSettingsPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// Scheduling priority associated with the job. Possible values: low, normal, high.
+	SchedulingPriority pulumi.StringPtrInput
+	// A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
+	Secrets EnvironmentVariableWithSecretValueArrayInput
+	// The path where the Batch AI service will store stdout, stderror and execution log of the job.
+	StdOutErrPathPrefix pulumi.StringInput
+	// Settings for Tensor Flow job.
+	TensorFlowSettings TensorFlowSettingsPtrInput
 	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	WorkspaceName pulumi.StringInput
 }

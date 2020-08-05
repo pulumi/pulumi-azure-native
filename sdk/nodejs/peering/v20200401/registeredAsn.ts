@@ -43,7 +43,7 @@ export class RegisteredAsn extends pulumi.CustomResource {
     /**
      * The properties that define a registered ASN.
      */
-    public readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringRegisteredAsnPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringRegisteredAsnPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -71,10 +71,11 @@ export class RegisteredAsn extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["asn"] = args ? args.asn : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["peeringName"] = args ? args.peeringName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,6 +94,10 @@ export class RegisteredAsn extends pulumi.CustomResource {
  */
 export interface RegisteredAsnArgs {
     /**
+     * The customer's ASN from which traffic originates.
+     */
+    readonly asn?: pulumi.Input<number>;
+    /**
      * The name of the ASN.
      */
     readonly name: pulumi.Input<string>;
@@ -100,10 +105,6 @@ export interface RegisteredAsnArgs {
      * The name of the peering.
      */
     readonly peeringName: pulumi.Input<string>;
-    /**
-     * The properties that define a registered ASN.
-     */
-    readonly properties?: pulumi.Input<inputs.peering.v20200401.PeeringRegisteredAsnProperties>;
     /**
      * The name of the resource group.
      */

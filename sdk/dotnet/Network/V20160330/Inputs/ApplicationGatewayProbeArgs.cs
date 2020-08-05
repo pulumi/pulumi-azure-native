@@ -22,10 +22,22 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// Gets or sets the host to send probe to 
+        /// </summary>
+        [Input("host")]
+        public Input<string>? Host { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets probing interval in seconds 
+        /// </summary>
+        [Input("interval")]
+        public Input<int>? Interval { get; set; }
 
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -34,10 +46,34 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of probe of application gateway
+        /// Gets or sets the relative path of probe 
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayProbePropertiesFormatArgs>? Properties { get; set; }
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
+        /// Gets or sets the protocol
+        /// </summary>
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Gets or sets probing timeout in seconds 
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
+
+        /// <summary>
+        /// Gets or sets probing unhealthy threshold 
+        /// </summary>
+        [Input("unhealthyThreshold")]
+        public Input<int>? UnhealthyThreshold { get; set; }
 
         public ApplicationGatewayProbeArgs()
         {

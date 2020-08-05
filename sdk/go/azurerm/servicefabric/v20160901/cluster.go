@@ -32,8 +32,14 @@ func NewCluster(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
+	if args == nil || args.ManagementEndpoint == nil {
+		return nil, errors.New("missing required argument 'ManagementEndpoint'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
+	}
+	if args == nil || args.NodeTypes == nil {
+		return nil, errors.New("missing required argument 'NodeTypes'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -93,30 +99,82 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// The settings to enable AAD authentication on the cluster
+	AzureActiveDirectory *AzureActiveDirectory `pulumi:"azureActiveDirectory"`
+	// This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
+	Certificate *CertificateDescription `pulumi:"certificate"`
+	//  List of client certificates to whitelist based on common names
+	ClientCertificateCommonNames []ClientCertificateCommonName `pulumi:"clientCertificateCommonNames"`
+	// The client thumbprint details ,it is used for client access for cluster operation
+	ClientCertificateThumbprints []ClientCertificateThumbprint `pulumi:"clientCertificateThumbprints"`
+	// The ServiceFabric code version running in your cluster
+	ClusterCodeVersion *string `pulumi:"clusterCodeVersion"`
+	// The storage diagnostics account configuration details
+	DiagnosticsStorageAccountConfig *DiagnosticsStorageAccountConfig `pulumi:"diagnosticsStorageAccountConfig"`
+	// List of custom fabric settings to configure the cluster.
+	FabricSettings []SettingsSectionDescription `pulumi:"fabricSettings"`
 	// Resource location.
 	Location string `pulumi:"location"`
+	// The http management endpoint of the cluster
+	ManagementEndpoint string `pulumi:"managementEndpoint"`
 	// The name of the cluster resource
 	Name string `pulumi:"name"`
-	// The cluster resource properties
-	Properties *ClusterProperties `pulumi:"properties"`
+	// The list of node types that make up the cluster
+	NodeTypes []NodeTypeDescription `pulumi:"nodeTypes"`
+	// Cluster reliability level indicates replica set size of system service
+	ReliabilityLevel *string `pulumi:"reliabilityLevel"`
 	// The name of the resource group to which the resource belongs or get created
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The server certificate used by reverse proxy
+	ReverseProxyCertificate *CertificateDescription `pulumi:"reverseProxyCertificate"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The policy to use when upgrading the cluster.
+	UpgradeDescription *ClusterUpgradePolicy `pulumi:"upgradeDescription"`
+	// Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+	UpgradeMode *string `pulumi:"upgradeMode"`
+	// The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+	VmImage *string `pulumi:"vmImage"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// The settings to enable AAD authentication on the cluster
+	AzureActiveDirectory AzureActiveDirectoryPtrInput
+	// This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
+	Certificate CertificateDescriptionPtrInput
+	//  List of client certificates to whitelist based on common names
+	ClientCertificateCommonNames ClientCertificateCommonNameArrayInput
+	// The client thumbprint details ,it is used for client access for cluster operation
+	ClientCertificateThumbprints ClientCertificateThumbprintArrayInput
+	// The ServiceFabric code version running in your cluster
+	ClusterCodeVersion pulumi.StringPtrInput
+	// The storage diagnostics account configuration details
+	DiagnosticsStorageAccountConfig DiagnosticsStorageAccountConfigPtrInput
+	// List of custom fabric settings to configure the cluster.
+	FabricSettings SettingsSectionDescriptionArrayInput
 	// Resource location.
 	Location pulumi.StringInput
+	// The http management endpoint of the cluster
+	ManagementEndpoint pulumi.StringInput
 	// The name of the cluster resource
 	Name pulumi.StringInput
-	// The cluster resource properties
-	Properties ClusterPropertiesPtrInput
+	// The list of node types that make up the cluster
+	NodeTypes NodeTypeDescriptionArrayInput
+	// Cluster reliability level indicates replica set size of system service
+	ReliabilityLevel pulumi.StringPtrInput
 	// The name of the resource group to which the resource belongs or get created
 	ResourceGroupName pulumi.StringInput
+	// The server certificate used by reverse proxy
+	ReverseProxyCertificate CertificateDescriptionPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The policy to use when upgrading the cluster.
+	UpgradeDescription ClusterUpgradePolicyPtrInput
+	// Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+	UpgradeMode pulumi.StringPtrInput
+	// The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+	VmImage pulumi.StringPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

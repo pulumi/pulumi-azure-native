@@ -40,36 +40,34 @@ class ServerFarm(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, allow_pending_state=None, id=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admin_site_name=None, allow_pending_state=None, hosting_environment_profile=None, id=None, kind=None, location=None, maximum_number_of_workers=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, tags=None, type=None, worker_tier_name=None, __props__=None, __name__=None, __opts__=None):
         """
         App Service Plan Model
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] admin_site_name: App Service Plan administration site
         :param pulumi.Input[bool] allow_pending_state: OBSOLETE: If true, allow pending state for App Service Plan
+        :param pulumi.Input[dict] hosting_environment_profile: Specification for the hosting environment (App Service Environment) to use for the App Service Plan
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
+        :param pulumi.Input[float] maximum_number_of_workers: Maximum number of instances that can be assigned to this App Service Plan
         :param pulumi.Input[str] name: Resource Name
+        :param pulumi.Input[bool] per_site_scaling: If True apps assigned to this App Service Plan can be scaled independently
+                           If False apps assigned to this App Service Plan will scale to all instances of the plan
+        :param pulumi.Input[bool] reserved: Enables creation of a Linux App Service Plan
         :param pulumi.Input[str] resource_group_name: Name of resource group
         :param pulumi.Input[dict] sku: Describes a sku for a scalable resource
         :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
+        :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service Plan
 
-        The **properties** object supports the following:
+        The **hosting_environment_profile** object supports the following:
 
-          * `admin_site_name` (`pulumi.Input[str]`) - App Service Plan administration site
-          * `hosting_environment_profile` (`pulumi.Input[dict]`) - Specification for the hosting environment (App Service Environment) to use for the App Service Plan
-            * `id` (`pulumi.Input[str]`) - Resource id of the hostingEnvironment (App Service Environment)
-            * `name` (`pulumi.Input[str]`) - Name of the hostingEnvironment (App Service Environment) (read only)
-            * `type` (`pulumi.Input[str]`) - Resource type of the hostingEnvironment (App Service Environment) (read only)
-
-          * `maximum_number_of_workers` (`pulumi.Input[float]`) - Maximum number of instances that can be assigned to this App Service Plan
-          * `name` (`pulumi.Input[str]`) - Name for the App Service Plan
-          * `per_site_scaling` (`pulumi.Input[bool]`) - If True apps assigned to this App Service Plan can be scaled independently
-                        If False apps assigned to this App Service Plan will scale to all instances of the plan
-          * `reserved` (`pulumi.Input[bool]`) - Enables creation of a Linux App Service Plan
-          * `worker_tier_name` (`pulumi.Input[str]`) - Target worker tier assigned to the App Service Plan
+          * `id` (`pulumi.Input[str]`) - Resource id of the hostingEnvironment (App Service Environment)
+          * `name` (`pulumi.Input[str]`) - Name of the hostingEnvironment (App Service Environment) (read only)
+          * `type` (`pulumi.Input[str]`) - Resource type of the hostingEnvironment (App Service Environment) (read only)
 
         The **sku** object supports the following:
 
@@ -96,22 +94,28 @@ class ServerFarm(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['admin_site_name'] = admin_site_name
             __props__['allow_pending_state'] = allow_pending_state
+            __props__['hosting_environment_profile'] = hosting_environment_profile
             __props__['id'] = id
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['maximum_number_of_workers'] = maximum_number_of_workers
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['per_site_scaling'] = per_site_scaling
+            __props__['reserved'] = reserved
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['type'] = type
+            __props__['worker_tier_name'] = worker_tier_name
+            __props__['properties'] = None
         super(ServerFarm, __self__).__init__(
             'azurerm:web/v20150801:ServerFarm',
             resource_name,

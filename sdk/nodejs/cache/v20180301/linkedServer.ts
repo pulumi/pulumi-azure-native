@@ -43,7 +43,7 @@ export class LinkedServer extends pulumi.CustomResource {
     /**
      * Properties of the linked server.
      */
-    public readonly properties!: pulumi.Output<outputs.cache.v20180301.RedisLinkedServerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cache.v20180301.RedisLinkedServerPropertiesResponse>;
     /**
      * Resource type.
      */
@@ -62,18 +62,27 @@ export class LinkedServer extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as LinkedServerArgs | undefined;
+            if (!args || args.linkedRedisCacheId === undefined) {
+                throw new Error("Missing required property 'linkedRedisCacheId'");
+            }
+            if (!args || args.linkedRedisCacheLocation === undefined) {
+                throw new Error("Missing required property 'linkedRedisCacheLocation'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.serverRole === undefined) {
+                throw new Error("Missing required property 'serverRole'");
+            }
+            inputs["linkedRedisCacheId"] = args ? args.linkedRedisCacheId : undefined;
+            inputs["linkedRedisCacheLocation"] = args ? args.linkedRedisCacheLocation : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverRole"] = args ? args.serverRole : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -92,15 +101,23 @@ export class LinkedServer extends pulumi.CustomResource {
  */
 export interface LinkedServerArgs {
     /**
+     * Fully qualified resourceId of the linked redis cache.
+     */
+    readonly linkedRedisCacheId: pulumi.Input<string>;
+    /**
+     * Location of the linked redis cache.
+     */
+    readonly linkedRedisCacheLocation: pulumi.Input<string>;
+    /**
      * The name of the linked server that is being added to the Redis cache.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties required to create a linked server.
-     */
-    readonly properties: pulumi.Input<inputs.cache.v20180301.RedisLinkedServerCreateProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Role of the linked server.
+     */
+    readonly serverRole: pulumi.Input<string>;
 }

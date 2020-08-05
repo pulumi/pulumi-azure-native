@@ -31,9 +31,6 @@ func NewStorageAccount(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -84,26 +81,38 @@ func (StorageAccountState) ElementType() reflect.Type {
 }
 
 type storageAccountArgs struct {
+	// Data policy of the storage Account.
+	DataPolicy *string `pulumi:"dataPolicy"`
+	// Description for the storage Account.
+	Description *string `pulumi:"description"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The StorageAccount name.
 	Name string `pulumi:"name"`
-	// The Storage Account properties.
-	Properties StorageAccountProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Storage Account Credential Id
+	StorageAccountCredentialId *string `pulumi:"storageAccountCredentialId"`
+	// Current status of the storage account
+	StorageAccountStatus *string `pulumi:"storageAccountStatus"`
 }
 
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
+	// Data policy of the storage Account.
+	DataPolicy pulumi.StringPtrInput
+	// Description for the storage Account.
+	Description pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
 	// The StorageAccount name.
 	Name pulumi.StringInput
-	// The Storage Account properties.
-	Properties StorageAccountPropertiesInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// Storage Account Credential Id
+	StorageAccountCredentialId pulumi.StringPtrInput
+	// Current status of the storage account
+	StorageAccountStatus pulumi.StringPtrInput
 }
 
 func (StorageAccountArgs) ElementType() reflect.Type {

@@ -47,7 +47,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
     /**
      * The cluster properties.
      */
-    public readonly properties!: pulumi.Output<outputs.redhatopenshift.v20200430.OpenShiftClusterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.redhatopenshift.v20200430.OpenShiftClusterPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -79,11 +79,20 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["apiserverProfile"] = args ? args.apiserverProfile : undefined;
+            inputs["clusterProfile"] = args ? args.clusterProfile : undefined;
+            inputs["consoleProfile"] = args ? args.consoleProfile : undefined;
+            inputs["ingressProfiles"] = args ? args.ingressProfiles : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["masterProfile"] = args ? args.masterProfile : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkProfile"] = args ? args.networkProfile : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["workerProfiles"] = args ? args.workerProfiles : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,23 +111,55 @@ export class OpenShiftCluster extends pulumi.CustomResource {
  */
 export interface OpenShiftClusterArgs {
     /**
+     * The cluster API server profile.
+     */
+    readonly apiserverProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.APIServerProfile>;
+    /**
+     * The cluster profile.
+     */
+    readonly clusterProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.ClusterProfile>;
+    /**
+     * The console profile.
+     */
+    readonly consoleProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.ConsoleProfile>;
+    /**
+     * The cluster ingress profiles.
+     */
+    readonly ingressProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.v20200430.IngressProfile>[]>;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The cluster master profile.
+     */
+    readonly masterProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.MasterProfile>;
     /**
      * The name of the OpenShift cluster resource.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The cluster properties.
+     * The cluster network profile.
      */
-    readonly properties?: pulumi.Input<inputs.redhatopenshift.v20200430.OpenShiftClusterProperties>;
+    readonly networkProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.NetworkProfile>;
+    /**
+     * The cluster provisioning state (immutable).
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The cluster service principal profile.
+     */
+    readonly servicePrincipalProfile?: pulumi.Input<inputs.redhatopenshift.v20200430.ServicePrincipalProfile>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The cluster worker profiles.
+     */
+    readonly workerProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.v20200430.WorkerProfile>[]>;
 }

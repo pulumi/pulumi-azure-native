@@ -51,7 +51,7 @@ export class AzureFirewall extends pulumi.CustomResource {
     /**
      * Properties of the azure firewall.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190901.AzureFirewallPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.AzureFirewallPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -84,14 +84,23 @@ export class AzureFirewall extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
+            inputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
+            inputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["natRuleCollections"] = args ? args.natRuleCollections : undefined;
+            inputs["networkRuleCollections"] = args ? args.networkRuleCollections : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
+            inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["zones"] = args ? args.zones : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,9 +119,25 @@ export class AzureFirewall extends pulumi.CustomResource {
  */
 export interface AzureFirewallArgs {
     /**
+     * The additional properties used to further config this azure firewall.
+     */
+    readonly additionalProperties?: pulumi.Input<inputs.network.v20190901.AzureFirewallAdditionalProperties>;
+    /**
+     * Collection of application rule collections used by Azure Firewall.
+     */
+    readonly applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallApplicationRuleCollection>[]>;
+    /**
+     * The firewallPolicy associated with this azure firewall.
+     */
+    readonly firewallPolicy?: pulumi.Input<inputs.network.v20190901.SubResource>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * IP configuration of the Azure Firewall resource.
+     */
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallIPConfiguration>[]>;
     /**
      * Resource location.
      */
@@ -122,17 +147,33 @@ export interface AzureFirewallArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the azure firewall.
+     * Collection of NAT rule collections used by Azure Firewall.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190901.AzureFirewallPropertiesFormat>;
+    readonly natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallNatRuleCollection>[]>;
+    /**
+     * Collection of network rule collections used by Azure Firewall.
+     */
+    readonly networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20190901.AzureFirewallNetworkRuleCollection>[]>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The Azure Firewall Resource SKU.
+     */
+    readonly sku?: pulumi.Input<inputs.network.v20190901.AzureFirewallSku>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The operation mode for Threat Intelligence.
+     */
+    readonly threatIntelMode?: pulumi.Input<string>;
+    /**
+     * The virtualHub to which the firewall belongs.
+     */
+    readonly virtualHub?: pulumi.Input<inputs.network.v20190901.SubResource>;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */

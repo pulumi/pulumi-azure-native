@@ -93,16 +93,36 @@ func (SubscriptionState) ElementType() reflect.Type {
 }
 
 type subscriptionArgs struct {
+	// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+	DeadLetteringOnFilterEvaluationExceptions *bool `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
+	// Value that indicates whether a subscription has dead letter support when a message expires.
+	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
+	// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive *string `pulumi:"defaultMessageTimeToLive"`
+	// Value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
+	// Entity availability status for the topic.
+	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
+	// Value that indicates whether the entity description is read-only.
+	IsReadOnly *bool `pulumi:"isReadOnly"`
 	// Subscription data center location.
 	Location string `pulumi:"location"`
+	// The lock duration time span for the subscription.
+	LockDuration *string `pulumi:"lockDuration"`
+	// Number of maximum deliveries.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// The subscription name.
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Description of Subscription Resource.
-	Properties *SubscriptionProperties `pulumi:"properties"`
+	// Value indicating if a subscription supports the concept of sessions.
+	RequiresSession *bool `pulumi:"requiresSession"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Enumerates the possible values for the status of a messaging entity.
+	Status *string `pulumi:"status"`
 	// The topic name.
 	TopicName string `pulumi:"topicName"`
 	// Resource manager type of the resource.
@@ -111,16 +131,36 @@ type subscriptionArgs struct {
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
+	// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle pulumi.StringPtrInput
+	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolPtrInput
+	// Value that indicates whether a subscription has dead letter support when a message expires.
+	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
+	// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive pulumi.StringPtrInput
+	// Value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations pulumi.BoolPtrInput
+	// Entity availability status for the topic.
+	EntityAvailabilityStatus pulumi.StringPtrInput
+	// Value that indicates whether the entity description is read-only.
+	IsReadOnly pulumi.BoolPtrInput
 	// Subscription data center location.
 	Location pulumi.StringInput
+	// The lock duration time span for the subscription.
+	LockDuration pulumi.StringPtrInput
+	// Number of maximum deliveries.
+	MaxDeliveryCount pulumi.IntPtrInput
 	// The subscription name.
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// Description of Subscription Resource.
-	Properties SubscriptionPropertiesPtrInput
+	// Value indicating if a subscription supports the concept of sessions.
+	RequiresSession pulumi.BoolPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Enumerates the possible values for the status of a messaging entity.
+	Status pulumi.StringPtrInput
 	// The topic name.
 	TopicName pulumi.StringInput
 	// Resource manager type of the resource.

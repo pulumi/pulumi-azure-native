@@ -25,14 +25,23 @@ type StorageAccountCredential struct {
 // NewStorageAccountCredential registers a new resource with the given unique name, arguments, and options.
 func NewStorageAccountCredential(ctx *pulumi.Context,
 	name string, args *StorageAccountCredentialArgs, opts ...pulumi.ResourceOption) (*StorageAccountCredential, error) {
+	if args == nil || args.CloudType == nil {
+		return nil, errors.New("missing required argument 'CloudType'")
+	}
+	if args == nil || args.EnableSSL == nil {
+		return nil, errors.New("missing required argument 'EnableSSL'")
+	}
+	if args == nil || args.EndPoint == nil {
+		return nil, errors.New("missing required argument 'EndPoint'")
+	}
+	if args == nil || args.Login == nil {
+		return nil, errors.New("missing required argument 'Login'")
+	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -84,24 +93,44 @@ func (StorageAccountCredentialState) ElementType() reflect.Type {
 }
 
 type storageAccountCredentialArgs struct {
+	// The details of the storage account password
+	AccessKey *AsymmetricEncryptedSecret `pulumi:"accessKey"`
+	// The cloud service provider
+	CloudType string `pulumi:"cloudType"`
+	// SSL needs to be enabled or not
+	EnableSSL string `pulumi:"enableSSL"`
+	// The storage endpoint
+	EndPoint string `pulumi:"endPoint"`
+	// The storage account's geo location
+	Location *string `pulumi:"location"`
+	// The storage account login
+	Login string `pulumi:"login"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The credential name.
 	Name string `pulumi:"name"`
-	// Credential properties
-	Properties StorageAccountCredentialProperties `pulumi:"properties"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a StorageAccountCredential resource.
 type StorageAccountCredentialArgs struct {
+	// The details of the storage account password
+	AccessKey AsymmetricEncryptedSecretPtrInput
+	// The cloud service provider
+	CloudType pulumi.StringInput
+	// SSL needs to be enabled or not
+	EnableSSL pulumi.StringInput
+	// The storage endpoint
+	EndPoint pulumi.StringInput
+	// The storage account's geo location
+	Location pulumi.StringPtrInput
+	// The storage account login
+	Login pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The credential name.
 	Name pulumi.StringInput
-	// Credential properties
-	Properties StorageAccountCredentialPropertiesInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 }

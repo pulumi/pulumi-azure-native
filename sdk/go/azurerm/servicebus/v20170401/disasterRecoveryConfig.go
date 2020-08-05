@@ -81,24 +81,28 @@ func (DisasterRecoveryConfigState) ElementType() reflect.Type {
 }
 
 type disasterRecoveryConfigArgs struct {
+	// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+	AlternateName *string `pulumi:"alternateName"`
 	// The Disaster Recovery configuration name
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties *ArmDisasterRecoveryProperties `pulumi:"properties"`
+	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+	PartnerNamespace *string `pulumi:"partnerNamespace"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a DisasterRecoveryConfig resource.
 type DisasterRecoveryConfigArgs struct {
+	// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+	AlternateName pulumi.StringPtrInput
 	// The Disaster Recovery configuration name
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-	Properties ArmDisasterRecoveryPropertiesPtrInput
+	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+	PartnerNamespace pulumi.StringPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 }

@@ -27,14 +27,14 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
+	if args == nil || args.ClusterSize == nil {
+		return nil, errors.New("missing required argument 'ClusterSize'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.PrivateCloudName == nil {
 		return nil, errors.New("missing required argument 'PrivateCloudName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -93,12 +93,12 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
+	// The cluster size
+	ClusterSize int `pulumi:"clusterSize"`
 	// Name of the cluster in the private cloud
 	Name string `pulumi:"name"`
 	// The name of the private cloud.
 	PrivateCloudName string `pulumi:"privateCloudName"`
-	// The properties of a cluster resource
-	Properties ClusterProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The cluster SKU
@@ -107,12 +107,12 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
+	// The cluster size
+	ClusterSize pulumi.IntInput
 	// Name of the cluster in the private cloud
 	Name pulumi.StringInput
 	// The name of the private cloud.
 	PrivateCloudName pulumi.StringInput
-	// The properties of a cluster resource
-	Properties ClusterPropertiesInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The cluster SKU

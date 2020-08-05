@@ -96,6 +96,30 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
     public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The time the namespace was created.
+        /// </summary>
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
+
+        /// <summary>
+        /// Whether or not the namespace is set as Critical.
+        /// </summary>
+        [Input("critical")]
+        public Input<bool>? Critical { get; set; }
+
+        /// <summary>
+        /// Data center for the namespace
+        /// </summary>
+        [Input("dataCenter")]
+        public Input<string>? DataCenter { get; set; }
+
+        /// <summary>
+        /// Whether or not the namespace is currently enabled.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
@@ -108,10 +132,22 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Namespace.
+        /// The namespace type.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NamespacePropertiesArgs>? Properties { get; set; }
+        [Input("namespaceType")]
+        public Input<string>? NamespaceType { get; set; }
+
+        /// <summary>
+        /// Provisioning state of the Namespace.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -120,10 +156,34 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// ScaleUnit where the namespace gets created
+        /// </summary>
+        [Input("scaleUnit")]
+        public Input<string>? ScaleUnit { get; set; }
+
+        /// <summary>
+        /// Endpoint you can use to perform NotificationHub operations.
+        /// </summary>
+        [Input("serviceBusEndpoint")]
+        public Input<string>? ServiceBusEndpoint { get; set; }
+
+        /// <summary>
         /// The sku of the created namespace
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// The Id of the Azure subscription associated with the namespace.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -136,6 +196,12 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        [Input("updatedAt")]
+        public Input<string>? UpdatedAt { get; set; }
 
         public NamespaceArgs()
         {

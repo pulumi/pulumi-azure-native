@@ -61,47 +61,47 @@ class Volume(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, location=None, name=None, pool_name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, creation_token=None, export_policy=None, location=None, mount_targets=None, name=None, pool_name=None, protocol_types=None, resource_group_name=None, service_level=None, snapshot_id=None, subnet_id=None, tags=None, usage_threshold=None, __props__=None, __name__=None, __opts__=None):
         """
         Volume resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
+        :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
+        :param pulumi.Input[dict] export_policy: Set of export policy rules
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[list] mount_targets: List of mount targets
         :param pulumi.Input[str] name: The name of the volume
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[dict] properties: Volume properties
+        :param pulumi.Input[list] protocol_types: Set of protocol types
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_level: The service level of the file system
+        :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
+        :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
 
-        The **properties** object supports the following:
+        The **export_policy** object supports the following:
 
-          * `creation_token` (`pulumi.Input[str]`) - A unique file path for the volume. Used when creating mount targets
-          * `export_policy` (`pulumi.Input[dict]`) - Set of export policy rules
-            * `rules` (`pulumi.Input[list]`) - Export policy rule
-              * `allowed_clients` (`pulumi.Input[str]`) - Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-              * `cifs` (`pulumi.Input[bool]`) - Allows CIFS protocol
-              * `nfsv3` (`pulumi.Input[bool]`) - Allows NFSv3 protocol
-              * `nfsv4` (`pulumi.Input[bool]`) - Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
-              * `rule_index` (`pulumi.Input[float]`) - Order index
-              * `unix_read_only` (`pulumi.Input[bool]`) - Read only access
-              * `unix_read_write` (`pulumi.Input[bool]`) - Read and write access
+          * `rules` (`pulumi.Input[list]`) - Export policy rule
+            * `allowed_clients` (`pulumi.Input[str]`) - Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+            * `cifs` (`pulumi.Input[bool]`) - Allows CIFS protocol
+            * `nfsv3` (`pulumi.Input[bool]`) - Allows NFSv3 protocol
+            * `nfsv4` (`pulumi.Input[bool]`) - Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
+            * `rule_index` (`pulumi.Input[float]`) - Order index
+            * `unix_read_only` (`pulumi.Input[bool]`) - Read only access
+            * `unix_read_write` (`pulumi.Input[bool]`) - Read and write access
 
-          * `mount_targets` (`pulumi.Input[list]`) - List of mount targets
-            * `end_ip` (`pulumi.Input[str]`) - The end of IPv4 address range to use when creating a new mount target
-            * `file_system_id` (`pulumi.Input[str]`) - UUID v4 used to identify the MountTarget
-            * `gateway` (`pulumi.Input[str]`) - The gateway of the IPv4 address range to use when creating a new mount target
-            * `netmask` (`pulumi.Input[str]`) - The netmask of the IPv4 address range to use when creating a new mount target
-            * `smb_server_fqdn` (`pulumi.Input[str]`) - The SMB server's Fully Qualified Domain Name, FQDN
-            * `start_ip` (`pulumi.Input[str]`) - The start of IPv4 address range to use when creating a new mount target
-            * `subnet` (`pulumi.Input[str]`) - The subnet
+        The **mount_targets** object supports the following:
 
-          * `protocol_types` (`pulumi.Input[list]`) - Set of protocol types
-          * `service_level` (`pulumi.Input[str]`) - The service level of the file system
-          * `snapshot_id` (`pulumi.Input[str]`) - UUID v4 or resource identifier used to identify the Snapshot.
-          * `subnet_id` (`pulumi.Input[str]`) - The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-          * `usage_threshold` (`pulumi.Input[float]`) - Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+          * `end_ip` (`pulumi.Input[str]`) - The end of IPv4 address range to use when creating a new mount target
+          * `file_system_id` (`pulumi.Input[str]`) - UUID v4 used to identify the MountTarget
+          * `gateway` (`pulumi.Input[str]`) - The gateway of the IPv4 address range to use when creating a new mount target
+          * `netmask` (`pulumi.Input[str]`) - The netmask of the IPv4 address range to use when creating a new mount target
+          * `smb_server_fqdn` (`pulumi.Input[str]`) - The SMB server's Fully Qualified Domain Name, FQDN
+          * `start_ip` (`pulumi.Input[str]`) - The start of IPv4 address range to use when creating a new mount target
+          * `subnet` (`pulumi.Input[str]`) - The subnet
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -123,22 +123,34 @@ class Volume(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if creation_token is None:
+                raise TypeError("Missing required property 'creation_token'")
+            __props__['creation_token'] = creation_token
+            __props__['export_policy'] = export_policy
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['mount_targets'] = mount_targets
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if pool_name is None:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['protocol_types'] = protocol_types
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['service_level'] = service_level
+            __props__['snapshot_id'] = snapshot_id
+            if subnet_id is None:
+                raise TypeError("Missing required property 'subnet_id'")
+            __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
+            if usage_threshold is None:
+                raise TypeError("Missing required property 'usage_threshold'")
+            __props__['usage_threshold'] = usage_threshold
+            __props__['properties'] = None
             __props__['type'] = None
         super(Volume, __self__).__init__(
             'azurerm:netapp/v20190601:Volume',

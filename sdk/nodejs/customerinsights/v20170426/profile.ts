@@ -43,7 +43,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The profile type definition.
      */
-    public readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.ProfileTypeDefinitionResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.ProfileTypeDefinitionResponse>;
     /**
      * Resource type.
      */
@@ -71,10 +71,25 @@ export class Profile extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["apiEntitySetName"] = args ? args.apiEntitySetName : undefined;
+            inputs["attributes"] = args ? args.attributes : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["entityType"] = args ? args.entityType : undefined;
+            inputs["fields"] = args ? args.fields : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
+            inputs["instancesCount"] = args ? args.instancesCount : undefined;
+            inputs["largeImage"] = args ? args.largeImage : undefined;
+            inputs["localizedAttributes"] = args ? args.localizedAttributes : undefined;
+            inputs["mediumImage"] = args ? args.mediumImage : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["schemaItemTypeLink"] = args ? args.schemaItemTypeLink : undefined;
+            inputs["smallImage"] = args ? args.smallImage : undefined;
+            inputs["strongIds"] = args ? args.strongIds : undefined;
+            inputs["timestampFieldName"] = args ? args.timestampFieldName : undefined;
+            inputs["typeName"] = args ? args.typeName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,19 +108,75 @@ export class Profile extends pulumi.CustomResource {
  */
 export interface ProfileArgs {
     /**
+     * The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+     */
+    readonly apiEntitySetName?: pulumi.Input<string>;
+    /**
+     * The attributes for the Type.
+     */
+    readonly attributes?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    /**
+     * Localized descriptions for the property.
+     */
+    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Localized display names for the property.
+     */
+    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Type of entity.
+     */
+    readonly entityType?: pulumi.Input<string>;
+    /**
+     * The properties of the Profile.
+     */
+    readonly fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.PropertyDefinition>[]>;
+    /**
      * The name of the hub.
      */
     readonly hubName: pulumi.Input<string>;
+    /**
+     * The instance count.
+     */
+    readonly instancesCount?: pulumi.Input<number>;
+    /**
+     * Large Image associated with the Property or EntityType.
+     */
+    readonly largeImage?: pulumi.Input<string>;
+    /**
+     * Any custom localized attributes for the Type.
+     */
+    readonly localizedAttributes?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
+    /**
+     * Medium Image associated with the Property or EntityType.
+     */
+    readonly mediumImage?: pulumi.Input<string>;
     /**
      * The name of the profile.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The profile type definition.
-     */
-    readonly properties?: pulumi.Input<inputs.customerinsights.v20170426.ProfileTypeDefinition>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The schema org link. This helps ACI identify and suggest semantic models.
+     */
+    readonly schemaItemTypeLink?: pulumi.Input<string>;
+    /**
+     * Small Image associated with the Property or EntityType.
+     */
+    readonly smallImage?: pulumi.Input<string>;
+    /**
+     * The strong IDs.
+     */
+    readonly strongIds?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.StrongId>[]>;
+    /**
+     * The timestamp property name. Represents the time when the interaction or profile update happened.
+     */
+    readonly timestampFieldName?: pulumi.Input<string>;
+    /**
+     * The name of the entity.
+     */
+    readonly typeName?: pulumi.Input<string>;
 }

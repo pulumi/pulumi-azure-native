@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.Kusto.V20190121
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The cluster properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ClusterPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group containing the Kusto cluster.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -135,6 +129,18 @@ namespace Pulumi.AzureRM.Kusto.V20190121
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("trustedExternalTenants")]
+        private InputList<Inputs.TrustedExternalTenantArgs>? _trustedExternalTenants;
+
+        /// <summary>
+        /// The cluster's external tenants.
+        /// </summary>
+        public InputList<Inputs.TrustedExternalTenantArgs> TrustedExternalTenants
+        {
+            get => _trustedExternalTenants ?? (_trustedExternalTenants = new InputList<Inputs.TrustedExternalTenantArgs>());
+            set => _trustedExternalTenants = value;
         }
 
         public ClusterArgs()

@@ -51,7 +51,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
     /**
      * Properties of the local network gateway.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20171101.LocalNetworkGatewayPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20171101.LocalNetworkGatewayPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -77,19 +77,20 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["localNetworkAddressSpace"] = args ? args.localNetworkAddressSpace : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,13 +109,25 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
  */
 export interface LocalNetworkGatewayArgs {
     /**
+     * Local network gateway's BGP speaker settings.
+     */
+    readonly bgpSettings?: pulumi.Input<inputs.network.v20171101.BgpSettings>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
     /**
+     * IP address of local network gateway.
+     */
+    readonly gatewayIpAddress?: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * Local network site address space.
+     */
+    readonly localNetworkAddressSpace?: pulumi.Input<inputs.network.v20171101.AddressSpace>;
     /**
      * Resource location.
      */
@@ -124,13 +137,13 @@ export interface LocalNetworkGatewayArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the local network gateway.
-     */
-    readonly properties: pulumi.Input<inputs.network.v20171101.LocalNetworkGatewayPropertiesFormat>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource GUID property of the LocalNetworkGateway resource.
+     */
+    readonly resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

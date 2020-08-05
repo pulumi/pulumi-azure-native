@@ -99,6 +99,16 @@ func (SiteHostNameBindingSlotState) ElementType() reflect.Type {
 }
 
 type siteHostNameBindingSlotArgs struct {
+	// Azure resource name
+	AzureResourceName *string `pulumi:"azureResourceName"`
+	// Azure resource type
+	AzureResourceType *string `pulumi:"azureResourceType"`
+	// Custom DNS record type
+	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
+	// Fully qualified ARM domain resource URI
+	DomainId *string `pulumi:"domainId"`
+	// Host name type
+	HostNameType *string `pulumi:"hostNameType"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Kind of resource
@@ -106,10 +116,11 @@ type siteHostNameBindingSlotArgs struct {
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Name of host
-	Name       string                     `pulumi:"name"`
-	Properties *HostNameBindingProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Web app name
+	SiteName *string `pulumi:"siteName"`
 	// Name of web app slot. If not specified then will default to production slot.
 	Slot string `pulumi:"slot"`
 	// Resource tags
@@ -120,6 +131,16 @@ type siteHostNameBindingSlotArgs struct {
 
 // The set of arguments for constructing a SiteHostNameBindingSlot resource.
 type SiteHostNameBindingSlotArgs struct {
+	// Azure resource name
+	AzureResourceName pulumi.StringPtrInput
+	// Azure resource type
+	AzureResourceType pulumi.StringPtrInput
+	// Custom DNS record type
+	CustomHostNameDnsRecordType pulumi.StringPtrInput
+	// Fully qualified ARM domain resource URI
+	DomainId pulumi.StringPtrInput
+	// Host name type
+	HostNameType pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Kind of resource
@@ -127,10 +148,11 @@ type SiteHostNameBindingSlotArgs struct {
 	// Resource Location
 	Location pulumi.StringInput
 	// Name of host
-	Name       pulumi.StringInput
-	Properties HostNameBindingPropertiesPtrInput
+	Name pulumi.StringInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput
+	// Web app name
+	SiteName pulumi.StringPtrInput
 	// Name of web app slot. If not specified then will default to production slot.
 	Slot pulumi.StringInput
 	// Resource tags

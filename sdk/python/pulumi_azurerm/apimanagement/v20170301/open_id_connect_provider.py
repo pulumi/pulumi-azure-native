@@ -27,24 +27,20 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, client_id=None, client_secret=None, description=None, display_name=None, metadata_endpoint=None, name=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
         """
         OpenId Connect Provider details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] client_id: Client ID of developer console which is the client application.
+        :param pulumi.Input[str] client_secret: Client Secret of developer console which is the client application.
+        :param pulumi.Input[str] description: User-friendly description of OpenID Connect Provider.
+        :param pulumi.Input[str] display_name: User-friendly OpenID Connect Provider name.
+        :param pulumi.Input[str] metadata_endpoint: Metadata endpoint URI.
         :param pulumi.Input[str] name: Identifier of the OpenID Connect Provider.
-        :param pulumi.Input[dict] properties: OpenId Connect Provider contract properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-
-        The **properties** object supports the following:
-
-          * `client_id` (`pulumi.Input[str]`) - Client ID of developer console which is the client application.
-          * `client_secret` (`pulumi.Input[str]`) - Client Secret of developer console which is the client application.
-          * `description` (`pulumi.Input[str]`) - User-friendly description of OpenID Connect Provider.
-          * `display_name` (`pulumi.Input[str]`) - User-friendly OpenID Connect Provider name.
-          * `metadata_endpoint` (`pulumi.Input[str]`) - Metadata endpoint URI.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,16 +59,27 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if client_id is None:
+                raise TypeError("Missing required property 'client_id'")
+            __props__['client_id'] = client_id
+            __props__['client_secret'] = client_secret
+            __props__['description'] = description
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
+            if metadata_endpoint is None:
+                raise TypeError("Missing required property 'metadata_endpoint'")
+            __props__['metadata_endpoint'] = metadata_endpoint
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(OpenIdConnectProvider, __self__).__init__(
             'azurerm:apimanagement/v20170301:OpenIdConnectProvider',

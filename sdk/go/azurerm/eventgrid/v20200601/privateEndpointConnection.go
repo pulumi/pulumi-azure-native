@@ -83,28 +83,40 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 }
 
 type privateEndpointConnectionArgs struct {
+	// GroupIds from the private link service resource.
+	GroupIds []string `pulumi:"groupIds"`
 	// The name of the private endpoint connection connection.
 	Name string `pulumi:"name"`
 	// The name of the parent resource (namely, either, the topic name or domain name).
 	ParentName string `pulumi:"parentName"`
 	// The type of the parent resource. This can be either \'topics\' or \'domains\'.
 	ParentType string `pulumi:"parentType"`
-	// Properties of the PrivateEndpointConnection.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// The Private Endpoint resource for this Connection.
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState *ConnectionState `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a PrivateEndpointConnection resource.
 type PrivateEndpointConnectionArgs struct {
+	// GroupIds from the private link service resource.
+	GroupIds pulumi.StringArrayInput
 	// The name of the private endpoint connection connection.
 	Name pulumi.StringInput
 	// The name of the parent resource (namely, either, the topic name or domain name).
 	ParentName pulumi.StringInput
 	// The type of the parent resource. This can be either \'topics\' or \'domains\'.
 	ParentType pulumi.StringInput
-	// Properties of the PrivateEndpointConnection.
-	Properties PrivateEndpointConnectionPropertiesPtrInput
+	// The Private Endpoint resource for this Connection.
+	PrivateEndpoint PrivateEndpointPtrInput
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState ConnectionStatePtrInput
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName pulumi.StringInput
 }

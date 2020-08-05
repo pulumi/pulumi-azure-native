@@ -53,27 +53,25 @@ class Environment(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, data_retention_time=None, location=None, name=None, partition_key_properties=None, resource_group_name=None, sku=None, storage_limit_exceeded_behavior=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: Name of the environment
-        :param pulumi.Input[dict] properties: Properties used to create an environment.
+        :param pulumi.Input[list] partition_key_properties: The list of partition keys according to which the data in the environment will be ordered.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[dict] sku: The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+        :param pulumi.Input[str] storage_limit_exceeded_behavior: The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         :param pulumi.Input[dict] tags: Key-value pairs of additional properties for the resource.
 
-        The **properties** object supports the following:
+        The **partition_key_properties** object supports the following:
 
-          * `data_retention_time` (`pulumi.Input[str]`) - ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
-          * `partition_key_properties` (`pulumi.Input[list]`) - The list of partition keys according to which the data in the environment will be ordered.
-            * `name` (`pulumi.Input[str]`) - The name of the property.
-            * `type` (`pulumi.Input[str]`) - The type of the property.
-
-          * `storage_limit_exceeded_behavior` (`pulumi.Input[str]`) - The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+          * `name` (`pulumi.Input[str]`) - The name of the property.
+          * `type` (`pulumi.Input[str]`) - The type of the property.
 
         The **sku** object supports the following:
 
@@ -97,22 +95,25 @@ class Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if data_retention_time is None:
+                raise TypeError("Missing required property 'data_retention_time'")
+            __props__['data_retention_time'] = data_retention_time
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['partition_key_properties'] = partition_key_properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
+            __props__['storage_limit_exceeded_behavior'] = storage_limit_exceeded_behavior
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Environment, __self__).__init__(
             'azurerm:timeseriesinsights/v20171115:Environment',

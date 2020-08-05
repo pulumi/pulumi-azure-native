@@ -83,24 +83,36 @@ func (AssetState) ElementType() reflect.Type {
 type assetArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
+	// The alternate ID of the Asset.
+	AlternateId *string `pulumi:"alternateId"`
+	// The name of the asset blob container.
+	Container *string `pulumi:"container"`
+	// The Asset description.
+	Description *string `pulumi:"description"`
 	// The Asset name.
 	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties *AssetProperties `pulumi:"properties"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The name of the storage account.
+	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
 // The set of arguments for constructing a Asset resource.
 type AssetArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
+	// The alternate ID of the Asset.
+	AlternateId pulumi.StringPtrInput
+	// The name of the asset blob container.
+	Container pulumi.StringPtrInput
+	// The Asset description.
+	Description pulumi.StringPtrInput
 	// The Asset name.
 	Name pulumi.StringInput
-	// The resource properties.
-	Properties AssetPropertiesPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The name of the storage account.
+	StorageAccountName pulumi.StringPtrInput
 }
 
 func (AssetArgs) ElementType() reflect.Type {

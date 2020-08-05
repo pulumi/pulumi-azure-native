@@ -35,9 +35,6 @@ func NewArtifactSource(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -96,34 +93,62 @@ func (ArtifactSourceState) ElementType() reflect.Type {
 }
 
 type artifactSourceArgs struct {
+	// The folder containing Azure Resource Manager templates.
+	ArmTemplateFolderPath *string `pulumi:"armTemplateFolderPath"`
+	// The artifact source's branch reference.
+	BranchRef *string `pulumi:"branchRef"`
+	// The artifact source's display name.
+	DisplayName *string `pulumi:"displayName"`
+	// The folder containing artifacts.
+	FolderPath *string `pulumi:"folderPath"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the artifact source.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties ArtifactSourceProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The security token to authenticate to the artifact source.
+	SecurityToken *string `pulumi:"securityToken"`
+	// The artifact source's type.
+	SourceType *string `pulumi:"sourceType"`
+	// Indicates if the artifact source is enabled (values: Enabled, Disabled).
+	Status *string `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The artifact source's URI.
+	Uri *string `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a ArtifactSource resource.
 type ArtifactSourceArgs struct {
+	// The folder containing Azure Resource Manager templates.
+	ArmTemplateFolderPath pulumi.StringPtrInput
+	// The artifact source's branch reference.
+	BranchRef pulumi.StringPtrInput
+	// The artifact source's display name.
+	DisplayName pulumi.StringPtrInput
+	// The folder containing artifacts.
+	FolderPath pulumi.StringPtrInput
 	// The name of the lab.
 	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the artifact source.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties ArtifactSourcePropertiesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The security token to authenticate to the artifact source.
+	SecurityToken pulumi.StringPtrInput
+	// The artifact source's type.
+	SourceType pulumi.StringPtrInput
+	// Indicates if the artifact source is enabled (values: Enabled, Disabled).
+	Status pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The artifact source's URI.
+	Uri pulumi.StringPtrInput
 }
 
 func (ArtifactSourceArgs) ElementType() reflect.Type {

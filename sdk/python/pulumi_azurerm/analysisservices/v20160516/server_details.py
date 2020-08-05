@@ -43,25 +43,23 @@ class ServerDetails(pulumi.CustomResource):
     """
     The type of the Analysis Services resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, as_administrators=None, backup_blob_container_uri=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents an instance of an Analysis Services resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] as_administrators: A collection of AS server administrators
+        :param pulumi.Input[str] backup_blob_container_uri: The container URI of backup blob.
         :param pulumi.Input[str] location: Location of the Analysis Services resource.
         :param pulumi.Input[str] name: The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
-        :param pulumi.Input[dict] properties: Properties of the provision operation request.
         :param pulumi.Input[str] resource_group_name: The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
         :param pulumi.Input[dict] sku: The SKU of the Analysis Services resource.
         :param pulumi.Input[dict] tags: Key-value pairs of additional resource provisioning properties.
 
-        The **properties** object supports the following:
+        The **as_administrators** object supports the following:
 
-          * `as_administrators` (`pulumi.Input[dict]`) - A collection of AS server administrators
-            * `members` (`pulumi.Input[list]`) - An array of administrator user identities.
-
-          * `backup_blob_container_uri` (`pulumi.Input[str]`) - The container URI of backup blob.
+          * `members` (`pulumi.Input[list]`) - An array of administrator user identities.
 
         The **sku** object supports the following:
 
@@ -85,13 +83,14 @@ class ServerDetails(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['as_administrators'] = as_administrators
+            __props__['backup_blob_container_uri'] = backup_blob_container_uri
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -99,6 +98,7 @@ class ServerDetails(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(ServerDetails, __self__).__init__(
             'azurerm:analysisservices/v20160516:ServerDetails',

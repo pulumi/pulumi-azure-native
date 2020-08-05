@@ -81,32 +81,80 @@ func (SubnetState) ElementType() reflect.Type {
 }
 
 type subnetArgs struct {
+	// The address prefix for the subnet.
+	AddressPrefix *string `pulumi:"addressPrefix"`
+	// List of address prefixes for the subnet.
+	AddressPrefixes []string `pulumi:"addressPrefixes"`
+	// An array of references to the delegations on the subnet.
+	Delegations []Delegation `pulumi:"delegations"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the subnet.
 	Name string `pulumi:"name"`
-	// Properties of the subnet.
-	Properties *SubnetPropertiesFormat `pulumi:"properties"`
+	// Nat gateway associated with this subnet.
+	NatGateway *SubResource `pulumi:"natGateway"`
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
+	// Enable or Disable apply network policies on private end point in the subnet.
+	PrivateEndpointNetworkPolicies *string `pulumi:"privateEndpointNetworkPolicies"`
+	// Enable or Disable apply network policies on private link service in the subnet.
+	PrivateLinkServiceNetworkPolicies *string `pulumi:"privateLinkServiceNetworkPolicies"`
+	// The provisioning state of the subnet resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// An array of references to the external resources using subnet.
+	ResourceNavigationLinks []ResourceNavigationLink `pulumi:"resourceNavigationLinks"`
+	// The reference of the RouteTable resource.
+	RouteTable *RouteTableType `pulumi:"routeTable"`
+	// An array of references to services injecting into this subnet.
+	ServiceAssociationLinks []ServiceAssociationLink `pulumi:"serviceAssociationLinks"`
+	// An array of service endpoint policies.
+	ServiceEndpointPolicies []ServiceEndpointPolicyType `pulumi:"serviceEndpointPolicies"`
+	// An array of service endpoints.
+	ServiceEndpoints []ServiceEndpointPropertiesFormat `pulumi:"serviceEndpoints"`
 	// The name of the virtual network.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
 }
 
 // The set of arguments for constructing a Subnet resource.
 type SubnetArgs struct {
+	// The address prefix for the subnet.
+	AddressPrefix pulumi.StringPtrInput
+	// List of address prefixes for the subnet.
+	AddressPrefixes pulumi.StringArrayInput
+	// An array of references to the delegations on the subnet.
+	Delegations DelegationArrayInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the subnet.
 	Name pulumi.StringInput
-	// Properties of the subnet.
-	Properties SubnetPropertiesFormatPtrInput
+	// Nat gateway associated with this subnet.
+	NatGateway SubResourcePtrInput
+	// The reference of the NetworkSecurityGroup resource.
+	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
+	// Enable or Disable apply network policies on private end point in the subnet.
+	PrivateEndpointNetworkPolicies pulumi.StringPtrInput
+	// Enable or Disable apply network policies on private link service in the subnet.
+	PrivateLinkServiceNetworkPolicies pulumi.StringPtrInput
+	// The provisioning state of the subnet resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// An array of references to the external resources using subnet.
+	ResourceNavigationLinks ResourceNavigationLinkArrayInput
+	// The reference of the RouteTable resource.
+	RouteTable RouteTableTypePtrInput
+	// An array of references to services injecting into this subnet.
+	ServiceAssociationLinks ServiceAssociationLinkArrayInput
+	// An array of service endpoint policies.
+	ServiceEndpointPolicies ServiceEndpointPolicyTypeArrayInput
+	// An array of service endpoints.
+	ServiceEndpoints ServiceEndpointPropertiesFormatArrayInput
 	// The name of the virtual network.
 	VirtualNetworkName pulumi.StringInput
 }

@@ -51,33 +51,31 @@ class Redis(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enable_non_ssl_port=None, location=None, name=None, redis_configuration=None, redis_version=None, resource_group_name=None, shard_count=None, sku=None, static_ip=None, subnet=None, tags=None, tenant_settings=None, virtual_network=None, __props__=None, __name__=None, __opts__=None):
         """
         A Redis item in CreateOrUpdate Operation response.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enable_non_ssl_port: If the value is true, then the non-SLL Redis server port (6379) will be enabled.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the Redis cache.
-        :param pulumi.Input[dict] properties: Redis cache properties.
+        :param pulumi.Input[dict] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param pulumi.Input[str] redis_version: RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[float] shard_count: The number of shards to be created on a Premium Cluster Cache.
+        :param pulumi.Input[dict] sku: What SKU of Redis cache to deploy.
+        :param pulumi.Input[str] static_ip: Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        :param pulumi.Input[str] subnet: Required when deploying a Redis cache inside an existing Azure Virtual Network.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[dict] tenant_settings: tenantSettings
+        :param pulumi.Input[str] virtual_network: The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
 
-        The **properties** object supports the following:
+        The **sku** object supports the following:
 
-          * `enable_non_ssl_port` (`pulumi.Input[bool]`) - If the value is true, then the non-SLL Redis server port (6379) will be enabled.
-          * `redis_configuration` (`pulumi.Input[dict]`) - All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
-          * `redis_version` (`pulumi.Input[str]`) - RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
-          * `shard_count` (`pulumi.Input[float]`) - The number of shards to be created on a Premium Cluster Cache.
-          * `sku` (`pulumi.Input[dict]`) - What SKU of Redis cache to deploy.
-            * `capacity` (`pulumi.Input[float]`) - What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
-            * `family` (`pulumi.Input[str]`) - Which family to use. Valid values: (C, P).
-            * `name` (`pulumi.Input[str]`) - What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
-
-          * `static_ip` (`pulumi.Input[str]`) - Required when deploying a Redis cache inside an existing Azure Virtual Network.
-          * `subnet` (`pulumi.Input[str]`) - Required when deploying a Redis cache inside an existing Azure Virtual Network.
-          * `tenant_settings` (`pulumi.Input[dict]`) - tenantSettings
-          * `virtual_network` (`pulumi.Input[str]`) - The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
+          * `capacity` (`pulumi.Input[float]`) - What size of Redis cache to deploy. Valid values: for C family (0, 1, 2, 3, 4, 5, 6), for P family (1, 2, 3, 4).
+          * `family` (`pulumi.Input[str]`) - Which family to use. Valid values: (C, P).
+          * `name` (`pulumi.Input[str]`) - What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,19 +94,28 @@ class Redis(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['enable_non_ssl_port'] = enable_non_ssl_port
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['redis_configuration'] = redis_configuration
+            __props__['redis_version'] = redis_version
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['shard_count'] = shard_count
+            if sku is None:
+                raise TypeError("Missing required property 'sku'")
+            __props__['sku'] = sku
+            __props__['static_ip'] = static_ip
+            __props__['subnet'] = subnet
             __props__['tags'] = tags
+            __props__['tenant_settings'] = tenant_settings
+            __props__['virtual_network'] = virtual_network
+            __props__['properties'] = None
             __props__['type'] = None
         super(Redis, __self__).__init__(
             'azurerm:cache/v20150801:Redis',

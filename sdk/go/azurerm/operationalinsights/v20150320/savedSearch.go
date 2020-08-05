@@ -27,11 +27,17 @@ type SavedSearch struct {
 // NewSavedSearch registers a new resource with the given unique name, arguments, and options.
 func NewSavedSearch(ctx *pulumi.Context,
 	name string, args *SavedSearchArgs, opts ...pulumi.ResourceOption) (*SavedSearch, error) {
+	if args == nil || args.Category == nil {
+		return nil, errors.New("missing required argument 'Category'")
+	}
+	if args == nil || args.DisplayName == nil {
+		return nil, errors.New("missing required argument 'DisplayName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.Query == nil {
+		return nil, errors.New("missing required argument 'Query'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -90,28 +96,44 @@ func (SavedSearchState) ElementType() reflect.Type {
 }
 
 type savedSearchArgs struct {
+	// The category of the saved search. This helps the user to find a saved search faster.
+	Category string `pulumi:"category"`
+	// Saved search display name.
+	DisplayName string `pulumi:"displayName"`
 	// The ETag of the saved search.
 	ETag *string `pulumi:"eTag"`
 	// The id of the saved search.
 	Name string `pulumi:"name"`
-	// The properties of the saved search.
-	Properties SavedSearchProperties `pulumi:"properties"`
+	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+	Query string `pulumi:"query"`
 	// The Resource Group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The tags attached to the saved search.
+	Tags []Tag `pulumi:"tags"`
+	// The version number of the query language. The current version is 2 and is the default.
+	Version *int `pulumi:"version"`
 	// The Log Analytics Workspace name.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a SavedSearch resource.
 type SavedSearchArgs struct {
+	// The category of the saved search. This helps the user to find a saved search faster.
+	Category pulumi.StringInput
+	// Saved search display name.
+	DisplayName pulumi.StringInput
 	// The ETag of the saved search.
 	ETag pulumi.StringPtrInput
 	// The id of the saved search.
 	Name pulumi.StringInput
-	// The properties of the saved search.
-	Properties SavedSearchPropertiesInput
+	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+	Query pulumi.StringInput
 	// The Resource Group name.
 	ResourceGroupName pulumi.StringInput
+	// The tags attached to the saved search.
+	Tags TagArrayInput
+	// The version number of the query language. The current version is 2 and is the default.
+	Version pulumi.IntPtrInput
 	// The Log Analytics Workspace name.
 	WorkspaceName pulumi.StringInput
 }

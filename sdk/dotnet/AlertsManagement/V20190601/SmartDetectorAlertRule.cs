@@ -90,6 +90,30 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190601
     public sealed class SmartDetectorAlertRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The alert rule actions.
+        /// </summary>
+        [Input("actionGroups", required: true)]
+        public Input<Inputs.ActionGroupsInformationArgs> ActionGroups { get; set; } = null!;
+
+        /// <summary>
+        /// The alert rule description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The alert rule's detector.
+        /// </summary>
+        [Input("detector", required: true)]
+        public Input<Inputs.DetectorArgs> Detector { get; set; } = null!;
+
+        /// <summary>
+        /// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+        /// </summary>
+        [Input("frequency", required: true)]
+        public Input<string> Frequency { get; set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Input("location")]
@@ -102,16 +126,34 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the alert rule.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AlertRulePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("scope", required: true)]
+        private InputList<string>? _scope;
+
+        /// <summary>
+        /// The alert rule resources scope.
+        /// </summary>
+        public InputList<string> Scope
+        {
+            get => _scope ?? (_scope = new InputList<string>());
+            set => _scope = value;
+        }
+
+        /// <summary>
+        /// The alert rule severity.
+        /// </summary>
+        [Input("severity", required: true)]
+        public Input<string> Severity { get; set; } = null!;
+
+        /// <summary>
+        /// The alert rule state.
+        /// </summary>
+        [Input("state", required: true)]
+        public Input<string> State { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<object>? _tags;
@@ -124,6 +166,12 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190601
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The alert rule throttling information.
+        /// </summary>
+        [Input("throttling")]
+        public Input<Inputs.ThrottlingInformationArgs>? Throttling { get; set; }
 
         public SmartDetectorAlertRuleArgs()
         {

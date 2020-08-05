@@ -78,6 +78,66 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public sealed class SubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        /// </summary>
+        [Input("autoDeleteOnIdle")]
+        public Input<string>? AutoDeleteOnIdle { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+        /// </summary>
+        [Input("deadLetteringOnFilterEvaluationExceptions")]
+        public Input<bool>? DeadLetteringOnFilterEvaluationExceptions { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether a subscription has dead letter support when a message expires.
+        /// </summary>
+        [Input("deadLetteringOnMessageExpiration")]
+        public Input<bool>? DeadLetteringOnMessageExpiration { get; set; }
+
+        /// <summary>
+        /// ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        /// </summary>
+        [Input("defaultMessageTimeToLive")]
+        public Input<string>? DefaultMessageTimeToLive { get; set; }
+
+        /// <summary>
+        /// ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        /// </summary>
+        [Input("duplicateDetectionHistoryTimeWindow")]
+        public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether server-side batched operations are enabled.
+        /// </summary>
+        [Input("enableBatchedOperations")]
+        public Input<bool>? EnableBatchedOperations { get; set; }
+
+        /// <summary>
+        /// Queue/Topic name to forward the Dead Letter message
+        /// </summary>
+        [Input("forwardDeadLetteredMessagesTo")]
+        public Input<string>? ForwardDeadLetteredMessagesTo { get; set; }
+
+        /// <summary>
+        /// Queue/Topic name to forward the messages
+        /// </summary>
+        [Input("forwardTo")]
+        public Input<string>? ForwardTo { get; set; }
+
+        /// <summary>
+        /// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
+        /// </summary>
+        [Input("lockDuration")]
+        public Input<string>? LockDuration { get; set; }
+
+        /// <summary>
+        /// Number of maximum deliveries.
+        /// </summary>
+        [Input("maxDeliveryCount")]
+        public Input<int>? MaxDeliveryCount { get; set; }
+
+        /// <summary>
         /// The subscription name.
         /// </summary>
         [Input("name", required: true)]
@@ -90,16 +150,22 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of subscriptions resource.
+        /// Value indicating if a subscription supports the concept of sessions.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SBSubscriptionPropertiesArgs>? Properties { get; set; }
+        [Input("requiresSession")]
+        public Input<bool>? RequiresSession { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Enumerates the possible values for the status of a messaging entity.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         /// <summary>
         /// The topic name.

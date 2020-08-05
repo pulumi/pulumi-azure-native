@@ -51,7 +51,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
     /**
      * Properties of the DDoS protection plan.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180201.DdosProtectionPlanPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180201.DdosProtectionPlanPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -83,10 +83,10 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -116,10 +116,6 @@ export interface DdosProtectionPlanArgs {
      * The name of the DDoS protection plan.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the DDoS protection plan.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20180201.DdosProtectionPlanPropertiesFormat>;
     /**
      * The name of the resource group.
      */

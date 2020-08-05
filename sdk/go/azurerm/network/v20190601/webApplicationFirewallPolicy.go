@@ -96,6 +96,8 @@ func (WebApplicationFirewallPolicyState) ElementType() reflect.Type {
 }
 
 type webApplicationFirewallPolicyArgs struct {
+	// Describes custom rules inside the policy.
+	CustomRules []WebApplicationFirewallCustomRule `pulumi:"customRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
@@ -104,8 +106,8 @@ type webApplicationFirewallPolicyArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the policy.
 	Name string `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties *WebApplicationFirewallPolicyPropertiesFormat `pulumi:"properties"`
+	// Describes policySettings for policy.
+	PolicySettings *PolicySettings `pulumi:"policySettings"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -114,6 +116,8 @@ type webApplicationFirewallPolicyArgs struct {
 
 // The set of arguments for constructing a WebApplicationFirewallPolicy resource.
 type WebApplicationFirewallPolicyArgs struct {
+	// Describes custom rules inside the policy.
+	CustomRules WebApplicationFirewallCustomRuleArrayInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource ID.
@@ -122,8 +126,8 @@ type WebApplicationFirewallPolicyArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the policy.
 	Name pulumi.StringInput
-	// Properties of the web application firewall policy.
-	Properties WebApplicationFirewallPolicyPropertiesFormatPtrInput
+	// Describes policySettings for policy.
+	PolicySettings PolicySettingsPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

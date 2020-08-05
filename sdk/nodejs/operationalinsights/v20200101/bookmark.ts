@@ -47,7 +47,7 @@ export class Bookmark extends pulumi.CustomResource {
     /**
      * Bookmark properties
      */
-    public readonly properties!: pulumi.Output<outputs.operationalinsights.v20200101.BookmarkPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.operationalinsights.v20200101.BookmarkPropertiesResponse>;
     /**
      * Azure resource type
      */
@@ -66,8 +66,14 @@ export class Bookmark extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as BookmarkArgs | undefined;
+            if (!args || args.displayName === undefined) {
+                throw new Error("Missing required property 'displayName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
+            }
+            if (!args || args.query === undefined) {
+                throw new Error("Missing required property 'query'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -75,11 +81,21 @@ export class Bookmark extends pulumi.CustomResource {
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["created"] = args ? args.created : undefined;
+            inputs["createdBy"] = args ? args.createdBy : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["incidentInfo"] = args ? args.incidentInfo : undefined;
+            inputs["labels"] = args ? args.labels : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notes"] = args ? args.notes : undefined;
+            inputs["query"] = args ? args.query : undefined;
+            inputs["queryResult"] = args ? args.queryResult : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["updated"] = args ? args.updated : undefined;
+            inputs["updatedBy"] = args ? args.updatedBy : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,21 +114,57 @@ export class Bookmark extends pulumi.CustomResource {
  */
 export interface BookmarkArgs {
     /**
+     * The time the bookmark was created
+     */
+    readonly created?: pulumi.Input<string>;
+    /**
+     * Describes a user that created the bookmark
+     */
+    readonly createdBy?: pulumi.Input<inputs.operationalinsights.v20200101.UserInfo>;
+    /**
+     * The display name of the bookmark
+     */
+    readonly displayName: pulumi.Input<string>;
+    /**
      * Etag of the azure resource
      */
     readonly etag?: pulumi.Input<string>;
+    /**
+     * Describes an incident that relates to bookmark
+     */
+    readonly incidentInfo?: pulumi.Input<inputs.operationalinsights.v20200101.IncidentInfo>;
+    /**
+     * List of labels relevant to this bookmark
+     */
+    readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Bookmark ID
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Bookmark properties
+     * The notes of the bookmark
      */
-    readonly properties?: pulumi.Input<inputs.operationalinsights.v20200101.BookmarkProperties>;
+    readonly notes?: pulumi.Input<string>;
+    /**
+     * The query of the bookmark.
+     */
+    readonly query: pulumi.Input<string>;
+    /**
+     * The query result of the bookmark.
+     */
+    readonly queryResult?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The last time the bookmark was updated
+     */
+    readonly updated?: pulumi.Input<string>;
+    /**
+     * Describes a user that updated the bookmark
+     */
+    readonly updatedBy?: pulumi.Input<inputs.operationalinsights.v20200101.UserInfo>;
     /**
      * The name of the workspace.
      */
