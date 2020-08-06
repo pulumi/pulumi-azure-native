@@ -17,14 +17,8 @@ namespace Pulumi.AzureRM.Network.V20170901
         /// <summary>
         /// The list of A records in the record set.
         /// </summary>
-        [Output("ARecords")]
+        [Output("aRecords")]
         public Output<ImmutableArray<Outputs.ARecordResponseResult>> ARecords { get; private set; } = null!;
-
-        /// <summary>
-        /// The TTL (time-to-live) of the records in the record set.
-        /// </summary>
-        [Output("TTL")]
-        public Output<int?> TTL { get; private set; } = null!;
 
         /// <summary>
         /// The list of AAAA records in the record set.
@@ -99,6 +93,12 @@ namespace Pulumi.AzureRM.Network.V20170901
         public Output<ImmutableArray<Outputs.SrvRecordResponseResult>> SrvRecords { get; private set; } = null!;
 
         /// <summary>
+        /// The TTL (time-to-live) of the records in the record set.
+        /// </summary>
+        [Output("ttl")]
+        public Output<int?> Ttl { get; private set; } = null!;
+
+        /// <summary>
         /// The list of TXT records in the record set.
         /// </summary>
         [Output("txtRecords")]
@@ -155,23 +155,17 @@ namespace Pulumi.AzureRM.Network.V20170901
 
     public sealed class RecordSetArgs : Pulumi.ResourceArgs
     {
-        [Input("ARecords")]
-        private InputList<Inputs.ARecordArgs>? _ARecords;
+        [Input("aRecords")]
+        private InputList<Inputs.ARecordArgs>? _aRecords;
 
         /// <summary>
         /// The list of A records in the record set.
         /// </summary>
         public InputList<Inputs.ARecordArgs> ARecords
         {
-            get => _ARecords ?? (_ARecords = new InputList<Inputs.ARecordArgs>());
-            set => _ARecords = value;
+            get => _aRecords ?? (_aRecords = new InputList<Inputs.ARecordArgs>());
+            set => _aRecords = value;
         }
-
-        /// <summary>
-        /// The TTL (time-to-live) of the records in the record set.
-        /// </summary>
-        [Input("TTL")]
-        public Input<int>? TTL { get; set; }
 
         [Input("aaaaRecords")]
         private InputList<Inputs.AaaaRecordArgs>? _aaaaRecords;
@@ -292,6 +286,12 @@ namespace Pulumi.AzureRM.Network.V20170901
             get => _srvRecords ?? (_srvRecords = new InputList<Inputs.SrvRecordArgs>());
             set => _srvRecords = value;
         }
+
+        /// <summary>
+        /// The TTL (time-to-live) of the records in the record set.
+        /// </summary>
+        [Input("ttl")]
+        public Input<int>? Ttl { get; set; }
 
         [Input("txtRecords")]
         private InputList<Inputs.TxtRecordArgs>? _txtRecords;

@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Outputs
 
         [OutputConstructor]
         private EncryptionResponseResult(
-            string? KeyName,
+            string? keyName,
 
             string? keySource,
 
@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Outputs
 
             string? keyVersion)
         {
-            this.KeyName = KeyName;
+            KeyName = keyName;
             KeySource = keySource;
             KeyVaultUri = keyVaultUri;
             KeyVersion = keyVersion;

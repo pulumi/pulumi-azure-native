@@ -29,8 +29,8 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// <summary>
         /// Author email.
         /// </summary>
-        [Output("author_email")]
-        public Output<string?> Author_email { get; private set; } = null!;
+        [Output("authorEmail")]
+        public Output<string?> AuthorEmail { get; private set; } = null!;
 
         /// <summary>
         /// Who performed the deployment.
@@ -47,8 +47,8 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// <summary>
         /// End time.
         /// </summary>
-        [Output("end_time")]
-        public Output<string?> End_time { get; private set; } = null!;
+        [Output("endTime")]
+        public Output<string?> EndTime { get; private set; } = null!;
 
         /// <summary>
         /// Kind of resource.
@@ -71,8 +71,8 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// <summary>
         /// Start time.
         /// </summary>
-        [Output("start_time")]
-        public Output<string?> Start_time { get; private set; } = null!;
+        [Output("startTime")]
+        public Output<string?> StartTime { get; private set; } = null!;
 
         /// <summary>
         /// Deployment status.
@@ -146,8 +146,8 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// <summary>
         /// Author email.
         /// </summary>
-        [Input("author_email")]
-        public Input<string>? Author_email { get; set; }
+        [Input("authorEmail")]
+        public Input<string>? AuthorEmail { get; set; }
 
         /// <summary>
         /// Who performed the deployment.
@@ -164,8 +164,8 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// <summary>
         /// End time.
         /// </summary>
-        [Input("end_time")]
-        public Input<string>? End_time { get; set; }
+        [Input("endTime")]
+        public Input<string>? EndTime { get; set; }
 
         /// <summary>
         /// Kind of resource.
@@ -194,8 +194,8 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// <summary>
         /// Start time.
         /// </summary>
-        [Input("start_time")]
-        public Input<string>? Start_time { get; set; }
+        [Input("startTime")]
+        public Input<string>? StartTime { get; set; }
 
         /// <summary>
         /// Deployment status.

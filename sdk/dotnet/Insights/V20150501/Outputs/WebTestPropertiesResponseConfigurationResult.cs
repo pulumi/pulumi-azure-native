@@ -19,9 +19,9 @@ namespace Pulumi.AzureRM.Insights.V20150501.Outputs
         public readonly string? WebTest;
 
         [OutputConstructor]
-        private WebTestPropertiesResponseConfigurationResult(string? WebTest)
+        private WebTestPropertiesResponseConfigurationResult(string? webTest)
         {
-            this.WebTest = WebTest;
+            WebTest = webTest;
         }
     }
 }

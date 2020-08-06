@@ -28,15 +28,15 @@ namespace Pulumi.AzureRM.Automation.V20151031.Outputs
 
         [OutputConstructor]
         private KeyResponseResult(
-            string KeyName,
+            string keyName,
 
-            string Permissions,
+            string permissions,
 
-            string Value)
+            string value)
         {
-            this.KeyName = KeyName;
-            this.Permissions = Permissions;
-            this.Value = Value;
+            KeyName = keyName;
+            Permissions = permissions;
+            Value = value;
         }
     }
 }

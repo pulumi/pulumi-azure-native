@@ -15,12 +15,6 @@ namespace Pulumi.AzureRM.Network.V20160601
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets or sets list of peerings in a VirtualNetwork
-        /// </summary>
-        [Output("VirtualNetworkPeerings")]
-        public Output<ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult>> VirtualNetworkPeerings { get; private set; } = null!;
-
-        /// <summary>
         /// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
         /// </summary>
         [Output("addressSpace")]
@@ -80,6 +74,12 @@ namespace Pulumi.AzureRM.Network.V20160601
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Gets or sets list of peerings in a VirtualNetwork
+        /// </summary>
+        [Output("virtualNetworkPeerings")]
+        public Output<ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult>> VirtualNetworkPeerings { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -125,18 +125,6 @@ namespace Pulumi.AzureRM.Network.V20160601
 
     public sealed class VirtualNetworkArgs : Pulumi.ResourceArgs
     {
-        [Input("VirtualNetworkPeerings")]
-        private InputList<Inputs.VirtualNetworkPeeringArgs>? _VirtualNetworkPeerings;
-
-        /// <summary>
-        /// Gets or sets list of peerings in a VirtualNetwork
-        /// </summary>
-        public InputList<Inputs.VirtualNetworkPeeringArgs> VirtualNetworkPeerings
-        {
-            get => _VirtualNetworkPeerings ?? (_VirtualNetworkPeerings = new InputList<Inputs.VirtualNetworkPeeringArgs>());
-            set => _VirtualNetworkPeerings = value;
-        }
-
         /// <summary>
         /// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
         /// </summary>
@@ -213,6 +201,18 @@ namespace Pulumi.AzureRM.Network.V20160601
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("virtualNetworkPeerings")]
+        private InputList<Inputs.VirtualNetworkPeeringArgs>? _virtualNetworkPeerings;
+
+        /// <summary>
+        /// Gets or sets list of peerings in a VirtualNetwork
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkPeeringArgs> VirtualNetworkPeerings
+        {
+            get => _virtualNetworkPeerings ?? (_virtualNetworkPeerings = new InputList<Inputs.VirtualNetworkPeeringArgs>());
+            set => _virtualNetworkPeerings = value;
         }
 
         public VirtualNetworkArgs()

@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Insights.V20180416
     public sealed class GetScheduledQueryRuleResult
     {
         /// <summary>
+        /// Action needs to be taken on rule execution.
+        /// </summary>
+        public readonly Outputs.ActionResponseResult Action;
+        /// <summary>
         /// The description of the Log Search rule.
         /// </summary>
         public readonly string? Description;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureRM.Insights.V20180416
 
         [OutputConstructor]
         private GetScheduledQueryRuleResult(
+            Outputs.ActionResponseResult action,
+
             string? description,
 
             string? enabled,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureRM.Insights.V20180416
 
             string type)
         {
+            Action = action;
             Description = description;
             Enabled = enabled;
             LastUpdatedTime = lastUpdatedTime;

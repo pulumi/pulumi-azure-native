@@ -42,6 +42,10 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
         /// </summary>
         public readonly string? ResourceState;
         /// <summary>
+        /// A reference to the routing configuration.
+        /// </summary>
+        public readonly Outputs.RouteConfigurationResponseResult? RouteConfiguration;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
 
             string? resourceState,
 
+            Outputs.RouteConfigurationResponseResult? routeConfiguration,
+
             string type)
         {
             AcceptedProtocols = acceptedProtocols;
@@ -71,6 +77,7 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
             Name = name;
             PatternsToMatch = patternsToMatch;
             ResourceState = resourceState;
+            RouteConfiguration = routeConfiguration;
             Type = type;
         }
     }

@@ -30,6 +30,12 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
         [Input("resourceId", required: true)]
         public string ResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// Maximum number of records to return.
+        /// </summary>
+        [Input("top")]
+        public int? Top { get; set; }
+
         public ListRemediationDeploymentsAtResourceArgs()
         {
         }

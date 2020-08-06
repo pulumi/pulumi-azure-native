@@ -16,48 +16,48 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212.Outputs
         /// <summary>
         /// A system generated property that specified the addressable path of the collections resource.
         /// </summary>
-        public readonly string? _colls;
+        public readonly string? Colls;
         /// <summary>
         /// A system generated property representing the resource etag required for optimistic concurrency control.
         /// </summary>
-        public readonly string _etag;
-        /// <summary>
-        /// A system generated property. A unique identifier.
-        /// </summary>
-        public readonly string _rid;
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> _ts;
-        /// <summary>
-        /// A system generated property that specifies the addressable path of the users resource.
-        /// </summary>
-        public readonly string? _users;
+        public readonly string Etag;
         /// <summary>
         /// Name of the Cosmos DB SQL database
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        public readonly string Rid;
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Ts;
+        /// <summary>
+        /// A system generated property that specifies the addressable path of the users resource.
+        /// </summary>
+        public readonly string? Users;
 
         [OutputConstructor]
         private SqlDatabaseGetPropertiesResponseResourceResult(
-            string? _colls,
+            string? colls,
 
-            string _etag,
+            string etag,
 
-            string _rid,
+            string id,
 
-            ImmutableDictionary<string, object> _ts,
+            string rid,
 
-            string? _users,
+            ImmutableDictionary<string, object> ts,
 
-            string id)
+            string? users)
         {
-            this._colls = _colls;
-            this._etag = _etag;
-            this._rid = _rid;
-            this._ts = _ts;
-            this._users = _users;
+            Colls = colls;
+            Etag = etag;
             Id = id;
+            Rid = rid;
+            Ts = ts;
+            Users = users;
         }
     }
 }

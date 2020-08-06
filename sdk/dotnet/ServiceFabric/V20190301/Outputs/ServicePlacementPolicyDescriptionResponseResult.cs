@@ -19,9 +19,9 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Outputs
         public readonly string Type;
 
         [OutputConstructor]
-        private ServicePlacementPolicyDescriptionResponseResult(string Type)
+        private ServicePlacementPolicyDescriptionResponseResult(string type)
         {
-            this.Type = Type;
+            Type = type;
         }
     }
 }

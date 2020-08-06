@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20190801
     public sealed class GetVirtualRouterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the Virtual Router.
         /// </summary>
         [Input("name", required: true)]

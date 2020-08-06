@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20190601
     public sealed class GetNatGatewayArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the nat gateway.
         /// </summary>
         [Input("name", required: true)]

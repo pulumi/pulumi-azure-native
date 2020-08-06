@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Inputs
         /// <summary>
         /// The type of placement policy for a service fabric service. Following are the possible values.
         /// </summary>
-        [Input("Type", required: true)]
+        [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         public ServicePlacementPolicyDescriptionArgs()

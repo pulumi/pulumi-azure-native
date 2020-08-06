@@ -15,24 +15,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
     public partial class DatabaseAccountSqlContainer : Pulumi.CustomResource
     {
         /// <summary>
-        /// A system generated property representing the resource etag required for optimistic concurrency control.
-        /// </summary>
-        [Output("_etag")]
-        public Output<string?> _etag { get; private set; } = null!;
-
-        /// <summary>
-        /// A system generated property. A unique identifier.
-        /// </summary>
-        [Output("_rid")]
-        public Output<string?> _rid { get; private set; } = null!;
-
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        [Output("_ts")]
-        public Output<ImmutableDictionary<string, object>?> _ts { get; private set; } = null!;
-
-        /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
         [Output("conflictResolutionPolicy")]
@@ -43,6 +25,12 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
         /// </summary>
         [Output("defaultTtl")]
         public Output<int?> DefaultTtl { get; private set; } = null!;
+
+        /// <summary>
+        /// A system generated property representing the resource etag required for optimistic concurrency control.
+        /// </summary>
+        [Output("etag")]
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
@@ -69,10 +57,22 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
         public Output<Outputs.ContainerPartitionKeyResponseResult?> PartitionKey { get; private set; } = null!;
 
         /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        [Output("rid")]
+        public Output<string?> Rid { get; private set; } = null!;
+
+        /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        [Output("ts")]
+        public Output<ImmutableDictionary<string, object>?> Ts { get; private set; } = null!;
 
         /// <summary>
         /// The type of Azure resource.

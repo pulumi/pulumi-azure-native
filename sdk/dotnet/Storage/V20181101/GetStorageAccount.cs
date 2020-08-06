@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Storage.V20181101
     public sealed class GetStorageAccountArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         /// </summary>
         [Input("name", required: true)]

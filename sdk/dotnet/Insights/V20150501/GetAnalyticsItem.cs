@@ -25,10 +25,10 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public string? Id { get; set; }
 
         /// <summary>
-        /// The name of a specific item defined in the Application Insights component
+        /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
-        [Input("name")]
-        public string? Name { get; set; }
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -41,12 +41,6 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
-
-        /// <summary>
-        /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-        /// </summary>
-        [Input("scopePath", required: true)]
-        public string ScopePath { get; set; } = null!;
 
         public GetAnalyticsItemArgs()
         {
@@ -62,17 +56,13 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         public readonly string? Content;
         /// <summary>
-        /// Internally assigned unique id of the item definition.
-        /// </summary>
-        public readonly string? Id;
-        /// <summary>
         /// The user-defined name of the item.
         /// </summary>
         public readonly string? Name;
         /// <summary>
         /// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         /// </summary>
-        public readonly Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponseResult? Properties;
+        public readonly Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponseResult Properties;
         /// <summary>
         /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
@@ -96,33 +86,30 @@ namespace Pulumi.AzureRM.Insights.V20150501
 
         [OutputConstructor]
         private GetAnalyticsItemResult(
-            string? Content,
+            string? content,
 
-            string? Id,
+            string? name,
 
-            string? Name,
+            Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponseResult properties,
 
-            Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponseResult? Properties,
+            string? scope,
 
-            string? Scope,
+            string timeCreated,
 
-            string TimeCreated,
+            string timeModified,
 
-            string TimeModified,
+            string? type,
 
-            string? Type,
-
-            string Version)
+            string version)
         {
-            this.Content = Content;
-            this.Id = Id;
-            this.Name = Name;
-            this.Properties = Properties;
-            this.Scope = Scope;
-            this.TimeCreated = TimeCreated;
-            this.TimeModified = TimeModified;
-            this.Type = Type;
-            this.Version = Version;
+            Content = content;
+            Name = name;
+            Properties = properties;
+            Scope = scope;
+            TimeCreated = timeCreated;
+            TimeModified = timeModified;
+            Type = type;
+            Version = version;
         }
     }
 }

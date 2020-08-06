@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Insights.V20160301.Inputs
     public sealed class RuleDataSourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+        /// </summary>
+        [Input("odataType", required: true)]
+        public Input<string> OdataType { get; set; } = null!;
+
+        /// <summary>
         /// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
         /// </summary>
         [Input("resourceUri")]

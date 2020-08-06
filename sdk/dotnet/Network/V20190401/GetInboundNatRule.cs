@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20190401
     public sealed class GetInboundNatRuleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the load balancer.
         /// </summary>
         [Input("loadBalancerName", required: true)]

@@ -56,10 +56,6 @@ namespace Pulumi.AzureRM.Network.V20180501
         /// </summary>
         public readonly ImmutableArray<Outputs.ARecordResponseResult> ARecords;
         /// <summary>
-        /// The TTL (time-to-live) of the records in the record set.
-        /// </summary>
-        public readonly int? TTL;
-        /// <summary>
         /// The list of AAAA records in the record set.
         /// </summary>
         public readonly ImmutableArray<Outputs.AaaaRecordResponseResult> AaaaRecords;
@@ -116,6 +112,10 @@ namespace Pulumi.AzureRM.Network.V20180501
         /// </summary>
         public readonly Outputs.SubResourceResponseResult? TargetResource;
         /// <summary>
+        /// The TTL (time-to-live) of the records in the record set.
+        /// </summary>
+        public readonly int? Ttl;
+        /// <summary>
         /// The list of TXT records in the record set.
         /// </summary>
         public readonly ImmutableArray<Outputs.TxtRecordResponseResult> TxtRecords;
@@ -126,9 +126,7 @@ namespace Pulumi.AzureRM.Network.V20180501
 
         [OutputConstructor]
         private GetRecordSetResult(
-            ImmutableArray<Outputs.ARecordResponseResult> ARecords,
-
-            int? TTL,
+            ImmutableArray<Outputs.ARecordResponseResult> aRecords,
 
             ImmutableArray<Outputs.AaaaRecordResponseResult> aaaaRecords,
 
@@ -158,12 +156,13 @@ namespace Pulumi.AzureRM.Network.V20180501
 
             Outputs.SubResourceResponseResult? targetResource,
 
+            int? ttl,
+
             ImmutableArray<Outputs.TxtRecordResponseResult> txtRecords,
 
             string type)
         {
-            this.ARecords = ARecords;
-            this.TTL = TTL;
+            ARecords = aRecords;
             AaaaRecords = aaaaRecords;
             CaaRecords = caaRecords;
             CnameRecord = cnameRecord;
@@ -178,6 +177,7 @@ namespace Pulumi.AzureRM.Network.V20180501
             SoaRecord = soaRecord;
             SrvRecords = srvRecords;
             TargetResource = targetResource;
+            Ttl = ttl;
             TxtRecords = txtRecords;
             Type = type;
         }

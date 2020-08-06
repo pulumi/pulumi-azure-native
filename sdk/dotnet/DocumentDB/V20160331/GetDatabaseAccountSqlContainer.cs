@@ -52,18 +52,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331
     public sealed class GetDatabaseAccountSqlContainerResult
     {
         /// <summary>
-        /// A system generated property representing the resource etag required for optimistic concurrency control.
-        /// </summary>
-        public readonly string? _etag;
-        /// <summary>
-        /// A system generated property. A unique identifier.
-        /// </summary>
-        public readonly string? _rid;
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? _ts;
-        /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
         public readonly Outputs.ConflictResolutionPolicyResponseResult? ConflictResolutionPolicy;
@@ -71,6 +59,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331
         /// Default time to live
         /// </summary>
         public readonly int? DefaultTtl;
+        /// <summary>
+        /// A system generated property representing the resource etag required for optimistic concurrency control.
+        /// </summary>
+        public readonly string? Etag;
         /// <summary>
         /// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
         /// </summary>
@@ -88,9 +80,17 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331
         /// </summary>
         public readonly Outputs.ContainerPartitionKeyResponseResult? PartitionKey;
         /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        public readonly string? Rid;
+        /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Ts;
         /// <summary>
         /// The type of Azure resource.
         /// </summary>
@@ -102,15 +102,11 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331
 
         [OutputConstructor]
         private GetDatabaseAccountSqlContainerResult(
-            string? _etag,
-
-            string? _rid,
-
-            ImmutableDictionary<string, object>? _ts,
-
             Outputs.ConflictResolutionPolicyResponseResult? conflictResolutionPolicy,
 
             int? defaultTtl,
+
+            string? etag,
 
             Outputs.IndexingPolicyResponseResult? indexingPolicy,
 
@@ -120,22 +116,26 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331
 
             Outputs.ContainerPartitionKeyResponseResult? partitionKey,
 
+            string? rid,
+
             ImmutableDictionary<string, string>? tags,
+
+            ImmutableDictionary<string, object>? ts,
 
             string type,
 
             Outputs.UniqueKeyPolicyResponseResult? uniqueKeyPolicy)
         {
-            this._etag = _etag;
-            this._rid = _rid;
-            this._ts = _ts;
             ConflictResolutionPolicy = conflictResolutionPolicy;
             DefaultTtl = defaultTtl;
+            Etag = etag;
             IndexingPolicy = indexingPolicy;
             Location = location;
             Name = name;
             PartitionKey = partitionKey;
+            Rid = rid;
             Tags = tags;
+            Ts = ts;
             Type = type;
             UniqueKeyPolicy = uniqueKeyPolicy;
         }

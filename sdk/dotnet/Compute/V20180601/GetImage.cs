@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Compute.V20180601
     public sealed class GetImageArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the image.
         /// </summary>
         [Input("name", required: true)]

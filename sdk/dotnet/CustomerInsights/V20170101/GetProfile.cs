@@ -25,6 +25,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         public string HubName { get; set; } = null!;
 
         /// <summary>
+        /// Locale of profile to retrieve, default is en-us.
+        /// </summary>
+        [Input("localeCode")]
+        public string? LocaleCode { get; set; }
+
+        /// <summary>
         /// The name of the profile.
         /// </summary>
         [Input("name", required: true)]

@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
     public sealed class GetExportArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// Export Name.
         /// </summary>
         [Input("name", required: true)]

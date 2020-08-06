@@ -48,15 +48,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401
         /// <summary>
         /// A system generated property representing the resource etag required for optimistic concurrency control.
         /// </summary>
-        public readonly string? _etag;
-        /// <summary>
-        /// A system generated property. A unique identifier.
-        /// </summary>
-        public readonly string? _rid;
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object>? _ts;
+        public readonly string? Etag;
         /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
@@ -66,9 +58,17 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        public readonly string? Rid;
+        /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Ts;
         /// <summary>
         /// The type of Azure resource.
         /// </summary>
@@ -76,26 +76,26 @@ namespace Pulumi.AzureRM.DocumentDB.V20150401
 
         [OutputConstructor]
         private GetDatabaseAccountGremlinDatabaseResult(
-            string? _etag,
-
-            string? _rid,
-
-            ImmutableDictionary<string, object>? _ts,
+            string? etag,
 
             string? location,
 
             string name,
 
+            string? rid,
+
             ImmutableDictionary<string, string>? tags,
+
+            ImmutableDictionary<string, object>? ts,
 
             string type)
         {
-            this._etag = _etag;
-            this._rid = _rid;
-            this._ts = _ts;
+            Etag = etag;
             Location = location;
             Name = name;
+            Rid = rid;
             Tags = tags;
+            Ts = ts;
             Type = type;
         }
     }

@@ -39,6 +39,12 @@ namespace Pulumi.AzureRM.Media.V20180701
         public Output<string> EndTime { get; private set; } = null!;
 
         /// <summary>
+        /// The inputs for the Job.
+        /// </summary>
+        [Output("input")]
+        public Output<Outputs.JobInputResponseResult> Input { get; private set; } = null!;
+
+        /// <summary>
         /// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
         /// </summary>
         [Output("lastModified")]
@@ -148,6 +154,12 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The inputs for the Job.
+        /// </summary>
+        [Input("input", required: true)]
+        public Input<Inputs.JobInputArgs> Input { get; set; } = null!;
 
         /// <summary>
         /// The Job name.

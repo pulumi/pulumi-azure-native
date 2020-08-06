@@ -25,6 +25,14 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Outputs
         /// Data type of the column.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Flag indicating if the type supports null values or not.
+        /// </summary>
+        public readonly bool? XMsIsnullable;
+        /// <summary>
+        /// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+        /// </summary>
+        public readonly bool? XMsIsordered;
 
         [OutputConstructor]
         private ColumnSpecificationResponseResult(
@@ -32,11 +40,17 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Outputs
 
             string? format,
 
-            string type)
+            string type,
+
+            bool? xMsIsnullable,
+
+            bool? xMsIsordered)
         {
             Enum = @enum;
             Format = format;
             Type = type;
+            XMsIsnullable = xMsIsnullable;
+            XMsIsordered = xMsIsordered;
         }
     }
 }

@@ -35,50 +35,50 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// <summary>
         /// Count of downloads.
         /// </summary>
-        [Output("download_count")]
-        public Output<int?> Download_count { get; private set; } = null!;
+        [Output("downloadCount")]
+        public Output<int?> DownloadCount { get; private set; } = null!;
 
         /// <summary>
         /// Site extension ID.
         /// </summary>
-        [Output("extension_id")]
-        public Output<string?> Extension_id { get; private set; } = null!;
+        [Output("extensionId")]
+        public Output<string?> ExtensionId { get; private set; } = null!;
 
         /// <summary>
         /// Site extension type.
         /// </summary>
-        [Output("extension_type")]
-        public Output<string?> Extension_type { get; private set; } = null!;
+        [Output("extensionType")]
+        public Output<string?> ExtensionType { get; private set; } = null!;
 
         /// <summary>
         /// Extension URL.
         /// </summary>
-        [Output("extension_url")]
-        public Output<string?> Extension_url { get; private set; } = null!;
+        [Output("extensionUrl")]
+        public Output<string?> ExtensionUrl { get; private set; } = null!;
 
         /// <summary>
         /// Feed URL.
         /// </summary>
-        [Output("feed_url")]
-        public Output<string?> Feed_url { get; private set; } = null!;
+        [Output("feedUrl")]
+        public Output<string?> FeedUrl { get; private set; } = null!;
 
         /// <summary>
         /// Icon URL.
         /// </summary>
-        [Output("icon_url")]
-        public Output<string?> Icon_url { get; private set; } = null!;
+        [Output("iconUrl")]
+        public Output<string?> IconUrl { get; private set; } = null!;
 
         /// <summary>
         /// Installed timestamp.
         /// </summary>
-        [Output("installed_date_time")]
-        public Output<string?> Installed_date_time { get; private set; } = null!;
+        [Output("installedDateTime")]
+        public Output<string?> InstalledDateTime { get; private set; } = null!;
 
         /// <summary>
         /// Installer command line parameters.
         /// </summary>
-        [Output("installer_command_line_params")]
-        public Output<string?> Installer_command_line_params { get; private set; } = null!;
+        [Output("installerCommandLineParams")]
+        public Output<string?> InstallerCommandLineParams { get; private set; } = null!;
 
         /// <summary>
         /// Kind of resource.
@@ -89,20 +89,20 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// <summary>
         /// License URL.
         /// </summary>
-        [Output("license_url")]
-        public Output<string?> License_url { get; private set; } = null!;
+        [Output("licenseUrl")]
+        public Output<string?> LicenseUrl { get; private set; } = null!;
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the local version is the latest version; &lt;code&gt;false&lt;/code&gt; otherwise.
         /// </summary>
-        [Output("local_is_latest_version")]
-        public Output<bool?> Local_is_latest_version { get; private set; } = null!;
+        [Output("localIsLatestVersion")]
+        public Output<bool?> LocalIsLatestVersion { get; private set; } = null!;
 
         /// <summary>
         /// Local path.
         /// </summary>
-        [Output("local_path")]
-        public Output<string?> Local_path { get; private set; } = null!;
+        [Output("localPath")]
+        public Output<string?> LocalPath { get; private set; } = null!;
 
         /// <summary>
         /// Resource Name.
@@ -113,8 +113,8 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// <summary>
         /// Project URL.
         /// </summary>
-        [Output("project_url")]
-        public Output<string?> Project_url { get; private set; } = null!;
+        [Output("projectUrl")]
+        public Output<string?> ProjectUrl { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state.
@@ -125,8 +125,8 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// <summary>
         /// Published timestamp.
         /// </summary>
-        [Output("published_date_time")]
-        public Output<string?> Published_date_time { get; private set; } = null!;
+        [Output("publishedDateTime")]
+        public Output<string?> PublishedDateTime { get; private set; } = null!;
 
         /// <summary>
         /// Summary description.

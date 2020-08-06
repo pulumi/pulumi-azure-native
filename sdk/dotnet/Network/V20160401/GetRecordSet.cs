@@ -56,10 +56,6 @@ namespace Pulumi.AzureRM.Network.V20160401
         /// </summary>
         public readonly ImmutableArray<Outputs.ARecordResponseResult> ARecords;
         /// <summary>
-        /// The TTL (time-to-live) of the records in the record set.
-        /// </summary>
-        public readonly int? TTL;
-        /// <summary>
         /// The list of AAAA records in the record set.
         /// </summary>
         public readonly ImmutableArray<Outputs.AaaaRecordResponseResult> AaaaRecords;
@@ -100,6 +96,10 @@ namespace Pulumi.AzureRM.Network.V20160401
         /// </summary>
         public readonly ImmutableArray<Outputs.SrvRecordResponseResult> SrvRecords;
         /// <summary>
+        /// The TTL (time-to-live) of the records in the record set.
+        /// </summary>
+        public readonly int? Ttl;
+        /// <summary>
         /// The list of TXT records in the record set.
         /// </summary>
         public readonly ImmutableArray<Outputs.TxtRecordResponseResult> TxtRecords;
@@ -110,9 +110,7 @@ namespace Pulumi.AzureRM.Network.V20160401
 
         [OutputConstructor]
         private GetRecordSetResult(
-            ImmutableArray<Outputs.ARecordResponseResult> ARecords,
-
-            int? TTL,
+            ImmutableArray<Outputs.ARecordResponseResult> aRecords,
 
             ImmutableArray<Outputs.AaaaRecordResponseResult> aaaaRecords,
 
@@ -134,12 +132,13 @@ namespace Pulumi.AzureRM.Network.V20160401
 
             ImmutableArray<Outputs.SrvRecordResponseResult> srvRecords,
 
+            int? ttl,
+
             ImmutableArray<Outputs.TxtRecordResponseResult> txtRecords,
 
             string? type)
         {
-            this.ARecords = ARecords;
-            this.TTL = TTL;
+            ARecords = aRecords;
             AaaaRecords = aaaaRecords;
             CnameRecord = cnameRecord;
             Etag = etag;
@@ -150,6 +149,7 @@ namespace Pulumi.AzureRM.Network.V20160401
             PtrRecords = ptrRecords;
             SoaRecord = soaRecord;
             SrvRecords = srvRecords;
+            Ttl = ttl;
             TxtRecords = txtRecords;
             Type = type;
         }

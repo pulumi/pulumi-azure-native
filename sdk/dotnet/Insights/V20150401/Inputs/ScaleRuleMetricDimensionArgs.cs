@@ -18,25 +18,25 @@ namespace Pulumi.AzureRM.Insights.V20150401.Inputs
         /// <summary>
         /// Name of the dimension.
         /// </summary>
-        [Input("DimensionName", required: true)]
+        [Input("dimensionName", required: true)]
         public Input<string> DimensionName { get; set; } = null!;
 
         /// <summary>
         /// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
         /// </summary>
-        [Input("Operator", required: true)]
+        [Input("operator", required: true)]
         public Input<string> Operator { get; set; } = null!;
 
-        [Input("Values", required: true)]
-        private InputList<string>? _Values;
+        [Input("values", required: true)]
+        private InputList<string>? _values;
 
         /// <summary>
         /// list of dimension values. For example: ["App1","App2"].
         /// </summary>
         public InputList<string> Values
         {
-            get => _Values ?? (_Values = new InputList<string>());
-            set => _Values = value;
+            get => _values ?? (_values = new InputList<string>());
+            set => _values = value;
         }
 
         public ScaleRuleMetricDimensionArgs()

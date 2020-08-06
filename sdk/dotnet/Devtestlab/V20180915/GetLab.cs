@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class GetLabArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("name", required: true)]

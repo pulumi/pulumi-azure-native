@@ -60,35 +60,35 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Count of downloads.
         /// </summary>
-        public readonly int? Download_count;
+        public readonly int? DownloadCount;
         /// <summary>
         /// Site extension ID.
         /// </summary>
-        public readonly string? Extension_id;
+        public readonly string? ExtensionId;
         /// <summary>
         /// Site extension type.
         /// </summary>
-        public readonly string? Extension_type;
+        public readonly string? ExtensionType;
         /// <summary>
         /// Extension URL.
         /// </summary>
-        public readonly string? Extension_url;
+        public readonly string? ExtensionUrl;
         /// <summary>
         /// Feed URL.
         /// </summary>
-        public readonly string? Feed_url;
+        public readonly string? FeedUrl;
         /// <summary>
         /// Icon URL.
         /// </summary>
-        public readonly string? Icon_url;
+        public readonly string? IconUrl;
         /// <summary>
         /// Installed timestamp.
         /// </summary>
-        public readonly string? Installed_date_time;
+        public readonly string? InstalledDateTime;
         /// <summary>
         /// Installer command line parameters.
         /// </summary>
-        public readonly string? Installer_command_line_params;
+        public readonly string? InstallerCommandLineParams;
         /// <summary>
         /// Kind of resource.
         /// </summary>
@@ -96,15 +96,15 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// License URL.
         /// </summary>
-        public readonly string? License_url;
+        public readonly string? LicenseUrl;
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if the local version is the latest version; &lt;code&gt;false&lt;/code&gt; otherwise.
         /// </summary>
-        public readonly bool? Local_is_latest_version;
+        public readonly bool? LocalIsLatestVersion;
         /// <summary>
         /// Local path.
         /// </summary>
-        public readonly string? Local_path;
+        public readonly string? LocalPath;
         /// <summary>
         /// Resource Name.
         /// </summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Project URL.
         /// </summary>
-        public readonly string? Project_url;
+        public readonly string? ProjectUrl;
         /// <summary>
         /// Provisioning state.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Published timestamp.
         /// </summary>
-        public readonly string? Published_date_time;
+        public readonly string? PublishedDateTime;
         /// <summary>
         /// Summary description.
         /// </summary>
@@ -143,37 +143,37 @@ namespace Pulumi.AzureRM.Web.V20180201
 
             string? description,
 
-            int? download_count,
+            int? downloadCount,
 
-            string? extension_id,
+            string? extensionId,
 
-            string? extension_type,
+            string? extensionType,
 
-            string? extension_url,
+            string? extensionUrl,
 
-            string? feed_url,
+            string? feedUrl,
 
-            string? icon_url,
+            string? iconUrl,
 
-            string? installed_date_time,
+            string? installedDateTime,
 
-            string? installer_command_line_params,
+            string? installerCommandLineParams,
 
             string? kind,
 
-            string? license_url,
+            string? licenseUrl,
 
-            bool? local_is_latest_version,
+            bool? localIsLatestVersion,
 
-            string? local_path,
+            string? localPath,
 
             string name,
 
-            string? project_url,
+            string? projectUrl,
 
             string? provisioningState,
 
-            string? published_date_time,
+            string? publishedDateTime,
 
             string? summary,
 
@@ -186,22 +186,22 @@ namespace Pulumi.AzureRM.Web.V20180201
             Authors = authors;
             Comment = comment;
             Description = description;
-            Download_count = download_count;
-            Extension_id = extension_id;
-            Extension_type = extension_type;
-            Extension_url = extension_url;
-            Feed_url = feed_url;
-            Icon_url = icon_url;
-            Installed_date_time = installed_date_time;
-            Installer_command_line_params = installer_command_line_params;
+            DownloadCount = downloadCount;
+            ExtensionId = extensionId;
+            ExtensionType = extensionType;
+            ExtensionUrl = extensionUrl;
+            FeedUrl = feedUrl;
+            IconUrl = iconUrl;
+            InstalledDateTime = installedDateTime;
+            InstallerCommandLineParams = installerCommandLineParams;
             Kind = kind;
-            License_url = license_url;
-            Local_is_latest_version = local_is_latest_version;
-            Local_path = local_path;
+            LicenseUrl = licenseUrl;
+            LocalIsLatestVersion = localIsLatestVersion;
+            LocalPath = localPath;
             Name = name;
-            Project_url = project_url;
+            ProjectUrl = projectUrl;
             ProvisioningState = provisioningState;
-            Published_date_time = published_date_time;
+            PublishedDateTime = publishedDateTime;
             Summary = summary;
             Title = title;
             Type = type;

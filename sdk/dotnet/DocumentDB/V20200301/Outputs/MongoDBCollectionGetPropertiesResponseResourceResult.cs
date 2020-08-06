@@ -16,15 +16,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301.Outputs
         /// <summary>
         /// A system generated property representing the resource etag required for optimistic concurrency control.
         /// </summary>
-        public readonly string _etag;
-        /// <summary>
-        /// A system generated property. A unique identifier.
-        /// </summary>
-        public readonly string _rid;
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> _ts;
+        public readonly string Etag;
         /// <summary>
         /// Name of the Cosmos DB MongoDB collection
         /// </summary>
@@ -34,30 +26,38 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.MongoIndexResponseResult> Indexes;
         /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        public readonly string Rid;
+        /// <summary>
         /// A key-value pair of shard keys to be applied for the request.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ShardKey;
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Ts;
 
         [OutputConstructor]
         private MongoDBCollectionGetPropertiesResponseResourceResult(
-            string _etag,
-
-            string _rid,
-
-            ImmutableDictionary<string, object> _ts,
+            string etag,
 
             string id,
 
             ImmutableArray<Outputs.MongoIndexResponseResult> indexes,
 
-            ImmutableDictionary<string, string>? shardKey)
+            string rid,
+
+            ImmutableDictionary<string, string>? shardKey,
+
+            ImmutableDictionary<string, object> ts)
         {
-            this._etag = _etag;
-            this._rid = _rid;
-            this._ts = _ts;
+            Etag = etag;
             Id = id;
             Indexes = indexes;
+            Rid = rid;
             ShardKey = shardKey;
+            Ts = ts;
         }
     }
 }

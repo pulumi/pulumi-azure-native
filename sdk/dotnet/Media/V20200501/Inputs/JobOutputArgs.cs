@@ -21,6 +21,12 @@ namespace Pulumi.AzureRM.Media.V20200501.Inputs
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// The discriminator for derived types.
+        /// </summary>
+        [Input("odataType", required: true)]
+        public Input<string> OdataType { get; set; } = null!;
+
         public JobOutputArgs()
         {
         }

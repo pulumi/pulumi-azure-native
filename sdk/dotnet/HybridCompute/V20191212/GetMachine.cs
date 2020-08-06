@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
     public sealed class GetMachineArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the hybrid machine.
         /// </summary>
         [Input("name", required: true)]
