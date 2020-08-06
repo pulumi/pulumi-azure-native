@@ -38,18 +38,20 @@ class AwaitableListRemediationDeploymentsAtManagementGroupResult(ListRemediation
             value=self.value)
 
 
-def list_remediation_deployments_at_management_group(management_group_id=None, management_groups_namespace=None, remediation_name=None, opts=None):
+def list_remediation_deployments_at_management_group(management_group_id=None, management_groups_namespace=None, remediation_name=None, top=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
     :param str management_group_id: Management group ID.
     :param str management_groups_namespace: The namespace for Microsoft Management RP; only "Microsoft.Management" is allowed.
     :param str remediation_name: The name of the remediation.
+    :param float top: Maximum number of records to return.
     """
     __args__ = dict()
     __args__['managementGroupId'] = management_group_id
     __args__['managementGroupsNamespace'] = management_groups_namespace
     __args__['remediationName'] = remediation_name
+    __args__['top'] = top
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

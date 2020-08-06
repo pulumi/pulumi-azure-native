@@ -13,25 +13,7 @@ class GetDatabaseAccountGremlinGraphResult:
     """
     An Azure Cosmos DB Gremlin graph.
     """
-    def __init__(__self__, _etag=None, _rid=None, _ts=None, conflict_resolution_policy=None, default_ttl=None, indexing_policy=None, location=None, name=None, partition_key=None, tags=None, type=None, unique_key_policy=None):
-        if _etag and not isinstance(_etag, str):
-            raise TypeError("Expected argument '_etag' to be a str")
-        __self__._etag = _etag
-        """
-        A system generated property representing the resource etag required for optimistic concurrency control.
-        """
-        if _rid and not isinstance(_rid, str):
-            raise TypeError("Expected argument '_rid' to be a str")
-        __self__._rid = _rid
-        """
-        A system generated property. A unique identifier.
-        """
-        if _ts and not isinstance(_ts, dict):
-            raise TypeError("Expected argument '_ts' to be a dict")
-        __self__._ts = _ts
-        """
-        A system generated property that denotes the last updated timestamp of the resource.
-        """
+    def __init__(__self__, conflict_resolution_policy=None, default_ttl=None, etag=None, indexing_policy=None, location=None, name=None, partition_key=None, rid=None, tags=None, ts=None, type=None, unique_key_policy=None):
         if conflict_resolution_policy and not isinstance(conflict_resolution_policy, dict):
             raise TypeError("Expected argument 'conflict_resolution_policy' to be a dict")
         __self__.conflict_resolution_policy = conflict_resolution_policy
@@ -43,6 +25,12 @@ class GetDatabaseAccountGremlinGraphResult:
         __self__.default_ttl = default_ttl
         """
         Default time to live
+        """
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        __self__.etag = etag
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
         """
         if indexing_policy and not isinstance(indexing_policy, dict):
             raise TypeError("Expected argument 'indexing_policy' to be a dict")
@@ -68,11 +56,23 @@ class GetDatabaseAccountGremlinGraphResult:
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
         """
+        if rid and not isinstance(rid, str):
+            raise TypeError("Expected argument 'rid' to be a str")
+        __self__.rid = rid
+        """
+        A system generated property. A unique identifier.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+        """
+        if ts and not isinstance(ts, dict):
+            raise TypeError("Expected argument 'ts' to be a dict")
+        __self__.ts = ts
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -94,16 +94,16 @@ class AwaitableGetDatabaseAccountGremlinGraphResult(GetDatabaseAccountGremlinGra
         if False:
             yield self
         return GetDatabaseAccountGremlinGraphResult(
-            _etag=self._etag,
-            _rid=self._rid,
-            _ts=self._ts,
             conflict_resolution_policy=self.conflict_resolution_policy,
             default_ttl=self.default_ttl,
+            etag=self.etag,
             indexing_policy=self.indexing_policy,
             location=self.location,
             name=self.name,
             partition_key=self.partition_key,
+            rid=self.rid,
             tags=self.tags,
+            ts=self.ts,
             type=self.type,
             unique_key_policy=self.unique_key_policy)
 
@@ -129,15 +129,15 @@ def get_database_account_gremlin_graph(account_name=None, database_name=None, na
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb/v20160319:getDatabaseAccountGremlinGraph', __args__, opts=opts).value
 
     return AwaitableGetDatabaseAccountGremlinGraphResult(
-        _etag=__ret__.get('_etag'),
-        _rid=__ret__.get('_rid'),
-        _ts=__ret__.get('_ts'),
         conflict_resolution_policy=__ret__.get('conflictResolutionPolicy'),
         default_ttl=__ret__.get('defaultTtl'),
+        etag=__ret__.get('etag'),
         indexing_policy=__ret__.get('indexingPolicy'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         partition_key=__ret__.get('partitionKey'),
+        rid=__ret__.get('rid'),
         tags=__ret__.get('tags'),
+        ts=__ret__.get('ts'),
         type=__ret__.get('type'),
         unique_key_policy=__ret__.get('uniqueKeyPolicy'))

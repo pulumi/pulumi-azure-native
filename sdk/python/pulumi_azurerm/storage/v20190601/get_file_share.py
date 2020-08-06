@@ -136,16 +136,18 @@ class AwaitableGetFileShareResult(GetFileShareResult):
             version=self.version)
 
 
-def get_file_share(account_name=None, name=None, resource_group_name=None, opts=None):
+def get_file_share(account_name=None, expand=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+    :param str expand: Optional, used to expand the properties within share's properties.
     :param str name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

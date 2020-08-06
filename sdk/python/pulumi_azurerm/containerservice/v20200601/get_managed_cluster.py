@@ -13,7 +13,7 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, private_fqdn=None, provisioning_state=None, service_principal_profile=None, sku=None, tags=None, type=None, windows_profile=None):
+    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, private_fqdn=None, provisioning_state=None, service_principal_profile=None, sku=None, tags=None, type=None, windows_profile=None):
         if aad_profile and not isinstance(aad_profile, dict):
             raise TypeError("Expected argument 'aad_profile' to be a dict")
         __self__.aad_profile = aad_profile
@@ -37,6 +37,12 @@ class GetManagedClusterResult:
         __self__.api_server_access_profile = api_server_access_profile
         """
         Access profile for managed cluster API server.
+        """
+        if auto_scaler_profile and not isinstance(auto_scaler_profile, dict):
+            raise TypeError("Expected argument 'auto_scaler_profile' to be a dict")
+        __self__.auto_scaler_profile = auto_scaler_profile
+        """
+        Parameters to be applied to the cluster-autoscaler when enabled
         """
         if disk_encryption_set_id and not isinstance(disk_encryption_set_id, str):
             raise TypeError("Expected argument 'disk_encryption_set_id' to be a str")
@@ -176,6 +182,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             addon_profiles=self.addon_profiles,
             agent_pool_profiles=self.agent_pool_profiles,
             api_server_access_profile=self.api_server_access_profile,
+            auto_scaler_profile=self.auto_scaler_profile,
             disk_encryption_set_id=self.disk_encryption_set_id,
             dns_prefix=self.dns_prefix,
             enable_pod_security_policy=self.enable_pod_security_policy,
@@ -220,6 +227,7 @@ def get_managed_cluster(name=None, resource_group_name=None, opts=None):
         addon_profiles=__ret__.get('addonProfiles'),
         agent_pool_profiles=__ret__.get('agentPoolProfiles'),
         api_server_access_profile=__ret__.get('apiServerAccessProfile'),
+        auto_scaler_profile=__ret__.get('autoScalerProfile'),
         disk_encryption_set_id=__ret__.get('diskEncryptionSetID'),
         dns_prefix=__ret__.get('dnsPrefix'),
         enable_pod_security_policy=__ret__.get('enablePodSecurityPolicy'),

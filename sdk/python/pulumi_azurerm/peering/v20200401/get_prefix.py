@@ -87,15 +87,17 @@ class AwaitableGetPrefixResult(GetPrefixResult):
             type=self.type)
 
 
-def get_prefix(name=None, peering_service_name=None, resource_group_name=None, opts=None):
+def get_prefix(expand=None, name=None, peering_service_name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: The properties to be expanded.
     :param str name: The name of the prefix.
     :param str peering_service_name: The name of the peering service.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['peeringServiceName'] = peering_service_name
     __args__['resourceGroupName'] = resource_group_name

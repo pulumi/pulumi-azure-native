@@ -241,14 +241,16 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             type=self.type)
 
 
-def get_storage_account(name=None, resource_group_name=None, opts=None):
+def get_storage_account(expand=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats and blobRestoreStatus.
     :param str name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

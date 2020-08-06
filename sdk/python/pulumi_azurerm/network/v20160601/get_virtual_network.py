@@ -13,13 +13,7 @@ class GetVirtualNetworkResult:
     """
     Virtual Network resource
     """
-    def __init__(__self__, virtual_network_peerings=None, address_space=None, dhcp_options=None, etag=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None):
-        if virtual_network_peerings and not isinstance(virtual_network_peerings, list):
-            raise TypeError("Expected argument 'virtual_network_peerings' to be a list")
-        __self__.virtual_network_peerings = virtual_network_peerings
-        """
-        Gets or sets list of peerings in a VirtualNetwork
-        """
+    def __init__(__self__, address_space=None, dhcp_options=None, etag=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
         if address_space and not isinstance(address_space, dict):
             raise TypeError("Expected argument 'address_space' to be a dict")
         __self__.address_space = address_space
@@ -80,6 +74,12 @@ class GetVirtualNetworkResult:
         """
         Resource type
         """
+        if virtual_network_peerings and not isinstance(virtual_network_peerings, list):
+            raise TypeError("Expected argument 'virtual_network_peerings' to be a list")
+        __self__.virtual_network_peerings = virtual_network_peerings
+        """
+        Gets or sets list of peerings in a VirtualNetwork
+        """
 
 
 class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
@@ -88,7 +88,6 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
         if False:
             yield self
         return GetVirtualNetworkResult(
-            virtual_network_peerings=self.virtual_network_peerings,
             address_space=self.address_space,
             dhcp_options=self.dhcp_options,
             etag=self.etag,
@@ -98,17 +97,20 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             resource_guid=self.resource_guid,
             subnets=self.subnets,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_network_peerings=self.virtual_network_peerings)
 
 
-def get_virtual_network(name=None, resource_group_name=None, opts=None):
+def get_virtual_network(expand=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: expand references resources.
     :param str name: The name of the virtual network.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
@@ -118,7 +120,6 @@ def get_virtual_network(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20160601:getVirtualNetwork', __args__, opts=opts).value
 
     return AwaitableGetVirtualNetworkResult(
-        virtual_network_peerings=__ret__.get('VirtualNetworkPeerings'),
         address_space=__ret__.get('addressSpace'),
         dhcp_options=__ret__.get('dhcpOptions'),
         etag=__ret__.get('etag'),
@@ -128,4 +129,5 @@ def get_virtual_network(name=None, resource_group_name=None, opts=None):
         resource_guid=__ret__.get('resourceGuid'),
         subnets=__ret__.get('subnets'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_network_peerings=__ret__.get('virtualNetworkPeerings'))

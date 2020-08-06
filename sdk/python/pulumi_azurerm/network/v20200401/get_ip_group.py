@@ -80,14 +80,16 @@ class AwaitableGetIpGroupResult(GetIpGroupResult):
             type=self.type)
 
 
-def get_ip_group(name=None, resource_group_name=None, opts=None):
+def get_ip_group(expand=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
     :param str name: The name of the ipGroups.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

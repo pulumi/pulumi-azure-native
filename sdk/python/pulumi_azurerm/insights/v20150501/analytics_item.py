@@ -14,10 +14,6 @@ class AnalyticsItem(pulumi.CustomResource):
     """
     The content of this item
     """
-    id: pulumi.Output[str]
-    """
-    Internally assigned unique id of the item definition.
-    """
     name: pulumi.Output[str]
     """
     The user-defined name of the item.
@@ -47,7 +43,7 @@ class AnalyticsItem(pulumi.CustomResource):
     """
     This instance's version of the data model. This can change as new features are added.
     """
-    def __init__(__self__, resource_name, opts=None, content=None, id=None, name=None, properties=None, scope=None, type=None, override_item=None, resource_group_name=None, resource_name_=None, scope_path=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content=None, id=None, name=None, override_item=None, properties=None, resource_group_name=None, resource_name_=None, scope=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Properties that define an Analytics item that is associated to an Application Insights component.
 
@@ -55,14 +51,13 @@ class AnalyticsItem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: The content of this item
         :param pulumi.Input[str] id: Internally assigned unique id of the item definition.
-        :param pulumi.Input[str] name: The user-defined name of the item.
-        :param pulumi.Input[dict] properties: A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-        :param pulumi.Input[str] scope: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-        :param pulumi.Input[str] type: Enum indicating the type of the Analytics item.
+        :param pulumi.Input[str] name: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         :param pulumi.Input[bool] override_item: Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
+        :param pulumi.Input[dict] properties: A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
-        :param pulumi.Input[str] scope_path: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        :param pulumi.Input[str] scope: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        :param pulumi.Input[str] type: Enum indicating the type of the Analytics item.
 
         The **properties** object supports the following:
 
@@ -87,20 +82,19 @@ class AnalyticsItem(pulumi.CustomResource):
 
             __props__['content'] = content
             __props__['id'] = id
+            if name is None:
+                raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
-            __props__['scope'] = scope
-            __props__['type'] = type
             __props__['override_item'] = override_item
+            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if resource_name_ is None:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-            if scope_path is None:
-                raise TypeError("Missing required property 'scope_path'")
-            __props__['scope_path'] = scope_path
+            __props__['scope'] = scope
+            __props__['type'] = type
             __props__['time_created'] = None
             __props__['time_modified'] = None
             __props__['version'] = None

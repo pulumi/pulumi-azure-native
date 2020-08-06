@@ -10,11 +10,19 @@ from ... import _utilities, _tables
 
 
 class AlertRule(pulumi.CustomResource):
+    actions: pulumi.Output[list]
+    """
+    the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+      * `odata_type` (`str`) - specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+    """
     condition: pulumi.Output[dict]
     """
     the condition that results in the alert rule being activated.
       * `data_source` (`dict`) - the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        * `odata_type` (`str`) - specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
         * `resource_uri` (`str`) - the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+
+      * `odata_type` (`str`) - specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
     """
     description: pulumi.Output[str]
     """
@@ -44,12 +52,13 @@ class AlertRule(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, condition=None, description=None, is_enabled=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, actions=None, condition=None, description=None, is_enabled=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The alert rule resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
         :param pulumi.Input[dict] condition: the condition that results in the alert rule being activated.
         :param pulumi.Input[str] description: the description of the alert rule that will be included in the alert email.
         :param pulumi.Input[bool] is_enabled: the flag that indicates whether the alert rule is enabled.
@@ -58,10 +67,17 @@ class AlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags
 
+        The **actions** object supports the following:
+
+          * `odata_type` (`pulumi.Input[str]`) - specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+
         The **condition** object supports the following:
 
           * `data_source` (`pulumi.Input[dict]`) - the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+            * `odata_type` (`pulumi.Input[str]`) - specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
             * `resource_uri` (`pulumi.Input[str]`) - the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+
+          * `odata_type` (`pulumi.Input[str]`) - specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,6 +96,7 @@ class AlertRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['actions'] = actions
             if condition is None:
                 raise TypeError("Missing required property 'condition'")
             __props__['condition'] = condition

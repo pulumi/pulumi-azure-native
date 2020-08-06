@@ -87,13 +87,12 @@ class DedicatedCloudNode(pulumi.CustomResource):
     """
     VMWare Cluster Name
     """
-    def __init__(__self__, resource_name, opts=None, referer=None, availability_zone_id=None, id=None, location=None, name=None, nodes_count=None, placement_group_id=None, purchase_id=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, availability_zone_id=None, id=None, location=None, name=None, nodes_count=None, placement_group_id=None, purchase_id=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Dedicated cloud node model
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] referer: referer url
         :param pulumi.Input[str] availability_zone_id: Availability Zone id, e.g. "az1"
         :param pulumi.Input[str] id: SKU's id
         :param pulumi.Input[str] location: Azure region
@@ -130,9 +129,6 @@ class DedicatedCloudNode(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if referer is None:
-                raise TypeError("Missing required property 'referer'")
-            __props__['referer'] = referer
             if availability_zone_id is None:
                 raise TypeError("Missing required property 'availability_zone_id'")
             __props__['availability_zone_id'] = availability_zone_id

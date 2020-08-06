@@ -122,14 +122,16 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             virtual_network_peerings=self.virtual_network_peerings)
 
 
-def get_virtual_network(name=None, resource_group_name=None, opts=None):
+def get_virtual_network(expand=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Expands referenced resources.
     :param str name: The name of the virtual network.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

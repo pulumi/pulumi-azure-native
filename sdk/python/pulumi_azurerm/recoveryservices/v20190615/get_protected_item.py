@@ -66,12 +66,13 @@ class AwaitableGetProtectedItemResult(GetProtectedItemResult):
             type=self.type)
 
 
-def get_protected_item(container_name=None, fabric_name=None, name=None, resource_group_name=None, vault_name=None, opts=None):
+def get_protected_item(container_name=None, fabric_name=None, filter=None, name=None, resource_group_name=None, vault_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
     :param str container_name: Container name associated with the backed up item.
     :param str fabric_name: Fabric name associated with the backed up item.
+    :param str filter: OData filter options.
     :param str name: Backed up item name whose details are to be fetched.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str vault_name: The name of the recovery services vault.
@@ -79,6 +80,7 @@ def get_protected_item(container_name=None, fabric_name=None, name=None, resourc
     __args__ = dict()
     __args__['containerName'] = container_name
     __args__['fabricName'] = fabric_name
+    __args__['filter'] = filter
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name

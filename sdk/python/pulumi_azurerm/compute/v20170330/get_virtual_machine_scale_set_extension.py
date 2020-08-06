@@ -87,15 +87,17 @@ class AwaitableGetVirtualMachineScaleSetExtensionResult(GetVirtualMachineScaleSe
             type_handler_version=self.type_handler_version)
 
 
-def get_virtual_machine_scale_set_extension(name=None, resource_group_name=None, vm_scale_set_name=None, opts=None):
+def get_virtual_machine_scale_set_extension(expand=None, name=None, resource_group_name=None, vm_scale_set_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: The expand expression to apply on the operation.
     :param str name: The name of the VM scale set extension.
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set containing the extension.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['vmScaleSetName'] = vm_scale_set_name

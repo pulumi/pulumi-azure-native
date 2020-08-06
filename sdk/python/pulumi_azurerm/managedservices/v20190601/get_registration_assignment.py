@@ -45,14 +45,16 @@ class AwaitableGetRegistrationAssignmentResult(GetRegistrationAssignmentResult):
             type=self.type)
 
 
-def get_registration_assignment(name=None, scope=None, opts=None):
+def get_registration_assignment(expand_registration_definition=None, name=None, scope=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param bool expand_registration_definition: Tells whether to return registration definition details also along with registration assignment details.
     :param str name: Guid of the registration assignment.
     :param str scope: Scope of the resource.
     """
     __args__ = dict()
+    __args__['expandRegistrationDefinition'] = expand_registration_definition
     __args__['name'] = name
     __args__['scope'] = scope
     if opts is None:

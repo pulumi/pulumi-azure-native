@@ -164,16 +164,18 @@ class AwaitableGetProfileResult(GetProfileResult):
             type_name=self.type_name)
 
 
-def get_profile(hub_name=None, name=None, resource_group_name=None, opts=None):
+def get_profile(hub_name=None, locale_code=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
     :param str hub_name: The name of the hub.
+    :param str locale_code: Locale of profile to retrieve, default is en-us.
     :param str name: The name of the profile.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
     __args__['hubName'] = hub_name
+    __args__['localeCode'] = locale_code
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

@@ -10,25 +10,13 @@ from ... import _utilities, _tables
 
 
 class DatabaseAccountSqlDatabase(pulumi.CustomResource):
-    _colls: pulumi.Output[str]
+    colls: pulumi.Output[str]
     """
     A system generated property that specified the addressable path of the collections resource.
     """
-    _etag: pulumi.Output[str]
+    etag: pulumi.Output[str]
     """
     A system generated property representing the resource etag required for optimistic concurrency control.
-    """
-    _rid: pulumi.Output[str]
-    """
-    A system generated property. A unique identifier.
-    """
-    _ts: pulumi.Output[dict]
-    """
-    A system generated property that denotes the last updated timestamp of the resource.
-    """
-    _users: pulumi.Output[str]
-    """
-    A system generated property that specifies the addressable path of the users resource.
     """
     location: pulumi.Output[str]
     """
@@ -38,13 +26,25 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
     """
     The name of the database account.
     """
+    rid: pulumi.Output[str]
+    """
+    A system generated property. A unique identifier.
+    """
     tags: pulumi.Output[dict]
     """
     Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
     """
+    ts: pulumi.Output[dict]
+    """
+    A system generated property that denotes the last updated timestamp of the resource.
+    """
     type: pulumi.Output[str]
     """
     The type of Azure resource.
+    """
+    users: pulumi.Output[str]
+    """
+    A system generated property that specifies the addressable path of the users resource.
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, name=None, options=None, resource=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -94,14 +94,14 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['_colls'] = None
-            __props__['_etag'] = None
-            __props__['_rid'] = None
-            __props__['_ts'] = None
-            __props__['_users'] = None
+            __props__['colls'] = None
+            __props__['etag'] = None
             __props__['location'] = None
+            __props__['rid'] = None
             __props__['tags'] = None
+            __props__['ts'] = None
             __props__['type'] = None
+            __props__['users'] = None
         super(DatabaseAccountSqlDatabase, __self__).__init__(
             'azurerm:documentdb/v20150408:DatabaseAccountSqlDatabase',
             resource_name,

@@ -101,16 +101,16 @@ class AwaitableGetFavoriteResult(GetFavoriteResult):
             version=self.version)
 
 
-def get_favorite(favorite_id=None, resource_group_name=None, resource_name=None, opts=None):
+def get_favorite(name=None, resource_group_name=None, resource_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
-    :param str favorite_id: The Id of a specific favorite defined in the Application Insights component
+    :param str name: The Id of a specific favorite defined in the Application Insights component
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
     """
     __args__ = dict()
-    __args__['favoriteId'] = favorite_id
+    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
     if opts is None:
@@ -120,14 +120,14 @@ def get_favorite(favorite_id=None, resource_group_name=None, resource_name=None,
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20150501:getFavorite', __args__, opts=opts).value
 
     return AwaitableGetFavoriteResult(
-        category=__ret__.get('Category'),
-        config=__ret__.get('Config'),
-        favorite_id=__ret__.get('FavoriteId'),
-        favorite_type=__ret__.get('FavoriteType'),
-        is_generated_from_template=__ret__.get('IsGeneratedFromTemplate'),
-        name=__ret__.get('Name'),
-        source_type=__ret__.get('SourceType'),
-        tags=__ret__.get('Tags'),
-        time_modified=__ret__.get('TimeModified'),
-        user_id=__ret__.get('UserId'),
-        version=__ret__.get('Version'))
+        category=__ret__.get('category'),
+        config=__ret__.get('config'),
+        favorite_id=__ret__.get('favoriteId'),
+        favorite_type=__ret__.get('favoriteType'),
+        is_generated_from_template=__ret__.get('isGeneratedFromTemplate'),
+        name=__ret__.get('name'),
+        source_type=__ret__.get('sourceType'),
+        tags=__ret__.get('tags'),
+        time_modified=__ret__.get('timeModified'),
+        user_id=__ret__.get('userId'),
+        version=__ret__.get('version'))

@@ -13,18 +13,12 @@ class GetRecordSetResult:
     """
     Describes a DNS record set (a collection of DNS records with the same name and type).
     """
-    def __init__(__self__, a_records=None, ttl=None, aaaa_records=None, caa_records=None, cname_record=None, etag=None, fqdn=None, metadata=None, mx_records=None, name=None, ns_records=None, ptr_records=None, soa_record=None, srv_records=None, txt_records=None, type=None):
+    def __init__(__self__, a_records=None, aaaa_records=None, caa_records=None, cname_record=None, etag=None, fqdn=None, metadata=None, mx_records=None, name=None, ns_records=None, ptr_records=None, soa_record=None, srv_records=None, ttl=None, txt_records=None, type=None):
         if a_records and not isinstance(a_records, list):
             raise TypeError("Expected argument 'a_records' to be a list")
         __self__.a_records = a_records
         """
         The list of A records in the record set.
-        """
-        if ttl and not isinstance(ttl, float):
-            raise TypeError("Expected argument 'ttl' to be a float")
-        __self__.ttl = ttl
-        """
-        The TTL (time-to-live) of the records in the record set.
         """
         if aaaa_records and not isinstance(aaaa_records, list):
             raise TypeError("Expected argument 'aaaa_records' to be a list")
@@ -98,6 +92,12 @@ class GetRecordSetResult:
         """
         The list of SRV records in the record set.
         """
+        if ttl and not isinstance(ttl, float):
+            raise TypeError("Expected argument 'ttl' to be a float")
+        __self__.ttl = ttl
+        """
+        The TTL (time-to-live) of the records in the record set.
+        """
         if txt_records and not isinstance(txt_records, list):
             raise TypeError("Expected argument 'txt_records' to be a list")
         __self__.txt_records = txt_records
@@ -119,7 +119,6 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             yield self
         return GetRecordSetResult(
             a_records=self.a_records,
-            ttl=self.ttl,
             aaaa_records=self.aaaa_records,
             caa_records=self.caa_records,
             cname_record=self.cname_record,
@@ -132,6 +131,7 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             ptr_records=self.ptr_records,
             soa_record=self.soa_record,
             srv_records=self.srv_records,
+            ttl=self.ttl,
             txt_records=self.txt_records,
             type=self.type)
 
@@ -157,8 +157,7 @@ def get_record_set(name=None, record_type=None, resource_group_name=None, zone_n
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20171001:getRecordSet', __args__, opts=opts).value
 
     return AwaitableGetRecordSetResult(
-        a_records=__ret__.get('ARecords'),
-        ttl=__ret__.get('TTL'),
+        a_records=__ret__.get('aRecords'),
         aaaa_records=__ret__.get('aaaaRecords'),
         caa_records=__ret__.get('caaRecords'),
         cname_record=__ret__.get('cnameRecord'),
@@ -171,5 +170,6 @@ def get_record_set(name=None, record_type=None, resource_group_name=None, zone_n
         ptr_records=__ret__.get('ptrRecords'),
         soa_record=__ret__.get('soaRecord'),
         srv_records=__ret__.get('srvRecords'),
+        ttl=__ret__.get('ttl'),
         txt_records=__ret__.get('txtRecords'),
         type=__ret__.get('type'))

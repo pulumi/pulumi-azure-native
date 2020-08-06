@@ -87,14 +87,16 @@ class AwaitableGetRouteFilterResult(GetRouteFilterResult):
             type=self.type)
 
 
-def get_route_filter(name=None, resource_group_name=None, opts=None):
+def get_route_filter(expand=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Expands referenced express route bgp peering resources.
     :param str name: The name of the route filter.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

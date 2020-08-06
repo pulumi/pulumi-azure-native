@@ -38,19 +38,21 @@ class AwaitableListShareSubscriptionSynchronizationDetailsResult(ListShareSubscr
             value=self.value)
 
 
-def list_share_subscription_synchronization_details(account_name=None, resource_group_name=None, share_subscription_name=None, synchronization_id=None, opts=None):
+def list_share_subscription_synchronization_details(account_name=None, resource_group_name=None, share_subscription_name=None, skip_token=None, synchronization_id=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
     :param str account_name: The name of the share account.
     :param str resource_group_name: The resource group name.
     :param str share_subscription_name: The name of the share subscription.
+    :param str skip_token: Continuation token
     :param str synchronization_id: Synchronization id
     """
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareSubscriptionName'] = share_subscription_name
+    __args__['skipToken'] = skip_token
     __args__['synchronizationId'] = synchronization_id
     if opts is None:
         opts = pulumi.InvokeOptions()
