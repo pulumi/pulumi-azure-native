@@ -56,7 +56,7 @@ const appInsights = new azurerm.insights.v20150501.Component("ai", {
     location: "westus2",
     name: "pulumi-as-ai",
     kind: "web",
-    Application_Type: "web",
+    applicationType: "web",
 });
 
 const username = "pulumi";
@@ -90,7 +90,7 @@ const app = new azurerm.web.v20190801.WebApp("as", {
             // TODO: "WEBSITE_RUN_FROM_ZIP": codeBlobUrl,
             {
                 name: "ApplicationInsights:InstrumentationKey",
-                value: appInsights.InstrumentationKey?.apply(v => v!),
+                value: appInsights.instrumentationKey?.apply(v => v!),
             },
         ],
         connectionStrings: [{
