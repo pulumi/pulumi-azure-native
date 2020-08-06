@@ -15,6 +15,7 @@ export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20180801:getSubnet", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkName": args.virtualNetworkName,
@@ -22,6 +23,10 @@ export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetSubnetArgs {
+    /**
+     * Expands referenced resources.
+     */
+    readonly expand?: string;
     /**
      * The name of the subnet.
      */

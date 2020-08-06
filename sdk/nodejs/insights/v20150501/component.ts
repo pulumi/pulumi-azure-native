@@ -39,71 +39,51 @@ export class Component extends pulumi.CustomResource {
     /**
      * Application Insights Unique ID for your Application.
      */
-    public /*out*/ readonly AppId!: pulumi.Output<string>;
+    public /*out*/ readonly appId!: pulumi.Output<string>;
     /**
      * The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
      */
-    public /*out*/ readonly ApplicationId!: pulumi.Output<string>;
+    public /*out*/ readonly applicationId!: pulumi.Output<string>;
     /**
      * Type of application being monitored.
      */
-    public readonly Application_Type!: pulumi.Output<string>;
+    public readonly applicationType!: pulumi.Output<string>;
     /**
      * Application Insights component connection string.
      */
-    public /*out*/ readonly ConnectionString!: pulumi.Output<string>;
+    public /*out*/ readonly connectionString!: pulumi.Output<string>;
     /**
      * Creation Date for the Application Insights component, in ISO 8601 format.
      */
-    public /*out*/ readonly CreationDate!: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * Disable IP masking.
      */
-    public readonly DisableIpMasking!: pulumi.Output<boolean | undefined>;
+    public readonly disableIpMasking!: pulumi.Output<boolean | undefined>;
     /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
-    public readonly Flow_Type!: pulumi.Output<string | undefined>;
+    public readonly flowType!: pulumi.Output<string | undefined>;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
-    public readonly HockeyAppId!: pulumi.Output<string | undefined>;
+    public readonly hockeyAppId!: pulumi.Output<string | undefined>;
     /**
      * Token used to authenticate communications with between Application Insights and HockeyApp.
      */
-    public /*out*/ readonly HockeyAppToken!: pulumi.Output<string>;
+    public /*out*/ readonly hockeyAppToken!: pulumi.Output<string>;
     /**
      * Purge data immediately after 30 days.
      */
-    public readonly ImmediatePurgeDataOn30Days!: pulumi.Output<boolean | undefined>;
+    public readonly immediatePurgeDataOn30Days!: pulumi.Output<boolean | undefined>;
     /**
      * Indicates the flow of the ingestion.
      */
-    public readonly IngestionMode!: pulumi.Output<string | undefined>;
+    public readonly ingestionMode!: pulumi.Output<string | undefined>;
     /**
      * Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
      */
-    public /*out*/ readonly InstrumentationKey!: pulumi.Output<string>;
-    /**
-     * List of linked private link scope resources.
-     */
-    public /*out*/ readonly PrivateLinkScopedResources!: pulumi.Output<outputs.insights.v20150501.PrivateLinkScopedResourceResponse[]>;
-    /**
-     * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-     */
-    public readonly Request_Source!: pulumi.Output<string | undefined>;
-    /**
-     * Retention period in days.
-     */
-    public readonly RetentionInDays!: pulumi.Output<number | undefined>;
-    /**
-     * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-     */
-    public readonly SamplingPercentage!: pulumi.Output<number | undefined>;
-    /**
-     * Azure Tenant Id.
-     */
-    public /*out*/ readonly TenantId!: pulumi.Output<string>;
+    public /*out*/ readonly instrumentationKey!: pulumi.Output<string>;
     /**
      * The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
      */
@@ -117,13 +97,33 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * List of linked private link scope resources.
+     */
+    public /*out*/ readonly privateLinkScopedResources!: pulumi.Output<outputs.insights.v20150501.PrivateLinkScopedResourceResponse[]>;
+    /**
      * Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+     */
+    public readonly requestSource!: pulumi.Output<string | undefined>;
+    /**
+     * Retention period in days.
+     */
+    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    /**
+     * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+     */
+    public readonly samplingPercentage!: pulumi.Output<number | undefined>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Azure Tenant Id.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * Azure resource type
      */
@@ -142,8 +142,8 @@ export class Component extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ComponentArgs | undefined;
-            if (!args || args.Application_Type === undefined) {
-                throw new Error("Missing required property 'Application_Type'");
+            if (!args || args.applicationType === undefined) {
+                throw new Error("Missing required property 'applicationType'");
             }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
@@ -157,29 +157,29 @@ export class Component extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["Application_Type"] = args ? args.Application_Type : undefined;
-            inputs["DisableIpMasking"] = args ? args.DisableIpMasking : undefined;
-            inputs["Flow_Type"] = args ? args.Flow_Type : undefined;
-            inputs["HockeyAppId"] = args ? args.HockeyAppId : undefined;
-            inputs["ImmediatePurgeDataOn30Days"] = args ? args.ImmediatePurgeDataOn30Days : undefined;
-            inputs["IngestionMode"] = args ? args.IngestionMode : undefined;
-            inputs["Request_Source"] = args ? args.Request_Source : undefined;
-            inputs["RetentionInDays"] = args ? args.RetentionInDays : undefined;
-            inputs["SamplingPercentage"] = args ? args.SamplingPercentage : undefined;
+            inputs["applicationType"] = args ? args.applicationType : undefined;
+            inputs["disableIpMasking"] = args ? args.disableIpMasking : undefined;
+            inputs["flowType"] = args ? args.flowType : undefined;
+            inputs["hockeyAppId"] = args ? args.hockeyAppId : undefined;
+            inputs["immediatePurgeDataOn30Days"] = args ? args.immediatePurgeDataOn30Days : undefined;
+            inputs["ingestionMode"] = args ? args.ingestionMode : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["requestSource"] = args ? args.requestSource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["AppId"] = undefined /*out*/;
-            inputs["ApplicationId"] = undefined /*out*/;
-            inputs["ConnectionString"] = undefined /*out*/;
-            inputs["CreationDate"] = undefined /*out*/;
-            inputs["HockeyAppToken"] = undefined /*out*/;
-            inputs["InstrumentationKey"] = undefined /*out*/;
-            inputs["PrivateLinkScopedResources"] = undefined /*out*/;
-            inputs["TenantId"] = undefined /*out*/;
+            inputs["appId"] = undefined /*out*/;
+            inputs["applicationId"] = undefined /*out*/;
+            inputs["connectionString"] = undefined /*out*/;
+            inputs["creationDate"] = undefined /*out*/;
+            inputs["hockeyAppToken"] = undefined /*out*/;
+            inputs["instrumentationKey"] = undefined /*out*/;
+            inputs["privateLinkScopedResources"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -200,39 +200,27 @@ export interface ComponentArgs {
     /**
      * Type of application being monitored.
      */
-    readonly Application_Type: pulumi.Input<string>;
+    readonly applicationType: pulumi.Input<string>;
     /**
      * Disable IP masking.
      */
-    readonly DisableIpMasking?: pulumi.Input<boolean>;
+    readonly disableIpMasking?: pulumi.Input<boolean>;
     /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
-    readonly Flow_Type?: pulumi.Input<string>;
+    readonly flowType?: pulumi.Input<string>;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
-    readonly HockeyAppId?: pulumi.Input<string>;
+    readonly hockeyAppId?: pulumi.Input<string>;
     /**
      * Purge data immediately after 30 days.
      */
-    readonly ImmediatePurgeDataOn30Days?: pulumi.Input<boolean>;
+    readonly immediatePurgeDataOn30Days?: pulumi.Input<boolean>;
     /**
      * Indicates the flow of the ingestion.
      */
-    readonly IngestionMode?: pulumi.Input<string>;
-    /**
-     * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-     */
-    readonly Request_Source?: pulumi.Input<string>;
-    /**
-     * Retention period in days.
-     */
-    readonly RetentionInDays?: pulumi.Input<number>;
-    /**
-     * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-     */
-    readonly SamplingPercentage?: pulumi.Input<number>;
+    readonly ingestionMode?: pulumi.Input<string>;
     /**
      * The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
      */
@@ -246,9 +234,21 @@ export interface ComponentArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
+     * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+     */
+    readonly requestSource?: pulumi.Input<string>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Retention period in days.
+     */
+    readonly retentionInDays?: pulumi.Input<number>;
+    /**
+     * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+     */
+    readonly samplingPercentage?: pulumi.Input<number>;
     /**
      * Resource tags
      */

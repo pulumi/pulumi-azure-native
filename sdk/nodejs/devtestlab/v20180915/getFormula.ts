@@ -15,6 +15,7 @@ export function getFormula(args: GetFormulaArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20180915:getFormula", {
+        "expand": args.expand,
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -22,6 +23,10 @@ export function getFormula(args: GetFormulaArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetFormulaArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=description)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab.
      */

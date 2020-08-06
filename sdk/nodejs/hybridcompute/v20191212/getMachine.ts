@@ -15,12 +15,17 @@ export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:hybridcompute/v20191212:getMachine", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetMachineArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    readonly expand?: string;
     /**
      * The name of the hybrid machine.
      */

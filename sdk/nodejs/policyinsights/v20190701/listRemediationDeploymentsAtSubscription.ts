@@ -16,6 +16,7 @@ export function listRemediationDeploymentsAtSubscription(args: ListRemediationDe
     }
     return pulumi.runtime.invoke("azurerm:policyinsights/v20190701:listRemediationDeploymentsAtSubscription", {
         "remediationName": args.remediationName,
+        "top": args.top,
     }, opts);
 }
 
@@ -24,6 +25,10 @@ export interface ListRemediationDeploymentsAtSubscriptionArgs {
      * The name of the remediation.
      */
     readonly remediationName: string;
+    /**
+     * Maximum number of records to return.
+     */
+    readonly top?: number;
 }
 
 /**

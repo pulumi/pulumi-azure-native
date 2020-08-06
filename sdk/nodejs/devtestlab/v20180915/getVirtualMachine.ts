@@ -15,6 +15,7 @@ export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20180915:getVirtualMachine", {
+        "expand": args.expand,
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -22,6 +23,10 @@ export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.Inv
 }
 
 export interface GetVirtualMachineArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab.
      */

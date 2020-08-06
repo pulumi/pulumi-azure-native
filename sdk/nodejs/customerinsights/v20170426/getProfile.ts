@@ -16,6 +16,7 @@ export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): P
     }
     return pulumi.runtime.invoke("azurerm:customerinsights/v20170426:getProfile", {
         "hubName": args.hubName,
+        "localeCode": args.localeCode,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -26,6 +27,10 @@ export interface GetProfileArgs {
      * The name of the hub.
      */
     readonly hubName: string;
+    /**
+     * Locale of profile to retrieve, default is en-us.
+     */
+    readonly localeCode?: string;
     /**
      * The name of the profile.
      */

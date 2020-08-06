@@ -18,6 +18,7 @@ export function listShareSubscriptionSourceShareSynchronizationSettings(args: Li
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "shareSubscriptionName": args.shareSubscriptionName,
+        "skipToken": args.skipToken,
     }, opts);
 }
 
@@ -34,6 +35,10 @@ export interface ListShareSubscriptionSourceShareSynchronizationSettingsArgs {
      * The name of the shareSubscription.
      */
     readonly shareSubscriptionName: string;
+    /**
+     * Continuation token
+     */
+    readonly skipToken?: string;
 }
 
 /**

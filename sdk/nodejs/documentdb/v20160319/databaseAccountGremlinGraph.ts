@@ -37,18 +37,6 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
     }
 
     /**
-     * A system generated property representing the resource etag required for optimistic concurrency control.
-     */
-    public /*out*/ readonly _etag!: pulumi.Output<string | undefined>;
-    /**
-     * A system generated property. A unique identifier.
-     */
-    public /*out*/ readonly _rid!: pulumi.Output<string | undefined>;
-    /**
-     * A system generated property that denotes the last updated timestamp of the resource.
-     */
-    public /*out*/ readonly _ts!: pulumi.Output<{[key: string]: any} | undefined>;
-    /**
      * The conflict resolution policy for the graph.
      */
     public /*out*/ readonly conflictResolutionPolicy!: pulumi.Output<outputs.documentdb.v20160319.ConflictResolutionPolicyResponse | undefined>;
@@ -56,6 +44,10 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
      * Default time to live
      */
     public /*out*/ readonly defaultTtl!: pulumi.Output<number | undefined>;
+    /**
+     * A system generated property representing the resource etag required for optimistic concurrency control.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
      */
@@ -73,9 +65,17 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
      */
     public /*out*/ readonly partitionKey!: pulumi.Output<outputs.documentdb.v20160319.ContainerPartitionKeyResponse | undefined>;
     /**
+     * A system generated property. A unique identifier.
+     */
+    public /*out*/ readonly rid!: pulumi.Output<string | undefined>;
+    /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
     public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A system generated property that denotes the last updated timestamp of the resource.
+     */
+    public /*out*/ readonly ts!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The type of Azure resource.
      */
@@ -122,15 +122,15 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
             inputs["options"] = args ? args.options : undefined;
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["_etag"] = undefined /*out*/;
-            inputs["_rid"] = undefined /*out*/;
-            inputs["_ts"] = undefined /*out*/;
             inputs["conflictResolutionPolicy"] = undefined /*out*/;
             inputs["defaultTtl"] = undefined /*out*/;
+            inputs["etag"] = undefined /*out*/;
             inputs["indexingPolicy"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["partitionKey"] = undefined /*out*/;
+            inputs["rid"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["ts"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["uniqueKeyPolicy"] = undefined /*out*/;
         }

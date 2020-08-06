@@ -15,12 +15,17 @@ export function getNetworkProfile(args: GetNetworkProfileArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20181001:getNetworkProfile", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetNetworkProfileArgs {
+    /**
+     * Expands referenced resources.
+     */
+    readonly expand?: string;
     /**
      * The name of the Public IP Prefix.
      */

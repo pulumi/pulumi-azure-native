@@ -37,10 +37,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
     }
 
     /**
-     * Gets or sets list of peerings in a VirtualNetwork
-     */
-    public readonly VirtualNetworkPeerings!: pulumi.Output<outputs.network.v20160601.VirtualNetworkPeeringResponse[] | undefined>;
-    /**
      * Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
      */
     public readonly addressSpace!: pulumi.Output<outputs.network.v20160601.AddressSpaceResponse | undefined>;
@@ -80,6 +76,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Gets or sets list of peerings in a VirtualNetwork
+     */
+    public readonly virtualNetworkPeerings!: pulumi.Output<outputs.network.v20160601.VirtualNetworkPeeringResponse[] | undefined>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -100,7 +100,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["VirtualNetworkPeerings"] = args ? args.VirtualNetworkPeerings : undefined;
             inputs["addressSpace"] = args ? args.addressSpace : undefined;
             inputs["dhcpOptions"] = args ? args.dhcpOptions : undefined;
             inputs["etag"] = args ? args.etag : undefined;
@@ -112,6 +111,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkPeerings"] = args ? args.virtualNetworkPeerings : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -129,10 +129,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
  * The set of arguments for constructing a VirtualNetwork resource.
  */
 export interface VirtualNetworkArgs {
-    /**
-     * Gets or sets list of peerings in a VirtualNetwork
-     */
-    readonly VirtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.v20160601.VirtualNetworkPeering>[]>;
     /**
      * Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
      */
@@ -177,4 +173,8 @@ export interface VirtualNetworkArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Gets or sets list of peerings in a VirtualNetwork
+     */
+    readonly virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.v20160601.VirtualNetworkPeering>[]>;
 }

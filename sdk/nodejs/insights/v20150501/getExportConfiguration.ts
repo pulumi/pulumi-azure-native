@@ -43,77 +43,77 @@ export interface GetExportConfigurationResult {
     /**
      * The name of the Application Insights component.
      */
-    readonly ApplicationName: string;
+    readonly applicationName: string;
     /**
      * The name of the destination storage container.
      */
-    readonly ContainerName: string;
+    readonly containerName: string;
     /**
      * The name of destination account.
      */
-    readonly DestinationAccountId: string;
+    readonly destinationAccountId: string;
     /**
      * The destination account location ID.
      */
-    readonly DestinationStorageLocationId: string;
+    readonly destinationStorageLocationId: string;
     /**
      * The destination storage account subscription ID.
      */
-    readonly DestinationStorageSubscriptionId: string;
+    readonly destinationStorageSubscriptionId: string;
     /**
      * The destination type.
      */
-    readonly DestinationType: string;
+    readonly destinationType: string;
     /**
      * The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
      */
-    readonly ExportId: string;
+    readonly exportId: string;
     /**
      * This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
      */
-    readonly ExportStatus: string;
+    readonly exportStatus: string;
     /**
      * The instrumentation key of the Application Insights component.
      */
-    readonly InstrumentationKey: string;
+    readonly instrumentationKey: string;
     /**
      * This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
      */
-    readonly IsUserEnabled: string;
+    readonly isUserEnabled: string;
     /**
      * The last time the Continuous Export configuration started failing.
      */
-    readonly LastGapTime: string;
+    readonly lastGapTime: string;
     /**
      * The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
      */
-    readonly LastSuccessTime: string;
+    readonly lastSuccessTime: string;
     /**
      * Last time the Continuous Export configuration was updated.
      */
-    readonly LastUserUpdate: string;
+    readonly lastUserUpdate: string;
     /**
      * Deprecated
      */
-    readonly NotificationQueueEnabled?: string;
+    readonly notificationQueueEnabled?: string;
     /**
      * This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
      */
-    readonly PermanentErrorReason: string;
+    readonly permanentErrorReason: string;
     /**
      * This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
      */
-    readonly RecordTypes?: string;
+    readonly recordTypes?: string;
     /**
      * The resource group of the Application Insights component.
      */
-    readonly ResourceGroup: string;
+    readonly resourceGroup: string;
     /**
      * The name of the destination storage account.
      */
-    readonly StorageName: string;
+    readonly storageName: string;
     /**
      * The subscription of the Application Insights component.
      */
-    readonly SubscriptionId: string;
+    readonly subscriptionId: string;
 }

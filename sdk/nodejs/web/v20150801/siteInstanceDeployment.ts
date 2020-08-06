@@ -45,7 +45,7 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
     /**
      * AuthorEmail
      */
-    public readonly author_email!: pulumi.Output<string | undefined>;
+    public readonly authorEmail!: pulumi.Output<string | undefined>;
     /**
      * Deployer
      */
@@ -57,7 +57,7 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
     /**
      * EndTime
      */
-    public readonly end_time!: pulumi.Output<string | undefined>;
+    public readonly endTime!: pulumi.Output<string | undefined>;
     /**
      * Kind of resource
      */
@@ -77,7 +77,7 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
     /**
      * StartTime
      */
-    public readonly start_time!: pulumi.Output<string | undefined>;
+    public readonly startTime!: pulumi.Output<string | undefined>;
     /**
      * Status
      */
@@ -118,17 +118,17 @@ export class SiteInstanceDeployment extends pulumi.CustomResource {
             }
             inputs["active"] = args ? args.active : undefined;
             inputs["author"] = args ? args.author : undefined;
-            inputs["author_email"] = args ? args.author_email : undefined;
+            inputs["authorEmail"] = args ? args.authorEmail : undefined;
             inputs["deployer"] = args ? args.deployer : undefined;
             inputs["details"] = args ? args.details : undefined;
-            inputs["end_time"] = args ? args.end_time : undefined;
+            inputs["endTime"] = args ? args.endTime : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["message"] = args ? args.message : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["start_time"] = args ? args.start_time : undefined;
+            inputs["startTime"] = args ? args.startTime : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
@@ -159,7 +159,7 @@ export interface SiteInstanceDeploymentArgs {
     /**
      * AuthorEmail
      */
-    readonly author_email?: pulumi.Input<string>;
+    readonly authorEmail?: pulumi.Input<string>;
     /**
      * Deployer
      */
@@ -171,7 +171,7 @@ export interface SiteInstanceDeploymentArgs {
     /**
      * EndTime
      */
-    readonly end_time?: pulumi.Input<string>;
+    readonly endTime?: pulumi.Input<string>;
     /**
      * Id of web app instance
      */
@@ -199,7 +199,7 @@ export interface SiteInstanceDeploymentArgs {
     /**
      * StartTime
      */
-    readonly start_time?: pulumi.Input<string>;
+    readonly startTime?: pulumi.Input<string>;
     /**
      * Status
      */

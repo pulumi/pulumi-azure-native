@@ -39,11 +39,7 @@ export class RecordSet extends pulumi.CustomResource {
     /**
      * The list of A records in the record set.
      */
-    public readonly ARecords!: pulumi.Output<outputs.network.v20170901.ARecordResponse[] | undefined>;
-    /**
-     * The TTL (time-to-live) of the records in the record set.
-     */
-    public readonly TTL!: pulumi.Output<number | undefined>;
+    public readonly aRecords!: pulumi.Output<outputs.network.v20170901.ARecordResponse[] | undefined>;
     /**
      * The list of AAAA records in the record set.
      */
@@ -93,6 +89,10 @@ export class RecordSet extends pulumi.CustomResource {
      */
     public readonly srvRecords!: pulumi.Output<outputs.network.v20170901.SrvRecordResponse[] | undefined>;
     /**
+     * The TTL (time-to-live) of the records in the record set.
+     */
+    public readonly ttl!: pulumi.Output<number | undefined>;
+    /**
      * The list of TXT records in the record set.
      */
     public readonly txtRecords!: pulumi.Output<outputs.network.v20170901.TxtRecordResponse[] | undefined>;
@@ -126,8 +126,7 @@ export class RecordSet extends pulumi.CustomResource {
             if (!args || args.zoneName === undefined) {
                 throw new Error("Missing required property 'zoneName'");
             }
-            inputs["ARecords"] = args ? args.ARecords : undefined;
-            inputs["TTL"] = args ? args.TTL : undefined;
+            inputs["aRecords"] = args ? args.aRecords : undefined;
             inputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
             inputs["caaRecords"] = args ? args.caaRecords : undefined;
             inputs["cnameRecord"] = args ? args.cnameRecord : undefined;
@@ -141,6 +140,7 @@ export class RecordSet extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["soaRecord"] = args ? args.soaRecord : undefined;
             inputs["srvRecords"] = args ? args.srvRecords : undefined;
+            inputs["ttl"] = args ? args.ttl : undefined;
             inputs["txtRecords"] = args ? args.txtRecords : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
             inputs["fqdn"] = undefined /*out*/;
@@ -164,11 +164,7 @@ export interface RecordSetArgs {
     /**
      * The list of A records in the record set.
      */
-    readonly ARecords?: pulumi.Input<pulumi.Input<inputs.network.v20170901.ARecord>[]>;
-    /**
-     * The TTL (time-to-live) of the records in the record set.
-     */
-    readonly TTL?: pulumi.Input<number>;
+    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20170901.ARecord>[]>;
     /**
      * The list of AAAA records in the record set.
      */
@@ -221,6 +217,10 @@ export interface RecordSetArgs {
      * The list of SRV records in the record set.
      */
     readonly srvRecords?: pulumi.Input<pulumi.Input<inputs.network.v20170901.SrvRecord>[]>;
+    /**
+     * The TTL (time-to-live) of the records in the record set.
+     */
+    readonly ttl?: pulumi.Input<number>;
     /**
      * The list of TXT records in the record set.
      */

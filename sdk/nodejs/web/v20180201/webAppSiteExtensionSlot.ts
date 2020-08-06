@@ -49,35 +49,35 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
     /**
      * Count of downloads.
      */
-    public /*out*/ readonly download_count!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly downloadCount!: pulumi.Output<number | undefined>;
     /**
      * Site extension ID.
      */
-    public /*out*/ readonly extension_id!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly extensionId!: pulumi.Output<string | undefined>;
     /**
      * Site extension type.
      */
-    public /*out*/ readonly extension_type!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly extensionType!: pulumi.Output<string | undefined>;
     /**
      * Extension URL.
      */
-    public /*out*/ readonly extension_url!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly extensionUrl!: pulumi.Output<string | undefined>;
     /**
      * Feed URL.
      */
-    public /*out*/ readonly feed_url!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly feedUrl!: pulumi.Output<string | undefined>;
     /**
      * Icon URL.
      */
-    public /*out*/ readonly icon_url!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly iconUrl!: pulumi.Output<string | undefined>;
     /**
      * Installed timestamp.
      */
-    public /*out*/ readonly installed_date_time!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly installedDateTime!: pulumi.Output<string | undefined>;
     /**
      * Installer command line parameters.
      */
-    public /*out*/ readonly installer_command_line_params!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly installerCommandLineParams!: pulumi.Output<string | undefined>;
     /**
      * Kind of resource.
      */
@@ -85,15 +85,15 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
     /**
      * License URL.
      */
-    public /*out*/ readonly license_url!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly licenseUrl!: pulumi.Output<string | undefined>;
     /**
      * <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
      */
-    public /*out*/ readonly local_is_latest_version!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly localIsLatestVersion!: pulumi.Output<boolean | undefined>;
     /**
      * Local path.
      */
-    public /*out*/ readonly local_path!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly localPath!: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
@@ -101,7 +101,7 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
     /**
      * Project URL.
      */
-    public /*out*/ readonly project_url!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly projectUrl!: pulumi.Output<string | undefined>;
     /**
      * Provisioning state.
      */
@@ -109,7 +109,7 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
     /**
      * Published timestamp.
      */
-    public /*out*/ readonly published_date_time!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly publishedDateTime!: pulumi.Output<string | undefined>;
     /**
      * Summary description.
      */
@@ -152,21 +152,21 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
             inputs["authors"] = undefined /*out*/;
             inputs["comment"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
-            inputs["download_count"] = undefined /*out*/;
-            inputs["extension_id"] = undefined /*out*/;
-            inputs["extension_type"] = undefined /*out*/;
-            inputs["extension_url"] = undefined /*out*/;
-            inputs["feed_url"] = undefined /*out*/;
-            inputs["icon_url"] = undefined /*out*/;
-            inputs["installed_date_time"] = undefined /*out*/;
-            inputs["installer_command_line_params"] = undefined /*out*/;
+            inputs["downloadCount"] = undefined /*out*/;
+            inputs["extensionId"] = undefined /*out*/;
+            inputs["extensionType"] = undefined /*out*/;
+            inputs["extensionUrl"] = undefined /*out*/;
+            inputs["feedUrl"] = undefined /*out*/;
+            inputs["iconUrl"] = undefined /*out*/;
+            inputs["installedDateTime"] = undefined /*out*/;
+            inputs["installerCommandLineParams"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
-            inputs["license_url"] = undefined /*out*/;
-            inputs["local_is_latest_version"] = undefined /*out*/;
-            inputs["local_path"] = undefined /*out*/;
-            inputs["project_url"] = undefined /*out*/;
+            inputs["licenseUrl"] = undefined /*out*/;
+            inputs["localIsLatestVersion"] = undefined /*out*/;
+            inputs["localPath"] = undefined /*out*/;
+            inputs["projectUrl"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["published_date_time"] = undefined /*out*/;
+            inputs["publishedDateTime"] = undefined /*out*/;
             inputs["summary"] = undefined /*out*/;
             inputs["title"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;

@@ -46,7 +46,7 @@ export interface GetWebAppDeploymentResult {
     /**
      * Author email.
      */
-    readonly author_email?: string;
+    readonly authorEmail?: string;
     /**
      * Who performed the deployment.
      */
@@ -58,7 +58,7 @@ export interface GetWebAppDeploymentResult {
     /**
      * End time.
      */
-    readonly end_time?: string;
+    readonly endTime?: string;
     /**
      * Kind of resource.
      */
@@ -74,7 +74,7 @@ export interface GetWebAppDeploymentResult {
     /**
      * Start time.
      */
-    readonly start_time?: string;
+    readonly startTime?: string;
     /**
      * Deployment status.
      */

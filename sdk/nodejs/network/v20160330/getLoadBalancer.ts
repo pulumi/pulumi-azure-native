@@ -15,12 +15,17 @@ export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20160330:getLoadBalancer", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetLoadBalancerArgs {
+    /**
+     * expand references resources.
+     */
+    readonly expand?: string;
     /**
      * The name of the loadBalancer.
      */

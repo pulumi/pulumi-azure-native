@@ -41,7 +41,7 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     /**
      * Config URI.
      */
-    public readonly config_href!: pulumi.Output<string | undefined>;
+    public readonly configHref!: pulumi.Output<string | undefined>;
     /**
      * File list.
      */
@@ -49,7 +49,7 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     /**
      * Function App ID.
      */
-    public readonly function_app_id!: pulumi.Output<string | undefined>;
+    public readonly functionAppId!: pulumi.Output<string | undefined>;
     /**
      * Function URI.
      */
@@ -57,7 +57,7 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     /**
      * The invocation URL
      */
-    public readonly invoke_url_template!: pulumi.Output<string | undefined>;
+    public readonly invokeUrlTemplate!: pulumi.Output<string | undefined>;
     /**
      * Value indicating whether the function is disabled
      */
@@ -77,23 +77,23 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     /**
      * Script URI.
      */
-    public readonly script_href!: pulumi.Output<string | undefined>;
+    public readonly scriptHref!: pulumi.Output<string | undefined>;
     /**
      * Script root path URI.
      */
-    public readonly script_root_path_href!: pulumi.Output<string | undefined>;
+    public readonly scriptRootPathHref!: pulumi.Output<string | undefined>;
     /**
      * Secrets file URI.
      */
-    public readonly secrets_file_href!: pulumi.Output<string | undefined>;
+    public readonly secretsFileHref!: pulumi.Output<string | undefined>;
     /**
      * Test data used when testing via the Azure Portal.
      */
-    public readonly test_data!: pulumi.Output<string | undefined>;
+    public readonly testData!: pulumi.Output<string | undefined>;
     /**
      * Test data URI.
      */
-    public readonly test_data_href!: pulumi.Output<string | undefined>;
+    public readonly testDataHref!: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
@@ -122,22 +122,22 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["config"] = args ? args.config : undefined;
-            inputs["config_href"] = args ? args.config_href : undefined;
+            inputs["configHref"] = args ? args.configHref : undefined;
             inputs["files"] = args ? args.files : undefined;
-            inputs["function_app_id"] = args ? args.function_app_id : undefined;
+            inputs["functionAppId"] = args ? args.functionAppId : undefined;
             inputs["href"] = args ? args.href : undefined;
-            inputs["invoke_url_template"] = args ? args.invoke_url_template : undefined;
+            inputs["invokeUrlTemplate"] = args ? args.invokeUrlTemplate : undefined;
             inputs["isDisabled"] = args ? args.isDisabled : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["language"] = args ? args.language : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["script_href"] = args ? args.script_href : undefined;
-            inputs["script_root_path_href"] = args ? args.script_root_path_href : undefined;
-            inputs["secrets_file_href"] = args ? args.secrets_file_href : undefined;
+            inputs["scriptHref"] = args ? args.scriptHref : undefined;
+            inputs["scriptRootPathHref"] = args ? args.scriptRootPathHref : undefined;
+            inputs["secretsFileHref"] = args ? args.secretsFileHref : undefined;
             inputs["slot"] = args ? args.slot : undefined;
-            inputs["test_data"] = args ? args.test_data : undefined;
-            inputs["test_data_href"] = args ? args.test_data_href : undefined;
+            inputs["testData"] = args ? args.testData : undefined;
+            inputs["testDataHref"] = args ? args.testDataHref : undefined;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -162,7 +162,7 @@ export interface WebAppInstanceFunctionSlotArgs {
     /**
      * Config URI.
      */
-    readonly config_href?: pulumi.Input<string>;
+    readonly configHref?: pulumi.Input<string>;
     /**
      * File list.
      */
@@ -170,7 +170,7 @@ export interface WebAppInstanceFunctionSlotArgs {
     /**
      * Function App ID.
      */
-    readonly function_app_id?: pulumi.Input<string>;
+    readonly functionAppId?: pulumi.Input<string>;
     /**
      * Function URI.
      */
@@ -178,7 +178,7 @@ export interface WebAppInstanceFunctionSlotArgs {
     /**
      * The invocation URL
      */
-    readonly invoke_url_template?: pulumi.Input<string>;
+    readonly invokeUrlTemplate?: pulumi.Input<string>;
     /**
      * Value indicating whether the function is disabled
      */
@@ -202,15 +202,15 @@ export interface WebAppInstanceFunctionSlotArgs {
     /**
      * Script URI.
      */
-    readonly script_href?: pulumi.Input<string>;
+    readonly scriptHref?: pulumi.Input<string>;
     /**
      * Script root path URI.
      */
-    readonly script_root_path_href?: pulumi.Input<string>;
+    readonly scriptRootPathHref?: pulumi.Input<string>;
     /**
      * Secrets file URI.
      */
-    readonly secrets_file_href?: pulumi.Input<string>;
+    readonly secretsFileHref?: pulumi.Input<string>;
     /**
      * Name of the deployment slot.
      */
@@ -218,9 +218,9 @@ export interface WebAppInstanceFunctionSlotArgs {
     /**
      * Test data used when testing via the Azure Portal.
      */
-    readonly test_data?: pulumi.Input<string>;
+    readonly testData?: pulumi.Input<string>;
     /**
      * Test data URI.
      */
-    readonly test_data_href?: pulumi.Input<string>;
+    readonly testDataHref?: pulumi.Input<string>;
 }

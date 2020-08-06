@@ -15,6 +15,7 @@ export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20160515:getArtifactSource", {
+        "expand": args.expand,
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -22,6 +23,10 @@ export function getArtifactSource(args: GetArtifactSourceArgs, opts?: pulumi.Inv
 }
 
 export interface GetArtifactSourceArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=displayName)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab.
      */

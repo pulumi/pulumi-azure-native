@@ -15,12 +15,17 @@ export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20170801:getNetworkSecurityGroup", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetNetworkSecurityGroupArgs {
+    /**
+     * Expands referenced resources.
+     */
+    readonly expand?: string;
     /**
      * The name of the network security group.
      */

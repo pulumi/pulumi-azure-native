@@ -15,7 +15,7 @@ export function getFavorite(args: GetFavoriteArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:insights/v20150501:getFavorite", {
-        "favoriteId": args.favoriteId,
+        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -25,7 +25,7 @@ export interface GetFavoriteArgs {
     /**
      * The Id of a specific favorite defined in the Application Insights component
      */
-    readonly favoriteId: string;
+    readonly name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -43,45 +43,45 @@ export interface GetFavoriteResult {
     /**
      * Favorite category, as defined by the user at creation time.
      */
-    readonly Category?: string;
+    readonly category?: string;
     /**
      * Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
      */
-    readonly Config?: string;
+    readonly config?: string;
     /**
      * Internally assigned unique id of the favorite definition.
      */
-    readonly FavoriteId: string;
+    readonly favoriteId: string;
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly FavoriteType?: string;
+    readonly favoriteType?: string;
     /**
      * Flag denoting wether or not this favorite was generated from a template.
      */
-    readonly IsGeneratedFromTemplate?: boolean;
+    readonly isGeneratedFromTemplate?: boolean;
     /**
      * The user-defined name of the favorite.
      */
-    readonly Name?: string;
+    readonly name?: string;
     /**
      * The source of the favorite definition.
      */
-    readonly SourceType?: string;
+    readonly sourceType?: string;
     /**
      * A list of 0 or more tags that are associated with this favorite definition
      */
-    readonly Tags?: string[];
+    readonly tags?: string[];
     /**
      * Date and time in UTC of the last modification that was made to this favorite definition.
      */
-    readonly TimeModified: string;
+    readonly timeModified: string;
     /**
      * Unique user id of the specific user that owns this favorite.
      */
-    readonly UserId: string;
+    readonly userId: string;
     /**
      * This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
      */
-    readonly Version?: string;
+    readonly version?: string;
 }

@@ -17,6 +17,7 @@ export function getProtectedItem(args: GetProtectedItemArgs, opts?: pulumi.Invok
     return pulumi.runtime.invoke("azurerm:recoveryservices/v20190615:getProtectedItem", {
         "containerName": args.containerName,
         "fabricName": args.fabricName,
+        "filter": args.filter,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "vaultName": args.vaultName,
@@ -32,6 +33,10 @@ export interface GetProtectedItemArgs {
      * Fabric name associated with the backed up item.
      */
     readonly fabricName: string;
+    /**
+     * OData filter options.
+     */
+    readonly filter?: string;
     /**
      * Backed up item name whose details are to be fetched.
      */

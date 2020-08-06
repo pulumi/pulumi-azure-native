@@ -15,12 +15,17 @@ export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20160601:getVirtualNetwork", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetVirtualNetworkArgs {
+    /**
+     * expand references resources.
+     */
+    readonly expand?: string;
     /**
      * The name of the virtual network.
      */
@@ -35,10 +40,6 @@ export interface GetVirtualNetworkArgs {
  * Virtual Network resource
  */
 export interface GetVirtualNetworkResult {
-    /**
-     * Gets or sets list of peerings in a VirtualNetwork
-     */
-    readonly VirtualNetworkPeerings?: outputs.network.v20160601.VirtualNetworkPeeringResponse[];
     /**
      * Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
      */
@@ -79,4 +80,8 @@ export interface GetVirtualNetworkResult {
      * Resource type
      */
     readonly type: string;
+    /**
+     * Gets or sets list of peerings in a VirtualNetwork
+     */
+    readonly virtualNetworkPeerings?: outputs.network.v20160601.VirtualNetworkPeeringResponse[];
 }

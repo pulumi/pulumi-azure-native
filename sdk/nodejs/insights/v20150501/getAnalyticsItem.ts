@@ -19,7 +19,6 @@ export function getAnalyticsItem(args: GetAnalyticsItemArgs, opts?: pulumi.Invok
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
-        "scopePath": args.scopePath,
     }, opts);
 }
 
@@ -29,9 +28,9 @@ export interface GetAnalyticsItemArgs {
      */
     readonly id?: string;
     /**
-     * The name of a specific item defined in the Application Insights component
+     * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly name?: string;
+    readonly name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -40,10 +39,6 @@ export interface GetAnalyticsItemArgs {
      * The name of the Application Insights component resource.
      */
     readonly resourceName: string;
-    /**
-     * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-     */
-    readonly scopePath: string;
 }
 
 /**
@@ -53,37 +48,33 @@ export interface GetAnalyticsItemResult {
     /**
      * The content of this item
      */
-    readonly Content?: string;
-    /**
-     * Internally assigned unique id of the item definition.
-     */
-    readonly Id?: string;
+    readonly content?: string;
     /**
      * The user-defined name of the item.
      */
-    readonly Name?: string;
+    readonly name?: string;
     /**
      * A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
      */
-    readonly Properties?: outputs.insights.v20150501.ApplicationInsightsComponentAnalyticsItemPropertiesResponse;
+    readonly properties: outputs.insights.v20150501.ApplicationInsightsComponentAnalyticsItemPropertiesResponse;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly Scope?: string;
+    readonly scope?: string;
     /**
      * Date and time in UTC when this item was created.
      */
-    readonly TimeCreated: string;
+    readonly timeCreated: string;
     /**
      * Date and time in UTC of the last modification that was made to this item.
      */
-    readonly TimeModified: string;
+    readonly timeModified: string;
     /**
      * Enum indicating the type of the Analytics item.
      */
-    readonly Type?: string;
+    readonly type?: string;
     /**
      * This instance's version of the data model. This can change as new features are added.
      */
-    readonly Version: string;
+    readonly version: string;
 }

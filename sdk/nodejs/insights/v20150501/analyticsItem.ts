@@ -39,39 +39,35 @@ export class AnalyticsItem extends pulumi.CustomResource {
     /**
      * The content of this item
      */
-    public readonly Content!: pulumi.Output<string | undefined>;
-    /**
-     * Internally assigned unique id of the item definition.
-     */
-    public readonly Id!: pulumi.Output<string | undefined>;
+    public readonly content!: pulumi.Output<string | undefined>;
     /**
      * The user-defined name of the item.
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
      */
-    public readonly Properties!: pulumi.Output<outputs.insights.v20150501.ApplicationInsightsComponentAnalyticsItemPropertiesResponse | undefined>;
+    public readonly properties!: pulumi.Output<outputs.insights.v20150501.ApplicationInsightsComponentAnalyticsItemPropertiesResponse>;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    public readonly Scope!: pulumi.Output<string | undefined>;
+    public readonly scope!: pulumi.Output<string | undefined>;
     /**
      * Date and time in UTC when this item was created.
      */
-    public /*out*/ readonly TimeCreated!: pulumi.Output<string>;
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
      * Date and time in UTC of the last modification that was made to this item.
      */
-    public /*out*/ readonly TimeModified!: pulumi.Output<string>;
+    public /*out*/ readonly timeModified!: pulumi.Output<string>;
     /**
      * Enum indicating the type of the Analytics item.
      */
-    public readonly Type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * This instance's version of the data model. This can change as new features are added.
      */
-    public /*out*/ readonly Version!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a AnalyticsItem resource with the given unique name, arguments, and options.
@@ -86,28 +82,27 @@ export class AnalyticsItem extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AnalyticsItemArgs | undefined;
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if (!args || args.scopePath === undefined) {
-                throw new Error("Missing required property 'scopePath'");
-            }
-            inputs["Content"] = args ? args.Content : undefined;
-            inputs["Id"] = args ? args.Id : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["Properties"] = args ? args.Properties : undefined;
-            inputs["Scope"] = args ? args.Scope : undefined;
-            inputs["Type"] = args ? args.Type : undefined;
+            inputs["content"] = args ? args.content : undefined;
+            inputs["id"] = args ? args.id : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["overrideItem"] = args ? args.overrideItem : undefined;
+            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["scopePath"] = args ? args.scopePath : undefined;
-            inputs["TimeCreated"] = undefined /*out*/;
-            inputs["TimeModified"] = undefined /*out*/;
-            inputs["Version"] = undefined /*out*/;
+            inputs["scope"] = args ? args.scope : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["timeCreated"] = undefined /*out*/;
+            inputs["timeModified"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -127,31 +122,23 @@ export interface AnalyticsItemArgs {
     /**
      * The content of this item
      */
-    readonly Content?: pulumi.Input<string>;
+    readonly content?: pulumi.Input<string>;
     /**
      * Internally assigned unique id of the item definition.
      */
-    readonly Id?: pulumi.Input<string>;
-    /**
-     * The user-defined name of the item.
-     */
-    readonly Name?: pulumi.Input<string>;
-    /**
-     * A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-     */
-    readonly Properties?: pulumi.Input<inputs.insights.v20150501.ApplicationInsightsComponentAnalyticsItemProperties>;
+    readonly id?: pulumi.Input<string>;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly Scope?: pulumi.Input<string>;
-    /**
-     * Enum indicating the type of the Analytics item.
-     */
-    readonly Type?: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
      */
     readonly overrideItem?: pulumi.Input<boolean>;
+    /**
+     * A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+     */
+    readonly properties?: pulumi.Input<inputs.insights.v20150501.ApplicationInsightsComponentAnalyticsItemProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -163,5 +150,9 @@ export interface AnalyticsItemArgs {
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly scopePath: pulumi.Input<string>;
+    readonly scope?: pulumi.Input<string>;
+    /**
+     * Enum indicating the type of the Analytics item.
+     */
+    readonly type?: pulumi.Input<string>;
 }
