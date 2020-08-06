@@ -17,6 +17,8 @@ func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...p
 }
 
 type LookupRouteTableArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the route table.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

@@ -34,37 +34,37 @@ type LookupWebAppSiteExtensionSlotResult struct {
 	// Detailed description.
 	Description *string `pulumi:"description"`
 	// Count of downloads.
-	Download_count *int `pulumi:"download_count"`
+	DownloadCount *int `pulumi:"downloadCount"`
 	// Site extension ID.
-	Extension_id *string `pulumi:"extension_id"`
+	ExtensionId *string `pulumi:"extensionId"`
 	// Site extension type.
-	Extension_type *string `pulumi:"extension_type"`
+	ExtensionType *string `pulumi:"extensionType"`
 	// Extension URL.
-	Extension_url *string `pulumi:"extension_url"`
+	ExtensionUrl *string `pulumi:"extensionUrl"`
 	// Feed URL.
-	Feed_url *string `pulumi:"feed_url"`
+	FeedUrl *string `pulumi:"feedUrl"`
 	// Icon URL.
-	Icon_url *string `pulumi:"icon_url"`
+	IconUrl *string `pulumi:"iconUrl"`
 	// Installed timestamp.
-	Installed_date_time *string `pulumi:"installed_date_time"`
+	InstalledDateTime *string `pulumi:"installedDateTime"`
 	// Installer command line parameters.
-	Installer_command_line_params *string `pulumi:"installer_command_line_params"`
+	InstallerCommandLineParams *string `pulumi:"installerCommandLineParams"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// License URL.
-	License_url *string `pulumi:"license_url"`
+	LicenseUrl *string `pulumi:"licenseUrl"`
 	// <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
-	Local_is_latest_version *bool `pulumi:"local_is_latest_version"`
+	LocalIsLatestVersion *bool `pulumi:"localIsLatestVersion"`
 	// Local path.
-	Local_path *string `pulumi:"local_path"`
+	LocalPath *string `pulumi:"localPath"`
 	// Resource Name.
 	Name string `pulumi:"name"`
 	// Project URL.
-	Project_url *string `pulumi:"project_url"`
+	ProjectUrl *string `pulumi:"projectUrl"`
 	// Provisioning state.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Published timestamp.
-	Published_date_time *string `pulumi:"published_date_time"`
+	PublishedDateTime *string `pulumi:"publishedDateTime"`
 	// Summary description.
 	Summary *string `pulumi:"summary"`
 	Title   *string `pulumi:"title"`

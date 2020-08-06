@@ -890,13 +890,13 @@ func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) Throughput() pul
 
 type CassandraKeyspaceGetPropertiesResponseResource struct {
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB Cassandra keyspace
 	Id string `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // CassandraKeyspaceGetPropertiesResponseResourceInput is an input type that accepts CassandraKeyspaceGetPropertiesResponseResourceArgs and CassandraKeyspaceGetPropertiesResponseResourceOutput values.
@@ -912,13 +912,13 @@ type CassandraKeyspaceGetPropertiesResponseResourceInput interface {
 
 type CassandraKeyspaceGetPropertiesResponseResourceArgs struct {
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB Cassandra keyspace
 	Id pulumi.StringInput `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (CassandraKeyspaceGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -999,23 +999,23 @@ func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) ToCassandraKeyspac
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
 // Name of the Cosmos DB Cassandra keyspace
 func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
 }
 
 type CassandraKeyspaceGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -1039,33 +1039,13 @@ func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Elem() Cassandr
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) *string {
 		if v == nil {
 			return nil
 		}
-		return &v._etag
+		return &v.Etag
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
 }
 
 // Name of the Cosmos DB Cassandra keyspace
@@ -1076,6 +1056,26 @@ func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Id() pulumi.Str
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB Cassandra keyspace resource object
@@ -1911,20 +1911,20 @@ func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi
 }
 
 type CassandraTableGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
 	// Analytical TTL.
 	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
 	// Time to live of the Cosmos DB Cassandra table
 	DefaultTtl *int `pulumi:"defaultTtl"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB Cassandra table
 	Id string `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
 	// Schema of the Cosmos DB Cassandra table
 	Schema *CassandraSchemaResponse `pulumi:"schema"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // CassandraTableGetPropertiesResponseResourceInput is an input type that accepts CassandraTableGetPropertiesResponseResourceArgs and CassandraTableGetPropertiesResponseResourceOutput values.
@@ -1939,20 +1939,20 @@ type CassandraTableGetPropertiesResponseResourceInput interface {
 }
 
 type CassandraTableGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
 	// Analytical TTL.
 	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
 	// Time to live of the Cosmos DB Cassandra table
 	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB Cassandra table
 	Id pulumi.StringInput `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
 	// Schema of the Cosmos DB Cassandra table
 	Schema CassandraSchemaResponsePtrInput `pulumi:"schema"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (CassandraTableGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -2032,21 +2032,6 @@ func (o CassandraTableGetPropertiesResponseResourceOutput) ToCassandraTableGetPr
 	}).(CassandraTableGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o CassandraTableGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o CassandraTableGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraTableGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
-}
-
 // Analytical TTL.
 func (o CassandraTableGetPropertiesResponseResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
@@ -2057,14 +2042,29 @@ func (o CassandraTableGetPropertiesResponseResourceOutput) DefaultTtl() pulumi.I
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o CassandraTableGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
+}
+
 // Name of the Cosmos DB Cassandra table
 func (o CassandraTableGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A system generated property. A unique identifier.
+func (o CassandraTableGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
 // Schema of the Cosmos DB Cassandra table
 func (o CassandraTableGetPropertiesResponseResourceOutput) Schema() CassandraSchemaResponsePtrOutput {
 	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) *CassandraSchemaResponse { return v.Schema }).(CassandraSchemaResponsePtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o CassandraTableGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
 }
 
 type CassandraTableGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -2087,36 +2087,6 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Elem() CassandraTa
 	}).(CassandraTableGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o CassandraTableGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o CassandraTableGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o CassandraTableGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
-}
-
 // Analytical TTL.
 func (o CassandraTableGetPropertiesResponseResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *int {
@@ -2137,6 +2107,16 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
 // Name of the Cosmos DB Cassandra table
 func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *string {
@@ -2144,6 +2124,16 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Id() pulumi.String
 			return nil
 		}
 		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2155,6 +2145,16 @@ func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Schema() Cassandra
 		}
 		return v.Schema
 	}).(CassandraSchemaResponsePtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB Cassandra table resource object
@@ -4758,13 +4758,13 @@ func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulum
 
 type GremlinDatabaseGetPropertiesResponseResource struct {
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB Gremlin database
 	Id string `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // GremlinDatabaseGetPropertiesResponseResourceInput is an input type that accepts GremlinDatabaseGetPropertiesResponseResourceArgs and GremlinDatabaseGetPropertiesResponseResourceOutput values.
@@ -4780,13 +4780,13 @@ type GremlinDatabaseGetPropertiesResponseResourceInput interface {
 
 type GremlinDatabaseGetPropertiesResponseResourceArgs struct {
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB Gremlin database
 	Id pulumi.StringInput `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (GremlinDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -4867,23 +4867,23 @@ func (o GremlinDatabaseGetPropertiesResponseResourceOutput) ToGremlinDatabaseGet
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o GremlinDatabaseGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o GremlinDatabaseGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinDatabaseGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
 // Name of the Cosmos DB Gremlin database
 func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
 }
 
 type GremlinDatabaseGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -4907,33 +4907,13 @@ func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Elem() GremlinDat
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
 			return nil
 		}
-		return &v._etag
+		return &v.Etag
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
 }
 
 // Name of the Cosmos DB Gremlin database
@@ -4944,6 +4924,26 @@ func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.Strin
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB Gremlin database resource object
@@ -5233,22 +5233,22 @@ func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.I
 }
 
 type GremlinGraphGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
 	// The conflict resolution policy for the graph.
 	ConflictResolutionPolicy *ConflictResolutionPolicyResponse `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
 	DefaultTtl *int `pulumi:"defaultTtl"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB Gremlin graph
 	Id string `pulumi:"id"`
 	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
 	IndexingPolicy *IndexingPolicyResponse `pulumi:"indexingPolicy"`
 	// The configuration of the partition key to be used for partitioning data into multiple partitions
 	PartitionKey *ContainerPartitionKeyResponse `pulumi:"partitionKey"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy *UniqueKeyPolicyResponse `pulumi:"uniqueKeyPolicy"`
 }
@@ -5265,22 +5265,22 @@ type GremlinGraphGetPropertiesResponseResourceInput interface {
 }
 
 type GremlinGraphGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
 	// The conflict resolution policy for the graph.
 	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrInput `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
 	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB Gremlin graph
 	Id pulumi.StringInput `pulumi:"id"`
 	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
 	IndexingPolicy IndexingPolicyResponsePtrInput `pulumi:"indexingPolicy"`
 	// The configuration of the partition key to be used for partitioning data into multiple partitions
 	PartitionKey ContainerPartitionKeyResponsePtrInput `pulumi:"partitionKey"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy UniqueKeyPolicyResponsePtrInput `pulumi:"uniqueKeyPolicy"`
 }
@@ -5362,21 +5362,6 @@ func (o GremlinGraphGetPropertiesResponseResourceOutput) ToGremlinGraphGetProper
 	}).(GremlinGraphGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o GremlinGraphGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o GremlinGraphGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinGraphGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
-}
-
 // The conflict resolution policy for the graph.
 func (o GremlinGraphGetPropertiesResponseResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
@@ -5387,6 +5372,11 @@ func (o GremlinGraphGetPropertiesResponseResourceOutput) ConflictResolutionPolic
 // Default time to live
 func (o GremlinGraphGetPropertiesResponseResourceOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o GremlinGraphGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
 // Name of the Cosmos DB Gremlin graph
@@ -5404,6 +5394,16 @@ func (o GremlinGraphGetPropertiesResponseResourceOutput) PartitionKey() Containe
 	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *ContainerPartitionKeyResponse {
 		return v.PartitionKey
 	}).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o GremlinGraphGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o GremlinGraphGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
 }
 
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -5431,36 +5431,6 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Elem() GremlinGraphG
 	}).(GremlinGraphGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
-}
-
 // The conflict resolution policy for the graph.
 func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
@@ -5479,6 +5449,16 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulumi.
 		}
 		return v.DefaultTtl
 	}).(pulumi.IntPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the Cosmos DB Gremlin graph
@@ -5509,6 +5489,26 @@ func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) PartitionKey() Conta
 		}
 		return v.PartitionKey
 	}).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
 }
 
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -7289,20 +7289,20 @@ func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) Throughput() pul
 }
 
 type MongoDBCollectionGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
 	// Analytical TTL.
 	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB MongoDB collection
 	Id string `pulumi:"id"`
 	// List of index keys
 	Indexes []MongoIndexResponse `pulumi:"indexes"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
 	// A key-value pair of shard keys to be applied for the request.
 	ShardKey map[string]string `pulumi:"shardKey"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // MongoDBCollectionGetPropertiesResponseResourceInput is an input type that accepts MongoDBCollectionGetPropertiesResponseResourceArgs and MongoDBCollectionGetPropertiesResponseResourceOutput values.
@@ -7317,20 +7317,20 @@ type MongoDBCollectionGetPropertiesResponseResourceInput interface {
 }
 
 type MongoDBCollectionGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
 	// Analytical TTL.
 	AnalyticalStorageTtl pulumi.IntPtrInput `pulumi:"analyticalStorageTtl"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB MongoDB collection
 	Id pulumi.StringInput `pulumi:"id"`
 	// List of index keys
 	Indexes MongoIndexResponseArrayInput `pulumi:"indexes"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
 	// A key-value pair of shard keys to be applied for the request.
 	ShardKey pulumi.StringMapInput `pulumi:"shardKey"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (MongoDBCollectionGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -7410,24 +7410,14 @@ func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ToMongoDBCollectio
 	}).(MongoDBCollectionGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o MongoDBCollectionGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o MongoDBCollectionGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBCollectionGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
-}
-
 // Analytical TTL.
 func (o MongoDBCollectionGetPropertiesResponseResourceOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) *int { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
 // Name of the Cosmos DB MongoDB collection
@@ -7440,9 +7430,19 @@ func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Indexes() MongoInd
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) []MongoIndexResponse { return v.Indexes }).(MongoIndexResponseArrayOutput)
 }
 
+// A system generated property. A unique identifier.
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
 // A key-value pair of shard keys to be applied for the request.
 func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ShardKey() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) map[string]string { return v.ShardKey }).(pulumi.StringMapOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
 }
 
 type MongoDBCollectionGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -7465,36 +7465,6 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Elem() MongoDBC
 	}).(MongoDBCollectionGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
-}
-
 // Analytical TTL.
 func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *int {
@@ -7503,6 +7473,16 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) AnalyticalStora
 		}
 		return v.AnalyticalStorageTtl
 	}).(pulumi.IntPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the Cosmos DB MongoDB collection
@@ -7525,6 +7505,16 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Indexes() Mongo
 	}).(MongoIndexResponseArrayOutput)
 }
 
+// A system generated property. A unique identifier.
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair of shard keys to be applied for the request.
 func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ShardKey() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) map[string]string {
@@ -7533,6 +7523,16 @@ func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ShardKey() pulu
 		}
 		return v.ShardKey
 	}).(pulumi.StringMapOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB MongoDB collection resource object
@@ -7882,13 +7882,13 @@ func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulum
 
 type MongoDBDatabaseGetPropertiesResponseResource struct {
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB MongoDB database
 	Id string `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // MongoDBDatabaseGetPropertiesResponseResourceInput is an input type that accepts MongoDBDatabaseGetPropertiesResponseResourceArgs and MongoDBDatabaseGetPropertiesResponseResourceOutput values.
@@ -7904,13 +7904,13 @@ type MongoDBDatabaseGetPropertiesResponseResourceInput interface {
 
 type MongoDBDatabaseGetPropertiesResponseResourceArgs struct {
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB MongoDB database
 	Id pulumi.StringInput `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (MongoDBDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -7991,23 +7991,23 @@ func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) ToMongoDBDatabaseGet
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
 // Name of the Cosmos DB MongoDB database
 func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
 }
 
 type MongoDBDatabaseGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -8031,33 +8031,13 @@ func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Elem() MongoDBDat
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
 			return nil
 		}
-		return &v._etag
+		return &v.Etag
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
 }
 
 // Name of the Cosmos DB MongoDB database
@@ -8068,6 +8048,26 @@ func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.Strin
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB MongoDB database resource object
@@ -9788,22 +9788,22 @@ func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.I
 }
 
 type SqlContainerGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy *ConflictResolutionPolicyResponse `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
 	DefaultTtl *int `pulumi:"defaultTtl"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB SQL container
 	Id string `pulumi:"id"`
 	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
 	IndexingPolicy *IndexingPolicyResponse `pulumi:"indexingPolicy"`
 	// The configuration of the partition key to be used for partitioning data into multiple partitions
 	PartitionKey *ContainerPartitionKeyResponse `pulumi:"partitionKey"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy *UniqueKeyPolicyResponse `pulumi:"uniqueKeyPolicy"`
 }
@@ -9820,22 +9820,22 @@ type SqlContainerGetPropertiesResponseResourceInput interface {
 }
 
 type SqlContainerGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
 	// The conflict resolution policy for the container.
 	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrInput `pulumi:"conflictResolutionPolicy"`
 	// Default time to live
 	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB SQL container
 	Id pulumi.StringInput `pulumi:"id"`
 	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
 	IndexingPolicy IndexingPolicyResponsePtrInput `pulumi:"indexingPolicy"`
 	// The configuration of the partition key to be used for partitioning data into multiple partitions
 	PartitionKey ContainerPartitionKeyResponsePtrInput `pulumi:"partitionKey"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
 	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
 	UniqueKeyPolicy UniqueKeyPolicyResponsePtrInput `pulumi:"uniqueKeyPolicy"`
 }
@@ -9917,21 +9917,6 @@ func (o SqlContainerGetPropertiesResponseResourceOutput) ToSqlContainerGetProper
 	}).(SqlContainerGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlContainerGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o SqlContainerGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlContainerGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
-}
-
 // The conflict resolution policy for the container.
 func (o SqlContainerGetPropertiesResponseResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
@@ -9942,6 +9927,11 @@ func (o SqlContainerGetPropertiesResponseResourceOutput) ConflictResolutionPolic
 // Default time to live
 func (o SqlContainerGetPropertiesResponseResourceOutput) DefaultTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlContainerGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
 // Name of the Cosmos DB SQL container
@@ -9959,6 +9949,16 @@ func (o SqlContainerGetPropertiesResponseResourceOutput) PartitionKey() Containe
 	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *ContainerPartitionKeyResponse {
 		return v.PartitionKey
 	}).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlContainerGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlContainerGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
 }
 
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -9986,36 +9986,6 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Elem() SqlContainerG
 	}).(SqlContainerGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlContainerGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o SqlContainerGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlContainerGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
-}
-
 // The conflict resolution policy for the container.
 func (o SqlContainerGetPropertiesResponseResourcePtrOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
@@ -10034,6 +10004,16 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulumi.
 		}
 		return v.DefaultTtl
 	}).(pulumi.IntPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the Cosmos DB SQL container
@@ -10064,6 +10044,26 @@ func (o SqlContainerGetPropertiesResponseResourcePtrOutput) PartitionKey() Conta
 		}
 		return v.PartitionKey
 	}).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
 }
 
 // The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
@@ -10457,17 +10457,17 @@ func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.In
 
 type SqlDatabaseGetPropertiesResponseResource struct {
 	// A system generated property that specified the addressable path of the collections resource.
-	_colls *string `pulumi:"_colls"`
+	Colls *string `pulumi:"colls"`
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
-	// A system generated property that specifies the addressable path of the users resource.
-	_users *string `pulumi:"_users"`
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB SQL database
 	Id string `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
+	// A system generated property that specifies the addressable path of the users resource.
+	Users *string `pulumi:"users"`
 }
 
 // SqlDatabaseGetPropertiesResponseResourceInput is an input type that accepts SqlDatabaseGetPropertiesResponseResourceArgs and SqlDatabaseGetPropertiesResponseResourceOutput values.
@@ -10483,17 +10483,17 @@ type SqlDatabaseGetPropertiesResponseResourceInput interface {
 
 type SqlDatabaseGetPropertiesResponseResourceArgs struct {
 	// A system generated property that specified the addressable path of the collections resource.
-	_colls pulumi.StringPtrInput `pulumi:"_colls"`
+	Colls pulumi.StringPtrInput `pulumi:"colls"`
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
-	// A system generated property that specifies the addressable path of the users resource.
-	_users pulumi.StringPtrInput `pulumi:"_users"`
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB SQL database
 	Id pulumi.StringInput `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
+	// A system generated property that specifies the addressable path of the users resource.
+	Users pulumi.StringPtrInput `pulumi:"users"`
 }
 
 func (SqlDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -10574,33 +10574,33 @@ func (o SqlDatabaseGetPropertiesResponseResourceOutput) ToSqlDatabaseGetProperti
 }
 
 // A system generated property that specified the addressable path of the collections resource.
-func (o SqlDatabaseGetPropertiesResponseResourceOutput) _colls() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) *string { return v._colls }).(pulumi.StringPtrOutput)
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) Colls() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) *string { return v.Colls }).(pulumi.StringPtrOutput)
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlDatabaseGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o SqlDatabaseGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabaseGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
-}
-
-// A system generated property that specifies the addressable path of the users resource.
-func (o SqlDatabaseGetPropertiesResponseResourceOutput) _users() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) *string { return v._users }).(pulumi.StringPtrOutput)
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
 // Name of the Cosmos DB SQL database
 func (o SqlDatabaseGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
+}
+
+// A system generated property that specifies the addressable path of the users resource.
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) Users() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) *string { return v.Users }).(pulumi.StringPtrOutput)
 }
 
 type SqlDatabaseGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -10622,52 +10622,22 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Elem() SqlDatabaseGet
 }
 
 // A system generated property that specified the addressable path of the collections resource.
-func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) _colls() pulumi.StringPtrOutput {
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Colls() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
 			return nil
 		}
-		return v._colls
+		return v.Colls
 	}).(pulumi.StringPtrOutput)
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
 			return nil
 		}
-		return &v._etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
-}
-
-// A system generated property that specifies the addressable path of the users resource.
-func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) _users() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return v._users
+		return &v.Etag
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10678,6 +10648,36 @@ func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtr
 			return nil
 		}
 		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
+}
+
+// A system generated property that specifies the addressable path of the users resource.
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Users() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Users
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10816,16 +10816,16 @@ func (o SqlDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type SqlStoredProcedureGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
 	// Body of the Stored Procedure
 	Body *string `pulumi:"body"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB SQL storedProcedure
 	Id string `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // SqlStoredProcedureGetPropertiesResponseResourceInput is an input type that accepts SqlStoredProcedureGetPropertiesResponseResourceArgs and SqlStoredProcedureGetPropertiesResponseResourceOutput values.
@@ -10840,16 +10840,16 @@ type SqlStoredProcedureGetPropertiesResponseResourceInput interface {
 }
 
 type SqlStoredProcedureGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
 	// Body of the Stored Procedure
 	Body pulumi.StringPtrInput `pulumi:"body"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB SQL storedProcedure
 	Id pulumi.StringInput `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (SqlStoredProcedureGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -10929,29 +10929,29 @@ func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) ToSqlStoredProced
 	}).(SqlStoredProcedureGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
-}
-
 // Body of the Stored Procedure
 func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
+}
+
 // Name of the Cosmos DB SQL storedProcedure
 func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
 }
 
 type SqlStoredProcedureGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -10974,36 +10974,6 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Elem() SqlStor
 	}).(SqlStoredProcedureGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
-}
-
 // Body of the Stored Procedure
 func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
@@ -11011,6 +10981,16 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Body() pulumi.
 			return nil
 		}
 		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11022,6 +11002,26 @@ func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Id() pulumi.St
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB SQL storedProcedure resource object
@@ -11178,20 +11178,20 @@ func (o SqlStoredProcedureResourcePtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type SqlTriggerGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
 	// Body of the Trigger
 	Body *string `pulumi:"body"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB SQL trigger
 	Id string `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
 	// The operation the trigger is associated with
 	TriggerOperation *string `pulumi:"triggerOperation"`
 	// Type of the Trigger
 	TriggerType *string `pulumi:"triggerType"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // SqlTriggerGetPropertiesResponseResourceInput is an input type that accepts SqlTriggerGetPropertiesResponseResourceArgs and SqlTriggerGetPropertiesResponseResourceOutput values.
@@ -11206,20 +11206,20 @@ type SqlTriggerGetPropertiesResponseResourceInput interface {
 }
 
 type SqlTriggerGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
 	// Body of the Trigger
 	Body pulumi.StringPtrInput `pulumi:"body"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB SQL trigger
 	Id pulumi.StringInput `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
 	// The operation the trigger is associated with
 	TriggerOperation pulumi.StringPtrInput `pulumi:"triggerOperation"`
 	// Type of the Trigger
 	TriggerType pulumi.StringPtrInput `pulumi:"triggerType"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (SqlTriggerGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -11299,29 +11299,24 @@ func (o SqlTriggerGetPropertiesResponseResourceOutput) ToSqlTriggerGetProperties
 	}).(SqlTriggerGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlTriggerGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o SqlTriggerGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlTriggerGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
-}
-
 // Body of the Trigger
 func (o SqlTriggerGetPropertiesResponseResourceOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlTriggerGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
+}
+
 // Name of the Cosmos DB SQL trigger
 func (o SqlTriggerGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlTriggerGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
 }
 
 // The operation the trigger is associated with
@@ -11332,6 +11327,11 @@ func (o SqlTriggerGetPropertiesResponseResourceOutput) TriggerOperation() pulumi
 // Type of the Trigger
 func (o SqlTriggerGetPropertiesResponseResourceOutput) TriggerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) *string { return v.TriggerType }).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlTriggerGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
 }
 
 type SqlTriggerGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -11352,36 +11352,6 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Elem() SqlTriggerGetPr
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) SqlTriggerGetPropertiesResponseResource { return *v }).(SqlTriggerGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
-}
-
 // Body of the Trigger
 func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
@@ -11392,6 +11362,16 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Body() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
+	}).(pulumi.StringPtrOutput)
+}
+
 // Name of the Cosmos DB SQL trigger
 func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
@@ -11399,6 +11379,16 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrO
 			return nil
 		}
 		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11420,6 +11410,16 @@ func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) TriggerType() pulumi.S
 		}
 		return v.TriggerType
 	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB SQL trigger resource object
@@ -11614,16 +11614,16 @@ func (o SqlTriggerResourcePtrOutput) TriggerType() pulumi.StringPtrOutput {
 }
 
 type SqlUserDefinedFunctionGetPropertiesResponseResource struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
 	// Body of the User Defined Function
 	Body *string `pulumi:"body"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB SQL userDefinedFunction
 	Id string `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // SqlUserDefinedFunctionGetPropertiesResponseResourceInput is an input type that accepts SqlUserDefinedFunctionGetPropertiesResponseResourceArgs and SqlUserDefinedFunctionGetPropertiesResponseResourceOutput values.
@@ -11638,16 +11638,16 @@ type SqlUserDefinedFunctionGetPropertiesResponseResourceInput interface {
 }
 
 type SqlUserDefinedFunctionGetPropertiesResponseResourceArgs struct {
-	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
 	// Body of the User Defined Function
 	Body pulumi.StringPtrInput `pulumi:"body"`
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB SQL userDefinedFunction
 	Id pulumi.StringInput `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (SqlUserDefinedFunctionGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -11727,29 +11727,29 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) ToSqlUserDefi
 	}).(SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
-}
-
 // Body of the User Defined Function
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
+}
+
 // Name of the Cosmos DB SQL userDefinedFunction
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
 }
 
 type SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -11772,36 +11772,6 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Elem() Sql
 	}).(SqlUserDefinedFunctionGetPropertiesResponseResourceOutput)
 }
 
-// A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._etag
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
-}
-
 // Body of the User Defined Function
 func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Body() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
@@ -11809,6 +11779,16 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Body() pul
 			return nil
 		}
 		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Etag
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11820,6 +11800,26 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Id() pulum
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB SQL userDefinedFunction resource object
@@ -12127,13 +12127,13 @@ func (o TableGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOu
 
 type TableGetPropertiesResponseResource struct {
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
+	Etag string `pulumi:"etag"`
 	// Name of the Cosmos DB table
 	Id string `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid string `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 }
 
 // TableGetPropertiesResponseResourceInput is an input type that accepts TableGetPropertiesResponseResourceArgs and TableGetPropertiesResponseResourceOutput values.
@@ -12149,13 +12149,13 @@ type TableGetPropertiesResponseResourceInput interface {
 
 type TableGetPropertiesResponseResourceArgs struct {
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringInput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringInput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput `pulumi:"_ts"`
+	Etag pulumi.StringInput `pulumi:"etag"`
 	// Name of the Cosmos DB table
 	Id pulumi.StringInput `pulumi:"id"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringInput `pulumi:"rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput `pulumi:"ts"`
 }
 
 func (TableGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -12236,23 +12236,23 @@ func (o TableGetPropertiesResponseResourceOutput) ToTableGetPropertiesResponseRe
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o TableGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o TableGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o TableGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v TableGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+func (o TableGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
 }
 
 // Name of the Cosmos DB table
 func (o TableGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o TableGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o TableGetPropertiesResponseResourceOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponseResource) map[string]interface{} { return v.Ts }).(pulumi.MapOutput)
 }
 
 type TableGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -12274,33 +12274,13 @@ func (o TableGetPropertiesResponseResourcePtrOutput) Elem() TableGetPropertiesRe
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o TableGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+func (o TableGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableGetPropertiesResponseResource) *string {
 		if v == nil {
 			return nil
 		}
-		return &v._etag
+		return &v.Etag
 	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property. A unique identifier.
-func (o TableGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TableGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v._rid
-	}).(pulumi.StringPtrOutput)
-}
-
-// A system generated property that denotes the last updated timestamp of the resource.
-func (o TableGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *TableGetPropertiesResponseResource) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v._ts
-	}).(pulumi.MapOutput)
 }
 
 // Name of the Cosmos DB table
@@ -12311,6 +12291,26 @@ func (o TableGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o TableGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o TableGetPropertiesResponseResourcePtrOutput) Ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Ts
+	}).(pulumi.MapOutput)
 }
 
 // Cosmos DB table resource object

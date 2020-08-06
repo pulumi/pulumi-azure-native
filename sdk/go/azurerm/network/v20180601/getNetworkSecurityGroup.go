@@ -17,6 +17,8 @@ func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *LookupNetworkSecurity
 }
 
 type LookupNetworkSecurityGroupArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the network security group.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

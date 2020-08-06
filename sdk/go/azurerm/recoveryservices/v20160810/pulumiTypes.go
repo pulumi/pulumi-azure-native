@@ -531,7 +531,7 @@ func (o CreatePolicyInputPropertiesPtrOutput) ProviderSpecificInput() PolicyProv
 // Configure pairing input properties.
 type CreateProtectionContainerMappingInputProperties struct {
 	// Applicable policy.
-	PolicyId *string `pulumi:"PolicyId"`
+	PolicyId *string `pulumi:"policyId"`
 	// Provider specific input for pairing.
 	ProviderSpecificInput *ReplicationProviderSpecificContainerMappingInput `pulumi:"providerSpecificInput"`
 	// The target unique protection container name.
@@ -552,7 +552,7 @@ type CreateProtectionContainerMappingInputPropertiesInput interface {
 // Configure pairing input properties.
 type CreateProtectionContainerMappingInputPropertiesArgs struct {
 	// Applicable policy.
-	PolicyId pulumi.StringPtrInput `pulumi:"PolicyId"`
+	PolicyId pulumi.StringPtrInput `pulumi:"policyId"`
 	// Provider specific input for pairing.
 	ProviderSpecificInput ReplicationProviderSpecificContainerMappingInputPtrInput `pulumi:"providerSpecificInput"`
 	// The target unique protection container name.

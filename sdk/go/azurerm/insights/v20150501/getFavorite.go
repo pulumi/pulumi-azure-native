@@ -18,7 +18,7 @@ func LookupFavorite(ctx *pulumi.Context, args *LookupFavoriteArgs, opts ...pulum
 
 type LookupFavoriteArgs struct {
 	// The Id of a specific favorite defined in the Application Insights component
-	FavoriteId string `pulumi:"favoriteId"`
+	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.
@@ -28,25 +28,25 @@ type LookupFavoriteArgs struct {
 // Properties that define a favorite that is associated to an Application Insights component.
 type LookupFavoriteResult struct {
 	// Favorite category, as defined by the user at creation time.
-	Category *string `pulumi:"Category"`
+	Category *string `pulumi:"category"`
 	// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
-	Config *string `pulumi:"Config"`
+	Config *string `pulumi:"config"`
 	// Internally assigned unique id of the favorite definition.
-	FavoriteId string `pulumi:"FavoriteId"`
+	FavoriteId string `pulumi:"favoriteId"`
 	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType *string `pulumi:"FavoriteType"`
+	FavoriteType *string `pulumi:"favoriteType"`
 	// Flag denoting wether or not this favorite was generated from a template.
-	IsGeneratedFromTemplate *bool `pulumi:"IsGeneratedFromTemplate"`
+	IsGeneratedFromTemplate *bool `pulumi:"isGeneratedFromTemplate"`
 	// The user-defined name of the favorite.
-	Name *string `pulumi:"Name"`
+	Name *string `pulumi:"name"`
 	// The source of the favorite definition.
-	SourceType *string `pulumi:"SourceType"`
+	SourceType *string `pulumi:"sourceType"`
 	// A list of 0 or more tags that are associated with this favorite definition
-	Tags []string `pulumi:"Tags"`
+	Tags []string `pulumi:"tags"`
 	// Date and time in UTC of the last modification that was made to this favorite definition.
-	TimeModified string `pulumi:"TimeModified"`
+	TimeModified string `pulumi:"timeModified"`
 	// Unique user id of the specific user that owns this favorite.
-	UserId string `pulumi:"UserId"`
+	UserId string `pulumi:"userId"`
 	// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-	Version *string `pulumi:"Version"`
+	Version *string `pulumi:"version"`
 }

@@ -17,6 +17,8 @@ func LookupNetworkProfile(ctx *pulumi.Context, args *LookupNetworkProfileArgs, o
 }
 
 type LookupNetworkProfileArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the Public IP Prefix.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

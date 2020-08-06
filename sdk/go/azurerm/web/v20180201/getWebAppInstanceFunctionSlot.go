@@ -30,15 +30,15 @@ type LookupWebAppInstanceFunctionSlotResult struct {
 	// Config information.
 	Config map[string]interface{} `pulumi:"config"`
 	// Config URI.
-	Config_href *string `pulumi:"config_href"`
+	ConfigHref *string `pulumi:"configHref"`
 	// File list.
 	Files map[string]string `pulumi:"files"`
 	// Function App ID.
-	Function_app_id *string `pulumi:"function_app_id"`
+	FunctionAppId *string `pulumi:"functionAppId"`
 	// Function URI.
 	Href *string `pulumi:"href"`
 	// The invocation URL
-	Invoke_url_template *string `pulumi:"invoke_url_template"`
+	InvokeUrlTemplate *string `pulumi:"invokeUrlTemplate"`
 	// Value indicating whether the function is disabled
 	IsDisabled *bool `pulumi:"isDisabled"`
 	// Kind of resource.
@@ -48,15 +48,15 @@ type LookupWebAppInstanceFunctionSlotResult struct {
 	// Resource Name.
 	Name string `pulumi:"name"`
 	// Script URI.
-	Script_href *string `pulumi:"script_href"`
+	ScriptHref *string `pulumi:"scriptHref"`
 	// Script root path URI.
-	Script_root_path_href *string `pulumi:"script_root_path_href"`
+	ScriptRootPathHref *string `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
-	Secrets_file_href *string `pulumi:"secrets_file_href"`
+	SecretsFileHref *string `pulumi:"secretsFileHref"`
 	// Test data used when testing via the Azure Portal.
-	Test_data *string `pulumi:"test_data"`
+	TestData *string `pulumi:"testData"`
 	// Test data URI.
-	Test_data_href *string `pulumi:"test_data_href"`
+	TestDataHref *string `pulumi:"testDataHref"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

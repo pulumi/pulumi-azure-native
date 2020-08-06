@@ -2244,11 +2244,11 @@ func (o ScaleRuleArrayOutput) Index(i pulumi.IntInput) ScaleRuleOutput {
 // Specifies an auto scale rule metric dimension.
 type ScaleRuleMetricDimension struct {
 	// Name of the dimension.
-	DimensionName string `pulumi:"DimensionName"`
+	DimensionName string `pulumi:"dimensionName"`
 	// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-	Operator string `pulumi:"Operator"`
+	Operator string `pulumi:"operator"`
 	// list of dimension values. For example: ["App1","App2"].
-	Values []string `pulumi:"Values"`
+	Values []string `pulumi:"values"`
 }
 
 // ScaleRuleMetricDimensionInput is an input type that accepts ScaleRuleMetricDimensionArgs and ScaleRuleMetricDimensionOutput values.
@@ -2265,11 +2265,11 @@ type ScaleRuleMetricDimensionInput interface {
 // Specifies an auto scale rule metric dimension.
 type ScaleRuleMetricDimensionArgs struct {
 	// Name of the dimension.
-	DimensionName pulumi.StringInput `pulumi:"DimensionName"`
+	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
 	// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-	Operator pulumi.StringInput `pulumi:"Operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
 	// list of dimension values. For example: ["App1","App2"].
-	Values pulumi.StringArrayInput `pulumi:"Values"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ScaleRuleMetricDimensionArgs) ElementType() reflect.Type {
@@ -2362,11 +2362,11 @@ func (o ScaleRuleMetricDimensionArrayOutput) Index(i pulumi.IntInput) ScaleRuleM
 // Specifies an auto scale rule metric dimension.
 type ScaleRuleMetricDimensionResponse struct {
 	// Name of the dimension.
-	DimensionName string `pulumi:"DimensionName"`
+	DimensionName string `pulumi:"dimensionName"`
 	// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-	Operator string `pulumi:"Operator"`
+	Operator string `pulumi:"operator"`
 	// list of dimension values. For example: ["App1","App2"].
-	Values []string `pulumi:"Values"`
+	Values []string `pulumi:"values"`
 }
 
 // ScaleRuleMetricDimensionResponseInput is an input type that accepts ScaleRuleMetricDimensionResponseArgs and ScaleRuleMetricDimensionResponseOutput values.
@@ -2383,11 +2383,11 @@ type ScaleRuleMetricDimensionResponseInput interface {
 // Specifies an auto scale rule metric dimension.
 type ScaleRuleMetricDimensionResponseArgs struct {
 	// Name of the dimension.
-	DimensionName pulumi.StringInput `pulumi:"DimensionName"`
+	DimensionName pulumi.StringInput `pulumi:"dimensionName"`
 	// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
-	Operator pulumi.StringInput `pulumi:"Operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
 	// list of dimension values. For example: ["App1","App2"].
-	Values pulumi.StringArrayInput `pulumi:"Values"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
 func (ScaleRuleMetricDimensionResponseArgs) ElementType() reflect.Type {

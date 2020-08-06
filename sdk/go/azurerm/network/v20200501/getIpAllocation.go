@@ -17,6 +17,8 @@ func LookupIpAllocation(ctx *pulumi.Context, args *LookupIpAllocationArgs, opts 
 }
 
 type LookupIpAllocationArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the IpAllocation.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

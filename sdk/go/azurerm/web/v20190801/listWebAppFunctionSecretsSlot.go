@@ -34,7 +34,7 @@ type ListWebAppFunctionSecretsSlotResult struct {
 	// Resource Name.
 	Name string `pulumi:"name"`
 	// Trigger URL.
-	Trigger_url *string `pulumi:"trigger_url"`
+	TriggerUrl *string `pulumi:"triggerUrl"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }

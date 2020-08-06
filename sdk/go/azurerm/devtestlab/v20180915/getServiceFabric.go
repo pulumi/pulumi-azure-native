@@ -17,6 +17,8 @@ func LookupServiceFabric(ctx *pulumi.Context, args *LookupServiceFabricArgs, opt
 }
 
 type LookupServiceFabricArgs struct {
+	// Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The name of the service fabric.

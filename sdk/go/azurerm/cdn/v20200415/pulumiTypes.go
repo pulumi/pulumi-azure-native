@@ -3404,6 +3404,7 @@ func (o HttpErrorRangeParametersResponseArrayOutput) Index(i pulumi.IntInput) Ht
 
 // Describes the parameters for using a user's KeyVault for URL Signing Key.
 type KeyVaultSigningKeyParameters struct {
+	OdataType string `pulumi:"odataType"`
 	// Resource group of the user's Key Vault containing the secret
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of secret in Key Vault.
@@ -3429,6 +3430,7 @@ type KeyVaultSigningKeyParametersInput interface {
 
 // Describes the parameters for using a user's KeyVault for URL Signing Key.
 type KeyVaultSigningKeyParametersArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Resource group of the user's Key Vault containing the secret
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of secret in Key Vault.
@@ -3468,6 +3470,10 @@ func (o KeyVaultSigningKeyParametersOutput) ToKeyVaultSigningKeyParametersOutput
 	return o
 }
 
+func (o KeyVaultSigningKeyParametersOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultSigningKeyParameters) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
 // Resource group of the user's Key Vault containing the secret
 func (o KeyVaultSigningKeyParametersOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v KeyVaultSigningKeyParameters) string { return v.ResourceGroupName }).(pulumi.StringOutput)
@@ -3495,6 +3501,7 @@ func (o KeyVaultSigningKeyParametersOutput) VaultName() pulumi.StringOutput {
 
 // Describes the parameters for using a user's KeyVault for URL Signing Key.
 type KeyVaultSigningKeyParametersResponse struct {
+	OdataType string `pulumi:"odataType"`
 	// Resource group of the user's Key Vault containing the secret
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of secret in Key Vault.
@@ -3520,6 +3527,7 @@ type KeyVaultSigningKeyParametersResponseInput interface {
 
 // Describes the parameters for using a user's KeyVault for URL Signing Key.
 type KeyVaultSigningKeyParametersResponseArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// Resource group of the user's Key Vault containing the secret
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The name of secret in Key Vault.
@@ -3557,6 +3565,10 @@ func (o KeyVaultSigningKeyParametersResponseOutput) ToKeyVaultSigningKeyParamete
 
 func (o KeyVaultSigningKeyParametersResponseOutput) ToKeyVaultSigningKeyParametersResponseOutputWithContext(ctx context.Context) KeyVaultSigningKeyParametersResponseOutput {
 	return o
+}
+
+func (o KeyVaultSigningKeyParametersResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultSigningKeyParametersResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // Resource group of the user's Key Vault containing the secret

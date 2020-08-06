@@ -33,6 +33,8 @@ type LookupManagedClusterResult struct {
 	AgentPoolProfiles []ManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
 	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfileResponse `pulumi:"apiServerAccessProfile"`
+	// Parameters to be applied to the cluster-autoscaler when enabled
+	AutoScalerProfile *ManagedClusterPropertiesResponseAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.

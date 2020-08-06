@@ -17,6 +17,8 @@ func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs,
 }
 
 type LookupPublicIPAddressArgs struct {
+	// expand references resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the subnet.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

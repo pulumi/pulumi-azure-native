@@ -71,9 +71,6 @@ type VirtualMachine struct {
 // NewVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachine(ctx *pulumi.Context,
 	name string, args *VirtualMachineArgs, opts ...pulumi.ResourceOption) (*VirtualMachine, error) {
-	if args == nil || args.Referer == nil {
-		return nil, errors.New("missing required argument 'Referer'")
-	}
 	if args == nil || args.AmountOfRam == nil {
 		return nil, errors.New("missing required argument 'AmountOfRam'")
 	}
@@ -231,8 +228,6 @@ func (VirtualMachineState) ElementType() reflect.Type {
 }
 
 type virtualMachineArgs struct {
-	// referer url
-	Referer string `pulumi:"Referer"`
 	// The amount of memory
 	AmountOfRam int `pulumi:"amountOfRam"`
 	// Virtual machine properties
@@ -269,8 +264,6 @@ type virtualMachineArgs struct {
 
 // The set of arguments for constructing a VirtualMachine resource.
 type VirtualMachineArgs struct {
-	// referer url
-	Referer pulumi.StringInput
 	// The amount of memory
 	AmountOfRam pulumi.IntInput
 	// Virtual machine properties

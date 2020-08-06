@@ -3613,10 +3613,10 @@ func (o JobRecurrenceSchedulePtrOutput) WeekDays() pulumi.StringArrayOutput {
 }
 
 type JobRecurrenceScheduleMonthlyOccurrence struct {
-	// Gets or sets the occurrence. Must be between -5 and 5.
-	Occurrence *int `pulumi:"Occurrence"`
 	// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
 	Day *string `pulumi:"day"`
+	// Gets or sets the occurrence. Must be between -5 and 5.
+	Occurrence *int `pulumi:"occurrence"`
 }
 
 // JobRecurrenceScheduleMonthlyOccurrenceInput is an input type that accepts JobRecurrenceScheduleMonthlyOccurrenceArgs and JobRecurrenceScheduleMonthlyOccurrenceOutput values.
@@ -3631,10 +3631,10 @@ type JobRecurrenceScheduleMonthlyOccurrenceInput interface {
 }
 
 type JobRecurrenceScheduleMonthlyOccurrenceArgs struct {
-	// Gets or sets the occurrence. Must be between -5 and 5.
-	Occurrence pulumi.IntPtrInput `pulumi:"Occurrence"`
 	// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
 	Day pulumi.StringPtrInput `pulumi:"day"`
+	// Gets or sets the occurrence. Must be between -5 and 5.
+	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
 
 func (JobRecurrenceScheduleMonthlyOccurrenceArgs) ElementType() reflect.Type {
@@ -3688,14 +3688,14 @@ func (o JobRecurrenceScheduleMonthlyOccurrenceOutput) ToJobRecurrenceScheduleMon
 	return o
 }
 
-// Gets or sets the occurrence. Must be between -5 and 5.
-func (o JobRecurrenceScheduleMonthlyOccurrenceOutput) Occurrence() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobRecurrenceScheduleMonthlyOccurrence) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
-}
-
 // Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
 func (o JobRecurrenceScheduleMonthlyOccurrenceOutput) Day() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobRecurrenceScheduleMonthlyOccurrence) *string { return v.Day }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the occurrence. Must be between -5 and 5.
+func (o JobRecurrenceScheduleMonthlyOccurrenceOutput) Occurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobRecurrenceScheduleMonthlyOccurrence) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
 }
 
 type JobRecurrenceScheduleMonthlyOccurrenceArrayOutput struct{ *pulumi.OutputState }
@@ -3719,10 +3719,10 @@ func (o JobRecurrenceScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInp
 }
 
 type JobRecurrenceScheduleMonthlyOccurrenceResponse struct {
-	// Gets or sets the occurrence. Must be between -5 and 5.
-	Occurrence *int `pulumi:"Occurrence"`
 	// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
 	Day *string `pulumi:"day"`
+	// Gets or sets the occurrence. Must be between -5 and 5.
+	Occurrence *int `pulumi:"occurrence"`
 }
 
 // JobRecurrenceScheduleMonthlyOccurrenceResponseInput is an input type that accepts JobRecurrenceScheduleMonthlyOccurrenceResponseArgs and JobRecurrenceScheduleMonthlyOccurrenceResponseOutput values.
@@ -3737,10 +3737,10 @@ type JobRecurrenceScheduleMonthlyOccurrenceResponseInput interface {
 }
 
 type JobRecurrenceScheduleMonthlyOccurrenceResponseArgs struct {
-	// Gets or sets the occurrence. Must be between -5 and 5.
-	Occurrence pulumi.IntPtrInput `pulumi:"Occurrence"`
 	// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
 	Day pulumi.StringPtrInput `pulumi:"day"`
+	// Gets or sets the occurrence. Must be between -5 and 5.
+	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
 
 func (JobRecurrenceScheduleMonthlyOccurrenceResponseArgs) ElementType() reflect.Type {
@@ -3794,14 +3794,14 @@ func (o JobRecurrenceScheduleMonthlyOccurrenceResponseOutput) ToJobRecurrenceSch
 	return o
 }
 
-// Gets or sets the occurrence. Must be between -5 and 5.
-func (o JobRecurrenceScheduleMonthlyOccurrenceResponseOutput) Occurrence() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobRecurrenceScheduleMonthlyOccurrenceResponse) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
-}
-
 // Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
 func (o JobRecurrenceScheduleMonthlyOccurrenceResponseOutput) Day() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobRecurrenceScheduleMonthlyOccurrenceResponse) *string { return v.Day }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the occurrence. Must be between -5 and 5.
+func (o JobRecurrenceScheduleMonthlyOccurrenceResponseOutput) Occurrence() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobRecurrenceScheduleMonthlyOccurrenceResponse) *int { return v.Occurrence }).(pulumi.IntPtrOutput)
 }
 
 type JobRecurrenceScheduleMonthlyOccurrenceResponseArrayOutput struct{ *pulumi.OutputState }

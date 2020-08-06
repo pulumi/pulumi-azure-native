@@ -17,6 +17,8 @@ func LookupPublicIPPrefix(ctx *pulumi.Context, args *LookupPublicIPPrefixArgs, o
 }
 
 type LookupPublicIPPrefixArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the PublicIPPrefix.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

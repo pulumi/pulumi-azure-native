@@ -17,6 +17,8 @@ func LookupGalleryApplicationVersion(ctx *pulumi.Context, args *LookupGalleryApp
 }
 
 type LookupGalleryApplicationVersionArgs struct {
+	// The expand expression to apply on the operation.
+	Expand *string `pulumi:"expand"`
 	// The name of the gallery Application Definition in which the Application Version resides.
 	GalleryApplicationName string `pulumi:"galleryApplicationName"`
 	// The name of the Shared Application Gallery in which the Application Definition resides.

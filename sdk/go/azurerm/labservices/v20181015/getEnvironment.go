@@ -19,6 +19,8 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 type LookupEnvironmentArgs struct {
 	// The name of the environment Setting.
 	EnvironmentSettingName string `pulumi:"environmentSettingName"`
+	// Specify the $expand query. Example: 'properties($expand=networkInterface)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab Account.
 	LabAccountName string `pulumi:"labAccountName"`
 	// The name of the lab.

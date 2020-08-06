@@ -2424,6 +2424,264 @@ func (o LoadBalancingSettingsModelResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(LoadBalancingSettingsModelResponseOutput)
 }
 
+// Base class for all types of Route.
+type RouteConfiguration struct {
+	OdataType string `pulumi:"odataType"`
+}
+
+// RouteConfigurationInput is an input type that accepts RouteConfigurationArgs and RouteConfigurationOutput values.
+// You can construct a concrete instance of `RouteConfigurationInput` via:
+//
+//          RouteConfigurationArgs{...}
+type RouteConfigurationInput interface {
+	pulumi.Input
+
+	ToRouteConfigurationOutput() RouteConfigurationOutput
+	ToRouteConfigurationOutputWithContext(context.Context) RouteConfigurationOutput
+}
+
+// Base class for all types of Route.
+type RouteConfigurationArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (RouteConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteConfiguration)(nil)).Elem()
+}
+
+func (i RouteConfigurationArgs) ToRouteConfigurationOutput() RouteConfigurationOutput {
+	return i.ToRouteConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouteConfigurationArgs) ToRouteConfigurationOutputWithContext(ctx context.Context) RouteConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationOutput)
+}
+
+func (i RouteConfigurationArgs) ToRouteConfigurationPtrOutput() RouteConfigurationPtrOutput {
+	return i.ToRouteConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RouteConfigurationArgs) ToRouteConfigurationPtrOutputWithContext(ctx context.Context) RouteConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationOutput).ToRouteConfigurationPtrOutputWithContext(ctx)
+}
+
+// RouteConfigurationPtrInput is an input type that accepts RouteConfigurationArgs, RouteConfigurationPtr and RouteConfigurationPtrOutput values.
+// You can construct a concrete instance of `RouteConfigurationPtrInput` via:
+//
+//          RouteConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRouteConfigurationPtrOutput() RouteConfigurationPtrOutput
+	ToRouteConfigurationPtrOutputWithContext(context.Context) RouteConfigurationPtrOutput
+}
+
+type routeConfigurationPtrType RouteConfigurationArgs
+
+func RouteConfigurationPtr(v *RouteConfigurationArgs) RouteConfigurationPtrInput {
+	return (*routeConfigurationPtrType)(v)
+}
+
+func (*routeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteConfiguration)(nil)).Elem()
+}
+
+func (i *routeConfigurationPtrType) ToRouteConfigurationPtrOutput() RouteConfigurationPtrOutput {
+	return i.ToRouteConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *routeConfigurationPtrType) ToRouteConfigurationPtrOutputWithContext(ctx context.Context) RouteConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationPtrOutput)
+}
+
+// Base class for all types of Route.
+type RouteConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouteConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteConfiguration)(nil)).Elem()
+}
+
+func (o RouteConfigurationOutput) ToRouteConfigurationOutput() RouteConfigurationOutput {
+	return o
+}
+
+func (o RouteConfigurationOutput) ToRouteConfigurationOutputWithContext(ctx context.Context) RouteConfigurationOutput {
+	return o
+}
+
+func (o RouteConfigurationOutput) ToRouteConfigurationPtrOutput() RouteConfigurationPtrOutput {
+	return o.ToRouteConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RouteConfigurationOutput) ToRouteConfigurationPtrOutputWithContext(ctx context.Context) RouteConfigurationPtrOutput {
+	return o.ApplyT(func(v RouteConfiguration) *RouteConfiguration {
+		return &v
+	}).(RouteConfigurationPtrOutput)
+}
+func (o RouteConfigurationOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+type RouteConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouteConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteConfiguration)(nil)).Elem()
+}
+
+func (o RouteConfigurationPtrOutput) ToRouteConfigurationPtrOutput() RouteConfigurationPtrOutput {
+	return o
+}
+
+func (o RouteConfigurationPtrOutput) ToRouteConfigurationPtrOutputWithContext(ctx context.Context) RouteConfigurationPtrOutput {
+	return o
+}
+
+func (o RouteConfigurationPtrOutput) Elem() RouteConfigurationOutput {
+	return o.ApplyT(func(v *RouteConfiguration) RouteConfiguration { return *v }).(RouteConfigurationOutput)
+}
+
+func (o RouteConfigurationPtrOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OdataType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Base class for all types of Route.
+type RouteConfigurationResponse struct {
+	OdataType string `pulumi:"odataType"`
+}
+
+// RouteConfigurationResponseInput is an input type that accepts RouteConfigurationResponseArgs and RouteConfigurationResponseOutput values.
+// You can construct a concrete instance of `RouteConfigurationResponseInput` via:
+//
+//          RouteConfigurationResponseArgs{...}
+type RouteConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToRouteConfigurationResponseOutput() RouteConfigurationResponseOutput
+	ToRouteConfigurationResponseOutputWithContext(context.Context) RouteConfigurationResponseOutput
+}
+
+// Base class for all types of Route.
+type RouteConfigurationResponseArgs struct {
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (RouteConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteConfigurationResponse)(nil)).Elem()
+}
+
+func (i RouteConfigurationResponseArgs) ToRouteConfigurationResponseOutput() RouteConfigurationResponseOutput {
+	return i.ToRouteConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i RouteConfigurationResponseArgs) ToRouteConfigurationResponseOutputWithContext(ctx context.Context) RouteConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationResponseOutput)
+}
+
+func (i RouteConfigurationResponseArgs) ToRouteConfigurationResponsePtrOutput() RouteConfigurationResponsePtrOutput {
+	return i.ToRouteConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RouteConfigurationResponseArgs) ToRouteConfigurationResponsePtrOutputWithContext(ctx context.Context) RouteConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationResponseOutput).ToRouteConfigurationResponsePtrOutputWithContext(ctx)
+}
+
+// RouteConfigurationResponsePtrInput is an input type that accepts RouteConfigurationResponseArgs, RouteConfigurationResponsePtr and RouteConfigurationResponsePtrOutput values.
+// You can construct a concrete instance of `RouteConfigurationResponsePtrInput` via:
+//
+//          RouteConfigurationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type RouteConfigurationResponsePtrInput interface {
+	pulumi.Input
+
+	ToRouteConfigurationResponsePtrOutput() RouteConfigurationResponsePtrOutput
+	ToRouteConfigurationResponsePtrOutputWithContext(context.Context) RouteConfigurationResponsePtrOutput
+}
+
+type routeConfigurationResponsePtrType RouteConfigurationResponseArgs
+
+func RouteConfigurationResponsePtr(v *RouteConfigurationResponseArgs) RouteConfigurationResponsePtrInput {
+	return (*routeConfigurationResponsePtrType)(v)
+}
+
+func (*routeConfigurationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteConfigurationResponse)(nil)).Elem()
+}
+
+func (i *routeConfigurationResponsePtrType) ToRouteConfigurationResponsePtrOutput() RouteConfigurationResponsePtrOutput {
+	return i.ToRouteConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *routeConfigurationResponsePtrType) ToRouteConfigurationResponsePtrOutputWithContext(ctx context.Context) RouteConfigurationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouteConfigurationResponsePtrOutput)
+}
+
+// Base class for all types of Route.
+type RouteConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (RouteConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouteConfigurationResponse)(nil)).Elem()
+}
+
+func (o RouteConfigurationResponseOutput) ToRouteConfigurationResponseOutput() RouteConfigurationResponseOutput {
+	return o
+}
+
+func (o RouteConfigurationResponseOutput) ToRouteConfigurationResponseOutputWithContext(ctx context.Context) RouteConfigurationResponseOutput {
+	return o
+}
+
+func (o RouteConfigurationResponseOutput) ToRouteConfigurationResponsePtrOutput() RouteConfigurationResponsePtrOutput {
+	return o.ToRouteConfigurationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RouteConfigurationResponseOutput) ToRouteConfigurationResponsePtrOutputWithContext(ctx context.Context) RouteConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v RouteConfigurationResponse) *RouteConfigurationResponse {
+		return &v
+	}).(RouteConfigurationResponsePtrOutput)
+}
+func (o RouteConfigurationResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RouteConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+type RouteConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RouteConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouteConfigurationResponse)(nil)).Elem()
+}
+
+func (o RouteConfigurationResponsePtrOutput) ToRouteConfigurationResponsePtrOutput() RouteConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o RouteConfigurationResponsePtrOutput) ToRouteConfigurationResponsePtrOutputWithContext(ctx context.Context) RouteConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o RouteConfigurationResponsePtrOutput) Elem() RouteConfigurationResponseOutput {
+	return o.ApplyT(func(v *RouteConfigurationResponse) RouteConfigurationResponse { return *v }).(RouteConfigurationResponseOutput)
+}
+
+func (o RouteConfigurationResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RouteConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OdataType
+	}).(pulumi.StringPtrOutput)
+}
+
 // A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
 type RoutingRule struct {
 	// Protocol schemes to match for this rule
@@ -2440,6 +2698,8 @@ type RoutingRule struct {
 	PatternsToMatch []string `pulumi:"patternsToMatch"`
 	// Resource status.
 	ResourceState *string `pulumi:"resourceState"`
+	// A reference to the routing configuration.
+	RouteConfiguration *RouteConfiguration `pulumi:"routeConfiguration"`
 }
 
 // RoutingRuleInput is an input type that accepts RoutingRuleArgs and RoutingRuleOutput values.
@@ -2469,6 +2729,8 @@ type RoutingRuleArgs struct {
 	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
 	// Resource status.
 	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
+	// A reference to the routing configuration.
+	RouteConfiguration RouteConfigurationPtrInput `pulumi:"routeConfiguration"`
 }
 
 func (RoutingRuleArgs) ElementType() reflect.Type {
@@ -2558,6 +2820,11 @@ func (o RoutingRuleOutput) ResourceState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingRule) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
 }
 
+// A reference to the routing configuration.
+func (o RoutingRuleOutput) RouteConfiguration() RouteConfigurationPtrOutput {
+	return o.ApplyT(func(v RoutingRule) *RouteConfiguration { return v.RouteConfiguration }).(RouteConfigurationPtrOutput)
+}
+
 type RoutingRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (RoutingRuleArrayOutput) ElementType() reflect.Type {
@@ -2594,6 +2861,8 @@ type RoutingRuleResponse struct {
 	PatternsToMatch []string `pulumi:"patternsToMatch"`
 	// Resource status.
 	ResourceState *string `pulumi:"resourceState"`
+	// A reference to the routing configuration.
+	RouteConfiguration *RouteConfigurationResponse `pulumi:"routeConfiguration"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -2625,6 +2894,8 @@ type RoutingRuleResponseArgs struct {
 	PatternsToMatch pulumi.StringArrayInput `pulumi:"patternsToMatch"`
 	// Resource status.
 	ResourceState pulumi.StringPtrInput `pulumi:"resourceState"`
+	// A reference to the routing configuration.
+	RouteConfiguration RouteConfigurationResponsePtrInput `pulumi:"routeConfiguration"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2714,6 +2985,11 @@ func (o RoutingRuleResponseOutput) PatternsToMatch() pulumi.StringArrayOutput {
 // Resource status.
 func (o RoutingRuleResponseOutput) ResourceState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoutingRuleResponse) *string { return v.ResourceState }).(pulumi.StringPtrOutput)
+}
+
+// A reference to the routing configuration.
+func (o RoutingRuleResponseOutput) RouteConfiguration() RouteConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v RoutingRuleResponse) *RouteConfigurationResponse { return v.RouteConfiguration }).(RouteConfigurationResponsePtrOutput)
 }
 
 // Resource type.
@@ -3131,6 +3407,10 @@ func init() {
 	pulumi.RegisterOutputType(LoadBalancingSettingsModelArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsModelResponseOutput{})
 	pulumi.RegisterOutputType(LoadBalancingSettingsModelResponseArrayOutput{})
+	pulumi.RegisterOutputType(RouteConfigurationOutput{})
+	pulumi.RegisterOutputType(RouteConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouteConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(RouteConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(RoutingRuleOutput{})
 	pulumi.RegisterOutputType(RoutingRuleArrayOutput{})
 	pulumi.RegisterOutputType(RoutingRuleResponseOutput{})

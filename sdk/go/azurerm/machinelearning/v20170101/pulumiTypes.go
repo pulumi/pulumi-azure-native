@@ -650,6 +650,10 @@ type ColumnSpecification struct {
 	Format *string `pulumi:"format"`
 	// Data type of the column.
 	Type string `pulumi:"type"`
+	// Flag indicating if the type supports null values or not.
+	XMsIsnullable *bool `pulumi:"xMsIsnullable"`
+	// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+	XMsIsordered *bool `pulumi:"xMsIsordered"`
 }
 
 // ColumnSpecificationInput is an input type that accepts ColumnSpecificationArgs and ColumnSpecificationOutput values.
@@ -671,6 +675,10 @@ type ColumnSpecificationArgs struct {
 	Format pulumi.StringPtrInput `pulumi:"format"`
 	// Data type of the column.
 	Type pulumi.StringInput `pulumi:"type"`
+	// Flag indicating if the type supports null values or not.
+	XMsIsnullable pulumi.BoolPtrInput `pulumi:"xMsIsnullable"`
+	// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+	XMsIsordered pulumi.BoolPtrInput `pulumi:"xMsIsordered"`
 }
 
 func (ColumnSpecificationArgs) ElementType() reflect.Type {
@@ -740,6 +748,16 @@ func (o ColumnSpecificationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ColumnSpecification) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// Flag indicating if the type supports null values or not.
+func (o ColumnSpecificationOutput) XMsIsnullable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ColumnSpecification) *bool { return v.XMsIsnullable }).(pulumi.BoolPtrOutput)
+}
+
+// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+func (o ColumnSpecificationOutput) XMsIsordered() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ColumnSpecification) *bool { return v.XMsIsordered }).(pulumi.BoolPtrOutput)
+}
+
 type ColumnSpecificationMapOutput struct{ *pulumi.OutputState }
 
 func (ColumnSpecificationMapOutput) ElementType() reflect.Type {
@@ -768,6 +786,10 @@ type ColumnSpecificationResponse struct {
 	Format *string `pulumi:"format"`
 	// Data type of the column.
 	Type string `pulumi:"type"`
+	// Flag indicating if the type supports null values or not.
+	XMsIsnullable *bool `pulumi:"xMsIsnullable"`
+	// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+	XMsIsordered *bool `pulumi:"xMsIsordered"`
 }
 
 // ColumnSpecificationResponseInput is an input type that accepts ColumnSpecificationResponseArgs and ColumnSpecificationResponseOutput values.
@@ -789,6 +811,10 @@ type ColumnSpecificationResponseArgs struct {
 	Format pulumi.StringPtrInput `pulumi:"format"`
 	// Data type of the column.
 	Type pulumi.StringInput `pulumi:"type"`
+	// Flag indicating if the type supports null values or not.
+	XMsIsnullable pulumi.BoolPtrInput `pulumi:"xMsIsnullable"`
+	// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+	XMsIsordered pulumi.BoolPtrInput `pulumi:"xMsIsordered"`
 }
 
 func (ColumnSpecificationResponseArgs) ElementType() reflect.Type {
@@ -856,6 +882,16 @@ func (o ColumnSpecificationResponseOutput) Format() pulumi.StringPtrOutput {
 // Data type of the column.
 func (o ColumnSpecificationResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ColumnSpecificationResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Flag indicating if the type supports null values or not.
+func (o ColumnSpecificationResponseOutput) XMsIsnullable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ColumnSpecificationResponse) *bool { return v.XMsIsnullable }).(pulumi.BoolPtrOutput)
+}
+
+// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+func (o ColumnSpecificationResponseOutput) XMsIsordered() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ColumnSpecificationResponse) *bool { return v.XMsIsordered }).(pulumi.BoolPtrOutput)
 }
 
 type ColumnSpecificationResponseMapOutput struct{ *pulumi.OutputState }

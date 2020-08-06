@@ -17,6 +17,8 @@ func LookupVirtualMachine(ctx *pulumi.Context, args *LookupVirtualMachineArgs, o
 }
 
 type LookupVirtualMachineArgs struct {
+	// Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The name of the virtual machine.

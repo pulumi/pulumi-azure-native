@@ -17,6 +17,8 @@ func LookupPrefix(ctx *pulumi.Context, args *LookupPrefixArgs, opts ...pulumi.In
 }
 
 type LookupPrefixArgs struct {
+	// The properties to be expanded.
+	Expand *string `pulumi:"expand"`
 	// The name of the prefix.
 	Name string `pulumi:"name"`
 	// The name of the peering service.

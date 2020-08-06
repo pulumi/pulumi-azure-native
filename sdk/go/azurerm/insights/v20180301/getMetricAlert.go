@@ -29,6 +29,8 @@ type LookupMetricAlertResult struct {
 	Actions []MetricAlertActionResponse `pulumi:"actions"`
 	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
 	AutoMitigate *bool `pulumi:"autoMitigate"`
+	// defines the specific alert criteria information.
+	Criteria MetricAlertCriteriaResponse `pulumi:"criteria"`
 	// the description of the metric alert that will be included in the alert email.
 	Description string `pulumi:"description"`
 	// the flag that indicates whether the metric alert is enabled.

@@ -32,13 +32,13 @@ type LookupSiteInstanceDeploymentResult struct {
 	// Author
 	Author *string `pulumi:"author"`
 	// AuthorEmail
-	Author_email *string `pulumi:"author_email"`
+	AuthorEmail *string `pulumi:"authorEmail"`
 	// Deployer
 	Deployer *string `pulumi:"deployer"`
 	// Detail
 	Details *string `pulumi:"details"`
 	// EndTime
-	End_time *string `pulumi:"end_time"`
+	EndTime *string `pulumi:"endTime"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
@@ -48,7 +48,7 @@ type LookupSiteInstanceDeploymentResult struct {
 	// Resource Name
 	Name *string `pulumi:"name"`
 	// StartTime
-	Start_time *string `pulumi:"start_time"`
+	StartTime *string `pulumi:"startTime"`
 	// Status
 	Status *int `pulumi:"status"`
 	// Resource tags

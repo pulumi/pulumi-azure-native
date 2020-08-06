@@ -17,6 +17,8 @@ func LookupVirtualMachineScaleSetVM(ctx *pulumi.Context, args *LookupVirtualMach
 }
 
 type LookupVirtualMachineScaleSetVMArgs struct {
+	// The expand expression to apply on the operation.
+	Expand *string `pulumi:"expand"`
 	// The instance ID of the virtual machine.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

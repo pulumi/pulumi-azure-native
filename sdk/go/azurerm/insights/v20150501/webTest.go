@@ -15,31 +15,31 @@ type WebTest struct {
 	pulumi.CustomResourceState
 
 	// An XML configuration specification for a WebTest.
-	Configuration WebTestPropertiesResponseConfigurationPtrOutput `pulumi:"Configuration"`
+	Configuration WebTestPropertiesResponseConfigurationPtrOutput `pulumi:"configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
-	Description pulumi.StringPtrOutput `pulumi:"Description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Is the test actively being monitored.
-	Enabled pulumi.BoolPtrOutput `pulumi:"Enabled"`
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
-	Frequency pulumi.IntPtrOutput `pulumi:"Frequency"`
-	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
-	Locations WebTestGeolocationResponseArrayOutput `pulumi:"Locations"`
-	// Allow for retries should this WebTest fail.
-	RetryEnabled pulumi.BoolPtrOutput `pulumi:"RetryEnabled"`
-	// Unique ID of this WebTest. This is typically the same value as the Name field.
-	SyntheticMonitorId pulumi.StringOutput `pulumi:"SyntheticMonitorId"`
-	// Seconds until this WebTest will timeout and fail. Default value is 30.
-	Timeout pulumi.IntPtrOutput `pulumi:"Timeout"`
+	Frequency pulumi.IntPtrOutput `pulumi:"frequency"`
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
+	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	Locations WebTestGeolocationResponseArrayOutput `pulumi:"locations"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Allow for retries should this WebTest fail.
+	RetryEnabled pulumi.BoolPtrOutput `pulumi:"retryEnabled"`
+	// Unique ID of this WebTest. This is typically the same value as the Name field.
+	SyntheticMonitorId pulumi.StringOutput `pulumi:"syntheticMonitorId"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Seconds until this WebTest will timeout and fail. Default value is 30.
+	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The kind of web test this is, valid choices are ping and multistep.
@@ -51,20 +51,20 @@ type WebTest struct {
 // NewWebTest registers a new resource with the given unique name, arguments, and options.
 func NewWebTest(ctx *pulumi.Context,
 	name string, args *WebTestArgs, opts ...pulumi.ResourceOption) (*WebTest, error) {
-	if args == nil || args.Locations == nil {
-		return nil, errors.New("missing required argument 'Locations'")
-	}
-	if args == nil || args.SyntheticMonitorId == nil {
-		return nil, errors.New("missing required argument 'SyntheticMonitorId'")
-	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
+	}
+	if args == nil || args.Locations == nil {
+		return nil, errors.New("missing required argument 'Locations'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SyntheticMonitorId == nil {
+		return nil, errors.New("missing required argument 'SyntheticMonitorId'")
 	}
 	if args == nil || args.WebTestKind == nil {
 		return nil, errors.New("missing required argument 'WebTestKind'")
@@ -95,31 +95,31 @@ func GetWebTest(ctx *pulumi.Context,
 // Input properties used for looking up and filtering WebTest resources.
 type webTestState struct {
 	// An XML configuration specification for a WebTest.
-	Configuration *WebTestPropertiesResponseConfiguration `pulumi:"Configuration"`
+	Configuration *WebTestPropertiesResponseConfiguration `pulumi:"configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
-	Description *string `pulumi:"Description"`
+	Description *string `pulumi:"description"`
 	// Is the test actively being monitored.
-	Enabled *bool `pulumi:"Enabled"`
+	Enabled *bool `pulumi:"enabled"`
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
-	Frequency *int `pulumi:"Frequency"`
-	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
-	Locations []WebTestGeolocationResponse `pulumi:"Locations"`
-	// Allow for retries should this WebTest fail.
-	RetryEnabled *bool `pulumi:"RetryEnabled"`
-	// Unique ID of this WebTest. This is typically the same value as the Name field.
-	SyntheticMonitorId *string `pulumi:"SyntheticMonitorId"`
-	// Seconds until this WebTest will timeout and fail. Default value is 30.
-	Timeout *int `pulumi:"Timeout"`
+	Frequency *int `pulumi:"frequency"`
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind *string `pulumi:"kind"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	Locations []WebTestGeolocationResponse `pulumi:"locations"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
 	// Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Allow for retries should this WebTest fail.
+	RetryEnabled *bool `pulumi:"retryEnabled"`
+	// Unique ID of this WebTest. This is typically the same value as the Name field.
+	SyntheticMonitorId *string `pulumi:"syntheticMonitorId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Seconds until this WebTest will timeout and fail. Default value is 30.
+	Timeout *int `pulumi:"timeout"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
 	// The kind of web test this is, valid choices are ping and multistep.
@@ -137,24 +137,24 @@ type WebTestState struct {
 	Enabled pulumi.BoolPtrInput
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency pulumi.IntPtrInput
-	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
-	Locations WebTestGeolocationResponseArrayInput
-	// Allow for retries should this WebTest fail.
-	RetryEnabled pulumi.BoolPtrInput
-	// Unique ID of this WebTest. This is typically the same value as the Name field.
-	SyntheticMonitorId pulumi.StringPtrInput
-	// Seconds until this WebTest will timeout and fail. Default value is 30.
-	Timeout pulumi.IntPtrInput
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
+	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	Locations WebTestGeolocationResponseArrayInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
 	// Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
 	ProvisioningState pulumi.StringPtrInput
+	// Allow for retries should this WebTest fail.
+	RetryEnabled pulumi.BoolPtrInput
+	// Unique ID of this WebTest. This is typically the same value as the Name field.
+	SyntheticMonitorId pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Seconds until this WebTest will timeout and fail. Default value is 30.
+	Timeout pulumi.IntPtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
 	// The kind of web test this is, valid choices are ping and multistep.
@@ -169,31 +169,31 @@ func (WebTestState) ElementType() reflect.Type {
 
 type webTestArgs struct {
 	// An XML configuration specification for a WebTest.
-	Configuration *WebTestPropertiesConfiguration `pulumi:"Configuration"`
+	Configuration *WebTestPropertiesConfiguration `pulumi:"configuration"`
 	// Purpose/user defined descriptive test for this WebTest.
-	Description *string `pulumi:"Description"`
+	Description *string `pulumi:"description"`
 	// Is the test actively being monitored.
-	Enabled *bool `pulumi:"Enabled"`
+	Enabled *bool `pulumi:"enabled"`
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
-	Frequency *int `pulumi:"Frequency"`
-	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
-	Locations []WebTestGeolocation `pulumi:"Locations"`
-	// Allow for retries should this WebTest fail.
-	RetryEnabled *bool `pulumi:"RetryEnabled"`
-	// Unique ID of this WebTest. This is typically the same value as the Name field.
-	SyntheticMonitorId string `pulumi:"SyntheticMonitorId"`
-	// Seconds until this WebTest will timeout and fail. Default value is 30.
-	Timeout *int `pulumi:"Timeout"`
+	Frequency *int `pulumi:"frequency"`
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind *string `pulumi:"kind"`
 	// Resource location
 	Location string `pulumi:"location"`
+	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	Locations []WebTestGeolocation `pulumi:"locations"`
 	// User defined name if this WebTest.
 	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Allow for retries should this WebTest fail.
+	RetryEnabled *bool `pulumi:"retryEnabled"`
+	// Unique ID of this WebTest. This is typically the same value as the Name field.
+	SyntheticMonitorId string `pulumi:"syntheticMonitorId"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Seconds until this WebTest will timeout and fail. Default value is 30.
+	Timeout *int `pulumi:"timeout"`
 	// The kind of web test this is, valid choices are ping and multistep.
 	WebTestKind string `pulumi:"webTestKind"`
 }
@@ -208,24 +208,24 @@ type WebTestArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency pulumi.IntPtrInput
-	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
-	Locations WebTestGeolocationArrayInput
-	// Allow for retries should this WebTest fail.
-	RetryEnabled pulumi.BoolPtrInput
-	// Unique ID of this WebTest. This is typically the same value as the Name field.
-	SyntheticMonitorId pulumi.StringInput
-	// Seconds until this WebTest will timeout and fail. Default value is 30.
-	Timeout pulumi.IntPtrInput
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
+	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	Locations WebTestGeolocationArrayInput
 	// User defined name if this WebTest.
 	Name pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Allow for retries should this WebTest fail.
+	RetryEnabled pulumi.BoolPtrInput
+	// Unique ID of this WebTest. This is typically the same value as the Name field.
+	SyntheticMonitorId pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Seconds until this WebTest will timeout and fail. Default value is 30.
+	Timeout pulumi.IntPtrInput
 	// The kind of web test this is, valid choices are ping and multistep.
 	WebTestKind pulumi.StringInput
 }

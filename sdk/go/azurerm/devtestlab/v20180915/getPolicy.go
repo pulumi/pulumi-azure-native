@@ -17,6 +17,8 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 }
 
 type LookupPolicyArgs struct {
+	// Specify the $expand query. Example: 'properties($select=description)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The name of the policy.

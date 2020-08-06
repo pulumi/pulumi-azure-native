@@ -17,6 +17,8 @@ func LookupIpGroup(ctx *pulumi.Context, args *LookupIpGroupArgs, opts ...pulumi.
 }
 
 type LookupIpGroupArgs struct {
+	// Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
+	Expand *string `pulumi:"expand"`
 	// The name of the ipGroups.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

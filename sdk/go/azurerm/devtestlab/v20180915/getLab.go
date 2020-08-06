@@ -17,6 +17,8 @@ func LookupLab(ctx *pulumi.Context, args *LookupLabArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupLabArgs struct {
+	// Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

@@ -7597,7 +7597,7 @@ func (o ServiceLoadMetricDescriptionResponseArrayOutput) Index(i pulumi.IntInput
 // Describes the policy to be used for placement of a Service Fabric service.
 type ServicePlacementPolicyDescription struct {
 	// The type of placement policy for a service fabric service. Following are the possible values.
-	Type string `pulumi:"Type"`
+	Type string `pulumi:"type"`
 }
 
 // ServicePlacementPolicyDescriptionInput is an input type that accepts ServicePlacementPolicyDescriptionArgs and ServicePlacementPolicyDescriptionOutput values.
@@ -7614,7 +7614,7 @@ type ServicePlacementPolicyDescriptionInput interface {
 // Describes the policy to be used for placement of a Service Fabric service.
 type ServicePlacementPolicyDescriptionArgs struct {
 	// The type of placement policy for a service fabric service. Following are the possible values.
-	Type pulumi.StringInput `pulumi:"Type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ServicePlacementPolicyDescriptionArgs) ElementType() reflect.Type {
@@ -7697,7 +7697,7 @@ func (o ServicePlacementPolicyDescriptionArrayOutput) Index(i pulumi.IntInput) S
 // Describes the policy to be used for placement of a Service Fabric service.
 type ServicePlacementPolicyDescriptionResponse struct {
 	// The type of placement policy for a service fabric service. Following are the possible values.
-	Type string `pulumi:"Type"`
+	Type string `pulumi:"type"`
 }
 
 // ServicePlacementPolicyDescriptionResponseInput is an input type that accepts ServicePlacementPolicyDescriptionResponseArgs and ServicePlacementPolicyDescriptionResponseOutput values.
@@ -7714,7 +7714,7 @@ type ServicePlacementPolicyDescriptionResponseInput interface {
 // Describes the policy to be used for placement of a Service Fabric service.
 type ServicePlacementPolicyDescriptionResponseArgs struct {
 	// The type of placement policy for a service fabric service. Following are the possible values.
-	Type pulumi.StringInput `pulumi:"Type"`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (ServicePlacementPolicyDescriptionResponseArgs) ElementType() reflect.Type {

@@ -21,6 +21,8 @@ type LookupProtectedItemArgs struct {
 	ContainerName string `pulumi:"containerName"`
 	// Fabric name associated with the backed up item.
 	FabricName string `pulumi:"fabricName"`
+	// OData filter options.
+	Filter *string `pulumi:"filter"`
 	// Backed up item name whose details are to be fetched.
 	Name string `pulumi:"name"`
 	// The name of the resource group where the recovery services vault is present.

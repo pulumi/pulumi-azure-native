@@ -14,6 +14,8 @@ import (
 type AlertRule struct {
 	pulumi.CustomResourceState
 
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions RuleActionResponseArrayOutput `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
 	Condition RuleConditionResponseOutput `pulumi:"condition"`
 	// the description of the alert rule that will be included in the alert email.
@@ -75,6 +77,8 @@ func GetAlertRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlertRule resources.
 type alertRuleState struct {
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions []RuleActionResponse `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
 	Condition *RuleConditionResponse `pulumi:"condition"`
 	// the description of the alert rule that will be included in the alert email.
@@ -94,6 +98,8 @@ type alertRuleState struct {
 }
 
 type AlertRuleState struct {
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions RuleActionResponseArrayInput
 	// the condition that results in the alert rule being activated.
 	Condition RuleConditionResponsePtrInput
 	// the description of the alert rule that will be included in the alert email.
@@ -117,6 +123,8 @@ func (AlertRuleState) ElementType() reflect.Type {
 }
 
 type alertRuleArgs struct {
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions []RuleAction `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
 	Condition RuleCondition `pulumi:"condition"`
 	// the description of the alert rule that will be included in the alert email.
@@ -135,6 +143,8 @@ type alertRuleArgs struct {
 
 // The set of arguments for constructing a AlertRule resource.
 type AlertRuleArgs struct {
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions RuleActionArrayInput
 	// the condition that results in the alert rule being activated.
 	Condition RuleConditionInput
 	// the description of the alert rule that will be included in the alert email.

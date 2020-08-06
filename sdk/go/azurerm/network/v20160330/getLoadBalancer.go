@@ -17,6 +17,8 @@ func LookupLoadBalancer(ctx *pulumi.Context, args *LookupLoadBalancerArgs, opts 
 }
 
 type LookupLoadBalancerArgs struct {
+	// expand references resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the loadBalancer.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

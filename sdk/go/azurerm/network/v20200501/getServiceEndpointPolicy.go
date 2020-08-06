@@ -17,6 +17,8 @@ func LookupServiceEndpointPolicy(ctx *pulumi.Context, args *LookupServiceEndpoin
 }
 
 type LookupServiceEndpointPolicyArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the service endpoint policy.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

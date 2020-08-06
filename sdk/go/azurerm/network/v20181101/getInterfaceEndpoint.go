@@ -17,6 +17,8 @@ func LookupInterfaceEndpoint(ctx *pulumi.Context, args *LookupInterfaceEndpointA
 }
 
 type LookupInterfaceEndpointArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the interface endpoint.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

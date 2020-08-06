@@ -17,6 +17,8 @@ func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, o
 }
 
 type LookupVirtualNetworkArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the virtual network.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

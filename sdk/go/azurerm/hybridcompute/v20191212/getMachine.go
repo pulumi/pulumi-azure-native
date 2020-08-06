@@ -17,6 +17,8 @@ func LookupMachine(ctx *pulumi.Context, args *LookupMachineArgs, opts ...pulumi.
 }
 
 type LookupMachineArgs struct {
+	// The expand expression to apply on the operation.
+	Expand *string `pulumi:"expand"`
 	// The name of the hybrid machine.
 	Name string `pulumi:"name"`
 	// The name of the resource group.
