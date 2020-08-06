@@ -170,8 +170,8 @@ func main() {
 		}
 
 		customData := base64.StdEncoding.EncodeToString([]byte(`#cloud-config
-		packages:
-			- nginx`))
+packages:
+	- nginx`))
 
 		scaleSet, err := compute.NewVirtualMachineScaleSet(ctx, "vmscaleset", &compute.VirtualMachineScaleSetArgs{
 			ResourceGroupName: resourceGroup.Name,
