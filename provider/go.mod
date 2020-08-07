@@ -13,6 +13,7 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi/pkg/v2 v2.7.2-0.20200803183728-996fd85e0095
 	github.com/pulumi/pulumi/sdk/v2 v2.7.2-0.20200803183728-996fd85e0095
+	github.com/stretchr/testify v1.6.1
 )
 
 replace (
