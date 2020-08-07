@@ -15,12 +15,17 @@ export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, o
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:managedservices/v20190601:getRegistrationAssignment", {
+        "expandRegistrationDefinition": args.expandRegistrationDefinition,
         "name": args.name,
         "scope": args.scope,
     }, opts);
 }
 
 export interface GetRegistrationAssignmentArgs {
+    /**
+     * Tells whether to return registration definition details also along with registration assignment details.
+     */
+    readonly expandRegistrationDefinition?: boolean;
     /**
      * Guid of the registration assignment.
      */

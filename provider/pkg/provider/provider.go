@@ -248,6 +248,10 @@ func (k *azurermProvider) validateType(ctx string, typ *AzureApiType, values map
 	var failures []*rpc.CheckFailure
 
 	for _, name := range typ.RequiredProperties {
+		prop := typ.Properties[name]
+		if prop.SdkName != "" {
+			name = prop.SdkName
+		}
 		if _, has := values[name]; !has {
 			propCtx := name
 			if ctx != "" {
@@ -260,6 +264,9 @@ func (k *azurermProvider) validateType(ctx string, typ *AzureApiType, values map
 	}
 
 	for name, prop := range typ.Properties {
+		if prop.SdkName != "" {
+			name = prop.SdkName
+		}
 		value, ok := values[name]
 		if !ok {
 			continue
@@ -797,7 +804,9 @@ func (k *azurermProvider) prepareAzureRESTInputs(path string, parameters []Azure
 	}
 	params := map[string]map[string]interface{}{
 		"body":  {},
-		"query": {},
+		"query": {
+			"api-version": clientInputs["api-version"],
+		},
 		"path":  {},
 	}
 

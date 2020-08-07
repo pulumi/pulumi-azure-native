@@ -285,9 +285,9 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) Fu
 // The private link scope resource reference.
 type PrivateLinkScopedResourceResponse struct {
 	// The full resource Id of the private link scope resource.
-	ResourceId *string `pulumi:"ResourceId"`
+	ResourceId *string `pulumi:"resourceId"`
 	// The private link scope unique Identifier.
-	ScopeId *string `pulumi:"ScopeId"`
+	ScopeId *string `pulumi:"scopeId"`
 }
 
 // PrivateLinkScopedResourceResponseInput is an input type that accepts PrivateLinkScopedResourceResponseArgs and PrivateLinkScopedResourceResponseOutput values.
@@ -304,9 +304,9 @@ type PrivateLinkScopedResourceResponseInput interface {
 // The private link scope resource reference.
 type PrivateLinkScopedResourceResponseArgs struct {
 	// The full resource Id of the private link scope resource.
-	ResourceId pulumi.StringPtrInput `pulumi:"ResourceId"`
+	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
 	// The private link scope unique Identifier.
-	ScopeId pulumi.StringPtrInput `pulumi:"ScopeId"`
+	ScopeId pulumi.StringPtrInput `pulumi:"scopeId"`
 }
 
 func (PrivateLinkScopedResourceResponseArgs) ElementType() reflect.Type {
@@ -594,7 +594,7 @@ func (o WebTestGeolocationResponseArrayOutput) Index(i pulumi.IntInput) WebTestG
 // An XML configuration specification for a WebTest.
 type WebTestPropertiesConfiguration struct {
 	// The XML specification of a WebTest to run against an application.
-	WebTest *string `pulumi:"WebTest"`
+	WebTest *string `pulumi:"webTest"`
 }
 
 // WebTestPropertiesConfigurationInput is an input type that accepts WebTestPropertiesConfigurationArgs and WebTestPropertiesConfigurationOutput values.
@@ -611,7 +611,7 @@ type WebTestPropertiesConfigurationInput interface {
 // An XML configuration specification for a WebTest.
 type WebTestPropertiesConfigurationArgs struct {
 	// The XML specification of a WebTest to run against an application.
-	WebTest pulumi.StringPtrInput `pulumi:"WebTest"`
+	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
 }
 
 func (WebTestPropertiesConfigurationArgs) ElementType() reflect.Type {
@@ -728,7 +728,7 @@ func (o WebTestPropertiesConfigurationPtrOutput) WebTest() pulumi.StringPtrOutpu
 // An XML configuration specification for a WebTest.
 type WebTestPropertiesResponseConfiguration struct {
 	// The XML specification of a WebTest to run against an application.
-	WebTest *string `pulumi:"WebTest"`
+	WebTest *string `pulumi:"webTest"`
 }
 
 // WebTestPropertiesResponseConfigurationInput is an input type that accepts WebTestPropertiesResponseConfigurationArgs and WebTestPropertiesResponseConfigurationOutput values.
@@ -745,7 +745,7 @@ type WebTestPropertiesResponseConfigurationInput interface {
 // An XML configuration specification for a WebTest.
 type WebTestPropertiesResponseConfigurationArgs struct {
 	// The XML specification of a WebTest to run against an application.
-	WebTest pulumi.StringPtrInput `pulumi:"WebTest"`
+	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
 }
 
 func (WebTestPropertiesResponseConfigurationArgs) ElementType() reflect.Type {

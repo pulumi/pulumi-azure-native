@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.ManagedServices.V20190601
     public sealed class GetRegistrationAssignmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Tells whether to return registration definition details also along with registration assignment details.
+        /// </summary>
+        [Input("expandRegistrationDefinition")]
+        public bool? ExpandRegistrationDefinition { get; set; }
+
+        /// <summary>
         /// Guid of the registration assignment.
         /// </summary>
         [Input("name", required: true)]

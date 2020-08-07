@@ -316,10 +316,212 @@ func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+type RuleAction struct {
+	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	OdataType string `pulumi:"odataType"`
+}
+
+// RuleActionInput is an input type that accepts RuleActionArgs and RuleActionOutput values.
+// You can construct a concrete instance of `RuleActionInput` via:
+//
+//          RuleActionArgs{...}
+type RuleActionInput interface {
+	pulumi.Input
+
+	ToRuleActionOutput() RuleActionOutput
+	ToRuleActionOutputWithContext(context.Context) RuleActionOutput
+}
+
+// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+type RuleActionArgs struct {
+	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (RuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAction)(nil)).Elem()
+}
+
+func (i RuleActionArgs) ToRuleActionOutput() RuleActionOutput {
+	return i.ToRuleActionOutputWithContext(context.Background())
+}
+
+func (i RuleActionArgs) ToRuleActionOutputWithContext(ctx context.Context) RuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleActionOutput)
+}
+
+// RuleActionArrayInput is an input type that accepts RuleActionArray and RuleActionArrayOutput values.
+// You can construct a concrete instance of `RuleActionArrayInput` via:
+//
+//          RuleActionArray{ RuleActionArgs{...} }
+type RuleActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleActionArrayOutput() RuleActionArrayOutput
+	ToRuleActionArrayOutputWithContext(context.Context) RuleActionArrayOutput
+}
+
+type RuleActionArray []RuleActionInput
+
+func (RuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleAction)(nil)).Elem()
+}
+
+func (i RuleActionArray) ToRuleActionArrayOutput() RuleActionArrayOutput {
+	return i.ToRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleActionArray) ToRuleActionArrayOutputWithContext(ctx context.Context) RuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleActionArrayOutput)
+}
+
+// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+type RuleActionOutput struct{ *pulumi.OutputState }
+
+func (RuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAction)(nil)).Elem()
+}
+
+func (o RuleActionOutput) ToRuleActionOutput() RuleActionOutput {
+	return o
+}
+
+func (o RuleActionOutput) ToRuleActionOutputWithContext(ctx context.Context) RuleActionOutput {
+	return o
+}
+
+// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+func (o RuleActionOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleAction) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+type RuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleAction)(nil)).Elem()
+}
+
+func (o RuleActionArrayOutput) ToRuleActionArrayOutput() RuleActionArrayOutput {
+	return o
+}
+
+func (o RuleActionArrayOutput) ToRuleActionArrayOutputWithContext(ctx context.Context) RuleActionArrayOutput {
+	return o
+}
+
+func (o RuleActionArrayOutput) Index(i pulumi.IntInput) RuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleAction {
+		return vs[0].([]RuleAction)[vs[1].(int)]
+	}).(RuleActionOutput)
+}
+
+// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+type RuleActionResponse struct {
+	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	OdataType string `pulumi:"odataType"`
+}
+
+// RuleActionResponseInput is an input type that accepts RuleActionResponseArgs and RuleActionResponseOutput values.
+// You can construct a concrete instance of `RuleActionResponseInput` via:
+//
+//          RuleActionResponseArgs{...}
+type RuleActionResponseInput interface {
+	pulumi.Input
+
+	ToRuleActionResponseOutput() RuleActionResponseOutput
+	ToRuleActionResponseOutputWithContext(context.Context) RuleActionResponseOutput
+}
+
+// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+type RuleActionResponseArgs struct {
+	// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (RuleActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleActionResponse)(nil)).Elem()
+}
+
+func (i RuleActionResponseArgs) ToRuleActionResponseOutput() RuleActionResponseOutput {
+	return i.ToRuleActionResponseOutputWithContext(context.Background())
+}
+
+func (i RuleActionResponseArgs) ToRuleActionResponseOutputWithContext(ctx context.Context) RuleActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleActionResponseOutput)
+}
+
+// RuleActionResponseArrayInput is an input type that accepts RuleActionResponseArray and RuleActionResponseArrayOutput values.
+// You can construct a concrete instance of `RuleActionResponseArrayInput` via:
+//
+//          RuleActionResponseArray{ RuleActionResponseArgs{...} }
+type RuleActionResponseArrayInput interface {
+	pulumi.Input
+
+	ToRuleActionResponseArrayOutput() RuleActionResponseArrayOutput
+	ToRuleActionResponseArrayOutputWithContext(context.Context) RuleActionResponseArrayOutput
+}
+
+type RuleActionResponseArray []RuleActionResponseInput
+
+func (RuleActionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleActionResponse)(nil)).Elem()
+}
+
+func (i RuleActionResponseArray) ToRuleActionResponseArrayOutput() RuleActionResponseArrayOutput {
+	return i.ToRuleActionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RuleActionResponseArray) ToRuleActionResponseArrayOutputWithContext(ctx context.Context) RuleActionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleActionResponseArrayOutput)
+}
+
+// The action that is performed when the alert rule becomes active, and when an alert condition is resolved.
+type RuleActionResponseOutput struct{ *pulumi.OutputState }
+
+func (RuleActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleActionResponse)(nil)).Elem()
+}
+
+func (o RuleActionResponseOutput) ToRuleActionResponseOutput() RuleActionResponseOutput {
+	return o
+}
+
+func (o RuleActionResponseOutput) ToRuleActionResponseOutputWithContext(ctx context.Context) RuleActionResponseOutput {
+	return o
+}
+
+// specifies the type of the action. There are two types of actions: RuleEmailAction and RuleWebhookAction.
+func (o RuleActionResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+type RuleActionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleActionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleActionResponse)(nil)).Elem()
+}
+
+func (o RuleActionResponseArrayOutput) ToRuleActionResponseArrayOutput() RuleActionResponseArrayOutput {
+	return o
+}
+
+func (o RuleActionResponseArrayOutput) ToRuleActionResponseArrayOutputWithContext(ctx context.Context) RuleActionResponseArrayOutput {
+	return o
+}
+
+func (o RuleActionResponseArrayOutput) Index(i pulumi.IntInput) RuleActionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleActionResponse {
+		return vs[0].([]RuleActionResponse)[vs[1].(int)]
+	}).(RuleActionResponseOutput)
+}
+
 // The condition that results in the alert rule being activated.
 type RuleCondition struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource *RuleDataSource `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType string `pulumi:"odataType"`
 }
 
 // RuleConditionInput is an input type that accepts RuleConditionArgs and RuleConditionOutput values.
@@ -337,6 +539,8 @@ type RuleConditionInput interface {
 type RuleConditionArgs struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource RuleDataSourcePtrInput `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
 func (RuleConditionArgs) ElementType() reflect.Type {
@@ -422,6 +626,11 @@ func (o RuleConditionOutput) DataSource() RuleDataSourcePtrOutput {
 	return o.ApplyT(func(v RuleCondition) *RuleDataSource { return v.DataSource }).(RuleDataSourcePtrOutput)
 }
 
+// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+func (o RuleConditionOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleCondition) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
 type RuleConditionPtrOutput struct{ *pulumi.OutputState }
 
 func (RuleConditionPtrOutput) ElementType() reflect.Type {
@@ -450,10 +659,22 @@ func (o RuleConditionPtrOutput) DataSource() RuleDataSourcePtrOutput {
 	}).(RuleDataSourcePtrOutput)
 }
 
+// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+func (o RuleConditionPtrOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OdataType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The condition that results in the alert rule being activated.
 type RuleConditionResponse struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource *RuleDataSourceResponse `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType string `pulumi:"odataType"`
 }
 
 // RuleConditionResponseInput is an input type that accepts RuleConditionResponseArgs and RuleConditionResponseOutput values.
@@ -471,6 +692,8 @@ type RuleConditionResponseInput interface {
 type RuleConditionResponseArgs struct {
 	// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
 	DataSource RuleDataSourceResponsePtrInput `pulumi:"dataSource"`
+	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
 func (RuleConditionResponseArgs) ElementType() reflect.Type {
@@ -556,6 +779,11 @@ func (o RuleConditionResponseOutput) DataSource() RuleDataSourceResponsePtrOutpu
 	return o.ApplyT(func(v RuleConditionResponse) *RuleDataSourceResponse { return v.DataSource }).(RuleDataSourceResponsePtrOutput)
 }
 
+// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+func (o RuleConditionResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleConditionResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
 type RuleConditionResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (RuleConditionResponsePtrOutput) ElementType() reflect.Type {
@@ -584,8 +812,20 @@ func (o RuleConditionResponsePtrOutput) DataSource() RuleDataSourceResponsePtrOu
 	}).(RuleDataSourceResponsePtrOutput)
 }
 
+// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+func (o RuleConditionResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleConditionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OdataType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The resource from which the rule collects its data.
 type RuleDataSource struct {
+	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	OdataType string `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri *string `pulumi:"resourceUri"`
 }
@@ -603,6 +843,8 @@ type RuleDataSourceInput interface {
 
 // The resource from which the rule collects its data.
 type RuleDataSourceArgs struct {
+	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
 }
@@ -685,6 +927,11 @@ func (o RuleDataSourceOutput) ToRuleDataSourcePtrOutputWithContext(ctx context.C
 	}).(RuleDataSourcePtrOutput)
 }
 
+// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+func (o RuleDataSourceOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleDataSource) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
 // the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleDataSourceOutput) ResourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleDataSource) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
@@ -708,6 +955,16 @@ func (o RuleDataSourcePtrOutput) Elem() RuleDataSourceOutput {
 	return o.ApplyT(func(v *RuleDataSource) RuleDataSource { return *v }).(RuleDataSourceOutput)
 }
 
+// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+func (o RuleDataSourcePtrOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OdataType
+	}).(pulumi.StringPtrOutput)
+}
+
 // the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleDataSourcePtrOutput) ResourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleDataSource) *string {
@@ -720,6 +977,8 @@ func (o RuleDataSourcePtrOutput) ResourceUri() pulumi.StringPtrOutput {
 
 // The resource from which the rule collects its data.
 type RuleDataSourceResponse struct {
+	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	OdataType string `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri *string `pulumi:"resourceUri"`
 }
@@ -737,6 +996,8 @@ type RuleDataSourceResponseInput interface {
 
 // The resource from which the rule collects its data.
 type RuleDataSourceResponseArgs struct {
+	// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 	ResourceUri pulumi.StringPtrInput `pulumi:"resourceUri"`
 }
@@ -819,6 +1080,11 @@ func (o RuleDataSourceResponseOutput) ToRuleDataSourceResponsePtrOutputWithConte
 	}).(RuleDataSourceResponsePtrOutput)
 }
 
+// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+func (o RuleDataSourceResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleDataSourceResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
 // the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleDataSourceResponseOutput) ResourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleDataSourceResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
@@ -842,6 +1108,16 @@ func (o RuleDataSourceResponsePtrOutput) Elem() RuleDataSourceResponseOutput {
 	return o.ApplyT(func(v *RuleDataSourceResponse) RuleDataSourceResponse { return *v }).(RuleDataSourceResponseOutput)
 }
 
+// specifies the type of data source. There are two types of rule data sources: RuleMetricDataSource and RuleManagementEventDataSource
+func (o RuleDataSourceResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleDataSourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OdataType
+	}).(pulumi.StringPtrOutput)
+}
+
 // the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
 func (o RuleDataSourceResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleDataSourceResponse) *string {
@@ -857,6 +1133,10 @@ func init() {
 	pulumi.RegisterOutputType(RetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponseOutput{})
 	pulumi.RegisterOutputType(RetentionPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(RuleActionOutput{})
+	pulumi.RegisterOutputType(RuleActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleActionResponseOutput{})
+	pulumi.RegisterOutputType(RuleActionResponseArrayOutput{})
 	pulumi.RegisterOutputType(RuleConditionOutput{})
 	pulumi.RegisterOutputType(RuleConditionPtrOutput{})
 	pulumi.RegisterOutputType(RuleConditionResponseOutput{})

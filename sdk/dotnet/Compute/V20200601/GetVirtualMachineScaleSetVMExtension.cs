@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Compute.V20200601
     public sealed class GetVirtualMachineScaleSetVMExtensionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The instance ID of the virtual machine.
         /// </summary>
         [Input("instanceId", required: true)]

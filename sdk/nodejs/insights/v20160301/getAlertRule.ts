@@ -36,6 +36,10 @@ export interface GetAlertRuleArgs {
  */
 export interface GetAlertRuleResult {
     /**
+     * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+     */
+    readonly actions?: outputs.insights.v20160301.RuleActionResponse[];
+    /**
      * the condition that results in the alert rule being activated.
      */
     readonly condition: outputs.insights.v20160301.RuleConditionResponse;

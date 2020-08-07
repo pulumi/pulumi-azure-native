@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Compute.V20181001
     public sealed class GetVirtualMachineArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the virtual machine.
         /// </summary>
         [Input("name", required: true)]

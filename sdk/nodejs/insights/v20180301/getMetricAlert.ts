@@ -44,6 +44,10 @@ export interface GetMetricAlertResult {
      */
     readonly autoMitigate?: boolean;
     /**
+     * defines the specific alert criteria information.
+     */
+    readonly criteria: outputs.insights.v20180301.MetricAlertCriteriaResponse;
+    /**
      * the description of the metric alert that will be included in the alert email.
      */
     readonly description: string;

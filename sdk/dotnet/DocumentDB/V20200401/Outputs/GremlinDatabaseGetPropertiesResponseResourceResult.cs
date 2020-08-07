@@ -16,34 +16,34 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401.Outputs
         /// <summary>
         /// A system generated property representing the resource etag required for optimistic concurrency control.
         /// </summary>
-        public readonly string _etag;
-        /// <summary>
-        /// A system generated property. A unique identifier.
-        /// </summary>
-        public readonly string _rid;
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> _ts;
+        public readonly string Etag;
         /// <summary>
         /// Name of the Cosmos DB Gremlin database
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        public readonly string Rid;
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Ts;
 
         [OutputConstructor]
         private GremlinDatabaseGetPropertiesResponseResourceResult(
-            string _etag,
+            string etag,
 
-            string _rid,
+            string id,
 
-            ImmutableDictionary<string, object> _ts,
+            string rid,
 
-            string id)
+            ImmutableDictionary<string, object> ts)
         {
-            this._etag = _etag;
-            this._rid = _rid;
-            this._ts = _ts;
+            Etag = etag;
             Id = id;
+            Rid = rid;
+            Ts = ts;
         }
     }
 }

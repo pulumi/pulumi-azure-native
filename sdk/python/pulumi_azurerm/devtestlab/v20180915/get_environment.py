@@ -94,16 +94,18 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             unique_identifier=self.unique_identifier)
 
 
-def get_environment(lab_name=None, name=None, resource_group_name=None, user_name=None, opts=None):
+def get_environment(expand=None, lab_name=None, name=None, resource_group_name=None, user_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Specify the $expand query. Example: 'properties($select=deploymentProperties)'
     :param str lab_name: The name of the lab.
     :param str name: The name of the environment.
     :param str resource_group_name: The name of the resource group.
     :param str user_name: The name of the user profile.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['labName'] = lab_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

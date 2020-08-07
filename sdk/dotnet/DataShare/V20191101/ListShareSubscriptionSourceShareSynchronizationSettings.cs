@@ -36,6 +36,12 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         [Input("shareSubscriptionName", required: true)]
         public string ShareSubscriptionName { get; set; } = null!;
 
+        /// <summary>
+        /// Continuation token
+        /// </summary>
+        [Input("skipToken")]
+        public string? SkipToken { get; set; }
+
         public ListShareSubscriptionSourceShareSynchronizationSettingsArgs()
         {
         }

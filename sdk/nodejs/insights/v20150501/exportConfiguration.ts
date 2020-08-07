@@ -37,79 +37,79 @@ export class ExportConfiguration extends pulumi.CustomResource {
     /**
      * The name of the Application Insights component.
      */
-    public /*out*/ readonly ApplicationName!: pulumi.Output<string>;
+    public /*out*/ readonly applicationName!: pulumi.Output<string>;
     /**
      * The name of the destination storage container.
      */
-    public /*out*/ readonly ContainerName!: pulumi.Output<string>;
+    public /*out*/ readonly containerName!: pulumi.Output<string>;
     /**
      * The name of destination account.
      */
-    public readonly DestinationAccountId!: pulumi.Output<string>;
+    public readonly destinationAccountId!: pulumi.Output<string>;
     /**
      * The destination account location ID.
      */
-    public readonly DestinationStorageLocationId!: pulumi.Output<string>;
+    public readonly destinationStorageLocationId!: pulumi.Output<string>;
     /**
      * The destination storage account subscription ID.
      */
-    public readonly DestinationStorageSubscriptionId!: pulumi.Output<string>;
+    public readonly destinationStorageSubscriptionId!: pulumi.Output<string>;
     /**
      * The destination type.
      */
-    public readonly DestinationType!: pulumi.Output<string>;
+    public readonly destinationType!: pulumi.Output<string>;
     /**
      * The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
      */
-    public /*out*/ readonly ExportId!: pulumi.Output<string>;
+    public readonly exportId!: pulumi.Output<string>;
     /**
      * This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
      */
-    public /*out*/ readonly ExportStatus!: pulumi.Output<string>;
+    public /*out*/ readonly exportStatus!: pulumi.Output<string>;
     /**
      * The instrumentation key of the Application Insights component.
      */
-    public /*out*/ readonly InstrumentationKey!: pulumi.Output<string>;
+    public /*out*/ readonly instrumentationKey!: pulumi.Output<string>;
     /**
      * This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
      */
-    public /*out*/ readonly IsUserEnabled!: pulumi.Output<string>;
+    public /*out*/ readonly isUserEnabled!: pulumi.Output<string>;
     /**
      * The last time the Continuous Export configuration started failing.
      */
-    public /*out*/ readonly LastGapTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastGapTime!: pulumi.Output<string>;
     /**
      * The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
      */
-    public /*out*/ readonly LastSuccessTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastSuccessTime!: pulumi.Output<string>;
     /**
      * Last time the Continuous Export configuration was updated.
      */
-    public /*out*/ readonly LastUserUpdate!: pulumi.Output<string>;
+    public /*out*/ readonly lastUserUpdate!: pulumi.Output<string>;
     /**
      * Deprecated
      */
-    public readonly NotificationQueueEnabled!: pulumi.Output<string | undefined>;
+    public readonly notificationQueueEnabled!: pulumi.Output<string | undefined>;
     /**
      * This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
      */
-    public /*out*/ readonly PermanentErrorReason!: pulumi.Output<string>;
+    public /*out*/ readonly permanentErrorReason!: pulumi.Output<string>;
     /**
      * This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
      */
-    public readonly RecordTypes!: pulumi.Output<string | undefined>;
+    public readonly recordTypes!: pulumi.Output<string | undefined>;
     /**
      * The resource group of the Application Insights component.
      */
-    public /*out*/ readonly ResourceGroup!: pulumi.Output<string>;
+    public /*out*/ readonly resourceGroup!: pulumi.Output<string>;
     /**
      * The name of the destination storage account.
      */
-    public /*out*/ readonly StorageName!: pulumi.Output<string>;
+    public /*out*/ readonly storageName!: pulumi.Output<string>;
     /**
      * The subscription of the Application Insights component.
      */
-    public /*out*/ readonly SubscriptionId!: pulumi.Output<string>;
+    public /*out*/ readonly subscriptionId!: pulumi.Output<string>;
 
     /**
      * Create a ExportConfiguration resource with the given unique name, arguments, and options.
@@ -133,31 +133,30 @@ export class ExportConfiguration extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["DestinationAccountId"] = args ? args.DestinationAccountId : undefined;
-            inputs["DestinationAddress"] = args ? args.DestinationAddress : undefined;
-            inputs["DestinationStorageLocationId"] = args ? args.DestinationStorageLocationId : undefined;
-            inputs["DestinationStorageSubscriptionId"] = args ? args.DestinationStorageSubscriptionId : undefined;
-            inputs["DestinationType"] = args ? args.DestinationType : undefined;
-            inputs["IsEnabled"] = args ? args.IsEnabled : undefined;
-            inputs["NotificationQueueEnabled"] = args ? args.NotificationQueueEnabled : undefined;
-            inputs["NotificationQueueUri"] = args ? args.NotificationQueueUri : undefined;
-            inputs["RecordTypes"] = args ? args.RecordTypes : undefined;
+            inputs["destinationAccountId"] = args ? args.destinationAccountId : undefined;
+            inputs["destinationAddress"] = args ? args.destinationAddress : undefined;
+            inputs["destinationStorageLocationId"] = args ? args.destinationStorageLocationId : undefined;
+            inputs["destinationStorageSubscriptionId"] = args ? args.destinationStorageSubscriptionId : undefined;
+            inputs["destinationType"] = args ? args.destinationType : undefined;
             inputs["exportId"] = args ? args.exportId : undefined;
+            inputs["isEnabled"] = args ? args.isEnabled : undefined;
+            inputs["notificationQueueEnabled"] = args ? args.notificationQueueEnabled : undefined;
+            inputs["notificationQueueUri"] = args ? args.notificationQueueUri : undefined;
+            inputs["recordTypes"] = args ? args.recordTypes : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["ApplicationName"] = undefined /*out*/;
-            inputs["ContainerName"] = undefined /*out*/;
-            inputs["ExportId"] = undefined /*out*/;
-            inputs["ExportStatus"] = undefined /*out*/;
-            inputs["InstrumentationKey"] = undefined /*out*/;
-            inputs["IsUserEnabled"] = undefined /*out*/;
-            inputs["LastGapTime"] = undefined /*out*/;
-            inputs["LastSuccessTime"] = undefined /*out*/;
-            inputs["LastUserUpdate"] = undefined /*out*/;
-            inputs["PermanentErrorReason"] = undefined /*out*/;
-            inputs["ResourceGroup"] = undefined /*out*/;
-            inputs["StorageName"] = undefined /*out*/;
-            inputs["SubscriptionId"] = undefined /*out*/;
+            inputs["applicationName"] = undefined /*out*/;
+            inputs["containerName"] = undefined /*out*/;
+            inputs["exportStatus"] = undefined /*out*/;
+            inputs["instrumentationKey"] = undefined /*out*/;
+            inputs["isUserEnabled"] = undefined /*out*/;
+            inputs["lastGapTime"] = undefined /*out*/;
+            inputs["lastSuccessTime"] = undefined /*out*/;
+            inputs["lastUserUpdate"] = undefined /*out*/;
+            inputs["permanentErrorReason"] = undefined /*out*/;
+            inputs["resourceGroup"] = undefined /*out*/;
+            inputs["storageName"] = undefined /*out*/;
+            inputs["subscriptionId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -177,43 +176,43 @@ export interface ExportConfigurationArgs {
     /**
      * The name of destination storage account.
      */
-    readonly DestinationAccountId?: pulumi.Input<string>;
+    readonly destinationAccountId?: pulumi.Input<string>;
     /**
      * The SAS URL for the destination storage container. It must grant write permission.
      */
-    readonly DestinationAddress?: pulumi.Input<string>;
+    readonly destinationAddress?: pulumi.Input<string>;
     /**
      * The location ID of the destination storage container.
      */
-    readonly DestinationStorageLocationId?: pulumi.Input<string>;
+    readonly destinationStorageLocationId?: pulumi.Input<string>;
     /**
      * The subscription ID of the destination storage container.
      */
-    readonly DestinationStorageSubscriptionId?: pulumi.Input<string>;
+    readonly destinationStorageSubscriptionId?: pulumi.Input<string>;
     /**
      * The Continuous Export destination type. This has to be 'Blob'.
      */
-    readonly DestinationType?: pulumi.Input<string>;
-    /**
-     * Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
-     */
-    readonly IsEnabled?: pulumi.Input<string>;
-    /**
-     * Deprecated
-     */
-    readonly NotificationQueueEnabled?: pulumi.Input<string>;
-    /**
-     * Deprecated
-     */
-    readonly NotificationQueueUri?: pulumi.Input<string>;
-    /**
-     * The document types to be exported, as comma separated values. Allowed values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
-     */
-    readonly RecordTypes?: pulumi.Input<string>;
+    readonly destinationType?: pulumi.Input<string>;
     /**
      * The Continuous Export configuration ID. This is unique within a Application Insights component.
      */
     readonly exportId: pulumi.Input<string>;
+    /**
+     * Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
+     */
+    readonly isEnabled?: pulumi.Input<string>;
+    /**
+     * Deprecated
+     */
+    readonly notificationQueueEnabled?: pulumi.Input<string>;
+    /**
+     * Deprecated
+     */
+    readonly notificationQueueUri?: pulumi.Input<string>;
+    /**
+     * The document types to be exported, as comma separated values. Allowed values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
+     */
+    readonly recordTypes?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

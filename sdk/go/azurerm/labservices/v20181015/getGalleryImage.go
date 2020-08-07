@@ -17,6 +17,8 @@ func LookupGalleryImage(ctx *pulumi.Context, args *LookupGalleryImageArgs, opts 
 }
 
 type LookupGalleryImageArgs struct {
+	// Specify the $expand query. Example: 'properties($select=author)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab Account.
 	LabAccountName string `pulumi:"labAccountName"`
 	// The name of the gallery Image.

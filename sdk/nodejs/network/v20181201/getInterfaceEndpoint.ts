@@ -15,12 +15,17 @@ export function getInterfaceEndpoint(args: GetInterfaceEndpointArgs, opts?: pulu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20181201:getInterfaceEndpoint", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetInterfaceEndpointArgs {
+    /**
+     * Expands referenced resources.
+     */
+    readonly expand?: string;
     /**
      * The name of the interface endpoint.
      */

@@ -38,7 +38,7 @@ class AwaitableListShareSynchronizationDetailsResult(ListShareSynchronizationDet
             value=self.value)
 
 
-def list_share_synchronization_details(account_name=None, consumer_email=None, consumer_name=None, consumer_tenant_name=None, duration_ms=None, end_time=None, message=None, resource_group_name=None, share_name=None, start_time=None, status=None, synchronization_id=None, opts=None):
+def list_share_synchronization_details(account_name=None, consumer_email=None, consumer_name=None, consumer_tenant_name=None, duration_ms=None, end_time=None, message=None, resource_group_name=None, share_name=None, skip_token=None, start_time=None, status=None, synchronization_id=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
@@ -51,6 +51,7 @@ def list_share_synchronization_details(account_name=None, consumer_email=None, c
     :param str message: message of synchronization
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
+    :param str skip_token: Continuation token
     :param str start_time: start time of synchronization
     :param str status: Raw Status
     :param str synchronization_id: Synchronization id
@@ -65,6 +66,7 @@ def list_share_synchronization_details(account_name=None, consumer_email=None, c
     __args__['message'] = message
     __args__['resourceGroupName'] = resource_group_name
     __args__['shareName'] = share_name
+    __args__['skipToken'] = skip_token
     __args__['startTime'] = start_time
     __args__['status'] = status
     __args__['synchronizationId'] = synchronization_id

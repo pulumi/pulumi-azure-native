@@ -51,7 +51,7 @@ export interface GetSiteInstanceDeploymentResult {
     /**
      * AuthorEmail
      */
-    readonly author_email?: string;
+    readonly authorEmail?: string;
     /**
      * Deployer
      */
@@ -63,7 +63,7 @@ export interface GetSiteInstanceDeploymentResult {
     /**
      * EndTime
      */
-    readonly end_time?: string;
+    readonly endTime?: string;
     /**
      * Kind of resource
      */
@@ -83,7 +83,7 @@ export interface GetSiteInstanceDeploymentResult {
     /**
      * StartTime
      */
-    readonly start_time?: string;
+    readonly startTime?: string;
     /**
      * Status
      */

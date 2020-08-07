@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class GetNotificationChannelArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=webHookUrl)'
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]

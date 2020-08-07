@@ -19,6 +19,8 @@ func LookupFileShare(ctx *pulumi.Context, args *LookupFileShareArgs, opts ...pul
 type LookupFileShareArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
+	// Optional, used to expand the properties within share's properties.
+	Expand *string `pulumi:"expand"`
 	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.

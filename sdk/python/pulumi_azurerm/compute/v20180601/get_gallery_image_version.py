@@ -80,16 +80,18 @@ class AwaitableGetGalleryImageVersionResult(GetGalleryImageVersionResult):
             type=self.type)
 
 
-def get_gallery_image_version(gallery_image_name=None, gallery_name=None, name=None, resource_group_name=None, opts=None):
+def get_gallery_image_version(expand=None, gallery_image_name=None, gallery_name=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: The expand expression to apply on the operation.
     :param str gallery_image_name: The name of the gallery Image Definition in which the Image Version resides.
     :param str gallery_name: The name of the Shared Image Gallery in which the Image Definition resides.
     :param str name: The name of the gallery Image Version to be retrieved.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['galleryImageName'] = gallery_image_name
     __args__['galleryName'] = gallery_name
     __args__['name'] = name

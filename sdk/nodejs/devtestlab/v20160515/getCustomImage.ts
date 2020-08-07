@@ -15,6 +15,7 @@ export function getCustomImage(args: GetCustomImageArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20160515:getCustomImage", {
+        "expand": args.expand,
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -22,6 +23,10 @@ export function getCustomImage(args: GetCustomImageArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetCustomImageArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=vm)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab.
      */

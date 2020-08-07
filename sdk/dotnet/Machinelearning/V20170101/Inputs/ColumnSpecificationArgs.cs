@@ -39,6 +39,18 @@ namespace Pulumi.AzureRM.MachineLearning.V20170101.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
+        /// <summary>
+        /// Flag indicating if the type supports null values or not.
+        /// </summary>
+        [Input("xMsIsnullable")]
+        public Input<bool>? XMsIsnullable { get; set; }
+
+        /// <summary>
+        /// Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
+        /// </summary>
+        [Input("xMsIsordered")]
+        public Input<bool>? XMsIsordered { get; set; }
+
         public ColumnSpecificationArgs()
         {
         }

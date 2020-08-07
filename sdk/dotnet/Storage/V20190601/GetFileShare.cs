@@ -25,6 +25,12 @@ namespace Pulumi.AzureRM.Storage.V20190601
         public string AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Optional, used to expand the properties within share's properties.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         /// </summary>
         [Input("name", required: true)]

@@ -4748,6 +4748,257 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) PublicIPs
 	}).(ResourceReferenceResponseArrayOutput)
 }
 
+// Parameters to be applied to the cluster-autoscaler when enabled
+type ManagedClusterPropertiesAutoScalerProfile struct {
+	BalanceSimilarNodeGroups      *string `pulumi:"balanceSimilarNodeGroups"`
+	MaxGracefulTerminationSec     *string `pulumi:"maxGracefulTerminationSec"`
+	ScaleDownDelayAfterAdd        *string `pulumi:"scaleDownDelayAfterAdd"`
+	ScaleDownDelayAfterDelete     *string `pulumi:"scaleDownDelayAfterDelete"`
+	ScaleDownDelayAfterFailure    *string `pulumi:"scaleDownDelayAfterFailure"`
+	ScaleDownUnneededTime         *string `pulumi:"scaleDownUnneededTime"`
+	ScaleDownUnreadyTime          *string `pulumi:"scaleDownUnreadyTime"`
+	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
+	ScanInterval                  *string `pulumi:"scanInterval"`
+}
+
+// ManagedClusterPropertiesAutoScalerProfileInput is an input type that accepts ManagedClusterPropertiesAutoScalerProfileArgs and ManagedClusterPropertiesAutoScalerProfileOutput values.
+// You can construct a concrete instance of `ManagedClusterPropertiesAutoScalerProfileInput` via:
+//
+//          ManagedClusterPropertiesAutoScalerProfileArgs{...}
+type ManagedClusterPropertiesAutoScalerProfileInput interface {
+	pulumi.Input
+
+	ToManagedClusterPropertiesAutoScalerProfileOutput() ManagedClusterPropertiesAutoScalerProfileOutput
+	ToManagedClusterPropertiesAutoScalerProfileOutputWithContext(context.Context) ManagedClusterPropertiesAutoScalerProfileOutput
+}
+
+// Parameters to be applied to the cluster-autoscaler when enabled
+type ManagedClusterPropertiesAutoScalerProfileArgs struct {
+	BalanceSimilarNodeGroups      pulumi.StringPtrInput `pulumi:"balanceSimilarNodeGroups"`
+	MaxGracefulTerminationSec     pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	ScaleDownDelayAfterAdd        pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterAdd"`
+	ScaleDownDelayAfterDelete     pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterDelete"`
+	ScaleDownDelayAfterFailure    pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterFailure"`
+	ScaleDownUnneededTime         pulumi.StringPtrInput `pulumi:"scaleDownUnneededTime"`
+	ScaleDownUnreadyTime          pulumi.StringPtrInput `pulumi:"scaleDownUnreadyTime"`
+	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
+	ScanInterval                  pulumi.StringPtrInput `pulumi:"scanInterval"`
+}
+
+func (ManagedClusterPropertiesAutoScalerProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPropertiesAutoScalerProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterPropertiesAutoScalerProfileArgs) ToManagedClusterPropertiesAutoScalerProfileOutput() ManagedClusterPropertiesAutoScalerProfileOutput {
+	return i.ToManagedClusterPropertiesAutoScalerProfileOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPropertiesAutoScalerProfileArgs) ToManagedClusterPropertiesAutoScalerProfileOutputWithContext(ctx context.Context) ManagedClusterPropertiesAutoScalerProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesAutoScalerProfileOutput)
+}
+
+func (i ManagedClusterPropertiesAutoScalerProfileArgs) ToManagedClusterPropertiesAutoScalerProfilePtrOutput() ManagedClusterPropertiesAutoScalerProfilePtrOutput {
+	return i.ToManagedClusterPropertiesAutoScalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPropertiesAutoScalerProfileArgs) ToManagedClusterPropertiesAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesAutoScalerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesAutoScalerProfileOutput).ToManagedClusterPropertiesAutoScalerProfilePtrOutputWithContext(ctx)
+}
+
+// ManagedClusterPropertiesAutoScalerProfilePtrInput is an input type that accepts ManagedClusterPropertiesAutoScalerProfileArgs, ManagedClusterPropertiesAutoScalerProfilePtr and ManagedClusterPropertiesAutoScalerProfilePtrOutput values.
+// You can construct a concrete instance of `ManagedClusterPropertiesAutoScalerProfilePtrInput` via:
+//
+//          ManagedClusterPropertiesAutoScalerProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterPropertiesAutoScalerProfilePtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterPropertiesAutoScalerProfilePtrOutput() ManagedClusterPropertiesAutoScalerProfilePtrOutput
+	ToManagedClusterPropertiesAutoScalerProfilePtrOutputWithContext(context.Context) ManagedClusterPropertiesAutoScalerProfilePtrOutput
+}
+
+type managedClusterPropertiesAutoScalerProfilePtrType ManagedClusterPropertiesAutoScalerProfileArgs
+
+func ManagedClusterPropertiesAutoScalerProfilePtr(v *ManagedClusterPropertiesAutoScalerProfileArgs) ManagedClusterPropertiesAutoScalerProfilePtrInput {
+	return (*managedClusterPropertiesAutoScalerProfilePtrType)(v)
+}
+
+func (*managedClusterPropertiesAutoScalerProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPropertiesAutoScalerProfile)(nil)).Elem()
+}
+
+func (i *managedClusterPropertiesAutoScalerProfilePtrType) ToManagedClusterPropertiesAutoScalerProfilePtrOutput() ManagedClusterPropertiesAutoScalerProfilePtrOutput {
+	return i.ToManagedClusterPropertiesAutoScalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterPropertiesAutoScalerProfilePtrType) ToManagedClusterPropertiesAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesAutoScalerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesAutoScalerProfilePtrOutput)
+}
+
+// Parameters to be applied to the cluster-autoscaler when enabled
+type ManagedClusterPropertiesAutoScalerProfileOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPropertiesAutoScalerProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPropertiesAutoScalerProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) ToManagedClusterPropertiesAutoScalerProfileOutput() ManagedClusterPropertiesAutoScalerProfileOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) ToManagedClusterPropertiesAutoScalerProfileOutputWithContext(ctx context.Context) ManagedClusterPropertiesAutoScalerProfileOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) ToManagedClusterPropertiesAutoScalerProfilePtrOutput() ManagedClusterPropertiesAutoScalerProfilePtrOutput {
+	return o.ToManagedClusterPropertiesAutoScalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) ToManagedClusterPropertiesAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesAutoScalerProfilePtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *ManagedClusterPropertiesAutoScalerProfile {
+		return &v
+	}).(ManagedClusterPropertiesAutoScalerProfilePtrOutput)
+}
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) BalanceSimilarNodeGroups() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.BalanceSimilarNodeGroups }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.ScaleDownDelayAfterAdd }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScaleDownDelayAfterDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.ScaleDownDelayAfterDelete }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScaleDownDelayAfterFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.ScaleDownDelayAfterFailure }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScaleDownUnneededTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.ScaleDownUnneededTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScaleDownUnreadyTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.ScaleDownUnreadyTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScaleDownUtilizationThreshold() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.ScaleDownUtilizationThreshold }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfileOutput) ScanInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterPropertiesAutoScalerProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPropertiesAutoScalerProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPropertiesAutoScalerProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ToManagedClusterPropertiesAutoScalerProfilePtrOutput() ManagedClusterPropertiesAutoScalerProfilePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ToManagedClusterPropertiesAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesAutoScalerProfilePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) Elem() ManagedClusterPropertiesAutoScalerProfileOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) ManagedClusterPropertiesAutoScalerProfile {
+		return *v
+	}).(ManagedClusterPropertiesAutoScalerProfileOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) BalanceSimilarNodeGroups() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BalanceSimilarNodeGroups
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxGracefulTerminationSec
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownDelayAfterAdd
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ScaleDownDelayAfterDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownDelayAfterDelete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ScaleDownDelayAfterFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownDelayAfterFailure
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ScaleDownUnneededTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownUnneededTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ScaleDownUnreadyTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownUnreadyTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ScaleDownUtilizationThreshold() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownUtilizationThreshold
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesAutoScalerProfilePtrOutput) ScanInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScanInterval
+	}).(pulumi.StringPtrOutput)
+}
+
 type ManagedClusterPropertiesIdentityProfile struct {
 	// The client id of the user assigned identity.
 	ClientId *string `pulumi:"clientId"`
@@ -4861,6 +5112,259 @@ func (o ManagedClusterPropertiesIdentityProfileMapOutput) MapIndex(k pulumi.Stri
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ManagedClusterPropertiesIdentityProfile {
 		return vs[0].(map[string]ManagedClusterPropertiesIdentityProfile)[vs[1].(string)]
 	}).(ManagedClusterPropertiesIdentityProfileOutput)
+}
+
+// Parameters to be applied to the cluster-autoscaler when enabled
+type ManagedClusterPropertiesResponseAutoScalerProfile struct {
+	BalanceSimilarNodeGroups      *string `pulumi:"balanceSimilarNodeGroups"`
+	MaxGracefulTerminationSec     *string `pulumi:"maxGracefulTerminationSec"`
+	ScaleDownDelayAfterAdd        *string `pulumi:"scaleDownDelayAfterAdd"`
+	ScaleDownDelayAfterDelete     *string `pulumi:"scaleDownDelayAfterDelete"`
+	ScaleDownDelayAfterFailure    *string `pulumi:"scaleDownDelayAfterFailure"`
+	ScaleDownUnneededTime         *string `pulumi:"scaleDownUnneededTime"`
+	ScaleDownUnreadyTime          *string `pulumi:"scaleDownUnreadyTime"`
+	ScaleDownUtilizationThreshold *string `pulumi:"scaleDownUtilizationThreshold"`
+	ScanInterval                  *string `pulumi:"scanInterval"`
+}
+
+// ManagedClusterPropertiesResponseAutoScalerProfileInput is an input type that accepts ManagedClusterPropertiesResponseAutoScalerProfileArgs and ManagedClusterPropertiesResponseAutoScalerProfileOutput values.
+// You can construct a concrete instance of `ManagedClusterPropertiesResponseAutoScalerProfileInput` via:
+//
+//          ManagedClusterPropertiesResponseAutoScalerProfileArgs{...}
+type ManagedClusterPropertiesResponseAutoScalerProfileInput interface {
+	pulumi.Input
+
+	ToManagedClusterPropertiesResponseAutoScalerProfileOutput() ManagedClusterPropertiesResponseAutoScalerProfileOutput
+	ToManagedClusterPropertiesResponseAutoScalerProfileOutputWithContext(context.Context) ManagedClusterPropertiesResponseAutoScalerProfileOutput
+}
+
+// Parameters to be applied to the cluster-autoscaler when enabled
+type ManagedClusterPropertiesResponseAutoScalerProfileArgs struct {
+	BalanceSimilarNodeGroups      pulumi.StringPtrInput `pulumi:"balanceSimilarNodeGroups"`
+	MaxGracefulTerminationSec     pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
+	ScaleDownDelayAfterAdd        pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterAdd"`
+	ScaleDownDelayAfterDelete     pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterDelete"`
+	ScaleDownDelayAfterFailure    pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterFailure"`
+	ScaleDownUnneededTime         pulumi.StringPtrInput `pulumi:"scaleDownUnneededTime"`
+	ScaleDownUnreadyTime          pulumi.StringPtrInput `pulumi:"scaleDownUnreadyTime"`
+	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
+	ScanInterval                  pulumi.StringPtrInput `pulumi:"scanInterval"`
+}
+
+func (ManagedClusterPropertiesResponseAutoScalerProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPropertiesResponseAutoScalerProfile)(nil)).Elem()
+}
+
+func (i ManagedClusterPropertiesResponseAutoScalerProfileArgs) ToManagedClusterPropertiesResponseAutoScalerProfileOutput() ManagedClusterPropertiesResponseAutoScalerProfileOutput {
+	return i.ToManagedClusterPropertiesResponseAutoScalerProfileOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPropertiesResponseAutoScalerProfileArgs) ToManagedClusterPropertiesResponseAutoScalerProfileOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesResponseAutoScalerProfileOutput)
+}
+
+func (i ManagedClusterPropertiesResponseAutoScalerProfileArgs) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutput() ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
+	return i.ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterPropertiesResponseAutoScalerProfileArgs) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesResponseAutoScalerProfileOutput).ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(ctx)
+}
+
+// ManagedClusterPropertiesResponseAutoScalerProfilePtrInput is an input type that accepts ManagedClusterPropertiesResponseAutoScalerProfileArgs, ManagedClusterPropertiesResponseAutoScalerProfilePtr and ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput values.
+// You can construct a concrete instance of `ManagedClusterPropertiesResponseAutoScalerProfilePtrInput` via:
+//
+//          ManagedClusterPropertiesResponseAutoScalerProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterPropertiesResponseAutoScalerProfilePtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutput() ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput
+	ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(context.Context) ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput
+}
+
+type managedClusterPropertiesResponseAutoScalerProfilePtrType ManagedClusterPropertiesResponseAutoScalerProfileArgs
+
+func ManagedClusterPropertiesResponseAutoScalerProfilePtr(v *ManagedClusterPropertiesResponseAutoScalerProfileArgs) ManagedClusterPropertiesResponseAutoScalerProfilePtrInput {
+	return (*managedClusterPropertiesResponseAutoScalerProfilePtrType)(v)
+}
+
+func (*managedClusterPropertiesResponseAutoScalerProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPropertiesResponseAutoScalerProfile)(nil)).Elem()
+}
+
+func (i *managedClusterPropertiesResponseAutoScalerProfilePtrType) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutput() ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
+	return i.ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterPropertiesResponseAutoScalerProfilePtrType) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput)
+}
+
+// Parameters to be applied to the cluster-autoscaler when enabled
+type ManagedClusterPropertiesResponseAutoScalerProfileOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPropertiesResponseAutoScalerProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterPropertiesResponseAutoScalerProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ToManagedClusterPropertiesResponseAutoScalerProfileOutput() ManagedClusterPropertiesResponseAutoScalerProfileOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ToManagedClusterPropertiesResponseAutoScalerProfileOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfileOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutput() ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
+	return o.ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *ManagedClusterPropertiesResponseAutoScalerProfile {
+		return &v
+	}).(ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput)
+}
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) BalanceSimilarNodeGroups() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.BalanceSimilarNodeGroups }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.MaxGracefulTerminationSec }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.ScaleDownDelayAfterAdd }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ScaleDownDelayAfterDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.ScaleDownDelayAfterDelete }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ScaleDownDelayAfterFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.ScaleDownDelayAfterFailure }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ScaleDownUnneededTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.ScaleDownUnneededTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ScaleDownUnreadyTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.ScaleDownUnreadyTime }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ScaleDownUtilizationThreshold() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		return v.ScaleDownUtilizationThreshold
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ScanInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedClusterPropertiesResponseAutoScalerProfile) *string { return v.ScanInterval }).(pulumi.StringPtrOutput)
+}
+
+type ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterPropertiesResponseAutoScalerProfile)(nil)).Elem()
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutput() ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
+	return o
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) Elem() ManagedClusterPropertiesResponseAutoScalerProfileOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) ManagedClusterPropertiesResponseAutoScalerProfile {
+		return *v
+	}).(ManagedClusterPropertiesResponseAutoScalerProfileOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) BalanceSimilarNodeGroups() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BalanceSimilarNodeGroups
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) MaxGracefulTerminationSec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxGracefulTerminationSec
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ScaleDownDelayAfterAdd() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownDelayAfterAdd
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ScaleDownDelayAfterDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownDelayAfterDelete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ScaleDownDelayAfterFailure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownDelayAfterFailure
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ScaleDownUnneededTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownUnneededTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ScaleDownUnreadyTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownUnreadyTime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ScaleDownUtilizationThreshold() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownUtilizationThreshold
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput) ScanInterval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterPropertiesResponseAutoScalerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScanInterval
+	}).(pulumi.StringPtrOutput)
 }
 
 type ManagedClusterPropertiesResponseIdentityProfile struct {
@@ -6148,8 +6652,12 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPropertiesAutoScalerProfileOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPropertiesAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesIdentityProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesIdentityProfileMapOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPropertiesResponseAutoScalerProfileOutput{})
+	pulumi.RegisterOutputType(ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesResponseIdentityProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesResponseIdentityProfileMapOutput{})
 	pulumi.RegisterOutputType(ManagedClusterSKUOutput{})

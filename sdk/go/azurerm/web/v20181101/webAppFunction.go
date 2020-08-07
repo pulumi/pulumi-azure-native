@@ -17,11 +17,11 @@ type WebAppFunction struct {
 	// Config information.
 	Config pulumi.MapOutput `pulumi:"config"`
 	// Config URI.
-	Config_href pulumi.StringPtrOutput `pulumi:"config_href"`
+	ConfigHref pulumi.StringPtrOutput `pulumi:"configHref"`
 	// File list.
 	Files pulumi.StringMapOutput `pulumi:"files"`
 	// Function App ID.
-	Function_app_id pulumi.StringPtrOutput `pulumi:"function_app_id"`
+	FunctionAppId pulumi.StringPtrOutput `pulumi:"functionAppId"`
 	// Function URI.
 	Href pulumi.StringPtrOutput `pulumi:"href"`
 	// Kind of resource.
@@ -29,13 +29,13 @@ type WebAppFunction struct {
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Script URI.
-	Script_href pulumi.StringPtrOutput `pulumi:"script_href"`
+	ScriptHref pulumi.StringPtrOutput `pulumi:"scriptHref"`
 	// Script root path URI.
-	Script_root_path_href pulumi.StringPtrOutput `pulumi:"script_root_path_href"`
+	ScriptRootPathHref pulumi.StringPtrOutput `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
-	Secrets_file_href pulumi.StringPtrOutput `pulumi:"secrets_file_href"`
+	SecretsFileHref pulumi.StringPtrOutput `pulumi:"secretsFileHref"`
 	// Test data used when testing via the Azure Portal.
-	Test_data pulumi.StringPtrOutput `pulumi:"test_data"`
+	TestData pulumi.StringPtrOutput `pulumi:"testData"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -77,11 +77,11 @@ type webAppFunctionState struct {
 	// Config information.
 	Config map[string]interface{} `pulumi:"config"`
 	// Config URI.
-	Config_href *string `pulumi:"config_href"`
+	ConfigHref *string `pulumi:"configHref"`
 	// File list.
 	Files map[string]string `pulumi:"files"`
 	// Function App ID.
-	Function_app_id *string `pulumi:"function_app_id"`
+	FunctionAppId *string `pulumi:"functionAppId"`
 	// Function URI.
 	Href *string `pulumi:"href"`
 	// Kind of resource.
@@ -89,13 +89,13 @@ type webAppFunctionState struct {
 	// Resource Name.
 	Name *string `pulumi:"name"`
 	// Script URI.
-	Script_href *string `pulumi:"script_href"`
+	ScriptHref *string `pulumi:"scriptHref"`
 	// Script root path URI.
-	Script_root_path_href *string `pulumi:"script_root_path_href"`
+	ScriptRootPathHref *string `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
-	Secrets_file_href *string `pulumi:"secrets_file_href"`
+	SecretsFileHref *string `pulumi:"secretsFileHref"`
 	// Test data used when testing via the Azure Portal.
-	Test_data *string `pulumi:"test_data"`
+	TestData *string `pulumi:"testData"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -104,11 +104,11 @@ type WebAppFunctionState struct {
 	// Config information.
 	Config pulumi.MapInput
 	// Config URI.
-	Config_href pulumi.StringPtrInput
+	ConfigHref pulumi.StringPtrInput
 	// File list.
 	Files pulumi.StringMapInput
 	// Function App ID.
-	Function_app_id pulumi.StringPtrInput
+	FunctionAppId pulumi.StringPtrInput
 	// Function URI.
 	Href pulumi.StringPtrInput
 	// Kind of resource.
@@ -116,13 +116,13 @@ type WebAppFunctionState struct {
 	// Resource Name.
 	Name pulumi.StringPtrInput
 	// Script URI.
-	Script_href pulumi.StringPtrInput
+	ScriptHref pulumi.StringPtrInput
 	// Script root path URI.
-	Script_root_path_href pulumi.StringPtrInput
+	ScriptRootPathHref pulumi.StringPtrInput
 	// Secrets file URI.
-	Secrets_file_href pulumi.StringPtrInput
+	SecretsFileHref pulumi.StringPtrInput
 	// Test data used when testing via the Azure Portal.
-	Test_data pulumi.StringPtrInput
+	TestData pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }
@@ -135,11 +135,11 @@ type webAppFunctionArgs struct {
 	// Config information.
 	Config map[string]interface{} `pulumi:"config"`
 	// Config URI.
-	Config_href *string `pulumi:"config_href"`
+	ConfigHref *string `pulumi:"configHref"`
 	// File list.
 	Files map[string]string `pulumi:"files"`
 	// Function App ID.
-	Function_app_id *string `pulumi:"function_app_id"`
+	FunctionAppId *string `pulumi:"functionAppId"`
 	// Function URI.
 	Href *string `pulumi:"href"`
 	// Kind of resource.
@@ -149,13 +149,13 @@ type webAppFunctionArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Script URI.
-	Script_href *string `pulumi:"script_href"`
+	ScriptHref *string `pulumi:"scriptHref"`
 	// Script root path URI.
-	Script_root_path_href *string `pulumi:"script_root_path_href"`
+	ScriptRootPathHref *string `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
-	Secrets_file_href *string `pulumi:"secrets_file_href"`
+	SecretsFileHref *string `pulumi:"secretsFileHref"`
 	// Test data used when testing via the Azure Portal.
-	Test_data *string `pulumi:"test_data"`
+	TestData *string `pulumi:"testData"`
 }
 
 // The set of arguments for constructing a WebAppFunction resource.
@@ -163,11 +163,11 @@ type WebAppFunctionArgs struct {
 	// Config information.
 	Config pulumi.MapInput
 	// Config URI.
-	Config_href pulumi.StringPtrInput
+	ConfigHref pulumi.StringPtrInput
 	// File list.
 	Files pulumi.StringMapInput
 	// Function App ID.
-	Function_app_id pulumi.StringPtrInput
+	FunctionAppId pulumi.StringPtrInput
 	// Function URI.
 	Href pulumi.StringPtrInput
 	// Kind of resource.
@@ -177,13 +177,13 @@ type WebAppFunctionArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Script URI.
-	Script_href pulumi.StringPtrInput
+	ScriptHref pulumi.StringPtrInput
 	// Script root path URI.
-	Script_root_path_href pulumi.StringPtrInput
+	ScriptRootPathHref pulumi.StringPtrInput
 	// Secrets file URI.
-	Secrets_file_href pulumi.StringPtrInput
+	SecretsFileHref pulumi.StringPtrInput
 	// Test data used when testing via the Azure Portal.
-	Test_data pulumi.StringPtrInput
+	TestData pulumi.StringPtrInput
 }
 
 func (WebAppFunctionArgs) ElementType() reflect.Type {

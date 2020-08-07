@@ -129,16 +129,18 @@ class AwaitableGetVirtualMachineScheduleResult(GetVirtualMachineScheduleResult):
             weekly_recurrence=self.weekly_recurrence)
 
 
-def get_virtual_machine_schedule(lab_name=None, name=None, resource_group_name=None, virtual_machine_name=None, opts=None):
+def get_virtual_machine_schedule(expand=None, lab_name=None, name=None, resource_group_name=None, virtual_machine_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Specify the $expand query. Example: 'properties($select=status)'
     :param str lab_name: The name of the lab.
     :param str name: The name of the schedule.
     :param str resource_group_name: The name of the resource group.
     :param str virtual_machine_name: The name of the virtual machine.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['labName'] = lab_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

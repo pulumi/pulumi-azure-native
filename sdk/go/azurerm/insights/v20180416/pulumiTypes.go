@@ -10,6 +10,274 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Action descriptor.
+type Action struct {
+	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	OdataType string `pulumi:"odataType"`
+}
+
+// ActionInput is an input type that accepts ActionArgs and ActionOutput values.
+// You can construct a concrete instance of `ActionInput` via:
+//
+//          ActionArgs{...}
+type ActionInput interface {
+	pulumi.Input
+
+	ToActionOutput() ActionOutput
+	ToActionOutputWithContext(context.Context) ActionOutput
+}
+
+// Action descriptor.
+type ActionArgs struct {
+	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Action)(nil)).Elem()
+}
+
+func (i ActionArgs) ToActionOutput() ActionOutput {
+	return i.ToActionOutputWithContext(context.Background())
+}
+
+func (i ActionArgs) ToActionOutputWithContext(ctx context.Context) ActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionOutput)
+}
+
+func (i ActionArgs) ToActionPtrOutput() ActionPtrOutput {
+	return i.ToActionPtrOutputWithContext(context.Background())
+}
+
+func (i ActionArgs) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionOutput).ToActionPtrOutputWithContext(ctx)
+}
+
+// ActionPtrInput is an input type that accepts ActionArgs, ActionPtr and ActionPtrOutput values.
+// You can construct a concrete instance of `ActionPtrInput` via:
+//
+//          ActionArgs{...}
+//
+//  or:
+//
+//          nil
+type ActionPtrInput interface {
+	pulumi.Input
+
+	ToActionPtrOutput() ActionPtrOutput
+	ToActionPtrOutputWithContext(context.Context) ActionPtrOutput
+}
+
+type actionPtrType ActionArgs
+
+func ActionPtr(v *ActionArgs) ActionPtrInput {
+	return (*actionPtrType)(v)
+}
+
+func (*actionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Action)(nil)).Elem()
+}
+
+func (i *actionPtrType) ToActionPtrOutput() ActionPtrOutput {
+	return i.ToActionPtrOutputWithContext(context.Background())
+}
+
+func (i *actionPtrType) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionPtrOutput)
+}
+
+// Action descriptor.
+type ActionOutput struct{ *pulumi.OutputState }
+
+func (ActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Action)(nil)).Elem()
+}
+
+func (o ActionOutput) ToActionOutput() ActionOutput {
+	return o
+}
+
+func (o ActionOutput) ToActionOutputWithContext(ctx context.Context) ActionOutput {
+	return o
+}
+
+func (o ActionOutput) ToActionPtrOutput() ActionPtrOutput {
+	return o.ToActionPtrOutputWithContext(context.Background())
+}
+
+func (o ActionOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return o.ApplyT(func(v Action) *Action {
+		return &v
+	}).(ActionPtrOutput)
+}
+
+// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+func (o ActionOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v Action) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+type ActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Action)(nil)).Elem()
+}
+
+func (o ActionPtrOutput) ToActionPtrOutput() ActionPtrOutput {
+	return o
+}
+
+func (o ActionPtrOutput) ToActionPtrOutputWithContext(ctx context.Context) ActionPtrOutput {
+	return o
+}
+
+func (o ActionPtrOutput) Elem() ActionOutput {
+	return o.ApplyT(func(v *Action) Action { return *v }).(ActionOutput)
+}
+
+// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+func (o ActionPtrOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Action) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OdataType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Action descriptor.
+type ActionResponse struct {
+	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	OdataType string `pulumi:"odataType"`
+}
+
+// ActionResponseInput is an input type that accepts ActionResponseArgs and ActionResponseOutput values.
+// You can construct a concrete instance of `ActionResponseInput` via:
+//
+//          ActionResponseArgs{...}
+type ActionResponseInput interface {
+	pulumi.Input
+
+	ToActionResponseOutput() ActionResponseOutput
+	ToActionResponseOutputWithContext(context.Context) ActionResponseOutput
+}
+
+// Action descriptor.
+type ActionResponseArgs struct {
+	// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ActionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionResponse)(nil)).Elem()
+}
+
+func (i ActionResponseArgs) ToActionResponseOutput() ActionResponseOutput {
+	return i.ToActionResponseOutputWithContext(context.Background())
+}
+
+func (i ActionResponseArgs) ToActionResponseOutputWithContext(ctx context.Context) ActionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseOutput)
+}
+
+func (i ActionResponseArgs) ToActionResponsePtrOutput() ActionResponsePtrOutput {
+	return i.ToActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ActionResponseArgs) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseOutput).ToActionResponsePtrOutputWithContext(ctx)
+}
+
+// ActionResponsePtrInput is an input type that accepts ActionResponseArgs, ActionResponsePtr and ActionResponsePtrOutput values.
+// You can construct a concrete instance of `ActionResponsePtrInput` via:
+//
+//          ActionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ActionResponsePtrInput interface {
+	pulumi.Input
+
+	ToActionResponsePtrOutput() ActionResponsePtrOutput
+	ToActionResponsePtrOutputWithContext(context.Context) ActionResponsePtrOutput
+}
+
+type actionResponsePtrType ActionResponseArgs
+
+func ActionResponsePtr(v *ActionResponseArgs) ActionResponsePtrInput {
+	return (*actionResponsePtrType)(v)
+}
+
+func (*actionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionResponse)(nil)).Elem()
+}
+
+func (i *actionResponsePtrType) ToActionResponsePtrOutput() ActionResponsePtrOutput {
+	return i.ToActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *actionResponsePtrType) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ActionResponsePtrOutput)
+}
+
+// Action descriptor.
+type ActionResponseOutput struct{ *pulumi.OutputState }
+
+func (ActionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ActionResponse)(nil)).Elem()
+}
+
+func (o ActionResponseOutput) ToActionResponseOutput() ActionResponseOutput {
+	return o
+}
+
+func (o ActionResponseOutput) ToActionResponseOutputWithContext(ctx context.Context) ActionResponseOutput {
+	return o
+}
+
+func (o ActionResponseOutput) ToActionResponsePtrOutput() ActionResponsePtrOutput {
+	return o.ToActionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ActionResponseOutput) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
+	return o.ApplyT(func(v ActionResponse) *ActionResponse {
+		return &v
+	}).(ActionResponsePtrOutput)
+}
+
+// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+func (o ActionResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ActionResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+type ActionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ActionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ActionResponse)(nil)).Elem()
+}
+
+func (o ActionResponsePtrOutput) ToActionResponsePtrOutput() ActionResponsePtrOutput {
+	return o
+}
+
+func (o ActionResponsePtrOutput) ToActionResponsePtrOutputWithContext(ctx context.Context) ActionResponsePtrOutput {
+	return o
+}
+
+func (o ActionResponsePtrOutput) Elem() ActionResponseOutput {
+	return o.ApplyT(func(v *ActionResponse) ActionResponse { return *v }).(ActionResponseOutput)
+}
+
+// Specifies the action. Supported values - AlertingAction, LogToMetricAction
+func (o ActionResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ActionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OdataType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Defines how often to run the search and the time interval.
 type Schedule struct {
 	// frequency (in minutes) at which rule condition should be evaluated.
@@ -699,6 +967,10 @@ func (o SourceResponsePtrOutput) QueryType() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(ActionOutput{})
+	pulumi.RegisterOutputType(ActionPtrOutput{})
+	pulumi.RegisterOutputType(ActionResponseOutput{})
+	pulumi.RegisterOutputType(ActionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleOutput{})
 	pulumi.RegisterOutputType(SchedulePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleResponseOutput{})

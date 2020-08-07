@@ -17,6 +17,8 @@ func LookupNatGateway(ctx *pulumi.Context, args *LookupNatGatewayArgs, opts ...p
 }
 
 type LookupNatGatewayArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the nat gateway.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

@@ -13,18 +13,12 @@ class GetAnalyticsItemResult:
     """
     Properties that define an Analytics item that is associated to an Application Insights component.
     """
-    def __init__(__self__, content=None, id=None, name=None, properties=None, scope=None, time_created=None, time_modified=None, type=None, version=None):
+    def __init__(__self__, content=None, name=None, properties=None, scope=None, time_created=None, time_modified=None, type=None, version=None):
         if content and not isinstance(content, str):
             raise TypeError("Expected argument 'content' to be a str")
         __self__.content = content
         """
         The content of this item
-        """
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
-        """
-        Internally assigned unique id of the item definition.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -77,7 +71,6 @@ class AwaitableGetAnalyticsItemResult(GetAnalyticsItemResult):
             yield self
         return GetAnalyticsItemResult(
             content=self.content,
-            id=self.id,
             name=self.name,
             properties=self.properties,
             scope=self.scope,
@@ -87,22 +80,20 @@ class AwaitableGetAnalyticsItemResult(GetAnalyticsItemResult):
             version=self.version)
 
 
-def get_analytics_item(id=None, name=None, resource_group_name=None, resource_name=None, scope_path=None, opts=None):
+def get_analytics_item(id=None, name=None, resource_group_name=None, resource_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
     :param str id: The Id of a specific item defined in the Application Insights component
-    :param str name: The name of a specific item defined in the Application Insights component
+    :param str name: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the Application Insights component resource.
-    :param str scope_path: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
     """
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
-    __args__['scopePath'] = scope_path
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -110,12 +101,11 @@ def get_analytics_item(id=None, name=None, resource_group_name=None, resource_na
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20150501:getAnalyticsItem', __args__, opts=opts).value
 
     return AwaitableGetAnalyticsItemResult(
-        content=__ret__.get('Content'),
-        id=__ret__.get('Id'),
-        name=__ret__.get('Name'),
-        properties=__ret__.get('Properties'),
-        scope=__ret__.get('Scope'),
-        time_created=__ret__.get('TimeCreated'),
-        time_modified=__ret__.get('TimeModified'),
-        type=__ret__.get('Type'),
-        version=__ret__.get('Version'))
+        content=__ret__.get('content'),
+        name=__ret__.get('name'),
+        properties=__ret__.get('properties'),
+        scope=__ret__.get('scope'),
+        time_created=__ret__.get('timeCreated'),
+        time_modified=__ret__.get('timeModified'),
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

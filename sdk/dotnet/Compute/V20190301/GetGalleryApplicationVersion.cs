@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Compute.V20190301
     public sealed class GetGalleryApplicationVersionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The expand expression to apply on the operation.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the gallery Application Definition in which the Application Version resides.
         /// </summary>
         [Input("galleryApplicationName", required: true)]

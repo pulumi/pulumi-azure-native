@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20160330
     public sealed class GetPublicIPAddressArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// expand references resources.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the subnet.
         /// </summary>
         [Input("name", required: true)]

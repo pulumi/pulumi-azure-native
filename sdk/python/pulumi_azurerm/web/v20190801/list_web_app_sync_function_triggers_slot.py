@@ -79,5 +79,5 @@ def list_web_app_sync_function_triggers_slot(name=None, resource_group_name=None
         key=__ret__.get('key'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        trigger_url=__ret__.get('trigger_url'),
+        trigger_url=__ret__.get('triggerUrl'),
         type=__ret__.get('type'))

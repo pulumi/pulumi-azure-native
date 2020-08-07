@@ -53,6 +53,10 @@ export class ManagedCluster extends pulumi.CustomResource {
      */
     public readonly apiServerAccessProfile!: pulumi.Output<outputs.containerservice.v20200601.ManagedClusterAPIServerAccessProfileResponse | undefined>;
     /**
+     * Parameters to be applied to the cluster-autoscaler when enabled
+     */
+    public readonly autoScalerProfile!: pulumi.Output<outputs.containerservice.v20200601.ManagedClusterPropertiesResponseAutoScalerProfile | undefined>;
+    /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
     public readonly diskEncryptionSetID!: pulumi.Output<string | undefined>;
@@ -163,6 +167,7 @@ export class ManagedCluster extends pulumi.CustomResource {
             inputs["addonProfiles"] = args ? args.addonProfiles : undefined;
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
             inputs["apiServerAccessProfile"] = args ? args.apiServerAccessProfile : undefined;
+            inputs["autoScalerProfile"] = args ? args.autoScalerProfile : undefined;
             inputs["diskEncryptionSetID"] = args ? args.diskEncryptionSetID : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             inputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
@@ -217,6 +222,10 @@ export interface ManagedClusterArgs {
      * Access profile for managed cluster API server.
      */
     readonly apiServerAccessProfile?: pulumi.Input<inputs.containerservice.v20200601.ManagedClusterAPIServerAccessProfile>;
+    /**
+     * Parameters to be applied to the cluster-autoscaler when enabled
+     */
+    readonly autoScalerProfile?: pulumi.Input<inputs.containerservice.v20200601.ManagedClusterPropertiesAutoScalerProfile>;
     /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */

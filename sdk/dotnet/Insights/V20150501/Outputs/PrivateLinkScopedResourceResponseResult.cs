@@ -24,12 +24,12 @@ namespace Pulumi.AzureRM.Insights.V20150501.Outputs
 
         [OutputConstructor]
         private PrivateLinkScopedResourceResponseResult(
-            string? ResourceId,
+            string? resourceId,
 
-            string? ScopeId)
+            string? scopeId)
         {
-            this.ResourceId = ResourceId;
-            this.ScopeId = ScopeId;
+            ResourceId = resourceId;
+            ScopeId = scopeId;
         }
     }
 }

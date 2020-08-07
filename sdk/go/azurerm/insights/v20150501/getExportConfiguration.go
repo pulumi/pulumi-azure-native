@@ -28,41 +28,41 @@ type LookupExportConfigurationArgs struct {
 // Properties that define a Continuous Export configuration.
 type LookupExportConfigurationResult struct {
 	// The name of the Application Insights component.
-	ApplicationName string `pulumi:"ApplicationName"`
+	ApplicationName string `pulumi:"applicationName"`
 	// The name of the destination storage container.
-	ContainerName string `pulumi:"ContainerName"`
+	ContainerName string `pulumi:"containerName"`
 	// The name of destination account.
-	DestinationAccountId string `pulumi:"DestinationAccountId"`
+	DestinationAccountId string `pulumi:"destinationAccountId"`
 	// The destination account location ID.
-	DestinationStorageLocationId string `pulumi:"DestinationStorageLocationId"`
+	DestinationStorageLocationId string `pulumi:"destinationStorageLocationId"`
 	// The destination storage account subscription ID.
-	DestinationStorageSubscriptionId string `pulumi:"DestinationStorageSubscriptionId"`
+	DestinationStorageSubscriptionId string `pulumi:"destinationStorageSubscriptionId"`
 	// The destination type.
-	DestinationType string `pulumi:"DestinationType"`
+	DestinationType string `pulumi:"destinationType"`
 	// The unique ID of the export configuration inside an Application Insights component. It is auto generated when the Continuous Export configuration is created.
-	ExportId string `pulumi:"ExportId"`
+	ExportId string `pulumi:"exportId"`
 	// This indicates current Continuous Export configuration status. The possible values are 'Preparing', 'Success', 'Failure'.
-	ExportStatus string `pulumi:"ExportStatus"`
+	ExportStatus string `pulumi:"exportStatus"`
 	// The instrumentation key of the Application Insights component.
-	InstrumentationKey string `pulumi:"InstrumentationKey"`
+	InstrumentationKey string `pulumi:"instrumentationKey"`
 	// This will be 'true' if the Continuous Export configuration is enabled, otherwise it will be 'false'.
-	IsUserEnabled string `pulumi:"IsUserEnabled"`
+	IsUserEnabled string `pulumi:"isUserEnabled"`
 	// The last time the Continuous Export configuration started failing.
-	LastGapTime string `pulumi:"LastGapTime"`
+	LastGapTime string `pulumi:"lastGapTime"`
 	// The last time data was successfully delivered to the destination storage container for this Continuous Export configuration.
-	LastSuccessTime string `pulumi:"LastSuccessTime"`
+	LastSuccessTime string `pulumi:"lastSuccessTime"`
 	// Last time the Continuous Export configuration was updated.
-	LastUserUpdate string `pulumi:"LastUserUpdate"`
+	LastUserUpdate string `pulumi:"lastUserUpdate"`
 	// Deprecated
-	NotificationQueueEnabled *string `pulumi:"NotificationQueueEnabled"`
+	NotificationQueueEnabled *string `pulumi:"notificationQueueEnabled"`
 	// This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
-	PermanentErrorReason string `pulumi:"PermanentErrorReason"`
+	PermanentErrorReason string `pulumi:"permanentErrorReason"`
 	// This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
-	RecordTypes *string `pulumi:"RecordTypes"`
+	RecordTypes *string `pulumi:"recordTypes"`
 	// The resource group of the Application Insights component.
-	ResourceGroup string `pulumi:"ResourceGroup"`
+	ResourceGroup string `pulumi:"resourceGroup"`
 	// The name of the destination storage account.
-	StorageName string `pulumi:"StorageName"`
+	StorageName string `pulumi:"storageName"`
 	// The subscription of the Application Insights component.
-	SubscriptionId string `pulumi:"SubscriptionId"`
+	SubscriptionId string `pulumi:"subscriptionId"`
 }

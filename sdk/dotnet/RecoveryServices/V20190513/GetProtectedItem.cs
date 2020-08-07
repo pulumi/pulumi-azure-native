@@ -31,6 +31,12 @@ namespace Pulumi.AzureRM.RecoveryServices.V20190513
         public string FabricName { get; set; } = null!;
 
         /// <summary>
+        /// OData filter options.
+        /// </summary>
+        [Input("filter")]
+        public string? Filter { get; set; }
+
+        /// <summary>
         /// Backed up item name whose details are to be fetched.
         /// </summary>
         [Input("name", required: true)]

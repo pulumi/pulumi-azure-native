@@ -13,24 +13,12 @@ class GetDatabaseAccountGremlinDatabaseResult:
     """
     An Azure Cosmos DB Gremlin database.
     """
-    def __init__(__self__, _etag=None, _rid=None, _ts=None, location=None, name=None, tags=None, type=None):
-        if _etag and not isinstance(_etag, str):
-            raise TypeError("Expected argument '_etag' to be a str")
-        __self__._etag = _etag
+    def __init__(__self__, etag=None, location=None, name=None, rid=None, tags=None, ts=None, type=None):
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        __self__.etag = etag
         """
         A system generated property representing the resource etag required for optimistic concurrency control.
-        """
-        if _rid and not isinstance(_rid, str):
-            raise TypeError("Expected argument '_rid' to be a str")
-        __self__._rid = _rid
-        """
-        A system generated property. A unique identifier.
-        """
-        if _ts and not isinstance(_ts, dict):
-            raise TypeError("Expected argument '_ts' to be a dict")
-        __self__._ts = _ts
-        """
-        A system generated property that denotes the last updated timestamp of the resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -44,11 +32,23 @@ class GetDatabaseAccountGremlinDatabaseResult:
         """
         The name of the database account.
         """
+        if rid and not isinstance(rid, str):
+            raise TypeError("Expected argument 'rid' to be a str")
+        __self__.rid = rid
+        """
+        A system generated property. A unique identifier.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+        """
+        if ts and not isinstance(ts, dict):
+            raise TypeError("Expected argument 'ts' to be a dict")
+        __self__.ts = ts
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -64,12 +64,12 @@ class AwaitableGetDatabaseAccountGremlinDatabaseResult(GetDatabaseAccountGremlin
         if False:
             yield self
         return GetDatabaseAccountGremlinDatabaseResult(
-            _etag=self._etag,
-            _rid=self._rid,
-            _ts=self._ts,
+            etag=self.etag,
             location=self.location,
             name=self.name,
+            rid=self.rid,
             tags=self.tags,
+            ts=self.ts,
             type=self.type)
 
 
@@ -92,10 +92,10 @@ def get_database_account_gremlin_database(account_name=None, name=None, resource
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb/v20150408:getDatabaseAccountGremlinDatabase', __args__, opts=opts).value
 
     return AwaitableGetDatabaseAccountGremlinDatabaseResult(
-        _etag=__ret__.get('_etag'),
-        _rid=__ret__.get('_rid'),
-        _ts=__ret__.get('_ts'),
+        etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
+        rid=__ret__.get('rid'),
         tags=__ret__.get('tags'),
+        ts=__ret__.get('ts'),
         type=__ret__.get('type'))

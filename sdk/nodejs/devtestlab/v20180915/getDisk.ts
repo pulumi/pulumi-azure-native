@@ -15,6 +15,7 @@ export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20180915:getDisk", {
+        "expand": args.expand,
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -23,6 +24,10 @@ export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise
 }
 
 export interface GetDiskArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=diskType)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab.
      */

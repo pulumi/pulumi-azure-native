@@ -19,34 +19,30 @@ func LookupAnalyticsItem(ctx *pulumi.Context, args *LookupAnalyticsItemArgs, opt
 type LookupAnalyticsItemArgs struct {
 	// The Id of a specific item defined in the Application Insights component
 	Id *string `pulumi:"id"`
-	// The name of a specific item defined in the Application Insights component
-	Name *string `pulumi:"name"`
+	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Application Insights component resource.
 	ResourceName string `pulumi:"resourceName"`
-	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	ScopePath string `pulumi:"scopePath"`
 }
 
 // Properties that define an Analytics item that is associated to an Application Insights component.
 type LookupAnalyticsItemResult struct {
 	// The content of this item
-	Content *string `pulumi:"Content"`
-	// Internally assigned unique id of the item definition.
-	Id *string `pulumi:"Id"`
+	Content *string `pulumi:"content"`
 	// The user-defined name of the item.
-	Name *string `pulumi:"Name"`
+	Name *string `pulumi:"name"`
 	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-	Properties *ApplicationInsightsComponentAnalyticsItemPropertiesResponse `pulumi:"Properties"`
+	Properties ApplicationInsightsComponentAnalyticsItemPropertiesResponse `pulumi:"properties"`
 	// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	Scope *string `pulumi:"Scope"`
+	Scope *string `pulumi:"scope"`
 	// Date and time in UTC when this item was created.
-	TimeCreated string `pulumi:"TimeCreated"`
+	TimeCreated string `pulumi:"timeCreated"`
 	// Date and time in UTC of the last modification that was made to this item.
-	TimeModified string `pulumi:"TimeModified"`
+	TimeModified string `pulumi:"timeModified"`
 	// Enum indicating the type of the Analytics item.
-	Type *string `pulumi:"Type"`
+	Type *string `pulumi:"type"`
 	// This instance's version of the data model. This can change as new features are added.
-	Version string `pulumi:"Version"`
+	Version string `pulumi:"version"`
 }

@@ -18,6 +18,11 @@ class Account(pulumi.CustomResource):
     """
     The name of the Maps Account, which is unique within a Resource Group.
     """
+    properties: pulumi.Output[dict]
+    """
+    The map account properties.
+      * `x_ms_client_id` (`str`) - A unique identifier for the maps account
+    """
     sku: pulumi.Output[dict]
     """
     The SKU of this account.
@@ -78,6 +83,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Account, __self__).__init__(
             'azurerm:maps/v20180501:Account',

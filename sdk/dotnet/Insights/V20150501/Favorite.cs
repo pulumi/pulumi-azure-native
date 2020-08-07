@@ -17,67 +17,67 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <summary>
         /// Favorite category, as defined by the user at creation time.
         /// </summary>
-        [Output("Category")]
+        [Output("category")]
         public Output<string?> Category { get; private set; } = null!;
 
         /// <summary>
         /// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
         /// </summary>
-        [Output("Config")]
+        [Output("config")]
         public Output<string?> Config { get; private set; } = null!;
 
         /// <summary>
         /// Internally assigned unique id of the favorite definition.
         /// </summary>
-        [Output("FavoriteId")]
+        [Output("favoriteId")]
         public Output<string> FavoriteId { get; private set; } = null!;
 
         /// <summary>
         /// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
-        [Output("FavoriteType")]
+        [Output("favoriteType")]
         public Output<string?> FavoriteType { get; private set; } = null!;
 
         /// <summary>
         /// Flag denoting wether or not this favorite was generated from a template.
         /// </summary>
-        [Output("IsGeneratedFromTemplate")]
+        [Output("isGeneratedFromTemplate")]
         public Output<bool?> IsGeneratedFromTemplate { get; private set; } = null!;
 
         /// <summary>
         /// The user-defined name of the favorite.
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The source of the favorite definition.
         /// </summary>
-        [Output("SourceType")]
+        [Output("sourceType")]
         public Output<string?> SourceType { get; private set; } = null!;
 
         /// <summary>
         /// A list of 0 or more tags that are associated with this favorite definition
         /// </summary>
-        [Output("Tags")]
+        [Output("tags")]
         public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Date and time in UTC of the last modification that was made to this favorite definition.
         /// </summary>
-        [Output("TimeModified")]
+        [Output("timeModified")]
         public Output<string> TimeModified { get; private set; } = null!;
 
         /// <summary>
         /// Unique user id of the specific user that owns this favorite.
         /// </summary>
-        [Output("UserId")]
+        [Output("userId")]
         public Output<string> UserId { get; private set; } = null!;
 
         /// <summary>
         /// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
         /// </summary>
-        [Output("Version")]
+        [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
 
@@ -128,62 +128,32 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <summary>
         /// Favorite category, as defined by the user at creation time.
         /// </summary>
-        [Input("Category")]
+        [Input("category")]
         public Input<string>? Category { get; set; }
 
         /// <summary>
         /// Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
         /// </summary>
-        [Input("Config")]
+        [Input("config")]
         public Input<string>? Config { get; set; }
 
         /// <summary>
         /// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
-        [Input("FavoriteType")]
+        [Input("favoriteType")]
         public Input<string>? FavoriteType { get; set; }
 
         /// <summary>
         /// Flag denoting wether or not this favorite was generated from a template.
         /// </summary>
-        [Input("IsGeneratedFromTemplate")]
+        [Input("isGeneratedFromTemplate")]
         public Input<bool>? IsGeneratedFromTemplate { get; set; }
-
-        /// <summary>
-        /// The user-defined name of the favorite.
-        /// </summary>
-        [Input("Name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The source of the favorite definition.
-        /// </summary>
-        [Input("SourceType")]
-        public Input<string>? SourceType { get; set; }
-
-        [Input("Tags")]
-        private InputList<string>? _Tags;
-
-        /// <summary>
-        /// A list of 0 or more tags that are associated with this favorite definition
-        /// </summary>
-        public InputList<string> Tags
-        {
-            get => _Tags ?? (_Tags = new InputList<string>());
-            set => _Tags = value;
-        }
-
-        /// <summary>
-        /// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-        /// </summary>
-        [Input("Version")]
-        public Input<string>? Version { get; set; }
 
         /// <summary>
         /// The Id of a specific favorite defined in the Application Insights component
         /// </summary>
-        [Input("favoriteId", required: true)]
-        public Input<string> FavoriteId { get; set; } = null!;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -196,6 +166,30 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The source of the favorite definition.
+        /// </summary>
+        [Input("sourceType")]
+        public Input<string>? SourceType { get; set; }
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// A list of 0 or more tags that are associated with this favorite definition
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public FavoriteArgs()
         {

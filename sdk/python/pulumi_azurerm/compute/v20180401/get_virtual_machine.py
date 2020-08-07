@@ -157,14 +157,16 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             zones=self.zones)
 
 
-def get_virtual_machine(name=None, resource_group_name=None, opts=None):
+def get_virtual_machine(expand=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: The expand expression to apply on the operation.
     :param str name: The name of the virtual machine.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

@@ -27,6 +27,12 @@ namespace Pulumi.AzureRM.Maps.V20170101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The map account properties.
+        /// </summary>
+        [Output("properties")]
+        public Output<Outputs.MapsAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+
+        /// <summary>
         /// The SKU of this account.
         /// </summary>
         [Output("sku")]

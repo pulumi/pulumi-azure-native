@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// Config URI.
         /// </summary>
-        public readonly string? Config_href;
+        public readonly string? ConfigHref;
         /// <summary>
         /// File list.
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// Function App ID.
         /// </summary>
-        public readonly string? Function_app_id;
+        public readonly string? FunctionAppId;
         /// <summary>
         /// Function URI.
         /// </summary>
@@ -76,19 +76,19 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// Script URI.
         /// </summary>
-        public readonly string? Script_href;
+        public readonly string? ScriptHref;
         /// <summary>
         /// Script root path URI.
         /// </summary>
-        public readonly string? Script_root_path_href;
+        public readonly string? ScriptRootPathHref;
         /// <summary>
         /// Secrets file URI.
         /// </summary>
-        public readonly string? Secrets_file_href;
+        public readonly string? SecretsFileHref;
         /// <summary>
         /// Test data used when testing via the Azure Portal.
         /// </summary>
-        public readonly string? Test_data;
+        public readonly string? TestData;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -98,11 +98,11 @@ namespace Pulumi.AzureRM.Web.V20181101
         private GetWebAppInstanceFunctionSlotResult(
             ImmutableDictionary<string, object>? config,
 
-            string? config_href,
+            string? configHref,
 
             ImmutableDictionary<string, string>? files,
 
-            string? function_app_id,
+            string? functionAppId,
 
             string? href,
 
@@ -110,27 +110,27 @@ namespace Pulumi.AzureRM.Web.V20181101
 
             string name,
 
-            string? script_href,
+            string? scriptHref,
 
-            string? script_root_path_href,
+            string? scriptRootPathHref,
 
-            string? secrets_file_href,
+            string? secretsFileHref,
 
-            string? test_data,
+            string? testData,
 
             string type)
         {
             Config = config;
-            Config_href = config_href;
+            ConfigHref = configHref;
             Files = files;
-            Function_app_id = function_app_id;
+            FunctionAppId = functionAppId;
             Href = href;
             Kind = kind;
             Name = name;
-            Script_href = script_href;
-            Script_root_path_href = script_root_path_href;
-            Secrets_file_href = secrets_file_href;
-            Test_data = test_data;
+            ScriptHref = scriptHref;
+            ScriptRootPathHref = scriptRootPathHref;
+            SecretsFileHref = secretsFileHref;
+            TestData = testData;
             Type = type;
         }
     }

@@ -18,6 +18,10 @@ namespace Pulumi.AzureRM.Media.V20180701.Outputs
         /// </summary>
         public readonly string? OnError;
         /// <summary>
+        /// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+        /// </summary>
+        public readonly Outputs.PresetResponseResult Preset;
+        /// <summary>
         /// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         /// </summary>
         public readonly string? RelativePriority;
@@ -26,9 +30,12 @@ namespace Pulumi.AzureRM.Media.V20180701.Outputs
         private TransformOutputResponseResult(
             string? onError,
 
+            Outputs.PresetResponseResult preset,
+
             string? relativePriority)
         {
             OnError = onError;
+            Preset = preset;
             RelativePriority = relativePriority;
         }
     }

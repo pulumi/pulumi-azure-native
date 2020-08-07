@@ -17,15 +17,15 @@ type WebAppInstanceFunctionSlot struct {
 	// Config information.
 	Config pulumi.MapOutput `pulumi:"config"`
 	// Config URI.
-	Config_href pulumi.StringPtrOutput `pulumi:"config_href"`
+	ConfigHref pulumi.StringPtrOutput `pulumi:"configHref"`
 	// File list.
 	Files pulumi.StringMapOutput `pulumi:"files"`
 	// Function App ID.
-	Function_app_id pulumi.StringPtrOutput `pulumi:"function_app_id"`
+	FunctionAppId pulumi.StringPtrOutput `pulumi:"functionAppId"`
 	// Function URI.
 	Href pulumi.StringPtrOutput `pulumi:"href"`
 	// The invocation URL
-	Invoke_url_template pulumi.StringPtrOutput `pulumi:"invoke_url_template"`
+	InvokeUrlTemplate pulumi.StringPtrOutput `pulumi:"invokeUrlTemplate"`
 	// Gets or sets a value indicating whether the function is disabled
 	IsDisabled pulumi.BoolPtrOutput `pulumi:"isDisabled"`
 	// Kind of resource.
@@ -35,15 +35,15 @@ type WebAppInstanceFunctionSlot struct {
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Script URI.
-	Script_href pulumi.StringPtrOutput `pulumi:"script_href"`
+	ScriptHref pulumi.StringPtrOutput `pulumi:"scriptHref"`
 	// Script root path URI.
-	Script_root_path_href pulumi.StringPtrOutput `pulumi:"script_root_path_href"`
+	ScriptRootPathHref pulumi.StringPtrOutput `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
-	Secrets_file_href pulumi.StringPtrOutput `pulumi:"secrets_file_href"`
+	SecretsFileHref pulumi.StringPtrOutput `pulumi:"secretsFileHref"`
 	// Test data used when testing via the Azure Portal.
-	Test_data pulumi.StringPtrOutput `pulumi:"test_data"`
+	TestData pulumi.StringPtrOutput `pulumi:"testData"`
 	// Test data URI.
-	Test_data_href pulumi.StringPtrOutput `pulumi:"test_data_href"`
+	TestDataHref pulumi.StringPtrOutput `pulumi:"testDataHref"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -88,15 +88,15 @@ type webAppInstanceFunctionSlotState struct {
 	// Config information.
 	Config map[string]interface{} `pulumi:"config"`
 	// Config URI.
-	Config_href *string `pulumi:"config_href"`
+	ConfigHref *string `pulumi:"configHref"`
 	// File list.
 	Files map[string]string `pulumi:"files"`
 	// Function App ID.
-	Function_app_id *string `pulumi:"function_app_id"`
+	FunctionAppId *string `pulumi:"functionAppId"`
 	// Function URI.
 	Href *string `pulumi:"href"`
 	// The invocation URL
-	Invoke_url_template *string `pulumi:"invoke_url_template"`
+	InvokeUrlTemplate *string `pulumi:"invokeUrlTemplate"`
 	// Gets or sets a value indicating whether the function is disabled
 	IsDisabled *bool `pulumi:"isDisabled"`
 	// Kind of resource.
@@ -106,15 +106,15 @@ type webAppInstanceFunctionSlotState struct {
 	// Resource Name.
 	Name *string `pulumi:"name"`
 	// Script URI.
-	Script_href *string `pulumi:"script_href"`
+	ScriptHref *string `pulumi:"scriptHref"`
 	// Script root path URI.
-	Script_root_path_href *string `pulumi:"script_root_path_href"`
+	ScriptRootPathHref *string `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
-	Secrets_file_href *string `pulumi:"secrets_file_href"`
+	SecretsFileHref *string `pulumi:"secretsFileHref"`
 	// Test data used when testing via the Azure Portal.
-	Test_data *string `pulumi:"test_data"`
+	TestData *string `pulumi:"testData"`
 	// Test data URI.
-	Test_data_href *string `pulumi:"test_data_href"`
+	TestDataHref *string `pulumi:"testDataHref"`
 	// Resource type.
 	Type *string `pulumi:"type"`
 }
@@ -123,15 +123,15 @@ type WebAppInstanceFunctionSlotState struct {
 	// Config information.
 	Config pulumi.MapInput
 	// Config URI.
-	Config_href pulumi.StringPtrInput
+	ConfigHref pulumi.StringPtrInput
 	// File list.
 	Files pulumi.StringMapInput
 	// Function App ID.
-	Function_app_id pulumi.StringPtrInput
+	FunctionAppId pulumi.StringPtrInput
 	// Function URI.
 	Href pulumi.StringPtrInput
 	// The invocation URL
-	Invoke_url_template pulumi.StringPtrInput
+	InvokeUrlTemplate pulumi.StringPtrInput
 	// Gets or sets a value indicating whether the function is disabled
 	IsDisabled pulumi.BoolPtrInput
 	// Kind of resource.
@@ -141,15 +141,15 @@ type WebAppInstanceFunctionSlotState struct {
 	// Resource Name.
 	Name pulumi.StringPtrInput
 	// Script URI.
-	Script_href pulumi.StringPtrInput
+	ScriptHref pulumi.StringPtrInput
 	// Script root path URI.
-	Script_root_path_href pulumi.StringPtrInput
+	ScriptRootPathHref pulumi.StringPtrInput
 	// Secrets file URI.
-	Secrets_file_href pulumi.StringPtrInput
+	SecretsFileHref pulumi.StringPtrInput
 	// Test data used when testing via the Azure Portal.
-	Test_data pulumi.StringPtrInput
+	TestData pulumi.StringPtrInput
 	// Test data URI.
-	Test_data_href pulumi.StringPtrInput
+	TestDataHref pulumi.StringPtrInput
 	// Resource type.
 	Type pulumi.StringPtrInput
 }
@@ -162,15 +162,15 @@ type webAppInstanceFunctionSlotArgs struct {
 	// Config information.
 	Config map[string]interface{} `pulumi:"config"`
 	// Config URI.
-	Config_href *string `pulumi:"config_href"`
+	ConfigHref *string `pulumi:"configHref"`
 	// File list.
 	Files map[string]string `pulumi:"files"`
 	// Function App ID.
-	Function_app_id *string `pulumi:"function_app_id"`
+	FunctionAppId *string `pulumi:"functionAppId"`
 	// Function URI.
 	Href *string `pulumi:"href"`
 	// The invocation URL
-	Invoke_url_template *string `pulumi:"invoke_url_template"`
+	InvokeUrlTemplate *string `pulumi:"invokeUrlTemplate"`
 	// Gets or sets a value indicating whether the function is disabled
 	IsDisabled *bool `pulumi:"isDisabled"`
 	// Kind of resource.
@@ -182,17 +182,17 @@ type webAppInstanceFunctionSlotArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Script URI.
-	Script_href *string `pulumi:"script_href"`
+	ScriptHref *string `pulumi:"scriptHref"`
 	// Script root path URI.
-	Script_root_path_href *string `pulumi:"script_root_path_href"`
+	ScriptRootPathHref *string `pulumi:"scriptRootPathHref"`
 	// Secrets file URI.
-	Secrets_file_href *string `pulumi:"secrets_file_href"`
+	SecretsFileHref *string `pulumi:"secretsFileHref"`
 	// Name of the deployment slot.
 	Slot string `pulumi:"slot"`
 	// Test data used when testing via the Azure Portal.
-	Test_data *string `pulumi:"test_data"`
+	TestData *string `pulumi:"testData"`
 	// Test data URI.
-	Test_data_href *string `pulumi:"test_data_href"`
+	TestDataHref *string `pulumi:"testDataHref"`
 }
 
 // The set of arguments for constructing a WebAppInstanceFunctionSlot resource.
@@ -200,15 +200,15 @@ type WebAppInstanceFunctionSlotArgs struct {
 	// Config information.
 	Config pulumi.MapInput
 	// Config URI.
-	Config_href pulumi.StringPtrInput
+	ConfigHref pulumi.StringPtrInput
 	// File list.
 	Files pulumi.StringMapInput
 	// Function App ID.
-	Function_app_id pulumi.StringPtrInput
+	FunctionAppId pulumi.StringPtrInput
 	// Function URI.
 	Href pulumi.StringPtrInput
 	// The invocation URL
-	Invoke_url_template pulumi.StringPtrInput
+	InvokeUrlTemplate pulumi.StringPtrInput
 	// Gets or sets a value indicating whether the function is disabled
 	IsDisabled pulumi.BoolPtrInput
 	// Kind of resource.
@@ -220,17 +220,17 @@ type WebAppInstanceFunctionSlotArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Script URI.
-	Script_href pulumi.StringPtrInput
+	ScriptHref pulumi.StringPtrInput
 	// Script root path URI.
-	Script_root_path_href pulumi.StringPtrInput
+	ScriptRootPathHref pulumi.StringPtrInput
 	// Secrets file URI.
-	Secrets_file_href pulumi.StringPtrInput
+	SecretsFileHref pulumi.StringPtrInput
 	// Name of the deployment slot.
 	Slot pulumi.StringInput
 	// Test data used when testing via the Azure Portal.
-	Test_data pulumi.StringPtrInput
+	TestData pulumi.StringPtrInput
 	// Test data URI.
-	Test_data_href pulumi.StringPtrInput
+	TestDataHref pulumi.StringPtrInput
 }
 
 func (WebAppInstanceFunctionSlotArgs) ElementType() reflect.Type {

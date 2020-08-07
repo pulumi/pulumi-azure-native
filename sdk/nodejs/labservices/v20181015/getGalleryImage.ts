@@ -15,6 +15,7 @@ export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:labservices/v20181015:getGalleryImage", {
+        "expand": args.expand,
         "labAccountName": args.labAccountName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -22,6 +23,10 @@ export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetGalleryImageArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=author)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab Account.
      */

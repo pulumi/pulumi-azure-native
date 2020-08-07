@@ -2099,10 +2099,124 @@ func (o CommonEncryptionCencResponsePtrOutput) EnabledProtocols() EnabledProtoco
 	}).(EnabledProtocolsResponsePtrOutput)
 }
 
+// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
+type ContentKeyPolicyConfiguration struct {
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicyConfigurationInput is an input type that accepts ContentKeyPolicyConfigurationArgs and ContentKeyPolicyConfigurationOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyConfigurationInput` via:
+//
+//          ContentKeyPolicyConfigurationArgs{...}
+type ContentKeyPolicyConfigurationInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyConfigurationOutput() ContentKeyPolicyConfigurationOutput
+	ToContentKeyPolicyConfigurationOutputWithContext(context.Context) ContentKeyPolicyConfigurationOutput
+}
+
+// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
+type ContentKeyPolicyConfigurationArgs struct {
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyConfiguration)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyConfigurationArgs) ToContentKeyPolicyConfigurationOutput() ContentKeyPolicyConfigurationOutput {
+	return i.ToContentKeyPolicyConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyConfigurationArgs) ToContentKeyPolicyConfigurationOutputWithContext(ctx context.Context) ContentKeyPolicyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyConfigurationOutput)
+}
+
+// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
+type ContentKeyPolicyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyConfiguration)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyConfigurationOutput) ToContentKeyPolicyConfigurationOutput() ContentKeyPolicyConfigurationOutput {
+	return o
+}
+
+func (o ContentKeyPolicyConfigurationOutput) ToContentKeyPolicyConfigurationOutputWithContext(ctx context.Context) ContentKeyPolicyConfigurationOutput {
+	return o
+}
+
+// The discriminator for derived types.
+func (o ContentKeyPolicyConfigurationOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyConfiguration) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
+type ContentKeyPolicyConfigurationResponse struct {
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicyConfigurationResponseInput is an input type that accepts ContentKeyPolicyConfigurationResponseArgs and ContentKeyPolicyConfigurationResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyConfigurationResponseInput` via:
+//
+//          ContentKeyPolicyConfigurationResponseArgs{...}
+type ContentKeyPolicyConfigurationResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyConfigurationResponseOutput() ContentKeyPolicyConfigurationResponseOutput
+	ToContentKeyPolicyConfigurationResponseOutputWithContext(context.Context) ContentKeyPolicyConfigurationResponseOutput
+}
+
+// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
+type ContentKeyPolicyConfigurationResponseArgs struct {
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicyConfigurationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyConfigurationResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyConfigurationResponseArgs) ToContentKeyPolicyConfigurationResponseOutput() ContentKeyPolicyConfigurationResponseOutput {
+	return i.ToContentKeyPolicyConfigurationResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyConfigurationResponseArgs) ToContentKeyPolicyConfigurationResponseOutputWithContext(ctx context.Context) ContentKeyPolicyConfigurationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyConfigurationResponseOutput)
+}
+
+// Base class for Content Key Policy configuration. A derived class must be used to create a configuration.
+type ContentKeyPolicyConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyConfigurationResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyConfigurationResponseOutput) ToContentKeyPolicyConfigurationResponseOutput() ContentKeyPolicyConfigurationResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyConfigurationResponseOutput) ToContentKeyPolicyConfigurationResponseOutputWithContext(ctx context.Context) ContentKeyPolicyConfigurationResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+func (o ContentKeyPolicyConfigurationResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyConfigurationResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
 // Represents a policy option.
 type ContentKeyPolicyOption struct {
+	// The key delivery configuration.
+	Configuration ContentKeyPolicyConfiguration `pulumi:"configuration"`
 	// The Policy Option description.
 	Name *string `pulumi:"name"`
+	// The requirements that must be met to deliver keys with this configuration
+	Restriction ContentKeyPolicyRestriction `pulumi:"restriction"`
 }
 
 // ContentKeyPolicyOptionInput is an input type that accepts ContentKeyPolicyOptionArgs and ContentKeyPolicyOptionOutput values.
@@ -2118,8 +2232,12 @@ type ContentKeyPolicyOptionInput interface {
 
 // Represents a policy option.
 type ContentKeyPolicyOptionArgs struct {
+	// The key delivery configuration.
+	Configuration ContentKeyPolicyConfigurationInput `pulumi:"configuration"`
 	// The Policy Option description.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The requirements that must be met to deliver keys with this configuration
+	Restriction ContentKeyPolicyRestrictionInput `pulumi:"restriction"`
 }
 
 func (ContentKeyPolicyOptionArgs) ElementType() reflect.Type {
@@ -2174,9 +2292,19 @@ func (o ContentKeyPolicyOptionOutput) ToContentKeyPolicyOptionOutputWithContext(
 	return o
 }
 
+// The key delivery configuration.
+func (o ContentKeyPolicyOptionOutput) Configuration() ContentKeyPolicyConfigurationOutput {
+	return o.ApplyT(func(v ContentKeyPolicyOption) ContentKeyPolicyConfiguration { return v.Configuration }).(ContentKeyPolicyConfigurationOutput)
+}
+
 // The Policy Option description.
 func (o ContentKeyPolicyOptionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOption) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The requirements that must be met to deliver keys with this configuration
+func (o ContentKeyPolicyOptionOutput) Restriction() ContentKeyPolicyRestrictionOutput {
+	return o.ApplyT(func(v ContentKeyPolicyOption) ContentKeyPolicyRestriction { return v.Restriction }).(ContentKeyPolicyRestrictionOutput)
 }
 
 type ContentKeyPolicyOptionArrayOutput struct{ *pulumi.OutputState }
@@ -2201,10 +2329,14 @@ func (o ContentKeyPolicyOptionArrayOutput) Index(i pulumi.IntInput) ContentKeyPo
 
 // Represents a policy option.
 type ContentKeyPolicyOptionResponse struct {
+	// The key delivery configuration.
+	Configuration ContentKeyPolicyConfigurationResponse `pulumi:"configuration"`
 	// The Policy Option description.
 	Name *string `pulumi:"name"`
 	// The legacy Policy Option ID.
 	PolicyOptionId string `pulumi:"policyOptionId"`
+	// The requirements that must be met to deliver keys with this configuration
+	Restriction ContentKeyPolicyRestrictionResponse `pulumi:"restriction"`
 }
 
 // ContentKeyPolicyOptionResponseInput is an input type that accepts ContentKeyPolicyOptionResponseArgs and ContentKeyPolicyOptionResponseOutput values.
@@ -2220,10 +2352,14 @@ type ContentKeyPolicyOptionResponseInput interface {
 
 // Represents a policy option.
 type ContentKeyPolicyOptionResponseArgs struct {
+	// The key delivery configuration.
+	Configuration ContentKeyPolicyConfigurationResponseInput `pulumi:"configuration"`
 	// The Policy Option description.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The legacy Policy Option ID.
 	PolicyOptionId pulumi.StringInput `pulumi:"policyOptionId"`
+	// The requirements that must be met to deliver keys with this configuration
+	Restriction ContentKeyPolicyRestrictionResponseInput `pulumi:"restriction"`
 }
 
 func (ContentKeyPolicyOptionResponseArgs) ElementType() reflect.Type {
@@ -2278,6 +2414,11 @@ func (o ContentKeyPolicyOptionResponseOutput) ToContentKeyPolicyOptionResponseOu
 	return o
 }
 
+// The key delivery configuration.
+func (o ContentKeyPolicyOptionResponseOutput) Configuration() ContentKeyPolicyConfigurationResponseOutput {
+	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) ContentKeyPolicyConfigurationResponse { return v.Configuration }).(ContentKeyPolicyConfigurationResponseOutput)
+}
+
 // The Policy Option description.
 func (o ContentKeyPolicyOptionResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -2286,6 +2427,11 @@ func (o ContentKeyPolicyOptionResponseOutput) Name() pulumi.StringPtrOutput {
 // The legacy Policy Option ID.
 func (o ContentKeyPolicyOptionResponseOutput) PolicyOptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) string { return v.PolicyOptionId }).(pulumi.StringOutput)
+}
+
+// The requirements that must be met to deliver keys with this configuration
+func (o ContentKeyPolicyOptionResponseOutput) Restriction() ContentKeyPolicyRestrictionResponseOutput {
+	return o.ApplyT(func(v ContentKeyPolicyOptionResponse) ContentKeyPolicyRestrictionResponse { return v.Restriction }).(ContentKeyPolicyRestrictionResponseOutput)
 }
 
 type ContentKeyPolicyOptionResponseArrayOutput struct{ *pulumi.OutputState }
@@ -2306,6 +2452,116 @@ func (o ContentKeyPolicyOptionResponseArrayOutput) Index(i pulumi.IntInput) Cont
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContentKeyPolicyOptionResponse {
 		return vs[0].([]ContentKeyPolicyOptionResponse)[vs[1].(int)]
 	}).(ContentKeyPolicyOptionResponseOutput)
+}
+
+// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
+type ContentKeyPolicyRestriction struct {
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicyRestrictionInput is an input type that accepts ContentKeyPolicyRestrictionArgs and ContentKeyPolicyRestrictionOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyRestrictionInput` via:
+//
+//          ContentKeyPolicyRestrictionArgs{...}
+type ContentKeyPolicyRestrictionInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyRestrictionOutput() ContentKeyPolicyRestrictionOutput
+	ToContentKeyPolicyRestrictionOutputWithContext(context.Context) ContentKeyPolicyRestrictionOutput
+}
+
+// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
+type ContentKeyPolicyRestrictionArgs struct {
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicyRestrictionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyRestriction)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyRestrictionArgs) ToContentKeyPolicyRestrictionOutput() ContentKeyPolicyRestrictionOutput {
+	return i.ToContentKeyPolicyRestrictionOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyRestrictionArgs) ToContentKeyPolicyRestrictionOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyRestrictionOutput)
+}
+
+// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
+type ContentKeyPolicyRestrictionOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyRestrictionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyRestriction)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyRestrictionOutput) ToContentKeyPolicyRestrictionOutput() ContentKeyPolicyRestrictionOutput {
+	return o
+}
+
+func (o ContentKeyPolicyRestrictionOutput) ToContentKeyPolicyRestrictionOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionOutput {
+	return o
+}
+
+// The discriminator for derived types.
+func (o ContentKeyPolicyRestrictionOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyRestriction) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
+type ContentKeyPolicyRestrictionResponse struct {
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
+}
+
+// ContentKeyPolicyRestrictionResponseInput is an input type that accepts ContentKeyPolicyRestrictionResponseArgs and ContentKeyPolicyRestrictionResponseOutput values.
+// You can construct a concrete instance of `ContentKeyPolicyRestrictionResponseInput` via:
+//
+//          ContentKeyPolicyRestrictionResponseArgs{...}
+type ContentKeyPolicyRestrictionResponseInput interface {
+	pulumi.Input
+
+	ToContentKeyPolicyRestrictionResponseOutput() ContentKeyPolicyRestrictionResponseOutput
+	ToContentKeyPolicyRestrictionResponseOutputWithContext(context.Context) ContentKeyPolicyRestrictionResponseOutput
+}
+
+// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
+type ContentKeyPolicyRestrictionResponseArgs struct {
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (ContentKeyPolicyRestrictionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyRestrictionResponse)(nil)).Elem()
+}
+
+func (i ContentKeyPolicyRestrictionResponseArgs) ToContentKeyPolicyRestrictionResponseOutput() ContentKeyPolicyRestrictionResponseOutput {
+	return i.ToContentKeyPolicyRestrictionResponseOutputWithContext(context.Background())
+}
+
+func (i ContentKeyPolicyRestrictionResponseArgs) ToContentKeyPolicyRestrictionResponseOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContentKeyPolicyRestrictionResponseOutput)
+}
+
+// Base class for Content Key Policy restrictions. A derived class must be used to create a restriction.
+type ContentKeyPolicyRestrictionResponseOutput struct{ *pulumi.OutputState }
+
+func (ContentKeyPolicyRestrictionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContentKeyPolicyRestrictionResponse)(nil)).Elem()
+}
+
+func (o ContentKeyPolicyRestrictionResponseOutput) ToContentKeyPolicyRestrictionResponseOutput() ContentKeyPolicyRestrictionResponseOutput {
+	return o
+}
+
+func (o ContentKeyPolicyRestrictionResponseOutput) ToContentKeyPolicyRestrictionResponseOutputWithContext(ctx context.Context) ContentKeyPolicyRestrictionResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+func (o ContentKeyPolicyRestrictionResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ContentKeyPolicyRestrictionResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // The client access policy.
@@ -5608,10 +5864,280 @@ func (o JobErrorResponseOutput) Retry() pulumi.StringOutput {
 	return o.ApplyT(func(v JobErrorResponse) string { return v.Retry }).(pulumi.StringOutput)
 }
 
+// Base class for inputs to a Job.
+type JobInput struct {
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
+}
+
+// JobInputInput is an input type that accepts JobInputArgs and JobInputOutput values.
+// You can construct a concrete instance of `JobInputInput` via:
+//
+//          JobInputArgs{...}
+type JobInputInput interface {
+	pulumi.Input
+
+	ToJobInputOutput() JobInputOutput
+	ToJobInputOutputWithContext(context.Context) JobInputOutput
+}
+
+// Base class for inputs to a Job.
+type JobInputArgs struct {
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (JobInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInput)(nil)).Elem()
+}
+
+func (i JobInputArgs) ToJobInputOutput() JobInputOutput {
+	return i.ToJobInputOutputWithContext(context.Background())
+}
+
+func (i JobInputArgs) ToJobInputOutputWithContext(ctx context.Context) JobInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputOutput)
+}
+
+func (i JobInputArgs) ToJobInputPtrOutput() JobInputPtrOutput {
+	return i.ToJobInputPtrOutputWithContext(context.Background())
+}
+
+func (i JobInputArgs) ToJobInputPtrOutputWithContext(ctx context.Context) JobInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputOutput).ToJobInputPtrOutputWithContext(ctx)
+}
+
+// JobInputPtrInput is an input type that accepts JobInputArgs, JobInputPtr and JobInputPtrOutput values.
+// You can construct a concrete instance of `JobInputPtrInput` via:
+//
+//          JobInputArgs{...}
+//
+//  or:
+//
+//          nil
+type JobInputPtrInput interface {
+	pulumi.Input
+
+	ToJobInputPtrOutput() JobInputPtrOutput
+	ToJobInputPtrOutputWithContext(context.Context) JobInputPtrOutput
+}
+
+type jobInputPtrType JobInputArgs
+
+func JobInputPtr(v *JobInputArgs) JobInputPtrInput {
+	return (*jobInputPtrType)(v)
+}
+
+func (*jobInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobInput)(nil)).Elem()
+}
+
+func (i *jobInputPtrType) ToJobInputPtrOutput() JobInputPtrOutput {
+	return i.ToJobInputPtrOutputWithContext(context.Background())
+}
+
+func (i *jobInputPtrType) ToJobInputPtrOutputWithContext(ctx context.Context) JobInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputPtrOutput)
+}
+
+// Base class for inputs to a Job.
+type JobInputOutput struct{ *pulumi.OutputState }
+
+func (JobInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInput)(nil)).Elem()
+}
+
+func (o JobInputOutput) ToJobInputOutput() JobInputOutput {
+	return o
+}
+
+func (o JobInputOutput) ToJobInputOutputWithContext(ctx context.Context) JobInputOutput {
+	return o
+}
+
+func (o JobInputOutput) ToJobInputPtrOutput() JobInputPtrOutput {
+	return o.ToJobInputPtrOutputWithContext(context.Background())
+}
+
+func (o JobInputOutput) ToJobInputPtrOutputWithContext(ctx context.Context) JobInputPtrOutput {
+	return o.ApplyT(func(v JobInput) *JobInput {
+		return &v
+	}).(JobInputPtrOutput)
+}
+
+// The discriminator for derived types.
+func (o JobInputOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInput) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+type JobInputPtrOutput struct{ *pulumi.OutputState }
+
+func (JobInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobInput)(nil)).Elem()
+}
+
+func (o JobInputPtrOutput) ToJobInputPtrOutput() JobInputPtrOutput {
+	return o
+}
+
+func (o JobInputPtrOutput) ToJobInputPtrOutputWithContext(ctx context.Context) JobInputPtrOutput {
+	return o
+}
+
+func (o JobInputPtrOutput) Elem() JobInputOutput {
+	return o.ApplyT(func(v *JobInput) JobInput { return *v }).(JobInputOutput)
+}
+
+// The discriminator for derived types.
+func (o JobInputPtrOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OdataType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Base class for inputs to a Job.
+type JobInputResponse struct {
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
+}
+
+// JobInputResponseInput is an input type that accepts JobInputResponseArgs and JobInputResponseOutput values.
+// You can construct a concrete instance of `JobInputResponseInput` via:
+//
+//          JobInputResponseArgs{...}
+type JobInputResponseInput interface {
+	pulumi.Input
+
+	ToJobInputResponseOutput() JobInputResponseOutput
+	ToJobInputResponseOutputWithContext(context.Context) JobInputResponseOutput
+}
+
+// Base class for inputs to a Job.
+type JobInputResponseArgs struct {
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (JobInputResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputResponse)(nil)).Elem()
+}
+
+func (i JobInputResponseArgs) ToJobInputResponseOutput() JobInputResponseOutput {
+	return i.ToJobInputResponseOutputWithContext(context.Background())
+}
+
+func (i JobInputResponseArgs) ToJobInputResponseOutputWithContext(ctx context.Context) JobInputResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputResponseOutput)
+}
+
+func (i JobInputResponseArgs) ToJobInputResponsePtrOutput() JobInputResponsePtrOutput {
+	return i.ToJobInputResponsePtrOutputWithContext(context.Background())
+}
+
+func (i JobInputResponseArgs) ToJobInputResponsePtrOutputWithContext(ctx context.Context) JobInputResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputResponseOutput).ToJobInputResponsePtrOutputWithContext(ctx)
+}
+
+// JobInputResponsePtrInput is an input type that accepts JobInputResponseArgs, JobInputResponsePtr and JobInputResponsePtrOutput values.
+// You can construct a concrete instance of `JobInputResponsePtrInput` via:
+//
+//          JobInputResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type JobInputResponsePtrInput interface {
+	pulumi.Input
+
+	ToJobInputResponsePtrOutput() JobInputResponsePtrOutput
+	ToJobInputResponsePtrOutputWithContext(context.Context) JobInputResponsePtrOutput
+}
+
+type jobInputResponsePtrType JobInputResponseArgs
+
+func JobInputResponsePtr(v *JobInputResponseArgs) JobInputResponsePtrInput {
+	return (*jobInputResponsePtrType)(v)
+}
+
+func (*jobInputResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobInputResponse)(nil)).Elem()
+}
+
+func (i *jobInputResponsePtrType) ToJobInputResponsePtrOutput() JobInputResponsePtrOutput {
+	return i.ToJobInputResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *jobInputResponsePtrType) ToJobInputResponsePtrOutputWithContext(ctx context.Context) JobInputResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobInputResponsePtrOutput)
+}
+
+// Base class for inputs to a Job.
+type JobInputResponseOutput struct{ *pulumi.OutputState }
+
+func (JobInputResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobInputResponse)(nil)).Elem()
+}
+
+func (o JobInputResponseOutput) ToJobInputResponseOutput() JobInputResponseOutput {
+	return o
+}
+
+func (o JobInputResponseOutput) ToJobInputResponseOutputWithContext(ctx context.Context) JobInputResponseOutput {
+	return o
+}
+
+func (o JobInputResponseOutput) ToJobInputResponsePtrOutput() JobInputResponsePtrOutput {
+	return o.ToJobInputResponsePtrOutputWithContext(context.Background())
+}
+
+func (o JobInputResponseOutput) ToJobInputResponsePtrOutputWithContext(ctx context.Context) JobInputResponsePtrOutput {
+	return o.ApplyT(func(v JobInputResponse) *JobInputResponse {
+		return &v
+	}).(JobInputResponsePtrOutput)
+}
+
+// The discriminator for derived types.
+func (o JobInputResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobInputResponse) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+type JobInputResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (JobInputResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobInputResponse)(nil)).Elem()
+}
+
+func (o JobInputResponsePtrOutput) ToJobInputResponsePtrOutput() JobInputResponsePtrOutput {
+	return o
+}
+
+func (o JobInputResponsePtrOutput) ToJobInputResponsePtrOutputWithContext(ctx context.Context) JobInputResponsePtrOutput {
+	return o
+}
+
+func (o JobInputResponsePtrOutput) Elem() JobInputResponseOutput {
+	return o.ApplyT(func(v *JobInputResponse) JobInputResponse { return *v }).(JobInputResponseOutput)
+}
+
+// The discriminator for derived types.
+func (o JobInputResponsePtrOutput) OdataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobInputResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OdataType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Describes all the properties of a JobOutput.
 type JobOutput struct {
 	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
 	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
 }
 
 // JobOutputInput is an input type that accepts JobOutputArgs and JobOutputOutput values.
@@ -5629,6 +6155,8 @@ type JobOutputInput interface {
 type JobOutputArgs struct {
 	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
 	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 }
 
 func (JobOutputArgs) ElementType() reflect.Type {
@@ -5688,6 +6216,11 @@ func (o JobOutputOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobOutput) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// The discriminator for derived types.
+func (o JobOutputOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobOutput) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
 type JobOutputArrayOutput struct{ *pulumi.OutputState }
 
 func (JobOutputArrayOutput) ElementType() reflect.Type {
@@ -5716,6 +6249,8 @@ type JobOutputResponse struct {
 	Error JobErrorResponse `pulumi:"error"`
 	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
 	Label *string `pulumi:"label"`
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
 	// If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
 	Progress int `pulumi:"progress"`
 	// The UTC date and time at which this Job Output began processing.
@@ -5743,6 +6278,8 @@ type JobOutputResponseArgs struct {
 	Error JobErrorResponseInput `pulumi:"error"`
 	// A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
 	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
 	Progress pulumi.IntInput `pulumi:"progress"`
 	// The UTC date and time at which this Job Output began processing.
@@ -5816,6 +6353,11 @@ func (o JobOutputResponseOutput) Error() JobErrorResponseOutput {
 // A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
 func (o JobOutputResponseOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobOutputResponse) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// The discriminator for derived types.
+func (o JobOutputResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v JobOutputResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
@@ -8477,6 +9019,116 @@ func (o PresentationTimeRangeResponsePtrOutput) Timescale() pulumi.IntPtrOutput 
 		}
 		return v.Timescale
 	}).(pulumi.IntPtrOutput)
+}
+
+// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
+type Preset struct {
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
+}
+
+// PresetInput is an input type that accepts PresetArgs and PresetOutput values.
+// You can construct a concrete instance of `PresetInput` via:
+//
+//          PresetArgs{...}
+type PresetInput interface {
+	pulumi.Input
+
+	ToPresetOutput() PresetOutput
+	ToPresetOutputWithContext(context.Context) PresetOutput
+}
+
+// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
+type PresetArgs struct {
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (PresetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Preset)(nil)).Elem()
+}
+
+func (i PresetArgs) ToPresetOutput() PresetOutput {
+	return i.ToPresetOutputWithContext(context.Background())
+}
+
+func (i PresetArgs) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PresetOutput)
+}
+
+// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
+type PresetOutput struct{ *pulumi.OutputState }
+
+func (PresetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Preset)(nil)).Elem()
+}
+
+func (o PresetOutput) ToPresetOutput() PresetOutput {
+	return o
+}
+
+func (o PresetOutput) ToPresetOutputWithContext(ctx context.Context) PresetOutput {
+	return o
+}
+
+// The discriminator for derived types.
+func (o PresetOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v Preset) string { return v.OdataType }).(pulumi.StringOutput)
+}
+
+// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
+type PresetResponse struct {
+	// The discriminator for derived types.
+	OdataType string `pulumi:"odataType"`
+}
+
+// PresetResponseInput is an input type that accepts PresetResponseArgs and PresetResponseOutput values.
+// You can construct a concrete instance of `PresetResponseInput` via:
+//
+//          PresetResponseArgs{...}
+type PresetResponseInput interface {
+	pulumi.Input
+
+	ToPresetResponseOutput() PresetResponseOutput
+	ToPresetResponseOutputWithContext(context.Context) PresetResponseOutput
+}
+
+// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
+type PresetResponseArgs struct {
+	// The discriminator for derived types.
+	OdataType pulumi.StringInput `pulumi:"odataType"`
+}
+
+func (PresetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PresetResponse)(nil)).Elem()
+}
+
+func (i PresetResponseArgs) ToPresetResponseOutput() PresetResponseOutput {
+	return i.ToPresetResponseOutputWithContext(context.Background())
+}
+
+func (i PresetResponseArgs) ToPresetResponseOutputWithContext(ctx context.Context) PresetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PresetResponseOutput)
+}
+
+// Base type for all Presets, which define the recipe or instructions on how the input media files should be processed.
+type PresetResponseOutput struct{ *pulumi.OutputState }
+
+func (PresetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PresetResponse)(nil)).Elem()
+}
+
+func (o PresetResponseOutput) ToPresetResponseOutput() PresetResponseOutput {
+	return o
+}
+
+func (o PresetResponseOutput) ToPresetResponseOutputWithContext(ctx context.Context) PresetResponseOutput {
+	return o
+}
+
+// The discriminator for derived types.
+func (o PresetResponseOutput) OdataType() pulumi.StringOutput {
+	return o.ApplyT(func(v PresetResponse) string { return v.OdataType }).(pulumi.StringOutput)
 }
 
 // The storage account details.
@@ -11260,6 +11912,8 @@ func (o TrackSelectionResponseArrayOutput) Index(i pulumi.IntInput) TrackSelecti
 type TransformOutput struct {
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 	OnError *string `pulumi:"onError"`
+	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+	Preset Preset `pulumi:"preset"`
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 	RelativePriority *string `pulumi:"relativePriority"`
 }
@@ -11279,6 +11933,8 @@ type TransformOutputInput interface {
 type TransformOutputArgs struct {
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 	OnError pulumi.StringPtrInput `pulumi:"onError"`
+	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+	Preset PresetInput `pulumi:"preset"`
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 	RelativePriority pulumi.StringPtrInput `pulumi:"relativePriority"`
 }
@@ -11340,6 +11996,11 @@ func (o TransformOutputOutput) OnError() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutput) *string { return v.OnError }).(pulumi.StringPtrOutput)
 }
 
+// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+func (o TransformOutputOutput) Preset() PresetOutput {
+	return o.ApplyT(func(v TransformOutput) Preset { return v.Preset }).(PresetOutput)
+}
+
 // Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 func (o TransformOutputOutput) RelativePriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutput) *string { return v.RelativePriority }).(pulumi.StringPtrOutput)
@@ -11369,6 +12030,8 @@ func (o TransformOutputArrayOutput) Index(i pulumi.IntInput) TransformOutputOutp
 type TransformOutputResponse struct {
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 	OnError *string `pulumi:"onError"`
+	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+	Preset PresetResponse `pulumi:"preset"`
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 	RelativePriority *string `pulumi:"relativePriority"`
 }
@@ -11388,6 +12051,8 @@ type TransformOutputResponseInput interface {
 type TransformOutputResponseArgs struct {
 	// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
 	OnError pulumi.StringPtrInput `pulumi:"onError"`
+	// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+	Preset PresetResponseInput `pulumi:"preset"`
 	// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 	RelativePriority pulumi.StringPtrInput `pulumi:"relativePriority"`
 }
@@ -11449,6 +12114,11 @@ func (o TransformOutputResponseOutput) OnError() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputResponse) *string { return v.OnError }).(pulumi.StringPtrOutput)
 }
 
+// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
+func (o TransformOutputResponseOutput) Preset() PresetResponseOutput {
+	return o.ApplyT(func(v TransformOutputResponse) PresetResponse { return v.Preset }).(PresetResponseOutput)
+}
+
 // Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
 func (o TransformOutputResponseOutput) RelativePriority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TransformOutputResponse) *string { return v.RelativePriority }).(pulumi.StringPtrOutput)
@@ -11501,10 +12171,14 @@ func init() {
 	pulumi.RegisterOutputType(CommonEncryptionCencPtrOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCencResponseOutput{})
 	pulumi.RegisterOutputType(CommonEncryptionCencResponsePtrOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyConfigurationOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionArrayOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionResponseOutput{})
 	pulumi.RegisterOutputType(ContentKeyPolicyOptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyRestrictionOutput{})
+	pulumi.RegisterOutputType(ContentKeyPolicyRestrictionResponseOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesPtrOutput{})
 	pulumi.RegisterOutputType(CrossSiteAccessPoliciesResponseOutput{})
@@ -11551,6 +12225,10 @@ func init() {
 	pulumi.RegisterOutputType(JobErrorDetailResponseOutput{})
 	pulumi.RegisterOutputType(JobErrorDetailResponseArrayOutput{})
 	pulumi.RegisterOutputType(JobErrorResponseOutput{})
+	pulumi.RegisterOutputType(JobInputOutput{})
+	pulumi.RegisterOutputType(JobInputPtrOutput{})
+	pulumi.RegisterOutputType(JobInputResponseOutput{})
+	pulumi.RegisterOutputType(JobInputResponsePtrOutput{})
 	pulumi.RegisterOutputType(JobOutputOutput{})
 	pulumi.RegisterOutputType(JobOutputArrayOutput{})
 	pulumi.RegisterOutputType(JobOutputResponseOutput{})
@@ -11587,6 +12265,8 @@ func init() {
 	pulumi.RegisterOutputType(PresentationTimeRangePtrOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangeResponseOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangeResponsePtrOutput{})
+	pulumi.RegisterOutputType(PresetOutput{})
+	pulumi.RegisterOutputType(PresetResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 	pulumi.RegisterOutputType(StorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})

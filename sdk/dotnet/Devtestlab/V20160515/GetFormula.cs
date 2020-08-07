@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class GetFormulaArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=description)'
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]

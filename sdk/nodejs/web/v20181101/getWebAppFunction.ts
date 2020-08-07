@@ -42,7 +42,7 @@ export interface GetWebAppFunctionResult {
     /**
      * Config URI.
      */
-    readonly config_href?: string;
+    readonly configHref?: string;
     /**
      * File list.
      */
@@ -50,7 +50,7 @@ export interface GetWebAppFunctionResult {
     /**
      * Function App ID.
      */
-    readonly function_app_id?: string;
+    readonly functionAppId?: string;
     /**
      * Function URI.
      */
@@ -66,19 +66,19 @@ export interface GetWebAppFunctionResult {
     /**
      * Script URI.
      */
-    readonly script_href?: string;
+    readonly scriptHref?: string;
     /**
      * Script root path URI.
      */
-    readonly script_root_path_href?: string;
+    readonly scriptRootPathHref?: string;
     /**
      * Secrets file URI.
      */
-    readonly secrets_file_href?: string;
+    readonly secretsFileHref?: string;
     /**
      * Test data used when testing via the Azure Portal.
      */
-    readonly test_data?: string;
+    readonly testData?: string;
     /**
      * Resource type.
      */

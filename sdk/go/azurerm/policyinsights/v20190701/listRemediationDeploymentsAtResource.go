@@ -21,6 +21,8 @@ type ListRemediationDeploymentsAtResourceArgs struct {
 	RemediationName string `pulumi:"remediationName"`
 	// Resource ID.
 	ResourceId string `pulumi:"resourceId"`
+	// Maximum number of records to return.
+	Top *int `pulumi:"top"`
 }
 
 // List of deployments for a remediation.

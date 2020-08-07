@@ -17,11 +17,19 @@ namespace Pulumi.AzureRM.Insights.V20160301.Outputs
         /// the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
         /// </summary>
         public readonly Outputs.RuleDataSourceResponseResult? DataSource;
+        /// <summary>
+        /// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        /// </summary>
+        public readonly string OdataType;
 
         [OutputConstructor]
-        private RuleConditionResponseResult(Outputs.RuleDataSourceResponseResult? dataSource)
+        private RuleConditionResponseResult(
+            Outputs.RuleDataSourceResponseResult? dataSource,
+
+            string odataType)
         {
             DataSource = dataSource;
+            OdataType = odataType;
         }
     }
 }

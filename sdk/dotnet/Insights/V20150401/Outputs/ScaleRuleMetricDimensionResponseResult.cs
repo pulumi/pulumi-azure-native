@@ -28,15 +28,15 @@ namespace Pulumi.AzureRM.Insights.V20150401.Outputs
 
         [OutputConstructor]
         private ScaleRuleMetricDimensionResponseResult(
-            string DimensionName,
+            string dimensionName,
 
-            string Operator,
+            string @operator,
 
-            ImmutableArray<string> Values)
+            ImmutableArray<string> values)
         {
-            this.DimensionName = DimensionName;
-            this.Operator = Operator;
-            this.Values = Values;
+            DimensionName = dimensionName;
+            Operator = @operator;
+            Values = values;
         }
     }
 }

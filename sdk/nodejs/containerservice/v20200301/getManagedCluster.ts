@@ -52,6 +52,10 @@ export interface GetManagedClusterResult {
      */
     readonly apiServerAccessProfile?: outputs.containerservice.v20200301.ManagedClusterAPIServerAccessProfileResponse;
     /**
+     * Parameters to be applied to the cluster-autoscaler when enabled
+     */
+    readonly autoScalerProfile?: outputs.containerservice.v20200301.ManagedClusterPropertiesResponseAutoScalerProfile;
+    /**
      * ResourceId of the disk encryption set to use for enabling encryption at rest.
      */
     readonly diskEncryptionSetID?: string;

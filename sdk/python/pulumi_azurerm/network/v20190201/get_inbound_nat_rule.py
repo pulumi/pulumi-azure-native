@@ -101,15 +101,17 @@ class AwaitableGetInboundNatRuleResult(GetInboundNatRuleResult):
             provisioning_state=self.provisioning_state)
 
 
-def get_inbound_nat_rule(load_balancer_name=None, name=None, resource_group_name=None, opts=None):
+def get_inbound_nat_rule(expand=None, load_balancer_name=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Expands referenced resources.
     :param str load_balancer_name: The name of the load balancer.
     :param str name: The name of the inbound nat rule.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['loadBalancerName'] = load_balancer_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

@@ -128,14 +128,14 @@ def get_web_app_instance_function_slot(name=None, resource_group_name=None, slot
 
     return AwaitableGetWebAppInstanceFunctionSlotResult(
         config=__ret__.get('config'),
-        config_href=__ret__.get('config_href'),
+        config_href=__ret__.get('configHref'),
         files=__ret__.get('files'),
-        function_app_id=__ret__.get('function_app_id'),
+        function_app_id=__ret__.get('functionAppId'),
         href=__ret__.get('href'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        script_href=__ret__.get('script_href'),
-        script_root_path_href=__ret__.get('script_root_path_href'),
-        secrets_file_href=__ret__.get('secrets_file_href'),
-        test_data=__ret__.get('test_data'),
+        script_href=__ret__.get('scriptHref'),
+        script_root_path_href=__ret__.get('scriptRootPathHref'),
+        secrets_file_href=__ret__.get('secretsFileHref'),
+        test_data=__ret__.get('testData'),
         type=__ret__.get('type'))

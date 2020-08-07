@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Insights.V20150501.Inputs
         /// <summary>
         /// The XML specification of a WebTest to run against an application.
         /// </summary>
-        [Input("WebTest")]
+        [Input("webTest")]
         public Input<string>? WebTest { get; set; }
 
         public WebTestPropertiesConfigurationArgs()

@@ -13,7 +13,7 @@ class GetComponentResult:
     """
     An Application Insights component definition.
     """
-    def __init__(__self__, app_id=None, application_id=None, application__type=None, connection_string=None, creation_date=None, disable_ip_masking=None, flow__type=None, hockey_app_id=None, hockey_app_token=None, immediate_purge_data_on30_days=None, ingestion_mode=None, instrumentation_key=None, private_link_scoped_resources=None, request__source=None, retention_in_days=None, sampling_percentage=None, tenant_id=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, app_id=None, application_id=None, application_type=None, connection_string=None, creation_date=None, disable_ip_masking=None, flow_type=None, hockey_app_id=None, hockey_app_token=None, immediate_purge_data_on30_days=None, ingestion_mode=None, instrumentation_key=None, kind=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, request_source=None, retention_in_days=None, sampling_percentage=None, tags=None, tenant_id=None, type=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         __self__.app_id = app_id
@@ -26,9 +26,9 @@ class GetComponentResult:
         """
         The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
         """
-        if application__type and not isinstance(application__type, str):
-            raise TypeError("Expected argument 'application__type' to be a str")
-        __self__.application__type = application__type
+        if application_type and not isinstance(application_type, str):
+            raise TypeError("Expected argument 'application_type' to be a str")
+        __self__.application_type = application_type
         """
         Type of application being monitored.
         """
@@ -50,9 +50,9 @@ class GetComponentResult:
         """
         Disable IP masking.
         """
-        if flow__type and not isinstance(flow__type, str):
-            raise TypeError("Expected argument 'flow__type' to be a str")
-        __self__.flow__type = flow__type
+        if flow_type and not isinstance(flow_type, str):
+            raise TypeError("Expected argument 'flow_type' to be a str")
+        __self__.flow_type = flow_type
         """
         Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         """
@@ -86,36 +86,6 @@ class GetComponentResult:
         """
         Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
         """
-        if private_link_scoped_resources and not isinstance(private_link_scoped_resources, list):
-            raise TypeError("Expected argument 'private_link_scoped_resources' to be a list")
-        __self__.private_link_scoped_resources = private_link_scoped_resources
-        """
-        List of linked private link scope resources.
-        """
-        if request__source and not isinstance(request__source, str):
-            raise TypeError("Expected argument 'request__source' to be a str")
-        __self__.request__source = request__source
-        """
-        Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-        """
-        if retention_in_days and not isinstance(retention_in_days, float):
-            raise TypeError("Expected argument 'retention_in_days' to be a float")
-        __self__.retention_in_days = retention_in_days
-        """
-        Retention period in days.
-        """
-        if sampling_percentage and not isinstance(sampling_percentage, float):
-            raise TypeError("Expected argument 'sampling_percentage' to be a float")
-        __self__.sampling_percentage = sampling_percentage
-        """
-        Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-        """
-        if tenant_id and not isinstance(tenant_id, str):
-            raise TypeError("Expected argument 'tenant_id' to be a str")
-        __self__.tenant_id = tenant_id
-        """
-        Azure Tenant Id.
-        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -134,17 +104,47 @@ class GetComponentResult:
         """
         Azure resource name
         """
+        if private_link_scoped_resources and not isinstance(private_link_scoped_resources, list):
+            raise TypeError("Expected argument 'private_link_scoped_resources' to be a list")
+        __self__.private_link_scoped_resources = private_link_scoped_resources
+        """
+        List of linked private link scope resources.
+        """
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         __self__.provisioning_state = provisioning_state
         """
         Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         """
+        if request_source and not isinstance(request_source, str):
+            raise TypeError("Expected argument 'request_source' to be a str")
+        __self__.request_source = request_source
+        """
+        Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+        """
+        if retention_in_days and not isinstance(retention_in_days, float):
+            raise TypeError("Expected argument 'retention_in_days' to be a float")
+        __self__.retention_in_days = retention_in_days
+        """
+        Retention period in days.
+        """
+        if sampling_percentage and not isinstance(sampling_percentage, float):
+            raise TypeError("Expected argument 'sampling_percentage' to be a float")
+        __self__.sampling_percentage = sampling_percentage
+        """
+        Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        Azure Tenant Id.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -162,26 +162,26 @@ class AwaitableGetComponentResult(GetComponentResult):
         return GetComponentResult(
             app_id=self.app_id,
             application_id=self.application_id,
-            application__type=self.application__type,
+            application_type=self.application_type,
             connection_string=self.connection_string,
             creation_date=self.creation_date,
             disable_ip_masking=self.disable_ip_masking,
-            flow__type=self.flow__type,
+            flow_type=self.flow_type,
             hockey_app_id=self.hockey_app_id,
             hockey_app_token=self.hockey_app_token,
             immediate_purge_data_on30_days=self.immediate_purge_data_on30_days,
             ingestion_mode=self.ingestion_mode,
             instrumentation_key=self.instrumentation_key,
-            private_link_scoped_resources=self.private_link_scoped_resources,
-            request__source=self.request__source,
-            retention_in_days=self.retention_in_days,
-            sampling_percentage=self.sampling_percentage,
-            tenant_id=self.tenant_id,
             kind=self.kind,
             location=self.location,
             name=self.name,
+            private_link_scoped_resources=self.private_link_scoped_resources,
             provisioning_state=self.provisioning_state,
+            request_source=self.request_source,
+            retention_in_days=self.retention_in_days,
+            sampling_percentage=self.sampling_percentage,
             tags=self.tags,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -202,26 +202,26 @@ def get_component(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20150501:getComponent', __args__, opts=opts).value
 
     return AwaitableGetComponentResult(
-        app_id=__ret__.get('AppId'),
-        application_id=__ret__.get('ApplicationId'),
-        application__type=__ret__.get('Application_Type'),
-        connection_string=__ret__.get('ConnectionString'),
-        creation_date=__ret__.get('CreationDate'),
-        disable_ip_masking=__ret__.get('DisableIpMasking'),
-        flow__type=__ret__.get('Flow_Type'),
-        hockey_app_id=__ret__.get('HockeyAppId'),
-        hockey_app_token=__ret__.get('HockeyAppToken'),
-        immediate_purge_data_on30_days=__ret__.get('ImmediatePurgeDataOn30Days'),
-        ingestion_mode=__ret__.get('IngestionMode'),
-        instrumentation_key=__ret__.get('InstrumentationKey'),
-        private_link_scoped_resources=__ret__.get('PrivateLinkScopedResources'),
-        request__source=__ret__.get('Request_Source'),
-        retention_in_days=__ret__.get('RetentionInDays'),
-        sampling_percentage=__ret__.get('SamplingPercentage'),
-        tenant_id=__ret__.get('TenantId'),
+        app_id=__ret__.get('appId'),
+        application_id=__ret__.get('applicationId'),
+        application_type=__ret__.get('applicationType'),
+        connection_string=__ret__.get('connectionString'),
+        creation_date=__ret__.get('creationDate'),
+        disable_ip_masking=__ret__.get('disableIpMasking'),
+        flow_type=__ret__.get('flowType'),
+        hockey_app_id=__ret__.get('hockeyAppId'),
+        hockey_app_token=__ret__.get('hockeyAppToken'),
+        immediate_purge_data_on30_days=__ret__.get('immediatePurgeDataOn30Days'),
+        ingestion_mode=__ret__.get('ingestionMode'),
+        instrumentation_key=__ret__.get('instrumentationKey'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
+        private_link_scoped_resources=__ret__.get('privateLinkScopedResources'),
         provisioning_state=__ret__.get('provisioningState'),
+        request_source=__ret__.get('requestSource'),
+        retention_in_days=__ret__.get('retentionInDays'),
+        sampling_percentage=__ret__.get('samplingPercentage'),
         tags=__ret__.get('tags'),
+        tenant_id=__ret__.get('tenantId'),
         type=__ret__.get('type'))

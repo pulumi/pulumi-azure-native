@@ -22,6 +22,8 @@ type Job struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The UTC date and time at which this Job finished processing.
 	EndTime pulumi.StringOutput `pulumi:"endTime"`
+	// The inputs for the Job.
+	Input JobInputResponseOutput `pulumi:"input"`
 	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
 	// The name of the resource
@@ -43,6 +45,9 @@ func NewJob(ctx *pulumi.Context,
 	name string, args *JobArgs, opts ...pulumi.ResourceOption) (*Job, error) {
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
+	}
+	if args == nil || args.Input == nil {
+		return nil, errors.New("missing required argument 'Input'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
@@ -89,6 +94,8 @@ type jobState struct {
 	Description *string `pulumi:"description"`
 	// The UTC date and time at which this Job finished processing.
 	EndTime *string `pulumi:"endTime"`
+	// The inputs for the Job.
+	Input *JobInputResponse `pulumi:"input"`
 	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified *string `pulumi:"lastModified"`
 	// The name of the resource
@@ -114,6 +121,8 @@ type JobState struct {
 	Description pulumi.StringPtrInput
 	// The UTC date and time at which this Job finished processing.
 	EndTime pulumi.StringPtrInput
+	// The inputs for the Job.
+	Input JobInputResponsePtrInput
 	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified pulumi.StringPtrInput
 	// The name of the resource
@@ -141,6 +150,8 @@ type jobArgs struct {
 	CorrelationData map[string]string `pulumi:"correlationData"`
 	// Optional customer supplied description of the Job.
 	Description *string `pulumi:"description"`
+	// The inputs for the Job.
+	Input JobInput `pulumi:"input"`
 	// The Job name.
 	Name string `pulumi:"name"`
 	// The outputs for the Job.
@@ -161,6 +172,8 @@ type JobArgs struct {
 	CorrelationData pulumi.StringMapInput
 	// Optional customer supplied description of the Job.
 	Description pulumi.StringPtrInput
+	// The inputs for the Job.
+	Input JobInputInput
 	// The Job name.
 	Name pulumi.StringInput
 	// The outputs for the Job.

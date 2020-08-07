@@ -15,6 +15,7 @@ export function getServiceFabricSchedule(args: GetServiceFabricScheduleArgs, opt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20180915:getServiceFabricSchedule", {
+        "expand": args.expand,
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -24,6 +25,10 @@ export function getServiceFabricSchedule(args: GetServiceFabricScheduleArgs, opt
 }
 
 export interface GetServiceFabricScheduleArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=status)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab.
      */

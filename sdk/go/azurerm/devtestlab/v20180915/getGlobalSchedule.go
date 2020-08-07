@@ -17,6 +17,8 @@ func LookupGlobalSchedule(ctx *pulumi.Context, args *LookupGlobalScheduleArgs, o
 }
 
 type LookupGlobalScheduleArgs struct {
+	// Specify the $expand query. Example: 'properties($select=status)'
+	Expand *string `pulumi:"expand"`
 	// The name of the schedule.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

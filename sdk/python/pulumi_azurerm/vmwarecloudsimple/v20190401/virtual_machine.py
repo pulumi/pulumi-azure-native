@@ -157,13 +157,12 @@ class VirtualMachine(pulumi.CustomResource):
     """
     VMware tools version
     """
-    def __init__(__self__, resource_name, opts=None, referer=None, amount_of_ram=None, customization=None, disks=None, expose_to_guest_vm=None, location=None, name=None, nics=None, number_of_cores=None, password=None, private_cloud_id=None, resource_group_name=None, resource_pool=None, tags=None, template_id=None, username=None, v_sphere_networks=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, amount_of_ram=None, customization=None, disks=None, expose_to_guest_vm=None, location=None, name=None, nics=None, number_of_cores=None, password=None, private_cloud_id=None, resource_group_name=None, resource_pool=None, tags=None, template_id=None, username=None, v_sphere_networks=None, __props__=None, __name__=None, __opts__=None):
         """
         Virtual machine model
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] referer: referer url
         :param pulumi.Input[float] amount_of_ram: The amount of memory
         :param pulumi.Input[dict] customization: Virtual machine properties
         :param pulumi.Input[list] disks: The list of Virtual Disks
@@ -237,9 +236,6 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if referer is None:
-                raise TypeError("Missing required property 'referer'")
-            __props__['referer'] = referer
             if amount_of_ram is None:
                 raise TypeError("Missing required property 'amount_of_ram'")
             __props__['amount_of_ram'] = amount_of_ram

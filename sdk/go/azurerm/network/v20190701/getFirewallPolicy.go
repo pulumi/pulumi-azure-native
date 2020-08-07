@@ -17,6 +17,8 @@ func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, o
 }
 
 type LookupFirewallPolicyArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the Firewall Policy.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

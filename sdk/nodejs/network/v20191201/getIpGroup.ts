@@ -15,12 +15,17 @@ export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20191201:getIpGroup", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetIpGroupArgs {
+    /**
+     * Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
+     */
+    readonly expand?: string;
     /**
      * The name of the ipGroups.
      */

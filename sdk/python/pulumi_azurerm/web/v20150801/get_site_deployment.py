@@ -141,15 +141,15 @@ def get_site_deployment(name=None, resource_group_name=None, opts=None):
     return AwaitableGetSiteDeploymentResult(
         active=__ret__.get('active'),
         author=__ret__.get('author'),
-        author_email=__ret__.get('author_email'),
+        author_email=__ret__.get('authorEmail'),
         deployer=__ret__.get('deployer'),
         details=__ret__.get('details'),
-        end_time=__ret__.get('end_time'),
+        end_time=__ret__.get('endTime'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         message=__ret__.get('message'),
         name=__ret__.get('name'),
-        start_time=__ret__.get('start_time'),
+        start_time=__ret__.get('startTime'),
         status=__ret__.get('status'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

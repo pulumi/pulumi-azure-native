@@ -17,6 +17,8 @@ func LookupSecret(ctx *pulumi.Context, args *LookupSecretArgs, opts ...pulumi.In
 }
 
 type LookupSecretArgs struct {
+	// Specify the $expand query. Example: 'properties($select=value)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The name of the secret.

@@ -15,12 +15,17 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:compute/v20181001:getImage", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetImageArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    readonly expand?: string;
     /**
      * The name of the image.
      */

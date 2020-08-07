@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Inputs
         /// <summary>
         /// The name of KeyVault key.
         /// </summary>
-        [Input("KeyName")]
+        [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 
         /// <summary>

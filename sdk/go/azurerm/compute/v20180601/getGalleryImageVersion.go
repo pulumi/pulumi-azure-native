@@ -17,6 +17,8 @@ func LookupGalleryImageVersion(ctx *pulumi.Context, args *LookupGalleryImageVers
 }
 
 type LookupGalleryImageVersionArgs struct {
+	// The expand expression to apply on the operation.
+	Expand *string `pulumi:"expand"`
 	// The name of the gallery Image Definition in which the Image Version resides.
 	GalleryImageName string `pulumi:"galleryImageName"`
 	// The name of the Shared Image Gallery in which the Image Definition resides.

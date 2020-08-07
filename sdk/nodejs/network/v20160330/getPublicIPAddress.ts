@@ -15,12 +15,17 @@ export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20160330:getPublicIPAddress", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetPublicIPAddressArgs {
+    /**
+     * expand references resources.
+     */
+    readonly expand?: string;
     /**
      * The name of the subnet.
      */

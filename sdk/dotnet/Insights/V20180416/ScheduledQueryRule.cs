@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Insights.V20180416
     public partial class ScheduledQueryRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// Action needs to be taken on rule execution.
+        /// </summary>
+        [Output("action")]
+        public Output<Outputs.ActionResponseResult> Action { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the Log Search rule.
         /// </summary>
         [Output("description")]
@@ -119,6 +125,12 @@ namespace Pulumi.AzureRM.Insights.V20180416
 
     public sealed class ScheduledQueryRuleArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Action needs to be taken on rule execution.
+        /// </summary>
+        [Input("action", required: true)]
+        public Input<Inputs.ActionArgs> Action { get; set; } = null!;
+
         /// <summary>
         /// The description of the Log Search rule.
         /// </summary>

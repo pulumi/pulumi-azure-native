@@ -29,8 +29,13 @@ class ContentKeyPolicy(pulumi.CustomResource):
     options: pulumi.Output[list]
     """
     The Key Policy options.
+      * `configuration` (`dict`) - The key delivery configuration.
+        * `odata_type` (`str`) - The discriminator for derived types.
+
       * `name` (`str`) - The Policy Option description.
       * `policy_option_id` (`str`) - The legacy Policy Option ID.
+      * `restriction` (`dict`) - The requirements that must be met to deliver keys with this configuration
+        * `odata_type` (`str`) - The discriminator for derived types.
     """
     policy_id: pulumi.Output[str]
     """
@@ -54,7 +59,12 @@ class ContentKeyPolicy(pulumi.CustomResource):
 
         The **options** object supports the following:
 
+          * `configuration` (`pulumi.Input[dict]`) - The key delivery configuration.
+            * `odata_type` (`pulumi.Input[str]`) - The discriminator for derived types.
+
           * `name` (`pulumi.Input[str]`) - The Policy Option description.
+          * `restriction` (`pulumi.Input[dict]`) - The requirements that must be met to deliver keys with this configuration
+            * `odata_type` (`pulumi.Input[str]`) - The discriminator for derived types.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

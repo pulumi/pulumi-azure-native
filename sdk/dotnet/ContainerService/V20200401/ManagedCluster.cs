@@ -39,6 +39,12 @@ namespace Pulumi.AzureRM.ContainerService.V20200401
         public Output<Outputs.ManagedClusterAPIServerAccessProfileResponseResult?> ApiServerAccessProfile { get; private set; } = null!;
 
         /// <summary>
+        /// Parameters to be applied to the cluster-autoscaler when enabled
+        /// </summary>
+        [Output("autoScalerProfile")]
+        public Output<Outputs.ManagedClusterPropertiesResponseAutoScalerProfileResult?> AutoScalerProfile { get; private set; } = null!;
+
+        /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
         [Output("diskEncryptionSetID")]
@@ -244,6 +250,12 @@ namespace Pulumi.AzureRM.ContainerService.V20200401
         /// </summary>
         [Input("apiServerAccessProfile")]
         public Input<Inputs.ManagedClusterAPIServerAccessProfileArgs>? ApiServerAccessProfile { get; set; }
+
+        /// <summary>
+        /// Parameters to be applied to the cluster-autoscaler when enabled
+        /// </summary>
+        [Input("autoScalerProfile")]
+        public Input<Inputs.ManagedClusterPropertiesAutoScalerProfileArgs>? AutoScalerProfile { get; set; }
 
         /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.

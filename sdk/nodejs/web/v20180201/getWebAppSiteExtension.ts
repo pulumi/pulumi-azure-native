@@ -50,35 +50,35 @@ export interface GetWebAppSiteExtensionResult {
     /**
      * Count of downloads.
      */
-    readonly download_count?: number;
+    readonly downloadCount?: number;
     /**
      * Site extension ID.
      */
-    readonly extension_id?: string;
+    readonly extensionId?: string;
     /**
      * Site extension type.
      */
-    readonly extension_type?: string;
+    readonly extensionType?: string;
     /**
      * Extension URL.
      */
-    readonly extension_url?: string;
+    readonly extensionUrl?: string;
     /**
      * Feed URL.
      */
-    readonly feed_url?: string;
+    readonly feedUrl?: string;
     /**
      * Icon URL.
      */
-    readonly icon_url?: string;
+    readonly iconUrl?: string;
     /**
      * Installed timestamp.
      */
-    readonly installed_date_time?: string;
+    readonly installedDateTime?: string;
     /**
      * Installer command line parameters.
      */
-    readonly installer_command_line_params?: string;
+    readonly installerCommandLineParams?: string;
     /**
      * Kind of resource.
      */
@@ -86,15 +86,15 @@ export interface GetWebAppSiteExtensionResult {
     /**
      * License URL.
      */
-    readonly license_url?: string;
+    readonly licenseUrl?: string;
     /**
      * <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
      */
-    readonly local_is_latest_version?: boolean;
+    readonly localIsLatestVersion?: boolean;
     /**
      * Local path.
      */
-    readonly local_path?: string;
+    readonly localPath?: string;
     /**
      * Resource Name.
      */
@@ -102,7 +102,7 @@ export interface GetWebAppSiteExtensionResult {
     /**
      * Project URL.
      */
-    readonly project_url?: string;
+    readonly projectUrl?: string;
     /**
      * Provisioning state.
      */
@@ -110,7 +110,7 @@ export interface GetWebAppSiteExtensionResult {
     /**
      * Published timestamp.
      */
-    readonly published_date_time?: string;
+    readonly publishedDateTime?: string;
     /**
      * Summary description.
      */

@@ -2639,11 +2639,11 @@ func (o FieldDefinitionResponseMapOutput) MapIndex(k pulumi.StringInput) FieldDe
 // Automation key which is used to register a DSC Node
 type KeyResponse struct {
 	// Automation key name.
-	KeyName string `pulumi:"KeyName"`
+	KeyName string `pulumi:"keyName"`
 	// Automation key permissions.
-	Permissions string `pulumi:"Permissions"`
+	Permissions string `pulumi:"permissions"`
 	// Value of the Automation Key used for registration.
-	Value string `pulumi:"Value"`
+	Value string `pulumi:"value"`
 }
 
 // KeyResponseInput is an input type that accepts KeyResponseArgs and KeyResponseOutput values.
@@ -2660,11 +2660,11 @@ type KeyResponseInput interface {
 // Automation key which is used to register a DSC Node
 type KeyResponseArgs struct {
 	// Automation key name.
-	KeyName pulumi.StringInput `pulumi:"KeyName"`
+	KeyName pulumi.StringInput `pulumi:"keyName"`
 	// Automation key permissions.
-	Permissions pulumi.StringInput `pulumi:"Permissions"`
+	Permissions pulumi.StringInput `pulumi:"permissions"`
 	// Value of the Automation Key used for registration.
-	Value pulumi.StringInput `pulumi:"Value"`
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (KeyResponseArgs) ElementType() reflect.Type {

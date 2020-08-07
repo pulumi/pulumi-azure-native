@@ -15,12 +15,17 @@ export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20191201:getVirtualRouter", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetVirtualRouterArgs {
+    /**
+     * Expands referenced resources.
+     */
+    readonly expand?: string;
     /**
      * The name of the Virtual Router.
      */

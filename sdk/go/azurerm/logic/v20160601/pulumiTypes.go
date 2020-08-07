@@ -20521,6 +20521,8 @@ func (o WorkflowParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Workf
 
 // Gets the workflow trigger callback URL query parameters.
 type WorkflowTriggerListCallbackUrlQueriesResponse struct {
+	// The api version.
+	ApiVersion *string `pulumi:"apiVersion"`
 	// The SAS timestamp.
 	Se *string `pulumi:"se"`
 	// The SAS signature.
@@ -20544,6 +20546,8 @@ type WorkflowTriggerListCallbackUrlQueriesResponseInput interface {
 
 // Gets the workflow trigger callback URL query parameters.
 type WorkflowTriggerListCallbackUrlQueriesResponseArgs struct {
+	// The api version.
+	ApiVersion pulumi.StringPtrInput `pulumi:"apiVersion"`
 	// The SAS timestamp.
 	Se pulumi.StringPtrInput `pulumi:"se"`
 	// The SAS signature.
@@ -20579,6 +20583,11 @@ func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerLi
 
 func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesResponseOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponseOutput {
 	return o
+}
+
+// The api version.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.ApiVersion }).(pulumi.StringPtrOutput)
 }
 
 // The SAS timestamp.

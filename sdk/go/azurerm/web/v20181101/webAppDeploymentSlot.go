@@ -19,13 +19,13 @@ type WebAppDeploymentSlot struct {
 	// Who authored the deployment.
 	Author pulumi.StringPtrOutput `pulumi:"author"`
 	// Author email.
-	Author_email pulumi.StringPtrOutput `pulumi:"author_email"`
+	AuthorEmail pulumi.StringPtrOutput `pulumi:"authorEmail"`
 	// Who performed the deployment.
 	Deployer pulumi.StringPtrOutput `pulumi:"deployer"`
 	// Details on deployment.
 	Details pulumi.StringPtrOutput `pulumi:"details"`
 	// End time.
-	End_time pulumi.StringPtrOutput `pulumi:"end_time"`
+	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Details about deployment status.
@@ -33,7 +33,7 @@ type WebAppDeploymentSlot struct {
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Start time.
-	Start_time pulumi.StringPtrOutput `pulumi:"start_time"`
+	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
 	// Deployment status.
 	Status pulumi.IntPtrOutput `pulumi:"status"`
 	// Resource type.
@@ -82,13 +82,13 @@ type webAppDeploymentSlotState struct {
 	// Who authored the deployment.
 	Author *string `pulumi:"author"`
 	// Author email.
-	Author_email *string `pulumi:"author_email"`
+	AuthorEmail *string `pulumi:"authorEmail"`
 	// Who performed the deployment.
 	Deployer *string `pulumi:"deployer"`
 	// Details on deployment.
 	Details *string `pulumi:"details"`
 	// End time.
-	End_time *string `pulumi:"end_time"`
+	EndTime *string `pulumi:"endTime"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Details about deployment status.
@@ -96,7 +96,7 @@ type webAppDeploymentSlotState struct {
 	// Resource Name.
 	Name *string `pulumi:"name"`
 	// Start time.
-	Start_time *string `pulumi:"start_time"`
+	StartTime *string `pulumi:"startTime"`
 	// Deployment status.
 	Status *int `pulumi:"status"`
 	// Resource type.
@@ -109,13 +109,13 @@ type WebAppDeploymentSlotState struct {
 	// Who authored the deployment.
 	Author pulumi.StringPtrInput
 	// Author email.
-	Author_email pulumi.StringPtrInput
+	AuthorEmail pulumi.StringPtrInput
 	// Who performed the deployment.
 	Deployer pulumi.StringPtrInput
 	// Details on deployment.
 	Details pulumi.StringPtrInput
 	// End time.
-	End_time pulumi.StringPtrInput
+	EndTime pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Details about deployment status.
@@ -123,7 +123,7 @@ type WebAppDeploymentSlotState struct {
 	// Resource Name.
 	Name pulumi.StringPtrInput
 	// Start time.
-	Start_time pulumi.StringPtrInput
+	StartTime pulumi.StringPtrInput
 	// Deployment status.
 	Status pulumi.IntPtrInput
 	// Resource type.
@@ -140,13 +140,13 @@ type webAppDeploymentSlotArgs struct {
 	// Who authored the deployment.
 	Author *string `pulumi:"author"`
 	// Author email.
-	Author_email *string `pulumi:"author_email"`
+	AuthorEmail *string `pulumi:"authorEmail"`
 	// Who performed the deployment.
 	Deployer *string `pulumi:"deployer"`
 	// Details on deployment.
 	Details *string `pulumi:"details"`
 	// End time.
-	End_time *string `pulumi:"end_time"`
+	EndTime *string `pulumi:"endTime"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Details about deployment status.
@@ -158,7 +158,7 @@ type webAppDeploymentSlotArgs struct {
 	// Name of the deployment slot. If a slot is not specified, the API creates a deployment for the production slot.
 	Slot string `pulumi:"slot"`
 	// Start time.
-	Start_time *string `pulumi:"start_time"`
+	StartTime *string `pulumi:"startTime"`
 	// Deployment status.
 	Status *int `pulumi:"status"`
 }
@@ -170,13 +170,13 @@ type WebAppDeploymentSlotArgs struct {
 	// Who authored the deployment.
 	Author pulumi.StringPtrInput
 	// Author email.
-	Author_email pulumi.StringPtrInput
+	AuthorEmail pulumi.StringPtrInput
 	// Who performed the deployment.
 	Deployer pulumi.StringPtrInput
 	// Details on deployment.
 	Details pulumi.StringPtrInput
 	// End time.
-	End_time pulumi.StringPtrInput
+	EndTime pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Details about deployment status.
@@ -188,7 +188,7 @@ type WebAppDeploymentSlotArgs struct {
 	// Name of the deployment slot. If a slot is not specified, the API creates a deployment for the production slot.
 	Slot pulumi.StringInput
 	// Start time.
-	Start_time pulumi.StringPtrInput
+	StartTime pulumi.StringPtrInput
 	// Deployment status.
 	Status pulumi.IntPtrInput
 }

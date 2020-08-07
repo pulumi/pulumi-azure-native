@@ -17,6 +17,8 @@ func LookupArtifactSource(ctx *pulumi.Context, args *LookupArtifactSourceArgs, o
 }
 
 type LookupArtifactSourceArgs struct {
+	// Specify the $expand query. Example: 'properties($select=displayName)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The name of the artifact source.

@@ -32,13 +32,13 @@ type LookupWebAppDeploymentSlotResult struct {
 	// Who authored the deployment.
 	Author *string `pulumi:"author"`
 	// Author email.
-	Author_email *string `pulumi:"author_email"`
+	AuthorEmail *string `pulumi:"authorEmail"`
 	// Who performed the deployment.
 	Deployer *string `pulumi:"deployer"`
 	// Details on deployment.
 	Details *string `pulumi:"details"`
 	// End time.
-	End_time *string `pulumi:"end_time"`
+	EndTime *string `pulumi:"endTime"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Details about deployment status.
@@ -46,7 +46,7 @@ type LookupWebAppDeploymentSlotResult struct {
 	// Resource Name.
 	Name string `pulumi:"name"`
 	// Start time.
-	Start_time *string `pulumi:"start_time"`
+	StartTime *string `pulumi:"startTime"`
 	// Deployment status.
 	Status *int `pulumi:"status"`
 	// Resource type.

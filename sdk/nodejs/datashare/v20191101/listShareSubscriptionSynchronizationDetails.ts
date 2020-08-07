@@ -18,6 +18,7 @@ export function listShareSubscriptionSynchronizationDetails(args: ListShareSubsc
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "shareSubscriptionName": args.shareSubscriptionName,
+        "skipToken": args.skipToken,
         "synchronizationId": args.synchronizationId,
     }, opts);
 }
@@ -35,6 +36,10 @@ export interface ListShareSubscriptionSynchronizationDetailsArgs {
      * The name of the share subscription.
      */
     readonly shareSubscriptionName: string;
+    /**
+     * Continuation token
+     */
+    readonly skipToken?: string;
     /**
      * Synchronization id
      */

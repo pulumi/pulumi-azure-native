@@ -17,6 +17,8 @@ func LookupNotificationChannel(ctx *pulumi.Context, args *LookupNotificationChan
 }
 
 type LookupNotificationChannelArgs struct {
+	// Specify the $expand query. Example: 'properties($select=webHookUrl)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The name of the notificationChannel.

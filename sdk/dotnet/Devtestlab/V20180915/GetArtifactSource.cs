@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class GetArtifactSourceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=displayName)'
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]

@@ -15,12 +15,17 @@ export function getRouteFilter(args: GetRouteFilterArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20170301:getRouteFilter", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetRouteFilterArgs {
+    /**
+     * Expands referenced express route bgp peering resources.
+     */
+    readonly expand?: string;
     /**
      * The name of the route filter.
      */

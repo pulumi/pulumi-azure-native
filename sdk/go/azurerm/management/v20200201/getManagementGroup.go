@@ -17,8 +17,14 @@ func LookupManagementGroup(ctx *pulumi.Context, args *LookupManagementGroupArgs,
 }
 
 type LookupManagementGroupArgs struct {
+	// The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
+	Expand *string `pulumi:"expand"`
+	// A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
+	Filter *string `pulumi:"filter"`
 	// Management Group ID.
 	Name string `pulumi:"name"`
+	// The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
+	Recurse *bool `pulumi:"recurse"`
 }
 
 // The management group details.

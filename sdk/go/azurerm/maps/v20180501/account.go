@@ -18,6 +18,8 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Maps Account, which is unique within a Resource Group.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The map account properties.
+	Properties MapsAccountPropertiesResponseOutput `pulumi:"properties"`
 	// The SKU of this account.
 	Sku SkuResponseOutput `pulumi:"sku"`
 	// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
@@ -70,6 +72,8 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// The name of the Maps Account, which is unique within a Resource Group.
 	Name *string `pulumi:"name"`
+	// The map account properties.
+	Properties *MapsAccountPropertiesResponse `pulumi:"properties"`
 	// The SKU of this account.
 	Sku *SkuResponse `pulumi:"sku"`
 	// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
@@ -83,6 +87,8 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// The name of the Maps Account, which is unique within a Resource Group.
 	Name pulumi.StringPtrInput
+	// The map account properties.
+	Properties MapsAccountPropertiesResponsePtrInput
 	// The SKU of this account.
 	Sku SkuResponsePtrInput
 	// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.

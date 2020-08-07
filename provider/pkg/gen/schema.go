@@ -139,7 +139,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 
 	err = gen.normalizeName(key, resourceRequest, resourceResponse)
 	if err != nil {
-		log.Printf("failed to assign name for '%s'", resourceTok, err.Error())
+		log.Printf("failed to assign name for '%s': %s", resourceTok, err.Error())
 		return
 	}
 
@@ -400,19 +400,14 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			},
 		}
 
-		name := param.Name
-		if clientName, ok := param.Extensions.GetString("x-ms-client-name"); ok {
-			name = firstToLower(clientName)
-			apiParameter.Value.SdkName = name
-		}
-
 		switch {
+		case param.In == "header":
+			continue // Header parameters aren't mapped to the SDK.
 		case param.Name == "subscriptionId":
-		case !isLegalIdentifier(param.Name): // If-Match, Accept-Header, x-ms-foobar, ...
-			// TODO: Find a more principled criteria to skip those.
-
-			// The body parameter is flattened, so that all its properties become the properties of the type.
+		case param.Name == "api-version":
+			continue // No need to include these in the schema, they are added automatically by the provider.
 		case param.In == "body":
+			// The body parameter is flattened, so that all its properties become the properties of the type.
 			if param.Schema == nil {
 				return nil, errors.Errorf("no schema for body parameter '%s'", param.Name)
 			}
@@ -434,6 +429,17 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			}
 
 		default:
+			name := param.Name
+			if clientName, ok := param.Extensions.GetString("x-ms-client-name"); ok {
+				name = clientName
+			}
+
+			// Change the name to lowerCamelCase.
+			name = toLowerCamel(name)
+			if name != param.Name {
+				apiParameter.Value.SdkName = name
+			}
+
 			propertySpec := pschema.PropertySpec{
 				Description: param.Description,
 				TypeSpec: pschema.TypeSpec{
@@ -526,10 +532,8 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		if clientName, ok := property.Extensions.GetString("x-ms-client-name"); ok {
 			sdkName = firstToLower(clientName)
 		}
-		if !isLegalIdentifier(sdkName) {
-			// TODO: Support mapping to a legal name, or make the schema codegen do so?
-			continue
-		}
+		// Change the name to lowerCamelCase.
+		sdkName = toLowerCamel(sdkName)
 
 		// Flattened properties aren't modelled in the SDK explicitly: their sub-properties are merged directly to the parent.
 		if flatten, ok := property.Extensions.GetBool("x-ms-client-flatten"); ok && flatten {

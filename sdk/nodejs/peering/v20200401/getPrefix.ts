@@ -15,6 +15,7 @@ export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:peering/v20200401:getPrefix", {
+        "expand": args.expand,
         "name": args.name,
         "peeringServiceName": args.peeringServiceName,
         "resourceGroupName": args.resourceGroupName,
@@ -22,6 +23,10 @@ export function getPrefix(args: GetPrefixArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetPrefixArgs {
+    /**
+     * The properties to be expanded.
+     */
+    readonly expand?: string;
     /**
      * The name of the prefix.
      */

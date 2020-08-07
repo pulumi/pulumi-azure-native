@@ -13,7 +13,13 @@ class GetAlertRuleResult:
     """
     The alert rule resource.
     """
-    def __init__(__self__, condition=None, description=None, is_enabled=None, last_updated_time=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, actions=None, condition=None, description=None, is_enabled=None, last_updated_time=None, location=None, name=None, tags=None, type=None):
+        if actions and not isinstance(actions, list):
+            raise TypeError("Expected argument 'actions' to be a list")
+        __self__.actions = actions
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
         if condition and not isinstance(condition, dict):
             raise TypeError("Expected argument 'condition' to be a dict")
         __self__.condition = condition
@@ -70,6 +76,7 @@ class AwaitableGetAlertRuleResult(GetAlertRuleResult):
         if False:
             yield self
         return GetAlertRuleResult(
+            actions=self.actions,
             condition=self.condition,
             description=self.description,
             is_enabled=self.is_enabled,
@@ -97,6 +104,7 @@ def get_alert_rule(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20160301:getAlertRule', __args__, opts=opts).value
 
     return AwaitableGetAlertRuleResult(
+        actions=__ret__.get('actions'),
         condition=__ret__.get('condition'),
         description=__ret__.get('description'),
         is_enabled=__ret__.get('isEnabled'),

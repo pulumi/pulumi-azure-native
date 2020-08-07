@@ -15,6 +15,7 @@ export function getEnvironmentSetting(args: GetEnvironmentSettingArgs, opts?: pu
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:labservices/v20181015:getEnvironmentSetting", {
+        "expand": args.expand,
         "labAccountName": args.labAccountName,
         "labName": args.labName,
         "name": args.name,
@@ -23,6 +24,10 @@ export function getEnvironmentSetting(args: GetEnvironmentSettingArgs, opts?: pu
 }
 
 export interface GetEnvironmentSettingArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=publishingState)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab Account.
      */

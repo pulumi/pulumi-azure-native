@@ -38,14 +38,16 @@ class AwaitableListRemediationDeploymentsAtSubscriptionResult(ListRemediationDep
             value=self.value)
 
 
-def list_remediation_deployments_at_subscription(remediation_name=None, opts=None):
+def list_remediation_deployments_at_subscription(remediation_name=None, top=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
     :param str remediation_name: The name of the remediation.
+    :param float top: Maximum number of records to return.
     """
     __args__ = dict()
     __args__['remediationName'] = remediation_name
+    __args__['top'] = top
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

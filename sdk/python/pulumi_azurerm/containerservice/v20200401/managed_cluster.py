@@ -60,6 +60,19 @@ class ManagedCluster(pulumi.CustomResource):
       * `authorized_ip_ranges` (`list`) - Authorized IP Ranges to kubernetes API server.
       * `enable_private_cluster` (`bool`) - Whether to create the cluster as a private cluster or not.
     """
+    auto_scaler_profile: pulumi.Output[dict]
+    """
+    Parameters to be applied to the cluster-autoscaler when enabled
+      * `balance_similar_node_groups` (`str`)
+      * `max_graceful_termination_sec` (`str`)
+      * `scale_down_delay_after_add` (`str`)
+      * `scale_down_delay_after_delete` (`str`)
+      * `scale_down_delay_after_failure` (`str`)
+      * `scale_down_unneeded_time` (`str`)
+      * `scale_down_unready_time` (`str`)
+      * `scale_down_utilization_threshold` (`str`)
+      * `scan_interval` (`str`)
+    """
     disk_encryption_set_id: pulumi.Output[str]
     """
     ResourceId of the disk encryption set to use for enabling encryption at rest.
@@ -181,7 +194,7 @@ class ManagedCluster(pulumi.CustomResource):
       * `admin_password` (`str`) - The administrator password to use for Windows VMs.
       * `admin_username` (`str`) - The administrator username to use for Windows VMs.
     """
-    def __init__(__self__, resource_name, opts=None, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, resource_group_name=None, service_principal_profile=None, sku=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, disk_encryption_set_id=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, identity=None, identity_profile=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, resource_group_name=None, service_principal_profile=None, sku=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
         """
         Managed cluster.
 
@@ -191,6 +204,7 @@ class ManagedCluster(pulumi.CustomResource):
         :param pulumi.Input[dict] addon_profiles: Profile of managed cluster add-on.
         :param pulumi.Input[list] agent_pool_profiles: Properties of the agent pool.
         :param pulumi.Input[dict] api_server_access_profile: Access profile for managed cluster API server.
+        :param pulumi.Input[dict] auto_scaler_profile: Parameters to be applied to the cluster-autoscaler when enabled
         :param pulumi.Input[str] disk_encryption_set_id: ResourceId of the disk encryption set to use for enabling encryption at rest.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster.
         :param pulumi.Input[bool] enable_pod_security_policy: (PREVIEW) Whether to enable Kubernetes Pod security policy.
@@ -250,6 +264,18 @@ class ManagedCluster(pulumi.CustomResource):
 
           * `authorized_ip_ranges` (`pulumi.Input[list]`) - Authorized IP Ranges to kubernetes API server.
           * `enable_private_cluster` (`pulumi.Input[bool]`) - Whether to create the cluster as a private cluster or not.
+
+        The **auto_scaler_profile** object supports the following:
+
+          * `balance_similar_node_groups` (`pulumi.Input[str]`)
+          * `max_graceful_termination_sec` (`pulumi.Input[str]`)
+          * `scale_down_delay_after_add` (`pulumi.Input[str]`)
+          * `scale_down_delay_after_delete` (`pulumi.Input[str]`)
+          * `scale_down_delay_after_failure` (`pulumi.Input[str]`)
+          * `scale_down_unneeded_time` (`pulumi.Input[str]`)
+          * `scale_down_unready_time` (`pulumi.Input[str]`)
+          * `scale_down_utilization_threshold` (`pulumi.Input[str]`)
+          * `scan_interval` (`pulumi.Input[str]`)
 
         The **identity** object supports the following:
 
@@ -325,6 +351,7 @@ class ManagedCluster(pulumi.CustomResource):
             __props__['addon_profiles'] = addon_profiles
             __props__['agent_pool_profiles'] = agent_pool_profiles
             __props__['api_server_access_profile'] = api_server_access_profile
+            __props__['auto_scaler_profile'] = auto_scaler_profile
             __props__['disk_encryption_set_id'] = disk_encryption_set_id
             __props__['dns_prefix'] = dns_prefix
             __props__['enable_pod_security_policy'] = enable_pod_security_policy

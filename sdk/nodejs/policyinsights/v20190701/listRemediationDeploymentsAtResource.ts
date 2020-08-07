@@ -17,6 +17,7 @@ export function listRemediationDeploymentsAtResource(args: ListRemediationDeploy
     return pulumi.runtime.invoke("azurerm:policyinsights/v20190701:listRemediationDeploymentsAtResource", {
         "remediationName": args.remediationName,
         "resourceId": args.resourceId,
+        "top": args.top,
     }, opts);
 }
 
@@ -29,6 +30,10 @@ export interface ListRemediationDeploymentsAtResourceArgs {
      * Resource ID.
      */
     readonly resourceId: string;
+    /**
+     * Maximum number of records to return.
+     */
+    readonly top?: number;
 }
 
 /**

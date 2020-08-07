@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20160601
     public sealed class GetVirtualNetworkArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// expand references resources.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the virtual network.
         /// </summary>
         [Input("name", required: true)]
@@ -39,10 +45,6 @@ namespace Pulumi.AzureRM.Network.V20160601
     [OutputType]
     public sealed class GetVirtualNetworkResult
     {
-        /// <summary>
-        /// Gets or sets list of peerings in a VirtualNetwork
-        /// </summary>
-        public readonly ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult> VirtualNetworkPeerings;
         /// <summary>
         /// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
         /// </summary>
@@ -83,11 +85,13 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Gets or sets list of peerings in a VirtualNetwork
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult> VirtualNetworkPeerings;
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
-            ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult> VirtualNetworkPeerings,
-
             Outputs.AddressSpaceResponseResult? addressSpace,
 
             Outputs.DhcpOptionsResponseResult? dhcpOptions,
@@ -106,9 +110,10 @@ namespace Pulumi.AzureRM.Network.V20160601
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult> virtualNetworkPeerings)
         {
-            this.VirtualNetworkPeerings = VirtualNetworkPeerings;
             AddressSpace = addressSpace;
             DhcpOptions = dhcpOptions;
             Etag = etag;
@@ -119,6 +124,7 @@ namespace Pulumi.AzureRM.Network.V20160601
             Subnets = subnets;
             Tags = tags;
             Type = type;
+            VirtualNetworkPeerings = virtualNetworkPeerings;
         }
     }
 }

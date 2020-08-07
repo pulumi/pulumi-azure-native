@@ -216,12 +216,6 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
     public sealed class VirtualMachineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// referer url
-        /// </summary>
-        [Input("Referer", required: true)]
-        public Input<string> Referer { get; set; } = null!;
-
-        /// <summary>
         /// The amount of memory
         /// </summary>
         [Input("amountOfRam", required: true)]

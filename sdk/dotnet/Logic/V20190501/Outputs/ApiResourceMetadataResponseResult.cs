@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
 
         [OutputConstructor]
         private ApiResourceMetadataResponseResult(
-            string? ApiType,
+            string? apiType,
 
             string? brandColor,
 
@@ -76,7 +76,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
 
             Outputs.WsdlServiceResponseResult? wsdlService)
         {
-            this.ApiType = ApiType;
+            ApiType = apiType;
             BrandColor = brandColor;
             ConnectionType = connectionType;
             DeploymentParameters = deploymentParameters;

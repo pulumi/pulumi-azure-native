@@ -17,55 +17,49 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <summary>
         /// The content of this item
         /// </summary>
-        [Output("Content")]
+        [Output("content")]
         public Output<string?> Content { get; private set; } = null!;
-
-        /// <summary>
-        /// Internally assigned unique id of the item definition.
-        /// </summary>
-        [Output("Id")]
-        public Output<string?> Id { get; private set; } = null!;
 
         /// <summary>
         /// The user-defined name of the item.
         /// </summary>
-        [Output("Name")]
+        [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         /// </summary>
-        [Output("Properties")]
-        public Output<Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponseResult?> Properties { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
-        [Output("Scope")]
+        [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
 
         /// <summary>
         /// Date and time in UTC when this item was created.
         /// </summary>
-        [Output("TimeCreated")]
+        [Output("timeCreated")]
         public Output<string> TimeCreated { get; private set; } = null!;
 
         /// <summary>
         /// Date and time in UTC of the last modification that was made to this item.
         /// </summary>
-        [Output("TimeModified")]
+        [Output("timeModified")]
         public Output<string> TimeModified { get; private set; } = null!;
 
         /// <summary>
         /// Enum indicating the type of the Analytics item.
         /// </summary>
-        [Output("Type")]
+        [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
         /// This instance's version of the data model. This can change as new features are added.
         /// </summary>
-        [Output("Version")]
+        [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
 
@@ -116,44 +110,32 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <summary>
         /// The content of this item
         /// </summary>
-        [Input("Content")]
+        [Input("content")]
         public Input<string>? Content { get; set; }
 
         /// <summary>
         /// Internally assigned unique id of the item definition.
         /// </summary>
-        [Input("Id")]
+        [Input("id")]
         public Input<string>? Id { get; set; }
-
-        /// <summary>
-        /// The user-defined name of the item.
-        /// </summary>
-        [Input("Name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
-        /// </summary>
-        [Input("Properties")]
-        public Input<Inputs.ApplicationInsightsComponentAnalyticsItemPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
-        [Input("Scope")]
-        public Input<string>? Scope { get; set; }
-
-        /// <summary>
-        /// Enum indicating the type of the Analytics item.
-        /// </summary>
-        [Input("Type")]
-        public Input<string>? Type { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
         /// </summary>
         [Input("overrideItem")]
         public Input<bool>? OverrideItem { get; set; }
+
+        /// <summary>
+        /// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.ApplicationInsightsComponentAnalyticsItemPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -170,8 +152,14 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <summary>
         /// Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
-        [Input("scopePath", required: true)]
-        public Input<string> ScopePath { get; set; } = null!;
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        /// <summary>
+        /// Enum indicating the type of the Analytics item.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public AnalyticsItemArgs()
         {

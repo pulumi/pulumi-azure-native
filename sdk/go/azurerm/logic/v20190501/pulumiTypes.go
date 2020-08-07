@@ -5678,7 +5678,7 @@ func (o ApiResourceGeneralInformationResponsePtrOutput) Tier() pulumi.StringPtrO
 // The api resource metadata.
 type ApiResourceMetadataResponse struct {
 	// The api type.
-	ApiType *string `pulumi:"ApiType"`
+	ApiType *string `pulumi:"apiType"`
 	// The brand color.
 	BrandColor *string `pulumi:"brandColor"`
 	// The connection type.
@@ -5713,7 +5713,7 @@ type ApiResourceMetadataResponseInput interface {
 // The api resource metadata.
 type ApiResourceMetadataResponseArgs struct {
 	// The api type.
-	ApiType pulumi.StringPtrInput `pulumi:"ApiType"`
+	ApiType pulumi.StringPtrInput `pulumi:"apiType"`
 	// The brand color.
 	BrandColor pulumi.StringPtrInput `pulumi:"brandColor"`
 	// The connection type.
@@ -24527,6 +24527,8 @@ func (o WorkflowParameterResponseMapOutput) MapIndex(k pulumi.StringInput) Workf
 
 // Gets the workflow trigger callback URL query parameters.
 type WorkflowTriggerListCallbackUrlQueriesResponse struct {
+	// The api version.
+	ApiVersion *string `pulumi:"apiVersion"`
 	// The SAS timestamp.
 	Se *string `pulumi:"se"`
 	// The SAS signature.
@@ -24550,6 +24552,8 @@ type WorkflowTriggerListCallbackUrlQueriesResponseInput interface {
 
 // Gets the workflow trigger callback URL query parameters.
 type WorkflowTriggerListCallbackUrlQueriesResponseArgs struct {
+	// The api version.
+	ApiVersion pulumi.StringPtrInput `pulumi:"apiVersion"`
 	// The SAS timestamp.
 	Se pulumi.StringPtrInput `pulumi:"se"`
 	// The SAS signature.
@@ -24585,6 +24589,11 @@ func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerLi
 
 func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesResponseOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponseOutput {
 	return o
+}
+
+// The api version.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.ApiVersion }).(pulumi.StringPtrOutput)
 }
 
 // The SAS timestamp.
@@ -25068,7 +25077,7 @@ func (o WorkflowTriggerRecurrenceResponsePtrOutput) TimeZone() pulumi.StringPtrO
 // The WSDL service.
 type WsdlServiceResponse struct {
 	// The list of endpoints' qualified names.
-	EndpointQualifiedNames []string `pulumi:"EndpointQualifiedNames"`
+	EndpointQualifiedNames []string `pulumi:"endpointQualifiedNames"`
 	// The qualified name.
 	QualifiedName *string `pulumi:"qualifiedName"`
 }
@@ -25087,7 +25096,7 @@ type WsdlServiceResponseInput interface {
 // The WSDL service.
 type WsdlServiceResponseArgs struct {
 	// The list of endpoints' qualified names.
-	EndpointQualifiedNames pulumi.StringArrayInput `pulumi:"EndpointQualifiedNames"`
+	EndpointQualifiedNames pulumi.StringArrayInput `pulumi:"endpointQualifiedNames"`
 	// The qualified name.
 	QualifiedName pulumi.StringPtrInput `pulumi:"qualifiedName"`
 }

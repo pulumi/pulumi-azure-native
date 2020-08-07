@@ -15,12 +15,17 @@ export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:compute/v20191201:getVirtualMachine", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetVirtualMachineArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    readonly expand?: string;
     /**
      * The name of the virtual machine.
      */

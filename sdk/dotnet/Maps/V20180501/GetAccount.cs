@@ -48,6 +48,10 @@ namespace Pulumi.AzureRM.Maps.V20180501
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The map account properties.
+        /// </summary>
+        public readonly Outputs.MapsAccountPropertiesResponseResult Properties;
+        /// <summary>
         /// The SKU of this account.
         /// </summary>
         public readonly Outputs.SkuResponseResult Sku;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureRM.Maps.V20180501
 
             string name,
 
+            Outputs.MapsAccountPropertiesResponseResult properties,
+
             Outputs.SkuResponseResult sku,
 
             ImmutableDictionary<string, string> tags,
@@ -74,6 +80,7 @@ namespace Pulumi.AzureRM.Maps.V20180501
         {
             Location = location;
             Name = name;
+            Properties = properties;
             Sku = sku;
             Tags = tags;
             Type = type;

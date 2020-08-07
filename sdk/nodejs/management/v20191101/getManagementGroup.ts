@@ -15,15 +15,30 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:management/v20191101:getManagementGroup", {
+        "expand": args.expand,
+        "filter": args.filter,
         "name": args.name,
+        "recurse": args.recurse,
     }, opts);
 }
 
 export interface GetManagementGroupArgs {
     /**
+     * The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
+     */
+    readonly expand?: string;
+    /**
+     * A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
+     */
+    readonly filter?: string;
+    /**
      * Management Group ID.
      */
     readonly name: string;
+    /**
+     * The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
+     */
+    readonly recurse?: boolean;
 }
 
 /**

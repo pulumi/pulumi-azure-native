@@ -45,7 +45,7 @@ export class WebAppDeployment extends pulumi.CustomResource {
     /**
      * Author email.
      */
-    public readonly author_email!: pulumi.Output<string | undefined>;
+    public readonly authorEmail!: pulumi.Output<string | undefined>;
     /**
      * Who performed the deployment.
      */
@@ -57,7 +57,7 @@ export class WebAppDeployment extends pulumi.CustomResource {
     /**
      * End time.
      */
-    public readonly end_time!: pulumi.Output<string | undefined>;
+    public readonly endTime!: pulumi.Output<string | undefined>;
     /**
      * Kind of resource.
      */
@@ -73,7 +73,7 @@ export class WebAppDeployment extends pulumi.CustomResource {
     /**
      * Start time.
      */
-    public readonly start_time!: pulumi.Output<string | undefined>;
+    public readonly startTime!: pulumi.Output<string | undefined>;
     /**
      * Deployment status.
      */
@@ -104,15 +104,15 @@ export class WebAppDeployment extends pulumi.CustomResource {
             }
             inputs["active"] = args ? args.active : undefined;
             inputs["author"] = args ? args.author : undefined;
-            inputs["author_email"] = args ? args.author_email : undefined;
+            inputs["authorEmail"] = args ? args.authorEmail : undefined;
             inputs["deployer"] = args ? args.deployer : undefined;
             inputs["details"] = args ? args.details : undefined;
-            inputs["end_time"] = args ? args.end_time : undefined;
+            inputs["endTime"] = args ? args.endTime : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["message"] = args ? args.message : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["start_time"] = args ? args.start_time : undefined;
+            inputs["startTime"] = args ? args.startTime : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["type"] = undefined /*out*/;
         }
@@ -142,7 +142,7 @@ export interface WebAppDeploymentArgs {
     /**
      * Author email.
      */
-    readonly author_email?: pulumi.Input<string>;
+    readonly authorEmail?: pulumi.Input<string>;
     /**
      * Who performed the deployment.
      */
@@ -154,7 +154,7 @@ export interface WebAppDeploymentArgs {
     /**
      * End time.
      */
-    readonly end_time?: pulumi.Input<string>;
+    readonly endTime?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
@@ -174,7 +174,7 @@ export interface WebAppDeploymentArgs {
     /**
      * Start time.
      */
-    readonly start_time?: pulumi.Input<string>;
+    readonly startTime?: pulumi.Input<string>;
     /**
      * Deployment status.
      */

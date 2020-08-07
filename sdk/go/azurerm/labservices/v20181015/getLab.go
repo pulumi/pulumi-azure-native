@@ -17,6 +17,8 @@ func LookupLab(ctx *pulumi.Context, args *LookupLabArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupLabArgs struct {
+	// Specify the $expand query. Example: 'properties($select=maxUsersInLab)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab Account.
 	LabAccountName string `pulumi:"labAccountName"`
 	// The name of the lab.

@@ -17,6 +17,8 @@ func LookupEnvironment(ctx *pulumi.Context, args *LookupEnvironmentArgs, opts ..
 }
 
 type LookupEnvironmentArgs struct {
+	// Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
+	Expand *string `pulumi:"expand"`
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	Name string `pulumi:"name"`
 	// Name of an Azure Resource group.
