@@ -12,7 +12,9 @@ from .api_management_service import *
 from .api_operation import *
 from .api_operation_policy import *
 from .api_policy import *
+from .api_release import *
 from .api_schema import *
+from .api_version_set import *
 from .authorization_server import *
 from .backend import *
 from .certificate import *
@@ -27,7 +29,9 @@ from .get_api_management_service import *
 from .get_api_operation import *
 from .get_api_operation_policy import *
 from .get_api_policy import *
+from .get_api_release import *
 from .get_api_schema import *
+from .get_api_version_set import *
 from .get_authorization_server import *
 from .get_backend import *
 from .get_certificate import *
