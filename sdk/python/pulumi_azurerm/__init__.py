@@ -69,6 +69,7 @@ from . import (
     managedservices,
     management,
     maps,
+    marketplace,
     media,
     migrate,
     mixedreality,

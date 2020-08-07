@@ -124,7 +124,8 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		visitedTypes:  make(map[string]bool),
 	}
 
-	resourceRequest, err := gen.genMethodParameters(path.Put.Parameters, g.swagger.ReferenceContext)
+	parameters := g.mergeParameters(path.Put.Parameters, path.Parameters)
+	resourceRequest, err := gen.genMethodParameters(parameters, g.swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", resourceTok, err.Error())
 		return
@@ -159,7 +160,8 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, typeName)
 
-	requestFunction, err := gen.genMethodParameters(path.Get.Parameters, g.swagger.ReferenceContext)
+	parameters = g.mergeParameters(path.Get.Parameters, path.Parameters)
+	requestFunction, err := gen.genMethodParameters(parameters, g.swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
@@ -237,7 +239,8 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:list%s`, g.pkg.Name, module, typeName)
 
-	request, err := gen.genMethodParameters(path.Post.Parameters, g.swagger.ReferenceContext)
+	parameters := g.mergeParameters(path.Post.Parameters, path.Parameters)
+	request, err := gen.genMethodParameters(parameters, g.swagger.ReferenceContext)
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
@@ -283,6 +286,27 @@ func (g *packageGenerator) apiVersion() string {
 // providerToModule produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).
 func (g *packageGenerator) providerToModule(prov string) string {
 	return fmt.Sprintf("%s/v%s", strings.ToLower(prov), g.apiVersion())
+}
+
+// mergeParameters combines the Path Item parameters with Operation parameters.
+func (g *packageGenerator) mergeParameters (operation []spec.Parameter, pathItem []spec.Parameter) []spec.Parameter {
+	// Open API spec for operations:
+	// > If a parameter is already defined at the Path Item, the new definition will override it.
+	// > A unique parameter is defined by a combination of a name and location.
+	var result []spec.Parameter
+	seen := map[string]bool{}
+	for _, p := range operation {
+		key := fmt.Sprintf("%s@%s", p.Name, p.In)
+		seen[key] = true
+		result = append(result, p)
+	}
+	for _, p := range pathItem {
+		key := fmt.Sprintf("%s@%s", p.Name, p.In)
+		if _, ok := seen[key]; !ok {
+			result = append(result, p)
+		}
+	}
+	return result
 }
 
 type moduleGenerator struct {
