@@ -15,10 +15,6 @@ class RecordSet(pulumi.CustomResource):
     The list of A records in the record set.
       * `ipv4_address` (`str`) - The IPv4 address of this A record.
     """
-    ttl: pulumi.Output[float]
-    """
-    The TTL (time-to-live) of the records in the record set.
-    """
     aaaa_records: pulumi.Output[list]
     """
     The list of AAAA records in the record set.
@@ -87,6 +83,10 @@ class RecordSet(pulumi.CustomResource):
       * `target` (`str`) - The target domain name for this SRV record.
       * `weight` (`float`) - The weight value for this SRV record.
     """
+    ttl: pulumi.Output[float]
+    """
+    The TTL (time-to-live) of the records in the record set.
+    """
     txt_records: pulumi.Output[list]
     """
     The list of TXT records in the record set.
@@ -96,14 +96,13 @@ class RecordSet(pulumi.CustomResource):
     """
     The type of the record set.
     """
-    def __init__(__self__, resource_name, opts=None, a_records=None, ttl=None, aaaa_records=None, caa_records=None, cname_record=None, etag=None, metadata=None, mx_records=None, name=None, ns_records=None, ptr_records=None, record_type=None, resource_group_name=None, soa_record=None, srv_records=None, txt_records=None, zone_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, a_records=None, aaaa_records=None, caa_records=None, cname_record=None, etag=None, metadata=None, mx_records=None, name=None, ns_records=None, ptr_records=None, record_type=None, resource_group_name=None, soa_record=None, srv_records=None, ttl=None, txt_records=None, zone_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] a_records: The list of A records in the record set.
-        :param pulumi.Input[float] ttl: The TTL (time-to-live) of the records in the record set.
         :param pulumi.Input[list] aaaa_records: The list of AAAA records in the record set.
         :param pulumi.Input[list] caa_records: The list of CAA records in the record set.
         :param pulumi.Input[dict] cname_record: The CNAME record in the  record set.
@@ -117,6 +116,7 @@ class RecordSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[dict] soa_record: The SOA record in the record set.
         :param pulumi.Input[list] srv_records: The list of SRV records in the record set.
+        :param pulumi.Input[float] ttl: The TTL (time-to-live) of the records in the record set.
         :param pulumi.Input[list] txt_records: The list of TXT records in the record set.
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
 
@@ -190,7 +190,6 @@ class RecordSet(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['a_records'] = a_records
-            __props__['ttl'] = ttl
             __props__['aaaa_records'] = aaaa_records
             __props__['caa_records'] = caa_records
             __props__['cname_record'] = cname_record
@@ -210,6 +209,7 @@ class RecordSet(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['soa_record'] = soa_record
             __props__['srv_records'] = srv_records
+            __props__['ttl'] = ttl
             __props__['txt_records'] = txt_records
             if zone_name is None:
                 raise TypeError("Missing required property 'zone_name'")

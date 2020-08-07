@@ -23,6 +23,8 @@ type ListRemediationDeploymentsAtManagementGroupArgs struct {
 	ManagementGroupsNamespace string `pulumi:"managementGroupsNamespace"`
 	// The name of the remediation.
 	RemediationName string `pulumi:"remediationName"`
+	// Maximum number of records to return.
+	Top *int `pulumi:"top"`
 }
 
 // List of deployments for a remediation.

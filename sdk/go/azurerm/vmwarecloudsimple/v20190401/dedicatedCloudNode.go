@@ -55,9 +55,6 @@ type DedicatedCloudNode struct {
 // NewDedicatedCloudNode registers a new resource with the given unique name, arguments, and options.
 func NewDedicatedCloudNode(ctx *pulumi.Context,
 	name string, args *DedicatedCloudNodeArgs, opts ...pulumi.ResourceOption) (*DedicatedCloudNode, error) {
-	if args == nil || args.Referer == nil {
-		return nil, errors.New("missing required argument 'Referer'")
-	}
 	if args == nil || args.AvailabilityZoneId == nil {
 		return nil, errors.New("missing required argument 'AvailabilityZoneId'")
 	}
@@ -189,8 +186,6 @@ func (DedicatedCloudNodeState) ElementType() reflect.Type {
 }
 
 type dedicatedCloudNodeArgs struct {
-	// referer url
-	Referer string `pulumi:"Referer"`
 	// Availability Zone id, e.g. "az1"
 	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
 	// SKU's id
@@ -215,8 +210,6 @@ type dedicatedCloudNodeArgs struct {
 
 // The set of arguments for constructing a DedicatedCloudNode resource.
 type DedicatedCloudNodeArgs struct {
-	// referer url
-	Referer pulumi.StringInput
 	// Availability Zone id, e.g. "az1"
 	AvailabilityZoneId pulumi.StringInput
 	// SKU's id

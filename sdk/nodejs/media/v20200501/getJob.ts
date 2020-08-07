@@ -62,6 +62,10 @@ export interface GetJobResult {
      */
     readonly endTime: string;
     /**
+     * The inputs for the Job.
+     */
+    readonly input: outputs.media.v20200501.JobInputResponse;
+    /**
      * The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
     readonly lastModified: string;

@@ -51,7 +51,7 @@ export interface GetWebAppDeploymentSlotResult {
     /**
      * Author email.
      */
-    readonly author_email?: string;
+    readonly authorEmail?: string;
     /**
      * Who performed the deployment.
      */
@@ -63,7 +63,7 @@ export interface GetWebAppDeploymentSlotResult {
     /**
      * End time.
      */
-    readonly end_time?: string;
+    readonly endTime?: string;
     /**
      * Kind of resource.
      */
@@ -79,7 +79,7 @@ export interface GetWebAppDeploymentSlotResult {
     /**
      * Start time.
      */
-    readonly start_time?: string;
+    readonly startTime?: string;
     /**
      * Deployment status.
      */

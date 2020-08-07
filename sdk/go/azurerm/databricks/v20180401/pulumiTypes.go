@@ -453,7 +453,7 @@ func (o CreatedByResponsePtrOutput) Puid() pulumi.StringPtrOutput {
 // The object that contains details of encryption used on the workspace.
 type Encryption struct {
 	// The name of KeyVault key.
-	KeyName *string `pulumi:"KeyName"`
+	KeyName *string `pulumi:"keyName"`
 	// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
 	KeySource *string `pulumi:"keySource"`
 	// The Uri of KeyVault.
@@ -476,7 +476,7 @@ type EncryptionInput interface {
 // The object that contains details of encryption used on the workspace.
 type EncryptionArgs struct {
 	// The name of KeyVault key.
-	KeyName pulumi.StringPtrInput `pulumi:"KeyName"`
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
 	// The Uri of KeyVault.
@@ -644,7 +644,7 @@ func (o EncryptionPtrOutput) KeyVersion() pulumi.StringPtrOutput {
 // The object that contains details of encryption used on the workspace.
 type EncryptionResponse struct {
 	// The name of KeyVault key.
-	KeyName *string `pulumi:"KeyName"`
+	KeyName *string `pulumi:"keyName"`
 	// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
 	KeySource *string `pulumi:"keySource"`
 	// The Uri of KeyVault.
@@ -667,7 +667,7 @@ type EncryptionResponseInput interface {
 // The object that contains details of encryption used on the workspace.
 type EncryptionResponseArgs struct {
 	// The name of KeyVault key.
-	KeyName pulumi.StringPtrInput `pulumi:"KeyName"`
+	KeyName pulumi.StringPtrInput `pulumi:"keyName"`
 	// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
 	// The Uri of KeyVault.

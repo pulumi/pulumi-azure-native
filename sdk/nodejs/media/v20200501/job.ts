@@ -53,6 +53,10 @@ export class Job extends pulumi.CustomResource {
      */
     public /*out*/ readonly endTime!: pulumi.Output<string>;
     /**
+     * The inputs for the Job.
+     */
+    public readonly input!: pulumi.Output<outputs.media.v20200501.JobInputResponse>;
+    /**
      * The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
     public /*out*/ readonly lastModified!: pulumi.Output<string>;
@@ -97,6 +101,9 @@ export class Job extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.input === undefined) {
+                throw new Error("Missing required property 'input'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -112,6 +119,7 @@ export class Job extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["correlationData"] = args ? args.correlationData : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["input"] = args ? args.input : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["outputs"] = args ? args.outputs : undefined;
             inputs["priority"] = args ? args.priority : undefined;
@@ -151,6 +159,10 @@ export interface JobArgs {
      * Optional customer supplied description of the Job.
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * The inputs for the Job.
+     */
+    readonly input: pulumi.Input<inputs.media.v20200501.JobInput>;
     /**
      * The Job name.
      */

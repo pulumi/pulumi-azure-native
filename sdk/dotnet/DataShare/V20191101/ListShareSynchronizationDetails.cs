@@ -73,6 +73,12 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public string ShareName { get; set; } = null!;
 
         /// <summary>
+        /// Continuation token
+        /// </summary>
+        [Input("skipToken")]
+        public string? SkipToken { get; set; }
+
+        /// <summary>
         /// start time of synchronization
         /// </summary>
         [Input("startTime")]

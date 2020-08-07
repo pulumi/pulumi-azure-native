@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Compute.V20200601
     public sealed class GetDedicatedHostGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the dedicated host group.
         /// </summary>
         [Input("name", required: true)]

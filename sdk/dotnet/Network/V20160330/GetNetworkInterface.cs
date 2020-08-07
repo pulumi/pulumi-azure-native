@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20160330
     public sealed class GetNetworkInterfaceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// expand references resources.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the network interface.
         /// </summary>
         [Input("name", required: true)]

@@ -15,12 +15,17 @@ export function getGlobalSchedule(args: GetGlobalScheduleArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20160515:getGlobalSchedule", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetGlobalScheduleArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=status)'
+     */
+    readonly expand?: string;
     /**
      * The name of the schedule.
      */

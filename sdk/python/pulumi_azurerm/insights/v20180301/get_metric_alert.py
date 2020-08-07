@@ -13,7 +13,7 @@ class GetMetricAlertResult:
     """
     The metric alert resource.
     """
-    def __init__(__self__, actions=None, auto_mitigate=None, description=None, enabled=None, evaluation_frequency=None, last_updated_time=None, location=None, name=None, scopes=None, severity=None, tags=None, target_resource_region=None, target_resource_type=None, type=None, window_size=None):
+    def __init__(__self__, actions=None, auto_mitigate=None, criteria=None, description=None, enabled=None, evaluation_frequency=None, last_updated_time=None, location=None, name=None, scopes=None, severity=None, tags=None, target_resource_region=None, target_resource_type=None, type=None, window_size=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         __self__.actions = actions
@@ -25,6 +25,12 @@ class GetMetricAlertResult:
         __self__.auto_mitigate = auto_mitigate
         """
         the flag that indicates whether the alert should be auto resolved or not. The default is true.
+        """
+        if criteria and not isinstance(criteria, dict):
+            raise TypeError("Expected argument 'criteria' to be a dict")
+        __self__.criteria = criteria
+        """
+        defines the specific alert criteria information.
         """
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
@@ -114,6 +120,7 @@ class AwaitableGetMetricAlertResult(GetMetricAlertResult):
         return GetMetricAlertResult(
             actions=self.actions,
             auto_mitigate=self.auto_mitigate,
+            criteria=self.criteria,
             description=self.description,
             enabled=self.enabled,
             evaluation_frequency=self.evaluation_frequency,
@@ -148,6 +155,7 @@ def get_metric_alert(name=None, resource_group_name=None, opts=None):
     return AwaitableGetMetricAlertResult(
         actions=__ret__.get('actions'),
         auto_mitigate=__ret__.get('autoMitigate'),
+        criteria=__ret__.get('criteria'),
         description=__ret__.get('description'),
         enabled=__ret__.get('enabled'),
         evaluation_frequency=__ret__.get('evaluationFrequency'),

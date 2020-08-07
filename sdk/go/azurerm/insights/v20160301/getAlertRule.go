@@ -25,6 +25,8 @@ type LookupAlertRuleArgs struct {
 
 // The alert rule resource.
 type LookupAlertRuleResult struct {
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions []RuleActionResponse `pulumi:"actions"`
 	// the condition that results in the alert rule being activated.
 	Condition RuleConditionResponse `pulumi:"condition"`
 	// the description of the alert rule that will be included in the alert email.

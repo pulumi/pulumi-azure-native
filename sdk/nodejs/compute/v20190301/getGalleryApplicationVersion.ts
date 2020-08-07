@@ -15,6 +15,7 @@ export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionA
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:compute/v20190301:getGalleryApplicationVersion", {
+        "expand": args.expand,
         "galleryApplicationName": args.galleryApplicationName,
         "galleryName": args.galleryName,
         "name": args.name,
@@ -23,6 +24,10 @@ export function getGalleryApplicationVersion(args: GetGalleryApplicationVersionA
 }
 
 export interface GetGalleryApplicationVersionArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    readonly expand?: string;
     /**
      * The name of the gallery Application Definition in which the Application Version resides.
      */

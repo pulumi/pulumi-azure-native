@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
     public sealed class WorkflowTriggerListCallbackUrlQueriesResponseResult
     {
         /// <summary>
+        /// The api version.
+        /// </summary>
+        public readonly string? ApiVersion;
+        /// <summary>
         /// The SAS timestamp.
         /// </summary>
         public readonly string? Se;
@@ -32,6 +36,8 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
 
         [OutputConstructor]
         private WorkflowTriggerListCallbackUrlQueriesResponseResult(
+            string? apiVersion,
+
             string? se,
 
             string? sig,
@@ -40,6 +46,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
 
             string? sv)
         {
+            ApiVersion = apiVersion;
             Se = se;
             Sig = sig;
             Sp = sp;

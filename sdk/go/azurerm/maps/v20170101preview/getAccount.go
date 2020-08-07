@@ -29,6 +29,8 @@ type LookupAccountResult struct {
 	Location string `pulumi:"location"`
 	// The name of the Maps Account, which is unique within a Resource Group.
 	Name string `pulumi:"name"`
+	// The map account properties.
+	Properties MapsAccountPropertiesResponse `pulumi:"properties"`
 	// The SKU of this account.
 	Sku SkuResponse `pulumi:"sku"`
 	// Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.

@@ -10,18 +10,6 @@ from ... import _utilities, _tables
 
 
 class DatabaseAccountGremlinGraph(pulumi.CustomResource):
-    _etag: pulumi.Output[str]
-    """
-    A system generated property representing the resource etag required for optimistic concurrency control.
-    """
-    _rid: pulumi.Output[str]
-    """
-    A system generated property. A unique identifier.
-    """
-    _ts: pulumi.Output[dict]
-    """
-    A system generated property that denotes the last updated timestamp of the resource.
-    """
     conflict_resolution_policy: pulumi.Output[dict]
     """
     The conflict resolution policy for the graph.
@@ -32,6 +20,10 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
     default_ttl: pulumi.Output[float]
     """
     Default time to live
+    """
+    etag: pulumi.Output[str]
+    """
+    A system generated property representing the resource etag required for optimistic concurrency control.
     """
     indexing_policy: pulumi.Output[dict]
     """
@@ -64,9 +56,17 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
       * `kind` (`str`) - Indicates the kind of algorithm used for partitioning
       * `paths` (`list`) - List of paths using which data within the container can be partitioned
     """
+    rid: pulumi.Output[str]
+    """
+    A system generated property. A unique identifier.
+    """
     tags: pulumi.Output[dict]
     """
     Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
+    """
+    ts: pulumi.Output[dict]
+    """
+    A system generated property that denotes the last updated timestamp of the resource.
     """
     type: pulumi.Output[str]
     """
@@ -158,15 +158,15 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['_etag'] = None
-            __props__['_rid'] = None
-            __props__['_ts'] = None
             __props__['conflict_resolution_policy'] = None
             __props__['default_ttl'] = None
+            __props__['etag'] = None
             __props__['indexing_policy'] = None
             __props__['location'] = None
             __props__['partition_key'] = None
+            __props__['rid'] = None
             __props__['tags'] = None
+            __props__['ts'] = None
             __props__['type'] = None
             __props__['unique_key_policy'] = None
         super(DatabaseAccountGremlinGraph, __self__).__init__(

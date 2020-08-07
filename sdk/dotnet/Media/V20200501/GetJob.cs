@@ -68,6 +68,10 @@ namespace Pulumi.AzureRM.Media.V20200501
         /// </summary>
         public readonly string EndTime;
         /// <summary>
+        /// The inputs for the Job.
+        /// </summary>
+        public readonly Outputs.JobInputResponseResult Input;
+        /// <summary>
         /// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
         /// </summary>
         public readonly string LastModified;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureRM.Media.V20200501
 
             string endTime,
 
+            Outputs.JobInputResponseResult input,
+
             string lastModified,
 
             string name,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureRM.Media.V20200501
             Created = created;
             Description = description;
             EndTime = endTime;
+            Input = input;
             LastModified = lastModified;
             Name = name;
             Outputs = outputs;

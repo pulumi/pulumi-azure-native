@@ -18,7 +18,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810.Inputs
         /// <summary>
         /// Applicable policy.
         /// </summary>
-        [Input("PolicyId")]
+        [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>

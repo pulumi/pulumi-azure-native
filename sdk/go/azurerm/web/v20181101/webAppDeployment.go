@@ -19,13 +19,13 @@ type WebAppDeployment struct {
 	// Who authored the deployment.
 	Author pulumi.StringPtrOutput `pulumi:"author"`
 	// Author email.
-	Author_email pulumi.StringPtrOutput `pulumi:"author_email"`
+	AuthorEmail pulumi.StringPtrOutput `pulumi:"authorEmail"`
 	// Who performed the deployment.
 	Deployer pulumi.StringPtrOutput `pulumi:"deployer"`
 	// Details on deployment.
 	Details pulumi.StringPtrOutput `pulumi:"details"`
 	// End time.
-	End_time pulumi.StringPtrOutput `pulumi:"end_time"`
+	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Details about deployment status.
@@ -33,7 +33,7 @@ type WebAppDeployment struct {
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Start time.
-	Start_time pulumi.StringPtrOutput `pulumi:"start_time"`
+	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
 	// Deployment status.
 	Status pulumi.IntPtrOutput `pulumi:"status"`
 	// Resource type.
@@ -79,13 +79,13 @@ type webAppDeploymentState struct {
 	// Who authored the deployment.
 	Author *string `pulumi:"author"`
 	// Author email.
-	Author_email *string `pulumi:"author_email"`
+	AuthorEmail *string `pulumi:"authorEmail"`
 	// Who performed the deployment.
 	Deployer *string `pulumi:"deployer"`
 	// Details on deployment.
 	Details *string `pulumi:"details"`
 	// End time.
-	End_time *string `pulumi:"end_time"`
+	EndTime *string `pulumi:"endTime"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Details about deployment status.
@@ -93,7 +93,7 @@ type webAppDeploymentState struct {
 	// Resource Name.
 	Name *string `pulumi:"name"`
 	// Start time.
-	Start_time *string `pulumi:"start_time"`
+	StartTime *string `pulumi:"startTime"`
 	// Deployment status.
 	Status *int `pulumi:"status"`
 	// Resource type.
@@ -106,13 +106,13 @@ type WebAppDeploymentState struct {
 	// Who authored the deployment.
 	Author pulumi.StringPtrInput
 	// Author email.
-	Author_email pulumi.StringPtrInput
+	AuthorEmail pulumi.StringPtrInput
 	// Who performed the deployment.
 	Deployer pulumi.StringPtrInput
 	// Details on deployment.
 	Details pulumi.StringPtrInput
 	// End time.
-	End_time pulumi.StringPtrInput
+	EndTime pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Details about deployment status.
@@ -120,7 +120,7 @@ type WebAppDeploymentState struct {
 	// Resource Name.
 	Name pulumi.StringPtrInput
 	// Start time.
-	Start_time pulumi.StringPtrInput
+	StartTime pulumi.StringPtrInput
 	// Deployment status.
 	Status pulumi.IntPtrInput
 	// Resource type.
@@ -137,13 +137,13 @@ type webAppDeploymentArgs struct {
 	// Who authored the deployment.
 	Author *string `pulumi:"author"`
 	// Author email.
-	Author_email *string `pulumi:"author_email"`
+	AuthorEmail *string `pulumi:"authorEmail"`
 	// Who performed the deployment.
 	Deployer *string `pulumi:"deployer"`
 	// Details on deployment.
 	Details *string `pulumi:"details"`
 	// End time.
-	End_time *string `pulumi:"end_time"`
+	EndTime *string `pulumi:"endTime"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Details about deployment status.
@@ -153,7 +153,7 @@ type webAppDeploymentArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Start time.
-	Start_time *string `pulumi:"start_time"`
+	StartTime *string `pulumi:"startTime"`
 	// Deployment status.
 	Status *int `pulumi:"status"`
 }
@@ -165,13 +165,13 @@ type WebAppDeploymentArgs struct {
 	// Who authored the deployment.
 	Author pulumi.StringPtrInput
 	// Author email.
-	Author_email pulumi.StringPtrInput
+	AuthorEmail pulumi.StringPtrInput
 	// Who performed the deployment.
 	Deployer pulumi.StringPtrInput
 	// Details on deployment.
 	Details pulumi.StringPtrInput
 	// End time.
-	End_time pulumi.StringPtrInput
+	EndTime pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Details about deployment status.
@@ -181,7 +181,7 @@ type WebAppDeploymentArgs struct {
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Start time.
-	Start_time pulumi.StringPtrInput
+	StartTime pulumi.StringPtrInput
 	// Deployment status.
 	Status pulumi.IntPtrInput
 }

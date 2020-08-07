@@ -37,47 +37,47 @@ export class Favorite extends pulumi.CustomResource {
     /**
      * Favorite category, as defined by the user at creation time.
      */
-    public readonly Category!: pulumi.Output<string | undefined>;
+    public readonly category!: pulumi.Output<string | undefined>;
     /**
      * Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
      */
-    public readonly Config!: pulumi.Output<string | undefined>;
+    public readonly config!: pulumi.Output<string | undefined>;
     /**
      * Internally assigned unique id of the favorite definition.
      */
-    public /*out*/ readonly FavoriteId!: pulumi.Output<string>;
+    public /*out*/ readonly favoriteId!: pulumi.Output<string>;
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    public readonly FavoriteType!: pulumi.Output<string | undefined>;
+    public readonly favoriteType!: pulumi.Output<string | undefined>;
     /**
      * Flag denoting wether or not this favorite was generated from a template.
      */
-    public readonly IsGeneratedFromTemplate!: pulumi.Output<boolean | undefined>;
+    public readonly isGeneratedFromTemplate!: pulumi.Output<boolean | undefined>;
     /**
      * The user-defined name of the favorite.
      */
-    public readonly Name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The source of the favorite definition.
      */
-    public readonly SourceType!: pulumi.Output<string | undefined>;
+    public readonly sourceType!: pulumi.Output<string | undefined>;
     /**
      * A list of 0 or more tags that are associated with this favorite definition
      */
-    public readonly Tags!: pulumi.Output<string[] | undefined>;
+    public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
      * Date and time in UTC of the last modification that was made to this favorite definition.
      */
-    public /*out*/ readonly TimeModified!: pulumi.Output<string>;
+    public /*out*/ readonly timeModified!: pulumi.Output<string>;
     /**
      * Unique user id of the specific user that owns this favorite.
      */
-    public /*out*/ readonly UserId!: pulumi.Output<string>;
+    public /*out*/ readonly userId!: pulumi.Output<string>;
     /**
      * This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
      */
-    public readonly Version!: pulumi.Output<string | undefined>;
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Favorite resource with the given unique name, arguments, and options.
@@ -92,8 +92,8 @@ export class Favorite extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as FavoriteArgs | undefined;
-            if (!args || args.favoriteId === undefined) {
-                throw new Error("Missing required property 'favoriteId'");
+            if (!args || args.name === undefined) {
+                throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -101,20 +101,19 @@ export class Favorite extends pulumi.CustomResource {
             if (!args || args.resourceName === undefined) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["Category"] = args ? args.Category : undefined;
-            inputs["Config"] = args ? args.Config : undefined;
-            inputs["FavoriteType"] = args ? args.FavoriteType : undefined;
-            inputs["IsGeneratedFromTemplate"] = args ? args.IsGeneratedFromTemplate : undefined;
-            inputs["Name"] = args ? args.Name : undefined;
-            inputs["SourceType"] = args ? args.SourceType : undefined;
-            inputs["Tags"] = args ? args.Tags : undefined;
-            inputs["Version"] = args ? args.Version : undefined;
-            inputs["favoriteId"] = args ? args.favoriteId : undefined;
+            inputs["category"] = args ? args.category : undefined;
+            inputs["config"] = args ? args.config : undefined;
+            inputs["favoriteType"] = args ? args.favoriteType : undefined;
+            inputs["isGeneratedFromTemplate"] = args ? args.isGeneratedFromTemplate : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["FavoriteId"] = undefined /*out*/;
-            inputs["TimeModified"] = undefined /*out*/;
-            inputs["UserId"] = undefined /*out*/;
+            inputs["sourceType"] = args ? args.sourceType : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["version"] = args ? args.version : undefined;
+            inputs["favoriteId"] = undefined /*out*/;
+            inputs["timeModified"] = undefined /*out*/;
+            inputs["userId"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -134,39 +133,23 @@ export interface FavoriteArgs {
     /**
      * Favorite category, as defined by the user at creation time.
      */
-    readonly Category?: pulumi.Input<string>;
+    readonly category?: pulumi.Input<string>;
     /**
      * Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
      */
-    readonly Config?: pulumi.Input<string>;
+    readonly config?: pulumi.Input<string>;
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly FavoriteType?: pulumi.Input<string>;
+    readonly favoriteType?: pulumi.Input<string>;
     /**
      * Flag denoting wether or not this favorite was generated from a template.
      */
-    readonly IsGeneratedFromTemplate?: pulumi.Input<boolean>;
-    /**
-     * The user-defined name of the favorite.
-     */
-    readonly Name?: pulumi.Input<string>;
-    /**
-     * The source of the favorite definition.
-     */
-    readonly SourceType?: pulumi.Input<string>;
-    /**
-     * A list of 0 or more tags that are associated with this favorite definition
-     */
-    readonly Tags?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
-     */
-    readonly Version?: pulumi.Input<string>;
+    readonly isGeneratedFromTemplate?: pulumi.Input<boolean>;
     /**
      * The Id of a specific favorite defined in the Application Insights component
      */
-    readonly favoriteId: pulumi.Input<string>;
+    readonly name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -175,4 +158,16 @@ export interface FavoriteArgs {
      * The name of the Application Insights component resource.
      */
     readonly resourceName: pulumi.Input<string>;
+    /**
+     * The source of the favorite definition.
+     */
+    readonly sourceType?: pulumi.Input<string>;
+    /**
+     * A list of 0 or more tags that are associated with this favorite definition
+     */
+    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
+     */
+    readonly version?: pulumi.Input<string>;
 }

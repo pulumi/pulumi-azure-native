@@ -17,6 +17,8 @@ func LookupDisk(ctx *pulumi.Context, args *LookupDiskArgs, opts ...pulumi.Invoke
 }
 
 type LookupDiskArgs struct {
+	// Specify the $expand query. Example: 'properties($select=diskType)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The name of the disk.

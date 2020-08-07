@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515
     public sealed class GetEnvironmentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
         /// </summary>
         [Input("name", required: true)]

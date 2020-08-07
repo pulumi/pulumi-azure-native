@@ -17,6 +17,8 @@ func LookupInboundNatRule(ctx *pulumi.Context, args *LookupInboundNatRuleArgs, o
 }
 
 type LookupInboundNatRuleArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the load balancer.
 	LoadBalancerName string `pulumi:"loadBalancerName"`
 	// The name of the inbound nat rule.

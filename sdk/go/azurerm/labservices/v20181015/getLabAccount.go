@@ -17,6 +17,8 @@ func LookupLabAccount(ctx *pulumi.Context, args *LookupLabAccountArgs, opts ...p
 }
 
 type LookupLabAccountArgs struct {
+	// Specify the $expand query. Example: 'properties($expand=sizeConfiguration)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab Account.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

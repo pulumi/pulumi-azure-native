@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20200401
     public sealed class GetPrivateEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the private endpoint.
         /// </summary>
         [Input("name", required: true)]

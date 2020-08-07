@@ -22,6 +22,8 @@ type ManagedCluster struct {
 	AgentPoolProfiles ManagedClusterAgentPoolProfileResponseArrayOutput `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
 	ApiServerAccessProfile ManagedClusterAPIServerAccessProfileResponsePtrOutput `pulumi:"apiServerAccessProfile"`
+	// Parameters to be applied to the cluster-autoscaler when enabled
+	AutoScalerProfile ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput `pulumi:"autoScalerProfile"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID pulumi.StringPtrOutput `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -111,6 +113,8 @@ type managedClusterState struct {
 	AgentPoolProfiles []ManagedClusterAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
 	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfileResponse `pulumi:"apiServerAccessProfile"`
+	// Parameters to be applied to the cluster-autoscaler when enabled
+	AutoScalerProfile *ManagedClusterPropertiesResponseAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -164,6 +168,8 @@ type ManagedClusterState struct {
 	AgentPoolProfiles ManagedClusterAgentPoolProfileResponseArrayInput
 	// Access profile for managed cluster API server.
 	ApiServerAccessProfile ManagedClusterAPIServerAccessProfileResponsePtrInput
+	// Parameters to be applied to the cluster-autoscaler when enabled
+	AutoScalerProfile ManagedClusterPropertiesResponseAutoScalerProfilePtrInput
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster.
@@ -221,6 +227,8 @@ type managedClusterArgs struct {
 	AgentPoolProfiles []ManagedClusterAgentPoolProfile `pulumi:"agentPoolProfiles"`
 	// Access profile for managed cluster API server.
 	ApiServerAccessProfile *ManagedClusterAPIServerAccessProfile `pulumi:"apiServerAccessProfile"`
+	// Parameters to be applied to the cluster-autoscaler when enabled
+	AutoScalerProfile *ManagedClusterPropertiesAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID *string `pulumi:"diskEncryptionSetID"`
 	// DNS prefix specified when creating the managed cluster.
@@ -267,6 +275,8 @@ type ManagedClusterArgs struct {
 	AgentPoolProfiles ManagedClusterAgentPoolProfileArrayInput
 	// Access profile for managed cluster API server.
 	ApiServerAccessProfile ManagedClusterAPIServerAccessProfilePtrInput
+	// Parameters to be applied to the cluster-autoscaler when enabled
+	AutoScalerProfile ManagedClusterPropertiesAutoScalerProfilePtrInput
 	// ResourceId of the disk encryption set to use for enabling encryption at rest.
 	DiskEncryptionSetID pulumi.StringPtrInput
 	// DNS prefix specified when creating the managed cluster.

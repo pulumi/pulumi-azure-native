@@ -13,36 +13,18 @@ class GetDatabaseAccountSqlDatabaseResult:
     """
     An Azure Cosmos DB SQL database.
     """
-    def __init__(__self__, _colls=None, _etag=None, _rid=None, _ts=None, _users=None, location=None, name=None, tags=None, type=None):
-        if _colls and not isinstance(_colls, str):
-            raise TypeError("Expected argument '_colls' to be a str")
-        __self__._colls = _colls
+    def __init__(__self__, colls=None, etag=None, location=None, name=None, rid=None, tags=None, ts=None, type=None, users=None):
+        if colls and not isinstance(colls, str):
+            raise TypeError("Expected argument 'colls' to be a str")
+        __self__.colls = colls
         """
         A system generated property that specified the addressable path of the collections resource.
         """
-        if _etag and not isinstance(_etag, str):
-            raise TypeError("Expected argument '_etag' to be a str")
-        __self__._etag = _etag
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        __self__.etag = etag
         """
         A system generated property representing the resource etag required for optimistic concurrency control.
-        """
-        if _rid and not isinstance(_rid, str):
-            raise TypeError("Expected argument '_rid' to be a str")
-        __self__._rid = _rid
-        """
-        A system generated property. A unique identifier.
-        """
-        if _ts and not isinstance(_ts, dict):
-            raise TypeError("Expected argument '_ts' to be a dict")
-        __self__._ts = _ts
-        """
-        A system generated property that denotes the last updated timestamp of the resource.
-        """
-        if _users and not isinstance(_users, str):
-            raise TypeError("Expected argument '_users' to be a str")
-        __self__._users = _users
-        """
-        A system generated property that specifies the addressable path of the users resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -56,17 +38,35 @@ class GetDatabaseAccountSqlDatabaseResult:
         """
         The name of the database account.
         """
+        if rid and not isinstance(rid, str):
+            raise TypeError("Expected argument 'rid' to be a str")
+        __self__.rid = rid
+        """
+        A system generated property. A unique identifier.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
+        if ts and not isinstance(ts, dict):
+            raise TypeError("Expected argument 'ts' to be a dict")
+        __self__.ts = ts
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of Azure resource.
+        """
+        if users and not isinstance(users, str):
+            raise TypeError("Expected argument 'users' to be a str")
+        __self__.users = users
+        """
+        A system generated property that specifies the addressable path of the users resource.
         """
 
 
@@ -76,15 +76,15 @@ class AwaitableGetDatabaseAccountSqlDatabaseResult(GetDatabaseAccountSqlDatabase
         if False:
             yield self
         return GetDatabaseAccountSqlDatabaseResult(
-            _colls=self._colls,
-            _etag=self._etag,
-            _rid=self._rid,
-            _ts=self._ts,
-            _users=self._users,
+            colls=self.colls,
+            etag=self.etag,
             location=self.location,
             name=self.name,
+            rid=self.rid,
             tags=self.tags,
-            type=self.type)
+            ts=self.ts,
+            type=self.type,
+            users=self.users)
 
 
 def get_database_account_sql_database(account_name=None, name=None, resource_group_name=None, opts=None):
@@ -106,12 +106,12 @@ def get_database_account_sql_database(account_name=None, name=None, resource_gro
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb/v20150408:getDatabaseAccountSqlDatabase', __args__, opts=opts).value
 
     return AwaitableGetDatabaseAccountSqlDatabaseResult(
-        _colls=__ret__.get('_colls'),
-        _etag=__ret__.get('_etag'),
-        _rid=__ret__.get('_rid'),
-        _ts=__ret__.get('_ts'),
-        _users=__ret__.get('_users'),
+        colls=__ret__.get('colls'),
+        etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
+        rid=__ret__.get('rid'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        ts=__ret__.get('ts'),
+        type=__ret__.get('type'),
+        users=__ret__.get('users'))

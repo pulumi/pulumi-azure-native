@@ -15,12 +15,17 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:timeseriesinsights/v20171115:getEnvironment", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetEnvironmentArgs {
+    /**
+     * Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
+     */
+    readonly expand?: string;
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */

@@ -168,12 +168,6 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
     public sealed class DedicatedCloudNodeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// referer url
-        /// </summary>
-        [Input("Referer", required: true)]
-        public Input<string> Referer { get; set; } = null!;
-
-        /// <summary>
         /// Availability Zone id, e.g. "az1"
         /// </summary>
         [Input("availabilityZoneId", required: true)]

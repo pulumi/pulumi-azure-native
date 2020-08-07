@@ -26,6 +26,10 @@ namespace Pulumi.AzureRM.Media.V20200501.Outputs
         /// </summary>
         public readonly string? Label;
         /// <summary>
+        /// The discriminator for derived types.
+        /// </summary>
+        public readonly string OdataType;
+        /// <summary>
         /// If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
         /// </summary>
         public readonly int Progress;
@@ -46,6 +50,8 @@ namespace Pulumi.AzureRM.Media.V20200501.Outputs
 
             string? label,
 
+            string odataType,
+
             int progress,
 
             string startTime,
@@ -55,6 +61,7 @@ namespace Pulumi.AzureRM.Media.V20200501.Outputs
             EndTime = endTime;
             Error = error;
             Label = label;
+            OdataType = odataType;
             Progress = progress;
             StartTime = startTime;
             State = state;

@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Trigger URL.
         /// </summary>
-        public readonly string? Trigger_url;
+        public readonly string? TriggerUrl;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -74,14 +74,14 @@ namespace Pulumi.AzureRM.Web.V20180201
 
             string name,
 
-            string? trigger_url,
+            string? triggerUrl,
 
             string type)
         {
             Key = key;
             Kind = kind;
             Name = name;
-            Trigger_url = trigger_url;
+            TriggerUrl = triggerUrl;
             Type = type;
         }
     }

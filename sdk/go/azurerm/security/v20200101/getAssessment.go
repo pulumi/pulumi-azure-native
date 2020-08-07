@@ -17,6 +17,8 @@ func LookupAssessment(ctx *pulumi.Context, args *LookupAssessmentArgs, opts ...p
 }
 
 type LookupAssessmentArgs struct {
+	// OData expand. Optional.
+	Expand *string `pulumi:"expand"`
 	// The Assessment Key - Unique key for the assessment type
 	Name string `pulumi:"name"`
 	// The identifier of the resource.

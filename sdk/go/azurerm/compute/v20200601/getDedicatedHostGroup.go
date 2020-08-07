@@ -17,6 +17,8 @@ func LookupDedicatedHostGroup(ctx *pulumi.Context, args *LookupDedicatedHostGrou
 }
 
 type LookupDedicatedHostGroupArgs struct {
+	// The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+	Expand *string `pulumi:"expand"`
 	// The name of the dedicated host group.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

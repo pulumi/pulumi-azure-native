@@ -48,11 +48,7 @@ export interface GetRecordSetResult {
     /**
      * The list of A records in the record set.
      */
-    readonly ARecords?: outputs.network.v20160401.ARecordResponse[];
-    /**
-     * The TTL (time-to-live) of the records in the record set.
-     */
-    readonly TTL?: number;
+    readonly aRecords?: outputs.network.v20160401.ARecordResponse[];
     /**
      * The list of AAAA records in the record set.
      */
@@ -93,6 +89,10 @@ export interface GetRecordSetResult {
      * The list of SRV records in the record set.
      */
     readonly srvRecords?: outputs.network.v20160401.SrvRecordResponse[];
+    /**
+     * The TTL (time-to-live) of the records in the record set.
+     */
+    readonly ttl?: number;
     /**
      * The list of TXT records in the record set.
      */

@@ -14,25 +14,21 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212.Outputs
     public sealed class SqlTriggerGetPropertiesResponseResourceResult
     {
         /// <summary>
-        /// A system generated property representing the resource etag required for optimistic concurrency control.
-        /// </summary>
-        public readonly string _etag;
-        /// <summary>
-        /// A system generated property. A unique identifier.
-        /// </summary>
-        public readonly string _rid;
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> _ts;
-        /// <summary>
         /// Body of the Trigger
         /// </summary>
         public readonly string? Body;
         /// <summary>
+        /// A system generated property representing the resource etag required for optimistic concurrency control.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Name of the Cosmos DB SQL trigger
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        public readonly string Rid;
         /// <summary>
         /// The operation the trigger is associated with
         /// </summary>
@@ -41,30 +37,34 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212.Outputs
         /// Type of the Trigger
         /// </summary>
         public readonly string? TriggerType;
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Ts;
 
         [OutputConstructor]
         private SqlTriggerGetPropertiesResponseResourceResult(
-            string _etag,
-
-            string _rid,
-
-            ImmutableDictionary<string, object> _ts,
-
             string? body,
+
+            string etag,
 
             string id,
 
+            string rid,
+
             string? triggerOperation,
 
-            string? triggerType)
+            string? triggerType,
+
+            ImmutableDictionary<string, object> ts)
         {
-            this._etag = _etag;
-            this._rid = _rid;
-            this._ts = _ts;
             Body = body;
+            Etag = etag;
             Id = id;
+            Rid = rid;
             TriggerOperation = triggerOperation;
             TriggerType = triggerType;
+            Ts = ts;
         }
     }
 }

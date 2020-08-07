@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class GetGlobalScheduleArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=status)'
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the schedule.
         /// </summary>
         [Input("name", required: true)]

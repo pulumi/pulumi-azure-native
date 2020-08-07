@@ -94,15 +94,17 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             service_endpoints=self.service_endpoints)
 
 
-def get_subnet(name=None, resource_group_name=None, virtual_network_name=None, opts=None):
+def get_subnet(expand=None, name=None, resource_group_name=None, virtual_network_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Expands referenced resources.
     :param str name: The name of the subnet.
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_name: The name of the virtual network.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name

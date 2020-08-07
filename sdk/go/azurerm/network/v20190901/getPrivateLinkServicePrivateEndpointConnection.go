@@ -17,6 +17,8 @@ func LookupPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context, args
 }
 
 type LookupPrivateLinkServicePrivateEndpointConnectionArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the private end point connection.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

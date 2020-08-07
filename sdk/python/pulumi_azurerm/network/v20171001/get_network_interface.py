@@ -129,14 +129,16 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             virtual_machine=self.virtual_machine)
 
 
-def get_network_interface(name=None, resource_group_name=None, opts=None):
+def get_network_interface(expand=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Expands referenced resources.
     :param str name: The name of the network interface.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

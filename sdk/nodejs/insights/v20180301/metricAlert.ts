@@ -45,6 +45,10 @@ export class MetricAlert extends pulumi.CustomResource {
      */
     public readonly autoMitigate!: pulumi.Output<boolean | undefined>;
     /**
+     * defines the specific alert criteria information.
+     */
+    public readonly criteria!: pulumi.Output<outputs.insights.v20180301.MetricAlertCriteriaResponse>;
+    /**
      * the description of the metric alert that will be included in the alert email.
      */
     public readonly description!: pulumi.Output<string>;
@@ -110,6 +114,9 @@ export class MetricAlert extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as MetricAlertArgs | undefined;
+            if (!args || args.criteria === undefined) {
+                throw new Error("Missing required property 'criteria'");
+            }
             if (!args || args.description === undefined) {
                 throw new Error("Missing required property 'description'");
             }
@@ -136,6 +143,7 @@ export class MetricAlert extends pulumi.CustomResource {
             }
             inputs["actions"] = args ? args.actions : undefined;
             inputs["autoMitigate"] = args ? args.autoMitigate : undefined;
+            inputs["criteria"] = args ? args.criteria : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
@@ -174,6 +182,10 @@ export interface MetricAlertArgs {
      * the flag that indicates whether the alert should be auto resolved or not. The default is true.
      */
     readonly autoMitigate?: pulumi.Input<boolean>;
+    /**
+     * defines the specific alert criteria information.
+     */
+    readonly criteria: pulumi.Input<inputs.insights.v20180301.MetricAlertCriteria>;
     /**
      * the description of the metric alert that will be included in the alert email.
      */

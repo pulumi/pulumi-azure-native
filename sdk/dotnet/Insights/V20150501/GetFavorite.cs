@@ -21,8 +21,8 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <summary>
         /// The Id of a specific favorite defined in the Application Insights component
         /// </summary>
-        [Input("favoriteId", required: true)]
-        public string FavoriteId { get; set; } = null!;
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -92,39 +92,39 @@ namespace Pulumi.AzureRM.Insights.V20150501
 
         [OutputConstructor]
         private GetFavoriteResult(
-            string? Category,
+            string? category,
 
-            string? Config,
+            string? config,
 
-            string FavoriteId,
+            string favoriteId,
 
-            string? FavoriteType,
+            string? favoriteType,
 
-            bool? IsGeneratedFromTemplate,
+            bool? isGeneratedFromTemplate,
 
-            string? Name,
+            string? name,
 
-            string? SourceType,
+            string? sourceType,
 
-            ImmutableArray<string> Tags,
+            ImmutableArray<string> tags,
 
-            string TimeModified,
+            string timeModified,
 
-            string UserId,
+            string userId,
 
-            string? Version)
+            string? version)
         {
-            this.Category = Category;
-            this.Config = Config;
-            this.FavoriteId = FavoriteId;
-            this.FavoriteType = FavoriteType;
-            this.IsGeneratedFromTemplate = IsGeneratedFromTemplate;
-            this.Name = Name;
-            this.SourceType = SourceType;
-            this.Tags = Tags;
-            this.TimeModified = TimeModified;
-            this.UserId = UserId;
-            this.Version = Version;
+            Category = category;
+            Config = config;
+            FavoriteId = favoriteId;
+            FavoriteType = favoriteType;
+            IsGeneratedFromTemplate = isGeneratedFromTemplate;
+            Name = name;
+            SourceType = sourceType;
+            Tags = tags;
+            TimeModified = timeModified;
+            UserId = userId;
+            Version = version;
         }
     }
 }

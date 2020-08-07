@@ -15,6 +15,7 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20160515:getPolicy", {
+        "expand": args.expand,
         "labName": args.labName,
         "name": args.name,
         "policySetName": args.policySetName,
@@ -23,6 +24,10 @@ export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetPolicyArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=description)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab.
      */

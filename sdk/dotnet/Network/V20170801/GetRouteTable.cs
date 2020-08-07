@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20170801
     public sealed class GetRouteTableArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the route table.
         /// </summary>
         [Input("name", required: true)]

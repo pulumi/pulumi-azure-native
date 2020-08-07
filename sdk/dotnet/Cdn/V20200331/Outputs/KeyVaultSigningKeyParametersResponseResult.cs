@@ -13,6 +13,7 @@ namespace Pulumi.AzureRM.Cdn.V20200331.Outputs
     [OutputType]
     public sealed class KeyVaultSigningKeyParametersResponseResult
     {
+        public readonly string OdataType;
         /// <summary>
         /// Resource group of the user's Key Vault containing the secret
         /// </summary>
@@ -36,6 +37,8 @@ namespace Pulumi.AzureRM.Cdn.V20200331.Outputs
 
         [OutputConstructor]
         private KeyVaultSigningKeyParametersResponseResult(
+            string odataType,
+
             string resourceGroupName,
 
             string secretName,
@@ -46,6 +49,7 @@ namespace Pulumi.AzureRM.Cdn.V20200331.Outputs
 
             string vaultName)
         {
+            OdataType = odataType;
             ResourceGroupName = resourceGroupName;
             SecretName = secretName;
             SecretVersion = secretVersion;

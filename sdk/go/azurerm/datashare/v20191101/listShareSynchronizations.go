@@ -23,6 +23,8 @@ type ListShareSynchronizationsArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the share.
 	ShareName string `pulumi:"shareName"`
+	// Continuation token
+	SkipToken *string `pulumi:"skipToken"`
 }
 
 // List response for get ShareSynchronization.

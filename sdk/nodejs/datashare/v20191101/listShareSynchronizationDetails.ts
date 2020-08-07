@@ -24,6 +24,7 @@ export function listShareSynchronizationDetails(args: ListShareSynchronizationDe
         "message": args.message,
         "resourceGroupName": args.resourceGroupName,
         "shareName": args.shareName,
+        "skipToken": args.skipToken,
         "startTime": args.startTime,
         "status": args.status,
         "synchronizationId": args.synchronizationId,
@@ -67,6 +68,10 @@ export interface ListShareSynchronizationDetailsArgs {
      * The name of the share.
      */
     readonly shareName: string;
+    /**
+     * Continuation token
+     */
+    readonly skipToken?: string;
     /**
      * start time of synchronization
      */

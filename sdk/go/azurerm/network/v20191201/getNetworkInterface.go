@@ -17,6 +17,8 @@ func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArg
 }
 
 type LookupNetworkInterfaceArgs struct {
+	// Expands referenced resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the network interface.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

@@ -15,9 +15,7 @@ type RecordSet struct {
 	pulumi.CustomResourceState
 
 	// The list of A records in the record set.
-	ARecords ARecordResponseArrayOutput `pulumi:"ARecords"`
-	// The TTL (time-to-live) of the records in the record set.
-	TTL pulumi.IntPtrOutput `pulumi:"TTL"`
+	ARecords ARecordResponseArrayOutput `pulumi:"aRecords"`
 	// The list of AAAA records in the record set.
 	AaaaRecords AaaaRecordResponseArrayOutput `pulumi:"aaaaRecords"`
 	// The list of CAA records in the record set.
@@ -46,6 +44,8 @@ type RecordSet struct {
 	SrvRecords SrvRecordResponseArrayOutput `pulumi:"srvRecords"`
 	// A reference to an azure resource from where the dns resource value is taken.
 	TargetResource SubResourceResponsePtrOutput `pulumi:"targetResource"`
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl pulumi.IntPtrOutput `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordResponseArrayOutput `pulumi:"txtRecords"`
 	// The type of the record set.
@@ -93,9 +93,7 @@ func GetRecordSet(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RecordSet resources.
 type recordSetState struct {
 	// The list of A records in the record set.
-	ARecords []ARecordResponse `pulumi:"ARecords"`
-	// The TTL (time-to-live) of the records in the record set.
-	TTL *int `pulumi:"TTL"`
+	ARecords []ARecordResponse `pulumi:"aRecords"`
 	// The list of AAAA records in the record set.
 	AaaaRecords []AaaaRecordResponse `pulumi:"aaaaRecords"`
 	// The list of CAA records in the record set.
@@ -124,6 +122,8 @@ type recordSetState struct {
 	SrvRecords []SrvRecordResponse `pulumi:"srvRecords"`
 	// A reference to an azure resource from where the dns resource value is taken.
 	TargetResource *SubResourceResponse `pulumi:"targetResource"`
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl *int `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords []TxtRecordResponse `pulumi:"txtRecords"`
 	// The type of the record set.
@@ -133,8 +133,6 @@ type recordSetState struct {
 type RecordSetState struct {
 	// The list of A records in the record set.
 	ARecords ARecordResponseArrayInput
-	// The TTL (time-to-live) of the records in the record set.
-	TTL pulumi.IntPtrInput
 	// The list of AAAA records in the record set.
 	AaaaRecords AaaaRecordResponseArrayInput
 	// The list of CAA records in the record set.
@@ -163,6 +161,8 @@ type RecordSetState struct {
 	SrvRecords SrvRecordResponseArrayInput
 	// A reference to an azure resource from where the dns resource value is taken.
 	TargetResource SubResourceResponsePtrInput
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl pulumi.IntPtrInput
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordResponseArrayInput
 	// The type of the record set.
@@ -175,9 +175,7 @@ func (RecordSetState) ElementType() reflect.Type {
 
 type recordSetArgs struct {
 	// The list of A records in the record set.
-	ARecords []ARecord `pulumi:"ARecords"`
-	// The TTL (time-to-live) of the records in the record set.
-	TTL *int `pulumi:"TTL"`
+	ARecords []ARecord `pulumi:"aRecords"`
 	// The list of AAAA records in the record set.
 	AaaaRecords []AaaaRecord `pulumi:"aaaaRecords"`
 	// The list of CAA records in the record set.
@@ -206,6 +204,8 @@ type recordSetArgs struct {
 	SrvRecords []SrvRecord `pulumi:"srvRecords"`
 	// A reference to an azure resource from where the dns resource value is taken.
 	TargetResource *SubResource `pulumi:"targetResource"`
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl *int `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords []TxtRecord `pulumi:"txtRecords"`
 	// The name of the DNS zone (without a terminating dot).
@@ -216,8 +216,6 @@ type recordSetArgs struct {
 type RecordSetArgs struct {
 	// The list of A records in the record set.
 	ARecords ARecordArrayInput
-	// The TTL (time-to-live) of the records in the record set.
-	TTL pulumi.IntPtrInput
 	// The list of AAAA records in the record set.
 	AaaaRecords AaaaRecordArrayInput
 	// The list of CAA records in the record set.
@@ -246,6 +244,8 @@ type RecordSetArgs struct {
 	SrvRecords SrvRecordArrayInput
 	// A reference to an azure resource from where the dns resource value is taken.
 	TargetResource SubResourcePtrInput
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl pulumi.IntPtrInput
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordArrayInput
 	// The name of the DNS zone (without a terminating dot).

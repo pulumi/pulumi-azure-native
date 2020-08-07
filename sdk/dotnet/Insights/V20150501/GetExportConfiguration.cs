@@ -124,63 +124,63 @@ namespace Pulumi.AzureRM.Insights.V20150501
 
         [OutputConstructor]
         private GetExportConfigurationResult(
-            string ApplicationName,
+            string applicationName,
 
-            string ContainerName,
+            string containerName,
 
-            string DestinationAccountId,
+            string destinationAccountId,
 
-            string DestinationStorageLocationId,
+            string destinationStorageLocationId,
 
-            string DestinationStorageSubscriptionId,
+            string destinationStorageSubscriptionId,
 
-            string DestinationType,
+            string destinationType,
 
-            string ExportId,
+            string exportId,
 
-            string ExportStatus,
+            string exportStatus,
 
-            string InstrumentationKey,
+            string instrumentationKey,
 
-            string IsUserEnabled,
+            string isUserEnabled,
 
-            string LastGapTime,
+            string lastGapTime,
 
-            string LastSuccessTime,
+            string lastSuccessTime,
 
-            string LastUserUpdate,
+            string lastUserUpdate,
 
-            string? NotificationQueueEnabled,
+            string? notificationQueueEnabled,
 
-            string PermanentErrorReason,
+            string permanentErrorReason,
 
-            string? RecordTypes,
+            string? recordTypes,
 
-            string ResourceGroup,
+            string resourceGroup,
 
-            string StorageName,
+            string storageName,
 
-            string SubscriptionId)
+            string subscriptionId)
         {
-            this.ApplicationName = ApplicationName;
-            this.ContainerName = ContainerName;
-            this.DestinationAccountId = DestinationAccountId;
-            this.DestinationStorageLocationId = DestinationStorageLocationId;
-            this.DestinationStorageSubscriptionId = DestinationStorageSubscriptionId;
-            this.DestinationType = DestinationType;
-            this.ExportId = ExportId;
-            this.ExportStatus = ExportStatus;
-            this.InstrumentationKey = InstrumentationKey;
-            this.IsUserEnabled = IsUserEnabled;
-            this.LastGapTime = LastGapTime;
-            this.LastSuccessTime = LastSuccessTime;
-            this.LastUserUpdate = LastUserUpdate;
-            this.NotificationQueueEnabled = NotificationQueueEnabled;
-            this.PermanentErrorReason = PermanentErrorReason;
-            this.RecordTypes = RecordTypes;
-            this.ResourceGroup = ResourceGroup;
-            this.StorageName = StorageName;
-            this.SubscriptionId = SubscriptionId;
+            ApplicationName = applicationName;
+            ContainerName = containerName;
+            DestinationAccountId = destinationAccountId;
+            DestinationStorageLocationId = destinationStorageLocationId;
+            DestinationStorageSubscriptionId = destinationStorageSubscriptionId;
+            DestinationType = destinationType;
+            ExportId = exportId;
+            ExportStatus = exportStatus;
+            InstrumentationKey = instrumentationKey;
+            IsUserEnabled = isUserEnabled;
+            LastGapTime = lastGapTime;
+            LastSuccessTime = lastSuccessTime;
+            LastUserUpdate = lastUserUpdate;
+            NotificationQueueEnabled = notificationQueueEnabled;
+            PermanentErrorReason = permanentErrorReason;
+            RecordTypes = recordTypes;
+            ResourceGroup = resourceGroup;
+            StorageName = storageName;
+            SubscriptionId = subscriptionId;
         }
     }
 }

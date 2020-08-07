@@ -122,9 +122,6 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as DedicatedCloudNodeArgs | undefined;
-            if (!args || args.Referer === undefined) {
-                throw new Error("Missing required property 'Referer'");
-            }
             if (!args || args.availabilityZoneId === undefined) {
                 throw new Error("Missing required property 'availabilityZoneId'");
             }
@@ -149,7 +146,6 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["Referer"] = args ? args.Referer : undefined;
             inputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -186,10 +182,6 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
  * The set of arguments for constructing a DedicatedCloudNode resource.
  */
 export interface DedicatedCloudNodeArgs {
-    /**
-     * referer url
-     */
-    readonly Referer: pulumi.Input<string>;
     /**
      * Availability Zone id, e.g. "az1"
      */

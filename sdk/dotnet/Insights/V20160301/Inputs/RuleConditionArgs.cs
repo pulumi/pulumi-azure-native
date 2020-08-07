@@ -21,6 +21,12 @@ namespace Pulumi.AzureRM.Insights.V20160301.Inputs
         [Input("dataSource")]
         public Input<Inputs.RuleDataSourceArgs>? DataSource { get; set; }
 
+        /// <summary>
+        /// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
+        /// </summary>
+        [Input("odataType", required: true)]
+        public Input<string> OdataType { get; set; } = null!;
+
         public RuleConditionArgs()
         {
         }

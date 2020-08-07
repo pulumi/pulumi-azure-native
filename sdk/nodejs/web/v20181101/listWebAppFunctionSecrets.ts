@@ -50,7 +50,7 @@ export interface ListWebAppFunctionSecretsResult {
     /**
      * Trigger URL.
      */
-    readonly trigger_url?: string;
+    readonly triggerUrl?: string;
     /**
      * Resource type.
      */

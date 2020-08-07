@@ -140,6 +140,7 @@ class Endpoint(pulumi.CustomResource):
     List of keys used to validate the signed URL hashes.
       * `key_id` (`str`) - Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
       * `key_source_parameters` (`dict`) - Defines the parameters for using customer key vault for Url Signing Key.
+        * `odata_type` (`str`)
         * `resource_group_name` (`str`) - Resource group of the user's Key Vault containing the secret
         * `secret_name` (`str`) - The name of secret in Key Vault.
         * `secret_version` (`str`) - The version(GUID) of secret in Key Vault.
@@ -237,6 +238,7 @@ class Endpoint(pulumi.CustomResource):
 
           * `key_id` (`pulumi.Input[str]`) - Defines the customer defined key Id. This id will exist in the incoming request to indicate the key used to form the hash.
           * `key_source_parameters` (`pulumi.Input[dict]`) - Defines the parameters for using customer key vault for Url Signing Key.
+            * `odata_type` (`pulumi.Input[str]`)
             * `resource_group_name` (`pulumi.Input[str]`) - Resource group of the user's Key Vault containing the secret
             * `secret_name` (`pulumi.Input[str]`) - The name of secret in Key Vault.
             * `secret_version` (`pulumi.Input[str]`) - The version(GUID) of secret in Key Vault.

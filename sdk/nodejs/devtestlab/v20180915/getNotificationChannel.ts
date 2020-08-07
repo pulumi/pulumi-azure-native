@@ -15,6 +15,7 @@ export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: 
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20180915:getNotificationChannel", {
+        "expand": args.expand,
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -22,6 +23,10 @@ export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: 
 }
 
 export interface GetNotificationChannelArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=webHookUrl)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab.
      */

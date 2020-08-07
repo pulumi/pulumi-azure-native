@@ -17,6 +17,8 @@ func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, o
 }
 
 type LookupVirtualNetworkArgs struct {
+	// Specify the $expand query. Example: 'properties($expand=externalSubnets)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The name of the virtual network.

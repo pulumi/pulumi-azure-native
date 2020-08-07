@@ -21,37 +21,37 @@ type WebAppSiteExtension struct {
 	// Detailed description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Count of downloads.
-	Download_count pulumi.IntPtrOutput `pulumi:"download_count"`
+	DownloadCount pulumi.IntPtrOutput `pulumi:"downloadCount"`
 	// Site extension ID.
-	Extension_id pulumi.StringPtrOutput `pulumi:"extension_id"`
+	ExtensionId pulumi.StringPtrOutput `pulumi:"extensionId"`
 	// Site extension type.
-	Extension_type pulumi.StringPtrOutput `pulumi:"extension_type"`
+	ExtensionType pulumi.StringPtrOutput `pulumi:"extensionType"`
 	// Extension URL.
-	Extension_url pulumi.StringPtrOutput `pulumi:"extension_url"`
+	ExtensionUrl pulumi.StringPtrOutput `pulumi:"extensionUrl"`
 	// Feed URL.
-	Feed_url pulumi.StringPtrOutput `pulumi:"feed_url"`
+	FeedUrl pulumi.StringPtrOutput `pulumi:"feedUrl"`
 	// Icon URL.
-	Icon_url pulumi.StringPtrOutput `pulumi:"icon_url"`
+	IconUrl pulumi.StringPtrOutput `pulumi:"iconUrl"`
 	// Installed timestamp.
-	Installed_date_time pulumi.StringPtrOutput `pulumi:"installed_date_time"`
+	InstalledDateTime pulumi.StringPtrOutput `pulumi:"installedDateTime"`
 	// Installer command line parameters.
-	Installer_command_line_params pulumi.StringPtrOutput `pulumi:"installer_command_line_params"`
+	InstallerCommandLineParams pulumi.StringPtrOutput `pulumi:"installerCommandLineParams"`
 	// Kind of resource.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// License URL.
-	License_url pulumi.StringPtrOutput `pulumi:"license_url"`
+	LicenseUrl pulumi.StringPtrOutput `pulumi:"licenseUrl"`
 	// <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
-	Local_is_latest_version pulumi.BoolPtrOutput `pulumi:"local_is_latest_version"`
+	LocalIsLatestVersion pulumi.BoolPtrOutput `pulumi:"localIsLatestVersion"`
 	// Local path.
-	Local_path pulumi.StringPtrOutput `pulumi:"local_path"`
+	LocalPath pulumi.StringPtrOutput `pulumi:"localPath"`
 	// Resource Name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Project URL.
-	Project_url pulumi.StringPtrOutput `pulumi:"project_url"`
+	ProjectUrl pulumi.StringPtrOutput `pulumi:"projectUrl"`
 	// Provisioning state.
 	ProvisioningState pulumi.StringPtrOutput `pulumi:"provisioningState"`
 	// Published timestamp.
-	Published_date_time pulumi.StringPtrOutput `pulumi:"published_date_time"`
+	PublishedDateTime pulumi.StringPtrOutput `pulumi:"publishedDateTime"`
 	// Summary description.
 	Summary pulumi.StringPtrOutput `pulumi:"summary"`
 	Title   pulumi.StringPtrOutput `pulumi:"title"`
@@ -102,37 +102,37 @@ type webAppSiteExtensionState struct {
 	// Detailed description.
 	Description *string `pulumi:"description"`
 	// Count of downloads.
-	Download_count *int `pulumi:"download_count"`
+	DownloadCount *int `pulumi:"downloadCount"`
 	// Site extension ID.
-	Extension_id *string `pulumi:"extension_id"`
+	ExtensionId *string `pulumi:"extensionId"`
 	// Site extension type.
-	Extension_type *string `pulumi:"extension_type"`
+	ExtensionType *string `pulumi:"extensionType"`
 	// Extension URL.
-	Extension_url *string `pulumi:"extension_url"`
+	ExtensionUrl *string `pulumi:"extensionUrl"`
 	// Feed URL.
-	Feed_url *string `pulumi:"feed_url"`
+	FeedUrl *string `pulumi:"feedUrl"`
 	// Icon URL.
-	Icon_url *string `pulumi:"icon_url"`
+	IconUrl *string `pulumi:"iconUrl"`
 	// Installed timestamp.
-	Installed_date_time *string `pulumi:"installed_date_time"`
+	InstalledDateTime *string `pulumi:"installedDateTime"`
 	// Installer command line parameters.
-	Installer_command_line_params *string `pulumi:"installer_command_line_params"`
+	InstallerCommandLineParams *string `pulumi:"installerCommandLineParams"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// License URL.
-	License_url *string `pulumi:"license_url"`
+	LicenseUrl *string `pulumi:"licenseUrl"`
 	// <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
-	Local_is_latest_version *bool `pulumi:"local_is_latest_version"`
+	LocalIsLatestVersion *bool `pulumi:"localIsLatestVersion"`
 	// Local path.
-	Local_path *string `pulumi:"local_path"`
+	LocalPath *string `pulumi:"localPath"`
 	// Resource Name.
 	Name *string `pulumi:"name"`
 	// Project URL.
-	Project_url *string `pulumi:"project_url"`
+	ProjectUrl *string `pulumi:"projectUrl"`
 	// Provisioning state.
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// Published timestamp.
-	Published_date_time *string `pulumi:"published_date_time"`
+	PublishedDateTime *string `pulumi:"publishedDateTime"`
 	// Summary description.
 	Summary *string `pulumi:"summary"`
 	Title   *string `pulumi:"title"`
@@ -150,37 +150,37 @@ type WebAppSiteExtensionState struct {
 	// Detailed description.
 	Description pulumi.StringPtrInput
 	// Count of downloads.
-	Download_count pulumi.IntPtrInput
+	DownloadCount pulumi.IntPtrInput
 	// Site extension ID.
-	Extension_id pulumi.StringPtrInput
+	ExtensionId pulumi.StringPtrInput
 	// Site extension type.
-	Extension_type pulumi.StringPtrInput
+	ExtensionType pulumi.StringPtrInput
 	// Extension URL.
-	Extension_url pulumi.StringPtrInput
+	ExtensionUrl pulumi.StringPtrInput
 	// Feed URL.
-	Feed_url pulumi.StringPtrInput
+	FeedUrl pulumi.StringPtrInput
 	// Icon URL.
-	Icon_url pulumi.StringPtrInput
+	IconUrl pulumi.StringPtrInput
 	// Installed timestamp.
-	Installed_date_time pulumi.StringPtrInput
+	InstalledDateTime pulumi.StringPtrInput
 	// Installer command line parameters.
-	Installer_command_line_params pulumi.StringPtrInput
+	InstallerCommandLineParams pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// License URL.
-	License_url pulumi.StringPtrInput
+	LicenseUrl pulumi.StringPtrInput
 	// <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
-	Local_is_latest_version pulumi.BoolPtrInput
+	LocalIsLatestVersion pulumi.BoolPtrInput
 	// Local path.
-	Local_path pulumi.StringPtrInput
+	LocalPath pulumi.StringPtrInput
 	// Resource Name.
 	Name pulumi.StringPtrInput
 	// Project URL.
-	Project_url pulumi.StringPtrInput
+	ProjectUrl pulumi.StringPtrInput
 	// Provisioning state.
 	ProvisioningState pulumi.StringPtrInput
 	// Published timestamp.
-	Published_date_time pulumi.StringPtrInput
+	PublishedDateTime pulumi.StringPtrInput
 	// Summary description.
 	Summary pulumi.StringPtrInput
 	Title   pulumi.StringPtrInput

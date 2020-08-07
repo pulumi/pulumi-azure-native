@@ -44,6 +44,10 @@ export interface GetAccountResult {
      */
     readonly name: string;
     /**
+     * The map account properties.
+     */
+    readonly properties: outputs.maps.v20170101preview.MapsAccountPropertiesResponse;
+    /**
      * The SKU of this account.
      */
     readonly sku: outputs.maps.v20170101preview.SkuResponse;

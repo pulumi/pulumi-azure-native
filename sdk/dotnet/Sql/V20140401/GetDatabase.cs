@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// A comma separated list of child objects to expand in the response. Possible properties: serviceTierAdvisors, transparentDataEncryption.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the database to be retrieved.
         /// </summary>
         [Input("name", required: true)]

@@ -17,6 +17,8 @@ func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, o
 }
 
 type LookupVirtualNetworkArgs struct {
+	// expand references resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the virtual network.
 	Name string `pulumi:"name"`
 	// The name of the resource group.
@@ -25,8 +27,6 @@ type LookupVirtualNetworkArgs struct {
 
 // Virtual Network resource
 type LookupVirtualNetworkResult struct {
-	// Gets or sets list of peerings in a VirtualNetwork
-	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"VirtualNetworkPeerings"`
 	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
 	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
 	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
@@ -47,4 +47,6 @@ type LookupVirtualNetworkResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
+	// Gets or sets list of peerings in a VirtualNetwork
+	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"virtualNetworkPeerings"`
 }

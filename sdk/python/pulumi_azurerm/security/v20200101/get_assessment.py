@@ -87,14 +87,16 @@ class AwaitableGetAssessmentResult(GetAssessmentResult):
             type=self.type)
 
 
-def get_assessment(name=None, resource_id=None, opts=None):
+def get_assessment(expand=None, name=None, resource_id=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: OData expand. Optional.
     :param str name: The Assessment Key - Unique key for the assessment type
     :param str resource_id: The identifier of the resource.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceId'] = resource_id
     if opts is None:

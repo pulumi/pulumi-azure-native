@@ -17,6 +17,8 @@ func LookupRouteFilter(ctx *pulumi.Context, args *LookupRouteFilterArgs, opts ..
 }
 
 type LookupRouteFilterArgs struct {
+	// Expands referenced express route bgp peering resources.
+	Expand *string `pulumi:"expand"`
 	// The name of the route filter.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

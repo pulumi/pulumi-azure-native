@@ -56,6 +56,10 @@ namespace Pulumi.AzureRM.ContainerService.V20200301
         /// </summary>
         public readonly Outputs.ManagedClusterAPIServerAccessProfileResponseResult? ApiServerAccessProfile;
         /// <summary>
+        /// Parameters to be applied to the cluster-autoscaler when enabled
+        /// </summary>
+        public readonly Outputs.ManagedClusterPropertiesResponseAutoScalerProfileResult? AutoScalerProfile;
+        /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
         public readonly string? DiskEncryptionSetID;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureRM.ContainerService.V20200301
 
             Outputs.ManagedClusterAPIServerAccessProfileResponseResult? apiServerAccessProfile,
 
+            Outputs.ManagedClusterPropertiesResponseAutoScalerProfileResult? autoScalerProfile,
+
             string? diskEncryptionSetID,
 
             string? dnsPrefix,
@@ -196,6 +202,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200301
             AddonProfiles = addonProfiles;
             AgentPoolProfiles = agentPoolProfiles;
             ApiServerAccessProfile = apiServerAccessProfile;
+            AutoScalerProfile = autoScalerProfile;
             DiskEncryptionSetID = diskEncryptionSetID;
             DnsPrefix = dnsPrefix;
             EnablePodSecurityPolicy = enablePodSecurityPolicy;

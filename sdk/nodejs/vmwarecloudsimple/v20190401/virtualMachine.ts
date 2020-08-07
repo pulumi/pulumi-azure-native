@@ -154,9 +154,6 @@ export class VirtualMachine extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualMachineArgs | undefined;
-            if (!args || args.Referer === undefined) {
-                throw new Error("Missing required property 'Referer'");
-            }
             if (!args || args.amountOfRam === undefined) {
                 throw new Error("Missing required property 'amountOfRam'");
             }
@@ -175,7 +172,6 @@ export class VirtualMachine extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["Referer"] = args ? args.Referer : undefined;
             inputs["amountOfRam"] = args ? args.amountOfRam : undefined;
             inputs["customization"] = args ? args.customization : undefined;
             inputs["disks"] = args ? args.disks : undefined;
@@ -219,10 +215,6 @@ export class VirtualMachine extends pulumi.CustomResource {
  * The set of arguments for constructing a VirtualMachine resource.
  */
 export interface VirtualMachineArgs {
-    /**
-     * referer url
-     */
-    readonly Referer: pulumi.Input<string>;
     /**
      * The amount of memory
      */

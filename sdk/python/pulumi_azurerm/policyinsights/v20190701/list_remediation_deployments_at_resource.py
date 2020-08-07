@@ -38,16 +38,18 @@ class AwaitableListRemediationDeploymentsAtResourceResult(ListRemediationDeploym
             value=self.value)
 
 
-def list_remediation_deployments_at_resource(remediation_name=None, resource_id=None, opts=None):
+def list_remediation_deployments_at_resource(remediation_name=None, resource_id=None, top=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
     :param str remediation_name: The name of the remediation.
     :param str resource_id: Resource ID.
+    :param float top: Maximum number of records to return.
     """
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     __args__['resourceId'] = resource_id
+    __args__['top'] = top
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:

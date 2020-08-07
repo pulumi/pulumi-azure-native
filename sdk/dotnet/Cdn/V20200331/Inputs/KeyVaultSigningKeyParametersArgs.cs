@@ -15,6 +15,9 @@ namespace Pulumi.AzureRM.Cdn.V20200331.Inputs
     /// </summary>
     public sealed class KeyVaultSigningKeyParametersArgs : Pulumi.ResourceArgs
     {
+        [Input("odataType", required: true)]
+        public Input<string> OdataType { get; set; } = null!;
+
         /// <summary>
         /// Resource group of the user's Key Vault containing the secret
         /// </summary>

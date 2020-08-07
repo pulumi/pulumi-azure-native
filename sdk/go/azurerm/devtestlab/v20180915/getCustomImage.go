@@ -17,6 +17,8 @@ func LookupCustomImage(ctx *pulumi.Context, args *LookupCustomImageArgs, opts ..
 }
 
 type LookupCustomImageArgs struct {
+	// Specify the $expand query. Example: 'properties($select=vm)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The name of the custom image.

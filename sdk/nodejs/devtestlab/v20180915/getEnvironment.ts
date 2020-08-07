@@ -15,6 +15,7 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20180915:getEnvironment", {
+        "expand": args.expand,
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -23,6 +24,10 @@ export function getEnvironment(args: GetEnvironmentArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetEnvironmentArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=deploymentProperties)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab.
      */

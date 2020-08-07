@@ -15,6 +15,7 @@ export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.Inv
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20180915:getVirtualNetwork", {
+        "expand": args.expand,
         "labName": args.labName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
@@ -22,6 +23,10 @@ export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.Inv
 }
 
 export interface GetVirtualNetworkArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($expand=externalSubnets)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab.
      */

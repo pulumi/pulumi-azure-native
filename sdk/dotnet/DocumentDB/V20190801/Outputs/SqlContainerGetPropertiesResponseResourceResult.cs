@@ -14,18 +14,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801.Outputs
     public sealed class SqlContainerGetPropertiesResponseResourceResult
     {
         /// <summary>
-        /// A system generated property representing the resource etag required for optimistic concurrency control.
-        /// </summary>
-        public readonly string _etag;
-        /// <summary>
-        /// A system generated property. A unique identifier.
-        /// </summary>
-        public readonly string _rid;
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> _ts;
-        /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
         public readonly Outputs.ConflictResolutionPolicyResponseResult? ConflictResolutionPolicy;
@@ -33,6 +21,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801.Outputs
         /// Default time to live
         /// </summary>
         public readonly int? DefaultTtl;
+        /// <summary>
+        /// A system generated property representing the resource etag required for optimistic concurrency control.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// Name of the Cosmos DB SQL container
         /// </summary>
@@ -46,21 +38,25 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801.Outputs
         /// </summary>
         public readonly Outputs.ContainerPartitionKeyResponseResult? PartitionKey;
         /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        public readonly string Rid;
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Ts;
+        /// <summary>
         /// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
         /// </summary>
         public readonly Outputs.UniqueKeyPolicyResponseResult? UniqueKeyPolicy;
 
         [OutputConstructor]
         private SqlContainerGetPropertiesResponseResourceResult(
-            string _etag,
-
-            string _rid,
-
-            ImmutableDictionary<string, object> _ts,
-
             Outputs.ConflictResolutionPolicyResponseResult? conflictResolutionPolicy,
 
             int? defaultTtl,
+
+            string etag,
 
             string id,
 
@@ -68,16 +64,20 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801.Outputs
 
             Outputs.ContainerPartitionKeyResponseResult? partitionKey,
 
+            string rid,
+
+            ImmutableDictionary<string, object> ts,
+
             Outputs.UniqueKeyPolicyResponseResult? uniqueKeyPolicy)
         {
-            this._etag = _etag;
-            this._rid = _rid;
-            this._ts = _ts;
             ConflictResolutionPolicy = conflictResolutionPolicy;
             DefaultTtl = defaultTtl;
+            Etag = etag;
             Id = id;
             IndexingPolicy = indexingPolicy;
             PartitionKey = partitionKey;
+            Rid = rid;
+            Ts = ts;
             UniqueKeyPolicy = uniqueKeyPolicy;
         }
     }

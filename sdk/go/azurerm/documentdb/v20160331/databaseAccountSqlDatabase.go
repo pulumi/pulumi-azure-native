@@ -15,23 +15,23 @@ type DatabaseAccountSqlDatabase struct {
 	pulumi.CustomResourceState
 
 	// A system generated property that specified the addressable path of the collections resource.
-	_colls pulumi.StringPtrOutput `pulumi:"_colls"`
+	Colls pulumi.StringPtrOutput `pulumi:"colls"`
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringPtrOutput `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringPtrOutput `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapOutput `pulumi:"_ts"`
-	// A system generated property that specifies the addressable path of the users resource.
-	_users pulumi.StringPtrOutput `pulumi:"_users"`
+	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// The name of the database account.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringPtrOutput `pulumi:"rid"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapOutput `pulumi:"ts"`
 	// The type of Azure resource.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// A system generated property that specifies the addressable path of the users resource.
+	Users pulumi.StringPtrOutput `pulumi:"users"`
 }
 
 // NewDatabaseAccountSqlDatabase registers a new resource with the given unique name, arguments, and options.
@@ -78,44 +78,44 @@ func GetDatabaseAccountSqlDatabase(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DatabaseAccountSqlDatabase resources.
 type databaseAccountSqlDatabaseState struct {
 	// A system generated property that specified the addressable path of the collections resource.
-	_colls *string `pulumi:"_colls"`
+	Colls *string `pulumi:"colls"`
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag *string `pulumi:"_etag"`
-	// A system generated property. A unique identifier.
-	_rid *string `pulumi:"_rid"`
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts map[string]interface{} `pulumi:"_ts"`
-	// A system generated property that specifies the addressable path of the users resource.
-	_users *string `pulumi:"_users"`
+	Etag *string `pulumi:"etag"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the database account.
 	Name *string `pulumi:"name"`
+	// A system generated property. A unique identifier.
+	Rid *string `pulumi:"rid"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags map[string]string `pulumi:"tags"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts map[string]interface{} `pulumi:"ts"`
 	// The type of Azure resource.
 	Type *string `pulumi:"type"`
+	// A system generated property that specifies the addressable path of the users resource.
+	Users *string `pulumi:"users"`
 }
 
 type DatabaseAccountSqlDatabaseState struct {
 	// A system generated property that specified the addressable path of the collections resource.
-	_colls pulumi.StringPtrInput
+	Colls pulumi.StringPtrInput
 	// A system generated property representing the resource etag required for optimistic concurrency control.
-	_etag pulumi.StringPtrInput
-	// A system generated property. A unique identifier.
-	_rid pulumi.StringPtrInput
-	// A system generated property that denotes the last updated timestamp of the resource.
-	_ts pulumi.MapInput
-	// A system generated property that specifies the addressable path of the users resource.
-	_users pulumi.StringPtrInput
+	Etag pulumi.StringPtrInput
 	// The location of the resource group to which the resource belongs.
 	Location pulumi.StringPtrInput
 	// The name of the database account.
 	Name pulumi.StringPtrInput
+	// A system generated property. A unique identifier.
+	Rid pulumi.StringPtrInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
 	Tags pulumi.StringMapInput
+	// A system generated property that denotes the last updated timestamp of the resource.
+	Ts pulumi.MapInput
 	// The type of Azure resource.
 	Type pulumi.StringPtrInput
+	// A system generated property that specifies the addressable path of the users resource.
+	Users pulumi.StringPtrInput
 }
 
 func (DatabaseAccountSqlDatabaseState) ElementType() reflect.Type {

@@ -24,11 +24,11 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
 
         [OutputConstructor]
         private WsdlServiceResponseResult(
-            ImmutableArray<string> EndpointQualifiedNames,
+            ImmutableArray<string> endpointQualifiedNames,
 
             string? qualifiedName)
         {
-            this.EndpointQualifiedNames = EndpointQualifiedNames;
+            EndpointQualifiedNames = endpointQualifiedNames;
             QualifiedName = qualifiedName;
         }
     }

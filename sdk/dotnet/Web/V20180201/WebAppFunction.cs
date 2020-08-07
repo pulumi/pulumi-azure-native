@@ -23,8 +23,8 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Config URI.
         /// </summary>
-        [Output("config_href")]
-        public Output<string?> Config_href { get; private set; } = null!;
+        [Output("configHref")]
+        public Output<string?> ConfigHref { get; private set; } = null!;
 
         /// <summary>
         /// File list.
@@ -35,8 +35,8 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Function App ID.
         /// </summary>
-        [Output("function_app_id")]
-        public Output<string?> Function_app_id { get; private set; } = null!;
+        [Output("functionAppId")]
+        public Output<string?> FunctionAppId { get; private set; } = null!;
 
         /// <summary>
         /// Function URI.
@@ -47,8 +47,8 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// The invocation URL
         /// </summary>
-        [Output("invoke_url_template")]
-        public Output<string?> Invoke_url_template { get; private set; } = null!;
+        [Output("invokeUrlTemplate")]
+        public Output<string?> InvokeUrlTemplate { get; private set; } = null!;
 
         /// <summary>
         /// Value indicating whether the function is disabled
@@ -77,32 +77,32 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Script URI.
         /// </summary>
-        [Output("script_href")]
-        public Output<string?> Script_href { get; private set; } = null!;
+        [Output("scriptHref")]
+        public Output<string?> ScriptHref { get; private set; } = null!;
 
         /// <summary>
         /// Script root path URI.
         /// </summary>
-        [Output("script_root_path_href")]
-        public Output<string?> Script_root_path_href { get; private set; } = null!;
+        [Output("scriptRootPathHref")]
+        public Output<string?> ScriptRootPathHref { get; private set; } = null!;
 
         /// <summary>
         /// Secrets file URI.
         /// </summary>
-        [Output("secrets_file_href")]
-        public Output<string?> Secrets_file_href { get; private set; } = null!;
+        [Output("secretsFileHref")]
+        public Output<string?> SecretsFileHref { get; private set; } = null!;
 
         /// <summary>
         /// Test data used when testing via the Azure Portal.
         /// </summary>
-        [Output("test_data")]
-        public Output<string?> Test_data { get; private set; } = null!;
+        [Output("testData")]
+        public Output<string?> TestData { get; private set; } = null!;
 
         /// <summary>
         /// Test data URI.
         /// </summary>
-        [Output("test_data_href")]
-        public Output<string?> Test_data_href { get; private set; } = null!;
+        [Output("testDataHref")]
+        public Output<string?> TestDataHref { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
@@ -170,8 +170,8 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Config URI.
         /// </summary>
-        [Input("config_href")]
-        public Input<string>? Config_href { get; set; }
+        [Input("configHref")]
+        public Input<string>? ConfigHref { get; set; }
 
         [Input("files")]
         private InputMap<string>? _files;
@@ -188,8 +188,8 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Function App ID.
         /// </summary>
-        [Input("function_app_id")]
-        public Input<string>? Function_app_id { get; set; }
+        [Input("functionAppId")]
+        public Input<string>? FunctionAppId { get; set; }
 
         /// <summary>
         /// Function URI.
@@ -200,8 +200,8 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// The invocation URL
         /// </summary>
-        [Input("invoke_url_template")]
-        public Input<string>? Invoke_url_template { get; set; }
+        [Input("invokeUrlTemplate")]
+        public Input<string>? InvokeUrlTemplate { get; set; }
 
         /// <summary>
         /// Value indicating whether the function is disabled
@@ -236,32 +236,32 @@ namespace Pulumi.AzureRM.Web.V20180201
         /// <summary>
         /// Script URI.
         /// </summary>
-        [Input("script_href")]
-        public Input<string>? Script_href { get; set; }
+        [Input("scriptHref")]
+        public Input<string>? ScriptHref { get; set; }
 
         /// <summary>
         /// Script root path URI.
         /// </summary>
-        [Input("script_root_path_href")]
-        public Input<string>? Script_root_path_href { get; set; }
+        [Input("scriptRootPathHref")]
+        public Input<string>? ScriptRootPathHref { get; set; }
 
         /// <summary>
         /// Secrets file URI.
         /// </summary>
-        [Input("secrets_file_href")]
-        public Input<string>? Secrets_file_href { get; set; }
+        [Input("secretsFileHref")]
+        public Input<string>? SecretsFileHref { get; set; }
 
         /// <summary>
         /// Test data used when testing via the Azure Portal.
         /// </summary>
-        [Input("test_data")]
-        public Input<string>? Test_data { get; set; }
+        [Input("testData")]
+        public Input<string>? TestData { get; set; }
 
         /// <summary>
         /// Test data URI.
         /// </summary>
-        [Input("test_data_href")]
-        public Input<string>? Test_data_href { get; set; }
+        [Input("testDataHref")]
+        public Input<string>? TestDataHref { get; set; }
 
         public WebAppFunctionArgs()
         {

@@ -19,6 +19,8 @@ func ListRemediationDeploymentsAtSubscription(ctx *pulumi.Context, args *ListRem
 type ListRemediationDeploymentsAtSubscriptionArgs struct {
 	// The name of the remediation.
 	RemediationName string `pulumi:"remediationName"`
+	// Maximum number of records to return.
+	Top *int `pulumi:"top"`
 }
 
 // List of deployments for a remediation.

@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public sealed class GetPrefixArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The properties to be expanded.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the prefix.
         /// </summary>
         [Input("name", required: true)]

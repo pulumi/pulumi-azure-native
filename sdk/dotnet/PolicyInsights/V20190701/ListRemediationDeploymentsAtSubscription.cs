@@ -24,6 +24,12 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
         [Input("remediationName", required: true)]
         public string RemediationName { get; set; } = null!;
 
+        /// <summary>
+        /// Maximum number of records to return.
+        /// </summary>
+        [Input("top")]
+        public int? Top { get; set; }
+
         public ListRemediationDeploymentsAtSubscriptionArgs()
         {
         }

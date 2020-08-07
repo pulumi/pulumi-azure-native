@@ -18,6 +18,7 @@ export function listShareSynchronizations(args: ListShareSynchronizationsArgs, o
         "accountName": args.accountName,
         "resourceGroupName": args.resourceGroupName,
         "shareName": args.shareName,
+        "skipToken": args.skipToken,
     }, opts);
 }
 
@@ -34,6 +35,10 @@ export interface ListShareSynchronizationsArgs {
      * The name of the share.
      */
     readonly shareName: string;
+    /**
+     * Continuation token
+     */
+    readonly skipToken?: string;
 }
 
 /**

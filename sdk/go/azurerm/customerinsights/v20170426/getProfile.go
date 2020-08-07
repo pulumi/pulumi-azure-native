@@ -19,6 +19,8 @@ func LookupProfile(ctx *pulumi.Context, args *LookupProfileArgs, opts ...pulumi.
 type LookupProfileArgs struct {
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
+	// Locale of profile to retrieve, default is en-us.
+	LocaleCode *string `pulumi:"localeCode"`
 	// The name of the profile.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

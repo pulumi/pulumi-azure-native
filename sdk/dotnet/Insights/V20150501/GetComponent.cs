@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <summary>
         /// Type of application being monitored.
         /// </summary>
-        public readonly string Application_Type;
+        public readonly string ApplicationType;
         /// <summary>
         /// Application Insights component connection string.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// <summary>
         /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         /// </summary>
-        public readonly string? Flow_Type;
+        public readonly string? FlowType;
         /// <summary>
         /// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
         /// </summary>
@@ -88,26 +88,6 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         public readonly string InstrumentationKey;
         /// <summary>
-        /// List of linked private link scope resources.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.PrivateLinkScopedResourceResponseResult> PrivateLinkScopedResources;
-        /// <summary>
-        /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-        /// </summary>
-        public readonly string? Request_Source;
-        /// <summary>
-        /// Retention period in days.
-        /// </summary>
-        public readonly int? RetentionInDays;
-        /// <summary>
-        /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-        /// </summary>
-        public readonly double? SamplingPercentage;
-        /// <summary>
-        /// Azure Tenant Id.
-        /// </summary>
-        public readonly string TenantId;
-        /// <summary>
         /// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
         /// </summary>
         public readonly string Kind;
@@ -120,13 +100,33 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// List of linked private link scope resources.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateLinkScopedResourceResponseResult> PrivateLinkScopedResources;
+        /// <summary>
         /// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+        /// </summary>
+        public readonly string? RequestSource;
+        /// <summary>
+        /// Retention period in days.
+        /// </summary>
+        public readonly int? RetentionInDays;
+        /// <summary>
+        /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+        /// </summary>
+        public readonly double? SamplingPercentage;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Azure Tenant Id.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// Azure resource type
         /// </summary>
@@ -134,39 +134,29 @@ namespace Pulumi.AzureRM.Insights.V20150501
 
         [OutputConstructor]
         private GetComponentResult(
-            string AppId,
+            string appId,
 
-            string ApplicationId,
+            string applicationId,
 
-            string Application_Type,
+            string applicationType,
 
-            string ConnectionString,
+            string connectionString,
 
-            string CreationDate,
+            string creationDate,
 
-            bool? DisableIpMasking,
+            bool? disableIpMasking,
 
-            string? Flow_Type,
+            string? flowType,
 
-            string? HockeyAppId,
+            string? hockeyAppId,
 
-            string HockeyAppToken,
+            string hockeyAppToken,
 
-            bool? ImmediatePurgeDataOn30Days,
+            bool? immediatePurgeDataOn30Days,
 
-            string? IngestionMode,
+            string? ingestionMode,
 
-            string InstrumentationKey,
-
-            ImmutableArray<Outputs.PrivateLinkScopedResourceResponseResult> PrivateLinkScopedResources,
-
-            string? Request_Source,
-
-            int? RetentionInDays,
-
-            double? SamplingPercentage,
-
-            string TenantId,
+            string instrumentationKey,
 
             string kind,
 
@@ -174,34 +164,44 @@ namespace Pulumi.AzureRM.Insights.V20150501
 
             string name,
 
+            ImmutableArray<Outputs.PrivateLinkScopedResourceResponseResult> privateLinkScopedResources,
+
             string provisioningState,
+
+            string? requestSource,
+
+            int? retentionInDays,
+
+            double? samplingPercentage,
 
             ImmutableDictionary<string, string>? tags,
 
+            string tenantId,
+
             string type)
         {
-            this.AppId = AppId;
-            this.ApplicationId = ApplicationId;
-            this.Application_Type = Application_Type;
-            this.ConnectionString = ConnectionString;
-            this.CreationDate = CreationDate;
-            this.DisableIpMasking = DisableIpMasking;
-            this.Flow_Type = Flow_Type;
-            this.HockeyAppId = HockeyAppId;
-            this.HockeyAppToken = HockeyAppToken;
-            this.ImmediatePurgeDataOn30Days = ImmediatePurgeDataOn30Days;
-            this.IngestionMode = IngestionMode;
-            this.InstrumentationKey = InstrumentationKey;
-            this.PrivateLinkScopedResources = PrivateLinkScopedResources;
-            this.Request_Source = Request_Source;
-            this.RetentionInDays = RetentionInDays;
-            this.SamplingPercentage = SamplingPercentage;
-            this.TenantId = TenantId;
+            AppId = appId;
+            ApplicationId = applicationId;
+            ApplicationType = applicationType;
+            ConnectionString = connectionString;
+            CreationDate = creationDate;
+            DisableIpMasking = disableIpMasking;
+            FlowType = flowType;
+            HockeyAppId = hockeyAppId;
+            HockeyAppToken = hockeyAppToken;
+            ImmediatePurgeDataOn30Days = immediatePurgeDataOn30Days;
+            IngestionMode = ingestionMode;
+            InstrumentationKey = instrumentationKey;
             Kind = kind;
             Location = location;
             Name = name;
+            PrivateLinkScopedResources = privateLinkScopedResources;
             ProvisioningState = provisioningState;
+            RequestSource = requestSource;
+            RetentionInDays = retentionInDays;
+            SamplingPercentage = samplingPercentage;
             Tags = tags;
+            TenantId = tenantId;
             Type = type;
         }
     }

@@ -13,7 +13,13 @@ class GetScheduledQueryRuleResult:
     """
     The Log Search Rule resource.
     """
-    def __init__(__self__, description=None, enabled=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
+    def __init__(__self__, action=None, description=None, enabled=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
+        if action and not isinstance(action, dict):
+            raise TypeError("Expected argument 'action' to be a dict")
+        __self__.action = action
+        """
+        Action needs to be taken on rule execution.
+        """
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
@@ -82,6 +88,7 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
         if False:
             yield self
         return GetScheduledQueryRuleResult(
+            action=self.action,
             description=self.description,
             enabled=self.enabled,
             last_updated_time=self.last_updated_time,
@@ -111,6 +118,7 @@ def get_scheduled_query_rule(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20180416:getScheduledQueryRule', __args__, opts=opts).value
 
     return AwaitableGetScheduledQueryRuleResult(
+        action=__ret__.get('action'),
         description=__ret__.get('description'),
         enabled=__ret__.get('enabled'),
         last_updated_time=__ret__.get('lastUpdatedTime'),

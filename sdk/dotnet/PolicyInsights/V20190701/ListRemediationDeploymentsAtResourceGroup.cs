@@ -30,6 +30,12 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Maximum number of records to return.
+        /// </summary>
+        [Input("top")]
+        public int? Top { get; set; }
+
         public ListRemediationDeploymentsAtResourceGroupArgs()
         {
         }

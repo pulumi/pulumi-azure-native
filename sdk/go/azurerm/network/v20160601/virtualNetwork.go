@@ -14,8 +14,6 @@ import (
 type VirtualNetwork struct {
 	pulumi.CustomResourceState
 
-	// Gets or sets list of peerings in a VirtualNetwork
-	VirtualNetworkPeerings VirtualNetworkPeeringResponseArrayOutput `pulumi:"VirtualNetworkPeerings"`
 	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
 	AddressSpace AddressSpaceResponsePtrOutput `pulumi:"addressSpace"`
 	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
@@ -36,6 +34,8 @@ type VirtualNetwork struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Gets or sets list of peerings in a VirtualNetwork
+	VirtualNetworkPeerings VirtualNetworkPeeringResponseArrayOutput `pulumi:"virtualNetworkPeerings"`
 }
 
 // NewVirtualNetwork registers a new resource with the given unique name, arguments, and options.
@@ -72,8 +72,6 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualNetwork resources.
 type virtualNetworkState struct {
-	// Gets or sets list of peerings in a VirtualNetwork
-	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"VirtualNetworkPeerings"`
 	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
 	AddressSpace *AddressSpaceResponse `pulumi:"addressSpace"`
 	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
@@ -94,11 +92,11 @@ type virtualNetworkState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Gets or sets list of peerings in a VirtualNetwork
+	VirtualNetworkPeerings []VirtualNetworkPeeringResponse `pulumi:"virtualNetworkPeerings"`
 }
 
 type VirtualNetworkState struct {
-	// Gets or sets list of peerings in a VirtualNetwork
-	VirtualNetworkPeerings VirtualNetworkPeeringResponseArrayInput
 	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
 	AddressSpace AddressSpaceResponsePtrInput
 	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
@@ -119,6 +117,8 @@ type VirtualNetworkState struct {
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// Gets or sets list of peerings in a VirtualNetwork
+	VirtualNetworkPeerings VirtualNetworkPeeringResponseArrayInput
 }
 
 func (VirtualNetworkState) ElementType() reflect.Type {
@@ -126,8 +126,6 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 }
 
 type virtualNetworkArgs struct {
-	// Gets or sets list of peerings in a VirtualNetwork
-	VirtualNetworkPeerings []VirtualNetworkPeeringType `pulumi:"VirtualNetworkPeerings"`
 	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
 	AddressSpace *AddressSpace `pulumi:"addressSpace"`
 	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
@@ -150,12 +148,12 @@ type virtualNetworkArgs struct {
 	Subnets []SubnetType `pulumi:"subnets"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Gets or sets list of peerings in a VirtualNetwork
+	VirtualNetworkPeerings []VirtualNetworkPeeringType `pulumi:"virtualNetworkPeerings"`
 }
 
 // The set of arguments for constructing a VirtualNetwork resource.
 type VirtualNetworkArgs struct {
-	// Gets or sets list of peerings in a VirtualNetwork
-	VirtualNetworkPeerings VirtualNetworkPeeringTypeArrayInput
 	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
 	AddressSpace AddressSpacePtrInput
 	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
@@ -178,6 +176,8 @@ type VirtualNetworkArgs struct {
 	Subnets SubnetTypeArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Gets or sets list of peerings in a VirtualNetwork
+	VirtualNetworkPeerings VirtualNetworkPeeringTypeArrayInput
 }
 
 func (VirtualNetworkArgs) ElementType() reflect.Type {

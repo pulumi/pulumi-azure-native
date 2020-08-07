@@ -19,10 +19,28 @@ namespace Pulumi.AzureRM.Management.V20200201
     public sealed class GetManagementGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
+        /// A filter which allows the exclusion of subscriptions from results (i.e. '$filter=children.childType ne Subscription')
+        /// </summary>
+        [Input("filter")]
+        public string? Filter { get; set; }
+
+        /// <summary>
         /// Management Group ID.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
+
+        /// <summary>
+        /// The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
+        /// </summary>
+        [Input("recurse")]
+        public bool? Recurse { get; set; }
 
         public GetManagementGroupArgs()
         {

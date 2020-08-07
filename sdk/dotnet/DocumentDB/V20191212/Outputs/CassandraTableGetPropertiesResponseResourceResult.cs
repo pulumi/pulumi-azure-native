@@ -14,50 +14,50 @@ namespace Pulumi.AzureRM.DocumentDB.V20191212.Outputs
     public sealed class CassandraTableGetPropertiesResponseResourceResult
     {
         /// <summary>
-        /// A system generated property representing the resource etag required for optimistic concurrency control.
-        /// </summary>
-        public readonly string _etag;
-        /// <summary>
-        /// A system generated property. A unique identifier.
-        /// </summary>
-        public readonly string _rid;
-        /// <summary>
-        /// A system generated property that denotes the last updated timestamp of the resource.
-        /// </summary>
-        public readonly ImmutableDictionary<string, object> _ts;
-        /// <summary>
         /// Time to live of the Cosmos DB Cassandra table
         /// </summary>
         public readonly int? DefaultTtl;
+        /// <summary>
+        /// A system generated property representing the resource etag required for optimistic concurrency control.
+        /// </summary>
+        public readonly string Etag;
         /// <summary>
         /// Name of the Cosmos DB Cassandra table
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        public readonly string Rid;
+        /// <summary>
         /// Schema of the Cosmos DB Cassandra table
         /// </summary>
         public readonly Outputs.CassandraSchemaResponseResult? Schema;
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Ts;
 
         [OutputConstructor]
         private CassandraTableGetPropertiesResponseResourceResult(
-            string _etag,
-
-            string _rid,
-
-            ImmutableDictionary<string, object> _ts,
-
             int? defaultTtl,
+
+            string etag,
 
             string id,
 
-            Outputs.CassandraSchemaResponseResult? schema)
+            string rid,
+
+            Outputs.CassandraSchemaResponseResult? schema,
+
+            ImmutableDictionary<string, object> ts)
         {
-            this._etag = _etag;
-            this._rid = _rid;
-            this._ts = _ts;
             DefaultTtl = defaultTtl;
+            Etag = etag;
             Id = id;
+            Rid = rid;
             Schema = schema;
+            Ts = ts;
         }
     }
 }

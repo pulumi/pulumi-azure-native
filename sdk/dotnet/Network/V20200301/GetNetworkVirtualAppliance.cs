@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20200301
     public sealed class GetNetworkVirtualApplianceArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of Network Virtual Appliance.
         /// </summary>
         [Input("name", required: true)]

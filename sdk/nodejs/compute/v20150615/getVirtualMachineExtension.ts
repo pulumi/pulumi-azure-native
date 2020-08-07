@@ -15,6 +15,7 @@ export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs,
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:compute/v20150615:getVirtualMachineExtension", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "vmName": args.vmName,
@@ -22,6 +23,10 @@ export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs,
 }
 
 export interface GetVirtualMachineExtensionArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    readonly expand?: string;
     /**
      * The name of the virtual machine extension.
      */

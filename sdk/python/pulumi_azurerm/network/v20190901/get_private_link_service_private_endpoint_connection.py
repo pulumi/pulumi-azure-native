@@ -73,15 +73,17 @@ class AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult(GetPrivateLi
             type=self.type)
 
 
-def get_private_link_service_private_endpoint_connection(name=None, resource_group_name=None, service_name=None, opts=None):
+def get_private_link_service_private_endpoint_connection(expand=None, name=None, resource_group_name=None, service_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Expands referenced resources.
     :param str name: The name of the private end point connection.
     :param str resource_group_name: The name of the resource group.
     :param str service_name: The name of the private link service.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['serviceName'] = service_name

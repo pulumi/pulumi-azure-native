@@ -15,12 +15,17 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:costmanagement/v20200601:getExport", {
+        "expand": args.expand,
         "name": args.name,
         "scope": args.scope,
     }, opts);
 }
 
 export interface GetExportArgs {
+    /**
+     * May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
+     */
+    readonly expand?: string;
     /**
      * Export Name.
      */

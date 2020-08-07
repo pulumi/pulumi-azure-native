@@ -15,12 +15,17 @@ export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<G
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:devtestlab/v20180915:getLab", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetLabArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=defaultStorageAccount)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab.
      */

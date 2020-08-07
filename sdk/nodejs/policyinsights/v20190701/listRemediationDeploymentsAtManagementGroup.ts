@@ -18,6 +18,7 @@ export function listRemediationDeploymentsAtManagementGroup(args: ListRemediatio
         "managementGroupId": args.managementGroupId,
         "managementGroupsNamespace": args.managementGroupsNamespace,
         "remediationName": args.remediationName,
+        "top": args.top,
     }, opts);
 }
 
@@ -34,6 +35,10 @@ export interface ListRemediationDeploymentsAtManagementGroupArgs {
      * The name of the remediation.
      */
     readonly remediationName: string;
+    /**
+     * Maximum number of records to return.
+     */
+    readonly top?: number;
 }
 
 /**

@@ -80,14 +80,16 @@ class AwaitableGetServiceEndpointPolicyResult(GetServiceEndpointPolicyResult):
             type=self.type)
 
 
-def get_service_endpoint_policy(name=None, resource_group_name=None, opts=None):
+def get_service_endpoint_policy(expand=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Expands referenced resources.
     :param str name: The name of the service endpoint policy.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

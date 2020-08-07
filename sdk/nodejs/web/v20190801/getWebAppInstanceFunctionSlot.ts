@@ -47,7 +47,7 @@ export interface GetWebAppInstanceFunctionSlotResult {
     /**
      * Config URI.
      */
-    readonly config_href?: string;
+    readonly configHref?: string;
     /**
      * File list.
      */
@@ -55,7 +55,7 @@ export interface GetWebAppInstanceFunctionSlotResult {
     /**
      * Function App ID.
      */
-    readonly function_app_id?: string;
+    readonly functionAppId?: string;
     /**
      * Function URI.
      */
@@ -63,7 +63,7 @@ export interface GetWebAppInstanceFunctionSlotResult {
     /**
      * The invocation URL
      */
-    readonly invoke_url_template?: string;
+    readonly invokeUrlTemplate?: string;
     /**
      * Gets or sets a value indicating whether the function is disabled
      */
@@ -83,23 +83,23 @@ export interface GetWebAppInstanceFunctionSlotResult {
     /**
      * Script URI.
      */
-    readonly script_href?: string;
+    readonly scriptHref?: string;
     /**
      * Script root path URI.
      */
-    readonly script_root_path_href?: string;
+    readonly scriptRootPathHref?: string;
     /**
      * Secrets file URI.
      */
-    readonly secrets_file_href?: string;
+    readonly secretsFileHref?: string;
     /**
      * Test data used when testing via the Azure Portal.
      */
-    readonly test_data?: string;
+    readonly testData?: string;
     /**
      * Test data URI.
      */
-    readonly test_data_href?: string;
+    readonly testDataHref?: string;
     /**
      * Resource type.
      */

@@ -87,14 +87,16 @@ class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
             zones=self.zones)
 
 
-def get_dedicated_host_group(name=None, resource_group_name=None, opts=None):
+def get_dedicated_host_group(expand=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
     :param str name: The name of the dedicated host group.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:

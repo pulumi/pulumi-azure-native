@@ -15,6 +15,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:sql/v20140401:getDatabase", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
@@ -22,6 +23,10 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetDatabaseArgs {
+    /**
+     * A comma separated list of child objects to expand in the response. Possible properties: serviceTierAdvisors, transparentDataEncryption.
+     */
+    readonly expand?: string;
     /**
      * The name of the database to be retrieved.
      */

@@ -17,6 +17,8 @@ func LookupVirtualMachineExtension(ctx *pulumi.Context, args *LookupVirtualMachi
 }
 
 type LookupVirtualMachineExtensionArgs struct {
+	// The expand expression to apply on the operation.
+	Expand *string `pulumi:"expand"`
 	// The name of the virtual machine extension.
 	Name string `pulumi:"name"`
 	// The name of the resource group.

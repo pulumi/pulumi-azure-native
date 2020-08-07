@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class GetEnvironmentSettingArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Specify the $expand query. Example: 'properties($select=publishingState)'
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the lab Account.
         /// </summary>
         [Input("labAccountName", required: true)]

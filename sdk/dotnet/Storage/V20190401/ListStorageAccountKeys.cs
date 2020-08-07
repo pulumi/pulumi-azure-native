@@ -25,6 +25,12 @@ namespace Pulumi.AzureRM.Storage.V20190401
         public string AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Specifies type of the key to be listed. Possible value is kerb.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]

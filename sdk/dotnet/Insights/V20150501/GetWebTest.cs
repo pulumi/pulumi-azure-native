@@ -56,22 +56,6 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         public readonly int? Frequency;
         /// <summary>
-        /// A list of where to physically run the tests from to give global coverage for accessibility of your application.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.WebTestGeolocationResponseResult> Locations;
-        /// <summary>
-        /// Allow for retries should this WebTest fail.
-        /// </summary>
-        public readonly bool? RetryEnabled;
-        /// <summary>
-        /// Unique ID of this WebTest. This is typically the same value as the Name field.
-        /// </summary>
-        public readonly string SyntheticMonitorId;
-        /// <summary>
-        /// Seconds until this WebTest will timeout and fail. Default value is 30.
-        /// </summary>
-        public readonly int? Timeout;
-        /// <summary>
         /// The kind of web test that this web test watches. Choices are ping and multistep.
         /// </summary>
         public readonly string? Kind;
@@ -79,6 +63,10 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// Resource location
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebTestGeolocationResponseResult> Locations;
         /// <summary>
         /// Azure resource name
         /// </summary>
@@ -88,9 +76,21 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Allow for retries should this WebTest fail.
+        /// </summary>
+        public readonly bool? RetryEnabled;
+        /// <summary>
+        /// Unique ID of this WebTest. This is typically the same value as the Name field.
+        /// </summary>
+        public readonly string SyntheticMonitorId;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Seconds until this WebTest will timeout and fail. Default value is 30.
+        /// </summary>
+        public readonly int? Timeout;
         /// <summary>
         /// Azure resource type
         /// </summary>
@@ -106,31 +106,31 @@ namespace Pulumi.AzureRM.Insights.V20150501
 
         [OutputConstructor]
         private GetWebTestResult(
-            Outputs.WebTestPropertiesResponseConfigurationResult? Configuration,
+            Outputs.WebTestPropertiesResponseConfigurationResult? configuration,
 
-            string? Description,
+            string? description,
 
-            bool? Enabled,
+            bool? enabled,
 
-            int? Frequency,
-
-            ImmutableArray<Outputs.WebTestGeolocationResponseResult> Locations,
-
-            bool? RetryEnabled,
-
-            string SyntheticMonitorId,
-
-            int? Timeout,
+            int? frequency,
 
             string? kind,
 
             string location,
 
+            ImmutableArray<Outputs.WebTestGeolocationResponseResult> locations,
+
             string name,
 
             string provisioningState,
 
+            bool? retryEnabled,
+
+            string syntheticMonitorId,
+
             ImmutableDictionary<string, string>? tags,
+
+            int? timeout,
 
             string type,
 
@@ -138,19 +138,19 @@ namespace Pulumi.AzureRM.Insights.V20150501
 
             string webTestName)
         {
-            this.Configuration = Configuration;
-            this.Description = Description;
-            this.Enabled = Enabled;
-            this.Frequency = Frequency;
-            this.Locations = Locations;
-            this.RetryEnabled = RetryEnabled;
-            this.SyntheticMonitorId = SyntheticMonitorId;
-            this.Timeout = Timeout;
+            Configuration = configuration;
+            Description = description;
+            Enabled = enabled;
+            Frequency = frequency;
             Kind = kind;
             Location = location;
+            Locations = locations;
             Name = name;
             ProvisioningState = provisioningState;
+            RetryEnabled = retryEnabled;
+            SyntheticMonitorId = syntheticMonitorId;
             Tags = tags;
+            Timeout = timeout;
             Type = type;
             WebTestKind = webTestKind;
             WebTestName = webTestName;

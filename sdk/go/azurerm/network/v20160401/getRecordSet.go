@@ -30,9 +30,7 @@ type LookupRecordSetArgs struct {
 // Describes a DNS record set (a collection of DNS records with the same name and type).
 type LookupRecordSetResult struct {
 	// The list of A records in the record set.
-	ARecords []ARecordResponse `pulumi:"ARecords"`
-	// The TTL (time-to-live) of the records in the record set.
-	TTL *int `pulumi:"TTL"`
+	ARecords []ARecordResponse `pulumi:"aRecords"`
 	// The list of AAAA records in the record set.
 	AaaaRecords []AaaaRecordResponse `pulumi:"aaaaRecords"`
 	// The CNAME record in the  record set.
@@ -53,6 +51,8 @@ type LookupRecordSetResult struct {
 	SoaRecord *SoaRecordResponse `pulumi:"soaRecord"`
 	// The list of SRV records in the record set.
 	SrvRecords []SrvRecordResponse `pulumi:"srvRecords"`
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl *int `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords []TxtRecordResponse `pulumi:"txtRecords"`
 	// The type of the record set.

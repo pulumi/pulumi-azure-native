@@ -38,35 +38,19 @@ export interface GetWebTestResult {
     /**
      * An XML configuration specification for a WebTest.
      */
-    readonly Configuration?: outputs.insights.v20150501.WebTestPropertiesResponseConfiguration;
+    readonly configuration?: outputs.insights.v20150501.WebTestPropertiesResponseConfiguration;
     /**
      * Purpose/user defined descriptive test for this WebTest.
      */
-    readonly Description?: string;
+    readonly description?: string;
     /**
      * Is the test actively being monitored.
      */
-    readonly Enabled?: boolean;
+    readonly enabled?: boolean;
     /**
      * Interval in seconds between test runs for this WebTest. Default value is 300.
      */
-    readonly Frequency?: number;
-    /**
-     * A list of where to physically run the tests from to give global coverage for accessibility of your application.
-     */
-    readonly Locations: outputs.insights.v20150501.WebTestGeolocationResponse[];
-    /**
-     * Allow for retries should this WebTest fail.
-     */
-    readonly RetryEnabled?: boolean;
-    /**
-     * Unique ID of this WebTest. This is typically the same value as the Name field.
-     */
-    readonly SyntheticMonitorId: string;
-    /**
-     * Seconds until this WebTest will timeout and fail. Default value is 30.
-     */
-    readonly Timeout?: number;
+    readonly frequency?: number;
     /**
      * The kind of web test that this web test watches. Choices are ping and multistep.
      */
@@ -76,6 +60,10 @@ export interface GetWebTestResult {
      */
     readonly location: string;
     /**
+     * A list of where to physically run the tests from to give global coverage for accessibility of your application.
+     */
+    readonly locations: outputs.insights.v20150501.WebTestGeolocationResponse[];
+    /**
      * Azure resource name
      */
     readonly name: string;
@@ -84,9 +72,21 @@ export interface GetWebTestResult {
      */
     readonly provisioningState: string;
     /**
+     * Allow for retries should this WebTest fail.
+     */
+    readonly retryEnabled?: boolean;
+    /**
+     * Unique ID of this WebTest. This is typically the same value as the Name field.
+     */
+    readonly syntheticMonitorId: string;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Seconds until this WebTest will timeout and fail. Default value is 30.
+     */
+    readonly timeout?: number;
     /**
      * Azure resource type
      */

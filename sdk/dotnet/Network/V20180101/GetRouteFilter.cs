@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20180101
     public sealed class GetRouteFilterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Expands referenced express route bgp peering resources.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the route filter.
         /// </summary>
         [Input("name", required: true)]

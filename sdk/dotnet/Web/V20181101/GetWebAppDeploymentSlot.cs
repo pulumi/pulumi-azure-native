@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// Author email.
         /// </summary>
-        public readonly string? Author_email;
+        public readonly string? AuthorEmail;
         /// <summary>
         /// Who performed the deployment.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// End time.
         /// </summary>
-        public readonly string? End_time;
+        public readonly string? EndTime;
         /// <summary>
         /// Kind of resource.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// <summary>
         /// Start time.
         /// </summary>
-        public readonly string? Start_time;
+        public readonly string? StartTime;
         /// <summary>
         /// Deployment status.
         /// </summary>
@@ -100,13 +100,13 @@ namespace Pulumi.AzureRM.Web.V20181101
 
             string? author,
 
-            string? author_email,
+            string? authorEmail,
 
             string? deployer,
 
             string? details,
 
-            string? end_time,
+            string? endTime,
 
             string? kind,
 
@@ -114,7 +114,7 @@ namespace Pulumi.AzureRM.Web.V20181101
 
             string name,
 
-            string? start_time,
+            string? startTime,
 
             int? status,
 
@@ -122,14 +122,14 @@ namespace Pulumi.AzureRM.Web.V20181101
         {
             Active = active;
             Author = author;
-            Author_email = author_email;
+            AuthorEmail = authorEmail;
             Deployer = deployer;
             Details = details;
-            End_time = end_time;
+            EndTime = endTime;
             Kind = kind;
             Message = message;
             Name = name;
-            Start_time = start_time;
+            StartTime = startTime;
             Status = status;
             Type = type;
         }

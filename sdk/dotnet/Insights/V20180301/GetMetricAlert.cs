@@ -48,6 +48,10 @@ namespace Pulumi.AzureRM.Insights.V20180301
         /// </summary>
         public readonly bool? AutoMitigate;
         /// <summary>
+        /// defines the specific alert criteria information.
+        /// </summary>
+        public readonly Outputs.MetricAlertCriteriaResponseResult Criteria;
+        /// <summary>
         /// the description of the metric alert that will be included in the alert email.
         /// </summary>
         public readonly string Description;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureRM.Insights.V20180301
 
             bool? autoMitigate,
 
+            Outputs.MetricAlertCriteriaResponseResult criteria,
+
             string description,
 
             bool enabled,
@@ -134,6 +140,7 @@ namespace Pulumi.AzureRM.Insights.V20180301
         {
             Actions = actions;
             AutoMitigate = autoMitigate;
+            Criteria = criteria;
             Description = description;
             Enabled = enabled;
             EvaluationFrequency = evaluationFrequency;

@@ -15,12 +15,17 @@ export function getStreamingJob(args: GetStreamingJobArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:streamanalytics/v20160301:getStreamingJob", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetStreamingJobArgs {
+    /**
+     * The $expand OData query parameter. This is a comma-separated list of additional streaming job properties to include in the response, beyond the default set returned when this parameter is absent. The default set is all streaming job properties other than 'inputs', 'transformation', 'outputs', and 'functions'.
+     */
+    readonly expand?: string;
     /**
      * The name of the streaming job.
      */

@@ -17,6 +17,8 @@ func LookupVirtualMachineSchedule(ctx *pulumi.Context, args *LookupVirtualMachin
 }
 
 type LookupVirtualMachineScheduleArgs struct {
+	// Specify the $expand query. Example: 'properties($select=status)'
+	Expand *string `pulumi:"expand"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The name of the schedule.

@@ -19,13 +19,13 @@ type SiteInstanceDeployment struct {
 	// Author
 	Author pulumi.StringPtrOutput `pulumi:"author"`
 	// AuthorEmail
-	Author_email pulumi.StringPtrOutput `pulumi:"author_email"`
+	AuthorEmail pulumi.StringPtrOutput `pulumi:"authorEmail"`
 	// Deployer
 	Deployer pulumi.StringPtrOutput `pulumi:"deployer"`
 	// Detail
 	Details pulumi.StringPtrOutput `pulumi:"details"`
 	// EndTime
-	End_time pulumi.StringPtrOutput `pulumi:"end_time"`
+	EndTime pulumi.StringPtrOutput `pulumi:"endTime"`
 	// Kind of resource
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Resource Location
@@ -35,7 +35,7 @@ type SiteInstanceDeployment struct {
 	// Resource Name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// StartTime
-	Start_time pulumi.StringPtrOutput `pulumi:"start_time"`
+	StartTime pulumi.StringPtrOutput `pulumi:"startTime"`
 	// Status
 	Status pulumi.IntPtrOutput `pulumi:"status"`
 	// Resource tags
@@ -89,13 +89,13 @@ type siteInstanceDeploymentState struct {
 	// Author
 	Author *string `pulumi:"author"`
 	// AuthorEmail
-	Author_email *string `pulumi:"author_email"`
+	AuthorEmail *string `pulumi:"authorEmail"`
 	// Deployer
 	Deployer *string `pulumi:"deployer"`
 	// Detail
 	Details *string `pulumi:"details"`
 	// EndTime
-	End_time *string `pulumi:"end_time"`
+	EndTime *string `pulumi:"endTime"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
@@ -105,7 +105,7 @@ type siteInstanceDeploymentState struct {
 	// Resource Name
 	Name *string `pulumi:"name"`
 	// StartTime
-	Start_time *string `pulumi:"start_time"`
+	StartTime *string `pulumi:"startTime"`
 	// Status
 	Status *int `pulumi:"status"`
 	// Resource tags
@@ -120,13 +120,13 @@ type SiteInstanceDeploymentState struct {
 	// Author
 	Author pulumi.StringPtrInput
 	// AuthorEmail
-	Author_email pulumi.StringPtrInput
+	AuthorEmail pulumi.StringPtrInput
 	// Deployer
 	Deployer pulumi.StringPtrInput
 	// Detail
 	Details pulumi.StringPtrInput
 	// EndTime
-	End_time pulumi.StringPtrInput
+	EndTime pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
@@ -136,7 +136,7 @@ type SiteInstanceDeploymentState struct {
 	// Resource Name
 	Name pulumi.StringPtrInput
 	// StartTime
-	Start_time pulumi.StringPtrInput
+	StartTime pulumi.StringPtrInput
 	// Status
 	Status pulumi.IntPtrInput
 	// Resource tags
@@ -155,13 +155,13 @@ type siteInstanceDeploymentArgs struct {
 	// Author
 	Author *string `pulumi:"author"`
 	// AuthorEmail
-	Author_email *string `pulumi:"author_email"`
+	AuthorEmail *string `pulumi:"authorEmail"`
 	// Deployer
 	Deployer *string `pulumi:"deployer"`
 	// Detail
 	Details *string `pulumi:"details"`
 	// EndTime
-	End_time *string `pulumi:"end_time"`
+	EndTime *string `pulumi:"endTime"`
 	// Id of web app instance
 	InstanceId string `pulumi:"instanceId"`
 	// Kind of resource
@@ -175,7 +175,7 @@ type siteInstanceDeploymentArgs struct {
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// StartTime
-	Start_time *string `pulumi:"start_time"`
+	StartTime *string `pulumi:"startTime"`
 	// Status
 	Status *int `pulumi:"status"`
 	// Resource tags
@@ -191,13 +191,13 @@ type SiteInstanceDeploymentArgs struct {
 	// Author
 	Author pulumi.StringPtrInput
 	// AuthorEmail
-	Author_email pulumi.StringPtrInput
+	AuthorEmail pulumi.StringPtrInput
 	// Deployer
 	Deployer pulumi.StringPtrInput
 	// Detail
 	Details pulumi.StringPtrInput
 	// EndTime
-	End_time pulumi.StringPtrInput
+	EndTime pulumi.StringPtrInput
 	// Id of web app instance
 	InstanceId pulumi.StringInput
 	// Kind of resource
@@ -211,7 +211,7 @@ type SiteInstanceDeploymentArgs struct {
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput
 	// StartTime
-	Start_time pulumi.StringPtrInput
+	StartTime pulumi.StringPtrInput
 	// Status
 	Status pulumi.IntPtrInput
 	// Resource tags

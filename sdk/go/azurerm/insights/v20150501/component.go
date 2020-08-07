@@ -15,49 +15,49 @@ type Component struct {
 	pulumi.CustomResourceState
 
 	// Application Insights Unique ID for your Application.
-	AppId pulumi.StringOutput `pulumi:"AppId"`
+	AppId pulumi.StringOutput `pulumi:"appId"`
 	// The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
-	ApplicationId pulumi.StringOutput `pulumi:"ApplicationId"`
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// Type of application being monitored.
-	Application_Type pulumi.StringOutput `pulumi:"Application_Type"`
+	ApplicationType pulumi.StringOutput `pulumi:"applicationType"`
 	// Application Insights component connection string.
-	ConnectionString pulumi.StringOutput `pulumi:"ConnectionString"`
+	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
 	// Creation Date for the Application Insights component, in ISO 8601 format.
-	CreationDate pulumi.StringOutput `pulumi:"CreationDate"`
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// Disable IP masking.
-	DisableIpMasking pulumi.BoolPtrOutput `pulumi:"DisableIpMasking"`
+	DisableIpMasking pulumi.BoolPtrOutput `pulumi:"disableIpMasking"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
-	Flow_Type pulumi.StringPtrOutput `pulumi:"Flow_Type"`
+	FlowType pulumi.StringPtrOutput `pulumi:"flowType"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
-	HockeyAppId pulumi.StringPtrOutput `pulumi:"HockeyAppId"`
+	HockeyAppId pulumi.StringPtrOutput `pulumi:"hockeyAppId"`
 	// Token used to authenticate communications with between Application Insights and HockeyApp.
-	HockeyAppToken pulumi.StringOutput `pulumi:"HockeyAppToken"`
+	HockeyAppToken pulumi.StringOutput `pulumi:"hockeyAppToken"`
 	// Purge data immediately after 30 days.
-	ImmediatePurgeDataOn30Days pulumi.BoolPtrOutput `pulumi:"ImmediatePurgeDataOn30Days"`
+	ImmediatePurgeDataOn30Days pulumi.BoolPtrOutput `pulumi:"immediatePurgeDataOn30Days"`
 	// Indicates the flow of the ingestion.
-	IngestionMode pulumi.StringPtrOutput `pulumi:"IngestionMode"`
+	IngestionMode pulumi.StringPtrOutput `pulumi:"ingestionMode"`
 	// Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
-	InstrumentationKey pulumi.StringOutput `pulumi:"InstrumentationKey"`
-	// List of linked private link scope resources.
-	PrivateLinkScopedResources PrivateLinkScopedResourceResponseArrayOutput `pulumi:"PrivateLinkScopedResources"`
-	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-	Request_Source pulumi.StringPtrOutput `pulumi:"Request_Source"`
-	// Retention period in days.
-	RetentionInDays pulumi.IntPtrOutput `pulumi:"RetentionInDays"`
-	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-	SamplingPercentage pulumi.Float64PtrOutput `pulumi:"SamplingPercentage"`
-	// Azure Tenant Id.
-	TenantId pulumi.StringOutput `pulumi:"TenantId"`
+	InstrumentationKey pulumi.StringOutput `pulumi:"instrumentationKey"`
 	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Resource location
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Azure resource name
 	Name pulumi.StringOutput `pulumi:"name"`
+	// List of linked private link scope resources.
+	PrivateLinkScopedResources PrivateLinkScopedResourceResponseArrayOutput `pulumi:"privateLinkScopedResources"`
 	// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+	RequestSource pulumi.StringPtrOutput `pulumi:"requestSource"`
+	// Retention period in days.
+	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
+	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+	SamplingPercentage pulumi.Float64PtrOutput `pulumi:"samplingPercentage"`
 	// Resource tags
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Azure Tenant Id.
+	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 	// Azure resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,8 +65,8 @@ type Component struct {
 // NewComponent registers a new resource with the given unique name, arguments, and options.
 func NewComponent(ctx *pulumi.Context,
 	name string, args *ComponentArgs, opts ...pulumi.ResourceOption) (*Component, error) {
-	if args == nil || args.Application_Type == nil {
-		return nil, errors.New("missing required argument 'Application_Type'")
+	if args == nil || args.ApplicationType == nil {
+		return nil, errors.New("missing required argument 'ApplicationType'")
 	}
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
@@ -106,49 +106,49 @@ func GetComponent(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Component resources.
 type componentState struct {
 	// Application Insights Unique ID for your Application.
-	AppId *string `pulumi:"AppId"`
+	AppId *string `pulumi:"appId"`
 	// The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
-	ApplicationId *string `pulumi:"ApplicationId"`
+	ApplicationId *string `pulumi:"applicationId"`
 	// Type of application being monitored.
-	Application_Type *string `pulumi:"Application_Type"`
+	ApplicationType *string `pulumi:"applicationType"`
 	// Application Insights component connection string.
-	ConnectionString *string `pulumi:"ConnectionString"`
+	ConnectionString *string `pulumi:"connectionString"`
 	// Creation Date for the Application Insights component, in ISO 8601 format.
-	CreationDate *string `pulumi:"CreationDate"`
+	CreationDate *string `pulumi:"creationDate"`
 	// Disable IP masking.
-	DisableIpMasking *bool `pulumi:"DisableIpMasking"`
+	DisableIpMasking *bool `pulumi:"disableIpMasking"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
-	Flow_Type *string `pulumi:"Flow_Type"`
+	FlowType *string `pulumi:"flowType"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
-	HockeyAppId *string `pulumi:"HockeyAppId"`
+	HockeyAppId *string `pulumi:"hockeyAppId"`
 	// Token used to authenticate communications with between Application Insights and HockeyApp.
-	HockeyAppToken *string `pulumi:"HockeyAppToken"`
+	HockeyAppToken *string `pulumi:"hockeyAppToken"`
 	// Purge data immediately after 30 days.
-	ImmediatePurgeDataOn30Days *bool `pulumi:"ImmediatePurgeDataOn30Days"`
+	ImmediatePurgeDataOn30Days *bool `pulumi:"immediatePurgeDataOn30Days"`
 	// Indicates the flow of the ingestion.
-	IngestionMode *string `pulumi:"IngestionMode"`
+	IngestionMode *string `pulumi:"ingestionMode"`
 	// Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
-	InstrumentationKey *string `pulumi:"InstrumentationKey"`
-	// List of linked private link scope resources.
-	PrivateLinkScopedResources []PrivateLinkScopedResourceResponse `pulumi:"PrivateLinkScopedResources"`
-	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-	Request_Source *string `pulumi:"Request_Source"`
-	// Retention period in days.
-	RetentionInDays *int `pulumi:"RetentionInDays"`
-	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-	SamplingPercentage *float64 `pulumi:"SamplingPercentage"`
-	// Azure Tenant Id.
-	TenantId *string `pulumi:"TenantId"`
+	InstrumentationKey *string `pulumi:"instrumentationKey"`
 	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
 	Kind *string `pulumi:"kind"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Azure resource name
 	Name *string `pulumi:"name"`
+	// List of linked private link scope resources.
+	PrivateLinkScopedResources []PrivateLinkScopedResourceResponse `pulumi:"privateLinkScopedResources"`
 	// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
 	ProvisioningState *string `pulumi:"provisioningState"`
+	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+	RequestSource *string `pulumi:"requestSource"`
+	// Retention period in days.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Azure Tenant Id.
+	TenantId *string `pulumi:"tenantId"`
 	// Azure resource type
 	Type *string `pulumi:"type"`
 }
@@ -159,7 +159,7 @@ type ComponentState struct {
 	// The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
 	ApplicationId pulumi.StringPtrInput
 	// Type of application being monitored.
-	Application_Type pulumi.StringPtrInput
+	ApplicationType pulumi.StringPtrInput
 	// Application Insights component connection string.
 	ConnectionString pulumi.StringPtrInput
 	// Creation Date for the Application Insights component, in ISO 8601 format.
@@ -167,7 +167,7 @@ type ComponentState struct {
 	// Disable IP masking.
 	DisableIpMasking pulumi.BoolPtrInput
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
-	Flow_Type pulumi.StringPtrInput
+	FlowType pulumi.StringPtrInput
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
 	HockeyAppId pulumi.StringPtrInput
 	// Token used to authenticate communications with between Application Insights and HockeyApp.
@@ -178,26 +178,26 @@ type ComponentState struct {
 	IngestionMode pulumi.StringPtrInput
 	// Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
 	InstrumentationKey pulumi.StringPtrInput
-	// List of linked private link scope resources.
-	PrivateLinkScopedResources PrivateLinkScopedResourceResponseArrayInput
-	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-	Request_Source pulumi.StringPtrInput
-	// Retention period in days.
-	RetentionInDays pulumi.IntPtrInput
-	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-	SamplingPercentage pulumi.Float64PtrInput
-	// Azure Tenant Id.
-	TenantId pulumi.StringPtrInput
 	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
 	Kind pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// Azure resource name
 	Name pulumi.StringPtrInput
+	// List of linked private link scope resources.
+	PrivateLinkScopedResources PrivateLinkScopedResourceResponseArrayInput
 	// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
 	ProvisioningState pulumi.StringPtrInput
+	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+	RequestSource pulumi.StringPtrInput
+	// Retention period in days.
+	RetentionInDays pulumi.IntPtrInput
+	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+	SamplingPercentage pulumi.Float64PtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Azure Tenant Id.
+	TenantId pulumi.StringPtrInput
 	// Azure resource type
 	Type pulumi.StringPtrInput
 }
@@ -208,31 +208,31 @@ func (ComponentState) ElementType() reflect.Type {
 
 type componentArgs struct {
 	// Type of application being monitored.
-	Application_Type string `pulumi:"Application_Type"`
+	ApplicationType string `pulumi:"applicationType"`
 	// Disable IP masking.
-	DisableIpMasking *bool `pulumi:"DisableIpMasking"`
+	DisableIpMasking *bool `pulumi:"disableIpMasking"`
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
-	Flow_Type *string `pulumi:"Flow_Type"`
+	FlowType *string `pulumi:"flowType"`
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
-	HockeyAppId *string `pulumi:"HockeyAppId"`
+	HockeyAppId *string `pulumi:"hockeyAppId"`
 	// Purge data immediately after 30 days.
-	ImmediatePurgeDataOn30Days *bool `pulumi:"ImmediatePurgeDataOn30Days"`
+	ImmediatePurgeDataOn30Days *bool `pulumi:"immediatePurgeDataOn30Days"`
 	// Indicates the flow of the ingestion.
-	IngestionMode *string `pulumi:"IngestionMode"`
-	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-	Request_Source *string `pulumi:"Request_Source"`
-	// Retention period in days.
-	RetentionInDays *int `pulumi:"RetentionInDays"`
-	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-	SamplingPercentage *float64 `pulumi:"SamplingPercentage"`
+	IngestionMode *string `pulumi:"ingestionMode"`
 	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
 	Kind string `pulumi:"kind"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the Application Insights component resource.
 	Name string `pulumi:"name"`
+	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+	RequestSource *string `pulumi:"requestSource"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Retention period in days.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+	SamplingPercentage *float64 `pulumi:"samplingPercentage"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -240,31 +240,31 @@ type componentArgs struct {
 // The set of arguments for constructing a Component resource.
 type ComponentArgs struct {
 	// Type of application being monitored.
-	Application_Type pulumi.StringInput
+	ApplicationType pulumi.StringInput
 	// Disable IP masking.
 	DisableIpMasking pulumi.BoolPtrInput
 	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
-	Flow_Type pulumi.StringPtrInput
+	FlowType pulumi.StringPtrInput
 	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
 	HockeyAppId pulumi.StringPtrInput
 	// Purge data immediately after 30 days.
 	ImmediatePurgeDataOn30Days pulumi.BoolPtrInput
 	// Indicates the flow of the ingestion.
 	IngestionMode pulumi.StringPtrInput
-	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-	Request_Source pulumi.StringPtrInput
-	// Retention period in days.
-	RetentionInDays pulumi.IntPtrInput
-	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-	SamplingPercentage pulumi.Float64PtrInput
 	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
 	Kind pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the Application Insights component resource.
 	Name pulumi.StringInput
+	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+	RequestSource pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Retention period in days.
+	RetentionInDays pulumi.IntPtrInput
+	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+	SamplingPercentage pulumi.Float64PtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

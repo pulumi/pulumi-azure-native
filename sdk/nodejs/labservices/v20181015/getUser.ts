@@ -15,6 +15,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:labservices/v20181015:getUser", {
+        "expand": args.expand,
         "labAccountName": args.labAccountName,
         "labName": args.labName,
         "name": args.name,
@@ -23,6 +24,10 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
 }
 
 export interface GetUserArgs {
+    /**
+     * Specify the $expand query. Example: 'properties($select=email)'
+     */
+    readonly expand?: string;
     /**
      * The name of the lab Account.
      */

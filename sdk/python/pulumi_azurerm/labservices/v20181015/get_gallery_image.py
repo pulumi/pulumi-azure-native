@@ -136,15 +136,17 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
             unique_identifier=self.unique_identifier)
 
 
-def get_gallery_image(lab_account_name=None, name=None, resource_group_name=None, opts=None):
+def get_gallery_image(expand=None, lab_account_name=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: Specify the $expand query. Example: 'properties($select=author)'
     :param str lab_account_name: The name of the lab Account.
     :param str name: The name of the gallery Image.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['labAccountName'] = lab_account_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

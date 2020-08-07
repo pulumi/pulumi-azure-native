@@ -15,9 +15,7 @@ type RecordSet struct {
 	pulumi.CustomResourceState
 
 	// The list of A records in the record set.
-	ARecords ARecordResponseArrayOutput `pulumi:"ARecords"`
-	// The TTL (time-to-live) of the records in the record set.
-	TTL pulumi.IntPtrOutput `pulumi:"TTL"`
+	ARecords ARecordResponseArrayOutput `pulumi:"aRecords"`
 	// The list of AAAA records in the record set.
 	AaaaRecords AaaaRecordResponseArrayOutput `pulumi:"aaaaRecords"`
 	// The list of CAA records in the record set.
@@ -42,6 +40,8 @@ type RecordSet struct {
 	SoaRecord SoaRecordResponsePtrOutput `pulumi:"soaRecord"`
 	// The list of SRV records in the record set.
 	SrvRecords SrvRecordResponseArrayOutput `pulumi:"srvRecords"`
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl pulumi.IntPtrOutput `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordResponseArrayOutput `pulumi:"txtRecords"`
 	// The type of the record set.
@@ -89,9 +89,7 @@ func GetRecordSet(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RecordSet resources.
 type recordSetState struct {
 	// The list of A records in the record set.
-	ARecords []ARecordResponse `pulumi:"ARecords"`
-	// The TTL (time-to-live) of the records in the record set.
-	TTL *int `pulumi:"TTL"`
+	ARecords []ARecordResponse `pulumi:"aRecords"`
 	// The list of AAAA records in the record set.
 	AaaaRecords []AaaaRecordResponse `pulumi:"aaaaRecords"`
 	// The list of CAA records in the record set.
@@ -116,6 +114,8 @@ type recordSetState struct {
 	SoaRecord *SoaRecordResponse `pulumi:"soaRecord"`
 	// The list of SRV records in the record set.
 	SrvRecords []SrvRecordResponse `pulumi:"srvRecords"`
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl *int `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords []TxtRecordResponse `pulumi:"txtRecords"`
 	// The type of the record set.
@@ -125,8 +125,6 @@ type recordSetState struct {
 type RecordSetState struct {
 	// The list of A records in the record set.
 	ARecords ARecordResponseArrayInput
-	// The TTL (time-to-live) of the records in the record set.
-	TTL pulumi.IntPtrInput
 	// The list of AAAA records in the record set.
 	AaaaRecords AaaaRecordResponseArrayInput
 	// The list of CAA records in the record set.
@@ -151,6 +149,8 @@ type RecordSetState struct {
 	SoaRecord SoaRecordResponsePtrInput
 	// The list of SRV records in the record set.
 	SrvRecords SrvRecordResponseArrayInput
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl pulumi.IntPtrInput
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordResponseArrayInput
 	// The type of the record set.
@@ -163,9 +163,7 @@ func (RecordSetState) ElementType() reflect.Type {
 
 type recordSetArgs struct {
 	// The list of A records in the record set.
-	ARecords []ARecord `pulumi:"ARecords"`
-	// The TTL (time-to-live) of the records in the record set.
-	TTL *int `pulumi:"TTL"`
+	ARecords []ARecord `pulumi:"aRecords"`
 	// The list of AAAA records in the record set.
 	AaaaRecords []AaaaRecord `pulumi:"aaaaRecords"`
 	// The list of CAA records in the record set.
@@ -192,6 +190,8 @@ type recordSetArgs struct {
 	SoaRecord *SoaRecord `pulumi:"soaRecord"`
 	// The list of SRV records in the record set.
 	SrvRecords []SrvRecord `pulumi:"srvRecords"`
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl *int `pulumi:"ttl"`
 	// The list of TXT records in the record set.
 	TxtRecords []TxtRecord `pulumi:"txtRecords"`
 	// The name of the DNS zone (without a terminating dot).
@@ -202,8 +202,6 @@ type recordSetArgs struct {
 type RecordSetArgs struct {
 	// The list of A records in the record set.
 	ARecords ARecordArrayInput
-	// The TTL (time-to-live) of the records in the record set.
-	TTL pulumi.IntPtrInput
 	// The list of AAAA records in the record set.
 	AaaaRecords AaaaRecordArrayInput
 	// The list of CAA records in the record set.
@@ -230,6 +228,8 @@ type RecordSetArgs struct {
 	SoaRecord SoaRecordPtrInput
 	// The list of SRV records in the record set.
 	SrvRecords SrvRecordArrayInput
+	// The TTL (time-to-live) of the records in the record set.
+	Ttl pulumi.IntPtrInput
 	// The list of TXT records in the record set.
 	TxtRecords TxtRecordArrayInput
 	// The name of the DNS zone (without a terminating dot).

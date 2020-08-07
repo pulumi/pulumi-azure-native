@@ -17,6 +17,8 @@ func LookupRegistrationAssignment(ctx *pulumi.Context, args *LookupRegistrationA
 }
 
 type LookupRegistrationAssignmentArgs struct {
+	// Tells whether to return registration definition details also along with registration assignment details.
+	ExpandRegistrationDefinition *bool `pulumi:"expandRegistrationDefinition"`
 	// Guid of the registration assignment.
 	Name string `pulumi:"name"`
 	// Scope of the resource.

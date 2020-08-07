@@ -14,22 +14,22 @@ namespace Pulumi.AzureRM.Scheduler.V20160101.Outputs
     public sealed class JobRecurrenceScheduleMonthlyOccurrenceResponseResult
     {
         /// <summary>
-        /// Gets or sets the occurrence. Must be between -5 and 5.
-        /// </summary>
-        public readonly int? Occurrence;
-        /// <summary>
         /// Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         /// </summary>
         public readonly string? Day;
+        /// <summary>
+        /// Gets or sets the occurrence. Must be between -5 and 5.
+        /// </summary>
+        public readonly int? Occurrence;
 
         [OutputConstructor]
         private JobRecurrenceScheduleMonthlyOccurrenceResponseResult(
-            int? Occurrence,
+            string? day,
 
-            string? day)
+            int? occurrence)
         {
-            this.Occurrence = Occurrence;
             Day = day;
+            Occurrence = occurrence;
         }
     }
 }

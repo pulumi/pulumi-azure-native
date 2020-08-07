@@ -18,7 +18,7 @@ class Component(pulumi.CustomResource):
     """
     The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
     """
-    application__type: pulumi.Output[str]
+    application_type: pulumi.Output[str]
     """
     Type of application being monitored.
     """
@@ -34,7 +34,7 @@ class Component(pulumi.CustomResource):
     """
     Disable IP masking.
     """
-    flow__type: pulumi.Output[str]
+    flow_type: pulumi.Output[str]
     """
     Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
     """
@@ -58,28 +58,6 @@ class Component(pulumi.CustomResource):
     """
     Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
     """
-    private_link_scoped_resources: pulumi.Output[list]
-    """
-    List of linked private link scope resources.
-      * `resource_id` (`str`) - The full resource Id of the private link scope resource.
-      * `scope_id` (`str`) - The private link scope unique Identifier.
-    """
-    request__source: pulumi.Output[str]
-    """
-    Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-    """
-    retention_in_days: pulumi.Output[float]
-    """
-    Retention period in days.
-    """
-    sampling_percentage: pulumi.Output[float]
-    """
-    Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
-    """
-    tenant_id: pulumi.Output[str]
-    """
-    Azure Tenant Id.
-    """
     kind: pulumi.Output[str]
     """
     The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
@@ -92,37 +70,59 @@ class Component(pulumi.CustomResource):
     """
     Azure resource name
     """
+    private_link_scoped_resources: pulumi.Output[list]
+    """
+    List of linked private link scope resources.
+      * `resource_id` (`str`) - The full resource Id of the private link scope resource.
+      * `scope_id` (`str`) - The private link scope unique Identifier.
+    """
     provisioning_state: pulumi.Output[str]
     """
     Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+    """
+    request_source: pulumi.Output[str]
+    """
+    Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+    """
+    retention_in_days: pulumi.Output[float]
+    """
+    Retention period in days.
+    """
+    sampling_percentage: pulumi.Output[float]
+    """
+    Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
     """
     tags: pulumi.Output[dict]
     """
     Resource tags
     """
+    tenant_id: pulumi.Output[str]
+    """
+    Azure Tenant Id.
+    """
     type: pulumi.Output[str]
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, application__type=None, disable_ip_masking=None, flow__type=None, hockey_app_id=None, immediate_purge_data_on30_days=None, ingestion_mode=None, request__source=None, retention_in_days=None, sampling_percentage=None, kind=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_type=None, disable_ip_masking=None, flow_type=None, hockey_app_id=None, immediate_purge_data_on30_days=None, ingestion_mode=None, kind=None, location=None, name=None, request_source=None, resource_group_name=None, retention_in_days=None, sampling_percentage=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An Application Insights component definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application__type: Type of application being monitored.
+        :param pulumi.Input[str] application_type: Type of application being monitored.
         :param pulumi.Input[bool] disable_ip_masking: Disable IP masking.
-        :param pulumi.Input[str] flow__type: Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+        :param pulumi.Input[str] flow_type: Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         :param pulumi.Input[str] hockey_app_id: The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
         :param pulumi.Input[bool] immediate_purge_data_on30_days: Purge data immediately after 30 days.
         :param pulumi.Input[str] ingestion_mode: Indicates the flow of the ingestion.
-        :param pulumi.Input[str] request__source: Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-        :param pulumi.Input[float] retention_in_days: Retention period in days.
-        :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         :param pulumi.Input[str] kind: The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the Application Insights component resource.
+        :param pulumi.Input[str] request_source: Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[float] retention_in_days: Retention period in days.
+        :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
         :param pulumi.Input[dict] tags: Resource tags
         """
         if __name__ is not None:
@@ -142,17 +142,14 @@ class Component(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application__type is None:
-                raise TypeError("Missing required property 'application__type'")
-            __props__['application__type'] = application__type
+            if application_type is None:
+                raise TypeError("Missing required property 'application_type'")
+            __props__['application_type'] = application_type
             __props__['disable_ip_masking'] = disable_ip_masking
-            __props__['flow__type'] = flow__type
+            __props__['flow_type'] = flow_type
             __props__['hockey_app_id'] = hockey_app_id
             __props__['immediate_purge_data_on30_days'] = immediate_purge_data_on30_days
             __props__['ingestion_mode'] = ingestion_mode
-            __props__['request__source'] = request__source
-            __props__['retention_in_days'] = retention_in_days
-            __props__['sampling_percentage'] = sampling_percentage
             if kind is None:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
@@ -162,9 +159,12 @@ class Component(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['request_source'] = request_source
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['retention_in_days'] = retention_in_days
+            __props__['sampling_percentage'] = sampling_percentage
             __props__['tags'] = tags
             __props__['app_id'] = None
             __props__['application_id'] = None
@@ -173,8 +173,8 @@ class Component(pulumi.CustomResource):
             __props__['hockey_app_token'] = None
             __props__['instrumentation_key'] = None
             __props__['private_link_scoped_resources'] = None
-            __props__['tenant_id'] = None
             __props__['provisioning_state'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(Component, __self__).__init__(
             'azurerm:insights/v20150501:Component',

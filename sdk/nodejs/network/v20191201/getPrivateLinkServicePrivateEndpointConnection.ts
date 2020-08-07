@@ -15,6 +15,7 @@ export function getPrivateLinkServicePrivateEndpointConnection(args: GetPrivateL
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:network/v20191201:getPrivateLinkServicePrivateEndpointConnection", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "serviceName": args.serviceName,
@@ -22,6 +23,10 @@ export function getPrivateLinkServicePrivateEndpointConnection(args: GetPrivateL
 }
 
 export interface GetPrivateLinkServicePrivateEndpointConnectionArgs {
+    /**
+     * Expands referenced resources.
+     */
+    readonly expand?: string;
     /**
      * The name of the private end point connection.
      */

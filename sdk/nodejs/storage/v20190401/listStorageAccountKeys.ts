@@ -16,6 +16,7 @@ export function listStorageAccountKeys(args: ListStorageAccountKeysArgs, opts?: 
     }
     return pulumi.runtime.invoke("azurerm:storage/v20190401:listStorageAccountKeys", {
         "accountName": args.accountName,
+        "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -25,6 +26,10 @@ export interface ListStorageAccountKeysArgs {
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
     readonly accountName: string;
+    /**
+     * Specifies type of the key to be listed. Possible value is kerb.
+     */
+    readonly expand?: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

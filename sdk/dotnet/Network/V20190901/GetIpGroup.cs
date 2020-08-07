@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20190901
     public sealed class GetIpGroupArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the ipGroups.
         /// </summary>
         [Input("name", required: true)]

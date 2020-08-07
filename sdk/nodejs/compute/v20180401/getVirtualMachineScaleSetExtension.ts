@@ -15,6 +15,7 @@ export function getVirtualMachineScaleSetExtension(args: GetVirtualMachineScaleS
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:compute/v20180401:getVirtualMachineScaleSetExtension", {
+        "expand": args.expand,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "vmScaleSetName": args.vmScaleSetName,
@@ -22,6 +23,10 @@ export function getVirtualMachineScaleSetExtension(args: GetVirtualMachineScaleS
 }
 
 export interface GetVirtualMachineScaleSetExtensionArgs {
+    /**
+     * The expand expression to apply on the operation.
+     */
+    readonly expand?: string;
     /**
      * The name of the VM scale set extension.
      */

@@ -115,15 +115,17 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
             virtual_machines=self.virtual_machines)
 
 
-def get_dedicated_host(host_group_name=None, name=None, resource_group_name=None, opts=None):
+def get_dedicated_host(expand=None, host_group_name=None, name=None, resource_group_name=None, opts=None):
     """
     Use this data source to access information about an existing resource.
 
+    :param str expand: The expand expression to apply on the operation.
     :param str host_group_name: The name of the dedicated host group.
     :param str name: The name of the dedicated host.
     :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['hostGroupName'] = host_group_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name

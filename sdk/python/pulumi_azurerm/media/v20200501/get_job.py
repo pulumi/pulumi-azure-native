@@ -13,7 +13,7 @@ class GetJobResult:
     """
     A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
     """
-    def __init__(__self__, correlation_data=None, created=None, description=None, end_time=None, last_modified=None, name=None, outputs=None, priority=None, start_time=None, state=None, type=None):
+    def __init__(__self__, correlation_data=None, created=None, description=None, end_time=None, input=None, last_modified=None, name=None, outputs=None, priority=None, start_time=None, state=None, type=None):
         if correlation_data and not isinstance(correlation_data, dict):
             raise TypeError("Expected argument 'correlation_data' to be a dict")
         __self__.correlation_data = correlation_data
@@ -37,6 +37,12 @@ class GetJobResult:
         __self__.end_time = end_time
         """
         The UTC date and time at which this Job finished processing.
+        """
+        if input and not isinstance(input, dict):
+            raise TypeError("Expected argument 'input' to be a dict")
+        __self__.input = input
+        """
+        The inputs for the Job.
         """
         if last_modified and not isinstance(last_modified, str):
             raise TypeError("Expected argument 'last_modified' to be a str")
@@ -92,6 +98,7 @@ class AwaitableGetJobResult(GetJobResult):
             created=self.created,
             description=self.description,
             end_time=self.end_time,
+            input=self.input,
             last_modified=self.last_modified,
             name=self.name,
             outputs=self.outputs,
@@ -126,6 +133,7 @@ def get_job(account_name=None, name=None, resource_group_name=None, transform_na
         created=__ret__.get('created'),
         description=__ret__.get('description'),
         end_time=__ret__.get('endTime'),
+        input=__ret__.get('input'),
         last_modified=__ret__.get('lastModified'),
         name=__ret__.get('name'),
         outputs=__ret__.get('outputs'),

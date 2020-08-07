@@ -94,8 +94,8 @@ class Job(pulumi.CustomResource):
           * `minutes` (`list`) - Gets or sets the minutes of the hour that the job should execute at.
           * `month_days` (`list`) - Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
           * `monthly_occurrences` (`list`) - Gets or sets the occurrences of days within a month.
-            * `occurrence` (`float`) - Gets or sets the occurrence. Must be between -5 and 5.
             * `day` (`str`) - Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+            * `occurrence` (`float`) - Gets or sets the occurrence. Must be between -5 and 5.
 
           * `week_days` (`list`) - Gets or sets the days of the week that the job should execute on.
 
@@ -201,8 +201,8 @@ class Job(pulumi.CustomResource):
               * `minutes` (`pulumi.Input[list]`) - Gets or sets the minutes of the hour that the job should execute at.
               * `month_days` (`pulumi.Input[list]`) - Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
               * `monthly_occurrences` (`pulumi.Input[list]`) - Gets or sets the occurrences of days within a month.
-                * `occurrence` (`pulumi.Input[float]`) - Gets or sets the occurrence. Must be between -5 and 5.
                 * `day` (`pulumi.Input[str]`) - Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+                * `occurrence` (`pulumi.Input[float]`) - Gets or sets the occurrence. Must be between -5 and 5.
 
               * `week_days` (`pulumi.Input[list]`) - Gets or sets the days of the week that the job should execute on.
 

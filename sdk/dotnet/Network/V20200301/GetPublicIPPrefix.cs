@@ -19,6 +19,12 @@ namespace Pulumi.AzureRM.Network.V20200301
     public sealed class GetPublicIPPrefixArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Expands referenced resources.
+        /// </summary>
+        [Input("expand")]
+        public string? Expand { get; set; }
+
+        /// <summary>
         /// The name of the public IP prefix.
         /// </summary>
         [Input("name", required: true)]
